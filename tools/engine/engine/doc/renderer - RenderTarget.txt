@@ -1,0 +1,28 @@
+
+renderer 提供创建、释放、改变当前RenderTarget的功能
+
+相关接口声明如下 (engine\renderer\renderer.h)
+
+// 创建 RenderTarget
+virtual PictureHandle CreateRenderTarget(int iWidth, int iHeight, XPTEXTURE_FORMAT texfmt) = 0;
+// 释放 RenderTarget
+virtual bool FreeRenderTarget(PictureHandle hRenderTarget) = 0;
+// 压入 RenderTarget
+virtual bool PushRenderTarget(PictureHandle hRenderTarget) = 0;
+// 弹出 RenderTarget
+virtual bool PopRenderTarget() = 0;
+
+接口附加说明：
+1. CreateRenderTarget接口返回的RenderTarget句柄即PictureHandle和LoadPictureXX系列返回类型一致
+   即图片句柄类型，可以用于DrawPictureXX,GetPictureInfo等函数。
+
+2. CreateRenderTarget接口返回的RenderTarget句柄必须通过FreeRenderTarget接口释放。
+
+3. PushRenderTarget接口的参数必须是RenderTarget句柄, renderer内部维护了一个栈，PushRenderTarget
+   和PopRenderTarget接口用于改变当前的RenderTarget。renderer的所有DrawXX, Clear等接口都工作在当
+   前的RenderTarget上。
+
+4. PushRenderTarget和PopRenderTarget接口必须成对出现，即接口使用者有职责恢复老的RenderTarget。
+
+5. 当设备重设(Device Reset)时，所有的RenderTarget句柄自动失效，renderer内部维护的栈也自动清空，
+   接口使用者有责任重新创建和维护所有的RenderTarget。

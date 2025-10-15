@@ -1,0 +1,32 @@
+namespace GameTable
+{
+    namespace buff
+    {
+        class CBuffConfig
+        {
+            public:
+            int id;
+            std::wstring name;
+            int inbattle;
+            std::wstring strshowname;
+            int shapeid;
+            std::wstring discribe;
+            std::wstring effect;
+            int effectsort;
+            std::wstring wordeffect;
+            int wordsort;
+            int cleartype;
+            std::vector<int> specialshow;
+        };
+        class CBuffConfigTable
+        {
+            public:
+        CBuffConfig& getRecorder(int id);
+        const CBuffConfig& getRecorderByName(const std::wstring& name);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CBuffConfigTable&  GetCBuffConfigTableInstance();
+    }
+}

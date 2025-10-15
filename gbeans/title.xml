@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="title"> 
+	<bean name="STitleConfig" from="c称谓表" genxml="server"> 称谓表
+			  <variable name="id" type="int" fromCol="称谓id" /> 称谓id
+			  <variable name="chatsee" fromCol="聊天可见"  type="bool"  />
+			  <variable name="availtime" fromCol="有效时间" type="int" /> -1为没有固定的有效时间
+			  <variable name="titlename" fromCol="称谓名" type="string" />
+	</bean>
+	
+	<bean name="CTitleConfig" from="c称谓表" genxml="client" gencode="mtlua"> 称谓表
+		<variable name="id" type="int" fromCol="称谓id" /> 称谓id
+		<variable name="titlename" fromCol="称谓名" type="string" />
+		<variable name="availtime" fromCol="有效时间" type="int" /> -1为没有固定的有效时间
+		<variable name="category" fromCol="category" type="string" /> 客户端显示的第一类分级
+		<variable name="species" fromCol="species" type="string" /> 客户端显示的第二类分级
+		<variable name="description" fromCol="description" type="string" />
+		<variable name="fontcolor" fromCol="fontcolor" type="string" />
+		<variable name="gettype" fromCol="获得方式" type="string" /> 获取方式			  
+	</bean>	
+	<bean name="SItemTitleConfig" from="d道具添加称谓配置表" genxml="server">
+		<variable name="id" type="int" fromCol="id" /> 
+		<variable name="titleID" fromCol="titleID"  type="int"  />
+	</bean>
+	
+</namespace>

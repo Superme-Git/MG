@@ -1,0 +1,146 @@
+HKCR
+{
+	NoRemove .bmp
+	{
+	 	NoRemove OpenWithProgids
+	 	{
+	 		val PVDocument.PIC = s ''
+	 	}
+	}
+	
+	NoRemove .jpg
+	{
+	 	NoRemove OpenWithProgids
+	 	{
+	 		val PVDocument.PIC = s ''
+	 	}
+	}
+
+	NoRemove .jpeg
+	{
+	 	NoRemove OpenWithProgids
+	 	{
+	 		val PVDocument.PIC = s ''
+	 	}
+	}
+
+	NoRemove .tga = s 'PVDocument.PIC'
+	{
+		val 'Content Type' = s 'image/tga'
+		val PerceivedType = s 'image'
+		NoRemove OpenWithProgids
+	 	{
+	 		val PVDocument.PIC = s ''
+	 	}
+	}
+	
+	NoRemove .ppm = s 'PVDocument.PIC'
+	{
+		val 'Content Type' = s 'image/ppm'
+		val PerceivedType = s 'image'
+		NoRemove OpenWithProgids
+	 	{
+	 		val PVDocument.PIC = s ''
+	 	}
+	}
+	
+	NoRemove .pic = s 'PVDocument.PIC'
+	{
+		val 'Content Type' = s 'image/pic'
+		val PerceivedType = s 'image'
+		NoRemove OpenWithProgids
+	 	{
+	 		val PVDocument.PIC = s ''
+	 	}
+	}
+	NoRemove .p00 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .p01 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .p02 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .p03 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .p04 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .p06 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .p07 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b00 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b01 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b02 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b03 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b04 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b06 = s 'PVDocument.PIC'
+	{
+	}
+	NoRemove .b07 = s 'PVDocument.PIC'
+	{
+	}
+	ForceRemove PVDocument.PIC
+	{
+		DefaultIcon = s '%DEFAULT_ICON%'
+		shell
+		{
+			open
+			{
+				command = s '%MODULE% "%%1"'
+				val MuiVerb = s '%MUI_VERB%'
+			}
+		}
+	}
+}
+
+HKCU
+{
+	NoRemove Software
+	{
+		NoRemove Microsoft
+		{
+			NoRemove Windows
+			{
+				NoRemove CurrentVersion
+				{
+					NoRemove Explorer
+					{
+						NoRemove FileExts
+						{
+							ForceRemove '.p00'
+							ForceRemove '.p01'
+							ForceRemove '.p02'
+							ForceRemove '.p03'
+							ForceRemove '.p04'
+							ForceRemove '.p06'
+							ForceRemove '.p07'
+							ForceRemove '.b00'
+							ForceRemove '.b01'
+							ForceRemove '.b02'
+							ForceRemove '.b03'
+							ForceRemove '.b04'
+							ForceRemove '.b06'
+							ForceRemove '.b07'
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+
+<project name="FireClient-WP8" default="create-lua-bindings" basedir=".">
+	<property name="ceguiluapath" value="../dependencies/cegui/CEGUI/src/ScriptingModules/LuaScriptModule/package"/>
+	<target name="lua_cegui">
+			<exec executable="cmd" dir="." spawn="false">
+				<arg line="/C cd ${ceguiluapath}"></arg>
+				</exec>
+			<condition property="toluaforceguibin" value="toluappcegui.exe" 
+				else="toluappcegui">
+		 		<os family="windows"/>
+			</condition>
+    	<exec executable="${toluaforceguibin}">
+				<arg line="-o ../lua_CEGUI.cpp -L exceptions.lua CEGUI.pkg"/>		
+			</exec>
+		</target>
+  <target name="engine_tolua++">
+  	<condition property="tolua++bin" value="tolua++WP8.exe" else="tolua++.exe">
+		 		<os family="windows"/>
+			</condition>
+    	<exec executable="${tolua++bin}" >
+				<arg line="-tengine -o LuaEngine.cpp ./engine/engine.pkg"/>		
+			</exec>
+  	</target>
+</project>

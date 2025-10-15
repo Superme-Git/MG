@@ -1,0 +1,58 @@
+HKCR
+{
+	PFS.Document = s 'PFS.Document'
+	{
+		DefaultIcon = s '%MODULE%,0'
+		shell
+		{
+			open
+			{
+				command = s '%MODULE% "%%1"'
+			}
+		}
+	 	OpenWithList
+	 	{
+	 		%MODULE_FILE%
+	 	}
+	}
+	
+	.pfs = s 'PFS.Document'
+	{	
+	 	OpenWithProgids
+		{
+	 		val PFS.Document = s ''
+	 	}	 		
+	}	
+	
+	.pak = s 'PFS.Document'
+	{
+	 	OpenWithProgids
+	 	{
+	 		val PFS.Document = s ''
+	 	}	
+	}
+	
+	.spch = s 'PFS.Document'
+	{
+	 	OpenWithProgids
+	 	{
+	 		val PFS.Document = s ''
+	 	}	
+	}
+
+	.cpch = s 'PFS.Document'
+	{
+	 	OpenWithProgids
+	 	{
+	 		val PFS.Document = s ''
+	 	}	
+	}
+
+	NoRemove .zip
+	{
+	 	NoRemove OpenWithProgids
+	 	{
+	 		val PFS.Document = s ''
+	 	}
+	}
+}

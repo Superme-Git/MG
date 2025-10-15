@@ -1,0 +1,19 @@
+/***********************************************************************
+    RenderedString
+***********************************************************************/
+class RenderedString
+{
+    void draw(const size_t line, GeometryBuffer* buffer, const Vector2& position,
+              const ColourRect* mod_colours, const Rect* clip_rect,
+              const float space_extra) const;
+    Size getPixelSize(const size_t line) const;
+    void appendComponent(const RenderedStringComponent& component);
+    void clearComponents();
+    size_t getComponentCount() const;
+    void split(const size_t line, float split_point, RenderedString& left);
+    size_t getSpaceCount(const size_t line) const;
+    void appendLineBreak();
+    size_t getLineCount() const;
+    RenderedString(const RenderedString& other);
+    void SetBorderInf(bool border,const colour& borderColor)const;
+};

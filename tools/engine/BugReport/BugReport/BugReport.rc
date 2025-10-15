@@ -1,0 +1,162 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#include "versiondefine.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_BUGREPORT MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ...",                  IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_BUGREPORT ACCELERATORS 
+BEGIN
+    "?",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIAGNOSIS_DIALOG DIALOGEX 0, 0, 337, 326
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION APP_TITLE_STRING
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_FILE_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,15,37,306,76,WS_EX_ACCEPTFILES
+    LTEXT           "如果您愿意帮助我们深入调查新修仙所遇到的问题，请将问题发生场景以及您的联系方式填写后发送给我们，以方便我们更好的改善产品，谢谢！",IDC_STATIC,7,7,323,18
+    GROUPBOX        "诊断日志文件列表",IDC_STATIC,7,25,323,134
+    LTEXT           "操作说明：\n1. 通过拷贝/粘贴方式添加诊断日志文件。\n2. 通过拖拽方式添加诊断日志文件。\n3. 通过DELETE键将选中的日志文件删除。",IDC_STATIC,15,116,154,39,SS_SUNKEN
+    GROUPBOX        "问题描述",IDC_STATIC,7,162,323,48
+    EDITTEXT        IDC_DESC_INFO,15,173,307,32,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "联系方式",IDC_STATIC,7,214,323,52
+    LTEXT           "QQ或MSN:",IDC_STATIC,17,229,35,8
+    EDITTEXT        IDC_QQ_MSN,61,225,108,14,ES_AUTOHSCROLL
+    LTEXT           "联系电话:",IDC_STATIC,175,228,35,12
+    EDITTEXT        IDC_PNONE_NUMBER,221,225,102,14,ES_AUTOHSCROLL
+    LTEXT           "电子邮件:",IDC_STATIC,17,250,35,9
+    EDITTEXT        IDC_EMAIL_ADDRESS,61,246,157,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SENDING_PROGRESS,"msctls_progress32",WS_BORDER | 0x1,15,288,255,14,WS_EX_TRANSPARENT | WS_EX_CLIENTEDGE
+    DEFPUSHBUTTON   "发送",IDOK,280,288,50,14
+    PUSHBUTTON      "关闭",IDCANCEL,280,304,50,14
+    LTEXT           "发送进度：",IDC_STATUS_INFO,7,273,249,8
+    LTEXT           " 官方网站： xmhzx.locojoy.com\n 客服电话： 010-58859165\n 客服邮箱： kfmz@cs.locojoy.com\nQQ特服号：96061",IDC_STATIC,172,116,150,39,SS_SUNKEN
+    LTEXT           "Static",IDC_STATIC_LINK,16,306,254,13,WS_BORDER
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#include ""versiondefine.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+	"#include ""BugReport.rc2""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIAGNOSIS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 330
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 319
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+	IDC_BUGREPORT           "BUGREPORT"
+	IDC_STATIC_LINK			"<A>访问论坛</A>"
+	IDS_DESCRIPTION_BRIEF	"您填写的信息不够完整或描述不够清晰！\n" "请填写必要的问题描述和至少一个您的有效联系方式，以方便我们定位问题并及时回访您。\n" "\n" "谢谢支持！"
+	IDS_MSGBOX_TITLE_INFO	"提示"
+	IDS_BBS_HOME_PAGE_URL	"http://bbs.xmhzx.locojoy.com"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "BugReport.rc2"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,104 @@
+			PFS配套更新系统大纲
+		
+						刘东学 V0.9 - 2010-03-02
+
+配套工具: 
+1. 打包工具(PackZip.exe)
+2. 差异包生成工具(makedifference.exe)
+3. 自动更新Meta文件编辑工具(PatchMetaFile.exe)
+4. FileMeta查看、编辑工具(EditMetaFile.exe)
+5. pfs查看工具(WinPFS.exe - like WinRAR.exe, viewpfs.exe)
+6. 其他辅助工具(VersionChecker.exe, ZipFileViewer.exe, viewxml.exe, pfsVerifier.exe, downloader.exe...)
+
+发布程序:
+1. install.exe     (安装包完整性校验，选择安装目录，执行安装)
+2. uninstall.exe   (完全删除游戏客户端目录，还是只删除梦诛自身文件)
+3. launcher.exe    (生成patcher相关文件的副本，根据命令行参数启动patcher)
+4. patcher.exe     (根据命令行参数和用户的操作执行相应的更新，启动游戏客户端，简单执行多开检测，显示版本信息和更新状态)
+5. repair.exe      (修复客户端（排除自身），可只选部分pfs包，依赖于.setup.meta确定资源子包列表)
+6. getwebdata.exe  (published as getwebdata.dll, 
+                    以独立进程方式下载公告信息,推荐服务器列表等http资源，通过1M共享内存交换数据，
+                    需要2个命令行参数，第一个为url，第二个为共享内存对象名.
+                    成功时，main返回0，共享内存的头4个字节为有效数据长度，后跟数据内容，失败时，main返回-1, -2, -3, -4等错误码)
+
+客户端版本发布基本流程:
+
+打包(data.pfs) ----> 生成差异包(同时生成客户端补丁包和服务器补丁包)----> 同步到更新服务器（解压缩data.pfs或服务器补丁包）---->客户端更新
+
+对于当前支持的三种自动更新方式，流程如下：
+
+1. 前台更新:
+打包(data.pfs) ----> 生成差异包(同时生成客户端补丁包和服务器补丁包)----> 同步到前台更新服务器（解压缩data.pfs或服务器补丁包）---->客户端前台更新
+
+2. 后台更新
+打包(data.pfs) ----> 生成差异包(同时生成客户端补丁包和服务器补丁包)----> 同步到后台更新服务器（解压缩data.pfs或服务器补丁包）---->客户端后台更新
+
+3. 补丁包自动更新(专门文档详述)
+打包(data.pfs) ----> 生成差异包(同时生成客户端补丁包和服务器补丁包)----> 同步到补丁包自动更新服务器---->客户端前台补丁包自动更新
+
+为了支持版本修复，对于补丁包自动更新，同样要发布前台更新。
+
+对于自动更新条件不足的用户，我们在新版本发布后，要同时将手动补丁包（客户端补丁包）更新到官网下载页面上去供用户手动下载，在本地进行离线式更新。
+另外，本地离线式更新，在版本发布之前的最后一次内部测试过程中，也要使用。此时，对外的自动更新还未开发，内部使用准备好的下一个版本的补丁包进行升级测试。
+
+
+与客户端自动更新相关的几个meta文件(专门的文档详述)：
+1. .version.meta
+2. .files.meta
+3. .files2.meta
+4. .setup.meta
+5. .patch.meta
+
+PFS文件格式及其更新相关的策略
+1. standard zip -
+   data.pfs(for update server and install.exe),
+   server patch(for update server),
+   launcher.zip(for patcher.exe),
+   resource.zip(for install.exe)
+
+2. modified zip (PFS) -
+   client patch(patcher.exe)
+
+
+大文件的断点续传：
+以文件名附加.cfg后缀作为断点续传的跟踪信息。其中记录：
+当前下载进度，文件总长度，文件hash值。
+确定文件下载完毕的条件是，当前下载进度==文件总长度，且文件hash值一致。
+
+URL编码问题：
+URL encoding(统一为GB2312)，这里要求更新服务器也对URL进行相同的配置。
+UTF16-->GB2312(CodePage:936)-->UTF16(%02u%02u)
+
+代理问题：
+首先根据IE代理设置选用代理服务器。只有当IE代理选项开启且无法连接时，尝试直接连接服务器。
+
+网络缓存问题：
+某些HTTP缓存服务器对更新文件（特别是exe文件）进行了缓存，这类缓存的更新频率很低。导致经由此类网络的用户无法通过自动更新获取补丁文件。
+他们只能选择下载手动补丁包更新客户端。
+
+网络超时问题：
+现在固定设定，网络请求超时(Connect Timeout)为5秒，数据下载超时缺省。
+
+
+文件格式变换：
+ 1. zip 压缩 (二进制还原)，     双向变换器:zip, 单向变换器zpd 
+ 2. xml ---> octets, 逻辑还原,  单向变换器:x2o
+ 3. jpg 压缩，有损还原.(曾经使用)
+使用场合：
+ 1. packzip, 压缩变换
+ 2. install, 解压缩&压缩
+ 3. update(patcher&repair), 解压缩&压缩&copy
+
+mhzx instance:
+
+1. 安装包
+   data.pfs(pack of client program files and resouces files)
+   data.pfs.md5(standard md5 of data.pfs)
+   install.exe(excutable module for setup)
+   install.xml(encoding = "utf-16", setup info, shortcut info, restable(string table) )
+   resource.zip(license info(copyright.txt), background folder(bmp/jpg/tga image(install1.tga~install8.tga, 1024*768), logo image(logo.jpg)))
+
+
+2. 更新包 （from version 1.0.100 to version 1.0.101 ）
+   1.0.100-1.0.101.mzsp  - 服务器更新包
+   1.0.100-1.0.101.mzpch - 客户端更新包，通用补丁包

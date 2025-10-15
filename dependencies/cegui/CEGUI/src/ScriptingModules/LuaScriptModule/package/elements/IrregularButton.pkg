@@ -1,0 +1,43 @@
+
+class IrregularButton : public Window
+{
+public:
+	
+	static const string EventNamespace;
+	static const string WidgetTypeName;
+
+	static const string ClickEventName;
+	static const int s_iGridPixSize;
+	typedef std::map<int,int> AREAINFMAP;
+	typedef std::map<int,bool> AREAENABLESTATEMAP;
+
+
+	IrregularButton(const string& type, const string& name);
+
+
+
+	virtual ~IrregularButton(void);
+
+	void SetAreaInf(int width,int height,const AREAINFMAP& AreaInfs);
+	void subscribeAreaClickEvent(int areaID, CEGUI::Event::Subscriber subscriber);
+
+	void SetImageSetName(const string& imageSetName);
+	void SetImageName(const string& imageName);
+
+	const string& GetImageSetName() const  ;
+	const string& GetImageName() const ;
+
+
+	int GetSelectAreaID() ;
+	int GetMouseHoverAreaID() ;
+
+	const Image* GetImage() ;
+
+	void SetAreaEnableState(int areaID,bool state);
+	bool isAreaEnable(int areaID);
+
+public:
+	IrregularButton(const string& type);
+	virtual Window* clone(Window* wnd);
+	virtual bool onRenameTemplatePrefix(const string& sPrefix);
+};

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<xdb
+xgenOutput="../xmergedemo/src"
+trace="debug" traceTo=":out" traceRotateHourOfDay="6" traceRotateMinute="30"
+corePoolSize="20"
+dbhome="test/src_db" logpages="4096" backupDir="test/src_backup"
+flushFatalTime="2000" flushPeriod="100" checkpointPeriod="60000"
+backupIncPeriod="100000" backupFullPeriod="90000"
+angelPeriod="5000"
+>
+	<ProcedureConf executionTime="300" retryTimes="3" retryDelay="100"/>
+	
+	<xbean name="acount">
+		<variable name="fushi" type="int"/>
+		<variable name="roles" type="set" value="long" foreign="value:role2name" capacity="64"/>
+	</xbean>
+	
+	<table name="useraccount" key="long" value="acount" cachehigh="128" cachelow="64"/>
+	<table name="rolename" key="string" value="long" capacity="key:32" cachehigh="128" cachelow="64"/>
+	<table name="role2name" key="long" value="string" autoIncrement="true" foreign="value:rolename" capacity="value:32" cachehigh="128" cachelow="64"/>
+	<table name="family" key="string" value="long" capacity="key:32" cachehigh="128" cachelow="64"/>
+	<table name="name2family" key="string" value="string" foreign="key:rolename;value:family" capacity="key:32;value:32" cachehigh="128" cachelow="64"/>
+	<table name="task" key="int" value="int" cachehigh="128" cachelow="64"/>
+			
+	<UniqNameConf localId="0">
+		<XioConf name="xdb.util.UniqName">
+			<Manager maxSize="1" name="Client">
+				<Coder>
+					<Rpc class="xdb.util.UniqName$Allocate"/>
+					<Rpc class="xdb.util.UniqName$Confirm"/>
+					<Rpc class="xdb.util.UniqName$Release"/>
+					<Rpc class="xdb.util.UniqName$Exist"/>
+					<Rpc class="xdb.util.UniqName$AllocateId"/>
+					<Rpc class="xdb.util.UniqName$ReleaseId"/>
+				</Coder>
+				<Connector inputBufferSize="131072" outputBufferSize="131072" receiveBufferSize="131072" remoteIp="172.31.6.45" remotePort="22200" sendBufferSize="131072" tcpNoDelay="false"/>
+			</Manager>
+		</XioConf>
+	</UniqNameConf>	
+	
+</xdb>

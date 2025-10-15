@@ -1,0 +1,25 @@
+使用PP接口说明：
+void WINAPI PPService(int srvid, void *buf, int bufsz, int key)
+
+srvid: 11 返回一个32位随机数 bufzs=4 key为0
+srvid: 13 返回PE头和代码段的checksum 及PE头的起始地址，bufsz=8，前4字节为checksum，后4字节为起始地址 key为0
+srvid: 14 完成VirtualQuery功能 传入参数：buf[0]为起始地址，buf[1]为32 bufsz为32 key为0；返回内存页属性
+	  字节		意义
+          0~3		函数执行的错误码，0表示函数执行成功
+          4~7		BaseAddress
+          8~11		AllocationBase
+          12~15		AllocationProtect
+          16~19		RegionSize
+          20~23		State
+          24~27		Protect 
+          28~31		Type 
+
+srvid: 15 返回28字节的操作系统信息 bufzs=28 key为0
+	  字节		意义
+          0~3		函数执行的错误码，0表示函数执行成功
+          4~7		major version
+          8~11		minor version
+          12~15		major SP version
+          16~19		minor SP version
+          20~23		build number
+          24~27		platform id

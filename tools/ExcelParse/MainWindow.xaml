@@ -1,0 +1,40 @@
+﻿<Window x:Class="ExcelParse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ExcelParse" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="421.731" Width="707" Closed="Window_Closed" ResizeMode="NoResize" WindowStyle="SingleBorderWindow">
+    <Grid Margin="0,0,-107,-4" HorizontalAlignment="Left" Width="808">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="676*" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="137*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="源xls表路径" Height="28" HorizontalAlignment="Left" Margin="10,3,0,0" Name="label1" VerticalAlignment="Top" Width="73"/>
+        <Label Content="客户端目标Bin路径" Height="28" HorizontalAlignment="Left" Margin="12,89,0,0" Name="label2" VerticalAlignment="Top" Width="112" />
+        <Label Content="客户端目标C++路径" Height="28" HorizontalAlignment="Left" Margin="12,145,0,0" x:Name="label6" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,8,0,0" x:Name="TBSrcXlsPath" VerticalAlignment="Top" Width="487" ToolTip="Server源表路径" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,94,0,0" x:Name="TBDstClientBinPath" VerticalAlignment="Top" Width="489" ToolTip="目标表路径" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,150,0,0" x:Name="TBDstClientCppPath" VerticalAlignment="Top" Width="489" ToolTip="目标代码路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,8,0,0" x:Name="BtnSrcXlsPath" VerticalAlignment="Top" Width="25" Click="BtnSrcXlsPath_Click" ToolTip="点击选择源表路径" RenderTransformOrigin="2.758,2.286" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,94,0,0" x:Name="BtnDstClientBinPath" VerticalAlignment="Top" Width="25" Click="BtnDstClientBinPath_Click" ToolTip="点击选择目标表路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,150,0,0" x:Name="BtnDstClientCppPath" VerticalAlignment="Top" Width="25" Click="BtnDstClientCppPath_Click" ToolTip="点击选择目标代码路径" />
+        <Label Content="转义配置XML路径" Height="28" HorizontalAlignment="Left" Margin="12,31,0,0" x:Name="label3" VerticalAlignment="Top" Width="108"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,36,0,0" x:Name="TBSrcXmlPath" VerticalAlignment="Top" Width="489" ToolTip="Server源表路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,36,0,0" x:Name="BtnSrcXmlPath" VerticalAlignment="Top" Width="25" Click="BtnSrcXmlPath_Click" ToolTip="点击选择源表路径" RenderTransformOrigin="0.608,0.419" />
+        <Label Content="服务器目标XML路径" Height="28" HorizontalAlignment="Left" Margin="12,59,0,0" x:Name="label4" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,64,0,0" x:Name="TBDstServerXmlPath" VerticalAlignment="Top" Width="489" ToolTip="目标表路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,64,0,0" x:Name="BtnDstServerXmlPath" VerticalAlignment="Top" Width="25" Click="BtnDstServerXmlPath_Click" ToolTip="点击选择目标表路径" RenderTransformOrigin="2.996,-1.123" />
+        <Label Content="客户端目标Lua路径" Height="28" HorizontalAlignment="Left" Margin="12,173,0,0" x:Name="label7" VerticalAlignment="Top" Width="114" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,178,0,0" x:Name="TBDstClientLuaPath" VerticalAlignment="Top" Width="489" ToolTip="目标代码路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,178,0,0" x:Name="BtnDstClientLuaPath" VerticalAlignment="Top" Width="25" Click="BtnDstClientLuaPath_Click" ToolTip="点击选择目标代码路径" />
+        <Label Content="客户端目标Pkg路径" Height="28" HorizontalAlignment="Left" Margin="12,201,0,0" x:Name="label8" VerticalAlignment="Top" Width="116" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,206,0,0" x:Name="TBDstClientPkgPath" VerticalAlignment="Top" Width="489" ToolTip="目标代码路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,206,0,0" x:Name="BtnDstClientPkgPath" VerticalAlignment="Top" Width="25" Click="BtnDstClientPkgPath_Click" ToolTip="点击选择目标代码路径" />
+        <Label Content="服务器目标JAVA路径" Height="28" HorizontalAlignment="Left" Margin="12,117,0,0" x:Name="label5" VerticalAlignment="Top" Width="124" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="137,122,0,0" x:Name="TBDstServerJavaPath" VerticalAlignment="Top" Width="489" ToolTip="目标表路径" />
+        <Button Content="..." Height="23" HorizontalAlignment="Left" Margin="640,122,0,0" x:Name="BtnDstServerJavaPath" VerticalAlignment="Top" Width="25" Click="BtnDstServerJavaPath_Click" ToolTip="点击选择目标表路径" RenderTransformOrigin="-2.238,3.255" />
+        <Button Content="生成选中表和代码" Height="27" HorizontalAlignment="Left" Margin="158,293,0,0" Name="BtnMakeSelDstTableAndCode" VerticalAlignment="Top" Width="105" Click="BtnMakeSelDstTableAndCode_Click" ToolTip="点击生成选中源表的目标表和目标代码" />
+        <Button Content="生成全部表和代码" HorizontalAlignment="Left" Height="27" Margin="396,293,0,0" VerticalAlignment="Top" Width="105" Click="Gen_AllTableAndCode"/>
+        <Button Content="生成全部表" HorizontalAlignment="Left" Height="27" Margin="525,293,0,0" VerticalAlignment="Top" Width="105" Click="Gen_AllTable"/>
+        <Label Content="版本号：109" HorizontalAlignment="Left" Height="28" Margin="68,246,0,0" VerticalAlignment="Top" Width="141"/>
+    </Grid>
+</Window>

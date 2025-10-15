@@ -1,0 +1,27 @@
+enum PushButtonSizeType
+{
+	ePushButtonSizeType_Small, //小按扭
+	ePushButtonSizeType_Normal, //普通按扭
+	ePushButtonSizeType_Big,  //大按扭
+	ePushButtonSizeType_Image,//按图片大小
+	ePushButtonSizeType_Auto, //自动拉伸
+	ePushButtonSizeType_Num //类型个数
+};
+
+/***********************************************************************
+	PushButton
+***********************************************************************/
+class PushButton : public ButtonBase
+{
+	// ycl: events
+	static const string WidgetTypeName;             //!< Window factory name
+	
+	/*************************************************************************
+		Event name constants
+	*************************************************************************/
+	// generated internally by Window
+	static const string EventClicked;					//!< The button was clicked.
+
+	void SetAcceptClickButtonType(MouseButton button) ;
+	void SetPushState(bool b);
+};

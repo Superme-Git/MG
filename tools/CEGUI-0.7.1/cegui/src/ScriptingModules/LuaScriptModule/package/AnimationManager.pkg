@@ -1,0 +1,18 @@
+class AnimationManager 
+{
+	static AnimationManager& getSingleton();
+	CEGUI::Animation* createAnimation(const string name);
+	void destroyAnimation(CEGUI::Animation* animation);
+	void destroyAnimation(const string name);
+	CEGUI::Animation* getAnimation(const string name) const;
+	CEGUI::Animation* getAnimationAtIdx(size_t index) const;
+	size_t getNumAnimations() const;
+	CEGUI::AnimationInstance* instantiateAnimation(CEGUI::Animation* animation);
+	CEGUI::AnimationInstance* instantiateAnimation(const string name);
+	void destroyAnimationInstance(CEGUI::AnimationInstance* instance);
+	void destroyAllInstancesOfAnimation(CEGUI::Animation* animation);
+	CEGUI::AnimationInstance* getAnimationInstanceAtIdx(size_t index) const;
+	size_t getNumAnimationInstances() const;
+	void loadAnimationsFromXML(const string filename,const string resourceGroup = "");
+	~AnimationManager(void);	
+};

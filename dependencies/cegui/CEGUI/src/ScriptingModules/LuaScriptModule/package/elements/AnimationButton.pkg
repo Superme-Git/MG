@@ -1,0 +1,45 @@
+class AnimationButton : public Window
+{
+public:
+	
+	static const string EventNamespace;				//!< Namespace for global events
+	static const string WidgetTypeName;             //!< Window factory name
+
+	static const string ClickEventName;
+	
+	/*************************************************************************
+		Construction and Destruction
+	*************************************************************************/
+	/*!
+	\brief
+		Constructor for ButtonBase objects
+	*/
+	AnimationButton(const string& type, const string& name);
+
+
+	/*!
+	\brief
+		Destructor for ButtonBase objects
+	*/
+	virtual ~AnimationButton(void);
+
+	void SetImageSetName(const string& name);
+	void SetImageName(const string& name);
+	const string& GetImageSetName() const;
+	const string& GetImageName() const;
+
+	const Image* GetNormalImage();
+	void SetAnimationSpeed(int speed);
+	int  GetAnimationSpeed() const;
+	int  GetTotalFrame() const;
+	void SetTotalFrame(int totalFrame);
+	int GetCurFrame();
+
+	bool isMouseOn();
+
+public:
+	AnimationButton(const string& type);
+
+	virtual Window* clone(Window* wnd);
+	virtual bool onRenameTemplatePrefix(const string& sPrefix);
+};

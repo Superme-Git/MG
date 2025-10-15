@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provider name="msp" pvid="11" xmlns:xi="http://www.w3.org/2001/XInclude">
+	
+	<protocol  name="BeanImport" type="0" maxsize="32" prior="1">  
+		<variable name="b1" type="fire.msp.move.DynamicSceneParams"/>			
+		<variable name="b2" type="fire.msp.team.TeamChangeType"/>	
+	</protocol>
+	
+	
+	<bean name="modeinfo">
+		<variable name="modeid" type="int"/>
+		<!--variable name="model" type="fire.pb.move.PlayerModel"/-->
+		<variable name="transformid" type="int"/>
+		<variable name="follownpc" type="int"/>
+	</bean>
+	
+	<bean name="showpetinfo">
+		<variable name="petid" type="int"/>
+		<variable name="petkey" type="long"/>
+		<variable name="petname" type="string"/>
+		<variable name="color" type="int"/>
+		<variable name="bodysize" type="int" />
+		<variable name="showeffect" type="int" /> 展示的特效
+	</bean>
+	
+	<bean name="showtitleinfo">
+		<variable name="titleid" type="int"/>
+		<variable name="titlename" type="string"/>
+		<variable name="validtime" type="long" />
+	</bean>
+	
+	<bean name="RoleMapInfo">
+		<variable name="sceneid" type="long"/>
+		<variable name="posx" type="int"/>
+		<variable name="posy" type="int"/>
+		<variable name="posz" type="int"/>
+	</bean>
+	
+	<protocol name="GEnterWorld" type="1" maxsize="65535" prior="1">
+		<variable name="roleid" type="long"/>
+		<variable name="level" type="int" />
+		<variable name="rolename" type="string"/>
+		<variable name="mapinfo" type="RoleMapInfo"/>
+		<variable name="laststaticmapinfo" type="RoleMapInfo"/>
+		<variable name="protect" type="int"/>
+		<variable name="schoolid" type="int"/>
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举
+		<variable name="mode" type="modeinfo"/>
+		<variable name="showpet" type="showpetinfo"/>
+		<variable name="title" type="showtitleinfo"/>
+		<variable name="scenestate" type="int"/>
+		<variable name="showrolenum" type="int"/>
+        <variable name="equipeffect" type="int"/>
+	</protocol>
+	
+	<protocol name="GRoleOfflineGs" type="2" maxsize="65535" prior="1">
+		<variable name="roleid" type="long"/>
+	</protocol>
+	
+	<protocol name="MRoleOfflineScene" type="3" maxsize="65535" prior="1">
+		<variable name="roleid" type="long"/>
+		<variable name="rolename" type="string"/>
+		<variable name="mapinfo" type="RoleMapInfo"/>
+		<variable name="laststaticmapinfo" type="RoleMapInfo"/>
+		<variable name="qili" type="int"/> 当前气力（轻功）
+	</protocol>
+	
+	<protocol name="GSendAll" type="4" maxsize="65535" prior="1">
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets"/>协议marshal完的数据
+	</protocol>
+	
+	<protocol name="GSendAllBySchool" type="5" maxsize="65535" prior="1">
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets"/>协议marshal完的数据
+		<variable name="schoolId" type="int" />门派ID
+	</protocol>
+	
+	<protocol name="GSendAllByScene" type="6" maxsize="65535" prior="1">
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets"/>协议marshal完的数据
+		<variable name="sceneId" type="long" /> 场景ID
+	</protocol>
+	
+	<protocol name="GSendAllByCondition" type="7" maxsize="65535" prior="1"> 向满足条件的角色广播消息
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets"/>协议marshal完的数据
+		<variable name="schoolId" type="int" />门派ID，如果无限制填-1
+		<variable name="minlevel" type="int" /> 最小等级，如果无限制填-1
+		<variable name="maxlevel" type="int" /> 最大等级，如果无限制填-1
+		<variable name="sceneId" type="long" />场景ID，如果无限制填-1
+		<variable name="camp" type="int" /> 阵营频道,如果无限制填-1
+		<variable name="exceptRoles" type="vector" value="long" /> 不发送协议的role
+	</protocol>
+	
+	<protocol name="MEnterScene" type="8" maxsize="65535" prior="1">场景模块执行完上线后，通知逻辑模块，让逻辑模块完成后续处理
+		<variable name="roleid" type="long" /> 角色ID
+		<variable name="sceneid" type="long"/> 
+		<variable name="posx" type="int"/> 
+		<variable name="posy" type="int"/>
+	</protocol>
+	
+	<protocol name="GGetRolesByConditions" type="11" maxsize="65535" prior="1">从场景根据条件获取角色，然后回调
+		<variable name="callbackId" type="long" /> 回调Id
+		<variable name="schoolId" type="int" />门派ID，如果无限制填-1
+		<variable name="minlevel" type="int" /> 最小等级，如果无限制填-1
+		<variable name="maxlevel" type="int" /> 最大等级，如果无限制填-1
+		<variable name="sceneId" type="long" />场景ID，如果无限制填-1
+		<variable name="limitnum" type="int" />限制个数，无限制填-1
+	</protocol>
+	
+	<protocol name="MGetRolesByConditions" type="12" maxsize="65535" prior="1">从场景根据条件获取角色，然后回调
+		<variable name="callbackId" type="long" /> 回调Id
+		<variable name="roleIds" type="list" value="long" />符合条件的roleId
+	</protocol>
+	
+	<protocol name="GSendToSceneByRole" type="13" maxsize="65535" prior="1">
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets"/>协议marshal完的数据
+		<variable name="roleId" type="long" />roleID
+	</protocol>
+	
+	<protocol name="GSendAroundByPos" type="14" maxsize="65535" prior="1">
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets"/>协议marshal完的数据
+		<variable name="sceneId" type="long" /> 场景ID
+		<variable name="gposx" type="short" /> 格子坐标
+		<variable name="gposy" type="short" /> 格子坐标
+	</protocol>
+
+	<protocol name="GRefreshRoleEquip" type="15" maxsize="65535" prior="1">  变身卡刷新状态
+		<variable name="roleId" type="long" /> 用户id
+	</protocol>
+
+
+	<xi:include href="circletask.xml"/> <!-- 师门天尊任务,协议号从21000号开始-->
+	<xi:include href="title.xml" /><!-- 协议号从 12001 开始 -->
+	<xi:include href="move.xml" /> <!-- 协议号从 4001 开始 -->
+	<xi:include href="battle.xml" /><!-- 协议号从7001开始-->
+	<xi:include href="task.xml" /> <!-- 任务相关协议定义，协议号从 19001开始 -->
+	<xi:include href="npc.xml" /> <!-- npc相关协议定义，协议号从 9501开始到9999 -->
+	<xi:include href="role.xml" /> <!-- 角色相关协议定义，主要用于GS向场景更新role数据，协议号从 10001开始到11000 -->
+	<xi:include href="team.xml" /> <!-- 消息协议号从 8001 开始 -->
+	<!-- 建议跟pb.xml的协议范围保持一致 -->
+</provider>	

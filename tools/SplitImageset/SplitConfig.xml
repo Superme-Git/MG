@@ -1,0 +1,8 @@
+<!-- 杨印宇 2015-6-17 开发-->
+<!-- 以后打印FRAME的时候，直接打整图，然后使用这个工具切割成9宫格和3宫格,这样可以避免失真-->
+<!-- 每个要切割的Frame需要写一行，行的名字为frame,然后需要写要切割的imageset和image名字，可以在具体的imageset文件中找到-->
+<!-- 然后写type type有3种形式 OnlyWidth OnlyHeight WidthAndHeight 注意要保持大小写一致-->
+<!-- OnlyWidth 切割Frame成为左，中，右三段 后面要跟着写明left_width,center_width,right_width所需要的像素数-->
+<!-- OnlyHeight 切割Frame成为上，中，下三段，后面要跟着写明top_height,center_height,bottom_height所需要的像素数-->
+<!-- WidthAndHeight 切割Frame成9份，左上，上，右上，右，右下，下，左下，左，中，后面要写明left_width,center_width,right_width,top_height,center_height,bottom_height所需要的像素数-->
+<frame imageset="common_tips_test.imageset" image="common_tips_testbg2" type="WidthAndHeight" left_width="10" center_width="109" right_width="10" top_height="10" center_height="109" bottom_height="10" />

@@ -1,0 +1,25 @@
+/***********************************************************************
+	ItemListbox
+***********************************************************************/
+class ItemListbox : public ScrolledItemListBase
+{
+public:
+    unsigned long getSelectedCount() const;
+    ItemEntry* getLastSelectedItem() const;
+    ItemEntry* getFirstSelectedItem(unsigned long start_index) const;
+    ItemEntry* getNextSelectedItem() const;
+    ItemEntry* getNextSelectedItemAfter(const ItemEntry* start_item) const;
+    bool isMultiSelectEnabled() const;
+    bool isItemSelected(unsigned long index) const;
+    void setMultiSelectEnabled(bool state);
+    void clearAllSelections();
+
+    void selectRange(unsigned long a, unsigned long z);
+    void selectAllItems();
+
+    virtual void layoutItemWidgets();
+    virtual Size getContentSize() const;
+	virtual bool testClassName_impl(const String& class_name) const;
+	virtual void notifyItemClicked(ItemEntry* li);
+	virtual void notifyItemSelectState(ItemEntry* li, bool state);
+};

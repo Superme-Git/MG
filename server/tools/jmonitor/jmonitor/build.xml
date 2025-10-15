@@ -1,0 +1,52 @@
+﻿<project name="jmonitor" default="all">
+
+	<property name="build" value="build" />
+	<property name="dist" value="../dist" />
+	<property name="lib" value="../lib" />
+    <property name="deplibs" value="${lib}/freemarker.jar ${lib}/mysql-connector-java-5.0.8-bin.jar ${lib}/jio.jar ${lib}/locojoydb.jar ${lib}/jersey-core-1.9.1.jar ${lib}/jersey-server-1.9.1.jar ${lib}/json_simple-1.1.jar ${lib}/asm-3.1.jar" />
+	<property name="jarfile" value="${dist}/${ant.project.name}.jar" />
+
+	<target name="init">
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<path id="classpath">
+			<filelist dir="." files="${deplibs}" />
+		</path>
+		<javac includeAntRuntime="false" includeJavaRuntime="false" encoding="UTF-8" destdir="${build}" fork="true" memorymaximumsize="500M" classpathref="classpath" debug="true" debuglevel="lines,source">
+			<src path="src" />
+		</javac>
+		<copy todir="${build}">
+			<fileset dir="src">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="dist" depends="compile">
+		<jar jarfile="${jarfile}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="com.locojoy.jmonitor.main.Main" />
+				<attribute name="Class-Path" value="${deplibs}" />
+			</manifest>
+		</jar>
+		<copy file="${jarfile}" todir="../bin/jmonitor/dist" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="all" depends="dist,clean" />
+
+	<target name="run">
+		<java fork="true" jar="${jarfile}">
+			<arg line="mbeandb.xml jmxports.xml access.xml 80" />
+			<jvmarg value="-Djava.util.logging.config.file=logging.properties" />
+		</java>
+	</target>
+
+</project>
+

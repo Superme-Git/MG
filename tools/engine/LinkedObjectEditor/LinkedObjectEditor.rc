@@ -1,0 +1,577 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\LinkedObjectEditor.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""afxres.rc""         // 标准组件\r\n"
+    "#include ""afxprint.rc""       // 打印/打印预览资源\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\LinkedObjectEditor.ico"
+IDR_LinkedObjectEditorTYPE ICON                    "res\\LinkedObjectEditorDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "打印设置(&R)...",                 ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "最近的文件",                       ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "关闭(&C)",                      ID_FILE_CLOSE
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "视图(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                     ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                     ID_VIEW_STATUS_BAR
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 LinkedObjectEditor(&A)...", ID_APP_ABOUT
+    END
+END
+
+IDR_LinkedObjectEditorTYPE MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "关闭(&C)",                      ID_FILE_CLOSE
+        MENUITEM "保存(&S)\tCtrl+S",              ID_FILE_SAVE
+        MENUITEM "另存为(&A)...",                  ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "打印(&P)...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "打印预览(&V)",                    ID_FILE_PRINT_PREVIEW
+        MENUITEM "打印设置(&R)...",                 ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "最近的文件",                       ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "撤消(&U)\tCtrl+Z",              ID_EDIT_UNDO
+        MENUITEM "重复(&R)\tCtrl+Y",              ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "剪切(&T)\tCtrl+X",              ID_EDIT_CUT
+        MENUITEM "复制(&C)\tCtrl+C",              ID_EDIT_COPY
+        MENUITEM "粘贴(&P)\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "视图(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                     ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                     ID_VIEW_STATUS_BAR
+    END
+    POPUP "窗口(&W)"
+    BEGIN
+        MENUITEM "新建窗口(&N)",                    ID_WINDOW_NEW
+        MENUITEM "层叠(&C)",                      ID_WINDOW_CASCADE
+        MENUITEM "平铺(&T)",                      ID_WINDOW_TILE_HORZ
+        MENUITEM "排列图标(&A)",                    ID_WINDOW_ARRANGE
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 LinkedObjectEditor(&A)...", ID_APP_ABOUT
+    END
+END
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "删除选中对象",                      32771
+        MENUITEM "设置摇晃参数",                      32772
+        MENUITEM "是否是灯光",                       ID_MENU_LightObject
+    END
+END
+
+IDR_MENU2 MENU 
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "上移一层",                        32773
+        MENUITEM "下移一层",                        ID_MENU_NEXTLEVEL
+        MENUITEM "移到最上层",                       ID_MENU_FIRSTLEVEL
+        MENUITEM "移到最下层",                       ID_MENU_LASTLEVEL
+        MENUITEM SEPARATOR
+        MENUITEM "设为主节点",                       32780
+        MENUITEM "删除选中节点",                      32781, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "复制物件名称",                      ID_MENU_copyfilename
+    END
+END
+
+IDR_MENU_ZOOMPARAM MENU 
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "设置触发参数..",                    ID_MENU_SETZOOMPARAM
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 LinkedObjectEditor"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "LinkedObjectEditor 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,40,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,16,WS_GROUP
+    LTEXT           "代码版本：7773",IDC_STATIC,40,25,100,8
+END
+
+IDD_DIALOG_PLANTINFOVIEW DIALOGEX 0, 0, 544, 677
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_FILEINFO,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,101,530,269
+    COMBOBOX        IDC_COMBO_DRIVERLIST,7,84,530,15,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC_SHOWPIC,"Static",SS_BLACKFRAME,10,8,96,67
+    PUSHBUTTON      "设置背景颜色",IDC_BUTTON_SETBKCOLOR,110,16,57,17
+    CONTROL         "",IDC_LIST_SHOWPLANTLEVEL,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,387,530,185
+    LTEXT           "各物件遮挡关系及属性调整（右键菜单）：",IDC_STATIC,8,374,154,8
+    CONTROL         "修改底座重心",IDC_CHECK_SETPLANTPOSCENTER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,37,60,12
+    CONTROL         "停止运动并复位",IDC_CHECK_Stop,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,183,34,67,15
+    LTEXT           "设置各物件的旋转中心之前先停止...",IDC_STATIC,184,10,48,27
+    PUSHBUTTON      "4月16日以前做的plt文件请在此做版本转换>>>",IDC_BUTTON_CONVERSION,6,617,170,16,WS_DISABLED
+    PUSHBUTTON      "素材改名之后刷新lko>>>",IDC_BUTTON_IMGFileRename,104,656,93,15
+    PUSHBUTTON      "命名规则初始化...",IDC_BUTTON_InitRenameRule,7,633,79,14
+    PUSHBUTTON      "素材文件及文件夹改名",IDC_BUTTON_RenameFilesAndDir,7,652,89,18
+    PUSHBUTTON      "素材改名之后刷新mrmp文件",IDC_BUTTON_RenameMapFile,201,656,106,15
+    PUSHBUTTON      "img素材在外部修改之后更新lko信息...",IDC_BUTTON_RefreshMaxBox,164,636,143,14,WS_DISABLED
+    CONTROL         "",IDC_SLIDER_LightAlpha,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,63,582,235,11
+    LTEXT           "灯光层透明度:",IDC_STATIC,8,582,52,11
+    LTEXT           "灯光层透明度是为了方便编辑时物件对齐使用的,没有别的任何用处",IDC_STATIC,7,596,238,10
+    CONTROL         "物件可拖动",IDC_CHECK_DragFlag,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,53,55,14
+    CONTROL         "预览lko文件",IDC_CHECK_previewLKO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,183,56,53,11
+    PUSHBUTTON      "更新指定列表中的lko文件重心",IDC_BUTTON_RefreshCentPos,319,642,109,16
+END
+
+IDD_DIALOG_PLANTMOVEPARAM DIALOGEX 0, 0, 304, 303
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,112,282,50,14
+    PUSHBUTTON      "取消",IDCANCEL,169,282,50,14
+    LTEXT           "Angle1(deg):",IDC_STATIC,13,31,47,10
+    LTEXT           "Angle2(deg):",IDC_STATIC,13,55,44,10
+    LTEXT           "speed(deg/s):",IDC_STATIC,13,78,47,10
+    CONTROL         "",IDC_SLIDER_ANGLE1,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,69,31,186,12
+    CONTROL         "",IDC_SLIDER_ANGLE2,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,69,53,186,12
+    CONTROL         "",IDC_SLIDER_SPEED,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,70,77,185,12
+    LTEXT           "变形类型：",IDC_STATIC,13,12,43,11
+    COMBOBOX        IDC_COMBO_DistortionType,72,11,70,15,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "SkewSize(Pixel):",IDC_STATIC,12,117,54,11
+    LTEXT           "speed(Pixel/s):",IDC_STATIC,12,138,47,10
+    CONTROL         "",IDC_SLIDER_SKEWX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,70,115,184,13
+    CONTROL         "",IDC_SLIDER_SPEEDX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,70,135,184,13
+    LTEXT           "错切类型：",IDC_STATIC,12,98,40,11
+    COMBOBOX        IDC_COMBO_SKEWTYPE,71,97,74,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_ANGLE1,260,30,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANGLE2,260,51,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SPEED,260,74,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SKEWX,259,112,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SKEWSPEED,259,135,35,14,ES_AUTOHSCROLL
+    LTEXT           "节点连接方式：",IDC_STATIC,12,262,62,11
+    COMBOBOX        IDC_COMBO1,75,260,85,30,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "左(pixel):",IDC_STATIC,14,160,42,11
+    LTEXT           "右(pixel):",IDC_STATIC,14,181,42,11
+    LTEXT           "speed(Pixel/s):",IDC_STATIC,14,239,47,10
+    CONTROL         "",IDC_SLIDER_SizeLeft,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,161,184,11
+    CONTROL         "",IDC_SLIDER_SizeRight,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,180,184,11
+    CONTROL         "",IDC_SLIDER_TransformSpeed,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,236,184,11
+    EDITTEXT        IDC_EDIT_SIZELEFT,259,158,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SIZERIGHT,259,176,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TRANSFORMSPEED,259,233,35,14,ES_AUTOHSCROLL
+    LTEXT           "上(pixel):",IDC_STATIC,14,198,42,11
+    LTEXT           "下(pixel):",IDC_STATIC,14,219,42,11
+    CONTROL         "",IDC_SLIDER_SizeTop,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,199,184,11
+    CONTROL         "",IDC_SLIDER_SizeDown,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,71,218,184,11
+    EDITTEXT        IDC_EDIT_SIZETOP,259,196,35,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SIZEDOWN,259,214,35,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_ZOOMPARAM DIALOGEX 0, 0, 130, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "测试专用！数据不保留"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,11,63,35,14
+    PUSHBUTTON      "取消",IDCANCEL,84,63,35,14
+    EDITTEXT        IDC_EDIT_ZOOM,85,24,36,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TIME,85,41,36,13,ES_AUTOHSCROLL
+    LTEXT           "激烈晃动的最大程度:",IDC_STATIC,7,25,76,15
+    LTEXT           "恢复所需时间(秒):",IDC_STATIC,7,42,66,11
+    CONTROL         "物件允许被干扰",IDC_CHECK_ZOOMENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,10,78,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "LinkedObjectEditor.exe"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "LinkedObjectEditor.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DIALOG_PLANTINFOVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 537
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 674
+    END
+
+    IDD_DIALOG_PLANTMOVEPARAM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 296
+    END
+
+    IDD_DIALOG_ZOOMPARAM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 123
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE 初始化失败。请确保 OLE 库是正确的版本。"
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "LinkedObjectEditor"
+    IDR_LinkedObjectEditorTYPE 
+                            "\nLinkedObjectEditor\nLinkedObjectEditor\nlinkedobjects files(*.lko)\n.lko\nLinkedObjectEditor.Document\nLinkedObjectEditor.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "LinkedObjectEditor"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "创建新文档\n新建"
+    ID_FILE_OPEN            "打开现有文档\n打开"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭"
+    ID_FILE_SAVE            "保存活动文档\n保存"
+    ID_FILE_SAVE_AS         "用新名称保存活动文档\n另存为"
+    ID_FILE_PAGE_SETUP      "更改打印选项\n页面设置"
+    ID_FILE_PRINT_SETUP     "更改打印机选项和打印选项\n打印设置"
+    ID_FILE_PRINT           "打印活动文档\n打印"
+    ID_FILE_PRINT_PREVIEW   "显示整页\n打印预览"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息、版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开此文档"
+    ID_FILE_MRU_FILE2       "打开此文档"
+    ID_FILE_MRU_FILE3       "打开此文档"
+    ID_FILE_MRU_FILE4       "打开此文档"
+    ID_FILE_MRU_FILE5       "打开此文档"
+    ID_FILE_MRU_FILE6       "打开此文档"
+    ID_FILE_MRU_FILE7       "打开此文档"
+    ID_FILE_MRU_FILE8       "打开此文档"
+    ID_FILE_MRU_FILE9       "打开此文档"
+    ID_FILE_MRU_FILE10      "打开此文档"
+    ID_FILE_MRU_FILE11      "打开此文档"
+    ID_FILE_MRU_FILE12      "打开此文档"
+    ID_FILE_MRU_FILE13      "打开此文档"
+    ID_FILE_MRU_FILE14      "打开此文档"
+    ID_FILE_MRU_FILE15      "打开此文档"
+    ID_FILE_MRU_FILE16      "打开此文档"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回上一个窗格\n上一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "为活动文档打开另一个窗口\n新建窗口"
+    ID_WINDOW_ARRANGE       "在窗口底部排列图标\n排列图标"
+    ID_WINDOW_CASCADE       "以重叠方式排列窗口\n层叠窗口"
+    ID_WINDOW_TILE_HORZ     "以非重叠的平铺方式排列窗口\n平铺窗口"
+    ID_WINDOW_TILE_VERT     "以非重叠的平铺方式排列窗口\n平铺窗口"
+    ID_WINDOW_SPLIT         "将活动窗口拆分为多个窗格\n拆分"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "清除选定内容\n清除"
+    ID_EDIT_CLEAR_ALL       "清除全部内容\n全部清除"
+    ID_EDIT_COPY            "复制选定内容并将其放到剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切选定内容并将其放到剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的文本\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一操作\n重复"
+    ID_EDIT_REPLACE         "用其他文本替换特定的文本\n替换"
+    ID_EDIT_SELECT_ALL      "选定整个文档\n全选"
+    ID_EDIT_UNDO            "撤消上一操作\n撤消"
+    ID_EDIT_REDO            "恢复上次撤消的操作\n重做"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n切换工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "更改窗口大小"
+    AFX_IDS_SCMOVE          "更改窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小为图标"
+    AFX_IDS_SCMAXIMIZE      "使窗口最大化显示"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到前一个文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动窗口并提示保存文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "将窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务列表"
+    AFX_IDS_MDICHILD        "激活此窗口"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预览"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\LinkedObjectEditor.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "afxres.rc"         // 标准组件
+#include "afxprint.rc"       // 打印/打印预览资源
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

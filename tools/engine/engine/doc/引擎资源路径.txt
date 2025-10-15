@@ -1,0 +1,5 @@
+
+引擎资源路径是引擎接口默认使用和在资源中保存的路径格式
+目前具体格式为兼容PFS路径但概念上并非PFS路径，即/xx/xx的形式
+
+如IFileIO::GetFileImage和Renderer::LoadPicture接口的参数即引擎资源路径

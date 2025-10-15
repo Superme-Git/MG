@@ -1,0 +1,24 @@
+"ID","功能","等级触发","任务完成触发","图标","是否播发特效","位置","顺序","控件名","开启任务ID"
+"1","宠物","0","180133","set:fightui image:pet_claw","1","3","0","UserPeticon/PetBack",
+"2","指引","999","180134","set:mainui image:main_guide","1","2","0","LogoInfo/backImage/btnzhiyin",
+"3","签到","1","0","set:mainui image:main_reward","0","4","0","LogoInfo/backImage/btnjiangli",
+"4","技能","12","180106,180206,180306,180406,180506,180606,180706,180806,180906","set:mainui image:main_skill","1","1","3","MainControlDlg/back/skill",
+"5","帮会","16","180163","set:mainui image:main_guild","1","1","2","MainControlDlg/back/faction","500101"
+"6","助战","14","180176","set:mainui image:main_helper","1","1","4","MainControlDlg/back/friend",
+"7","挂机","19","180195","set:mainui image:mian_guaji","1","2","2","LogoInfo/backImage/btnguaji",
+"8","排行","31","0","set:mainui image:main_rank","1","2","3","LogoInfo/backImage/paihang",
+"9","福利","0","180105,180205,180305,180405,180505,180605,180705,180805,180905","set:mainui image:main_reward","2","4","0","LogoInfo/backImage/btnjiangli",
+"10","生活技能","35","0","set:mainui image:main_skill","0","1","3","MainControlDlg/back/skill","500301"
+"11","强化","32","0","set:mainui image:main_streng1","1","1","0","MainControlDlg/back/production",
+"12","镶嵌","32","0","set:mainui image:main_streng1","0","1","0","MainControlDlg/back/production",
+"13","提升","15","0","set:mainui image:mian_tishen","1","2","4","LogoInfo/backImage/btntishen",
+"14","活动","25","181139","set:mainui image:main_active","1","2","1","LogoInfo/backImage/btnhuodong",
+"15","合成","32","0","set:mainui image:main_streng1","0","1","0","MainControlDlg/back/production","500501"
+"16","人物修炼","45","0","set:siwangtixing image:zhuanjing","0","1","0","MainControlDlg/back/skill","500201"
+"17","宠物修炼","55","0","set:siwangtixing image:zhuanjing","0","1","0","MainControlDlg/back/skill",
+"18","宝石合成","32","0","set:mainui image:main_streng1","0","1","0","MainControlDlg/back/production",
+"19","组队(精英本)","999","500602","set:mainui image:main_streng2","2","1","0","TaskTracingDialog/title/team",
+"20","加点","999","500202","set:mainui image:main_streng3","2","1","0","UserPeticon/userIcon",
+"21","打造","999","500304","set:mainui image:main_streng4","2","1","0","MainControlDlg/back/production",
+"22","成就奖励","999","600016","set:mainui image:main_streng2","2","1","0","LogoInfo/backImage/btnzhiyin",
+"23","宠物更换指引","999","600008","set:mainui image:main_streng2","2","1","0","UserPeticon/PetIcon",

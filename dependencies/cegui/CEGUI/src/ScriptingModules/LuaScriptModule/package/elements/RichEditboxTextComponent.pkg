@@ -1,0 +1,6 @@
+class RichEditboxTextComponent:public RichEditboxComponent 
+{
+	void setText(const String& text);
+	const String& getText() const;
+	
+};

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="friends">
+
+	<bean name="FriendGiveItem" from="h好友/h好友赠送道具" genxml="server">
+		<variable name="id" type="int" fromCol="道具id" />
+	</bean>
+
+	<bean name="CFriendGiveItem" from="h好友/h好友赠送道具" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="道具id" />
+	</bean>
+
+	<bean name="FriendGiveGift" from="h好友/h好友赠送礼物" genxml="server">
+		<variable name="id" type="int" fromCol="道具id" />
+		<variable name="oppositeSexFriendlyDegrees" type="int" fromCol="异性增加好友度" />
+		<variable name="sameSexFriendlyDegrees" type="int" fromCol="同性增加好友度" />
+	</bean>
+
+	<bean name="CFriendGiveGift" from="h好友/h好友赠送礼物" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="道具id" />
+		<variable name="oppositeSexFriendlyDegrees" type="int" fromCol="异性增加好友度" />
+		<variable name="sameSexFriendlyDegrees" type="int" fromCol="同性增加好友度" />
+	</bean>
+	
+	<bean name="SpaceDropGift" from="k空间礼物掉落" genxml="server">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="item" type="int" fromCol="物品" />
+		<variable name="weight" type="int" fromCol="权重" />
+	</bean>
+	<bean name="XshGiveGift" from="说不得大师空间礼物" genxml="server">
+		<variable name="id" type="int" fromCol="道具id" />
+	</bean>
+	<bean name="CRecruitReward" from="Z招募/招募奖励" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="friendnum" type="int" fromCol="好友数量" />
+		<variable name="items" type="string" fromCol="道具" />
+		<variable name="text" type="string" fromCol="描述" />
+	</bean>	
+	<bean name="CMyRecruit" from="Z招募/我的招募奖励" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="level" type="int" fromCol="等级" />
+		<variable name="items" type="string" fromCol="道具" />
+		<variable name="text" type="string" fromCol="描述" />
+	</bean>	
+	<bean name="CRecruitRewardPay" from="D点卡服表格/z招募点卡服/招募奖励点卡服" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="friendnum" type="int" fromCol="好友数量" />
+		<variable name="items" type="string" fromCol="道具" />
+		<variable name="text" type="string" fromCol="描述" />
+	</bean>	
+	<bean name="CMyRecruitPay" from="D点卡服表格/z招募点卡服/我的招募奖励点卡服" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="level" type="int" fromCol="等级" />
+		<variable name="items" type="string" fromCol="道具" />
+		<variable name="text" type="string" fromCol="描述" />
+	</bean>	
+	<bean name="CRecruitPath" from="Z招募/招募请求地址" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="path1" type="string" fromCol="服务器某角色信息" />
+		<variable name="path2" type="string" fromCol="角色宣言" />
+		<variable name="path3" type="string" fromCol="校验招募码" />
+		<variable name="path4" type="string" fromCol="校验招募码同时校验被招募人" />
+		<variable name="path5" type="string" fromCol="招募人提交招募码" />
+		<variable name="path6" type="string" fromCol="招募人获取被招募人列表" />
+		<variable name="path7" type="string" fromCol="领取招募奖励" />
+		<variable name="path8" type="string" fromCol="获取某被招募人的奖励进度状态" />
+		<variable name="path9" type="string" fromCol="获取某被招募人的奖励状态" />
+		<variable name="path10" type="string" fromCol="获取招募人招募人数" />
+		<variable name="path11" type="string" fromCol="领取招募次数奖励" />
+	</bean>		
+	
+	<bean name="RecruitAwards" from="Z招募/招募奖励" genxml="server">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="num" type="int" fromCol="好友数量" />
+		<variable name="awards" type="string" fromCol="奖励" />
+	</bean>
+	
+	<bean name="MyRecruitAwards" from="Z招募/我的招募奖励" genxml="server">
+		<variable name="id" type="int" fromCol="id" />
+		<variable name="level" type="int" fromCol="等级" />
+		<variable name="awards" type="string" fromCol="奖励" />
+	</bean>
+
+</namespace>

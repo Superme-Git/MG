@@ -1,0 +1,227 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\PVRUtil.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PVRUtil.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 PVRUtil"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "PVRUtil，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2013",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_PVRUTIL_DIALOG DIALOGEX 0, 0, 577, 262
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "PVRUtil"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,386,241,50,14
+    PUSHBUTTON      "取消",IDCANCEL,520,241,50,14
+    LTEXT           "静态",IDC_STATIC_STATUS,7,244,298,11
+    EDITTEXT        IDC_EDIT2,7,7,350,178,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    CONTROL         "  to pvr",IDC_CHECK_TO_PVR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,17,40,10
+    CONTROL         "  to atitc",IDC_CHECK_TO_ATITC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,31,40,10
+    CONTROL         "  to dxt1",IDC_CHECK_TO_DXT1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,43,40,10
+    CONTROL         "  to etc1 (RGB8)",IDC_CHECK_TO_ETC1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,56,69,10
+    CONTROL         "  gen mipmaps",IDC_CHECK_GEN_MIPMAPS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,104,55,10
+    EDITTEXT        IDC_INPUTDIR,365,126,108,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OUTPUTDIR,366,152,108,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "输入目录",ID_SELECT_INPUTDIR,489,125,50,14
+    DEFPUSHBUTTON   "输出目录",ID_SELECT_OUTPUTDIR,490,152,50,14
+    DEFPUSHBUTTON   "Processing . . .",ID_PROCESSING,410,178,84,14
+    DEFPUSHBUTTON   " 清除日志",ID_CLEAR_LOG,294,189,50,14
+    CONTROL         "  to etc1 (RGBA8 a a)",IDC_CHECK_TO_RGBA8AA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,68,85,10
+    CONTROL         "  to etc1 (RGBA8 a s)",IDC_CHECK_TO_RGBA8AAS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,369,80,84,10
+    CONTROL         " merge as",IDC_CHECK_MERGE_AS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,458,80,46,10
+    CONTROL         " fast",IDC_CHECK_TO_QUALITY_FAST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,417,17,30,10
+    CONTROL         " normal",IDC_CHECK_TO_QUALITY_NORMAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,448,17,39,10
+    CONTROL         " high",IDC_CHECK_TO_QUALITY_HIGH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,490,17,31,10
+    CONTROL         " best",IDC_CHECK_TO_QUALITY_BEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,525,17,32,10
+    CONTROL         " alpha",IDC_CHECK_TO_DXT1_ALPHA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,418,43,34,10
+    CONTROL         " rgb",IDC_CHECK_TO_ATITC_RGB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,418,31,29,10
+    CONTROL         " rgba I",IDC_CHECK_TO_ATITC_RGBA_I,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,448,31,37,10
+    CONTROL         " rgba E",IDC_CHECK_TO_ATITC_RGBA_E,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,490,31,38,10
+    CONTROL         ".pvr",IDC_CHECK_OUTPUT_EXT_PVR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,486,105,27,10
+    CONTROL         ".orig",IDC_CHECK_OUTPUT_EXT_ORIG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,519,105,27,10
+    LTEXT           "输出后缀名:",IDC_STATIC,447,105,38,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "PVRUtil.exe"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "PVRUtil.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_PVRUTIL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 570
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 255
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "关于 PVRUtil(&A)..."
+END
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\PVRUtil.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

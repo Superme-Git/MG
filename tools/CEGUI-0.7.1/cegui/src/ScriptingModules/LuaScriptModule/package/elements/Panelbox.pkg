@@ -1,0 +1,113 @@
+// Panelbox
+class PanelboxEventArgs : public WindowEventArgs
+{
+	public:
+		PanelboxEventArgs(Window* wnd);
+
+		PanelItem * panelItem;
+};
+
+class Panelbox : public Window
+{
+public:
+
+	enum PanelType
+	{
+		CHENG_JIU,//³É¾Í
+		CHENG_WEI,//³ÆÎ½¡¢Ñ«ÕÂ
+		QI_YUAN,//ÆíÔ¸
+	};
+	static const string EventNamespace;				//!< Namespace for global events
+    static const string WidgetTypeName;             //!< Window factory name
+
+	/*************************************************************************
+		Constants
+	*************************************************************************/
+	// event names
+	static const string EventListContentsChanged;			//!< Event triggered when the contents of the list is changed.
+	static const string EventSelectionChanged;			//!< Event triggered when there is a change to the currently selected item(s).
+	static const string EventShiftClickItem;
+	/*************************************************************************
+		Accessor Methods
+	*************************************************************************/
+	/*!
+	\brief
+		Return number of items attached to the list box
+
+	\return
+		the number of items currently attached to this list box.
+	*/
+	size_t	getItemCount(void) const		;
+
+	PanelItem*	getOpenedItem(void) const;
+
+    PanelItem* findFirstItemWithID(unsigned int searchID);
+
+	/*************************************************************************
+		Manipulator Methods
+	*************************************************************************/
+	/*!
+	\brief
+		Initialise the Window based object ready for use.
+
+	\note
+		This must be called for every window created.  Normally this is handled automatically by the WindowFactory for each Window type.
+
+	\return
+		Nothing
+	*/
+	virtual void	initialiseComponents(bool bClone);
+	
+	void	setPanelType(PanelType type) ;
+	void	resetList(void);
+	void	addItem(PanelItem* item);
+	void    removeItem(const PanelItem* item);
+
+
+	virtual	Rect getListRenderArea(void) const
+	;
+
+	void setItemRenderArea(Rect& r)
+	;
+
+	Scrollbar* getVertScrollbar() const ;
+	PushButton* getPushButton() const ;
+	Combobox*   getComboBox() const ;
+	ProgressBar*   getProgressBar() const ;
+
+    float   getTotalItemsHeight(void) const;
+
+	//UpdateScrollbars
+	void doScrollbars()
+	;
+
+	//Render the actual tree
+	void doPanelRender()
+	;
+
+	Panelbox(const string& type, const string& name);
+	virtual ~Panelbox(void);
+
+
+public:
+	Panelbox(const string& type);
+	virtual Window* clone(Window* wnd);
+	virtual bool onRenameTemplatePrefix(const string& sPrefix);
+
+public:
+	/*!
+	\brief
+		Return the ListboxItem under the given window local pixel co-ordinate.
+
+	\return
+		ListboxItem that is under window pixel co-ordinate \a pt, or NULL if no
+		item is under that position.
+	*/
+	PanelItem*	getItemAtPoint(const Point& pt) const;
+	bool isBackGroundEnable() ;
+	void SetBackGroundEnable(bool bBackGroundEnable) ;
+	void setShowVertScrollbar(bool setting);
+	void resortList();
+
+	void ClearLastOpenItem() ;
+};

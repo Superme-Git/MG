@@ -1,0 +1,39 @@
+namespace GameTable
+{
+    namespace item
+    {
+        class CEquipEffect
+        {
+            public:
+            int id;
+            int equipcolor;
+            std::vector<int> baseEffectType;
+            std::vector<int> baseEffect;
+            int sexNeed;
+            std::vector<int> scorecolor;
+            std::vector<int> roleNeed;
+            int bCanSale;
+            int dbCanSale;
+            int sellpricecoef;
+            int endurecoef;
+            int suiting;
+            int weaponid;
+            int weaponeffectid;
+            std::vector<std::wstring> modelpathleft;
+            std::vector<std::wstring> modelpathright;
+            std::vector<std::wstring> socketleft;
+            std::vector<std::wstring> socketright;
+            std::wstring needCareer;
+            int eequiptype;
+        };
+        class CEquipEffectTable
+        {
+            public:
+        CEquipEffect& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CEquipEffectTable&  GetCEquipEffectTableInstance();
+    }
+}

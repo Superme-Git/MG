@@ -1,0 +1,1 @@
+start "" /d "..\" Launcher.exe designmode makebinupdate:bin/release/FileList.xml^|res1/Update/bin/release/

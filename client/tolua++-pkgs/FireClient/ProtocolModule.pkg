@@ -1,0 +1,12 @@
+$pfile "Utils/Marshal.pkg"
+$pfile "Utils/Protocol.pkg"
+$pfile "Utils/BitOp.pkg"
+$pfile "Utils/base64.pkg"
+$pfile "Utils/ChineseCode.pkg"
+$pfile "Utils/IniManager.pkg"
+$pfile "Utils/Voice.pkg"
+$pfile "Utils/ResourceUtils.pkg"
+$pfile "Utils/SystemInfo.pkg"
+$pfile "Utils/WavRecorder.pkg"
+
+$pfile "ProtoDef/protocolsmodule_impl.pkg"

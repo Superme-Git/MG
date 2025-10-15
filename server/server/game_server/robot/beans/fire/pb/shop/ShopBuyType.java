@@ -1,0 +1,62 @@
+
+package fire.pb.shop;
+
+import com.locojoy.base.Marshal.Marshal;
+import com.locojoy.base.Marshal.OctetsStream;
+import com.locojoy.base.Marshal.MarshalException;
+
+/** shop购买类型
+*/
+public class ShopBuyType implements Marshal , Comparable<ShopBuyType>{
+	public final static int NORMAL_SHOP = 1; // 普通商店
+	public final static int PET_SHOP = 2; // 宠物商店
+	public final static int MALL_SHOP = 3; // 商城
+	public final static int CHAMBER_OF_COMMERCE_SHOP_BUY = 4; // 商会买
+	public final static int CHAMBER_OF_COMMERCE_SHOP_SALE = 5; // 商会卖
+	public final static int EXCHANGE_BUY = 6; // 兑换商店
+	public final static int SHENSHOU_SHOP = 7; // 神兽商店
+
+
+	public ShopBuyType() {
+	}
+
+	public final boolean _validator_() {
+		return true;
+	}
+
+	public OctetsStream marshal(OctetsStream _os_) {
+		return _os_;
+	}
+
+	public OctetsStream unmarshal(OctetsStream _os_) throws MarshalException {
+		return _os_;
+	}
+
+	public boolean equals(Object _o1_) {
+		if (_o1_ == this) return true;
+		if (_o1_ instanceof ShopBuyType) {
+			return true;
+		}
+		return false;
+	}
+
+	public int hashCode() {
+		int _h_ = 0;
+		return _h_;
+	}
+
+	public String toString() {
+		StringBuilder _sb_ = new StringBuilder();
+		_sb_.append("(");
+		_sb_.append(")");
+		return _sb_.toString();
+	}
+
+	public int compareTo(ShopBuyType _o_) {
+		if (_o_ == this) return 0;
+		int _c_ = 0;
+		return _c_;
+	}
+
+}
+

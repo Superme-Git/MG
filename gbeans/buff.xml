@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="buff"> 
+		<bean name="SCBuffConfig" from="技能相关表/c持续性buff表" genxml="server">
+			  <variable name="id"  fromCol="Buff编号" type="int" />
+			  <variable name="name" fromCol="Buff名称" type="string"  />
+			  <variable name="classname" fromCol="classname"  type="string"  /> 
+			  <variable name="limitOperations" fromCol="限制动作"  type="string"  />			  
+			  <variable name="initTime" fromCol="时间"  type="long"  /> 
+			  <variable name="initCount" fromCol="计数"  type="int"  /> 
+			  <variable name="initAmount" fromCol="量"  type="long"  /> 
+			  <variable name="clearType" fromCol="清除方式"  type="int"  /> 
+			  <variable name="storeToDisk" fromCol="保存到硬盘"  type="bool"  /> 
+			  <variable name="time" fromCol="下线保存时间"  type="long"  /> 
+			  <variable name="buffclass" fromCol="Buff类型"  type="int"  /> 
+			  <variable name="Anticlass" fromCol="针对类型"  type="string"  />
+			  <variable name="sendtoclient" fromCol="是否发给客户端"  type="int"  />			  
+			  <variable name="showScale" fromCol="广播类型"  type="int"  /> 
+			  <variable name="inBattleScript" fromCol="发战斗脚本"  type="bool"  /> 
+			  <variable name="effects" fromCol="效果" type="string"/>
+			  <variable name="overrideSelfType" fromCol="自身覆盖类型" type="int" />
+			  <variable name="overrideAttr" fromCol="覆盖属性" type="string" />
+			  <variable name="instantbuff" fromCol="一次性BUFF" type="int" />
+			  <variable name="instantbuffeffect" fromCol="一次性BUFF效果值" type="string" />
+			  <variable name="scenestateId" fromCol="场景状态ID" type="String" />
+		</bean>
+		
+		<bean name="SIBuffConfig" from="技能相关表/y一次性buff表" genxml="server">
+			  <variable name="id"  fromCol="Buff编号" type="int" />
+			  <variable name="name" fromCol="Buff名称" type="string"  />
+			  <variable name="bufftype" fromCol="服务器提供客户端标示" type="int"  />
+			  <variable name="classname" fromCol="classname"  type="string"  />
+			  <variable name="buffclass" fromCol="buff类型"  type="int"  /> 
+			  <variable name="targetBuffs" fromCol="针对类型" type="string" />
+			  <variable name="effects" fromCol="效果"  type="string"  />  
+		</bean>
+		
+		<bean name="CBuffConfig" from="技能相关表/c持续性buff表" genxml="client">
+			  <variable name="id"  fromCol="Buff编号" type="int" />
+			  <variable name="name" fromCol="Buff名称" type="string"  />
+			  <variable name="inbattle" fromCol="战斗内是否显示" type="int"  />
+			  <variable name="strshowname" fromCol="Buff简述" type="string"  />
+			  <variable name="shapeid" fromCol="图标id"  type="int"  />  
+			  <variable name="discribe" fromCol="Tips描述"  type="string"  />
+			  <variable name="effect" fromCol="特效"  type="string"  />
+			  <variable name="effectsort" fromCol="特效优先级"  type="int"  />
+			  <variable name="wordeffect" fromCol="文字特效"  type="string"  />
+			  <variable name="wordsort" fromCol="文字特效优先级"  type="int"  />
+			  <variable name="cleartype" fromCol="清除方式"  type="int"  />
+        <variable name="specialshow" fromCol="特殊表现"  type="vector" value="int"  /> 
+		</bean>
+		
+		<bean name="SBuffClashs" from="z状态互斥表-复合/z状态互斥表,z状态互斥表-复合/d动作与状态互斥表" genxml="server">
+			  <variable name="id"  fromCol="ID" type="int" />
+			  <variable name="name"  fromCol="名称" type="string" />
+			  <variable name="clashbuffs" fromCol="互斥" type="string"  />
+			  <variable name="invalidbuffs" fromCol="无效" type="string"  /> 
+			  <variable name="overridebuffs" fromCol="顶掉" type="string"  />
+			  <variable name="tips" fromCol="提示信息" type="string"  />
+			  <variable name="clashmapid" fromCol="互斥地图id" type="string"  />
+		</bean>
+		
+		
+	</namespace>	

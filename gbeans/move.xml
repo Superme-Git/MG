@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="move">
+		
+		<bean name="CAutoMovePath" from="x巡游配置/x巡游路径总表" genxml="client">
+			<variable name="id" fromCol="巡游路径ID" type="int" />
+			<variable name="paths" fromCol="路径组" type="string"/>
+			
+		</bean>
+		
+		<bean name="CAutoMovePathPoint" from="x巡游配置/x巡游路径子地图表" genxml="client">
+			<variable name="id" fromCol="路径ID" type="int" />
+			<variable name="ridename" fromCol="巡游坐骑" type="string" />
+			<variable name="effectname" fromCol="绑定特效" type="string" />
+			<variable name="cameraz" fromCol="摄像机高度" type="int" />
+			<variable name="speed" fromCol="巡游速度" type="int" />
+			<variable name="sceneid" fromCol="场景ID" type="int" />
+			<variable name="pointcount" fromCol="路点总数" type="int" />
+			<variable name="points" fromCol="寻路点1,寻路点2,寻路点3,寻路点4,寻路点5,寻路点6,寻路点7,寻路点8,寻路点9,寻路点10,寻路点11,寻路点12,寻路点13,寻路点14,寻路点15,寻路点16,寻路点17,寻路点18,寻路点19,寻路点20" type="vector" value="string" />
+			
+		</bean>
+
+	</namespace>

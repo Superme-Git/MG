@@ -1,0 +1,191 @@
+//格式如下：日期，工程名，带上相对路径的文件名
+
+
+//20160111	
+//FireClient
+//	-MT_G\client\FireClient\Application\GameUI\BattleBagDialog.cpp
+//	-MT_G\client\FireClient\Application\GameUI\BattleBagDialog.h
+//	-MT_G\client\FireClient\Application\GameUI\BattleSkillDialog.cpp
+//	-MT_G\client\FireClient\Application\GameUI\BattleSkillDialog.h
+//	-MT_G\client\tolua++-pkgs\FireClient\GameUI\BattleBagDialog.pkg
+
+//20160111	
+//FireClient
+//	+ Application\Framework\ConnectGetServerInfo.h
+//	+ Application\Framework\ConnectGetServerInfo.cpp
+
+
+//20151217	
+//cegui
+//	MT_G\dependencies\cegui\CEGUI\include\elements\CEGUIRichEditboxAnswerquestionLinkComponent.h 
+//	MT_G\dependencies\cegui\CEGUI\src\elements\CEGUIRichEditboxAnswerQuestionLinkComponent.cpp
+
+
+//20151216	xuxuan
+//engine
+//	+ effect\lightingeffect.cpp
+//	+ effect\lightingeffect.h
+
+
+//20151204
+//FireClient
+//	+ Application\Framework\GameApplication.cpp
+//	- Application\GameUI\XiakeDataManager.cpp
+//	- Application\GameUI\XiaKeJiuGuan.cpp
+//engine
+//	+ map\mapobjs.cpp
+//	- common\pfsutil.cpp
+	
+	
+记录开始
+20151208
+FireClient
+	- Application/Framework/XiaKeJiuGuanManager.cpp
+	- Application/Framework/XiaKeJiuGuanManager.h
+	- Application/GameUI/AcupointLevelupDlg.cpp
+	- Application/GameUI/AcupointLevelupDlg.h
+	- Application/GameUI/AntiqueDlg.cpp
+	- Application/GameUI/AntiqueDlg.h
+	- Application/GameUI/CharacterLabelDlg.cpp
+	- Application/GameUI/CharacterLabelDlg.h
+	- Application/GameUI/CharacterPropertyDlg.cpp
+	- Application/GameUI/CharacterPropertyDlg.h
+	- Application/GameUI/CharecterinfoDlg.cpp
+	- Application/GameUI/CharecterinfoDlg.h
+	- Application/GameUI/DaxiaBattleOrder.cpp
+	- Application/GameUI/DaxiaBattleOrder.h
+	- Application/GameUI/DaXiaLuDlg.cpp
+	- Application/GameUI/DaXiaLuDlg.h
+	- Application/GameUI/DaXiaMainFrame.cpp
+	- Application/GameUI/DaXiaMainFrame.h
+	- Application/GameUI/DaxiaStudyDlg.cpp
+	- Application/GameUI/DaxiaStudyDlg.h
+	- Application/GameUI/FenghuolingTaskDlg.cpp
+	- Application/GameUI/FenghuolingTaskDlg.h
+	- Application/GameUI/FreePetWithCodeDlg.cpp
+	- Application/GameUI/FreePetWithCodeDlg.h
+	- Application/GameUI/FriendChatDlg.cpp
+	- Application/GameUI/FriendChatDlg.h
+	- Application/GameUI/ItemcommoncellDlg.cpp
+	- Application/GameUI/ItemcommoncellDlg.h
+	- Application/GameUI/MyRiverLakeDlg.cpp
+	- Application/GameUI/MyRiverLakeDlg.h
+	- Application/GameUI/NpcSellItemDlg.cpp
+	- Application/GameUI/NpcSellItemDlg.h
+	- Application/GameUI/PartnerQuickDlg.cpp
+	- Application/GameUI/PartnerQuickDlg.h
+	- Application/GameUI/PetIllustration.cpp
+	- Application/GameUI/PetIllustration.h
+	- Application/GameUI/PetInfoDialog.cpp
+	- Application/GameUI/PetInfoDialog.h
+	- Application/GameUI/PetIslandEntranceDlg.cpp
+	- Application/GameUI/PetIslandEntranceDlg.h
+	- Application/GameUI/PetLabelDlg.cpp
+	- Application/GameUI/PetLabelDlg.h
+	- Application/GameUI/PetPropertyDlg.cpp
+	- Application/GameUI/PetPropertyDlg.h
+	- Application/GameUI/PetReturnDlg.cpp
+	- Application/GameUI/PetReturnDlg.h
+	- Application/GameUI/PetXuemaiDlg.cpp
+	- Application/GameUI/PetXuemaiDlg.h
+	- Application/GameUI/Pvpservice.cpp
+	- Application/GameUI/Pvpservice.h
+	- Application/GameUI/QuickcombinDlg.cpp
+	- Application/GameUI/QuickcombinDlg.h
+	- Application/GameUI/SceneMovieExitConfirmDlg.cpp
+	- Application/GameUI/SceneMovieExitConfirmDlg.h
+	- Application/GameUI/XiakeDataManager.cpp
+	- Application/GameUI/XiakeDataManager.h
+	- Application/GameUI/XiaKeJiuGuan.cpp
+	- Application/GameUI/XiaKeJiuGuan.h
+	- Application/GameUI/XiaKeJiuGuanDlg.cpp
+	- Application/GameUI/XiaKeJiuGuanDlg.h
+	- Application/GameUI/XiaKeWarning.cpp
+	- Application/GameUI/XiaKeWarning.h
+
+
+
+20160119
+FireClient
+	+ Application/Utils/CallLuaUtil.cpp
+
+20160127
+	- Application/GameUI/MainPackDlg.cpp
+	- Application/GameUI/MainPackDlg.h
+	- Application/GameUI/MainPackLabelDlg.cpp
+	- Application/GameUI/MainPackLabelDlg.h
+
+
+20160128
+	- Application/GameUI/AutoBattleMapDlg.cpp
+	- Application/GameUI/AutoBattleMapDlg.h
+	- Application/GameUI/CardEffectDlg.cpp
+	- Application/GameUI/CardEffectDlg.h
+	- Application/GameUI/Cbgantiquetips.cpp
+	- Application/GameUI/Cbgantiquetips.h
+	- Application/GameUI/ContactCharacterDlg.cpp
+	- Application/GameUI/ContactCharacterDlg.h
+	- Application/GameUI/DeathNoteDlg.cpp
+	- Application/GameUI/DeathNoteDlg.h
+
+20160129
+	- Application/GameUI/PetSkillTipsDlg.h
+	- Application/GameUI/PetSkillTipsDlg.h
+
+20160129
+FireClient
+	- Application/GameUI/DialogWithLabel.cpp
+	- Application/GameUI/DialogWithLabel.h
+	- Application/GameUI/LabelDlg.cpp
+	- Application/GameUI/LabelDlg.h
+
+20160129
+FireClient
+	- Application/GameUI/PlayRoseEffecst.cpp
+	- Application/GameUI/PlayRoseEffecst.h
+	
+20160201
+FireClient
+	- Application\GameUI\TemporaryPack.cpp
+	- Application\GameUI\TemporaryPack.h
+
+20160201
+FireClient
+	- Application\GameUI\ConfirmMessage.cpp
+	- Application\GameUI\ConfirmMessage.h
+
+20160201
+FireClient
+	- Application\GameUI\GameItemTable.cpp
+	- Application\GameUI\GameItemTable.h
+
+2016年4月18日11:40:22
+engine
+	+ engine\nuAccelerateUpdater.cpp
+	+ engine\nuAccelerateUpdater.h
+
+
+2016年4月18日15:20:22
+FireClient
+	+ Application\oggenc\audio.cpp
+	+ Application\oggenc\audio.h
+	+ Application\oggenc\encode.cpp
+	+ Application\oggenc\encode.h
+	+ Application\oggenc\lyrics.cpp
+	+ Application\oggenc\lyrics.h
+	+ Application\oggenc\oggenc.cpp
+	+ Application\oggenc\oggenc.h
+	+ Application\oggenc\platform.cpp
+	+ Application\oggenc\platform.h
+	+ Application\oggenc\resample.cpp
+	+ Application\oggenc\resample.h
+	+ Application\oggenc\skeleton.cpp
+	+ Application\oggenc\skeleton.h
+
+
+2016年5月2日21:17:22
+FireClient
+	+ Application\Amr\interf_dec.cpp
+	+ Application\Amr\interf_enc.cpp
+	+ Application\Amr\sp_dec.cpp
+	+ Application\Amr\sp_enc.cpp

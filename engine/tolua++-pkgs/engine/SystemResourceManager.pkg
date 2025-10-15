@@ -1,0 +1,39 @@
+namespace Nuclear
+{
+	class SystemResourceManager
+	{
+	public:
+		struct WindowsVersionInfo
+		{
+			int m_iPlatformID;
+			int m_iMajorVersion;
+			int m_iMinorVersion;
+			int m_iBuildNumber;
+			std::wstring m_strInfo;
+		};
+		struct MemoryStatus
+		{
+			int m_iTotalPhys;
+			int m_iAvailPhys;
+			int m_iMemoryLoad;
+			int m_iTotalVirtual;		
+			int m_iAvailVirtual;
+		};
+		SystemResourceManager(Renderer *pRenderer);
+		~SystemResourceManager();
+		void Init();
+		void Update();
+		void OnTimer(int iPeriod);
+		int GetCPUCount() const;	
+		int GetSystemTimerPeriod() const;
+		bool IsTextureCapsNoPow2() const;
+		int GetCPUFrequency() const;
+		bool IsCPUFrequencyValid(); 
+		void GetMemoryStatus(MemoryStatus&) const;
+		int GetAvailTextureMemory() const;
+		void SetSoundInited(bool ok);
+		bool IsSoundInited();
+
+	};
+
+}

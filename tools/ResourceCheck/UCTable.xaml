@@ -1,0 +1,16 @@
+﻿<UserControl x:Name="UCTable0" x:Class="ResourceCheck.UCTable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid x:Name="GDBG" SizeChanged="GDBG_SizeChanged">
+        <ListBox x:Name="LBFile" HorizontalAlignment="Left" Width="300" Margin="0,30,0,0" MouseDoubleClick="LBTableFile_MouseDoubleClick" ToolTip="双击进行查询" Background="#FFFFFFC8" Cursor="Hand"/>
+        <ListBox x:Name="LBFileDead" HorizontalAlignment="Left" Margin="687,30,0,0" Width="313" Background="#FFFFC8C8"/>
+        <ListBox x:Name="LBFileLive" HorizontalAlignment="Left" Width="300" Margin="350,30,0,0" ToolTip="双击查看详细信息..." Background="#FFC8FFFF" Cursor="Hand"/>
+        <Label x:Name="LBLFileTitle" Content="数据表文件 - 0" HorizontalAlignment="Left" Height="30" Margin="0" VerticalAlignment="Top" Width="300" FontSize="16"/>
+        <Label x:Name="LBLFileLiveTitle" Content="存在的特效文件 - 0" HorizontalAlignment="Left" Height="30" Margin="350,0,0,0" VerticalAlignment="Top" Width="300" FontSize="16"/>
+        <Label x:Name="LBLFileDeadTitle" Content="丢失的特效文件 - 0" HorizontalAlignment="Left" Height="30" Margin="690,0,0,0" VerticalAlignment="Top" Width="300" FontSize="16"/>
+    </Grid>
+</UserControl>

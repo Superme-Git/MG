@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="product">	  
+	  <protocol name="SErrorCode" type="17009" maxsize="65535"  prior="101" tolua = "3"> 服务器返回错误消息
+		  <variable name="errorCode" type="int" validator="value=(,0)" />
+	  </protocol>	  
+	  <protocol name="SProductMadeUp" type="17010" maxsize="65535"  prior="101" tolua="3"> 打造装备（炼药，烹饪）成功
+		  <variable name="maketype" type="int" />			type为1代表是打造生成的物品，为2是炼药练成的药品，为3代表是烹饪成功的食品
+		  <variable name="itemkey" type="int" />
+	  </protocol>
+    <protocol name="CMakeEquip" type="17019" maxsize="65535"  prior="101" tolua="3">	装备打造
+		<variable name="equipID" type="int" validator="value=[1,)" /> 装备ID
+        <variable name="makeType" type="short" validator="value=[0,)" /> 打造类型 0 普通打造; 1 强化打造
+	</protocol>
+
+    <protocol name="CResolveEquip" type="17020" maxsize="64"  prior="101" tolua="3">   装备分解
+        <variable name="itemkey" type="int"/> 装备在背包里的key
+    </protocol>
+
+    <protocol name="CResolveGem" type="17021" maxsize="64"  prior="101" tolua="3">   宝石分解
+        <variable name="itemkey" type="int"/> 宝石在背包里的key
+    </protocol>	
+</namespace>

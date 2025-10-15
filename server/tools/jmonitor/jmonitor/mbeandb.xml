@@ -1,0 +1,1413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configure>
+    <driver name="com.mysql.jdbc.Driver"/>
+    <connection name="mhsdm" password=""
+        poolsize="3" url="jdbc:mysql://172.16.0.132:3306/mhsdm" username="mhsdm"/>
+    <servermanager rename_table_period_day="7" table_last_fetch="lastfetch.xml">
+        <portforwarder ip="127.0.0.1" name="lauthc" port="27000"/>
+    </servermanager>
+    <tablemanager>
+        <table domain="gs.counter" fetch_period_minute="10" type="ItemIOState">
+            <keycolumn attr="itemid" type="int"/>
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <keycolumn attr="tujing" type="int"/>
+            <keycolumn attr="xiangguanid" type="int"/>
+            <column attr="inCount" type="long"/>
+            <column attr="outCount" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="MoneyExpIOState">
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <keycolumn attr="tujing" type="int"/>
+            <keycolumn attr="xiangguanid" type="int"/>
+            <column attr="bangdingInCount" type="long"/>
+            <column attr="bangdingOutCount" type="long"/>
+            <column attr="jingyanInCount" type="long"/>
+            <column attr="liutongInCount" type="long"/>
+            <column attr="liutongOutCount" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="NCPServiceStat">
+            <keycolumn attr="npcid" type="int"/>
+            <keycolumn attr="service" type="int"/>
+            <column attr="usedCount" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="QuestState">
+            <keycolumn attr="countertype" type="int"/>
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <keycolumn attr="questid" type="int"/>
+            <column attr="count" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="SellBuyStat">
+            <keycolumn attr="itemid" type="int"/>
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <keycolumn attr="selllbuytype" type="int"/>
+            <column attr="itemCount" type="long"/>
+            <column attr="moneyCount" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="FushiChongzhiStat">
+            <keycolumn attr="fenduan" type="int"/>
+            <column attr="count" type="long"/>
+            <column attr="value" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="FushiJiaoyiIOStat">
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <column attr="guadanChushou" type="long"/>
+            <column attr="guadanQiugou" type="long"/>
+            <column attr="jiaoyiDacheng" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" type="FushiXiaohaoStat">
+            <keycolumn attr="itemid" type="int"/>
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <column attr="xiaohao" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_period_minute="10" peak="true"
+            sample="60" type="LevelRoles">
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="menpai" type="int"/>
+            <column attr="count" type="long"/>
+        </table>
+        <table domain="gs.counter" fetch_offset_minute="30"
+            fetch_period_minute="1440" peak="true" type="OnlinesNumState">
+            <column attr="OnlinesNumState.chargeTotal" type="int"/>
+            <column attr="OnlinesNumState.chargeUserNum" type="int"/>
+            <column attr="OnlinesNumState.consumeRoleNum" type="int"/>
+            <column attr="OnlinesNumState.consumeTotal" type="int"/>
+            <column attr="OnlinesNumState.historyRoleNum" type="int"/>
+            <column attr="OnlinesNumState.historyUserNum" type="int"/>
+            <column attr="OnlinesNumState.increaseRoleNum" type="int"/>
+            <column attr="OnlinesNumState.increaseUserNum" type="int"/>
+        </table>
+        <table domain="gs.counter" fetch_offset_minute="30"
+            fetch_period_minute="1440" peak="false" type="ConsumeRoleState">
+            <keycolumn attr="consumeType" type="int"/>
+            <keycolumn attr="consumeValue" type="int"/>
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="onlinesTime" type="int"/>
+            <keycolumn attr="school" type="int"/>
+            <keycolumn attr="shape" type="int"/>
+            <column attr="totalAmount" type="int"/>
+            <column attr="userNum" type="int"/>
+        </table>
+        <table domain="gs.counter" fetch_offset_minute="30"
+            fetch_period_minute="1440" peak="false" type="ChargeUserState">
+            <keycolumn attr="chargeType" type="int"/>
+            <keycolumn attr="chargeValue" type="int"/>
+            <column attr="totalAmount" type="int"/>
+            <column attr="userNum" type="int"/>
+        </table>
+        <table domain="gs.counter" fetch_offset_minute="30"
+            fetch_period_minute="1440" peak="false" type="ActiveRoleState">
+            <keycolumn attr="level" type="int"/>
+            <keycolumn attr="onlinesTime" type="int"/>
+            <keycolumn attr="school" type="int"/>
+            <keycolumn attr="shape" type="int"/>
+            <keycolumn attr="stateType" type="int"/>
+            <column attr="count" type="int"/>
+        </table>
+        <table domain="xdb" dynamic_mbean="true" fetch_offset_minute="0"
+            fetch_period_minute="10" peak="true" sample="1440" type="Protocols.recv">
+            <keycolumn attr="name" type="short"/>
+            <column attr="count" type="long"/>
+        </table>
+        <table domain="xdb" dynamic_mbean="true" fetch_offset_minute="0"
+            fetch_period_minute="10" peak="true" sample="1440" type="Protocols.send">
+            <keycolumn attr="name" type="short"/>
+            <column attr="count" type="long"/>
+        </table>
+        <table domain="xdb" dynamic_mbean="true" fetch_offset_minute="0"
+            fetch_period_minute="10" peak="true" sample="1440" type="Procedures">
+            <keycolumn attr="name" type="short"/>
+            <column attr="count" type="long"/>
+        </table>
+        <table domain="xdb" fetch_offset_minute="0"
+            fetch_period_minute="10" peak="true" sample="1440" type="Xdb">
+            <column attr="AngleInterruptCount" type="int"/>
+            <column attr="TransactionCount" type="long"/>
+            <column attr="TransactionException" type="long"/>
+            <column attr="TransactionFalse" type="long"/>
+        </table>
+        <table domain="xdb" fetch_offset_minute="0"
+            fetch_period_minute="10" name="Checkpoint" peak="true"
+            sample="1440" type="Xdb">
+            <column attr="CountCheckpoint" type="int"/>
+            <column attr="CountFlush" type="long"/>
+            <column attr="CountMarshal0" type="long"/>
+            <column attr="CountMarshalN" type="long"/>
+            <column attr="CountSnapshot" type="long"/>
+            <column attr="PeriodCheckpoint" type="int"/>
+            <column attr="TotalTimeCheckpoint" type="long"/>
+            <column attr="TotalTimeFlush" type="long"/>
+            <column attr="TotalTimeMarshalN" type="long"/>
+            <column attr="TotalTimeSnapshot" type="long"/>
+        </table>
+        <table domain="xdb" fetch_offset_minute="0"
+            fetch_period_minute="10" name="Executor" peak="true"
+            sample="1440" type="Xdb">
+            <column attr="ExecutorActiveCount" type="int"/>
+            <column attr="ExecutorCompletedTaskCount" type="long"/>
+            <column attr="ExecutorCorePoolSize" type="int"/>
+            <column attr="ExecutorDefaultTimeout" type="long"/>
+            <column attr="ExecutorPoolSize" type="int"/>
+            <column attr="ExecutorTaskCount" type="long"/>
+            <column attr="ProcedureActiveCount" type="int"/>
+            <column attr="ProcedureCompletedTaskCount" type="long"/>
+            <column attr="ProcedureCorePoolSize" type="int"/>
+            <column attr="ProcedureDefaultTimeout" type="long"/>
+            <column attr="ProcedurePoolSize" type="int"/>
+            <column attr="ProcedureTaskCount" type="long"/>
+            <column attr="ScheduledActiveCount" type="int"/>
+            <column attr="ScheduledCompletedTaskCount" type="long"/>
+            <column attr="ScheduledCorePoolSize" type="int"/>
+            <column attr="ScheduledDefaultTimeout" type="long"/>
+            <column attr="ScheduledPoolSize" type="int"/>
+            <column attr="ScheduledTaskCount" type="long"/>
+        </table>
+    </tablemanager>
+    <chartmanager>
+        <chart name="NPC与在线">
+            <range key="time" low="-1"/>
+            <line bean="gs_counter_LevelRoles" key="time" name="在线人数" value="count"/>
+            <line bean="gs_counter_NCPServiceStat" key="time"
+                name="npc服务使用量" value="usedCount"/>
+        </chart>
+        <chart name="昨天今天在线">
+            <line bean="gs_counter_LevelRoles" key="time" name="今天" value="count">
+                <range key="time" low="-1"/>
+            </line>
+            <line bean="gs_counter_LevelRoles" key="time" name="昨天" value="count">
+                <range key="time" low="-2" up="-1"/>
+            </line>
+        </chart>
+    </chartmanager>
+    <localizemanager>
+        <localize bean="gs_counter_NCPServiceStat" local="NPC服务">
+            <key local="NPCID" o="npcid"/>
+            <key local="服务类型" o="service"/>
+            <value local="次数" o="usedCount"/>
+        </localize>
+        <localize bean="gs_counter_FushiChongzhiStat" local="符石充值">
+            <key local="充值额段" o="fenduan">
+                <sep local="0" o="0"/>
+            </key>
+            <value local="次数" o="count"/>
+            <value local="充值额" o="value"/>
+        </localize>
+        <localize bean="gs_counter_OnlinesNumState" local="基本计数">
+            <value local="新增帐号" o="OnlinesNumState_increaseUserNum"/>
+            <value local="新增角色" o="OnlinesNumState_increaseRoleNum"/>
+            <value local="历史帐号" o="OnlinesNumState_historyUserNum"/>
+            <value local="消费帐号" o="OnlinesNumState_consumeTotal"/>
+            <value local="消费角色" o="OnlinesNumState_consumeRoleNum"/>
+            <value local="历史角色数" o="OnlinesNumState_historyRoleNum"/>
+            <value local="充值用户数" o="OnlinesNumState_chargeUserNum"/>
+            <value local="充值总数" o="OnlinesNumState_chargeTotal"/>
+        </localize>
+        <basekey name="menpai">
+            <sep local="古墓派" o="11"/>
+            <sep local="丐帮" o="12"/>
+            <sep local="西域密宗" o="13"/>
+            <sep local="白驼山庄" o="14"/>
+            <sep local="大理段氏" o="15"/>
+            <sep local="全真教" o="16"/>
+            <sep local="桃花岛" o="17"/>
+            <sep local="绝情谷" o="18"/>
+            <sep local="百花谷" o="19"/>
+        </basekey>
+        <basekey name="charmodel">
+            <sep local="楚天河" o="1"/>
+            <sep local="秦少游" o="2"/>
+            <sep local="燕重光" o="3"/>
+            <sep local="司马长风" o="4"/>
+            <sep local="杨空岳" o="5"/>
+            <sep local="唐七七" o="6"/>
+            <sep local="独孤月" o="7"/>
+            <sep local="铃小雨" o="8"/>
+            <sep local="云夕" o="9"/>
+            <sep local="韩忆" o="10"/>
+        </basekey>
+        <basekey name="timesep">
+            <sep local="(0--15]" o="1"/>
+            <sep local="(15--30]" o="2"/>
+            <sep local="(30--60]" o="3"/>
+            <sep local="(60--120]" o="4"/>
+            <sep local="(120--180]" o="5"/>
+            <sep local="(180--240]" o="6"/>
+            <sep local="(240--360]" o="7"/>
+            <sep local="(360,)" o="8"/>
+        </basekey>
+        <basekey name="moneysep">
+            <sep local="(0--5]" o="1"/>
+            <sep local="(5--10]" o="2"/>
+            <sep local="(10--20]" o="3"/>
+            <sep local="(20--30]" o="4"/>
+            <sep local="(30--40]" o="5"/>
+            <sep local="(40--100]" o="6"/>
+            <sep local="(100--200]" o="7"/>
+            <sep local="(200--300]" o="8"/>
+            <sep local="(300,)" o="9"/>
+        </basekey>
+        <localize bean="gs_counter_ActiveRoleState" local="活跃角色">
+            <key extends="levelsep" local="等级" o="level"/>
+            <key extends="timesep" local="在线时长" o="onlinesTime"/>
+            <key extends="menpai" local="门派" o="school"/>
+            <key extends="charmodel" local="模型" o="shape"/>
+            <key local="类型" o="stateType">
+                <sep local="周新增活跃角色" o="101"/>
+                <sep local="周回流活跃角色" o="102"/>
+                <sep local="周持续活跃角色" o="103"/>
+                <sep local="周新增活跃流失角色" o="104"/>
+                <sep local="周回流活跃流失角色" o="105"/>
+                <sep local="周持续活跃流失角色" o="106"/>
+                <sep local="日新增活跃角色" o="107"/>
+                <sep local="日回流活跃角色" o="108"/>
+                <sep local="日持续活跃角色" o="109"/>
+                <sep local="日新增活跃流失角色" o="110"/>
+                <sep local="日回流活跃流失角色" o="111"/>
+                <sep local="日持续活跃流失角色" o="112"/>
+            </key>
+            <value local="人数" o="count"/>
+        </localize>
+        <localize bean="gs_counter_ChargeUserState" local="付费账户">
+            <key local="类型" o="chargeType">
+                <sep local="周新增付费账户" o="201"/>
+                <sep local="周回流付费账户" o="202"/>
+                <sep local="周持续付费账户" o="203"/>
+                <sep local="周新增付费流失账户" o="204"/>
+                <sep local="周回流付费流失账户" o="205"/>
+                <sep local="周持续付费流失账户" o="206"/>
+                <sep local="日新增付费账户" o="207"/>
+                <sep local="日回流付费账户" o="208"/>
+                <sep local="日持续付费账户" o="209"/>
+                <sep local="日新增付费流失账户" o="210"/>
+                <sep local="日回流付费流失账户" o="211"/>
+                <sep local="日持续付费流失账户" o="212"/>
+            </key>
+            <key extends="moneysep" local="付费额度" o="chargeValue"/>
+            <value local="付费额" o="totalAmount"/>
+            <value local="用户数" o="userNum"/>
+        </localize>
+        <localize bean="gs_counter_ConsumeRoleState" local="消费用户信息">
+            <key local="类型" o="consumeType">
+                <sep local="周新增消耗角色" o="401"/>
+                <sep local="周回流消耗角色" o="402"/>
+                <sep local="周持续消耗角色" o="403"/>
+                <sep local="周新增消耗流失角色" o="404"/>
+                <sep local="周回流消耗流失角色" o="405"/>
+                <sep local="周持续消耗流失角色" o="406"/>
+                <sep local="日新增消耗角色" o="407"/>
+                <sep local="日回流消耗角色" o="408"/>
+                <sep local="日持续消耗角色" o="409"/>
+                <sep local="日新增消耗流失角色" o="410"/>
+                <sep local="日回流消耗流失角色" o="411"/>
+                <sep local="日持续消耗流失角色" o="412"/>
+            </key>
+            <key extends="moneysep" local="消费额度" o="consumeValue"/>
+            <key extends="levelsep" local="等级" o="level"/>
+            <key extends="timesep" local="在线时间" o="onlinesTime"/>
+            <key extends="menpai" local="门派" o="school"/>
+            <key extends="charmodel" local="模型" o="shape"/>
+            <value local="消费额度" o="totalAmount"/>
+            <value local="用户数" o="userNum"/>
+        </localize>
+        <localize bean="gs_counter_ItemIOState" local="道具生成消耗">
+            <key local="道具ID" o="itemid"/>
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <key local="途径" o="tujing">
+                <sep local="任务" o="0"/>
+                <sep local="购买" o="1"/>
+                <sep local="出售" o="2"/>
+                <sep local="生产" o="3"/>
+                <sep local="商城" o="4"/>
+                <sep local="转变" o="5"/>
+                <sep local="销毁" o="6"/>
+                <sep local="超时" o="7"/>
+                <sep local="镶嵌" o="8"/>
+                <sep local="系统赠送" o="9"/>
+                <sep local="活动奖励" o="10"/>
+                <sep local="战斗所得" o="11"/>
+                <sep local="使用消耗" o="12"/>
+                <sep local="临时包裹被消耗" o="13"/>
+            </key>
+            <key local="相关ID" o="xiangguanid"/>
+            <value local="获取" o="inCount"/>
+            <value local="消耗" o="outCount"/>
+        </localize>
+        <localize bean="gs_counter_LevelRoles" local="在线玩家">
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <value local="数量" o="count"/>
+        </localize>
+        <localize bean="gs_counter_MoneyExpIOState" local="游戏币和经验">
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <key local="途径" o="tujing">
+                <sep local="卖给npc" o="0"/>
+                <sep local="Npc购买" o="1"/>
+                <sep local="Npc回购" o="2"/>
+                <sep local="通用任务奖励" o="3"/>
+                <sep local="师门任务奖励" o="4"/>
+                <sep local="剧情任务奖励" o="5"/>
+                <sep local="练功区奖励" o="6"/>
+                <sep local="玩家交易" o="7"/>
+                <sep local="摆摊" o="8"/>
+                <sep local="店铺购买物品" o="9"/>
+                <sep local="酒店回复" o="10"/>
+                <sep local="冲穴" o="11"/>
+                <sep local="学习技能" o="12"/>
+                <sep local="打造装备" o="13"/>
+                <sep local="装备冲星" o="14"/>
+                <sep local="重铸装备" o="15"/>
+                <sep local="结婚" o="16"/>
+                <sep local="结拜" o="17"/>
+                <sep local="" o="18"/>
+                <sep local="公会" o="19"/>
+                <sep local="开店" o="20"/>
+                <sep local="扩张柜台" o="21"/>
+                <sep local="竞拍店铺号码" o="22"/>
+                <sep local="店铺交易" o="23"/>
+                <sep local="幸运大转盘" o="24"/>
+                <sep local="仓库租金" o="25"/>
+                <sep local="特产任务" o="26"/>
+                <sep local="运输物资任务" o="27"/>
+                <sep local="符石交易平台购买" o="28"/>
+                <sep local="符石交易手续费" o="29"/>
+                <sep local="快捷购买" o="30"/>
+                <sep local="死亡惩罚" o="31"/>
+                <sep local="收徒信息押金" o="32"/>
+                <sep local="节日礼物" o="33"/>
+                <sep local="三届珍兽任务" o="34"/>
+                <sep local="世界之谜奖励" o="35"/>
+                <sep local="神雕哥的礼物" o="36"/>
+                <sep local="车夫传送服务" o="37"/>
+                <sep local="宠物医生服务" o="38"/>
+                <sep local="祈愿玩法" o="39"/>
+                <sep local="礼包功能" o="40"/>
+                <sep local="其他战斗奖励" o="41"/>
+                <sep local="签订团队契约" o="42"/>
+                <sep local="完成团队契约" o="43"/>
+                <sep local="店铺运营资金存入" o="44"/>
+                <sep local="店铺运营资金取出" o="45"/>
+                <sep local="店铺投资税" o="46"/>
+                <sep local="取回售卖符石所得" o="47"/>
+                <sep local="修改商铺名字" o="48"/>
+                <sep local="解冻商铺" o="49"/>
+                <sep local="装备镶嵌宝石" o="50"/>
+                <sep local="解除师徒关系" o="51"/>
+                <sep local="提炼宠物之星" o="52"/>
+                <sep local="购买人气" o="53"/>
+                <sep local="发起皇城决斗" o="54"/>
+                <sep local="挑战首席弟子" o="55"/>
+                <sep local="选举首席投票" o="56"/>
+                <sep local="接受天尊任务" o="57"/>
+                <sep local="挑战星宿奖励" o="58"/>
+                <sep local="修理装备" o="59"/>
+                <sep local="幸运修理" o="60"/>
+                <sep local="天尊任务奖励" o="800"/>
+                <sep local="升级" o="801"/>
+                <sep local="出师奖励" o="802"/>
+                <sep local="其他" o="999"/>
+            </key>
+            <key local="相关ID" o="xiangguanid"/>
+            <value local="储备金获取" o="bangdingInCount"/>
+            <value local="储备金消耗" o="bangdingOutCount"/>
+            <value local="经验获取" o="jingyanInCount"/>
+            <value local="流通币获取" o="liutongInCount"/>
+            <value local="流通币消耗" o="liutongOutCount"/>
+        </localize>
+        <localize bean="gs_counter_QuestState" local="任务">
+            <key local="类型" o="countertype">
+                <sep local="接受" o="0"/>
+                <sep local="放弃" o="1"/>
+                <sep local="完成" o="2"/>
+                <sep local="失败" o="3"/>
+            </key>
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <key local="任务ID" o="questid"/>
+            <value local="次数" o="count"/>
+        </localize>
+        <localize bean="gs_counter_SellBuyStat" local="商会和摆摊">
+            <key local="道具ID" o="itemid"/>
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <key local="类型" o="selllbuytype">
+                <sep local="商会" o="0"/>
+                <sep local="摆摊" o="1"/>
+            </key>
+            <value local="数量" o="itemCount"/>
+            <value local="金额" o="moneyCount"/>
+        </localize>
+        <localize bean="gs_counter_FushiJiaoyiIOStat" local="符石交易">
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <value local="期望出售" o="guadanChushou"/>
+            <value local="期望求购" o="guadanQiugou"/>
+            <value local="交易成功" o="jiaoyiDacheng"/>
+        </localize>
+        <localize bean="gs_counter_FushiXiaohaoStat" local="符石消耗">
+            <key local="物品ID" o="itemid"/>
+            <key local="等级" o="level"/>
+            <key extends="menpai" local="门派" o="menpai"/>
+            <value local="符石数" o="xiaohao"/>
+        </localize>
+        <basekey name="levelsep">
+            <sep local="1-5" o="1"/>
+            <sep local="6-10" o="2"/>
+            <sep local="11-15" o="3"/>
+            <sep local="16-20" o="4"/>
+            <sep local="21-25" o="5"/>
+            <sep local="26-30" o="6"/>
+            <sep local="31-35" o="7"/>
+            <sep local="36-40" o="8"/>
+            <sep local="41-45" o="9"/>
+            <sep local="46-50" o="10"/>
+            <sep local="51-55" o="11"/>
+            <sep local="56-60" o="12"/>
+            <sep local="61-65" o="13"/>
+            <sep local="66-70" o="14"/>
+            <sep local="71-75" o="15"/>
+            <sep local="76-80" o="16"/>
+            <sep local="81-85" o="17"/>
+            <sep local="86-90" o="18"/>
+            <sep local="91-95" o="19"/>
+            <sep local="96-100" o="20"/>
+            <sep local="101-105" o="21"/>
+            <sep local="106-110" o="22"/>
+            <sep local="111-115" o="23"/>
+            <sep local="116-120" o="24"/>
+        </basekey>
+        <basekey name="RO_xdb_Protocols_recv" readonly="true">
+            <sep local="gacd.ACQuestion2" o="1"/>
+            <sep local="gnet.UserInfoRep" o="2"/>
+            <sep local="gnet.link.AnnounceLinkId" o="3"/>
+            <sep local="gnet.link.Dispatch" o="4"/>
+            <sep local="xdb.util.UniqName$Allocate" o="5"/>
+            <sep local="gacd.ACReportCheater3" o="6"/>
+            <sep local="gacd.ACRemoteCode2" o="7"/>
+            <sep local="xdb.util.UniqName$Confirm" o="8"/>
+            <sep local="gacd.ACKickoutUser2" o="9"/>
+            <sep local="gnet.link.LinkBroken" o="10"/>
+            <sep local="xdb.util.UniqName$Exist" o="11"/>
+            <sep local="gacd.ACCaptchaList" o="12"/>
+            <sep local="xdb.util.UniqName$Release" o="13"/>
+        </basekey>
+        <basekey name="RO_xdb_Protocols_send" readonly="true">
+            <sep local="gnet.link.SetLogin" o="1"/>
+            <sep local="gnet.link.Bind" o="2"/>
+            <sep local="xdb.util.UniqName$Allocate" o="3"/>
+            <sep local="gacd.ACStatusAnnounce3" o="4"/>
+            <sep local="xdb.util.UniqName$Confirm" o="5"/>
+            <sep local="gacd.ACTriggerCaptcha" o="6"/>
+            <sep local="xdb.util.UniqName$Exist" o="7"/>
+            <sep local="gacd.ACReport2" o="8"/>
+            <sep local="gacd.ACTriggerQuestion2" o="9"/>
+            <sep local="gacd.ACWhoAmI" o="10"/>
+            <sep local="fire.RemoteLog" o="11"/>
+            <sep local="gnet.link.Kick" o="12"/>
+            <sep local="gnet.link.Broadcast" o="13"/>
+            <sep local="gnet.link.Send" o="14"/>
+            <sep local="gnet.link.LinkServerControl" o="15"/>
+            <sep local="gacd.ACAnswer2" o="16"/>
+            <sep local="xdb.util.UniqName$Release" o="17"/>
+        </basekey>
+        <basekey name="RO_xdb_Procedures" readonly="true">
+            <sep local="fire.gsp.friends.CRequestUpdateRoleInfo$1" o="1"/>
+            <sep local="fire.gsp.npc.PChefuNpc" o="2"/>
+            <sep local="gacd.gacdc.ACRefreshCaptcha$1" o="3"/>
+            <sep local="fire.gsp.task.ItemTaskListener$1" o="4"/>
+            <sep local="fire.gsp.battle.watch.PSendWatchBattle" o="5"/>
+            <sep
+                local="fire.gsp.faction.PBroadcastProtocolToGradeMembers" o="6"/>
+            <sep local="fire.gsp.team.PCreateTeam.False" o="7"/>
+            <sep local="fire.gsp.faction.PRequestFactionDetiail" o="8"/>
+            <sep local="fire.gsp.PLevelUpProc$1" o="9"/>
+            <sep local="fire.gsp.npc.PRemoveNpcFromGS" o="10"/>
+            <sep local="fire.gsp.cofc.PMovePet2ShopProc" o="11"/>
+            <sep local="fire.gsp.pet.PShowPetProc" o="12"/>
+            <sep local="fire.gsp.faction.CBuyFamilySpecial$1" o="13"/>
+            <sep local="fire.gsp.team.CInviteJoinTeam$1" o="14"/>
+            <sep local="fire.gsp.sworn.PSendSwearInfoWhileOnline" o="15"/>
+            <sep
+                local="fire.msp.npc.MAddRobberNpc$PCreateTreasureMapTask" o="16"/>
+            <sep local="fire.gsp.task.treasuremap.PAttackYaomo" o="17"/>
+            <sep
+                local="fire.gsp.specialquest.TaskFactionDailyFightDoudou$PTaskNewBattle" o="18"/>
+            <sep local="fire.gsp.task.schoolanswerques.PAnsQuestion" o="19"/>
+            <sep local="fire.gsp.faction.PRequestFactionBuildDetail" o="20"/>
+            <sep local="fire.gsp.task.PAcceptScenarioMission" o="21"/>
+            <sep local="fire.gsp.task.PAbandonScenarioMission" o="22"/>
+            <sep local="gnet.UserInfoRep$1" o="23"/>
+            <sep local="fire.gsp.item.PGiveRoleItem" o="24"/>
+            <sep local="fire.gsp.cofc.PRemovepetProc" o="25"/>
+            <sep
+                local="fire.gsp.specialquest.PCommitFactionDailyQuest" o="26"/>
+            <sep local="fire.gsp.faction.PBuyFamilyMedical" o="27"/>
+            <sep local="fire.gsp.task.yunyou.CancelYunyou$1.False" o="28"/>
+            <sep local="fire.gsp.task.undead.PRequestLeaveScene" o="29"/>
+            <sep local="fire.gsp.faction.PAddFamilyApply" o="30"/>
+            <sep local="fire.gsp.npc.PBuyItemFromNpc" o="31"/>
+            <sep local="fire.gsp.team.CCallbackMember$1" o="32"/>
+            <sep local="fire.gsp.task.xingsu.PBattleToXingSu" o="33"/>
+            <sep local="fire.gsp.task.treasuremap.CancelDDJTask$1" o="34"/>
+            <sep
+                local="fire.gsp.activity.shenjimen.PSendSJMTaskOnLine" o="35"/>
+            <sep
+                local="fire.gsp.specialquest.PAbandonFactionDailyQuest" o="36"/>
+            <sep local="fire.gsp.specialquest.PGiveRoleSchoolQuest" o="37"/>
+            <sep local="fire.gsp.item.PEquipProc.False" o="38"/>
+            <sep local="fire.gsp.task.undead.PRequestEnterScene" o="39"/>
+            <sep local="fire.gsp.task.PCommitScenarioMission.False" o="40"/>
+            <sep local="fire.gsp.task.RoleLevelListener$1" o="41"/>
+            <sep local="fire.gsp.PLevelUpProc" o="42"/>
+            <sep
+                local="fire.gsp.team.summon.PEndWaitingSummonTeamState" o="43"/>
+            <sep local="fire.gsp.item.CheckKiteExp$PKiteaddexp" o="44"/>
+            <sep local="fire.gsp.shengwang.PAddShengWang" o="45"/>
+            <sep local="fire.gsp.item.PFactionRepairEquipItem" o="46"/>
+            <sep local="fire.gsp.pet.PShowPetOffProc" o="47"/>
+            <sep local="fire.gsp.skill.PSendAssistSkillMaxLevel" o="48"/>
+            <sep local="fire.gsp.cofc.PMoveItem2BagProc" o="49"/>
+            <sep local="fire.gsp.ranklist.CGiveRose$1" o="50"/>
+            <sep local="fire.gsp.school.shouxi.PVoteCandidate" o="51"/>
+            <sep local="fire.gsp.trade.PLockProc" o="52"/>
+            <sep local="fire.gsp.task.PCommitTaskDivineAnswer.False" o="53"/>
+            <sep local="fire.gsp.npc.PReqFortuneWheel" o="54"/>
+            <sep local="fire.gsp.item.CUseItem$1" o="55"/>
+            <sep local="fire.gsp.specialquest.PAttackFTB" o="56"/>
+            <sep local="fire.msp.npc.MCreateNpcUniversalRet$1" o="57"/>
+            <sep local="fire.gsp.task.TaskConf$1" o="58"/>
+            <sep
+                local="fire.gsp.task.specialproduct.FamilySpecialProductExecutor$3" o="59"/>
+            <sep
+                local="fire.gsp.task.specialproduct.FamilySpecialProductExecutor$1" o="60"/>
+            <sep local="fire.gsp.PSetSyssettings" o="61"/>
+            <sep local="fire.gsp.task.xialv.PReceiveXiaLvAward.False" o="62"/>
+            <sep local="fire.gsp.CBeginnerTipShowed$1" o="63"/>
+            <sep local="fire.gsp.task.treasuremap.PAttackRobber" o="64"/>
+            <sep local="fire.gsp.battle.PRoundStart" o="65"/>
+            <sep local="fire.gsp.team.CRespondInvite$1" o="66"/>
+            <sep local="fire.gsp.buff.PRoleOffline" o="67"/>
+            <sep local="fire.gsp.pet.PSetFightPetProc" o="68"/>
+            <sep local="fire.gsp.map.PPreGotoProcess" o="69"/>
+            <sep local="fire.gsp.team.CAcceptToTeam$1" o="70"/>
+            <sep local="fire.gsp.task.PCommitScenarioMission" o="71"/>
+            <sep local="fire.gsp.task.qihua.PCancelQihuaTask" o="72"/>
+            <sep local="fire.gsp.trade.PAcceptProc" o="73"/>
+            <sep local="fire.gsp.product.PIdentifyEquip" o="74"/>
+            <sep
+                local="fire.gsp.specialquest.PAbandonSpecialQuestProc" o="75"/>
+            <sep local="fire.gsp.item.POpBagMoney" o="76"/>
+            <sep local="fire.gsp.item.Module$2" o="77"/>
+            <sep local="fire.gsp.task.wujueling.PDogArrive" o="78"/>
+            <sep local="fire.gsp.friends.PChangeOnlineFlag" o="79"/>
+            <sep local="fire.gsp.npc.PPetsLoyaltyRecovery" o="80"/>
+            <sep local="fire.gsp.task.xialv.PAttackQinSeHeMing" o="81"/>
+            <sep local="fire.gsp.battle.PRoundEnd" o="82"/>
+            <sep local="fire.gsp.item.PQuickRecovery" o="83"/>
+            <sep local="fire.gsp.team.PCreateTeam" o="84"/>
+            <sep local="fire.gsp.pet.PDouZhuanXingYi" o="85"/>
+            <sep local="fire.gsp.pet.PMovePet" o="86"/>
+            <sep local="fire.gsp.task.treasuremap.PAttackYaomo.False" o="87"/>
+            <sep local="fire.gsp.task.wujueling.PReqWuJueLingTask" o="88"/>
+            <sep local="fire.gsp.product.PProduceEquip" o="89"/>
+            <sep
+                local="fire.gsp.map.RoleManager$PGetRolesByConditions" o="90"/>
+            <sep local="fire.gsp.task.PAcceptZhanyaochumo" o="91"/>
+            <sep local="fire.gsp.cofc.PCofCAdditemProc" o="92"/>
+            <sep local="fire.gsp.battle.PRoundPLayEnd.False" o="93"/>
+            <sep local="fire.gsp.team.PRoleOffline" o="94"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.PClearChuanguanTask" o="95"/>
+            <sep local="fire.gsp.state.PRoleOnline" o="96"/>
+            <sep
+                local="fire.gsp.compensation.PReceiveCompensationAward" o="97"/>
+            <sep local="fire.gsp.cofc.PCofCAddpetProc" o="98"/>
+            <sep local="fire.gsp.battle.PPlayScript" o="99"/>
+            <sep local="fire.gsp.CEndPlayCG$1" o="100"/>
+            <sep local="fire.gsp.task.xialv.PSubmitYunSongWuZi" o="101"/>
+            <sep local="fire.gsp.team.summon.PEndQuerySummonTeamState" o="102"/>
+            <sep local="fire.gsp.task.treasuremap.PGenTreasuremap" o="103"/>
+            <sep local="fire.gsp.task.yunyou.CancelYunyou$1" o="104"/>
+            <sep local="fire.gsp.task.xialv.PReqXialvTask.False" o="105"/>
+            <sep local="fire.gsp.faction.PRefreshFamilypopularity" o="106"/>
+            <sep local="fire.gsp.team.CAnswerforCallBack$1" o="107"/>
+            <sep local="fire.gsp.faction.CGetMemberFeeReward$1" o="108"/>
+            <sep
+                local="fire.gsp.task.treasuremap.TreasureMapRobberManager$1" o="109"/>
+            <sep local="fire.gsp.pet.PModPetName" o="110"/>
+            <sep local="fire.gsp.skill.PUpdateAssistSkill.False" o="111"/>
+            <sep local="fire.gsp.faction.PRefreshFactionPopularity" o="112"/>
+            <sep local="fire.gsp.specialquest.RemoveDynamicNpcTask$1" o="113"/>
+            <sep local="fire.gsp.team.CExpelMember$1" o="114"/>
+            <sep local="fire.gsp.team.summon.PSingleJoinSummonMap" o="115"/>
+            <sep local="fire.gsp.specialquest.PSendMail2Dst" o="116"/>
+            <sep local="fire.gsp.msg.ChannelChat$5.False" o="117"/>
+            <sep local="fire.gsp.shengwang.PBuySWItemBySW" o="118"/>
+            <sep local="fire.gsp.product.CPurifyMedical$1.False" o="119"/>
+            <sep local="fire.gsp.task.wujueling.PAddWuJueLingTask" o="120"/>
+            <sep local="fire.gsp.activity.schoolmafei.EndMafei$1" o="121"/>
+            <sep local="fire.gsp.item.BasicItem$1" o="122"/>
+            <sep local="fire.gsp.item.BasicItem$2" o="123"/>
+            <sep local="fire.gsp.task.wujueling.PGenWJLPosInRegion" o="124"/>
+            <sep local="fire.gsp.skill.PGoToSchool" o="125"/>
+            <sep local="fire.gsp.product.PSellWuJueEquip" o="126"/>
+            <sep local="fire.gsp.teamcontract.PServerRestart" o="127"/>
+            <sep local="fire.gsp.cofc.PCofCRemoveitemProc" o="128"/>
+            <sep local="fire.gsp.cofc.PCofCPerHourProc" o="129"/>
+            <sep local="fire.gsp.task.dreamland.PSendDreamlandTask" o="130"/>
+            <sep local="fire.gsp.cofc.PAddFamousshopProc" o="131"/>
+            <sep local="fire.gsp.role.PCreateRole" o="132"/>
+            <sep local="fire.gsp.item.onlinegift.POpenOnlieGift" o="133"/>
+            <sep local="fire.gsp.team.PRespondTeamList" o="134"/>
+            <sep local="fire.gsp.master.PPassonGong.False" o="135"/>
+            <sep local="fire.gsp.trade.PReadyProc" o="136"/>
+            <sep local="fire.gsp.task.xialv.PAddQBBZItem" o="137"/>
+            <sep local="fire.gsp.item.PGetCardItem" o="138"/>
+            <sep local="fire.gsp.cofc.CLeaveShop$1" o="139"/>
+            <sep local="fire.gsp.pk.prison.PCalPrisonTime" o="140"/>
+            <sep local="fire.gsp.friends.CSearchFriend$1" o="141"/>
+            <sep local="fire.gsp.npc.PGatherProc" o="142"/>
+            <sep local="fire.gsp.specialquest.PAcceptFactionDailyTask" o="143"/>
+            <sep local="fire.gsp.cofc.PReqUnfreezeShop" o="144"/>
+            <sep local="fire.gsp.team.summon.PRoleOffline" o="145"/>
+            <sep local="fire.gsp.team.CQuitTeam$1" o="146"/>
+            <sep local="fire.gsp.pk.CBuyRenqi$PBuyRenqi" o="147"/>
+            <sep local="fire.gsp.product.PExchangeWuJueEquip" o="148"/>
+            <sep local="fire.gsp.skill.PUpdateAssistSkill" o="149"/>
+            <sep local="fire.gsp.task.PCommitTaskDivineAnswer" o="150"/>
+            <sep local="fire.gsp.specialquest.PSpecialQuestClear$1" o="151"/>
+            <sep local="fire.gsp.PSendRoleList.False" o="152"/>
+            <sep
+                local="fire.gsp.specialquest.PAcceptFactionBuildTask.False" o="153"/>
+            <sep local="fire.gsp.task.Module$5" o="154"/>
+            <sep local="fire.gsp.task.qihua.PSubmitItemsToQihua" o="155"/>
+            <sep local="fire.gsp.PSendRoleList" o="156"/>
+            <sep local="fire.gsp.task.Module$3" o="157"/>
+            <sep local="fire.gsp.task.Module$2" o="158"/>
+            <sep local="fire.gsp.Fushi.PBuyRMBItemByFushi.False" o="159"/>
+            <sep
+                local="fire.gsp.task.treasuremap.PTreasuremapReq.False" o="160"/>
+            <sep local="fire.gsp.pk.PQiecuoBattle" o="161"/>
+            <sep
+                local="fire.msp.task.MSpecailQuestUseItemVerifyPosFail$1" o="162"/>
+            <sep local="fire.gsp.npc.PSubmitWorldPuzzleItem" o="163"/>
+            <sep local="fire.gsp.item.CUseFlyRune$1" o="164"/>
+            <sep local="fire.gsp.product.PProduceMedical" o="165"/>
+            <sep local="fire.gsp.team.PUpdateMemberMaxHpMp" o="166"/>
+            <sep
+                local="fire.msp.MGetRolesByConditions$PGetRolesCallBack" o="167"/>
+            <sep local="fire.msp.move.PTriggerEventAfterSceneCreate" o="168"/>
+            <sep local="fire.gsp.battle.PNewBattle" o="169"/>
+            <sep local="fire.gsp.skill.PRoleOnline" o="170"/>
+            <sep local="fire.gsp.team.CAbsentReturnTeam$1" o="171"/>
+            <sep local="fire.gsp.pk.PAgreeDuelReq" o="172"/>
+            <sep local="fire.gsp.pet.island.PEnterPetIsland" o="173"/>
+            <sep local="fire.gsp.task.undead.PRequestChallenge" o="174"/>
+            <sep local="fire.gsp.npc.PSellItemToNpc" o="175"/>
+            <sep local="fire.gsp.master.Module$2" o="176"/>
+            <sep local="fire.gsp.item.PUseGoldfishKite" o="177"/>
+            <sep local="fire.gsp.master.Module$1" o="178"/>
+            <sep local="fire.gsp.task.wujueling.PReceiveWJLTaskAward" o="179"/>
+            <sep local="fire.gsp.task.wujueling.PCancelWJLShuidaoTask" o="180"/>
+            <sep local="fire.gsp.cofc.CRequestShopBusinessLog$1" o="181"/>
+            <sep local="fire.gsp.task.xialv.PAddQBBZItem.False" o="182"/>
+            <sep local="fire.gsp.team.PRoleOnline" o="183"/>
+            <sep local="fire.gsp.pk.prison.PSetRoleOutOfPrison" o="184"/>
+            <sep local="fire.msp.PRoleChangeMap" o="185"/>
+            <sep
+                local="fire.gsp.compensation.PReceiveCompensationAward.False" o="186"/>
+            <sep local="fire.gsp.item.CMoveItem$PMoveItem.False" o="187"/>
+            <sep local="fire.gsp.master.CEvaluateMasterResult$1" o="188"/>
+            <sep local="fire.gsp.product.CPurifyMedical$1" o="189"/>
+            <sep local="fire.gsp.specialquest.PAcceptFactionBuildTask" o="190"/>
+            <sep local="fire.gsp.task.TaskScenarioColumn$1" o="191"/>
+            <sep local="fire.msp.MPUpdateRolePos" o="192"/>
+            <sep local="fire.gsp.cofc.PCofCMoveItem2ShopProc" o="193"/>
+            <sep local="fire.gsp.faction.FactionExecutor$6" o="194"/>
+            <sep local="fire.gsp.battle.PAddConductInfo" o="195"/>
+            <sep local="fire.gsp.faction.FactionExecutor$3" o="196"/>
+            <sep local="fire.gsp.faction.FactionExecutor$2" o="197"/>
+            <sep local="fire.gsp.faction.FactionExecutor$5" o="198"/>
+            <sep local="fire.gsp.item.PDropItem" o="199"/>
+            <sep local="fire.gsp.npc.MultiExpServices$1" o="200"/>
+            <sep local="fire.gsp.faction.FactionExecutor$4" o="201"/>
+            <sep local="fire.gsp.master.PPassonGong" o="202"/>
+            <sep local="fire.gsp.task.wujueling.PWjlTimeOut" o="203"/>
+            <sep
+                local="fire.gsp.task.treasuremap.PRebuildTreasuremapTask" o="204"/>
+            <sep local="fire.gsp.task.schoolanswerques.PReqQuestion" o="205"/>
+            <sep
+                local="fire.gsp.task.wujueling.PUpdateShuidaoTaskStep" o="206"/>
+            <sep local="fire.gsp.task.treasuremap.PAttackDDJ" o="207"/>
+            <sep local="fire.gsp.product.PCookingProcedure" o="208"/>
+            <sep local="fire.gsp.task.PetTaskListener$1" o="209"/>
+            <sep local="fire.gsp.cofc.CofC$1" o="210"/>
+            <sep local="fire.gsp.task.yunyou.PGenYunyouNpc" o="211"/>
+            <sep local="fire.gsp.pet.island.PPetIslandBattle" o="212"/>
+            <sep local="gacd.ACReportCheater3$1" o="213"/>
+            <sep local="fire.gsp.school.shouxi.PCheckShouxiAbility" o="214"/>
+            <sep
+                local="fire.gsp.specialquest.TaskFactionDailyPublicize$1$1" o="215"/>
+            <sep local="fire.gsp.PForbidUser" o="216"/>
+            <sep local="fire.gsp.friends.solicit.PReleaseInfo" o="217"/>
+            <sep local="fire.gsp.npc.PFinishFortuneWheel" o="218"/>
+            <sep local="fire.gsp.npc.PRoleRecovery" o="219"/>
+            <sep local="fire.gsp.friends.CSendMessageToRole$1" o="220"/>
+            <sep local="fire.gsp.team.summon.PCreateSummonTeam" o="221"/>
+            <sep local="fire.gsp.mbean.GameControlImpl$4" o="222"/>
+            <sep local="fire.gsp.POnlineBegin" o="223"/>
+            <sep local="fire.gsp.item.BasicItem$1.False" o="224"/>
+            <sep local="fire.gsp.activity.keju.PKejuSummonCommand" o="225"/>
+            <sep local="fire.gsp.specialquest.PSubmitSpecialQuestProc" o="226"/>
+            <sep local="fire.gsp.team.CAnswerforSetLeader$1" o="227"/>
+            <sep local="fire.gsp.PAddPointProc" o="228"/>
+            <sep local="gacd.gacdc.ACCaptchaAnswer$1" o="229"/>
+            <sep local="fire.gsp.cofc.CofCshops$1" o="230"/>
+            <sep local="fire.gsp.task.treasuremap.YMYWTimeoutTask$1" o="231"/>
+            <sep local="fire.gsp.trade.SuccInviteProc" o="232"/>
+            <sep local="fire.gsp.util.CGPlayUtil$1" o="233"/>
+            <sep local="fire.msp.move.PRoleGotoNotify" o="234"/>
+            <sep local="fire.gsp.title.POnTitleProc" o="235"/>
+            <sep local="fire.gsp.PResponseExitGameInfo" o="236"/>
+            <sep local="fire.gsp.task.xialv.PAttackChaoDuWangLing" o="237"/>
+            <sep local="fire.msp.item.MPickupItem$LootProc" o="238"/>
+            <sep local="fire.gsp.item.equip.diamond.PCombineGem" o="239"/>
+            <sep
+                local="fire.gsp.specialquest.PAbandonFactionBuildTask" o="240"/>
+            <sep local="fire.gsp.team.CSetTeamLeader$1" o="241"/>
+            <sep local="fire.gsp.state.PRoleOffline" o="242"/>
+            <sep local="fire.gsp.product.PExchangeItemByScrap" o="243"/>
+            <sep local="fire.gsp.item.PRemoveKiteBuff" o="244"/>
+            <sep local="fire.gsp.CDeleteRole$1" o="245"/>
+            <sep local="fire.gsp.cofc.PMovePet2ColumnProc" o="246"/>
+            <sep local="fire.gsp.PRefreshRoleTimigData" o="247"/>
+            <sep local="fire.gsp.pk.PCheckInPrison" o="248"/>
+            <sep local="fire.gsp.friends.PFriendsInfoInit" o="249"/>
+            <sep
+                local="fire.gsp.master.MasterManager$PInitApprenticeTable" o="250"/>
+            <sep local="fire.gsp.task.treasuremap.PTreasuremapReq" o="251"/>
+            <sep local="fire.gsp.pet.PAddPetPointProc" o="252"/>
+            <sep local="fire.gsp.pet.PAddPetPointProc.False" o="253"/>
+            <sep local="fire.gsp.item.CRequestKitebuffLeftExp$1" o="254"/>
+            <sep local="fire.gsp.effect.PRefreshRoleAttr" o="255"/>
+            <sep local="fire.gsp.battle.watch.PEndWatchBattle" o="256"/>
+            <sep local="fire.gsp.item.PNpcRepairEquipItem" o="257"/>
+            <sep
+                local="fire.msp.specialquest.PCreatePosForChuandiXiaoxi" o="258"/>
+            <sep local="fire.gsp.school.shouxi.PSendShouxiOnlineMsg" o="259"/>
+            <sep local="fire.gsp.msg.ChannelChat$4" o="260"/>
+            <sep local="fire.gsp.battle.PNewBattle.False" o="261"/>
+            <sep local="fire.gsp.msg.ChannelChat$3" o="262"/>
+            <sep local="fire.gsp.item.CArrangeBag$1" o="263"/>
+            <sep local="fire.gsp.msg.ChannelChat$2" o="264"/>
+            <sep local="fire.gsp.buff.continual.PBuffEnd" o="265"/>
+            <sep
+                local="fire.gsp.team.PropertiesListener$NotifyMemberHpMpChange" o="266"/>
+            <sep local="fire.gsp.task.yunyou.YunyouManager$1" o="267"/>
+            <sep local="fire.gsp.item.equip.diamond.PAddGemToEquip" o="268"/>
+            <sep local="fire.gsp.msg.ChannelChat$5" o="269"/>
+            <sep local="fire.gsp.battle.PRoundPLayEnd" o="270"/>
+            <sep local="fire.gsp.cofc.PCofCBuyitemProc" o="271"/>
+            <sep local="fire.gsp.friends.PCreateName2IdReverseTable" o="272"/>
+            <sep local="fire.gsp.item.PDropItem.False" o="273"/>
+            <sep local="fire.gsp.task.treasuremap.PTreasuremapEnd" o="274"/>
+            <sep local="fire.gsp.friends.PToTryAddFriend" o="275"/>
+            <sep local="fire.gsp.friends.CSearchRole$1" o="276"/>
+            <sep local="fire.gsp.activity.keju.PClearKejuTask" o="277"/>
+            <sep local="fire.gsp.map.PMoveCheckHideBattle" o="278"/>
+            <sep local="fire.gsp.teamcontract.PRoleOnline" o="279"/>
+            <sep local="fire.gsp.task.treasuremap.PAddDDJTask" o="280"/>
+            <sep
+                local="fire.msp.task.MScenarioQuestUseItemVerifyPosSucc$PCommitScenarioMission" o="281"/>
+            <sep local="fire.gsp.item.PAddFlagPoint" o="282"/>
+            <sep local="fire.gsp.trade.PCloseProc" o="283"/>
+            <sep local="fire.gsp.npc.PPetsRecovery" o="284"/>
+            <sep local="fire.gsp.task.TaskBattle" o="285"/>
+            <sep local="fire.gsp.item.equip.refine.PSendLuckyValue" o="286"/>
+            <sep local="fire.gsp.task.xialv.PSubmitYunSongWuZi.False" o="287"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.PChuanguanSummonCommand" o="288"/>
+            <sep local="fire.gsp.task.dreamland.PAbsentDreamLand" o="289"/>
+            <sep local="fire.gsp.task.xialv.PAddChaoduTask" o="290"/>
+            <sep local="fire.gsp.npc.PGatherEndProc" o="291"/>
+            <sep local="fire.gsp.task.wujueling.PAttackShuidao" o="292"/>
+            <sep local="fire.gsp.specialquest.CAbandonQuest$1" o="293"/>
+            <sep local="fire.gsp.pet.island.PAddBuffTime" o="294"/>
+            <sep local="fire.gsp.skill.PRefreshSkillBar" o="295"/>
+            <sep local="fire.gsp.pet.PMovePet.False" o="296"/>
+            <sep local="fire.gsp.task.xialv.PSendXialvTaskOnLine" o="297"/>
+            <sep local="fire.gsp.Fushi.ReSetPrice$PReSetPrice" o="298"/>
+            <sep local="fire.gsp.trade.PRejectProc" o="299"/>
+            <sep local="fire.gsp.task.wujueling.PAttackShuidao.False" o="300"/>
+            <sep local="fire.gsp.product.PIdentifyEquip.False" o="301"/>
+            <sep local="fire.gsp.team.TeamManager$1" o="302"/>
+            <sep
+                local="fire.gsp.task.wujueling.PReqWuJueLingTask.False" o="303"/>
+            <sep local="fire.gsp.boat.proc.PGetDayRankAward" o="304"/>
+            <sep local="fire.gsp.task.dreamland.PEnterIntoDreamLand" o="305"/>
+            <sep local="fire.gsp.team.PDisMissTeam" o="306"/>
+            <sep local="fire.gsp.pet.island.PLeavePetIsland" o="307"/>
+            <sep local="fire.gsp.item.CUnequipement$1" o="308"/>
+            <sep
+                local="fire.gsp.task.wujueling.PResummonWJLNpcAfterReset" o="309"/>
+            <sep local="fire.gsp.product.CCookingMantou$1" o="310"/>
+            <sep local="fire.gsp.item.CMoveItem$PMoveItem" o="311"/>
+            <sep local="fire.gsp.activity.award.AwardManager$1" o="312"/>
+            <sep local="fire.gsp.faction.PSubmitMoneyBox2NPC" o="313"/>
+            <sep
+                local="fire.gsp.specialquest.PCommitFactionBuildQuest" o="314"/>
+            <sep local="fire.gsp.task.xialv.PReceiveXiaLvAward" o="315"/>
+            <sep
+                local="fire.gsp.specialquest.PGiveRoleSchoolQuest.False" o="316"/>
+            <sep local="fire.gsp.item.CUseItem$1.False" o="317"/>
+            <sep local="fire.gsp.npc.PChefuNpc.False" o="318"/>
+            <sep local="fire.gsp.task.bonus.Helper$1" o="319"/>
+            <sep local="fire.gsp.task.PSendAcceptableTask" o="320"/>
+            <sep local="fire.gsp.item.onlinegift.OnlineGiftUtil$1" o="321"/>
+            <sep local="fire.gsp.antique.PAddAntique" o="322"/>
+            <sep local="fire.gsp.pk.PCompulsoryPK" o="323"/>
+            <sep
+                local="fire.gsp.specialquest.PRefreshFactionDailyQuestHighRewardTimes" o="324"/>
+            <sep local="fire.gsp.task.PAcceptZhanyaochumo.False" o="325"/>
+            <sep local="fire.gsp.task.PCommitZhanyaochumo" o="326"/>
+            <sep local="fire.gsp.skill.CUpdateAcupoint$1" o="327"/>
+            <sep local="fire.gsp.item.PEquipProc" o="328"/>
+            <sep local="fire.gsp.npc.NpcFriendConfManager$1" o="329"/>
+            <sep local="fire.msp.specialquest.MCreateEzeiSucc$1" o="330"/>
+            <sep local="fire.gsp.faction.PChooseBuildConstruct" o="331"/>
+            <sep local="fire.gsp.team.CRequestJoinTeam$1" o="332"/>
+            <sep local="fire.gsp.cofc.PAddcapitalProc" o="333"/>
+            <sep local="fire.gsp.task.xialv.PReqXialvTask" o="334"/>
+            <sep local="fire.msp.npc.PExecuteAfterNpcCreate" o="335"/>
+            <sep local="fire.gsp.teamcontract.PCancelContractInvite" o="336"/>
+            <sep local="fire.gsp.friends.solicit.PRequestBookerInfo" o="337"/>
+            <sep local="fire.gsp.friends.CChangeAutoResponse$1" o="338"/>
+            <sep local="fire.gsp.POnlineBegin.False" o="339"/>
+            <sep local="fire.gsp.npc.PTakeMultiExpTimeProc" o="340"/>
+            <sep local="fire.gsp.pet.PUpgradePetXueMaiProc" o="341"/>
+            <sep local="fire.gsp.battle.PDefaultAction" o="342"/>
+            <sep local="fire.msp.PRoleOffline" o="343"/>
+            <sep local="fire.gsp.specialquest.PSubmitItemPetQuest" o="344"/>
+            <sep local="fire.gsp.pk.PSendInviteDuel" o="345"/>
+            <sep local="fire.gsp.task.PAcceptDivineTask" o="346"/>
+            <sep local="fire.gsp.item.CUseFlyRune$1.False" o="347"/>
+            <sep local="fire.gsp.task.wujueling.PAddShuidaoTaskStep2" o="348"/>
+            <sep local="fire.gsp.friends.CChangeBaseConfig$1" o="349"/>
+            <sep local="fire.gsp.task.yunyou.PSendYunyouAnswer" o="350"/>
+            <sep local="fire.gsp.gm.Cmd_hideme$1" o="351"/>
+            <sep local="fire.gsp.friends.POfflineMsgSender" o="352"/>
+            <sep local="fire.gsp.item.equip.diamond.PBuyGem" o="353"/>
+            <sep local="fire.gsp.faction.Module$1" o="354"/>
+            <sep local="fire.gsp.pk.PReqDueList" o="355"/>
+            <sep local="fire.gsp.task.wujueling.PSendWJLTaskOnLine" o="356"/>
+            <sep local="fire.gsp.npc.PSubmitWorldPuzzleItem.False" o="357"/>
+            <sep local="fire.gsp.battle.PRoleOperation" o="358"/>
+            <sep local="fire.gsp.npc.WorldPuzzle$1" o="359"/>
+            <sep local="fire.gsp.pet.PFreePet" o="360"/>
+            <sep local="fire.gsp.item.PFlyToChangeMap" o="361"/>
+            <sep
+                local="fire.gsp.compensation.PCheckSendCompensationMsg" o="362"/>
+            <sep local="fire.gsp.state.PEndOfflineProtect" o="363"/>
+            <sep local="fire.gsp.battle.PAddConductInfo.False" o="364"/>
+            <sep local="fire.gsp.state.PSendBattleInfo" o="365"/>
+            <sep local="fire.gsp.cofc.CofCAuctionManager$1" o="366"/>
+            <sep local="fire.gsp.Fushi.ReSetPrice$PReSetPrice.False" o="367"/>
+            <sep local="fire.gsp.Fushi.PBuyRMBItemByFushi" o="368"/>
+            <sep local="fire.gsp.battle.PSendAllBattleMembers" o="369"/>
+            <sep local="fire.gsp.pet.PShowPetOffProc.False" o="370"/>
+            <sep local="fire.gsp.item.equip.refine.PRefineEquip" o="371"/>
+            <sep local="fire.gsp.faction.PRequestMemberTaskData" o="372"/>
+            <sep local="fire.gsp.PAddExpProc$1" o="373"/>
+            <sep local="fire.gsp.master.PMakeAsPrentice" o="374"/>
+            <sep
+                local="fire.msp.task.MSpecailQuestUseItemVerifyPosSucc$1" o="375"/>
+            <sep local="fire.msp.npc.MUpdateNpcInfo$1" o="376"/>
+            <sep local="fire.gsp.product.PPurifyCooking" o="377"/>
+            <sep local="fire.gsp.battle.PAddHideBattleNum" o="378"/>
+            <sep local="fire.gsp.boat.proc.PDragonBoatTimeSet" o="379"/>
+            <sep local="fire.gsp.activity.chuanguan.PChuanguanLaRen" o="380"/>
+            <sep local="fire.gsp.faction.PSetMemberFeeReward" o="381"/>
+            <sep local="fire.gsp.npc.PRoleFreeRecovery.False" o="382"/>
+            <sep local="fire.gsp.specialquest.SchoolQuestTimerTask$1" o="383"/>
+            <sep local="fire.gsp.trade.PLockProc.False" o="384"/>
+            <sep local="fire.gsp.cofc.PAddcounterProc" o="385"/>
+            <sep local="fire.gsp.boat.proc.DragonBoat$1" o="386"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.ChuanguanManager$1.False" o="387"/>
+            <sep local="fire.gsp.pet.PUpgradePetXueMaiProc.False" o="388"/>
+            <sep local="fire.gsp.team.summon.PAnswerJoinSummonMap" o="389"/>
+            <sep local="fire.gsp.faction.CLeaveFamily$1" o="390"/>
+            <sep local="fire.gsp.school.shouxi.PRefreshAllShouxis" o="391"/>
+            <sep local="fire.gsp.faction.PResponseFactionApply" o="392"/>
+            <sep local="fire.gsp.master.PDrawAward.False" o="393"/>
+            <sep local="fire.gsp.faction.PSendFactionEmail" o="394"/>
+            <sep local="fire.gsp.timer.PEndOldNumberAuction" o="395"/>
+            <sep local="fire.gsp.item.CUnequipement$1.False" o="396"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.PReceiveChuanguanAward" o="397"/>
+            <sep local="fire.gsp.battle.PRoleOperation.False" o="398"/>
+            <sep local="fire.gsp.item.PFlyToChangeMap.False" o="399"/>
+            <sep local="fire.gsp.faction.PUpdateFactionLevel" o="400"/>
+            <sep local="fire.gsp.task.xialv.XialvTaskTimeOut$1" o="401"/>
+            <sep local="fire.gsp.master.PDrawAward" o="402"/>
+            <sep local="fire.gsp.team.CSwapMember$1" o="403"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.PReqStartChuanguan.False" o="404"/>
+            <sep local="fire.gsp.npc.PTakeMultiExpTimeProc.False" o="405"/>
+            <sep
+                local="fire.gsp.specialquest.PCommitFactionBuildQuest.False" o="406"/>
+            <sep
+                local="fire.gsp.activity.keju.KejuScheduledActivity$3" o="407"/>
+            <sep
+                local="fire.gsp.activity.keju.CReqHuiShiQuestion$PReqHuiShiQuestion" o="408"/>
+            <sep
+                local="fire.gsp.activity.keju.KejuScheduledActivity$1" o="409"/>
+            <sep local="fire.gsp.faction.PAddFamilyMoney" o="410"/>
+            <sep local="fire.gsp.activity.keju.PKejuXiangShi.False" o="411"/>
+            <sep local="fire.gsp.item.security.PSetProtectPassword" o="412"/>
+            <sep local="fire.gsp.activity.chuanguan.PAddPetLife" o="413"/>
+            <sep local="fire.gsp.activity.keju.PSendKejuAnswer" o="414"/>
+            <sep
+                local="fire.gsp.specialquest.PAbandonSpecialQuestProc.False" o="415"/>
+            <sep local="fire.gsp.PAddPointProc.False" o="416"/>
+            <sep local="fire.gsp.activity.keju.PSendKejuAnswer.False" o="417"/>
+            <sep local="fire.gsp.school.shouxi.PSendElectorWords" o="418"/>
+            <sep local="fire.gsp.cofc.PMoveItem2BagProc.False" o="419"/>
+            <sep local="fire.gsp.activity.keju.EndXsHs$1" o="420"/>
+            <sep local="fire.gsp.skill.scene.PSceneSkill" o="421"/>
+            <sep local="fire.gsp.friends.PCreatTeam" o="422"/>
+            <sep local="fire.gsp.boat.proc.PSetDayRankAward" o="423"/>
+            <sep
+                local="fire.gsp.friends.solicit.PRemoveOverdueInformation" o="424"/>
+            <sep local="fire.gsp.timer.AbstractScheduledActivity$1" o="425"/>
+            <sep local="fire.gsp.faction.VoteResultAccountsExcutor$1" o="426"/>
+            <sep local="fire.gsp.faction.PSubmitMoneyBox2NPC.False" o="427"/>
+            <sep local="fire.gsp.boat.proc.PRequestJoinDragonRace" o="428"/>
+            <sep local="fire.gsp.task.yabiao.PCommitTransportTask" o="429"/>
+            <sep local="fire.gsp.school.shouxi.PChallengeShouxi" o="430"/>
+            <sep local="fire.gsp.antique.PAddAntique.False" o="431"/>
+            <sep local="fire.gsp.friends.PBreakOffRelation" o="432"/>
+            <sep local="fire.gsp.title.POnTitleProc.False" o="433"/>
+            <sep local="fire.gsp.faction.FactionExecutor$1" o="434"/>
+            <sep local="fire.gsp.cofc.PCofCSetshopinfoProc" o="435"/>
+            <sep local="fire.gsp.cofc.PCofCEndOfDayProc" o="436"/>
+            <sep local="fire.gsp.activity.keju.PKejuCreditExchange" o="437"/>
+            <sep local="fire.gsp.activity.keju.PUseJinNang" o="438"/>
+            <sep local="fire.gsp.activity.keju.PUseJinNang.False" o="439"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.ChuanguanManager$1" o="440"/>
+            <sep local="fire.gsp.task.PAcceptScenarioMission.False" o="441"/>
+            <sep local="fire.gsp.npc.PPetsHealthRecovery" o="442"/>
+            <sep
+                local="fire.gsp.cofc.CofCNumberAuctionScheduledActivitiy$2" o="443"/>
+            <sep local="fire.gsp.item.security.PEnterProtectFunction" o="444"/>
+            <sep
+                local="fire.gsp.cofc.CofCNumberAuctionScheduledActivitiy$1" o="445"/>
+            <sep local="fire.gsp.msg.ChannelChat$1" o="446"/>
+            <sep local="fire.gsp.cofc.PCofCMoveItem2ShopProc.False" o="447"/>
+            <sep local="fire.gsp.friends.PMoveFriendTeam" o="448"/>
+            <sep local="fire.gsp.task.xialv.PAttackQinSeHeMing.False" o="449"/>
+            <sep local="fire.gsp.npc.PBuyItemFromNpc.False" o="450"/>
+            <sep local="fire.gsp.pet.island.PEnterPetIsland.False" o="451"/>
+            <sep local="fire.gsp.cofc.PCofCBuypetProc" o="452"/>
+            <sep local="fire.gsp.npc.PRoleFreeRecovery" o="453"/>
+            <sep local="fire.gsp.item.security.PLockPet" o="454"/>
+            <sep local="fire.gsp.activity.keju.PKejuDianShi" o="455"/>
+            <sep local="fire.gsp.cofc.PCofCcreateshopProc" o="456"/>
+            <sep local="fire.gsp.activity.keju.PKejuXiangShi" o="457"/>
+            <sep local="fire.gsp.PAddExpProc" o="458"/>
+            <sep local="fire.gsp.item.CCleanTempBag$1" o="459"/>
+            <sep local="fire.gsp.item.PGiveFlowersToFriend" o="460"/>
+            <sep local="fire.gsp.pet.PConvertPetToStar" o="461"/>
+            <sep
+                local="fire.gsp.boat.proc.PRequestJoinDragonRace.False" o="462"/>
+            <sep local="fire.gsp.PAddExpProc.False" o="463"/>
+            <sep local="fire.gsp.boat.proc.PSetDragonBoatRecord" o="464"/>
+            <sep local="fire.gsp.role.PCreateRole.False" o="465"/>
+            <sep
+                local="fire.gsp.team.summon.PEndWaitingSummonRoleState" o="466"/>
+            <sep local="fire.gsp.Fushi.PGetBackMoney" o="467"/>
+            <sep local="fire.gsp.faction.PFamilyProductsSet" o="468"/>
+            <sep local="fire.gsp.ranklist.proc.RanklistEndOfDaySort$1" o="469"/>
+            <sep local="fire.gsp.activity.keju.KejuManager$1.False" o="470"/>
+            <sep
+                local="fire.msp.task.MScenarioQuestUseItemVerifyPosSucc$PCommitScenarioMission.False" o="471"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.ChuanguanScheduledActivity$3" o="472"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.ChuanguanScheduledActivity$1" o="473"/>
+            <sep local="fire.gsp.cofc.PCofCBuyitemProc.False" o="474"/>
+            <sep local="fire.gsp.task.Module$3.False" o="475"/>
+            <sep
+                local="fire.gsp.task.wujueling.PUpdateShuidaoTaskStep.False" o="476"/>
+            <sep local="fire.gsp.faction.PChangeMemberPosition" o="477"/>
+            <sep
+                local="fire.gsp.ranklist.proc.PCopyTodayFlowersRanklist" o="478"/>
+            <sep local="fire.gsp.product.PIntensifyEquip" o="479"/>
+            <sep local="fire.gsp.task.undead.PRequestOpenChest" o="480"/>
+            <sep local="fire.gsp.item.security.PEnterProtectDepot" o="481"/>
+            <sep local="fire.gsp.team.CRequestSetTeamLevel$1" o="482"/>
+            <sep local="fire.gsp.npc.MultiExpServices$1.False" o="483"/>
+            <sep local="fire.gsp.pet.PImportStarToPet" o="484"/>
+            <sep local="fire.gsp.faction.PSetFactionSkill" o="485"/>
+            <sep local="fire.gsp.team.summon.PTeamJoinSummonMap" o="486"/>
+            <sep local="fire.gsp.item.equip.refine.PRefineEquip.False" o="487"/>
+            <sep local="fire.gsp.pet.PExchangePet" o="488"/>
+            <sep local="fire.gsp.ranklist.proc.SortRoleLevelByExp" o="489"/>
+            <sep local="fire.gsp.task.yabiao.PReqTransportTask" o="490"/>
+            <sep local="fire.gsp.item.equip.diamond.PBuyGem.False" o="491"/>
+            <sep local="fire.gsp.util.CancelMsg$1" o="492"/>
+            <sep local="fire.gsp.activity.keju.StartDS$1" o="493"/>
+            <sep local="fire.gsp.specialquest.SanJieTimerTask$1" o="494"/>
+            <sep local="fire.gsp.specialquest.PGiveRoleSanJieQuest" o="495"/>
+            <sep local="fire.gsp.product.PIntensifyEquip.False" o="496"/>
+            <sep local="fire.gsp.item.PGiveRoleItem.False" o="497"/>
+            <sep
+                local="fire.gsp.battle.specialevent.PFortyThievesBattle" o="498"/>
+            <sep local="fire.gsp.faction.PAddFactionApply" o="499"/>
+            <sep
+                local="fire.gsp.activity.keju.CReceiveDsAward$PReceiveDsAward" o="500"/>
+            <sep local="fire.gsp.battle.PNewBattle.Exception" o="501"/>
+            <sep local="fire.gsp.item.POpBagMoney.False" o="502"/>
+            <sep local="fire.gsp.faction.CResponseInviteToFamily$1" o="503"/>
+            <sep local="fire.gsp.faction.PInviteToFamily" o="504"/>
+            <sep local="fire.gsp.trade.PRejectProc.False" o="505"/>
+            <sep local="fire.gsp.task.yunyou.PSendYunyouAnswer.False" o="506"/>
+            <sep local="fire.gsp.boat.proc.PRoleOutRace" o="507"/>
+            <sep local="fire.gsp.faction.PResponseFamilyApply" o="508"/>
+            <sep local="fire.gsp.faction.PAddRoleFamilyContribute" o="509"/>
+            <sep local="fire.gsp.shengwang.PBuySWItemBySW.False" o="510"/>
+            <sep
+                local="fire.msp.task.MScenarioQuestUseItemVerifyPosFail$1" o="511"/>
+            <sep local="fire.gsp.task.undead.PTransferToLastBoss" o="512"/>
+            <sep local="fire.gsp.activity.keju.KejuManager$1" o="513"/>
+            <sep
+                local="fire.gsp.activity.chuanguan.PReqStartChuanguan" o="514"/>
+            <sep local="fire.gsp.cofc.PSetcounterstateProc" o="515"/>
+            <sep local="fire.gsp.activity.keju.PKejuHuiShi" o="516"/>
+            <sep local="fire.gsp.PLevelUpProc.False" o="517"/>
+            <sep local="fire.gsp.boat.proc.DragonBoatRace$1" o="518"/>
+            <sep
+                local="fire.gsp.task.treasuremap.PExchangeSuperTreasureMap" o="519"/>
+            <sep
+                local="fire.gsp.task.treasuremap.PExchangeSuperTreasureMap.False" o="520"/>
+            <sep local="fire.gsp.task.yabiao.PExchangeFHL" o="521"/>
+            <sep local="fire.gsp.friends.CBreakOffBlackRelation$1" o="522"/>
+            <sep local="fire.gsp.faction.PExpelFamilyMember" o="523"/>
+            <sep local="fire.gsp.product.PProduceEquip.False" o="524"/>
+            <sep local="fire.gsp.gm.Cmd_additem$2" o="525"/>
+            <sep local="fire.gsp.antique.PDeleteAntique" o="526"/>
+            <sep local="fire.gsp.friends.CRequestAddFriend$1" o="527"/>
+            <sep local="fire.gsp.friends.PAddFriend" o="528"/>
+            <sep local="fire.gsp.trade.PClearPassiveTrade" o="529"/>
+            <sep local="fire.gsp.task.xingsu.PBattleToXingSu.False" o="530"/>
+            <sep local="fire.gsp.task.treasuremap.PAttackZhuibaoNpc" o="531"/>
+            <sep
+                local="fire.gsp.master.DrawChuangongBook$PDrawChuangongBook" o="532"/>
+            <sep local="fire.gsp.task.PAcceptChuangongTask" o="533"/>
+            <sep
+                local="fire.gsp.battle.watch.PSendWatchBattle.Exception" o="534"/>
+            <sep local="fire.gsp.pet.island.PLeavePetIsland.False" o="535"/>
+            <sep
+                local="fire.gsp.task.DrawChuangongAward$PDrawChuangongAward" o="536"/>
+            <sep local="fire.gsp.pet.PModPetName.False" o="537"/>
+            <sep
+                local="fire.gsp.task.specialproduct.PAbandonFamilySpecialProc" o="538"/>
+            <sep local="fire.gsp.item.security.PLockItem" o="539"/>
+            <sep local="fire.gsp.npc.PRoleRecovery.False" o="540"/>
+            <sep local="fire.gsp.cofc.PCofCcreateshopProc.False" o="541"/>
+            <sep local="fire.gsp.faction.PSetFactionFee" o="542"/>
+            <sep local="fire.gsp.cofc.PReqSellShopProc" o="543"/>
+            <sep local="fire.gsp.friends.CChangeIdentityCheck$1" o="544"/>
+            <sep
+                local="fire.gsp.activity.shenjimen.ShenjimenScheduledActivity$1" o="545"/>
+            <sep local="fire.gsp.activity.shenjimen.PAttackTzTaskNpc" o="546"/>
+            <sep local="fire.gsp.activity.shenjimen.PAttackSJMNpc" o="547"/>
+            <sep
+                local="fire.gsp.activity.shenjimen.PAttackSJMNpc.False" o="548"/>
+            <sep local="fire.gsp.activity.shenjimen.PGenSJMEvery15Min" o="549"/>
+            <sep
+                local="fire.gsp.activity.shenjimen.PAttackTzTaskNpc.False" o="550"/>
+            <sep local="fire.gsp.activity.shenjimen.PCreateSJMNpcs" o="551"/>
+            <sep local="fire.gsp.activity.shenjimen.PAttackJsTaskNpc" o="552"/>
+            <sep
+                local="fire.gsp.activity.shenjimen.PAttackSsTaskNpc.False" o="553"/>
+            <sep local="fire.gsp.activity.shenjimen.PAttackSsTaskNpc" o="554"/>
+            <sep
+                local="fire.gsp.activity.shenjimen.PSubmitYingXiongTie" o="555"/>
+            <sep local="fire.gsp.activity.shenjimen.SJMTaskTimeOut$1" o="556"/>
+        </basekey>
+        <localize bean="xdb_Protocols_send" local="协议发送">
+            <key extends="RO_xdb_Protocols_send" local="协议" o="name"/>
+            <value local="数量" o="count"/>
+        </localize>
+        <localize bean="xdb_Protocols_recv" local="协议接收">
+            <key extends="RO_xdb_Protocols_recv" local="协议" o="name"/>
+            <value local="数量" o="count"/>
+        </localize>
+        <localize bean="xdb_Procedures" local="存储过程">
+            <key extends="RO_xdb_Procedures" local="类型" o="name"/>
+            <value local="数量" o="count"/>
+        </localize>
+    </localizemanager>
+    <chartchainmanager>
+        <chartchain name="玩家间道具交易.money">
+            <first bean="gs_counter_SellBuyStat" days="1" key="itemid" values="moneyCount,itemCount"/>
+            <next key="time" sepkey="selllbuytype,0,1,1" values="moneyCount"/>
+            <next key="level" sepkey="selllbuytype,0,1,1" values="moneyCount"/>
+            <next key="menpai" sepkey="selllbuytype,0,1,1" values="moneyCount"/>
+        </chartchain>
+        <chartchain name="玩家间道具交易.count">
+            <first bean="gs_counter_SellBuyStat" days="1" key="itemid" values="moneyCount,itemCount"/>
+            <next key="time" sepkey="selllbuytype,0,1,1" values="itemCount"/>
+            <next key="level" sepkey="selllbuytype,0,1,1" values="itemCount"/>
+            <next key="menpai" sepkey="selllbuytype,0,1,1" values="itemCount"/>
+        </chartchain>
+        <chartchain name="符石充值.count">
+            <first bean="gs_counter_FushiChongzhiStat" days="1"
+                key="time" sepkey="fenduan,1,16,1" values="count"/>
+        </chartchain>
+        <chartchain name="符石充值.value">
+            <first bean="gs_counter_FushiChongzhiStat" days="1"
+                key="time" sepkey="fenduan,1,16,1" values="value"/>
+        </chartchain>
+        <chartchain name="道具生成消耗.生成">
+            <first bean="gs_counter_ItemIOState" days="1" key="itemid" values="inCount"/>
+            <next key="time" sepkey="tujing,0,13,1" values="inCount"/>
+        </chartchain>
+        <chartchain name="道具生成消耗.生成.等级">
+            <first bean="gs_counter_ItemIOState" days="1" key="itemid" values="inCount"/>
+            <next key="time" sepkey="tujing,0,13,1" values="inCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="inCount"/>
+        </chartchain>
+        <chartchain name="道具生成消耗.生成.门派">
+            <first bean="gs_counter_ItemIOState" days="1" key="itemid" values="inCount"/>
+            <next key="time" sepkey="tujing,0,13,1" values="inCount"/>
+            <next key="menpai" sepkey="tujing,0,13,1" values="inCount"/>
+        </chartchain>
+        <chartchain name="道具生成消耗.消耗">
+            <first bean="gs_counter_ItemIOState" days="1" key="itemid" values="outCount"/>
+            <next key="time" sepkey="tujing,0,13,1" values="outCount"/>
+        </chartchain>
+        <chartchain name="道具生成消耗.消耗.等级">
+            <first bean="gs_counter_ItemIOState" days="1" key="itemid" values="outCount"/>
+            <next key="time" sepkey="tujing,0,13,1" values="outCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="outCount"/>
+        </chartchain>
+        <chartchain name="道具生成消耗.消耗.门派">
+            <first bean="gs_counter_ItemIOState" days="1" key="itemid" values="outCount"/>
+            <next key="time" sepkey="tujing,0,13,1" values="outCount"/>
+            <next key="menpai" sepkey="tujing,0,13,1" values="outCount"/>
+        </chartchain>
+        <chartchain name="符石消耗.items">
+            <first bean="gs_counter_FushiXiaohaoStat" days="7"
+                key="itemid" values="xiaohao"/>
+            <next key="time" values="xiaohao"/>
+            <next key="level" sepkey="menpai,11,19,1" values="xiaohao"/>
+        </chartchain>
+        <chartchain name="符石消耗.value">
+            <first bean="gs_counter_FushiXiaohaoStat" days="7"
+                key="time" values="xiaohao"/>
+            <next key="itemid" sepkey="level,1,160,10" values="xiaohao"/>
+            <next key="level" sepkey="menpai,11,19,1" values="xiaohao"/>
+        </chartchain>
+        <chartchain name="NPC服务.npc">
+            <first bean="gs_counter_NCPServiceStat" days="1" key="time" values="usedCount"/>
+            <next key="npcid" values="usedCount"/>
+        </chartchain>
+        <chartchain name="NPC服务.service">
+            <first bean="gs_counter_NCPServiceStat" days="1" key="time" values="usedCount"/>
+            <next key="service" values="usedCount"/>
+        </chartchain>
+        <chartchain name="在线人数.等级">
+            <first bean="gs_counter_LevelRoles" days="1" key="time"
+                sepkey="level,1,160,10" values="count"/>
+            <next key="level" sepkey="menpai,11,19,1" values="count"/>
+        </chartchain>
+        <chartchain name="在线人数.门派">
+            <first bean="gs_counter_LevelRoles" days="1" key="time"
+                sepkey="menpai,11,19,1" values="count"/>
+            <next key="level" sepkey="menpai,11,19,1" values="count"/>
+        </chartchain>
+        <chartchain name="符石交易.出售">
+            <first bean="gs_counter_FushiJiaoyiIOStat" days="1"
+                key="time" sepkey="level,1,160,10" values="guadanChushou"/>
+            <next key="level" sepkey="menpai,11,19,1" values="guadanChushou"/>
+        </chartchain>
+        <chartchain name="符石交易.求购">
+            <first bean="gs_counter_FushiJiaoyiIOStat" days="1"
+                key="time" sepkey="level,1,160,10" values="guadanQiugou"/>
+            <next key="level" sepkey="menpai,11,19,1" values="guadanQiugou"/>
+        </chartchain>
+        <chartchain name="符石交易.成交">
+            <first bean="gs_counter_FushiJiaoyiIOStat" days="1"
+                key="time" sepkey="level,1,160,10" values="jiaoyiDacheng"/>
+            <next key="level" sepkey="menpai,11,19,1" values="jiaoyiDacheng"/>
+        </chartchain>
+        <chartchain name="任务.时间分布">
+            <first bean="gs_counter_QuestState" days="1"
+                key="countertype" values="count"/>
+            <next key="time" sepkey="level,1,160,10" values="count"/>
+            <next key="questid" values="count"/>
+        </chartchain>
+        <chartchain name="任务.任务分布">
+            <first bean="gs_counter_QuestState" days="1"
+                key="countertype" values="count"/>
+            <next key="questid" values="count"/>
+            <next key="time" values="count"/>
+        </chartchain>
+        <chartchain name="经验获取.途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="tujing,0,13,1" values="jingyanInCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="jingyanInCount"/>
+        </chartchain>
+        <chartchain name="经验获取.等级">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="level,1,160,10" values="jingyanInCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="jingyanInCount"/>
+        </chartchain>
+        <chartchain name="储备金获取.等级">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="level,1,160,10" values="bangdingInCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="bangdingInCount"/>
+        </chartchain>
+        <chartchain name="流通币获取.等级">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="level,1,160,10" values="liutongInCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="liutongInCount"/>
+        </chartchain>
+        <chartchain name="流通币消耗.等级">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="level,1,160,10" values="liutongOutCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="liutongOutCount"/>
+        </chartchain>
+        <chartchain name="储备金消耗.等级">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="level,1,160,10" values="bangdingOutCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="bangdingOutCount"/>
+        </chartchain>
+        <chartchain name="储备金消耗.途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="tujing,0,13,1" values="bangdingOutCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="bangdingOutCount"/>
+        </chartchain>
+        <chartchain name="储备金获取.途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="tujing,0,13,1" values="bangdingInCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="bangdingInCount"/>
+        </chartchain>
+        <chartchain name="流通币获取.途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1" key="time"
+                sepkey="tujing,0,13,1" values="liutongInCount"/>
+            <next key="level" sepkey="tujing,0,13,1" values="liutongInCount"/>
+        </chartchain>
+        <chartchain name="流通币获取.分途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1"
+                key="tujing" values="liutongInCount"/>
+            <next key="time" values="liutongInCount"/>
+            <next key="level" values="liutongInCount"/>
+        </chartchain>
+        <chartchain name="帐号角色数.历史">
+            <first bean="gs_counter_OnlinesNumState" days="30"
+                key="time" values="OnlinesNumState_historyUserNum,OnlinesNumState_historyRoleNum"/>
+        </chartchain>
+        <chartchain name="帐号角色数.新增">
+            <first bean="gs_counter_OnlinesNumState" days="30"
+                key="time" values="OnlinesNumState_increaseUserNum,OnlinesNumState_increaseRoleNum"/>
+        </chartchain>
+        <chartchain name="充值与消费.数量">
+            <first bean="gs_counter_OnlinesNumState" days="30"
+                key="time" values="OnlinesNumState_consumeRoleNum,OnlinesNumState_chargeUserNum"/>
+        </chartchain>
+        <chartchain name="充值与消费.人数">
+            <first bean="gs_counter_OnlinesNumState" days="30"
+                key="time" values="OnlinesNumState_consumeTotal,OnlinesNumState_chargeTotal"/>
+        </chartchain>
+        <chartchain name="充值与消费.消费.角色数">
+            <first bean="gs_counter_ConsumeRoleState" days="30"
+                key="time" sepkey="school,11,19,1" values="userNum"/>
+            <next key="level" sepkey="school,11,19,1" values="userNum"/>
+        </chartchain>
+        <chartchain name="充值与消费.消费.符石数">
+            <first bean="gs_counter_ConsumeRoleState" days="30"
+                key="time" sepkey="school,11,19,1" values="totalAmount"/>
+            <next key="level" sepkey="school,11,19,1" values="totalAmount"/>
+        </chartchain>
+        <chartchain name="经验获取.分途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1"
+                key="tujing" values="jingyanInCount"/>
+            <next key="time" sepkey="menpai,11,19,1" values="jingyanInCount"/>
+            <next key="level" sepkey="menpai,11,19,1" values="jingyanInCount"/>
+        </chartchain>
+        <chartchain name="流通币消耗.分途径">
+            <first bean="gs_counter_MoneyExpIOState" days="1"
+                key="tujing" values="liutongOutCount"/>
+            <next key="time" sepkey="menpai,11,19,1" values="liutongOutCount"/>
+            <next key="level" sepkey="menpai,11,19,1" values="liutongOutCount"/>
+        </chartchain>
+        <chartchain name="在线人数.门派分布">
+            <first bean="gs_counter_LevelRoles" days="1" key="menpai" values="count"/>
+        </chartchain>
+        <chartchain name="在线人数.门派分布.等级">
+            <first bean="gs_counter_LevelRoles" days="1" key="menpai" values="count"/>
+            <next key="level" values="count"/>
+        </chartchain>
+        <chartchain name="在线人数.门派分布.时间">
+            <first bean="gs_counter_LevelRoles" days="1" key="menpai" values="count"/>
+            <next key="time" values="count"/>
+        </chartchain>
+        <chartchain name="测试.NPC与在线">
+            <first chart="NPC与在线"/>
+        </chartchain>
+        <chartchain name="测试.在线比较">
+            <first chart="昨天今天在线"/>
+        </chartchain>
+        <chartchain name="xdb.Xdb">
+            <first bean="xdb_Xdb" days="1" key="time" type="counterrate" values="TransactionException,AngleInterruptCount,TransactionCount,TransactionFalse"/>
+        </chartchain>
+        <chartchain name="xdb.协议发送.协议">
+            <first bean="xdb_Protocols_send" days="3" key="name" values="count"/>
+            <next key="time" type="counterrate" values="count"/>
+        </chartchain>
+        <chartchain name="xdb.协议接收.协议">
+            <first bean="xdb_Protocols_recv" days="3" key="name" values="count"/>
+            <next key="time" type="counterrate" values="count"/>
+        </chartchain>
+        <chartchain name="xdb.协议接收.时间">
+            <first bean="xdb_Protocols_recv" days="3" key="time"
+                type="counterrate" values="count"/>
+            <next key="name" values="count"/>
+        </chartchain>
+        <chartchain name="xdb.协议发送.时间">
+            <first bean="xdb_Protocols_send" days="3" key="time"
+                type="counterrate" values="count"/>
+            <next key="name" values="count"/>
+        </chartchain>
+        <chartchain name="xdb.存储过程.过程">
+            <first bean="xdb_Procedures" days="3" key="name"
+                pieslices="10" values="count"/>
+            <next key="time" type="counterrate" values="count"/>
+        </chartchain>
+        <chartchain name="xdb.存储过程.时间">
+            <first bean="xdb_Procedures" days="3" key="time"
+                type="counterrate" values="count"/>
+            <next key="name" pieslices="10" values="count"/>
+        </chartchain>
+    </chartchainmanager>
+</configure>
+<!--
+	rename_table_period_day 这个定了用过后就不要改了。
+
+	table 代表一个mbean。domain，type，name来表示ObjectName。
+	table.attr 为mbean的属性
+	peak 表示此table的value是否都是峰值类型，比如在线数。默认为false
+
+	mbean只支持两种类型，具体请见mxbeans.xml的注释.包含keycolumn的为类型2
+	driver, connection是locojoydb需要的，请参照svn/share/newapplication
+-->

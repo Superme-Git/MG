@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<command name="show" class="com.pwrd.console.command.ShowCommand"/>
+	<command name="adddbx" class="com.pwrd.console.command.AddDbxCommand"/>
+	<command name="removedbx" class="com.pwrd.console.command.RemoveDbxCommand"/>
+	<command name="use" class="com.pwrd.console.command.UseCommand"/>
+	<command name="select" class="com.pwrd.console.command.XQLCommand"/>
+	<command name="update" class="com.pwrd.console.command.XQLCommand"/>
+	<command name="delete" class="com.pwrd.console.command.XQLCommand"/>
+	<command name="extractdbx" class="com.pwrd.console.command.ExtractDbxCommand"/>
+	<command name="json" class="com.pwrd.console.command.JsonCommand"/>
+</commands>

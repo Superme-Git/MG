@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="share">
+      <UniqueIdentifier>{ffe680b5-1b61-45c6-90f2-9620cd5e93fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{3e32ab6d-efd8-49c4-bb96-8c437239a93b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="os">
+      <UniqueIdentifier>{592ff40d-69b2-45c5-8e6c-dbdba6d9239d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="os\windows">
+      <UniqueIdentifier>{d2521266-7a8c-4596-8b31-eca7905ecc0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="os\windows\win32">
+      <UniqueIdentifier>{00fee556-9efc-4219-9fa4-55167d011503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="fnet">
+      <UniqueIdentifier>{5028ccb2-c338-40b9-ac73-630234ea28ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="auto">
+      <UniqueIdentifier>{de7fce78-b7af-42c5-972f-08db15945bc6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\authc\share\marshal.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\octets.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\security.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\streamcompress.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\net\FNet.cpp">
+      <Filter>fnet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\timer.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\protocol.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\netsession.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\authc.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\pollio.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\ioengine.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\rpcgen.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\authc\activeio.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\loginbase.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\netio.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cauthc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\marshal.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\octets.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\protocol.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\security.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\streamcompress.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\os\windows\libshare.h">
+      <Filter>os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\os\windows\mutex.hpp">
+      <Filter>os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\os\windows\socketfunc.h">
+      <Filter>os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\os\windows\thread.hpp">
+      <Filter>os\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\os\windows\win32\share.hpp">
+      <Filter>os\windows\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\net\FNet.h">
+      <Filter>fnet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\rpcgen.hpp">
+      <Filter>auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\protocols.hpp">
+      <Filter>auto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\timer.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\pollio.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\ioengine.h">
+      <Filter>share</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

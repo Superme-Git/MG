@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D63D395E-8F0E-4091-AE3F-FA05DF74D05D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Launcher</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>gdiplus.lib;ws2_32.lib;winmm.lib;wldap32.lib;Msimg32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <EnableUAC>true</EnableUAC>
+      <UACUIAccess>false</UACUIAccess>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>gdiplus.lib;ws2_32.lib;winmm.lib;wldap32.lib;Msimg32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+      <EnableUAC>true</EnableUAC>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <UACUIAccess>false</UACUIAccess>
+      <OutputFile>../resource/$(ProjectName).exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Launcher.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ExeIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\CrashDump.cpp" />
+    <ClCompile Include="Code\Global\GlobalFunction.cpp" />
+    <ClCompile Include="Code\HttpClient\HttpClient_Common.cpp" />
+    <ClCompile Include="Code\HttpClient\HttpClient_Get.cpp" />
+    <ClCompile Include="Code\HttpClient\HttpClient_Post.cpp" />
+    <ClCompile Include="Code\Launcher.cpp" />
+    <ClCompile Include="Code\LJFM\LJFileInfo.cpp" />
+    <ClCompile Include="Code\Update\JsonUtil.cpp" />
+    <ClCompile Include="Code\Update\UpdateEngine.cpp" />
+    <ClCompile Include="Code\Update\UpdateManagerEx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\CrashDump.h" />
+    <ClInclude Include="Code\Download\DownloadManager.h" />
+    <ClInclude Include="Code\Download\DownloadOne.h" />
+    <ClInclude Include="Code\Global\GlobalFunction.h" />
+    <ClInclude Include="Code\HttpClient\HttpClient.h" />
+    <ClInclude Include="Code\Launcher.h" />
+    <ClInclude Include="Code\LauncherData.h" />
+    <ClInclude Include="Code\LauncherTools.h" />
+    <ClInclude Include="Code\LauncherUI.h" />
+    <ClInclude Include="Code\LJFM\LJFileInfo.h" />
+    <ClInclude Include="Code\LJFP\LJFP_Compress.h" />
+    <ClInclude Include="Code\LJFP\LJFP_CRC32.h" />
+    <ClInclude Include="Code\LJFP\LJFP_FileInfo.h" />
+    <ClInclude Include="Code\LJFP\LJFP_FileUtil.h" />
+    <ClInclude Include="Code\LJFP\LJFP_MiniZ.h" />
+    <ClInclude Include="Code\LJFP\LJFP_Node.h" />
+    <ClInclude Include="Code\LJFP\LJFP_SMS4.h" />
+    <ClInclude Include="Code\LJFP\LJFP_StringUtil.h" />
+    <ClInclude Include="Code\LJFP\LJFP_Var.h" />
+    <ClInclude Include="Code\LJFP\LJFP_Version.h" />
+    <ClInclude Include="Code\LJFP\LJFP_XML.h" />
+    <ClInclude Include="Code\LJFP\LJFP_ZipFile.h" />
+    <ClInclude Include="Code\stdafx.h" />
+    <ClInclude Include="Code\UIControl\DUIImage.h" />
+    <ClInclude Include="Code\UIControl\DUILabel.h" />
+    <ClInclude Include="Code\UIControl\DUIBase.h" />
+    <ClInclude Include="Code\UIControl\DUIButton.h" />
+    <ClInclude Include="Code\UIControl\DUILabelLink.h" />
+    <ClInclude Include="Code\UIControl\DUIProgressBar.h" />
+    <ClInclude Include="Code\UIControl\DUIWebBrowser.h" />
+    <ClInclude Include="Code\UIControl\DUIWindow.h" />
+    <ClInclude Include="Code\UIControl\DUIWindowManager.h" />
+    <ClInclude Include="Code\Update\JsonUtil.h" />
+    <ClInclude Include="Code\Update\UpdateBin.h" />
+    <ClInclude Include="Code\Update\UpdateEngine.h" />
+    <ClInclude Include="Code\Update\UpdateManagerEx.h" />
+    <ClInclude Include="Code\Update\UpdateManagerEx_Helper.h" />
+    <ClInclude Include="Code\Update\UpdateJson.h" />
+    <ClInclude Include="Code\Utils\FileUtil.h" />
+    <ClInclude Include="Code\Utils\StringUtil.h" />
+    <ClInclude Include="Code\Utils\SystemUtil.h" />
+    <ClInclude Include="Code\WebBrowser\OleContainer.h" />
+    <ClInclude Include="Code\WebBrowser\WebBrowser.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

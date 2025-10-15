@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="common">
+		<bean name="SCommon" from="t通用配置表" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="value" fromCol="服务器参数" type="string" />
+		</bean>
+
+		<bean name="CCommon" from="t通用配置表" genxml="client">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="value" fromCol="客户端参数" type="string" />
+		</bean>
+		
+		<bean name="CAddressProvince" from="d地理位置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="strprovince" fromCol="省" type="string" />
+			<variable name="vncountryid" type="vector" value="int" fromCol="对应市id1,对应市id2,对应市id3,对应市id4,对应市id5,对应市id6,对应市id7,对应市id8,对应市id9,对应市id10,对应市id11,对应市id12,对应市id13,对应市id14,对应市id15,对应市id16,对应市id17,对应市id18,对应市id19,对应市id20,对应市id21,对应市id22,对应市id23,对应市id24,对应市id25" />	            
+		
+		</bean>
+		<bean name="CAddressCountry" from="d地理位置市表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="strcountry" fromCol="市" type="string" />
+			<variable name="nprovinceid" type="int"  fromCol="对应省id" />	            
+		
+		</bean>
+
+	</namespace>

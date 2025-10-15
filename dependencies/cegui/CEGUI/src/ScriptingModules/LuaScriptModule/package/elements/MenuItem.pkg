@@ -1,0 +1,16 @@
+/***********************************************************************
+	Menubar
+***********************************************************************/
+class MenuItem : public ItemEntry
+{
+public:
+	bool isHovering() const;
+	bool isPushed() const;
+	bool    isOpened(void) const;
+	PopupMenu* getPopupMenu() const;
+
+	void setPopupMenu(PopupMenu* popup);
+	void openPopupMenu();
+	void closePopupMenu(bool notify=true);
+	bool togglePopupMenu();
+};

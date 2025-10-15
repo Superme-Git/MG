@@ -1,0 +1,2 @@
+call ant undeploy
+pause

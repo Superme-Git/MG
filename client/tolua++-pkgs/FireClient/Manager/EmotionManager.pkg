@@ -1,0 +1,13 @@
+
+class EmotionManager : public CSingleton<EmotionManager>
+{
+	bool isEmotionExist(int id);							//某个表情是否存，返回true表明该iD的表情存在
+	int GetImageSetIndexByIDAndFrame(int id, int frame);
+	int GetEmotionsCount();
+};
+
+inline EmotionManager* gGetEmotionManager()
+{
+	return EmotionManager::GetInstance();
+}
+

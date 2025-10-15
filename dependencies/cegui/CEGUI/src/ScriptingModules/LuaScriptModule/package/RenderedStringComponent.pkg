@@ -1,0 +1,20 @@
+/***********************************************************************
+    RenderedStringComponent
+***********************************************************************/
+class RenderedStringComponent
+{
+    void setVerticalFormatting(VerticalFormatting fmt);
+    VerticalFormatting getVerticalFormatting() const;
+    void setPadding(const Rect& padding);
+    void setLeftPadding(const float padding);
+    void setRightPadding(const float padding);
+    void setTopPadding(const float padding);
+    void setBottomPadding(const float padding);
+    const Rect& getPadding() const;
+    float getLeftPadding() const;
+    float getRightPadding() const;
+    float getTopPadding() const;
+    float getBottomPadding() const;
+    void setAspectLock(const bool setting);
+    bool getAspectLock() const;
+};

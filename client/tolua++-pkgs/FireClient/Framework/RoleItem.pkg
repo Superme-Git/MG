@@ -1,0 +1,10 @@
+struct stRoleItem
+{
+public:
+	stRoleItem();
+	stRoleItem(int battleuse, int thisID);
+	~stRoleItem();
+
+	int m_Battleuse;
+	int m_ThisID;
+};

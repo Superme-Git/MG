@@ -1,0 +1,241 @@
+namespace Nuclear
+{
+	inline void XPSinCos(float radian, float *sin, float *cos);
+	inline float TORADIANS(float p);
+	inline float TOANGLE(float r);
+	inline float XPSIN(int angle);
+	inline float XPCOS(int angle);
+	inline int GetGreatestDenominator(int a1, int a2);
+	inline int GetLowestComMultiple(int a1, int a2);
+
+	struct NuclearVector3
+	{
+		NuclearVector3 (float _x=0.0f, float _y=0.0f, float _z=0.0f);
+		NuclearVector3& Reset(float _x,float _y,float _z);
+		NuclearVector3& Add(float _x,float _y,float _z);
+		float Length() const;
+	};
+
+	struct NuclearVector4
+	{
+		NuclearVector4 (float _x=0.0f, float _y=0.0f, float _z=0.0f, float _w=0.0f);
+	};
+
+	struct NuclearFColor
+	{
+		NuclearFColor(float _r=0.f,float _g=0.f,float _b=0.f,float _a=0.f);
+		void Reset(float _r,float _g,float _b,float _a);
+		DWORD ToDWORD() const;
+	};
+
+	struct NuclearFPoint
+	{
+		NuclearFPoint(float _x = 0.f, float _y = 0.f);
+		NuclearFPoint(const POINT& p);
+
+		float Dis2(const NuclearFPoint &cp) const;
+		float angleBetween(const NuclearFPoint& vec);
+
+		bool isInPolygon(const std::vector<NuclearFPoint>& polygon) const;
+		bool isInTriangle(NuclearFPoint p0, NuclearFPoint p1, NuclearFPoint p2) const;
+
+		void normalize();
+	};
+
+	struct NuclearPoint : public POINT
+	{
+		NuclearPoint(int _x=0, int _y=0);
+		NuclearPoint(const POINT &pt);
+		NuclearPoint(const NuclearFPoint &pt);
+
+		int Dis2(const NuclearPoint &cp) const;
+		NuclearFPoint ToFPOINT() const;
+	};
+
+	struct NuclearFRectt
+	{
+		NuclearFRectt(float l = 0.f, float t = 0.f, float r = 0.f, float b = 0.f);
+		NuclearFRectt(const NuclearFPoint &ltpoint, float width, float height);
+		NuclearFRectt(const NuclearFPoint & lt, float size);
+		NuclearFRectt(const NuclearFPoint & lt, const NuclearFPoint & rb);
+
+		NuclearFRectt& Assign(float l, float t, float r, float b);
+
+		float Width() const;
+		float Height() const;
+		bool PtInRect(const NuclearFPoint &pt) const;
+	};
+
+	inline int Cross(const POINT& pt1, const POINT& pt2);
+	inline bool IsCross(const NuclearPoint& p1, const NuclearPoint& p2, const NuclearPoint& q1, const NuclearPoint& q2);
+
+	struct NuclearRect : public RECT
+	{
+		NuclearRect(int l=0, int t=0, int r=0, int b=0);
+		NuclearRect(const NuclearPoint &ltpoint, int width, int height);
+		NuclearRect(const RECT &r);
+
+		NuclearRect Widen(int d) const;
+		NuclearRect Union(const NuclearRect &rhs);
+
+		NuclearPoint GetPos() const;
+		NuclearPoint Center() const;
+		NuclearFRectt ToFRECT() const;
+		NuclearRect& Assign(int l, int t, int r, int b);
+
+		int Width() const;
+		int Height() const;
+		bool PtInRect(const NuclearPoint &pt) const;
+
+		// 计算相交情况
+		bool IsCross(const NuclearRect& rhs, NuclearRect &res) const;
+		// 根据视窗切割出需要显示的部分
+		bool Cut(const NuclearRect& vrect, NuclearRect &drect, NuclearFRectt& srect) const;
+	};
+
+	struct NuclearTriangle
+	{
+		bool PtInTriangle(const NuclearFPoint &pt) const;
+	};
+
+	//快速排斥实验
+	//inline bool IsCross(const NuclearPoint& p1, const NuclearPoint& p2, const NuclearRect& rc);
+
+	//struct NuclearEllipse
+	//{
+	//	bool PtInEllipse(const NuclearPoint &pt) const;
+	//};
+
+	struct NuclearMatrix3
+	{
+		NuclearMatrix3( float _11, float _12, float _13, float _21, float _22, float _23, float _31, float _32, float _33);
+
+		void Translation(NuclearMatrix3 &result, const NuclearFPoint &fp) const;
+		void Translation(NuclearMatrix3 &result, float x, float y) const;
+
+		NuclearMatrix3 *inverse (NuclearMatrix3 *pOut) const;
+	};
+
+	//pOut和pV不能是同一个向量
+	NuclearVector2 inline *XPVec3TransformCoord(NuclearVector2 *pOut, const NuclearVector2 *pV, const NuclearMatrix3 *pM);
+
+	//pOut和pV不能是同一个向量
+	NuclearVector2 inline *XPVec3TransformNormal(NuclearVector2 *pOut, const NuclearVector2 *pV, const NuclearMatrix3 *pM);
+	
+	//矩阵的初始化,零矩阵
+	NuclearMatrix3 inline *XPMatrixZero(NuclearMatrix3 *pOut);
+
+	//单位矩阵
+	NuclearMatrix3 inline *XPMatrixIdentity(NuclearMatrix3 *pOut);
+
+	//旋转
+	NuclearMatrix3 inline *XPMatrixRotationPoint(NuclearMatrix3 *pOut, const NuclearFPoint *pP, float radian);
+
+	NuclearMatrix3 inline *XPMatrixRotationOrigin(NuclearMatrix3 *pOut, float radian);
+
+	//平移
+	NuclearMatrix3 inline *XPMatrixTranslation(NuclearMatrix3 *pOut, float x, float y);
+
+	NuclearMatrix3 inline *XPMatrixTranslation(NuclearMatrix3 *pOut, const NuclearFPoint *pP);
+
+	//错切（切变）
+	NuclearMatrix3 inline *XPMatrixShearX(NuclearMatrix3 *pOut, const NuclearFPoint *pP, float s);
+
+	NuclearMatrix3 inline *XPMatrixShearX(NuclearMatrix3 *pOut, float s);
+
+	NuclearMatrix3 inline *XPMatrixShearY(NuclearMatrix3 *pOut, const NuclearFPoint *pP, float s);
+
+	NuclearMatrix3 inline *XPMatrixShearY(NuclearMatrix3 *pOut, float s);
+
+	//缩放
+	NuclearMatrix3 inline *XPMatrixScaling(NuclearMatrix3 *pOut, const NuclearFPoint *pP, float sx, float sy);
+
+	NuclearMatrix3 inline *XPMatrixScaling(NuclearMatrix3 *pOut, float sx, float sy);
+
+	NuclearMatrix3 inline *XPMatrixMirrorY(NuclearMatrix3 *pOut);
+
+	enum NuclearShapeType
+	{
+		XPSHAPE_TYPE_CIRCLE = 0,
+		XPSHAPE_TYPE_POLYGON,
+	};
+
+	union NuclearColor
+	{
+		NuclearColor();
+		NuclearColor(DWORD color);
+		NuclearColor(const NuclearVector4 &v);
+		NuclearColor(unsigned char _a, unsigned char _r, unsigned char _g, unsigned char _b);
+		void Reset(const NuclearVector4 &v);
+		NuclearVector4 ToXPVECTOR4() const;
+        
+		void Reset(unsigned char _b, unsigned char _g, unsigned char _r, unsigned char _a);
+	};
+	
+	class INuclearShape
+	{
+	public:
+		virtual bool IsPointIn(int x, int y) const = 0;
+		bool IsPointIn(const NuclearPoint &pt) const;
+		virtual float DistanceTo(int x, int y) const = 0;//这个是到边界的距离，正负无定义，目前，如果是圆，那么点在内部的话则为负，如果是多边形，不管内外均为正
+		float DistanceTo(const NuclearPoint &pt) const;
+		virtual void Render(Renderer *pRenderer, const NuclearRect &viewport, NuclearColor color, NuclearFillMode fillmode, int pointR) const = 0;
+		virtual NuclearShapeType GetType() const = 0;
+		virtual INuclearShape* Extension(int l) const = 0;
+		virtual bool IsVaild()	const = 0;//是否合法
+	};
+
+	class NuclearCircle : public INuclearShape
+	{
+	public:
+		NuclearCircle(NuclearPoint	pos = NuclearPoint(0, 0), int r = 0);
+		virtual NuclearShapeType GetType() const;
+		virtual bool IsPointIn(int x, int y) const;
+		virtual float DistanceTo(int x, int y) const;
+		virtual void Render(Renderer *pRenderer, const NuclearRect &viewport, NuclearColor color, NuclearFillMode fillmode, int pointR) const;
+		virtual INuclearShape* Extension(int l) const;
+		virtual bool IsVaild() const;
+	};
+
+	class NuclearPolygon : public INuclearShape
+	{
+	public:
+		NuclearPolygon() {}
+		virtual NuclearShapeType GetType() const;
+		virtual bool IsPointIn(int x, int y) const;
+		virtual float DistanceTo(int x, int y) const;
+		virtual void Render(Renderer *pRenderer, const NuclearRect &viewport, NuclearColor color, NuclearFillMode fillmode, int pointR) const;
+		virtual INuclearShape* Extension(int l) const;
+		virtual bool IsVaild() const;
+	};
+
+	RECT GetMaxRect(const RECT &r, float s);
+
+	bool IsPower2(int i);
+	bool PartitionRectToPower2(const NuclearRect &src, std::vector<NuclearRect> &dst);
+	
+	//这个函数把一个点从图片的直角坐标系（原点在左上角）中转换为在菱形的坐标系中。
+	//其中，基单位向量i在直角坐标系为(1, cos(58))，基单位向量j为(-1, cos(58))
+	void TransToDiamondRadix(int x, int y, NuclearPoint& pointInDiamonRadix);
+
+	// 两点距离
+	inline float distance(const NuclearFPoint & from, const NuclearFPoint & to);
+
+	// 两点距离平方
+	inline float distance2(const NuclearFPoint & from, const NuclearFPoint & to);
+
+	//向量点积
+	inline float DotProduct(const NuclearVector2& v0, const NuclearVector2& v1);
+
+	//向量长度
+	inline float VectorLength(const NuclearVector2& v);
+
+	//两向量的夹角
+	inline float Computer2VectorAngle(const NuclearVector2& v1, const NuclearVector2& v2);
+
+	typedef NuclearPoint CSIZE;
+	typedef NuclearPoint COFFSET;
+	typedef NuclearPoint NuclearLocation;	
+	
+	typedef NuclearFPoint NuclearVector2;
+}

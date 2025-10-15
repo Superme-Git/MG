@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 21000开始 -->
+<namespace name="circletask">
+	<!-- 特殊任务的类型,包括职业任务中的各种不同类型以及天-尊和其他特殊任务 -->
+	<bean name="SpecialQuestType">
+		<enum name="Mail" value="801001" />					送信
+		<enum name="Patrol" value="801002" />				巡逻
+		<enum name="BuyItem" value="801003" />				买道具
+		<enum name="CatchPet" value="801004" />				抓守护
+		<enum name="Demonstrate" value="801005" /> 			示威
+		<enum name="DemonstrateEye" value="801006" /> 	    示威
+		<enum name="Rescue" value="801007" />				援救
+		<enum name="Tame" value="801008" />					降服		
+		<enum name="CaiJi" value="801010" />				采集
+		<enum name="CaiJiFinish" value="801030" />				采集完成
+		<enum name="ChuanDiXiaoXi" value="801011" />		传递消息
+		<enum name="KillMonster" value="801012" /> 打怪
+		<enum name="KillMonsterFinish" value="801032" /> 打怪完成
+		<enum name="FindItem" value="801013" /> 打怪寻物
+		<enum name="FindItemFinish" value="801033" /> 打怪寻物完成
+		<enum name="Answer" value="801014" /> 答题
+		<enum name="AnswerFinish" value="801034" /> 答题完成		
+        <enum name="CatchIt_Normal" value="1030001" />   捉鬼
+        <enum name="CatchIt_Increase" value="1030002" />   鬼王
+    </bean>
+
+	
+	<bean name="CircTaskCate">
+		<enum name="CircTask_School" value="1010000" /> 职业
+		<enum name="CircTask_Gang" value="1020000" /> 公会
+        <enum name="CircTask_Catch" value="1030000" /> 捉鬼
+	</bean>
+	<!-- 循环任务的中类型 -->
+	<bean name="CircTaskClass">
+		<enum name="CircTask_Mail" value="1" /> 送信
+		<enum name="CircTask_ItemUse" value="2" /> 道具制造
+		<enum name="CircTask_ItemCollect" value="3" /> 道具收集
+		<enum name="CircTask_ItemFind" value="4" /> 寻找道具
+		<enum name="CircTask_PetCatch" value="5" /> 捕获宠物
+		<enum name="CircTask_Patrol" value="6" /> 巡逻
+        <enum name="CircTask_CatchIt" value="7" /> 捉鬼
+		<enum name="CircTask_KillMonster" value="8" /> 杀怪计数
+		<enum name="CircTask_ChallengeNpc" value="9" /> 挑战npc
+  </bean>
+	
+	<!-- 循环任务的跳转类型 -->
+	<bean name="CircTaskGotoType">
+		<enum name="CircTask_GotoInit" value="1" /> 跳转到初始点
+		<enum name="CircTask_GotoRand" value="2" /> 跳转到随机点
+        <enum name="CircTask_GotoGuild" value="3" /> 跳转到公会地图随机点
+    </bean>
+	
+	<bean name="SpecialQuestState">
+		<enum name="SUCCESS" value="1" /> 已成功，(已提交)
+		<enum name="FAIL" value="2" /> 已失败
+		<enum name="DONE" value="3" /> 已完成
+		<enum name="UNDONE" value="4" /> 未完成
+		<enum name="ABANDONED" value="5" /> 已放弃
+		<enum name="RECYCLE" value="6"/> 回收
+        <enum name="INSTANCE_ABANDONED" value="7"/> 副本中放弃
+    </bean>
+	
+	<!--刷新任务的数据字段枚举值-->
+	<bean name="RefreshDataType">
+		<enum name="STATE" value="1" /> 任务状态
+		<enum name="DEST_NPD_KEY" value="2" /> _目的npckey
+		<enum name="DEST_NPD_ID" value="3" /> 目的npcid
+		<enum name="DEST_MAP_ID" value="4" /> 目的地图id
+		<enum name="DEST_XPOS" value="5" />   目的x坐标
+		<enum name="DEST_YPOS" value="6" />   目的y坐标
+		<enum name="DEST_ITEM_ID" value="7" />   目的道具id
+		<enum name="SUMNUM" value="8" />   累计次数
+		<enum name="DEST_ITEM1_NUM" value="9" />   目的道具1的数量
+		<enum name="DEST_ITEM2_ID" value="10" />   目的道具2id
+		<enum name="DEST_ITEM2_NUM" value="11" />  目的道具2的数量
+		<enum name="QUEST_TYPE" value="12" /> 任务类型
+	</bean>
+	
+	<bean name="RewardItemUnit">
+		<variable name="baseid" type="int" validator="value=(0,)" />奖励道具的基本id
+		<variable name="num" type="int" validator="value=(0,)" /> 奖励道具的数量
+	</bean>
+		
+	<bean name="ActiveQuestData"> 
+		<variable name="questid" type="int" validator="value=[1,)" /> 任务id
+		<variable name="queststate" type="int"  /> 任务状态
+		<variable name="dstnpckey" type="long"  /> 目的npckey
+		<variable name="dstnpcid" type="int"  /> 目的npcbaseid
+		<variable name="dstmapid" type="int"  /> 目的地图id
+		<variable name="dstx" type="int" /> 目的x坐标
+		<variable name="dsty" type="int"  /> 目的y坐标
+		<variable name="dstitemid" type="int" /> 目的道具的id"
+		<variable name="sumnum" type="int" /> 	累积次数. 
+		<variable name="npcName" type="string"/>	npc名字,目前仅用于强盗宝图
+		<variable name="rewardexp" type="long"  /> 奖励的经验
+		<variable name="rewardmoney" type="long"  /> 奖励的现金
+		<variable name="rewardsmoney" type="long"  /> 奖励的储备金
+		<variable name="rewarditems" type="vector" value="RewardItemUnit" /> 奖励的道具
+	</bean>
+	
+	<bean name="SpecialQuestID" tolua="3">
+        <enum name="catchIt" value="1030000" />  捉鬼任务
+    </bean>
+	
+	<bean name="SpecialQuestNpcMsg">
+	
+		<enum name="SPECIAL_QUEST_FORTUNEWHEEL_MSG" value="142436" />职业大转盘的msg
+	</bean>
+	
+	<protocol name="SRefreshSpecialQuest" type="21000" maxsize="65535" prior="1" tolua = "3">
+		<variable name="questid" type="int" validator="value=(0,)" />	任务id
+		<variable name="queststate" type="int" /> 任务状态
+		<variable name="round" type="int" /> 	当前任务的环数
+		<variable name="sumnum" type="int" /> 	累积次数. 根据不同的任务，拥有不同的含义：如职业，是每天的累积次数。
+		<variable name="questtype" type="int" /> 任务类型 （见 SpecialQuestType）
+		<variable name="dstmapid" type="int" /> 目的地图id
+		<variable name="dstnpckey" type="long" /> 目的npc的key
+		<variable name="dstnpcname" type="string" /> 目的npc名字
+		<variable name="dstnpcid" type="int" /> 目的npc的id
+		<variable name="dstitemid" type="int" /> 目的道具的id
+		<variable name="dstitemnum" type="int" /> 目的道具的数量，
+		<variable name="dstitemid2" type="int" /> 目的道具2
+		<variable name="dstitemidnum2" type="int" /> 目的道具2的数量
+		<variable name="dstx" type="int" /> 目的坐标x
+		<variable name="dsty" type="int" /> 目的坐标y
+		<variable name="validtime" type="long" /> 任务截止效期（职业中的示威、援救、清理职业，降服）
+		<variable name="islogin" type="int" /> 是否是登陆状态
+	</protocol>
+	
+
+	
+	<protocol name="SRefreshSpecialQuestState" type="21001" maxsize="65535" prior="1" tolua="3">
+
+		<variable name="questid" type="int" />
+		<variable name="state" type="int" />
+	</protocol>
+	
+	<protocol name="CAbandonQuest" type="21002" maxsize="65535" prior="1" tolua="3">
+		<variable name="questid" type="int" validator="value=(0,)" /> 放弃的任务id
+	</protocol>
+
+	<protocol name="SRefreshActiveQuest" type="21003" maxsize="65535" prior="1" tolua = "3">
+		<variable name="questdata" type="ActiveQuestData"/>
+	</protocol>
+	
+	<!-- 角色上线的时候服务器发给客户端所有当前未完成的任务列表 -->
+	<protocol  name="SSendActiveQuestList" type="21004" maxsize="655350" prior="1" tolua = "3">		
+		<variable name="memberlist" type="list" value="ActiveQuestData"/>
+	</protocol>	
+	
+	<!-- 任务数据发生变化时，服务器向客户端发送的刷新消息 -->
+	<protocol  name="SRefreshQuestData" type="21006" maxsize="655350" prior="1" tolua="3">		
+		<variable name="questid" type="int" validator="value=(0,)" /> 刷新的任务id
+		<variable name="datas" type="map" key="int" value="long" validator="key=(0,)"/> 变量值ID，变量值
+	</protocol>
+	
+	
+	
+		<!-- 问卷调查答案-->
+	<protocol name="CQuestionnaireResult" type="21012" maxsize="65535" prior="1" tolua = "3">
+	<variable name="npckey" type="long" /> NPCKEY
+		<variable name="step" type="int" validator="value=[1,2]" />调查问卷阶段 30级-1 35级-2
+		<variable name="result" type="vector" value="int" />答案
+	</protocol>
+	
+		<!-- 问卷调查获得称号和经验-->
+	<protocol  name="SQuestionnaireTitleAndExp" type="21013" maxsize="655350" prior="1" tolua = "3">		
+		<variable name="title" type="int" validator="value=[0,)"/>
+		<variable name="exp" type="long" validator="value=[0,)"/>
+	</protocol>
+	<protocol  name="CReqGotoPatrol" type="21014" maxsize="65535" prior="1"> 请求跳转到职业巡逻地图	
+	</protocol>	
+	
+	<!-- 任性任务相关 -->
+	<protocol name="SRenXingCircleTask" type="21018" maxsize="65535" prior="1" tolua="3">服务通知客户端任性
+		<variable name="serviceid" type="int" />该服务id
+		<variable name="questid" type="int" />任务id
+		<variable name="renxingtimes" type="int" />已经任性的次数
+		<variable name="npckey" type="long" />npckey
+	</protocol>
+	
+	<protocol name="CRenXingCircleTask" type="21019" maxsize="65535" prior="1" tolua="3">客户端选择货币类型任性任务
+		<variable name="serviceid" type="int" />该服务id
+		<variable name="moneytype" type="int" />货币类型
+	</protocol>
+	
+	<protocol name="CQueryCircleTaskState" type="21020" maxsize="65535" prior="1" tolua="3">客户端请求查询任务状态
+		<variable name="questid" type="int" />任务id
+	</protocol>
+	
+	<protocol name="SQueryCircleTaskState" type="21021" maxsize="65535" prior="1" tolua="3">回复任务状态
+		<variable name="questid" type="int" />任务id
+		<variable name="state" type="int" />任务状态
+	</protocol>
+	
+	<namespace name="anye">
+		<!-- 暗夜马戏团任务相关 -->
+		<bean name="AnYeTask">
+			<variable name="pos" type="int" /> 任务栏位
+			<variable name="id" type="int" /> 任务id
+			<variable name="kind" type="int" /> 任务类型
+			<variable name="state" type="int" /> 任务状态
+			<variable name="dstitemid" type="int" /> 目的道具的id
+			<variable name="dstitemnum" type="int" /> 目的道具的数量
+			<variable name="dstnpckey" type="long" /> 目的npc的key
+			<variable name="dstnpcid" type="int" /> 目的npc的id
+			<variable name="legend" type="int" /> 传说状态 0不能传说 1可以传说 2已传说 3成功 4失败
+			<variable name="legendtime" type="long" /> 传说持续时间
+			<variable name="legendend" type="long" /> 传说结束时间
+		</bean>
+		<protocol name="SRefreshAnYeData" type="21022" maxsize="65535" prior="1" tolua="3">
+			<variable name="times" type="int" /> 任务累计次数
+			<variable name="renxins" type="int" /> 已经任性次数
+			<variable name="anyetasks" type="vector" value="AnYeTask" /> 任务信息，登陆时发全部10个，以后每次可能一个，可能几个
+			<variable name="awardexp" type="long" /> 奖励经验
+			<variable name="awardsilver" type="long" /> 奖励银币
+			<variable name="swardgold" type="long" /> 奖励金币
+			<variable name="jointime" type="long" /> 首次参加时间
+			<variable name="legendpos" type="int" /> 当前的在传说任务，如果是超出0~7（显示范围）外的值，代表当前没有传说任务
+		</protocol>
+		<bean name="SubmitThing">
+			<variable name="key" type="int" validator="value=(0,)" /> 给予物品或者道具的key
+			<variable name="num" type="int" validator="value=(0,)" /> 给予物品或者道具的数量
+		</bean>
+		<protocol name="CSubmitThings" type="21023" maxsize="65535" prior="1" tolua="3">
+			<variable name="taskpos" type="int" validator="value=[0,)" /> 任务栏位
+			<variable name="taskid" type="int" validator="value=[0,)" /> 任务id
+			<variable name="taskrole" type="long" validator="value=[0,)" /> 任务所属角色id(帮别人提交物品时用到)
+			<variable name="submittype" type="int" validator="value=[0,)" /> 提交的类型 1道具 2宠物 3金钱
+			<variable name="things" type="vector" value="SubmitThing" /> 提交的道具key 或者宠物的key
+		</protocol>
+		<protocol name="CRenXingAnYeTask" type="21024" maxsize="65535" prior="1" tolua="3">任性暗夜马戏团任务
+			<variable name="taskpos" type="int" />任务栏位
+			<variable name="moneytype" type="int" />货币类型 MoneyType枚举定义 3符石 7声望
+		</protocol>
+		<protocol name="CSetAnYeJoinTime" type="21025" maxsize="65535" prior="1" tolua="3">
+			<variable name="jointime" type="long" /> 首次参加时间
+		</protocol>
+		
+		<protocol name="CLengendAnYetask" type="21026" maxsize="65535" prior="1" tolua="3">寻宝一个暗夜马戏团任务
+			<variable name="taskpos" type="int" />任务栏位
+		</protocol>
+		
+		<protocol name="SLengendAnYetask" type="21027" maxsize="65535" prior="1" tolua="3">返回寻宝结果
+			<variable name="result" type="int" />结果1成功
+		</protocol>
+		
+		<protocol name="CAbandonAnYe" type="21028" maxsize="65535" prior="1" tolua="3">
+			<variable name="questid" type="int" /> 放弃的任务id(暗夜马戏团1080000)
+		</protocol>
+	</namespace>
+</namespace>

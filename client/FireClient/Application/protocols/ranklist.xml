@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<namespace name="ranklist">
+
+	<!-- 等排榜 -->
+	<bean name="LevelRankData">
+		<variable name="roleid" type="long" /> roleid
+		<variable name="nickname" type="string"/> 名字
+		<variable name="level" type="int"/> 等级
+		<variable name="school" type="int"/> 职业id
+		<variable name="rank" type="int"/> 排名
+	</bean>
+	
+	<!-- 宠排榜 -->
+	<bean name="PetGradeRankData">
+		<variable name="roleid" type="long" /> roleid
+		<variable name="uniquePetId" type="long" /> 宠物的唯一id
+		<variable name="nickname" type="string"/> 名字
+		<variable name="petname" type="string"/> 宠物名字
+		<variable name="petgrade" type="int"/> 宠物评分
+		<variable name="rank" type="int"/> 排名
+		<variable name="colour" type="int"/> 宠物颜色
+	</bean>
+	
+	<!-- 冰封王座副本排行榜 -->
+	<bean name="BingFengRankData">
+		<variable name="shool" type="int"/> 职业
+		<variable name="rank" type="int"/> 排名
+		<variable name="roleid" type="long" /> roleid
+		<variable name="roleName" type="string" /> 玩家的名字
+		<variable name="stage" type="int" /> 关数
+		<variable name="times" type="int" /> 耗时
+	</bean>
+	
+	<bean name="FactionRankRecord">
+	   <variable name="rank" type="int"/> 排名
+	   <variable name="factionname" type="string"/> 公会名称
+	   <variable name="mastername" type="string"/> 帮主名称
+	   <variable name="level" type="int" /> 公会等级
+	   <variable name="camp" type="int" /> 阵营
+	   <variable name="factionKey" type="long"/> 公会key
+	</bean>
+	
+	<!--公会副本竞速榜-->
+	<bean name="FactionRaidRankRecord">
+	   <variable name="rank" type="int"/> 排名
+	   <variable name="factionid" type="long"/> 公会id
+	   <variable name="factionname" type="string"/> 公会名字
+	   <variable name="progressstime" type="long" /> 进度时间
+	   <variable name="progresss" type="int" /> 公会进度
+	   <variable name="factionmonstername" type="string" /> 会长名字
+	   <variable name="factioncopyname" type="string" /> 公会副本名字 by changhao
+	   <variable name="bosshp" type="float"/> BOSS血量百分比 by changhao
+	</bean>
+	
+	<!--公会榜-->
+	<bean name="FactionRankRecordEx">
+	   <variable name="rank" type="int"/> 排名
+	   <variable name="factionid" type="long"/> 公会id
+	   <variable name="factionname" type="string"/> 公会名字
+	   <variable name="progressstime" type="long" /> 进度时间
+	   <variable name="progresss" type="int" /> 公会进度
+	   <variable name="factionlevel" type="int" /> 公会等级
+	   <variable name="externdata" type="int" /> 当前人数/综合实力
+	   <variable name="hotellevel" type="int" /> 旅馆等级
+	</bean>
+	
+	<!--人综榜-->
+	<bean name="RoleZongheRankRecord">
+	    <variable name="rank" type="int"/> 排名
+		<variable name="roleid" type="long" /> 角色ID
+		<variable name="rolename" type="string" /> 人物名称
+		<variable name="school" type="int"/> 职业
+		<variable name="score" type="int" /> 总评分
+		<variable name="rolelevel" type="int"/> 等级 by changhao
+	</bean>
+	
+	<!--职榜 by changhao-->
+	<bean name="RoleProfessionRankRecord"> 
+	    <variable name="rank" type="int"/> 排名
+		<variable name="roleid" type="long" /> 角色ID
+		<variable name="rolename" type="string" /> 人物名称
+		<variable name="school" type="int"/> 职业
+		<variable name="score" type="int" /> 总评分
+		<variable name="faction" type="string"/> 公会名字 by changhao
+		<variable name="rolelevel" type="int"/> 等级 by changhao
+	</bean>
+	
+	<!--红包榜 by changhao-->
+	<bean name="RedPackRankRecord"> 
+	    <variable name="rank" type="int"/> 排名 by changhao
+		<variable name="roleid" type="long" /> 角色ID by changhao
+		<variable name="rolename" type="string" /> 人物名称 by changhao
+		<variable name="school" type="int"/> 职业 by changhao
+		<variable name="num" type="long"/> 数量 by changhao
+	</bean>
+	
+	<!--鲜花榜 by changhao-->
+	<bean name="FlowerRankRecord"> 
+	    <variable name="rank" type="int"/> 排名 by changhao
+		<variable name="roleid" type="long" /> 角色ID by changhao
+		<variable name="rolename" type="string" /> 人物名称 by changhao
+		<variable name="school" type="int"/> 职业 by changhao
+		<variable name="num" type="long"/> 数量 by changhao
+	</bean>
+	
+	<!--5v5竞技场排行榜-->
+	<bean name="PvP5RankData">
+		<variable name="rank" type="int"/> 排名
+		<variable name="roleid" type="long"/> 角色ID
+		<variable name="rolename" type="string"/> 名字
+		<variable name="score" type="int"/> 积分
+		<variable name="school" type="int"/> 职业
+	</bean>
+	
+	<bean name="ClanFightRaceRank"> 公会战竞赛排名 by changhao
+		<variable name="rank" type="int"/> 排名	by changhao
+		<variable name="clanid" type="long"/> 公会id by changhao
+		<variable name="clanname" type="string"/> 公会名字 by changhao
+		<variable name="clanlevel" type="int"/> 公会等级 by changhao
+		<variable name="fightcount" type="int"/> 战斗次数 by changhao
+		<variable name="wincount" type="int"/> 胜利次数 by changhao
+		<variable name="scroe" type="int"/>积分 by changhao
+	</bean>
+	
+	<bean name="ClanFightHistroyRank"> 公会战历史排名 by changhao
+		<variable name="rank" type="int"/> 排名 by changhao
+		<variable name="clanid" type="long"/> 公会id by changhao
+		<variable name="clanname" type="string"/> 公会名字 by changhao
+		<variable name="clanlevel" type="int"/>公会等级 by changhao
+		<variable name="fightcount" type="int"/> 战斗次数 by changhao
+		<variable name="wincount" type="int"/> 胜利次数 by changhao
+	</bean>
+
+	<!--排行榜类型 -->
+	<bean name="RankType">
+		<enum name="LEVEL_RANK" value="1"/>等级排行
+		<enum name="PET_GRADE_RANK" value="9"/> 宠物综合能力（评分）排行榜	
+		<enum name="FACTION_RANK" value="31"/> 公会排行榜
+		<enum name="ROLE_ZONGHE_RANK" value="32"/> 人物综合实力排行榜			
+		<enum name="SINGLE_COPY_RANK1" value="21"/> 冰封王座单人副本40-49级
+		<enum name="SINGLE_COPY_RANK2" value="22"/> 冰封王座单人副本50-69级
+		<enum name="SINGLE_COPY_RANK3" value="23"/> 冰封王座单人副本70-89级
+		<enum name="SINGLE_COPY_RANK4" value="24"/> 冰封王座单人副本90级
+		<enum name="TEAM_COPY_RANK1" value="27"/> 冰封王座组队副本50-69级
+		<enum name="TEAM_COPY_RANK2" value="28"/> 冰封王座组队副本70-89级
+		<enum name="ROLE_RANK" value="38"/> 角色评分 by changhao
+		<enum name="PROFESSION_WARRIOR_RANK" value="43"/> 战士 by changhao
+		<enum name="PROFESSION_MAGIC_RANK" value="44"/> 法师 by changhao
+		<enum name="PROFESSION_PRIEST_RANK" value="45"/> 牧师 by changhao
+		<enum name="PROFESSION_PALADIN_RANK" value="46"/> 圣骑 by changhao
+		<enum name="PROFESSION_HUNTER_RANK" value="47"/> 猎人 by changhao
+		<enum name="PROFESSION_DRUID_RANK" value="48"/> 德鲁伊 by changhao
+
+		<enum name="FACTION_RANK_LEVEL" value="49"/> 公会等级 by changhao
+		<enum name="FACTION_ZONGHE" value="50"/> 公会综合实力 by changhao
+		
+		<enum name="FACTION_MC" value="51"/> 熔火之心 by changhao
+		<enum name="FACTION_NAXX" value="52"/> 纳克萨玛斯 by changhao
+		
+
+		<enum name="PROFESSION_ROGUE_RANK" value="60"/> 盗贼 by changhao
+		<enum name="PROFESSION_SAMAN_RANK" value="61"/> 萨满 by changhao
+		<enum name="PROFESSION_WARLOCK_RANK" value="62"/> 术士 by changhao
+		
+		<enum name="FACTION_COPY" value="70"/> 公会副本 by changhao
+
+		<enum name="PVP5_LAST_GRADE1" value="81"/> 5v5竞技场上届初级组
+		<enum name="PVP5_LAST_GRADE2" value="82"/> 5v5竞技场上届中级组
+		<enum name="PVP5_LAST_GRADE3" value="83"/> 5v5竞技场上届高级组
+		<enum name="PVP5_HISTORY_GRADE1" value="84"/> 5v5竞技场历史初级组
+		<enum name="PVP5_HISTORY_GRADE2" value="85"/> 5v5竞技场历史中级组
+		<enum name="PVP5_HISTORY_GRADE3" value="86"/> 5v5竞技场历史高级组
+		
+		<enum name="RED_PACK_1" value="101" /> 红包榜 普通服 by changhao
+		<enum name="RED_PACK_2" value="102" /> 红包榜 点卡服 by changhao
+		
+		<enum name="FLOWER_RECEIVE" value="111" /> 收花榜 by changhao
+		<enum name="FLOWER_GIVE" value="112" /> 送花榜 by changhao
+		
+		<enum name="CLAN_FIGHT_2" value="120"/> 公会战竞赛排名周二那场 by changhao
+		<enum name="CLAN_FIGHT_4" value="121"/> 公会战竞赛排名周四那场 by changhao
+		<enum name="CLAN_FIGHT_WEEK" value="122"/> 公会战竞赛排名本轮 by changhao
+		
+		<enum name="CLAN_FIGHT_HISTROY" value="123"/> 公会战历史排名 by changhao
+		
+	</bean>
+	
+	<!-- 客户端向服务器某个排行榜列表 -->
+	<protocol name="CRequestRankList" type="23801" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="ranktype" type="int" validator="value=[1,)"/> 排行榜类型
+		<variable name="page" type="int"/> 页数  从0开始
+	</protocol>
+	
+	<!-- 服务器返回给客户端的排行榜列表 -->
+	<protocol name="SRequestRankList" type="23802" maxsize="65535" prior="1" tolua="3">
+		<variable name="ranktype" type="int"/> 排行榜类型
+		<variable name="myrank" type="int"/> 玩家自己的排行，0为没有上榜
+		<variable name="list" type="vector" value="octets"/> 具体数据
+		<variable name="page" type="int"/> 页数  从0开始
+		<variable name="hasMore" type="int" validator="value=[0,1]"/> 1=当前是最后一页  0=后边还有
+		<variable name="myTitle" type="string"/> 这个是阵营独有的  其他的忽略这个字段
+		<variable name="takeAwardFlag" type="byte"/> 1=可以领取奖励  0=不可以领取奖励或已经领取过奖励了
+		<variable name="extdata" type="int"/> 扩展数据 by changhao
+		<variable name="extdata1" type="long"/> 扩展数据 by changhao
+		<variable name="extdata2" type="float"/> 扩展数据 by changhao
+		<variable name="extdata3" type="string"/> 扩展数据 by changhao
+	</protocol>
+
+	<!-- 请求榜单上宠物的详细信息 -->
+	<protocol name="CRequestRankPetData" type="23808" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="uniquePetId" type="long" /> 宠物的唯一id
+	</protocol>
+	
+	<!-- 服务器返回给客户端榜单上宠物的详细信息 -->
+	<protocol name="SSendRankPetData" type="23809" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="uniquePetId" type="long"/> 宠物的唯一id
+		<variable name="petinfo" type="fire.pb.Pet" /> 宠物数据
+	</protocol>
+
+	<!--排行榜玩家信息查看-->
+	<namespace name="getrankinfo">
+		<protocol name="CRankGetInfo" type="23824" maxsize="32" prior="1" tolua="3">
+			<variable name="ranktype" type="int" />排行榜类型
+			<variable name="rank" type="int" />排名
+			<variable name="id" type="long"/> 
+		</protocol>
+		<protocol name="SRankRoleInfo" type="23825" maxsize="512" prior="1" tolua="3">
+	    	<variable name="roleid" type="long"/> 角色Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="shape" type="int"/> 角色造型
+			<variable name="level" type="int"/> 角色等级
+			<variable name="zonghescore" type="int"/> 综合战力
+			<variable name="petscore" type="int"/> 宠物评分			
+			<variable name="camp" type="int" /> 阵营
+			<variable name="school" type="int"/> 职业
+			<variable name="factionname" type="string"/> 公会名称
+			<variable name="rank" type="int" />排名
+		</protocol>
+		<protocol name="CRankGetPetInfo" type="23826" maxsize="32" prior="1" tolua="3">
+			<variable name="roleid" type="int" />角色Id
+			<variable name="infotype" type="int" />1=宠物
+		</protocol>
+        
+		<protocol name="SRankRoleInfo2" type="23829" maxsize="65535" prior="1" tolua="3">
+			<variable name="roleid" type="long" validator="value=[1,)" />
+			<variable name="ranktype" type="int"/> 请求的类型 by changhao
+			<variable name="rolename" type="string" />
+			<variable name="shape" type="int" />
+			<variable name="school" type="int" />
+			<variable name="level" type="int" />
+			<variable name="baginfo" type="fire.pb.Bag" />
+			<variable name="tips" type="map" key="int" value="octets" />
+			<variable name="footlogoid" type="int" />
+			<variable name="rank" type="int" />
+			<variable name="totalscore" type="int" />总评分 by changhao
+			<variable name="rolescore" type="int"/> 只是人物评分 by changhao
+			<variable name="petscore" type="int"/> 宠物评分 by changhao
+			<variable name="manypetscore" type="int"/> 多宠物评分 by changhao			
+			<variable name="skillscore" type="int"/> 技能评分 by changhao
+			<variable name="levelscore" type="int"/> 等级评分 by changhao
+			<variable name="xiulianscore" type="int"/> 修炼评分 by changha
+			<variable name="equipscore" type="int" /> 装备评分
+			<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+			<variable name="factionname" type="string" /> 公会名称
+	    </protocol>
+		
+		<protocol name="SFactionRankInfo" type="23830" maxsize="1024" prior="1" tolua="3"> 公会排行信息 by changhao
+			<variable name="factionkey" type="long" /> 公会id by changhao
+			<variable name="lastname" type="string" /> 曾用名 by changhao
+			<variable name="title" type="string"/> 宗旨 by changhao
+			<variable name="factionmasterid" type="long"/> 会长id by changhao
+		</protocol>		
+		
+	</namespace>
+</namespace>

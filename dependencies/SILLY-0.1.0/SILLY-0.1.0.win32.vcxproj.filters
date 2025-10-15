@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="src\SILLYDataSource.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SILLYFileDataSource.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SILLYImage.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SILLYImageContext.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SILLYImageLoader.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SILLYImageLoaderManager.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SILLYMemoryDataSource.cpp">
+      <Filter>silly\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\SILLYJPGImageContext.cpp">
+      <Filter>silly\src\loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\SILLYJPGImageLoader.cpp">
+      <Filter>silly\src\loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\SILLYPNGImageContext.cpp">
+      <Filter>silly\src\loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\SILLYPNGImageLoader.cpp">
+      <Filter>silly\src\loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\SILLYTGAImageContext.cpp">
+      <Filter>silly\src\loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\SILLYTGAImageLoader.cpp">
+      <Filter>silly\src\loaders</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="include\config.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLY.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYBase.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYDataSource.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYFileDataSource.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYImage.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYImageContext.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYImageLoader.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYImageLoaderManager.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYMemoryDataSource.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SILLYOptions.h">
+      <Filter>silly\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="silly">
+      <UniqueIdentifier>{23df5688-7482-4c36-a1fe-478211b49360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="silly\src">
+      <UniqueIdentifier>{ddcf7c6b-cfa0-49e5-8ef5-e2d0ea120b01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="silly\include">
+      <UniqueIdentifier>{6189ce66-f8bf-4c53-8070-6dc809934472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="silly\src\loaders">
+      <UniqueIdentifier>{d13623d5-1625-4edd-b1f5-ee812f1df3ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

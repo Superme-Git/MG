@@ -1,0 +1,31 @@
+namespace GameTable
+{
+    namespace battle
+    {
+        class CBattleAIConfig
+        {
+            public:
+            int id;
+            std::wstring talkinfo;
+            int talkshow;
+            std::wstring tipsinfo;
+            int appearchange;
+            std::wstring playeffect;
+            int playsound;
+            int changeground;
+            int changegroundeffect;
+            std::wstring speak;
+            int speakshow;
+            std::wstring speaktime;
+        };
+        class CBattleAIConfigTable
+        {
+            public:
+        CBattleAIConfig& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CBattleAIConfigTable&  GetCBattleAIConfigTableInstance();
+    }
+}

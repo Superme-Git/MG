@@ -1,0 +1,56 @@
+<project name="xmerge" default="install">
+
+<property name="src" value="src/xmerge"/>
+<property name="validatorsrc" value="src/validator"/>
+<property name="build" value="classes/xmerge"/>
+<property name="bin" value="lib"/>
+<property name="output" value="xdbmerge"/>
+<!--<property name="junit" value="../test/lib2"/>-->
+	
+<target name="init" depends="clean">
+	<mkdir dir="${build}" />
+	<mkdir dir="${output}" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/monkeyking.jar"/>
+	</path>
+
+	<javac encoding="GBK" destdir="${build}" classpathref="classpath" debug="true" debuglevel="lines,source">
+		<src path="${src}"/>
+		<src path="${validatorsrc}"/>
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+	
+<target name="clean">
+	<delete dir="${build}"/>
+</target>
+
+<target name="dist" depends="compile">
+	<!--<path id="compile.classpath">
+			<pathelement path="${bin}/jio.jar"/>
+			<pathelement path="${bin}/monkeyking.jar"/>
+			<pathelement path="${bin}/mylogic.jar"/>
+		</path>
+		<manifestclasspath property="jar.classpath" jarfile="xmerge.jar">
+		      <classpath refid="compile.classpath"/>
+		</manifestclasspath>-->
+		<jar jarfile="xmerge.jar" basedir="${build}">
+			<!--<fileset dir="${build}">  
+				<include name="xmerge/*"/>
+			</fileset> -->
+			<manifest>
+				<attribute name="Main-Class" value="xmerge.Main" />
+			</manifest>
+		</jar>
+</target>
+
+<target name="install" depends="dist">
+	<copy file="xmerge.jar" todir="${output}"/>
+	<copy file="xmerge.xml" todir="${output}"/>
+</target>
+	
+</project>

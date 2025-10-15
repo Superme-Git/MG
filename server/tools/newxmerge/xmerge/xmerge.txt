@@ -1,0 +1,161 @@
+通用合服工具
+
+
+一、名词
+	合服
+		把两组服务器的数据库合并到一个。
+
+	合服组
+		使用同一个唯一名服务器的一组服务器。
+
+	src_db
+		源数据库，合服时，可能会被修改。
+
+	dest_db
+		目标数据库，合服成功以后得到的新数据库。
+
+	browse_copy_db
+		专门拿来浏览所有数据表的数据库完整拷贝。这是为了处理browse时不能checkpoint的问题。
+		* see 后面"修复"部分。还没确定怎么实现。
+
+	error_keys_db
+		检测时创建并用来保存重复的key。
+
+	key_conflict
+		合并时，数据表键值在目标表中已经存在，无法插入，必须进行处理。
+
+	known_key_conflict
+		已知有重复。如，user表，key为账号，同一个账号是有可能在两个服内都建有角色。
+		合服时key_conflict就会发生，此时必须定义合并处理规则，对key相同的记录进行处理。
+		处理原型：merge(/*key, */srcRecord /*in*/, destRecord /*in|out*/)
+
+	unknown_key_conflict
+		应该不重复。如，role表，key为角色名字，角色创建时由唯一名服务器验收保证名字不重复。
+		这种保证达不到100%，合服时需要处理这种冲突。处理步骤：
+		1) 重新申请key，自动生成(AutoKey)或者找唯一名服务器要;
+		2) 修改记录的key（通过增删）；
+		3) 修改所有引用(foreign)到原来key的记录；
+		*  以上的修改都在src_db中进行。
+
+二、Usage
+
+	目标是通用。只需要定义和实现很少的游戏相关逻辑就能搞定合服。
+
+	java -cp mylogic.jar -jar xmerge.jar -conf xmerge.xml src_db_dir dest_db_dir
+		mylogic.jar          包含处理 known_key_conflict 的实现。
+		xmerge.jar           合服工具发布包。
+		-conf xmerge.xml     合服配置文件，配置 key_conflict 类型(known or unknown)，以及游戏相关的处理。
+		src_db_dir           源数据库，不会被修改。
+		dest_db_dir          目标数据库，不会被修改。
+
+		* 面貌简介，实现时再考虑细节。合并结果放在当前目录的 result_db_dir 中。
+		* 设计基本目标支持xdb的数据库。
+		* 兼容旧db.h数据库的必要条件是：它的数据结构能用xbean描述。先别高兴，看下一条。
+		* 暂不考虑兼容旧db.h数据库。
+
+		xmerge.xml 例子:
+		<xmerge>
+			<table name="user" type="known_key_conflict" class="mymerge.UserMergeImplement"/>
+			<!-- 没有明确配置的表格全部看作是 unknown_key_conflict -->
+		</xmerge>
+
+三、算法及思路
+
+	1. 合并
+
+	for (src_table : src_db.tables) {
+		dest_table = dest_db.getTable(src_table.getName());
+		for ( (src_key, src_value) : src_table ) {
+			if (dest_table.insert(src_key, src_value))
+				continue; // 合并成功
+			if (is known_key_conflict) { // 通过配置得知当前表的key_conflict是已知重复的。
+				dest_value = dest_table.get(src_key);
+				merge(src_key, src_value, dest_value); // 处理已经冲突。
+				dest_table.update(src_key, dest_value);
+				continue; // 合并成功
+			}
+			// 中断合并
+			rollback all. // 回滚所有的修改（删除当前工作数据库，从备份里面重新要）。
+			goto 检测。
+		}
+
+	* "合并"不会修改src_db。如果一切正常，一次性完成合并工作。
+	* 为了效率，key, value仅在需要时才展开成结构，否则都使用原始数据格式(byte[])。
+	* merge回调的错误不中断合并，捕捉处理异常记录日志。
+
+	2. 检测
+
+	只检测“unknown_key_conflict”的表。检测不改变 src_db 和 dest_db。
+	for (src_table : src_db.tables) {
+		dest_table = dest_db.getTable(src_table.getName());
+		for ( key : src_table.keys ) {
+			if (dest_table.find(key, value)) {
+				record(key); // 记录重复的key到
+			}
+		}
+	}
+	goto 修复。
+
+	3. 修复
+
+	修复在源数据库中进行。
+	for (err_keys_table : error_keys_db.tables) {
+		src_table = src_db.getTable(err_keys_table.getName());
+		for ( duplicatekey : err_keys_table.keys ) {
+			// 修复重复key
+			value = src_table.get(duplicatekey);
+			newkey = uniqname.allocateNewKey();
+			src_table.insert(newkey, value);
+			src_table.delete(duplicatekey);
+
+			// 遍历并修复所有引用到这个key的数据。
+			// 边遍历边修改有点问题：browse or walk 时无法 checkpoint。有可能造成全部数据都载入内存。
+			// 可能的实现方法是，使用两份拷贝，一个用来遍历，一个用来修改。但是由于在修改reference时，
+			// 所有的表都有可能需要更新。只能在需要遍历时马上拷贝一份，有可能需要拷贝很多次，可能比较慢。
+			for ( table : table that reference to duplicatekey) {
+				for ( (key, value) : table ) {
+					if (value.getReference() != duplicatekey)
+						throw exception(); // 检错。中断所有操作
+					value.setReference(newkey);
+					table.update(key, value);
+				}
+			}
+		}
+	}
+	goto 合并。
+
+四、工作
+
+	. xbean 扩展
+
+		variable增加数据定义(xdb.xml)
+		foreign             用于实现自动修复reference。
+		capacity            变长类型需要配置，用来提供数据有效性检查。可以实现成即时的，跟合服关系不大。
+
+		生成代码(xgen)
+		meta                生成时在xbean中包含数据结构信息，包括字段列表，类型，foreign。。。具体待定。
+		                    用来实现自动修复reference。
+
+		* foreign 的问题：有些存储在xdb中是二进制表示，xdb不知道具体细节。
+		  对于这些结构内的foreign问题无法自动修复，只能由具体的游戏自行处理。
+		* 修复 foreign 的逻辑使用代码生成或者使用reflect。待定。
+
+	. xdb 扩展
+
+		Storage/jnidb
+			增加可以存取 raw 数据的能力；受限 public；
+
+		Sdb *new
+			支持open，close，save(checkpoint)。
+			不支持事务；使用 xbean.Data 来解析记录。
+			global logger？，简单的db.h集合。
+
+	. 完整性验证工具（与合服无关）
+		验证 foreign；因为有了foreign。
+		验证 tableA.keys() == tableB.keys()；
+
+	. 表格数据结构变更之数据转换工具（与合服无关）
+		表格数据结构变更时，转换旧版的数据库到新版。支持字段增加和删除。
+		实现思路：
+		使用不对称的marshal/unmarshal实现。删除字段时不marshal，增加字段时不unmarshal。
+		把数据全部读取一遍再写回去即可。

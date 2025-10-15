@@ -1,0 +1,157 @@
+class SceneObject
+{
+public:
+	SceneObject();
+	//SceneObject(DWORD id);
+	virtual ~SceneObject();
+
+	virtual bool IsInHighLevel();
+	virtual void SetInHighLevel(bool b);
+
+	bool IsFemale();
+	bool IsMale();
+	bool IsCharacterModel();
+
+	virtual int	 GetModelID();
+	virtual void SetHighlightEnable(bool enable);
+	virtual void SetAlpha(unsigned char a);
+	virtual unsigned char GetAlpha();
+	virtual std::wstring GetName();
+	virtual void SetNameColour(const DWORD& colour);
+	virtual DWORD GetNameColour();
+	virtual void SetNameTextureHandle(Nuclear::TextBlockHandle handle);
+	Nuclear::TextBlockHandle GetNameTextureHandle();
+	Nuclear::ITextBlock* GetNameBlock();
+	virtual void UpdatNameTexture(bool bReleaseOld=false); //bReleaseOld是否释放旧纹理
+	virtual void ReleaseNameTexture();
+	virtual void ReloadNameTexture();
+	DWORD   GetNameShadowColor();
+	void SetNameShadowColor(DWORD color);
+
+	DWORD GetMouseOverNameColor();
+	DWORD GetMouseOverShadowColor();
+
+	void SetMouseOverNameColor(DWORD color);
+	void SetMouseOverShadowColor(DWORD color);
+
+	virtual void SetVisible(bool v);
+	virtual bool IsVisiable() const;
+	// ID相关
+	virtual int64_t GetID();
+	virtual void  SetID(int64_t id);
+	virtual bool  FitID(int64_t id);
+	// 单位属性	npc，人物，战斗单位，宠物
+	virtual eSceneObjType GetSceneObjectType();
+	virtual bool IsSceneObjectType(eSceneObjType type);
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+	virtual bool PlayAction(eActionType actionType,float freq=g_defaultActionFrequence);
+	virtual void SetDefaultAction(eActionType actiontype,bool holdlastframe = false,float freq=g_defaultActionFrequence);
+	virtual void SetDefaultActionWithoutLogic(eActionType actiontype,bool holdlastframe = false,float freq=g_defaultActionFrequence);
+	virtual void Run(int now,int delta);
+	virtual bool OnSetCursor();
+	// 精灵相关
+	virtual Nuclear::ISprite* GetSprite();
+	virtual bool FitSprite(Nuclear::ISprite* sprite);
+
+	virtual void Draw(int now);
+
+	virtual void SetHighlight(bool highlight);
+
+	virtual bool CanBeAttack();
+	virtual bool CanBeGiven();
+	virtual bool CanJoinTeam();
+	virtual bool CanTradeWith();
+	virtual bool CanGiveFlower();
+	virtual bool CanGiveRose();
+	virtual bool CanBeUseSkill(int skillid);
+	virtual bool CanPickedUp();
+	virtual bool CanBeVisited();
+	virtual int CanBeTriggered();
+
+	virtual bool CanFBAttack();
+	virtual bool CanFBRepair();
+
+	// 移动
+	virtual bool MoveTo(Nuclear::NuclearLocation ptMoveTarget, bool straight = false);	//参数为	逻辑坐标
+	virtual void StopMove();
+	virtual bool IsMoving();
+	virtual void GetPath(astar::Path & path);
+
+	// 位置
+	virtual void SetLogicLocation(const Nuclear::NuclearLocation& location);
+	virtual void SetLogicLocation(int x,int y);
+	virtual void SetLocation(const Nuclear::NuclearLocation& location);
+	virtual Nuclear::NuclearLocation GetLogicLocation();
+	virtual Nuclear::NuclearLocation GetLocation();
+	virtual Nuclear::NuclearLocation GetGridLocation();
+	virtual Nuclear::NuclearDirection GetDirection() const;
+	virtual Nuclear::NuclearFPoint GetVectorDirection() const;
+	virtual void SetDirection(int tx, int ty);
+	virtual void SetDirection(Nuclear::NuclearDirection dir);
+
+	virtual void TurnTo(SceneObject* pSceneObj);
+
+	virtual std::wstring GetActionName(eActionType type);
+
+	virtual std::wstring GetComponentActionName(eActionType type);
+
+	void SavePrevDirection();
+	void LoadPrevDirection();
+
+	void SetShadowScale(const float& scale);
+	virtual bool NewSpriteModel(const std::wstring& modelname,bool bhighlevel = false);
+	virtual bool NewSpriteModel(const int& modelid,bool bhighlevel=false);
+	virtual bool NewSpriteModel(const int& modelid, const std::wstring& modelname, const std::wstring hair, const std::wstring head, const std::wstring body);//设置模型,指定模型名字(编辑器专用)
+	virtual void SetDyePartIndex(int part, int index);
+
+	virtual void ChangeSpriteModel(const int& modelid);//换造型
+	void DeleteSpriteModel();
+	virtual void SetComponent(int scid, const std::wstring& resource);
+	virtual void SetComponent(int scid, const std::wstring& resource, Nuclear::NuclearColor color);
+
+	//魔法相关
+	virtual Nuclear::IEffect* PlayEffect(const std::wstring &effect_name, int dx, int dy, int times = 1, bool selfRef = true, bool bnofollowscale = false, bool playsound = true, int TopMidBottom = 0, int TimeMode = 0, int iRot = 0);//1:Top,0:Mid,-1:Bottom //0:LoopNum,1:Time
+	virtual Nuclear::IEffect* PlayEffect(const std::wstring &effect_name, bool basync = false, bool playsound = true, bool linkframe = false, int times = 1, int TopMidBottom = 0, int TimeMode = 0, int iRot = 0);//1:Top,0:Mid,-1:Bottom
+	//播放3D特效
+	Nuclear::IEffect* Play3DEffect(const std::wstring &effect_name, const std::wstring &hostname, bool async = false, int times = 1, int x = 0, int y = 0);
+	virtual Nuclear::IEffect* SetDurativeEffect(const std::wstring &effect_name,  int bindType, int dx, int dy, bool selfRef,bool basync = true,bool bnofollowscale = false,bool alwayontop = false,bool underSprite=false,bool isShadow=false);
+	virtual void RemoveDurativeEffect(Nuclear::IEffect* pEffect);
+
+	//设置Scale
+	virtual void SetScale(float scale);
+	virtual float GetScale();
+
+	virtual int GetShapeID();
+    
+    void SetSpriteReleaseFlag(Nuclear::NuclearPaniReleaseFlag flag);
+
+	void SetActionType(eActionType e);
+	eActionType GetActionType();
+	bool IsAction(eActionType e);
+
+	virtual Nuclear::NuclearLocation GetScreenPosition();
+	void ShowHideAllTalk(bool bvisible);							//进战斗时隐藏所有头顶talk
+
+	//头顶聊天泡泡相关
+	void AddClientTalk(const std::wstring& strTalk, DWORD color = 0xFFFFFFFF, bool bCheckShied = true);
+	void AddTalk(const std::wstring& strTalk, bool bCheckShied = true);  //接收外部消息的接口
+	bool HandleRemoveTalkBox(const CEGUI::EventArgs& e);
+
+	virtual void StandRandomAction(int now, int delta);
+
+	long GetXPos();
+	long GetYPos();
+
+	void SetPartParam(int iLayerIndex, int iPartIndex, std::vector<float> vParam);
+	std::vector<float> GetPartParam(int iLayerIndex, int iPartIndex);
+	void SetPartParamIndex(int iLayerIndex, int iPartIndex, int iColorIndex);
+	int GetPartParamIndex(int iLayerIndex, int iPartIndex);
+
+	virtual void SetMoveMask(eMoveMask movemask);
+	virtual eMoveMask GetMoveMask();
+
+	int GetAutoMove();
+	void SetAutoMove(int iAutoMove);
+
+	static inline bool sComparewithSceneObjType(SceneObject* p1, SceneObject* p2);
+};

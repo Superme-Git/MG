@@ -1,0 +1,125 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by PackZip.rc
+//
+#define IDD_ABOUTBOX                    100
+#define IDP_OLE_INIT_FAILED             100
+#define IDR_PACKDOCTYPE                 101
+#define IDR_MAINFRAME                   128
+#define IDR_PackZipTYPE                 129
+#define IDB_BITMAP1                     131
+#define IDD_FILEZIPLEVEL                133
+#define IDD_ADDFILEZIPLEVEL             134
+#define IDD_ADDZIPLEVEL                 134
+#define IDD_SAVEPROGRESS                135
+#define IDD_RECENTPROJECT               136
+#define IDB_BITMAP2                     137
+#define IDB_BITMAP3                     138
+#define IDD_EDITIGNORE                  139
+#define IDD_ADDSETUPLEVEL               140
+#define IDD_ADDNEWPATH                  141
+#define IDB_MESSAGE_PANE                142
+#define IDD_DIALOG1                     142
+#define IDD_PROJECTPATH                 142
+#define IDD_EDITVERSION                 143
+#define IDD_UPDATESETUPPFS              144
+#define IDC_LIST_FILEZIPLEVEL           1000
+#define IDC_ADDFILEZIP                  1001
+#define IDC_DELFILEZIP                  1002
+#define IDC_EDIT1                       1003
+#define IDC_EDIT_FILEEXT                1003
+#define IDC_PROGRESS                    1004
+#define IDC_EDIT3                       1004
+#define IDC_EDIT2                       1005
+#define IDC_LIST1                       1007
+#define IDC_BUTTON1                     1008
+#define IDC_BUTTON2                     1009
+#define IDC_STATIC_PROMPT               1010
+#define IDC_BUTTON_OPEN                 1011
+#define IDC_BUTTON_NEW                  1012
+#define IDC_COMBO1                      1013
+#define IDC_COMBO2                      1014
+#define IDC_EDIT_PFSFILE                1016
+#define IDC_BUTTON_OPENPFS              1017
+#define IDC_EDIT_VERSION                1018
+#define IDC_EDIT_UPDATEPFSFILE          1018
+#define IDC_BUTTON_OPENUPDATEPFS        1019
+#define IDC_BUTTON_ADD                  1020
+#define IDC_CHECK_MAKEMD5               1020
+#define IDC_BUTTON_DELETE               1021
+#define IDC_DATETIMEPICKER1             1021
+#define IDC_BUTTON4                     1022
+#define IDC_BUTTON_SAVEAS               1023
+#define ID_FILE_OPEN32771               32771
+#define ID_DELETE_ASDFSADFSADF          32772
+#define ID_SDFASDFSADF_ASDFSADF         32773
+#define ID_SDFASDFSADF_ASDFSADF32774    32774
+#define ID_SDFASDFSADF_ASDFSADF32775    32775
+#define ID_FILE_OPENPATH                32779
+#define ID_FILE_SAVE32780               32780
+#define ID_FILE_SAVEZIP                 32781
+#define ID_VIEW_EDITFILEZIPLEVEL        32786
+#define ID_SAVEZIP_SAVERESOURCEZIP      32787
+#define ID_SAVEZIP_SAVESETUPZIP         32788
+#define ID_MESSAGE_PANE                 32789
+#define ID_VIEW_MESSAGE_PANE            32789
+#define ID_32790                        32790
+#define ID_32791                        32791
+#define ID_RESOURCETYPE                 32792
+#define ID_SETUPTYPE                    32793
+#define ID_VIEW_32794                   32794
+#define ID_EDITIGNORE                   32795
+#define ID_FILE_32796                   32796
+#define ID_FILE_SAVERESOURCE            32797
+#define ID_FILE_32798                   32798
+#define ID_FILE_32799                   32799
+#define ID_FILE_32800                   32800
+#define ID_FILE_32801                   32801
+#define ID_32802                        32802
+#define ID_FILE_SAVESETUP               32803
+#define ID_FILE_ADDPATH                 32804
+#define ID_EDIT_32805                   32805
+#define ID_EDIT_ADDPATHCONTENT          32806
+#define ID_VIEW_32809                   32809
+#define ID_VIEW_SHOWUNCHECKED           32810
+#define ID_FILE_32811                   32811
+#define ID_FILE_                        32812
+#define ID_EDIT_32813                   32813
+#define ID_EDIT_32814                   32814
+#define ID_EDIT_ADDNEWPATH              32815
+#define ID_EDIT_DELETEPATH              32816
+#define ID_EDIT_DELETE                  32817
+#define ID_EDIT_32826                   32826
+#define ID_EDIT_ERRORFILE               32827
+#define ID_FILE_32828                   32828
+#define ID_FILE_REFRESH                 32829
+#define ID_FILE_32830                   32830
+#define ID_FILE_MANAGER                 32831
+#define ID_FILE_PROJECTPATH             32832
+#define ID_EDIT_PROJECTPATH             32833
+#define ID_FILE_RECENTFILE              32834
+#define ID_EDIT_32835                   32835
+#define ID_EDIT_VERSIONMETA             32836
+#define ID_EDIT_32837                   32837
+#define ID_EDIT_SETISMAKEMD5            32838
+#define ID_FILE_32839                   32839
+#define ID_FILE_SAVETEMPUPDATE          32840
+#define ID_BUTTON32842                  32842
+#define ID_VIEW_32843                   32843
+#define ID_VIEW_UPDATESETUPPFS          32844
+#define ID_EDIT_32845                   32845
+#define ID_EDIT_SORT_OPERATOR           32846
+#define ID_EDIT_SORT_OPERATORS          32847
+#define ID_Menu                         32848
+#define ID_FILE_OUTPUT_DIR              32849
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        145
+#define _APS_NEXT_COMMAND_VALUE         32850
+#define _APS_NEXT_CONTROL_VALUE         1022
+#define _APS_NEXT_SYMED_VALUE           104
+#endif
+#endif

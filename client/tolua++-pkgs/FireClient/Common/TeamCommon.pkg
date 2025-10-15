@@ -1,0 +1,87 @@
+
+enum eTeamMemberState
+{
+	eTeamMemberNULL		= 0,		//无
+	eTeamMemberNormal	= 1,		//正常队伍状态
+	eTeamMemberAbsent	= 2,		//暂离状态
+	eTeamMemberReturn	= 3,		//归队状态
+	eTeamMemberFallline	= 4,		//掉线
+	eTeamMemberMax,
+};
+
+//作为队长邀请过的人
+struct stTeamInviter			
+{
+	int64_t roleid;
+	int		life;		//30s自动消失
+	stTeamInviter();
+};
+
+struct stTeamMember
+{
+	int64_t				id;				//ID
+	std::wstring		strName;		//名字
+	int					level;			//等级
+	eSchoolType			eSchool;		
+	int					shapeID;		//造型ID
+	int					iMapID;			//地图ID
+	int64_t				iSceneID;		//地图sceneID
+	Nuclear::NuclearLocation	ptLogicLocation;//当前队员的位置，逻辑坐标
+	int					HP;
+	int					MaxHP;
+	int					MP;
+	int					MaxMP;
+	eTeamMemberState	eMemberState;	//队员状态，正常，暂离，掉线...
+	std::map<char,int>	components;
+	int					mulTimeType;   //领取的多倍经验时间类型
+	int					mulExpTime;   //领取的多倍经验时间
+    int                 campType;     
+	stTeamMember();
+
+public:
+	bool IsNormal();
+    int getComponentNum();
+    int getComponent(char key);
+};
+
+//队伍申请者
+struct stApplyMember
+{
+	int64_t			id;
+	std::wstring	strName;
+	int				level;
+	eSchoolType		eSchool;
+	int				life;		//存在1分钟后要自动消失，这里客户端自己删吧
+	int				shape;
+	std::map<char, int>	components;
+	stApplyMember();
+	int getComponent(char key);
+};
+
+//可加入的队伍信息
+struct stTeamInfo
+{
+	int64_t teamid;
+	int64_t	leaderid;
+	int		minlevel; // 等级下限
+	int		maxlevel; // 等级上限
+	std::wstring leadername; // 队长名字
+	int		leaderlevel; // 队长等级
+	int		leaderschool; 
+	int		membernum; // 队伍人数
+	int		membermaxnum; // 队伍最大人数 匹配队伍需要 by changhao
+	int		targetid; //行动目标
+};
+typedef std::vector<stTeamInfo*>	TeamList;
+
+inline std::wstring GetTeamStateName(eTeamMemberState state);
+
+//队伍匹配设置
+struct stTeamMatchInfo
+{
+	int	targetid;	//行动目标
+	int minlevel;
+	int maxlevel;
+	stTeamMatchInfo();
+	void reset();
+};

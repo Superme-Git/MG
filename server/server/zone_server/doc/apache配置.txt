@@ -1,0 +1,27 @@
+
+#-----------------------------------------
+
+DocumentRoot "e:/www"
+
+
+#工作空间的目录
+<Directory "e:/www"> 
+  Options Indexes FollowSymLinks 
+  AllowOverride all 
+  Order allow,deny 
+  Allow from all 
+</Directory>
+
+
+#设置80端口
+NameVirtualHost *:80
+
+
+<VirtualHost *:80>
+    ServerName weibo.mt3.locojoy.com
+    DocumentRoot "E:\www\mt3\weibo"
+    ErrorLog "logs/ci.com-error.log"
+    CustomLog "logs/ci.com-access.log" common
+</VirtualHost>
+
+

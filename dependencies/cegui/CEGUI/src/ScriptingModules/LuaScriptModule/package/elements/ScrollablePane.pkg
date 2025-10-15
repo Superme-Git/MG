@@ -1,0 +1,69 @@
+/***********************************************************************
+	ScrollablePane
+***********************************************************************/
+enum enumPageScrollMode
+{
+    eNoPageScroll,
+    eSinglePageScroll,
+    eMultiPageScroll
+};
+
+class ScrollablePane : public Window
+{
+	const ScrolledContainer* getContentPane() const;
+
+	bool	isVertScrollbarAlwaysShown() const;
+	void	setShowVertScrollbar(bool setting);
+
+	bool	isHorzScrollbarAlwaysShown() const;
+	void	setShowHorzScrollbar(bool setting);
+
+	bool isContentPaneAutoSized() const;
+	void setContentPaneAutoSized(bool setting);
+
+	const Rect& getContentPaneArea() const;
+	void setContentPaneArea(const Rect& area);
+
+	float getHorizontalStepSize() const;
+	void setHorizontalStepSize(float step);
+
+	float getHorizontalOverlapSize() const;
+	void setHorizontalOverlapSize(float overlap);
+
+	float getHorizontalScrollPosition() const;
+	void setHorizontalScrollPosition(float position);
+
+	float getVerticalStepSize() const;
+	void setVerticalStepSize(float step);
+
+	float getVerticalOverlapSize() const;
+	void setVerticalOverlapSize(float overlap);
+
+	float getVerticalScrollPosition() const;
+	void setVerticalScrollPosition(float position);
+
+    Rect getViewableArea() const;
+    Scrollbar* getVertScrollbar() const;
+    Scrollbar* getHorzScrollbar() const;
+
+    void EnableVertScrollBar(bool bEnbale);
+    void EnableHorzScrollBar(bool bEnbale);
+	void EnableScrollDrag(bool bEnbale);
+
+	void StartPageScroll(float original_v);
+
+	void EnablePageScrollMode(bool b);
+	bool getPageScrollMode();
+    void setPaneScrollMode(int b);    
+	float getScrollEndPos();
+    enumPageScrollMode getPaneScrollMode() const;
+
+	void EnableAllChildDrag(Window* pwindow);
+
+	void EnableChildDrag(Window* pwindow);
+	
+	void UpdateChildsViewState(bool clearLastDraw=false);
+	
+	};
+	
+	

@@ -1,0 +1,27 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace skill { 
+
+class EquipSkill : public FireNet::Marshal
+{
+public:
+	int skill; // 特技id
+	int effect; // 特效id
+
+	EquipSkill() ;
+
+	EquipSkill(int _skill_, int _effect_);
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const EquipSkill &_o_) const ;
+
+};
+
+} 
+} 
+} 

@@ -1,0 +1,19 @@
+
+class BattleReplayManager
+{
+public:
+	static std::wstring GetReplayServerAddres();
+	static std::wstring GetReplayLocalPath();
+	static std::wstring GetFileNameFull(std::wstring wstrFileName);
+	static int CopyFileByFS(std::wstring Src, std::wstring Dst);
+	static int ClearReplayFile();
+
+	void Clear();
+	void PlayReplay(std::wstring wsSrcURL, int iSizeOriginal, int iSizeCompress);
+	bool Callback_Download(DownloadInfo& pDownloadInfo);
+	void PlayReplayReal(std::wstring wsDstFileNameFull);
+
+	void OnOverReplay();
+};
+
+inline BattleReplayManager* GetBattleReplayManager();

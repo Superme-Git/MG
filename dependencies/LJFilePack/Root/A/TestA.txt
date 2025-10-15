@@ -1,0 +1,21 @@
+Version = 1
+VersionCaption = 0.0.1
+
+
+byte PackCount;								//肯定存在
+unsigned int PackCRC32[PackCount];			//肯定存在,根据PackCount数量决定
+//string PackName[PackCount];					//肯定存在,根据PackCount数量决定
+
+byte FileCount;								//肯定存在
+unsigned int FileCRC32[FileCount];			//肯定存在,根据FileCount数量决定,计划用来代替文件名以节省空间
+byte PackIndex[FileCount];					//肯定存在,根据FileCount数量决定
+unsigned int FilePos[<=FileCount];			//如果PackIndex>0则此值存在
+unsigned int FileSize[FileCount];			//肯定存在,根据FileCount数量决定
+unsigned int FileVersion[FileCount];		//肯定存在,根据FileCount数量决定
+
+byte FileCompressType[FileCount];			//肯定存在,根据FileCount数量决定
+unsigned int FileOriginalSize[<=FileCount];	//如果FileCompressType>0则此值存在
+unsigned int FileOriginalCRC32[<=FileCount];//如果FileCompressType>0则此值存在
+
+//string FileName[FileCount];					//因为数据量太大,待定
+A

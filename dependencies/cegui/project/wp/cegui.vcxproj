@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9b270cd0-d7ff-4599-b2fb-ff98488f36b5}</ProjectGuid>
+    <RootNamespace>cegui</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\..\..\lib\$(Configuration)\Win32</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <OutDir>..\..\..\..\lib\$(Configuration)\ARM\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <OutDir>..\..\..\..\lib\$(Configuration)\ARM\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;PCRE_STATIC;CEGUI_STATIC;HAVE_CONFIG_H;PUBLISHED_VERSION;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>.;..\..\CEGUI\include;..\..\..\pcre-8.31\prj2;..\..\..\SILLY-0.1.0\include;..\..\CEGUI\include\RendererModules\Cocos2D;..\..\CEGUI\include\WindowRendererSets\Falagard;..\..\CEGUI\include\ImageCodecModules\SILLYImageCodec;..\..\CEGUI\include\XMLParserModules\XMLIOParser;..\..\CEGUI\include\ScriptingModules\LuaScriptModule;..\..\..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/wp8;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/zlib;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libpng;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/freetype/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libjpeg;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libtiff;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libwebp;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/common/platform;../../../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;..\..\..\..\common\platform</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;PCRE_STATIC;CEGUI_STATIC;HAVE_CONFIG_H;PUBLISHED_VERSION;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>.;..\..\CEGUI\include;..\..\..\pcre-8.31\prj2;..\..\..\SILLY-0.1.0\include;..\..\CEGUI\include\RendererModules\Cocos2D;..\..\CEGUI\include\WindowRendererSets\Falagard;..\..\CEGUI\include\ImageCodecModules\SILLYImageCodec;..\..\CEGUI\include\XMLParserModules\XMLIOParser;..\..\CEGUI\include\ScriptingModules\LuaScriptModule;..\..\..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/wp8;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/zlib;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libpng;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/freetype/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libjpeg;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libtiff;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libwebp;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/common/platform;../../../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;..\..\..\..\common\platform</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;NDEBUG;PCRE_STATIC;CEGUI_STATIC;HAVE_CONFIG_H;PUBLISHED_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>.;..\..\CEGUI\include;..\..\..\pcre-8.31\prj2;..\..\..\SILLY-0.1.0\include;..\..\CEGUI\include\RendererModules\Cocos2D;..\..\CEGUI\include\WindowRendererSets\Falagard;..\..\CEGUI\include\ImageCodecModules\SILLYImageCodec;..\..\CEGUI\include\XMLParserModules\XMLIOParser;..\..\CEGUI\include\ScriptingModules\LuaScriptModule;..\..\..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/wp8;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/zlib;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libpng;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/freetype/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libjpeg;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libtiff;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/wp8/libwebp;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/common/platform;../../../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;..\..\..\..\common\platform</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\CEGUIBase\CEGUIBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUI.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIAdapter.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIAffector.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIAnimation.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIAnimationInstance.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIAnimationManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIAnimation_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIBasicInterpolators.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIBasicRenderedStringParser.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIBiDiVisualMapping.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIBoundSlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUICentredRenderedString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIChainedXMLHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIcolour.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIColourRect.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIConfig.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIConfig_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUICoordConverter.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIDataContainer.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIDefaultLogger.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIDefaultRenderedStringParser.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIDefaultResourceProvider.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIDynamicModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIEditboxStringParser.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIEvent.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIEventArgs.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIEventSet.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIExceptions.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFactoryModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFont.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFontGlyph.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFontManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFont_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFormattedRenderedString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIForwardRefs.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFreeFunctionSlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFreeTypeFont.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFribidiVisualMapping.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFunctorCopySlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFunctorPointerSlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFunctorReferenceBinder.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIFunctorReferenceSlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIGeometryBuffer.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIGlobalEventSet.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIGUILayout_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIImage.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIImageCodec.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIImageset.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIImagesetManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIImageset_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIInputEvent.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIInterpolator.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIIteratorBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIJustifiedRenderedString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIKeyFrame.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUILeftAlignedRenderedString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUILoadingTaskManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIResLoadThread.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUILogger.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIMemberFunctionSlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIMinibidiVisualMapping.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIMouseCursor.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUINamedXMLResourceManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIPCRERegexMatcher.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIPfsResourceProvider.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIPixmapFont.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIProperty.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIPropertyHelper.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIPropertySet.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRect.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRefCounted.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRegexMatcher.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedStringComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedStringImageComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedStringParser.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedStringTextComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedStringWidgetComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderedStringWordWrapper.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderEffect.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderer.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderingContext.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderingRoot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderingSurface.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderingWindow.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderQueue.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRenderTarget.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIResourceProvider.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRichEditbox_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIRightAlignedRenderedString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIScheme.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISchemeManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIScheme_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIScriptModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISingleton.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISize.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISlotFunctorBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISpecialTreeItem_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIString.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISubscriberSlot.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUISystem.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUITexture.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUITextureTarget.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUITextUtils.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUITplWindowFactory.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUITplWindowRendererFactory.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUITplWRFactoryRegisterer.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIUDim.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIVector.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIVersion.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIVertex.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWidgetModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindow.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowFactory.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowFactoryManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowRenderer.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowRendererManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWindowRendererModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIWRFactoryRegisterer.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIXMLAttributes.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIXMLHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIXMLParser.h" />
+    <ClInclude Include="..\..\CEGUI\include\CEGUIXMLSerializer.h" />
+    <ClInclude Include="..\..\CEGUI\include\config.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIAll.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIAnimateText.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIAnimationButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIAnimationButtonProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIAutoScrollStaticText.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIButtonBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUICheckbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUICheckboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIClippedContainer.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUICombobox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIComboboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIComboDropList.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUICompnentTip.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIDragContainer.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIDragContainerProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIEditbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIEditboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIFrameWindow.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIFrameWindowProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGameBox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGroupBox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGroupBtnItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGroupBtnTree.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGroupButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGroupButtonProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIGUISheet.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIIrregularButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIIrregularButtonProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIIrregularFigure.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemCell.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemCellGeneral.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemCellProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemEntry.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemEntryProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemListBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemListBaseProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemListbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemListboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemTable.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIItemTableProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUILinkText.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUILinkTextProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListboxItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListboxTextItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListHeader.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListHeaderProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListHeaderSegment.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIListHeaderSegmentProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMenubar.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMenuBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMenuBaseProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMenuItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMessageTip.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMultiColumnList.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMultiColumnListProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMultiLineEditbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIMultiLineEditboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPanelbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPanelChengJiuItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPanelChengWeiItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPanelItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPanelQiYuanItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPopupMenu.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPopupMenuProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIProgressBar.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIProgressBarProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIProgressBarTwoValue.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIProgressBarTwoValueProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPushButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIPushButtonProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRadioButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRadioButtonProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxBreakLineComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxButtonImageComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxEmotionComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxFamilyRecruitLinkComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxGoToComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxHttpComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxImageComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxLinkTextComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxNameLinkComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxTextComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIRichEditboxTipsLinkComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrollablePane.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrollablePaneProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrollbar.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrollbarProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrolledContainer.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrolledContainerProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrolledItemListBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIScrolledItemListBaseProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISkillBox.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISlider.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISliderProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISpecialTree.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISpecialTreeItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISpinner.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISpinnerProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISwitch.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUISwitchProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITabButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITabControl.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITabControlProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIThumb.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUIThumbProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITitlebar.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITitlebarProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITooltip.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITooltipProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITree.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITreeItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\elements\CEGUITreeProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\ETCHeader.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalagard_xmlHandler.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalComponentBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalDimensions.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalEnums.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalFrameComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalImageryComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalImagerySection.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalLayerSpecification.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalNamedArea.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalPropertyDefinition.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalPropertyDefinitionBase.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalPropertyInitialiser.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalPropertyLinkDefinition.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalSectionSpecification.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalStateImagery.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalTextComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalWidgetComponent.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalWidgetLookFeel.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalWidgetLookManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\falagard\CEGUIFalXMLEnumHelper.h" />
+    <ClInclude Include="..\..\CEGUI\include\gesture\CEGUIGestureRecognizer.h" />
+    <ClInclude Include="..\..\CEGUI\include\gesture\CEGUIGestureRecognizerManager.h" />
+    <ClInclude Include="..\..\CEGUI\include\gesture\CEGUILongPressGestureRecognizer.h" />
+    <ClInclude Include="..\..\CEGUI\include\gesture\CEGUIPanGestureRecognizer.h" />
+    <ClInclude Include="..\..\CEGUI\include\ImageCodecModules\SILLYImageCodec\CEGUISILLYImageCodec.h" />
+    <ClInclude Include="..\..\CEGUI\include\ImageCodecModules\SILLYImageCodec\CEGUISILLYImageCodecModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\RendererModules\Cocos2D\CEGUICocos2DGeometryBuffer.h" />
+    <ClInclude Include="..\..\CEGUI\include\RendererModules\Cocos2D\CEGUICocos2DRenderer.h" />
+    <ClInclude Include="..\..\CEGUI\include\RendererModules\Cocos2D\CEGUICocos2DRenderTarget.h" />
+    <ClInclude Include="..\..\CEGUI\include\RendererModules\Cocos2D\CEGUICocos2DTexture.h" />
+    <ClInclude Include="..\..\CEGUI\include\RendererModules\Cocos2D\CEGUICocos2DTextureTarget.h" />
+    <ClInclude Include="..\..\CEGUI\include\RendererModules\Cocos2D\CEGUICocos2DViewportTarget.h" />
+    <ClInclude Include="..\..\CEGUI\include\ScriptingModules\LuaScriptModule\CEGUILua.h" />
+    <ClInclude Include="..\..\CEGUI\include\ScriptingModules\LuaScriptModule\CEGUILuaFunctor.h" />
+    <ClInclude Include="..\..\CEGUI\include\ScriptingModules\LuaScriptModule\support\tolua++\tolua++.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalAnimateText.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalAnimationButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalAutoScrollStaticText.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalCompnenttip.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalDefault.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalEditbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalEditboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalFrameWindow.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalGameBox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalGroupBtnTree.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalIrregularButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalIrregularFigure.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalItemCell.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalItemCellGeneral.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalItemEntry.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalItemListbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalItemTable.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalLinkText.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalListbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalListHeader.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalListHeaderProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalListHeaderSegment.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalMenubar.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalMenuItem.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalModule.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalMultiColumnList.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalMultiLineEditbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalMultiLineEditboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalPopupMenu.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalProgressBar.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalProgressBarProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalProgressBarTwoValue.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalRichEditbox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalRichEditboxProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalScrollablePane.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalScrollbar.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalScrollbarProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalSkillBox.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalSlider.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalSliderProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalSpecialTree.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalStatic.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalStaticImage.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalStaticImageProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalStaticProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalStaticText.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalStaticTextProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalSwitch.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalSystemButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalTabButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalTabControl.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalTabControlProperties.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalTitlebar.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalToggleButton.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalTooltip.h" />
+    <ClInclude Include="..\..\CEGUI\include\WindowRendererSets\Falagard\FalTree.h" />
+    <ClInclude Include="..\..\CEGUI\include\Nuclear.h" />
+    <ClInclude Include="..\..\CEGUI\include\XMLParserModules\XMLIOParser\CEGUIXMLIOParser.h" />
+    <ClInclude Include="..\..\CEGUI\include\XMLParserModules\XMLIOParser\CEGUIXMLIOParserModule.h" />
+    <ClInclude Include="..\..\CEGUI\src\ScriptingModules\LuaScriptModule\required.h" />
+    <ClInclude Include="..\..\pch.h" />
+    <ClInclude Include="..\..\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\CEGUI\src\CEGUIAffector.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIAnimation.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIAnimationInstance.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIAnimationManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIAnimation_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIBase.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIBasicInterpolators.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIBasicRenderedStringParser.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIBiDiVisualMapping.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIBoundSlot.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUICentredRenderedString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIChainedXMLHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIcolour.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIColourRect.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIConfig_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUICoordConverter.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIDataContainer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIDefaultLogger.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\CEGUIDefaultRenderedStringParser.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIDefaultResourceProvider.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIDynamicModule.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIEditboxStringParser.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIEvent.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIEventArgs.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIEventSet.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIEventSignal.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIEventSignalSet.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIExceptions.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFactoryModule.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFont.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFontManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFontProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFont_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFormattedRenderedString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFreeTypeFont.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIFribidiVisualMapping.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIGlobalEventSet.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIGUILayout_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIImage.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIImageCodec.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIImageset.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIImagesetManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIImageset_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIJustifiedRenderedString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIJustifiedRenderedStringWordWrapper.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIKeyFrame.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUILeftAlignedRenderedString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUILoadingTaskManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIResLoadThread.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUILogger.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIMinibidiVisualMapping.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIMouseCursor.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUINamedXMLResourceManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIPCRERegexMatcher.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIPfsResourceProvider.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIPixmapFont.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIProperty.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIPropertyHelper.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIPropertySet.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRect.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderedString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderedStringComponent.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderedStringImageComponent.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderedStringTextComponent.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderedStringWidgetComponent.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderingRoot.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderingSurface.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderingWindow.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRenderQueue.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRichEditbox_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIRightAlignedRenderedString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIScheme.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUISchemeManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIScheme_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIScriptModule.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUISize.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUISpecialTreeItem_xmlHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIString.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUISubscriberSlot.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUISystem.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUITextUtils.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindow.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowFactory.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowFactoryManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowRenderer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowRendererManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWindowRendererModule.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIWRFactoryRegisterer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIXMLAttributes.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIXMLHandler.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIXMLParser.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\CEGUIXMLSerializer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIAnimateText.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIAnimationButton.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIAnimationButtonProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIAutoScrollStaticText.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIButtonBase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUICheckbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUICheckboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIClippedContainer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUICombobox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIComboboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIComboDropList.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUICompnentTip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIDragContainer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIDragContainerProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIEditbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIEditboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIFrameWindow.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIFrameWindowProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGameBox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGroupBox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGroupBtnItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGroupBtnTree.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGroupButton.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGroupButtonProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIGUISheet.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIIrregularButton.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIIrregularButtonProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIIrregularFigure.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemCell.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemCellGeneral.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemCellProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemEntry.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemEntryProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemListBase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemListBaseProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemListbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemListboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemTable.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIItemTableProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUILinkText.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUILinkTextProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListboxItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListboxTextItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListHeader.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListHeaderProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListHeaderSegment.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIListHeaderSegmentProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMenubar.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMenuBase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMenuBaseProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMenuItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMessageTip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMultiColumnList.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMultiColumnListProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMultiLineEditbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIMultiLineEditboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPanelbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPanelChengJiuItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPanelChengWeiItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPanelItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPanelQiYuanItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPopupMenu.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPopupMenuProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIProgressBar.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIProgressBarProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIProgressBarTwoValue.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIProgressBarTwoValueProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPushButton.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIPushButtonProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRadioButton.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRadioButtonProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditbox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxButtonImageComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxEmotionComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxFamilyRecruitLinkComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxGoToComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxHttpComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxImageComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxLineBreakComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxLinkTextComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxNameLinkComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxTextComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIRichEditboxTipsLinkComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrollablePane.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrollablePaneProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrollbar.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrollbarProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrolledContainer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrolledContainerProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrolledItemListBase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIScrolledItemListBaseProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISkillBox.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISlider.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISliderProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISpecialTree.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISpecialTreeItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISpinner.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISpinnerProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISwitch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUISwitchProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITabButton.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITabControl.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITabControlProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIThumb.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUIThumbProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITitlebar.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITitlebarProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITooltip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITooltipProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITree.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITreeItem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\elements\CEGUITreeProperties.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\ETCHeader.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalagard_xmlHandler.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalComponentBase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalDimensions.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalFrameComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalImageryComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalImagerySection.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalLayerSpecification.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalNamedArea.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalPropertyDefinition.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalPropertyDefinitionBase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalPropertyInitialiser.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalPropertyLinkDefinition.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalSectionSpecification.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalStateImagery.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalTextComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalWidgetComponent.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalWidgetLookFeel.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalWidgetLookManager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\falagard\CEGUIFalXMLEnumHelper.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\gesture\CEGUIGestureRecognizer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\gesture\CEGUIGestureRecognizerManager.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\gesture\CEGUILongPressGestureRecognizer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\gesture\CEGUIPanGestureRecognizer.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\ImageCodecModules\SILLYImageCodec\CEGUISILLYImageCodec.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\ImageCodecModules\SILLYImageCodec\CEGUISILLYImageCodecModule.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\minibidi.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\RendererModules\Cocos2D\CEGUICocos2DGeometryBuffer.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\RendererModules\Cocos2D\CEGUICocos2DRenderer.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\RendererModules\Cocos2D\CEGUICocos2DRenderTarget.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\RendererModules\Cocos2D\CEGUICocos2DTexture.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\RendererModules\Cocos2D\CEGUICocos2DTextureTarget.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\RendererModules\Cocos2D\CEGUICocos2DViewportTarget.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</MinimalRebuild>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\ScriptingModules\LuaScriptModule\CEGUILua.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\ScriptingModules\LuaScriptModule\CEGUILuaFunctor.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\ScriptingModules\LuaScriptModule\lua_CEGUI.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">/Gy /bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\CEGUI\src\ScriptingModules\LuaScriptModule\required.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalAnimateText.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalAnimationButton.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalAutoScrollStaticText.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalButton.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalCompnenttip.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalDefault.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalEditbox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalEditboxProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalFrameWindow.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalGameBox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalGroupBtnTree.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalIrregularButton.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalIrregularFigure.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalItemCell.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalItemCellGeneral.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalItemEntry.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalItemListbox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalItemTable.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalLinkText.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalListbox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalListHeader.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalListHeaderProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalListHeaderSegment.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalMenubar.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalMenuItem.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalModule.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalMultiColumnList.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalMultiLineEditbox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalMultiLineEditboxProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalPopupMenu.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalProgressBar.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalProgressBarProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalProgressBarTwoValue.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalRichEditbox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalRichEditboxProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalScrollablePane.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalScrollbar.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalScrollbarProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalSkillBox.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalSlider.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalSliderProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalSpecialTree.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalStatic.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalStaticImage.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalStaticImageProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalStaticProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalStaticText.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalStaticTextProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalSwitch.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalSystemButton.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalTabButton.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalTabControl.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalTabControlProperties.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalTitlebar.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalToggleButton.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalTooltip.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\WindowRendererSets\Falagard\FalTree.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\XMLParserModules\XMLIOParser\CEGUIXMLIOParser.cpp" />
+    <ClCompile Include="..\..\CEGUI\src\XMLParserModules\XMLIOParser\CEGUIXMLIOParserModule.cpp" />
+    <ClCompile Include="..\..\pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Windows">
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
+    <Reference Include="platform.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\pcre-8.31\pcre-8.31.vcxproj">
+      <Project>{27f00500-38fb-4eea-ab00-099428e69abf}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

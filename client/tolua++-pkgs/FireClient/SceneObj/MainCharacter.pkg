@@ -1,0 +1,172 @@
+enum eMoveState
+{
+	eMove_Normal,
+	eMove_Follow,	//组队跟随移动状态
+	eMove_Pacing,	//踱步状态，Alt+R来回走
+	eMove_Fly,		//飞行状态
+	eMoveMax
+};
+
+class MainCharacter : public Character 
+{
+public:
+	CBroadcastEvent<NoParam>	EventMainCharacterMove;
+	MainCharacter();
+	virtual ~MainCharacter();
+
+////////////////人物行走移动相关///////////////////
+public:
+	virtual std::wstring GetName();
+
+	void SetLButtonDown(bool b);
+
+	void SetMovingStat(bool b);
+	bool GetMovingStat();
+
+	void VisitNpcFormList(int64_t id);
+
+	bool GameCursorTypeProcess(SceneObject* pMouseOverObjects, WPARAM wParam, LPARAM lParam);
+
+	void PlayMouseBtnDownEffect(Nuclear::NuclearLocation pixelloc);	//鼠标点击地面特效 //lua
+	static void InitMouseBtnDownEffect();
+	void UpdateCheckMeetTarget(int dt);
+	void UpdateCheckJumpMap(int dt);
+
+	void SVisitNpcProcess(int64_t npcid, std::vector<int> servers, std::vector<int> quests);
+
+	Nuclear::NuclearLocation GetLastMoveBeginning();
+	Nuclear::NuclearLocation GetLastMoveTarget();
+
+	void CalculatePartTarget();		//得到局部的目标点
+	void ClearVerifyQueue();
+	bool ActiveMoveTo(Nuclear::NuclearLocation ptMoveTarget,int npdid = 0,bool trytofindagain = false,int64_t npckey = 0);	//主动寻路至某点 //lua
+	
+	bool MoveTo(Nuclear::NuclearLocation ptMoveTarget, bool bAgain = true);	//这里传入的参数是逻辑坐标 //lua
+	void DealWhileMainCharacterMove();
+	virtual void StopMove();
+
+	void SendStopMoveMessage();
+	
+	bool CanActiveMoveTo();
+	bool CanMove();
+	bool CanTurn();
+	void SendVerifyCommand(int now,int delta);
+    
+	void FlyToPos(int mapid, int xPos, int yPos, int npcid, int64_t npckey = 0, bool randompos = false, int nTargetPosX=0, int nTargetPosY=0, bool forcefly = false);
+	void WalkToPos(int xPos, int yPos, int64_t nNpcKey = 0 ,int nNpcId = 0);
+	bool OnFlyWalkToVisitNpc(Npc* pNpc);
+	void FlyOrWarkToPos(int mapid, int xPos, int yPos, int npcid);
+	void ResetLastMoveTarget();
+	void RunPacingEvent();
+
+	void clearGoTo();
+	MapWalker* GetMapWalker();
+	virtual void SetTeamInfo(int64_t teamid, int teamindex, int teamstate);
+
+	Nuclear::NuclearLocation ReCalculateTarget(Nuclear::NuclearLocation& ptMoveTarget,bool bHighlevel=false);
+    
+    void RefreshRoleInfoOfThisServer();
+	void CheckGoto();
+	bool OnFlyWalkToVisitPos(int64_t nNpcKey, int nNpcId);
+	void SetGotoTargetPos(int nXPos, int nYPos);
+	void SetGotoTargetPosType(int nType);
+	int GetGotoTargetPosType();
+	int GetDistanceWithPos(int nPosX, int nPosy);
+	void SetJumpMapEnd(bool bEnd);
+	bool GetJumpMapEnd();
+
+	void ReadyToPacing();
+	void StopPacingMove();
+	void SetMoveState(eMoveState e);
+	bool IsReadyToPacing();
+	void ClearReadyToPacing();
+	eMoveState	GetMoveState();
+	void SetRandomPacing();
+	
+	void ContinueMove();//出战斗后得继续走
+
+	void HandleReturnTeam(bool findpathfailure=false);		//处理回归队伍
+	bool HandleVisiteNpc();			//处理访问npc
+
+	bool JumpMap(int mapId);
+
+	bool GetIsSending();
+
+	void SetIsSending(bool);
+
+	bool IsPathEmpty();				//是否路径已经为空
+
+	virtual	void SetAttribute(int64_t roleid, int sex, int shape, int camp);
+	virtual void InitPosition(Nuclear::NuclearLocation loc,bool bhighlevel = false);
+	bool OnWindowsMessage(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+    
+	bool OnLBButtonDown( WPARAM wParam, LPARAM lParam);
+	bool TalkCursorOperate(SceneObject* pMouseOverObjects);	//访问npc操作
+	bool PickUpCursorOperate(SceneObject* pMouseOverObjects);	//拾取操作
+
+	bool TalkCursorOperateWithNpcBaseID(int baseNpcID);
+		
+	bool OnVisitNpc(Npc* pNpc);
+    bool OnVisitFossickNpc(Npc* pNpc);
+	
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+	void Run(int now,int delta);
+
+	void OnBattleBegin();
+	void OnBattleEnd();
+	virtual void Draw(int now);
+	virtual bool CanBeGiven();
+	virtual bool CanTradeWith();
+	virtual bool CanJoinTeam();
+	virtual bool CanGiveFlower();
+	virtual bool CanGiveRose();
+	
+	void clearGotoNpc();
+
+	void HandleEnterOrLeavePVPArea();
+
+	void HideRole(bool hide);
+	bool IsHide();
+	
+	//离队或暂离时给服务器发送重新定位消息
+	void RelocateMainRolePos();
+
+	void AddAutoWalkingEffect();
+	void RemoveAutoWalkingEffect();
+
+	void AddFlyWalkingEffect(std::wstring EffectName);
+	void DelFlyWalkingEffect();
+
+	void SetNeedToIslandTipsFlag(bool b);
+
+	bool IsInPVPArea();
+	void SetInPVPArea(bool b);
+
+	std::vector<Nuclear::NuclearPoint> GetAstarPath();
+
+	void SetCurItemkey(int key);
+	int GetCurItemkey();
+
+	void SetFlyToEnable(bool enable);
+	bool GetFlyToEnable();
+
+	void SetSuperMapTargetPos(Nuclear::NuclearLocation loc);
+	Nuclear::NuclearLocation GetSuperMapTargetPos();
+
+	void ReturnSchool();
+	void GetSchoolMapIdAndPos(int* pMapId, int* pPosX, int* pPosY);
+
+	static void sPurgeData();
+
+	void StartAutoMove(int AutoMovePathID);
+	void StopAutoMove();
+
+	std::wstring GetTitle();;
+
+	virtual int GetShapeID();
+	virtual void SetShapeID(int shapeid);
+
+	void DrawBackByService(Nuclear::NuclearLocation loc);
+};
+
+inline MainCharacter* GetMainCharacter();

@@ -1,0 +1,27 @@
+namespace GameTable
+{
+    namespace move
+    {
+        class CAutoMovePathPoint
+        {
+            public:
+            int id;
+            std::wstring ridename;
+            std::wstring effectname;
+            int cameraz;
+            int speed;
+            int sceneid;
+            int pointcount;
+            std::vector<std::wstring> points;
+        };
+        class CAutoMovePathPointTable
+        {
+            public:
+        CAutoMovePathPoint& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CAutoMovePathPointTable&  GetCAutoMovePathPointTableInstance();
+    }
+}

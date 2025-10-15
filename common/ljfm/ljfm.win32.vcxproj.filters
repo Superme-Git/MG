@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="code">
+      <UniqueIdentifier>{004a9bfd-3ee3-4594-8a91-6d1449140544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="code\source">
+      <UniqueIdentifier>{2c200c71-9726-4328-8bed-7f4341b6276b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="code\include">
+      <UniqueIdentifier>{913ffbb7-915d-43e1-8d2e-4ce0dd3724e7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="code\include\common.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfileinfo.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfm.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmbase.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmext.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmimage.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmopen.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfsfile.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfszipfile.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\timelog.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmfs.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmfsmanager.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmtableloader.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmpq.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmfex.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="code\include\ljfmasync.h">
+      <Filter>code\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\updateengine\UpdateEngine.h">
+      <Filter>code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\updateengine\UpdateManagerEx_Helper.h">
+      <Filter>code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\updateengine\UpdateManagerEx_Win.h">
+      <Filter>code</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="code\source\common.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfileinfo.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfm.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmbase.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmimage.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmopen.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfsfile.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfszipfile.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\timelog.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmfs.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmfsmanager.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmpq.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmfex.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="code\source\ljfmasync.cpp">
+      <Filter>code\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\updateengine\UpdateEngine.cpp">
+      <Filter>code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\updateengine\UpdateManagerEx_Win.cpp">
+      <Filter>code</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

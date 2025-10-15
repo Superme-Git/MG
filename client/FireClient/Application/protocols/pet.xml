@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 2001 开始 -->
+<namespace name="pet">
+	<bean name="PetTypeEnum">
+		<enum name="WILD" value="1"/>			野生
+		<enum name="BABY" value="2"/>			宝宝
+		<enum name="VARIATION" value="3"/>		变异
+		<enum name="SACREDANIMAL" value="4"/>	神兽
+	</bean>
+	<bean name="PetColumnTypes">
+		<enum name="PET" value="1" />				人物身上的宠物栏
+		<enum name="DEPOT" value="2" />				人物的仓库宠物栏
+		<enum name="XUNBAOSELLPET" value="3" />		找宝网寄售宠物栏
+		<enum name="XUNBAOBUYPET" value="4" />		找宝网买入宠物栏
+		<enum name="MARKETPET" value="5" />			拍卖宠物栏
+		<enum name="BLACKMARKETPET" value="6" />	黑市宠物栏
+	</bean>
+	<bean name="PetError">
+		<enum name="UnkownError" value="-1" /> 未知错误 
+		<enum name="KeyNotFound" value="-2" /> key错误。找不到对应宠物
+		<enum name="PetcolumnFull" value="-3" />添加宠物，或者存取宠物时，宠物栏已经满了
+		<enum name="WrongDstCol" value="-4" /> 同背包内宠物不能移动.
+		<enum name="ShowPetCantMoveErr" value="-5" /> 展示宠物不能入仓
+		<enum name="FightPetCantMoveErr" value="-6" /> 参战宠物不能入仓
+		<enum name="PetNameOverLen" value="-7" /> 宠物名称过长
+		<enum name="PetNameShotLen" value="-8" /> 宠物名称过短
+		<enum name="PetNameInvalid" value="-9" /> 宠物名字非法
+		<enum name="ShowPetCantFree" value="-10" /> 展示的宠物不能放生
+		<enum name="FightPetCantFree" value="-11" /> 正在参战的宠物不能放生
+		<enum name="WrongFreeCode" value="-12" /> 错误的放生随机码
+	</bean>
+	<bean name="PetColour">
+		<enum name="WHITE" value="1" />
+		<enum name="GREEN" value="2" />
+		<enum name="BLUE" value="3" />
+		<enum name="PURPLE" value="4" />
+		<enum name="ORANGE" value="5" />
+		<enum name="DARKGOLD" value="6" />
+	</bean>
+	<!-- 宠物战斗中闲话的ID 范围 -->
+	<bean name="PetChatLimit">
+		<enum name="Self20percentBegin" value="0" />
+		<enum name="Self20percentEnd" value="1" />
+		<enum name="Master20percentBegin" value="2" />
+		<enum name="Master20percentEnd" value="3" />
+	</bean>
+
+	<!--客户端请求展示宠物-->
+	<protocol name="CShowPet" type="2001" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)" />
+	</protocol>
+
+	<!--服务器通知周围玩家，玩家roleid展示了宠物pet -->
+	<protocol name="SShowPetAround" type="2002" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=(0,)"/>
+		<variable name="showpetkey" type="int" validator="value=[0,)"/>
+		<variable name="showpetid" type="int" validator="value=[0,)"/>
+		<variable name="showpetname" type="string" />
+		<variable name="colour" type="byte" validator="value=[0,)" />
+		<variable name="size" type="byte" validator="value=[0,)" />
+		<variable name="showeffect" type="byte" validator="value=[0,)" />
+	</protocol>
+	<!-- 客户端请求收回展示的宠物-->
+	<protocol name="CShowPetOff" type="2003" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<!-- 刷新宠物数据 洗练后，刷新宠物几乎所有的属性 -->
+	<protocol name="SRefreshPetInfo" type="2005" maxsize="65535" prior="1" tolua="3">
+		<variable name="petinfo" type="fire.pb.Pet" />
+	</protocol>
+	<!-- 宠物只有当前经验改变时，服务器发送此消息 -->
+	<protocol name="SRefreshPetExp" type="2006" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>
+		<variable name="curexp" type="long" validator="value=[0,)"/>   宠物的当前经验
+	</protocol>
+	<!-- 客户端请求宠物加点 -->
+	<protocol name="CPetAddPoint" type="2007" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)" />  宠物key值,加点的宠物
+		<variable name="str" type="int" validator="value=[0,)" />     力量加点数
+		<variable name="iq" type="int" validator="value=[0,)"  />     智力加点数
+		<variable name="cons" type="int" validator="value=[0,)" />    体质加点数
+		<variable name="endu" type="int" validator="value=[0,)" />    耐力加点数
+		<variable name="agi" type="int" validator="value=[0,)" />     敏捷加点数
+	</protocol>
+	<!-- 请求宠物参战 -->
+	<protocol name="CSetFightPet" type="2008" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/> 请求参战的宠物
+	</protocol>
+	<protocol name="SSetFightPet" type="2009" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/> 参战宠物，如果当前有参战宠物，则替换。
+		<variable name="isinbattle" type="byte" validator="value=[0,1]"/> 0=战斗外设置参战 1=战斗中召唤
+	</protocol>
+	
+	<!-- 请求将参战宠物置位休息状态-->
+	<protocol name="CSetFightPetRest" type="2010" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<!-- 收回参战宠物, 将当前的参战宠物设置为休息状态。-->
+	<protocol name="SSetFightPetRest" type="2011" maxsize="65535" prior="1" tolua="3">
+		<variable name="isinbattle" type="byte" validator="value=[0,1]"/> 0=战斗外设置休息 1=战斗中召回
+	</protocol>
+	
+	<!-- 通知客户端添加宠物 -->
+	<protocol name="SAddPetToColumn" type="2012" maxsize="65535" prior="1" tolua="3">
+		<variable name="columnid" type="int" validator="value=[1,)" />  角色宠物栏1, 仓库宠物栏2
+		<variable name="petdata" type="fire.pb.Pet" /> 宠物详细数据
+	</protocol>
+	
+	<!-- 通知客户端删除指定宠物栏上的指定key对应的宠物 -->
+	<protocol name="SRemovePetFromCol" type="2013" maxsize="65535" prior="1" tolua="3">
+		<variable name="columnid" type="int" validator="value=[1,)" />  宠物栏id
+		<variable name="petkey" type="int" validator="value=[1,)" />     要删除的宠物key
+	</protocol>
+	
+	<!-- 客户端请求宠物栏信息 -->
+	<protocol name="CGetPetcolumnInfo" type="2014" maxsize="65535" prior="1" tolua="3">
+		<variable name="columnid" type="int" validator="value=[1,2]" />     宠物栏id
+		<variable name="npckey" type="long" validator="value=[1,)" />         仓库老板的npckey.
+	</protocol>
+	
+	<!-- 服务器发送给客户端 宠物栏信息 -->
+	<protocol name="SGetPetcolumnInfo" type="2015" maxsize="65535" prior="1" tolua="3">
+		<variable name="columnid" type="int" validator="value=[1,)" />    		宠物栏id
+		<variable name="pets" type="vector" value="fire.pb.Pet" />           宠物信息 
+		<variable name="colunmSize" type="int" validator="value=[0,)" /> 
+	</protocol>
+
+	<!--客户端请求，在宠物栏(角色宠物栏，仓库宠物栏)之间移动宠物,即存取宠物 功能-->
+	<protocol name="CMovePetColumn" type="2016" maxsize="65535" prior="1" tolua="3">
+		<variable name="srccolumnid" type="int" validator="value=[1,2]" />   源宠物栏
+		<variable name="petkey" type="int" validator="value=[1,)" />         存或取的宠物key
+		<variable name="dstcolumnid" type="int" validator="value=[1,2]" />   目的宠物栏
+		<variable name="npckey" type="long" validator="value=[1,)" />          仓库npckey
+	</protocol>
+	<!-- 宠物相关操作出错-->
+	<protocol name="SPetError" type="2017" maxsize="65535" prior="1" tolua="3">
+		<variable name="peterror" type="int" validator="value=(,-1]" />  具体参见 PetErr的定义
+	</protocol>
+	
+	<!-- 客户端请求修改宠物名字-->
+	<protocol name="CModPetName" type="2018" maxsize="65535" prior="1" tolua = "3">
+		<enum name="NAMELEN_MAX" value="6" />	名字的最大长度	
+        <enum name="NAMELEN_MIN" value="1" />   名字的最短长度		
+		<variable name="petkey" type="int" validator="value=[1,)" /> 宠物的key
+		<variable name="petname" type="string" /> 宠物的名字
+	</protocol>
+	
+	<!-- 服务器通知客户端修改宠物的名字 -->
+	<protocol name="SModPetName" type="2019" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)" /> 角色id
+		<variable name="petkey" type="int" validator="value=[1,)" />  宠物key
+		<variable name="petname" type="string" /> 宠物的名字
+	</protocol>
+	
+	<!-- 战斗内宠物闲话 -->
+	<protocol name="SPetGossip" type="2021" maxsize="65535" prior="1" tolua="3">
+		<variable name="battleid" type="int" validator="value=[1,)" /> 战斗点位，宠物的话应该是（6-10，16-20）
+		<variable name="chatindex" type="int" validator="value=[0,)" /> 闲话的序号（0-3）
+	</protocol>
+	 
+	<protocol name="SRefreshPetSkill" type="2022" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="petkey" type="int" validator="value=[1,)" />
+		<variable name="skills" type="list" value="fire.pb.Petskill" />
+		<variable name="expiredtimes" type="map" key="int" value="long" />
+	</protocol>
+	
+	<!-- 客户端请求查看场景中的宠物信息 -->
+	<protocol name="CShowPetInfo" type="2024" maxsize="65535" prior="1" tolua = "3">
+		<variable name="masterid" type="long" validator="value=[1,)" /> 宠物主人的角色id
+	</protocol>
+	
+	<!-- 服务器返回给客户端场景中某只宠物的详细信息 -->
+	<protocol name="SShowPetInfo" type="2025" maxsize="65535" prior="1" tolua = "3">
+		<variable name="isXunBaoPet" type="int"/> 是否是找宝网查看宠物,1是 0不是
+		<variable name="petdata" type="fire.pb.Pet" /> 宠物详细数据
+	</protocol>
+	
+	<!-- 服务器向客户端刷新宠物栏的最大容量-->
+	<protocol name="SRefreshPetColumnCapacity" type="2026" maxsize="65535" prior="1" tolua="3">
+		<variable name="columnid" type="int" validator="value=[1,2]" />
+		<variable name="capacity" type="int" validator="value=[1,)" />
+	</protocol>
+	
+	<!-- 宠物打技能书 -->
+	<protocol name="CPetLearnSkillByBook" type="2047" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>
+		<variable name="bookkey" type="int" validator="value=[1,)"/>
+	</protocol>
+	
+	<!-- 客户端请求放生宠物  (放生成功，服务器会返回客户端删除宠物的消息 -->
+	<protocol name="CFreePet1" type="2065" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkeys" type="vector" value="int" /> 放生的宠物的key 
+	</protocol>
+
+	<!-- 宠物评分 -->
+	<protocol name="SRefreshPetScore" type="2079" maxsize="256" prior="1" tolua="3">
+		<variable name="petkey" type="int"/> 宠物key
+		<variable name="petscore" type="int"/> 宠物评分
+        <variable name="petbasescore" type="int"/> 一级属性评分
+    </protocol>
+
+	<!-- 客户端请求设置宠物加点方案 -->
+	<protocol name="CPetSetAutoAddPoint" type="2080" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+		<variable name="str" type="int" validator="value=[0,)" />     力量加点数
+		<variable name="iq" type="int" validator="value=[0,)"  />     智力加点数
+		<variable name="cons" type="int" validator="value=[0,)" />    体质加点数
+		<variable name="endu" type="int" validator="value=[0,)" />    耐力加点数
+		<variable name="agi" type="int" validator="value=[0,)" />     敏捷加点数
+	</protocol>
+
+	<!-- 宠物加点方案-->
+	<protocol name="SPetSetAutoAddPoint" type="2081" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+		<variable name="str" type="int" validator="value=[0,)" />     力量加点数
+		<variable name="iq" type="int" validator="value=[0,)"  />     智力加点数
+		<variable name="cons" type="int" validator="value=[0,)" />    体质加点数
+		<variable name="endu" type="int" validator="value=[0,)" />    耐力加点数
+		<variable name="agi" type="int" validator="value=[0,)" />     敏捷加点数
+	</protocol>
+
+	<!-- 客户端请求宠物重置加点 -->
+	<protocol name="CPetResetPoint" type="2082" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+	</protocol>
+
+	<!-- 宠物洗练 -->
+	<protocol name="CPetWash" type="2083" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+	</protocol>
+	<!-- 宠物洗练 -->
+	<protocol name="SPetWash" type="2084" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+	</protocol>
+
+	<!-- 客户端请求宠物合成 -->
+	<protocol name="CPetSynthesize" type="2085" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey1" type="int" validator="value=[1,)"/>   宠物key
+		<variable name="petkey2" type="int" validator="value=[1,)"/>   宠物key
+	</protocol>
+	<!-- 宠物合成 -->
+	<protocol name="SPetSynthesize" type="2086" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+	</protocol>
+
+	<!-- 客户端请求宠物技能认证 -->
+	<protocol name="CPetSkillCertification" type="2087" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+		<variable name="skillId" type="int" validator="value=[1,)"/>  技能ID
+		<variable name="isconfirm" type="int" validator="value=[0,1]"/>  1:确定/0:取消
+	</protocol>
+	<!-- 宠物技能认证 -->
+	<protocol name="SPetSkillCertification" type="2088" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+		<variable name="skillId" type="int" validator="value=[1,)"/>  技能ID
+		<variable name="isconfirm" type="int" validator="value=[0,1]"/>  1:确定/0:取消
+	</protocol>
+
+	<!-- 客户端请求资质培养 -->
+	<protocol name="CPetAptitudeCultivate" type="2089" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>  宠物key
+		<variable name="aptid" type="int" validator="value=[0,)"/>  资质id
+		<variable name="itemkey" type="int" validator="value=[1,)"/>  物品key
+	</protocol>
+	<!-- 资质培养 -->
+	<protocol name="SPetAptitudeCultivate" type="2090" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>  宠物key
+		<variable name="aptid" type="int" validator="value=[0,)"/>  资质id
+		<variable name="aptvalue" type="int" validator="value=[0,)"/> 资质值
+	</protocol>
+
+	<!-- 客户端请求使用经验道具 -->
+	<protocol name="CPetExpCultivate" type="2091" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>  宠物key
+		<variable name="itemid" type="int" validator="value=[1,)"/>  物品id
+		<variable name="itemnum" type="byte" validator="value=[1,10]"/>  物品数量
+	</protocol>
+
+	<!-- 客户端请求宠物仓库扩容 -->
+	<protocol name="CPetDepotColumnAddCapacity" type="2092" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<!-- 客户端请求查看某人的宠物信息 -->
+	<protocol name="CGetPetInfo" type="2093" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long"/> 角色id
+		<variable name="petkey" type="int" validator="value=[1,)" />
+	</protocol>
+	<!-- 宠物信息 -->
+	<protocol name="SGetPetInfo" type="2094" maxsize="65535" prior="1" tolua="3">
+		<variable name="petinfo" type="fire.pb.Pet"/> 宠物信息
+	</protocol>
+
+	<!-- 宠物回收 -->
+	<protocol name="CPetSell" type="2095" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+	</protocol>
+
+	<!-- 神兽兑换,重置,养成-->
+	<namespace name="shenshou">
+		<protocol name="CShenShouDuiHuan" type="2096" maxsize="65535" prior="1" tolua="3">
+		</protocol>
+		<protocol name="CShenShouChongZhi" type="2097" maxsize="65535" prior="1" tolua="3">
+			<variable name="petkey" type="int" /> 宠物key
+			<variable name="needpetid" type="int" /> 需要兑换的宠物ID
+		</protocol>
+		<protocol name="CShenShouYangCheng" type="2098" maxsize="65535" prior="1" tolua="3">
+			<variable name="petkey" type="int" /> 宠物key
+		</protocol>
+	</namespace>
+
+	<!-- 宠物等级重置 -->
+	<protocol name="CPetLevelReset" type="2111" maxsize="65535" prior="1" tolua="3">
+		<variable name="petkey" type="int" validator="value=[1,)"/>   宠物key
+		<variable name="itemkey" type="int" validator="value=[1,)"/>  物品key
+	</protocol>
+
+	<!-- 宠物找回 2151-2160 -->
+	<!-- 宠物找回信息 -->
+	<bean name="PetRecoverInfoBean">
+		<variable name="petId" type="int"/> 宠物id
+		<variable name="uniqId" type="long"/> 唯一id
+		<variable name="remainTime" type="int"/> 剩余时间(单位:秒数)
+		<variable name="cost" type="int"/> 找回消耗金币
+	</bean>
+	<!-- 客户端请求宠物找回列表 -->
+	<protocol name="CPetRecoverList" type="2151" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	<!-- 服务器返回宠物找回列表 -->
+	<protocol name="SPetRecoverList" type="2152" maxsize="65535" prior="1" tolua="3">
+		<variable name="pets" type="list" value="PetRecoverInfoBean"/> 宠物列表
+	</protocol>
+
+	<!-- 客户端请求宠物找回 -->
+	<protocol name="CPetRecover" type="2153" maxsize="65535" prior="1" tolua="3">
+		<variable name="uniqId" type="long"/> 唯一id
+	</protocol>
+	<!-- 服务器返回宠物找回结果 -->
+	<protocol name="SPetRecover" type="2154" maxsize="65535" prior="1" tolua="3">
+		<variable name="petId" type="int"/> 宠物id
+		<variable name="uniqId" type="long"/> 唯一id
+	</protocol>
+
+	<!-- 客户端请求查看一个找回宠物的信息 -->
+	<protocol name="CRecoverPetInfo" type="2155" maxsize="65535" prior="1" tolua="3">
+		<variable name="uniqId" type="long"/> 唯一id
+	</protocol>
+	<!-- 服务器返回一个找回宠物的信息 -->
+	<protocol name="SRecoverPetInfo" type="2156" maxsize="65535" prior="1" tolua="3">
+		<variable name="petInfo" type="fire.pb.Pet"/> 宠物信息
+	</protocol>
+	<!-- 宠物找回 2151-2160 -->
+
+</namespace>

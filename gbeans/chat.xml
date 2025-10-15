@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="chat"> 
+		<bean name="Cbiaoqing" from="b表情配置" genxml="client" priority="1">
+			  <variable name="id" type="int" fromCol="ID" /> id
+			  <variable name="imagenum" type="int" fromCol="总帧数" /> 
+			  <variable name="time" type="double" fromCol="播放时间" /> 
+			  <variable name="tips" type="String" fromCol="Tips" /> 
+			  <variable name="key" type="String" fromCol="快捷键" />   
+		</bean>
+				
+		<bean name="CBanWords" from="l聊天配置/l聊天屏蔽字" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="BanWords" type="string" fromCol="屏蔽字" /> 
+			  
+		</bean>
+		
+		<bean name="Cquickchat" from="l聊天配置/l聊天常用语" genxml="client">
+		  <variable name="id" type="int" fromCol="id" /> id
+		  <variable name="tips" type="String" fromCol="内容" /> 
+		</bean>
+		
+		<bean name="CchatColorConfig" from="Y颜色转换表" genxml="client" gencode="mtlua">
+		  <variable name="id" type="int" fromCol="id" /> id
+		  <variable name="color" type="String" fromCol="表里颜色" />
+		  <variable name="notifylist" type="vector" value="String" fromCol="频道1,频道2,频道3,频道4,频道5,频道6,频道7,频道8,频道9,频道10,频道11,频道12,频道13,频道14,频道15,频道16,频道17,频道18" />
+		  <variable name="chatlist" type="vector" value="String" fromCol="频道19,频道20,频道21,频道22,频道23,频道24,频道25,频道26,频道27,频道28,频道29,频道30,频道31,频道32" />
+		  <variable name="headpop" type="String" fromCol="频道33" />
+		</bean>
+		
+	</namespace>
+	
+	

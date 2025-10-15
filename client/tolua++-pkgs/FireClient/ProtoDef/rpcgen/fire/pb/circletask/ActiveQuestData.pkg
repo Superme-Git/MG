@@ -1,0 +1,37 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace circletask { 
+
+class ActiveQuestData : public FireNet::Marshal
+{
+public:
+	int questid; // 任务id
+	int queststate; // 任务状态
+	int64_t dstnpckey; // 目的npckey
+	int dstnpcid; // 目的npcbaseid
+	int dstmapid; // 目的地图id
+	int dstx; // 目的x坐标
+	int dsty; // 目的y坐标
+	int dstitemid; // 目的道具的id"
+	int sumnum; // 累积次数.
+	std::wstring npcname; // npc名字,目前仅用于强盗宝图
+	int64_t rewardexp; // 奖励的经验
+	int64_t rewardmoney; // 奖励的现金
+	int64_t rewardsmoney; // 奖励的储备金
+	std::vector<fire::pb::circletask::RewardItemUnit> rewarditems; // 奖励的道具
+
+	ActiveQuestData() ;
+
+	ActiveQuestData(int _questid_, int _queststate_, int64_t _dstnpckey_, int _dstnpcid_, int _dstmapid_, int _dstx_, int _dsty_, int _dstitemid_, int _sumnum_, const std::wstring & _npcname_, int64_t _rewardexp_, int64_t _rewardmoney_, int64_t _rewardsmoney_, const std::vector<fire::pb::circletask::RewardItemUnit> & _rewarditems_);
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+};
+
+} 
+} 
+} 

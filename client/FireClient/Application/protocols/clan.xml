@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从22001开始-->
+<namespace name="clan">
+	<bean name="ClanMember">  			公会成员数据
+		<variable name="roleid" type="long"/> 				角色id
+		<variable name="shapeid" type="int"/>				头像id
+		<variable name="rolename" type="string"/>			成员名字
+		<variable name="rolelevel" type="short"/>				角色等级
+		<variable name="rolecontribution" type="int"/>		公会贡献度
+		<variable name="weekcontribution" type="int"/>		本周公会贡献度
+		<variable name="historycontribution" type="int"/>		历史公会贡献度
+		<variable name="rolefreezedcontribution" type="int"/>		冻结的公会贡献度
+		<variable name="preweekcontribution" type="int"/>		上周公会贡献度
+		<variable name="lastonlinetime" type="int"/>		为0表示在线，否则表示上次离线时间,单位毫秒
+		<variable name="position" type="byte"/> 			
+		<variable name="school" type="byte"/> 职业(职业)
+		<variable name="jointime" type="int"/> 加入公会时间
+		<variable name="weekaid" type="short"/>   本周援助
+		<variable name="historyaid" type="int"/>   历史援助
+		<variable name="isbannedtalk" type="byte"/>   是否禁言  0 未禁言， 1禁言
+		<variable name="fightvalue" type="int"/>综合战力
+		<variable name="claninstnum" type="short"/>   参加公会副本次数
+		<variable name="clanfightnum" type="short"/>   参加公会战次数
+	</bean>
+
+	<bean name="ClanSummaryInfo">
+		<variable name="clanid" type="long"/> 			公会key
+		<variable name="index" type="int"/> 				公会序号
+		<variable name="clanname" type="string"/>		公会名称
+		<variable name="membernum" type="int"/>				公会人数
+		<variable name="clanlevel" type="int"/>			公会等级
+		<variable name="clanmastername" type="string"/>	会长名字
+		<variable name="clanmasterid" type="long"/>		会长id
+		<variable name="oldclanname" type="string"/>		公会曾用名
+		<variable name="hotellevel" type="int"/>			公会旅馆等级
+	</bean>
+
+	<bean name="ClanDMapInfo">		公会副本信息
+		<variable name="basemapid"  type="int"/>
+	</bean>
+
+	<bean name="ClanSkill">			公会技能
+		<variable name="clanskillid" type="int"/> 		技能id
+		<variable name="clanskilllevel" type="int"/> 	技能当前等级
+		<variable name="clanskillmaxlevel" type="int"/>	技能等级上限
+		<variable name="clanskillcurExp" type="int"/> 	技能当前经验
+		<variable name="clanskilllevelupExp" type="int"/>技能升级所需经验
+	</bean>
+
+	<bean name="ClanPositionType">	公会职务枚举
+		<enum name="ClanMember" value="11"/>        	成员
+		<enum name="ClanArmyGroupElite4" value="10"/>			第四军团精英
+		<enum name="ClanArmyGroupElite3" value="9"/>			第三军团精英
+		<enum name="ClanArmyGroupElite2" value="8"/>			第二军团精英
+		<enum name="ClanArmyGroupElite1" value="7"/>			第一军团精英
+		<enum name="ClanArmyGroup4" value="6"/>			第四军团长
+		<enum name="ClanArmyGroup3" value="5"/>			第三军团长
+		<enum name="ClanArmyGroup2" value="4"/>			第二军团长
+		<enum name="ClanArmyGroup1" value="3"/>        	第一军团长
+		<enum name="ClanViceMaster" value="2"/>	 	副会长
+		<enum name="ClanMaster" value="1"/>	 		会长	
+	</bean>
+
+	<bean name="RoleBaseInfo">					申请入帮人物基本信息
+		<variable name="roleid" type="long"/> 			
+		<variable name="rolename" type="string"/>			名称
+		<variable name="rolelevel" type="int"/>				等级
+		<variable name="roleschool" type="int"/> 			职业
+		<variable name="applytime" type="long"/>			申请时间
+		<variable name="fightvalue" type="int"/>综合战力
+	</bean>
+
+	<bean name="ClanInfo">		公会信息
+		<variable name="clanname" type="string"/>		公会名称
+		<variable name="clanid" type="long"/> 			公会id
+		<variable name="clankey" type="long"/> 			公会key
+		<variable name="clanlevel" type="int"/>			公会等级
+		<variable name="membersnum" type="int"/>   			成员人数
+		<variable name="clanmaster" type="string"/> 		帮主
+		<variable name="clanvicemaster" type="string"/> 	副帮主
+		<variable name="clancreator" type="string"/>  	创始人
+		<variable name="clanrank" type="string"/> 		公会排名
+		<variable name="clanaim" type="string"/>			公会宗旨
+		<variable name="memberlist" type="map" key="long" value="ClanMember"/>
+		<variable name="clanskilllist" type="map" key="int" value="ClanSkill"/>		公会技能列表
+		<variable name="clanDSceneIDs" type="map" key="long" value="ClanDMapInfo"/>	公会所有内景副本地图场景id
+	</bean>
+	<!-- 角色申请公会状态 -->
+	<bean name="ApplyClan">					
+		<variable name="clankey" type="long"/> 			公会key
+		<variable name="applystate" type="int"/>			申请状态 0取消  1申请中
+	</bean>
+
+	<!-- 退出公会事由类型 -->
+	<bean name="FireReasonType">
+		<enum name="CLEAN_MEMBER" value="1"/>人员清理
+		<enum name="LONG_TIME_OFF_LINE" value="2"/>长期不上线
+		<enum name="NO_ACTIVE" value="3"/>表现不积极
+		<enum name="NO_INTEREST" value="4"/>志趣不合
+	</bean>
+
+	<bean name="ClanEventInfo">		
+		<variable name="eventtime" type="string"/>   时间
+		<variable name="eventinfo" type="string"/>     内容
+		<variable name="eventtype" type="int"/>      类型
+		<variable name="eventvalue" type="long"/>    值
+	</bean>
+	
+	<bean name="RoleInfoDes">
+		<variable name="moduletype" type="int"/> 模块类型
+		<variable name="roleid" type="long"/> 角色Id
+		<variable name="rolename" type="string"/> 角色名
+		<variable name="shape" type="int"/> 角色造型
+		<variable name="level" type="int"/> 角色等级
+		<variable name="camp" type="int"/> 阵营
+		<variable name="school" type="int"/> 职业
+		<variable name="clanname" type="string"/> 公会名称
+	</bean>
+	
+	<bean name="MedicItem">
+		<variable name="itemid" type="int"/>  物品id
+		<variable name="itemnum" type="int"/> 物品数量
+	</bean>
+	
+	<bean name="RuneInfo">
+		<variable name="roleid" type="long"/>  请求角色roleid
+		<variable name="rolename" type="string"/> 角色名
+		<variable name="targetroleid" type="long"/>  目标roleid
+		<variable name="targetrolename" type="string"/> 目标角色名
+		<variable name="level" type="int"/> 角色等级
+		<variable name="school" type="int"/> 职业职业
+		<variable name="shape" type="int"/> 角色造型头像
+		<variable name="givenum" type="int"/>捐符数
+		<variable name="acceptnum" type="int"/>收符数
+		<variable name="actiontype" type="int"/>动作类型  0 请求符文    1捐献符文
+		<variable name="requesttime" type="long"/>请求时间
+		<variable name="itemid" type="int"/> 物品id
+		<variable name="itemlevel" type="int"/> 物品等级
+	</bean>
+	
+	<bean name="RuneCountInfo">
+		<variable name="roleid" type="long"/>  角色roleid
+		<variable name="rolename" type="string"/>名称
+		<variable name="level" type="int"/>等级
+		<variable name="school" type="int"/>职业
+		<variable name="position"  type="int"/>职务
+		<variable name="givenum" type="int"/>捐献
+		<variable name="acceptnum" type="int"/>收取
+		<variable name="givelevel" type="int"/>收取
+	</bean>
+	
+	<bean name="RuneRequestInfo">
+		<variable name="itemid" type="int"/>  物品id
+	</bean>
+
+	<protocol  name="COpenClanMedic" type="22007" maxsize="65535" prior="1" tolua="3">	请求药房信息
+	</protocol>
+
+	<protocol  name="SOpenClanMedic" type="22008" maxsize="65535" prior="1" tolua="3">	返回请求药房信息
+		<variable name="selecttype" type="int"/>   选择几倍产药
+		<variable name="buyitemnum" type="int"/>   当天已经购买数量
+		<variable name="medicitemlist" type="vector" value="MedicItem"/>  药品信息
+	</protocol>
+
+	<protocol  name="CBuyMedic" type="22009" maxsize="65535" prior="1" tolua="3">	购买药房的药品
+		<variable name="itemid" type="int"/> 药品id
+		<variable name="itemnum" type="int"/>
+	</protocol>
+
+	<protocol name="COpenClan" type="22014" maxsize="64" prior="1" tolua="3">		客户端请求公会界面：有公会
+	</protocol>
+
+	<protocol name="COpenClanList" type="22015" maxsize="64" prior="1" tolua="3">		客户端请求公会列表：没有公会
+		<variable name="currpage" type="int"  validator="value=[1,)" /> 当前页
+	</protocol>
+
+	<protocol name="SOpenClanList" type="22016" maxsize="65535" prior="1" tolua="3">		服务端响应客户端请求公会列表协议：没有公会
+		<variable name="currpage" type="int" validator="value=[1,)" /> 当前页
+		<variable name="clanlist" type="vector" value="ClanSummaryInfo"/> 			
+	</protocol>
+
+	<protocol name="SOpenClan" type="22017" maxsize="65535" prior="1" tolua="3">		服务端响应客户端请求公会界面协议：有公会
+		<variable name="index" type="int"/>					公会序号
+		<variable name="clanname" type="string"/>		公会名称
+		<variable name="clanid" type="long"/> 			公会id
+		<variable name="clanlevel" type="int"/>			公会等级
+		<variable name="membersnum" type="int"/>   			成员人数
+		<variable name="clanmaster" type="string"/> 		帮主
+		<variable name="masterid" type="long"/> 			帮主ID
+		<variable name="vicemasterid" type="long"/> 		副帮主ID
+		<variable name="clancreator" type="string"/>  	创始人
+		<variable name="clanaim" type="string"/>			公会宗旨
+		<variable name="memberlist" type="vector" value="ClanMember"/> 			公会成员列表
+		<variable name="money" type="int"/> 公会资金 by changhao
+		<variable name="house" type="map" key="int" value="int"/> 2是金库3是药房4是旅店   3个建筑的等级 by changhao
+		<variable name="oldclanname" type="string"/>			公会曾用名
+		<variable name="clancreatorid" type="long"/>  	创始人ID
+		<variable name="autostate" type="int"/> 公会自动接收申请人入会的状态：0关闭 1开启
+		<variable name="requestlevel" type="short"/> 申请公会等级限制
+		<variable name="costeverymoney" type="int"/>  每天维护需要的资金
+		<variable name="costmax" type="map" key="int" value="int"/>1是大厅 2是金库3是药房4是旅店   4个建筑升级需要的最大资金
+		<variable name="claninstservice" type="map" key="int" value="int" />  公会副本  key 是进入副本服务编号 value 是是否是选中的副本
+	</protocol>
+
+	<protocol name="CCreateClan" type="22018" maxsize="65535" prior="1" tolua="3">		客户端请求创建公会
+		<variable name="clanname" type="string"/> 					公会名字
+		<variable name="clanaim" type="string"/> 				公会宗旨（公告）
+	</protocol>
+
+	<protocol name="CLeaveClan" type="22019" maxsize="64" prior="1" tolua="3">	主动脱离公会
+	</protocol>
+
+	<protocol  name="SLeaveClan" type="22020" maxsize="64" prior="1" tolua="3">	脱离公会成功,客户端将公会界面关闭
+		<variable name="memberid" type="long"/> 成员id
+	</protocol>
+
+	<protocol name="CApplyClan" type="22021" maxsize="64" prior="1" tolua="3">		申请入会
+		<variable name="clanid" type="long"/> 			公会id
+	</protocol>
+
+	<protocol name="CRequestApplyList" type="22022" maxsize="64" prior="1" tolua="3">	客户端请求申请加入公会的人员列表
+	</protocol>
+
+	<protocol name="CClearApplyList" type="22023" maxsize="64" prior="1" tolua="3">	清除申请者列表
+	</protocol>
+
+	<protocol name="SRequestApply" type="22024" maxsize="65535" prior="1" tolua="3">	服务端返回申请加入公会的人员列表
+		<variable name="applylist" type="vector" value="RoleBaseInfo"/>	申请列表
+	</protocol>
+
+	<protocol name="CAcceptOrRefuseApply" type="22025" maxsize="64" prior="1" tolua="3">	
+		<variable name="applyroleid" type="long"/>
+		<variable name="accept" type="byte"/> 0拒绝,1接受
+	</protocol>
+
+	<protocol name="SRefuseApply" type="22026" maxsize="128" prior="1" tolua="3"> 服务器返回拒绝申请人员
+		<variable name="applyroleid" type="long"/>
+	</protocol>
+
+	<protocol name="CChangeClanAim" type="22027" maxsize="65535" prior="1" tolua="3">	更改宗旨
+		<variable name="newaim" type="string"/>
+	</protocol>
+
+	<protocol name="SChangeClanAim" type="22028" maxsize="65535" prior="1" tolua="3">	服务器返回新宗旨
+		<variable name="newaim" type="string"/>
+	</protocol>
+	
+	<protocol name="CClanInvitation" type="22029" maxsize="64" prior="1" tolua="3">	公会邀请
+		<variable name="guestroleid" type="long"/>
+	</protocol>
+
+	<protocol name="SClanInvitation" type="22030" maxsize="1024" prior="1" tolua="3">	公会邀请
+		<variable name="hostroleid" type="long"/>邀请人roleid
+		<variable name="hostrolename" type="string"/>邀请人名称
+		<variable name="clanlevel" type="int"/>公会等级
+		<variable name="clannname" type="string"/>公会名称
+		<variable name="invitetype" type="byte"/>邀请类型 0-普通人员邀请(进入申请列表) 1-帮主/副帮主邀请(直接进入公会)
+	</protocol>
+
+
+	<protocol name="CChangePosition" type="22032" maxsize="64" prior="1" tolua="3"> 更改职务
+		<variable name="memberroleid" type="long"/> 公会成员的id
+		<variable name="position" type="int"/> 申请的新职位	
+	</protocol>
+
+	<protocol name="SRefreshPosition" type="22034" maxsize="128" prior="1" tolua="3"> 返回职务
+		<variable name="roleid" type="long"/>                        
+		<variable name="position" type="int"/>
+	</protocol>
+
+	<protocol name="CFireMember" type="22035" maxsize="64" prior="1" tolua="3">	驱逐成员
+		<variable name="memberroleid" type="long"/> 公会成员的id
+		<variable name="reasontype" type="int"/> 事由id 参考 FireReasonType
+	</protocol>
+
+	<protocol name="SFireMember" type="22036" maxsize="64" prior="1" tolua="3">	驱逐成员返回
+		<variable name="memberroleid" type="long"/> 被驱逐公会成员的id
+	</protocol>
+
+	<protocol name="CClanMessage" type="22037" maxsize="256" prior="1" tolua="3">	发布公会群消息
+		<variable name="message" type="string"/>
+	</protocol>
+
+	<protocol name="CAcceptOrRefuseInvitation" type="22038" maxsize="64" prior="1" tolua="3">	
+		<variable name="hostroleid" type="long"/>邀请人roleid
+		<variable name="accept" type="byte"/> 0拒绝,1接受
+	</protocol>
+	
+	<protocol  name="CRequestClanLevelup" type="22040" maxsize="65535" prior="1" tolua="3">	升级公会大厅，金库，药店，旅馆 by changhao
+		<variable name="id" type="int"/>  1大厅2金库3药店4旅馆 by changhao
+	</protocol>
+	
+	<protocol  name="SClanLevelup" type="22041" maxsize="65535" prior="1" tolua="3"> 返回公会级别信息变化 by changhao
+		<variable name="change" type="map" key="int" value="int"/> 1大厅2金库3药店4旅馆 by changhao
+		<variable name="costmax" type="map" key="int" value="int"/> 1大厅2金库3药店4旅馆 升级需要的资金最大值
+		<variable name="money" type="int"/> 返回最新公会资金 by changhao
+	</protocol>
+	
+	<protocol  name="CGrabBonus" type="22042" maxsize="65535" prior="1" tolua="3"> 领取分红 by changhao	
+	</protocol>
+	
+	<protocol  name="SGrabBonus" type="22043" maxsize="65535" prior="1" tolua="3"> 领取分红 by changhao	
+	</protocol>
+	
+	<protocol  name="CBonusQuery" type="22044" maxsize="65535" prior="1" tolua="3"> 查询分红
+	</protocol>
+	
+	<protocol  name="SBonusQuery" type="22045" maxsize="65535" prior="1" tolua="3"> 查询分红结果
+		<variable name="bonus" type="int"/> 返回最新分红
+	</protocol>
+	
+	<protocol name="SAcceptApply" type="22046" maxsize="512" prior="1" tolua="3"> 服务器返回接受申请人员
+		<variable name="memberinfo" type="ClanMember"/>
+	</protocol>
+
+	<protocol name="CRequestClanAim" type="22047" maxsize="64" prior="1" tolua="3">		客户端请求公会宗旨
+		<variable name="clanid" type="long"/> 			公会id
+	</protocol>
+
+	<protocol name="SClanAim" type="22048" maxsize="65535" prior="1" tolua="3"> 服务端返回公会宗旨
+		<variable name="clanid" type="long"/>			公会id
+		<variable name="clanaim" type="string"/>			公会宗旨
+		<variable name="oldclanname" type="string"/>		公会曾用名
+	</protocol>
+
+	<protocol name="CChangeClanName" type="22052" maxsize="256" prior="1" tolua="3">	更改公会名字
+		<variable name="newname" type="string"/>
+	</protocol>
+
+	<protocol name="SChangeClanName" type="22053" maxsize="256" prior="1" tolua="3"> 服务端返回公会名字
+		<variable name="newname" type="string"/>			公会名字
+	</protocol>
+
+	<protocol name="CSearchClan" type="22054" maxsize="256" prior="1" tolua="3">	请求搜索公会
+		<variable name="clanid" type="long"/>
+	</protocol>
+
+	<protocol name="SSearchClan" type="22055" maxsize="256" prior="1" tolua="3">	返回搜索公会
+		<variable name="clanSummaryInfo" type="ClanSummaryInfo"/>
+	</protocol>
+
+	<protocol name="COneKeyApplyClan" type="22056" maxsize="256" prior="1" tolua="3">	一键申请
+	</protocol>
+
+	<protocol name="CBannedtalk" type="22057" maxsize="256" prior="1" tolua="3">	禁言
+		<variable name="memberid" type="long"/> 角色id
+		<variable name="flag" type="int" /> 操作标示：1禁言  2解禁
+	</protocol>
+
+	<protocol name="SBannedtalk" type="22058" maxsize="256" prior="1" tolua="3">	禁言
+		<variable name="memberid" type="long"/>角色id
+		<variable name="flag" type="int" /> 操作标示：1禁言  2解禁
+	</protocol>
+
+	<protocol name="CEnterClanMap" type="22059" maxsize="256" prior="1" tolua="3">	进入公会地图
+	</protocol>
+
+	<protocol name="CRefreshMemberList" type="22060" maxsize="256" prior="1" tolua="3">	请求刷新成员列表
+	</protocol>
+
+	<protocol name="SRefreshMemberList" type="22061" maxsize="65535" prior="1" tolua="3">	返回成员列表
+		<variable name="memberlist" type="vector" value="ClanMember"/> 			公会成员列表
+	</protocol>
+
+	<protocol name="SApplyClanList" type="22062" maxsize="65535" prior="1" tolua="3">	返回申请过的公会列表
+		<variable name="roleid" type="long"/> 角色id
+		<variable name="applyClanList" type="vector" value="ApplyClan"/> 			申请过的公会列表
+	</protocol>
+
+	<protocol name="CCancelApplyClan" type="22063" maxsize="256" prior="1" tolua="3">	取消申请公会
+		<variable name="clanid" type="long"/> 公会id
+	</protocol>
+
+	<protocol name="SCancelApplyClan" type="22064" maxsize="256" prior="1" tolua="3">	取消申请公会
+		<variable name="clanid" type="long"/> 公会id
+	</protocol>
+	
+	<protocol name="SRefreshContribution" type="22065" maxsize="65535" prior="1" tolua="3">	更新个人帮贡信息
+		<variable name="currentcontribution" type="int"/> 当前帮贡
+	</protocol>
+	
+	<protocol name="COpenAutoJoinClan" type="22066" maxsize="65535" prior="1" tolua="3">	是否开启自动接收入会
+		<variable name="autostate" type="int" validator="value=[0,1]"/> 开启状态：0关闭  1开启
+		<variable name="requestlevel" type="short"/> 申请公会等级限制
+	</protocol>
+
+	<protocol name="SOpenAutoJoinClan" type="22067" maxsize="65535" prior="1" tolua="3">	是否开启自动接收入会
+		<variable name="autostate" type="int" validator="value=[0,1]"/> 开启状态：0关闭  1开启
+		<variable name="requestlevel" type="short"/> 申请公会等级限制
+	</protocol>
+	
+	<protocol name="CRequestEventInfo" type="22068" maxsize="65535" prior="1" tolua="3">	请求公会事件信息
+	</protocol>
+
+	<protocol name="SRequestEventInfo" type="22069" maxsize="65535" prior="1" tolua="3">	返回公会事件信息
+		<variable name="eventlist" type="vector" value="ClanEventInfo"/>
+	</protocol>
+	
+	<protocol name="CRequestRoleInfo" type="22070" maxsize="65535" prior="1" tolua="3">	请求公会事件详情信息
+		<variable name="roleid" type="long" />     角色id
+		<variable name="moduletype" type="int" />     模块类型
+	</protocol>
+	
+	<protocol name="SRequestRoleInfo" type="22071" maxsize="65535" prior="1" tolua="3">	返回公会事件详情信息
+		<variable name="roleinfo" type="RoleInfoDes" />  角色详情
+	</protocol>
+	
+	<protocol  name="SBuyMedic" type="22072" maxsize="65535" prior="1" tolua="3">	返回购买药房的药品
+		<variable name="itemid" type="int"/> 药品id
+		<variable name="itemnum" type="int"/>
+		<variable name="buyitemnum" type="int"/> 当天已经购买数量
+	</protocol>
+	
+	<protocol name="CRequestSelectType" type="22073" maxsize="65535" prior="1" tolua="3">	请求修改产药倍数
+		<variable name="selecttype" type="int"/>   选择几倍产药
+	</protocol>
+	
+	<protocol name="SRequestSelectType" type="22074" maxsize="65535" prior="1" tolua="3">	返回修改产药倍数
+		<variable name="selecttype" type="int"/>   选择几倍产药
+	</protocol>
+	
+	<protocol name="CRequestRuneInfo" type="22075" maxsize="65535" prior="1" tolua="3">	请求符文请求信息
+	</protocol>
+	
+	<protocol name="SRequestRuneInfo" type="22076" maxsize="65535" prior="1" tolua="3">	返回请求符文请求信息
+		<variable name="requestnum" type="int"/> 请求次数
+		<variable name="useenergy" type="int"/> 消耗活力
+		<variable name="runeinfolist" type="vector" value="RuneInfo"/>
+	</protocol>
+	
+	<protocol name="CRuneGive" type="22077" maxsize="65535" prior="1" tolua="3">	捐献符文
+		<variable name="roleid" type="long"/>
+		<variable name="givetype" type="int"/>捐赠类型  0活力  1道具
+		<variable name="givevalue" type="int"/> 物品code
+		<variable name="itemkey" type="int"/> 物品key
+		<variable name="bagtype" type="int"/> 背包类型
+	</protocol>
+	<protocol name="SRuneGive" type="22078" maxsize="65535" prior="1" tolua="3">	返回捐献符文
+		<variable name="givevalue" type="int"/>  当前活力值
+	</protocol>
+	
+	<protocol name="CRuneRequest" type="22079" maxsize="65535" prior="1" tolua="3">	请求符文
+		<variable name="runerequestinfolist" type="vector" value="RuneRequestInfo"/>
+	</protocol>
+	
+	<protocol name="SRuneRequest" type="22080" maxsize="65535" prior="1" tolua="3">	请求符文
+		<variable name="requestnum" type="int"/> 请求次数
+		<variable name="runerequestinfolist" type="vector" value="RuneRequestInfo"/> 选择的信息
+	</protocol>
+	
+	<protocol name="CRequestRuneCount" type="22081" maxsize="65535" prior="1" tolua="3">	请求符文统计
+	</protocol>
+	
+	<protocol name="SRequestRuneCount" type="22082" maxsize="65535" prior="1" tolua="3">	返回请求符文统计
+		<variable name="runecountinfolist" type="vector" value="RuneCountInfo"/>
+	</protocol>
+	
+	<protocol name="CRuneRequestView" type="22083" maxsize="65535" prior="1" tolua="3">	请求符文界面
+	</protocol>
+	
+	<protocol name="SRuneRequestView" type="22084" maxsize="65535" prior="1" tolua="3">	返回请求符文界面
+		<variable name="requestnum" type="int"/> 请求次数
+		<variable name="runerequestinfolist" type="vector" value="RuneRequestInfo"/> 选择的信息
+	</protocol>
+	
+	<protocol name="SClanRedTip" type="22085" maxsize="65535" prior="1" tolua="3">	通知客户端红点信息  value=0 没有红点  value=1有红点
+		<variable name="redtips" type="map" key="int" value="int"/>
+	</protocol>
+	
+	<protocol name="CRefreshRoleClan" type="22086" maxsize="65535" prior="1" tolua="3">	客户端请求服务器该玩家是否有公会
+	</protocol>
+	
+	<protocol name="SRefreshRoleClan" type="22087" maxsize="65535" prior="1" tolua="3">	服务器返回该玩家是否有公会
+		<variable name="clankey" type="long"/> 公会key 大于0表示有公会
+		<variable name="clanname" type="string"/> 公会名称
+	</protocol>
+	
+	
+	<bean name="InvitationRoleInfo">
+		<variable name="roleid" type="long"/> 角色Id
+		<variable name="rolename" type="string"/> 角色名
+		<variable name="shape" type="int"/> 角色造型
+		<variable name="level" type="int"/> 角色等级
+		<variable name="sex" type="int"/> 性别
+		<variable name="school" type="int"/> 职业
+		<variable name="fightvalue" type="int"/>综合战力
+		<variable name="vip" type="int"/>vip
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+	</bean>
+	
+	<protocol name="CClanInvitationView" type="22088" maxsize="65535" prior="1" tolua="3">	客户端请求邀请界面
+		<variable name="type_level" type="int"/> 等级删选  -1表示所有
+		<variable name="type_school" type="int"/> 职业删选  -1表示所有
+		<variable name="type_sex" type="int"/> 性别删选  1男  2女  -1表示所有
+	</protocol>
+	
+	<protocol name="SClanInvitationView" type="22089" maxsize="65535" prior="1" tolua="3">	客户端请求邀请界面
+		<variable name="invitationroleinfolist" type="vector" value="InvitationRoleInfo"/>
+	</protocol>
+	
+	<protocol name="CRequestSearchRole" type="22090" maxsize="65535" prior="101" tolua="3"> 搜索
+		<variable name="roleId" type="string" />
+	</protocol>
+
+	<protocol name="SRequestSearchRole" type="22091" maxsize="65535" prior="101" tolua="3"> 搜索好成功
+		<variable name="invitationroleinfolist" type="InvitationRoleInfo" />
+	</protocol>
+
+	<protocol name="CChangeClanInst" type="22092" maxsize="256" prior="101" tolua="3"> 改变公会副本
+		<variable name="claninstservice" type="int" /> 进入副本服务编号
+	</protocol>
+
+	<protocol name="SChangeClanInst" type="22093" maxsize="256" prior="101" tolua="3"> 改变公会副本成功
+		<variable name="claninstservice" type="int" /> 进入副本服务编号
+	</protocol>
+	
+	<protocol name="CRequestImpeachMentView" type="22094" maxsize="65535" prior="1" tolua="3"> 请求弹劾界面
+		<variable name="cmdtype" type="byte" /> 0请求弹劾界面   1发起弹劾   2响应弹劾
+	</protocol>
+	
+	<protocol name="SRequestImpeachMentView" type="22095" maxsize="65535" prior="1" tolua="3"> 返回发起界面
+		<variable name="impeachstate" type="byte" /> 弹劾状态  0发起弹劾    1响应弹劾
+		<variable name="maxnum" type="short" />  弹劾成功需要的人数
+		<variable name="impeachname" type="string" /> 发起弹劾人的名称
+		<variable name="impeachtime" type="long" /> 发起弹劾时间
+		<variable name="curnum" type="short" /> 当前响应人数
+	</protocol>
+
+	<namespace name="fight"> 帮会战协议 by changhao
+	
+		<bean name="ClanFight"> 对战数据 by changhao
+			<variable name="clanid1" type="long"/>
+			<variable name="clanname1" type="string"/>
+			<variable name="clanid2" type="long"/>
+			<variable name="clanname2" type="string"/>
+			<variable name="winner" type="int"/> -1是还没结果0是第一个赢1是第二个赢 by changhao
+		</bean>
+	
+		<protocol name="CGetClanFightList" type="22100" maxsize="65535" prior="101" tolua="3"> 得到对战列表 by changhao
+			<variable name="whichweek" type="int"/> 历史那一周(0-7周)(如果填-1表示当前周) by changhao
+			<variable name="which" type="int"/> 0是周一那场，1是周三那场 by changhao
+		</protocol>
+	
+		<protocol name="SGetClanFightList" type="22101" maxsize="65535" prior="101" tolua="3"> 返回对战列表 by changhao
+			<variable name="clanfightlist" type="list" value="ClanFight" /> 当前这轮的对阵信息链表 by changhao
+			<variable name="curweek" type="int"/> 当前轮数(从0开始, 返回-1表示还没开始或已经过了8轮) by changhao
+			<variable name="over" type="int"/> 0是没结束1是已结束 by changhao
+		</protocol>
+				
+		<protocol name="CStartClanFightBattle" type="22102" maxsize="65535" prior="101" tolua="3"> 点击进入pk by changhao
+			<variable name="targetid" type="long"/> 目标id by changhao
+		</protocol>
+		
+		<protocol name="CBattleFieldScore" type="22103" maxsize="65535" prior="101" tolua="3"> 公会战时统计 by changhao
+
+		</protocol>
+
+		<protocol name="SBattleFieldScore" type="22104" maxsize="65535" prior="101" tolua="3"> 公会战时统计 by changhao
+			<variable name="clanscore1" type="int"/> 公会1积分 by changhao
+			<variable name="clanscroe2" type="int"/> 公会2积分 by changhao
+			<variable name="myscore" type="int" /> 我的积分 by changhao
+			<variable name="myrank" type="int"/> 我的排名(从0开始) by changhao
+			
+		</protocol>
+		
+		<bean name="RoleBattleFieldRank"> 对战数据 by changhao
+			<variable name="rolename" type="string"/> 玩家名字 by changhao
+			<variable name="rolescroe" type="int"/> 玩家积分 by changhao
+		</bean>
+		
+		<protocol name="SBattleFieldAct" type="22105" maxsize="65535" prior="101" tolua="3"> 公会战时统计 by changhao
+			<variable name="roleact" type="int"/> 玩家行动力 by changhao
+		</protocol>
+		
+		<protocol name="CBattleFieldRankList" type="22106" maxsize="65535" prior="101" tolua="3"> 公会战时统计 by changhao
+
+		</protocol>
+		
+		<protocol name="SBattleFieldRankList" type="22107" maxsize="65535" prior="101" tolua="3"> 公会战时统计 by changhao
+			<variable name="clanscore1" type="int"/> 公会1积分 by changhao
+			<variable name="clanscroe2" type="int"/> 公会2积分 by changhao
+			<variable name="ranklist1" type="list" value="RoleBattleFieldRank" /> 战场积分排名list  by changhao
+			<variable name="ranklist2" type="list" value="RoleBattleFieldRank" /> 战场积分排名list  by changhao
+			<variable name="myscore" type="int" /> 我的积分 by changhao
+			<variable name="myrank" type="int"/> 我的排名(从0开始) by changhao
+		</protocol>
+		
+		<protocol name="SBattleFieldInfo" type="22108" maxsize="65535" prior="101" tolua="3"> 公会战时信息 by changhao
+			<variable name="clanname1" type="string"/> 公会名字1 by changhao
+			<variable name="clanname2" type="string"/> 公会名字2 by changhao
+			<variable name="clanid1" type="long"/> 公会1ID by changhao
+			<variable name="clanid2" type="long"/> 公会2ID by changhao
+		</protocol>
+		
+		<protocol name="CRequestRoleIsEnemy" type="22109" maxsize="65535" prior="101" tolua="3"> 请求是否是敌对 by changhao
+			<variable name="roleidlist" type="list" value="long" /> 角色list  by changhao
+		</protocol>
+		
+		<protocol name="SRequestRoleIsEnemy" type="22110" maxsize="65535" prior="101" tolua="3"> 请求是否是敌对 by changhao
+			<variable name="rolelist" type="map" key="long" value="int" /> -1是未知1是自己2是敌对 by changhao
+		</protocol>
+
+		<protocol name="SClanFightOver" type="22111" maxsize="65535" prior="101" tolua="3"> 战场结束 by changhao
+			<variable name="status" type="int" /> -1是没结束0是第一个赢了1是第2个赢了 by changhao
+			<variable name="overtimestamp" type="long"/> 结束时服务器的时间戳 by changhao
+		</protocol>
+		
+		<protocol name="SLeaveBattleField" type="22112" maxsize="65536" prior="101" tolua="3"> 离开战场 by changhao
+		</protocol>
+		
+		<protocol name="CGetClearTime" type="22113" maxsize="65536" prior="101" tolua="3"> 得到下次清零时间 by changhao
+		</protocol>
+		
+		<protocol name="SGetClearTime" type="22114" maxsize="65536" prior="101" tolua="3"> 得到下次清零时间 by changhao
+			<variable name="cleartime" type="long"/> 清除时间戳 by changhao			
+		</protocol>
+		
+	
+	</namespace>	
+
+</namespace>

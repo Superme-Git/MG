@@ -1,0 +1,11 @@
+
+<project name="Lua_Engine" default="LuaEngine" basedir=".">
+	<target name="LuaEngine">
+    	<exec executable="cmd">
+    		<arg value="/c"/>
+    		<arg value="luaengine.bat"/>
+    		<arg value-"-p"/>
+			</exec>
+		</target>
+
+</project>

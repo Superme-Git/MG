@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<application name="fire" shareHome="../../../share" pvids="12" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<xi:include href="protocols/pb.xml" />
+	<state name="Client">
+		<provider ref="pb"/>
+	</state>
+
+	<service name="robot">
+		<manager name="LinkClient" type="robot" initstate="Client" port="29000"/>
+	</service>
+</application>

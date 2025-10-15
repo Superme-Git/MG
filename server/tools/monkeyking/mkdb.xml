@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="gbk" standalone="no"?>
+
+<!--
+mkgenOutput        相对mkgen的运行目录.mkgen现在都在自己的目录下面运行。不会自动创建这个目录。
+
+trace             配置调试级别(debug,info,warn,error)。 输出到文件：${dbhome}/trace.log 
+                  * 测试性能的时候，设置 warn 或以上级别。
+                  * 发布时，设置 info 或以上级别。
+
+corePoolSize      线程池，工作线程数量
+logpages          数据库日志页面配置
+
+dbhome            数据库目录。不会自动创建。
+backupDir         备份目录。不会自动创建。
+
+flushPeriod       刷新脏数据间隔，毫秒
+checkpointPeriod  checkpoint间隔，毫秒
+flushFatalTime    flush耗时超过此配置值时记录日志。配置小于等于0时不记录日志。默认1000毫秒。
+
+backupIncPeriod   增量备份间隔，必须小于backupFullPeriod才有增量意义，否则这种备份不会执行。
+backupFullPeriod  全备份间隔，规格化的：nextTime = now / period * period + period; 
+
+angelPeriod       死锁检测间隔，毫秒
+
+以下配置都有默认值
+backupDelay       在启动以后延迟时间内，不进行备份工作。单位为毫秒，默认为0。
+traceRotateHourOfDay traceRotateMinute 日志每天滚动时间。默认为早上6:30。不支持其他滚动间隔。
+-->
+
+<xdb
+mkgenOutput="../monkeyking/src"
+trace="debug" traceTo=":out"
+corePoolSize="50" logpages="4096"
+dbhome="xdb" backupDir="xbackup"
+flushPeriod="5000" checkpointPeriod="60000" flushFatalTime="1000"
+snapshotFatalTime="2000"
+backupIncPeriod="600000" backupFullPeriod="3600000"
+angelPeriod="1000"
+>
+	<xbean name="ListListenerTestEffect">
+		<variable name="id" type="int"/>
+		<variable name="type" type="int"/>
+	</xbean>
+	<xbean name="ListListenerTestEffects">
+		<variable name="effects" type="list" value="ListListenerTestEffect"/>
+	</xbean>
+	<table name="listlistenertest" key="long" value="ListListenerTestEffects" persistence="MEMORY"/>
+
+	<cache name="mycache" key="long" capacity="10240">
+		<cref ref="first.i"/>         表名.字段名
+		<cref ref="first.l"/>
+		<cref ref="first.sets"/>
+		<cref ref="first.marshal"/>
+		<cref ref="t2"/>              表名
+		<cref ref="family"/>          表名 缓存整个记录值，自动生成对应结构
+		<cref ref="cachetest.i"/>     表名.字段名
+		<cref ref="cachetest.rb.i"/>  表名.字段名.字段名。仅当字段是BEAN时才拥有子字段。
+	</cache>
+	<cache name="mycache2" key="long" capacity="10240">
+		<cref ref="t4cache.i"/>
+		<cref ref="t4cache.seti"/>
+		<cref ref="t4cache.marshal"/>
+		<cref ref="t4cache.cacheb1.l"/>
+		<cref ref="t4cache.cacheb1.seti"/>
+		<cref ref="t4cache.cacheb1.marshal"/>
+		<cref ref="t4cache.cacheb1.cacheb2.i"/>
+		<cref ref="t4cache.cacheb1.cacheb2.seti"/>
+		<cref ref="t4cache.cacheb1.cacheb2.marshal"/>
+	</cache>
+	<cache name="mycache3" key="long" capacity="10240">
+		<cref ref="t4cache.i"/>
+		<cref ref="t4cache.seti"/>
+		<cref ref="t4cache.marshal"/>
+		<cref ref="t4cache.cacheb1"/>
+	</cache>
+	<table name="t4cache" key="long" value="Cacheb0" cacheCapacity="4096"/>
+	
+	<xbean name="Cacheb0">
+		<variable name="i" type="int"/>
+		<variable name="l" type="long"/>
+		<variable name="marshal" type="binary" capacity="128"/> binary
+		<variable name="seti" type="set" value="int" capacity="10"/>
+		<variable name="cacheb1" type="Cacheb1"/>
+	</xbean>
+	<xbean name="Cacheb1">
+		<variable name="i" type="int"/>
+		<variable name="l" type="long"/>
+		<variable name="marshal" type="binary" capacity="128"/> binary
+		<variable name="seti" type="set" value="int" capacity="10"/>
+		<variable name="cacheb2" type="Cacheb2"/>
+	</xbean>
+	<xbean name="Cacheb2">
+		<variable name="i" type="int"/>
+		<variable name="l" type="long"/>
+		<variable name="marshal" type="binary" capacity="128"/> binary
+		<variable name="seti" type="set" value="int" capacity="10"/>
+	</xbean>
+	<!--
+	<ccache name="testcache1" key="long" capacity="10240">
+		<ctable name="first"> 缓存 first 表格的部分字段
+			<cvariable name="i"/>
+			<cvariable name="l"/>
+			<cvariable name="sets"/>
+			<cvariable name="marshal"/>
+		</ctable>
+		<ctable name="t2"/> 缓存 t2 表格的value，实际上是个整数
+		<ctable name="family"/> 缓存 family 表格的整个value。
+	</ccache>
+
+	<ccache name="testcache2" key="string" capacity="10240">
+		<ctable name="t4"> 缓存 t4 表格的部分字段
+			<cvariable name="i"/>
+			<cvariable name="l"/>
+		</ctable>
+		<ctable name="fstring"/> 缓存 fstring 表格的value，实际上是个整数
+	</ccache>
+	-->
+	<cbean name="xcompare">
+		<!--  <variable name="f" type="float" default="1"/> float test 不支持float的比较。麻烦 -->
+		<variable default="true" name="b" type="boolean"/> boolean test
+		<variable default="1" name="s" type="short"/> short test
+		<variable default="1" name="i" type="int"/> int test
+		<variable default="1" name="l" type="long"/> long test
+		<variable default="123" name="text" type="string" capacity="32"/> text
+	</cbean>
+	<cbean name="xcompare2">
+		<enum name="eX"  value="1"/>
+		<variable name="xc1" type="xcompare"/> text
+	</cbean>
+	<xbean name="xbeanwithcbean">
+		<variable name="xc1" type="xcompare"/> xcompare test
+		<variable name="xc2" type="list" value="xcompare2" capacity="120"/> xcompare2 test
+		<variable default="1" name="f" type="float"/> float test
+	</xbean>
+
+	<table name="keyisxcompare2" key="xcompare2" value="xbeanwithcbean" cacheCapacity="4096"/>
+
+	<xbean name="First">
+		<variable default="1" name="s" type="short"/> short test
+		<variable default="1" name="i" type="int"/> int test
+		<variable default="1" name="l" type="long"/> long test
+		<variable default="123" name="text" type="string" capacity="32"/> text
+		<variable name="marshal" type="binary" capacity="128"/> binary
+
+		<variable name="sets" type="set" value="string" capacity="200;value:32"/> comment
+		<variable name="seti" type="set" value="int" capacity="200"/> comment
+		<variable name="setl" type="set" value="long" capacity="200"/> comment
+	</xbean>
+
+	<xbean name="Second">
+		<variable name="setfirst" type="set" value="int" capacity="2"/> a
+		<variable name="listfirst" type="list" value="First" capacity="2"/> b
+		<variable name="vectorfirst" type="vector" value="First" capacity="2"/> c
+		<variable key="int" name="mapfirst" type="map" value="First" capacity="2"/> d
+		<variable key="string" name="mapxfirst" type="map" value="First" capacity="2;key:32"/> e
+		<variable name="first" type="First"/> g
+		<variable default="1" name="i" type="int"/> int test
+		<variable name="marshal2" type="binary" capacity="128"/> binary
+	</xbean>
+
+	<xbean name="RB">
+		<variable default="1" name="i" type="int"/> int test
+	</xbean>
+
+	<xbean name="RBTest">
+		<variable default="1" name="i" type="int"/> int test
+		<variable name="rb" type="RB"/> int test
+		<variable name="set" type="set" value="RB" capacity="100"/> a
+		<variable name="list" type="list" value="RB" capacity="100"/> b
+		<variable key="int" name="map" type="map" value="RB" capacity="200"/> d
+		<variable key="int" name="tree" type="treemap" value="RB" capacity="200"/> d
+	</xbean>
+	<table cacheCapacity="4096" key="long" name="cachetest" value="RBTest"/>
+
+	<xbean name="Family">
+		<variable name="id" type="int"/>
+		<variable name="level" type="int"/>
+		<variable name="contribution" type="int"/>
+		<variable name="leaderid" type="int"/>
+		<variable name="creatorId" type="int"/>
+		<variable name="name" type="string" capacity="32"/>
+		<variable name="aim" type="string" capacity="32"/>
+		<variable name="pub" type="string" capacity="32"/>
+		<variable key="int" name="memebers" type="map" value="MemberInfo" capacity="200"/>
+		<variable name="status" type="int"/>
+		<variable name="create_time" type="long"/>
+		<variable name="well_known" type="int"/>
+	</xbean>
+	
+	<xbean name="MemberInfo">
+		<variable name="id" type="int"/>
+		<variable name="name" type="string" capacity="32"/>
+		<variable name="offline" type="long"/>
+		<variable name="level" type="int"/>
+		<variable name="menpai" type="int"/>
+	</xbean>
+
+	<xbean any="true" name="Any"> <!-- 显式Any -->
+		<variable name="any" type="Object" capacity="32"/> comment
+		<variable name="anyset" type="set" value="Object" capacity="200;value:32"/> comment
+		<variable default="false" name="bool" type="boolean"/> boolean
+	</xbean>
+
+	<table name="tany" key="int" value="Any" cacheCapacity="4096" persistence="MEMORY"/>
+
+	<xbean name="Any2"> <!-- 隐式Any -->
+		<variable name="any" type="Any"/> comment
+		<variable name="anyset" type="set" value="Any" capacity="200"/> comment
+	</xbean>
+
+	<xbean any="true" name="AnyFake"> <!-- 假的Any，最终会被识破，不会被看成Any -->
+		<variable name="fake" type="int"/> comment
+		
+	</xbean>
+	
+	<xbean name="TestLP">
+		<variable name="i" type="int"/> test Listener Performance
+		<variable name="set1" type="set" value="int" capacity="100"/>
+		<variable key="int" name="map1" type="map" value="int" capacity="100"/>
+		<variable name="list1" type="list" value="int" capacity="100"/>
+		<variable key="int" name="map2" type="map" value="RB" capacity="100"/> test update
+		<variable name="list2" type="list" value="RB" capacity="100"/> test update
+	</xbean>
+	
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="lperform" value="TestLP"/>
+
+	<table cacheCapacity="4096" key="int" name="any" persistence="MEMORY" value="Any"/>
+	<table cacheCapacity="4096" key="int" name="anyfake" value="AnyFake"/>
+	
+	<table cacheCapacity="4096" key="int" name="cachenull" persistence="MEMORY" value="Family" 
+	    cacheClass="mkdb.TTableCacheNull"/>
+	
+	<xbean name="Set2">
+		<variable name="sf" type="set" value="First" capacity="100"/> comment
+	</xbean>
+	
+	<xbean name="TestType">
+		<variable name="id" type="int"/> test
+		<variable key="int" name="vmap" type="map" value="Second" capacity="10"/> test
+	</xbean>
+	<xbean name="NetBar">
+		<variable name="id" type="int"/> barid
+		<variable name="barname" type="string" capacity="100"/> barname
+		<variable name="level" type="int"/> level
+	</xbean>
+
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="netbar" value="NetBar"/>
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="family" value="Family"/>
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="testmerge" value="RBTest"/>
+
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="afirst" value="First"/>
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="at2" value="int"/>
+	<table cacheCapacity="4096" key="long" name="first" value="First"/>
+	<table cacheCapacity="4096" key="long" name="t2" value="int"/>
+	<table cacheCapacity="4096" key="int" name="t3" value="string" capacity="value:32"/>
+	<table cacheCapacity="4096" key="string" name="t4" value="First" capacity="key:32"/>
+
+	<table cacheCapacity="4096" key="int" name="memory" persistence="MEMORY" value="int"/>
+
+	<table cacheCapacity="4096" key="int" name="second" persistence="MEMORY" value="Second"/>
+
+	<table cacheCapacity="4096" key="int" name="tshort" persistence="MEMORY" value="short"/>
+
+	<table cacheCapacity="4096" key="int" name="tlong" persistence="MEMORY" value="long"/>
+	
+	<table autoIncrement="true" cacheCapacity="4096" key="long" name="testtype" value="TestType"/>
+	
+	<table cacheCapacity="4096" key="int" name="table_int" value="int"/>
+		
+	<table cacheCapacity="4096" key="int" name="table_string" value="string" capacity="value:32"/>
+
+	<xbean name="varMap">
+		<variable key="int" name="v" type="map" value="int" capacity="100"/>
+	</xbean>		
+	<table cacheCapacity="4096" key="int" name="table_map" value="varMap"/>
+
+	<xbean name="varSet">
+		<variable name="v" type="set" value="int" capacity="100"/>
+	</xbean>
+		
+	<table cacheCapacity="4096" key="int" name="table_set" value="varSet"/>
+				
+	<xbean name="varXBean">
+		<variable name="vint" type="int"/>
+		<variable name="vstring" type="string" capacity="100"/>
+		<variable name="vset" type="set" value="int" capacity="100"/>
+		<variable key="int" name="vmap" type="map" value="int" capacity="100"/>
+	</xbean>
+		
+	<table cacheCapacity="4096" key="int" name="table_xbean" value="varXBean"/>
+
+    <xbean name="SubBean">
+        <variable name="id" type="int"/> int value
+    </xbean>
+    <xbean name="DataType">
+        <variable name="id" type="int"/> int value
+        <variable name="max" type="long"/> long value
+        <variable name="mshort" type="short"/> short value
+        <variable name="mfloat" type="float"/> float value
+        <variable name="name" type="string" capacity="32"/> string value
+        <variable name="mobject" type="binary" capacity="128"/> object, binary
+        <variable name="sub" type="SubBean"/> SubBean value
+        <variable name="set" type="set" value="SubBean" capacity="100"/> SubBean set
+        <variable name="list" type="list" value="SubBean" capacity="100"/> SubBean list
+        <variable name="map" type="map" key="string" value="SubBean" capacity="100;key:32"/> string-SubBean map
+    </xbean>
+
+	<table name="mem" cacheCapacity="4096" persistence="MEMORY" key="int" value="DataType"/>
+
+	<!--lock name="role"/-->
+	<TableSysConf cacheCapacity="1" name="_sys_"/>
+
+	<!-- foreign test -->
+	<cbean name="fcbean"/>
+	<table name="fcbean"   key="fcbean"  value="int" cacheCapacity="1"/>
+	<table name="fboolean" key="boolean" value="int" cacheCapacity="1"/>
+	<table name="ffloat"   key="float"   value="int" cacheCapacity="1"/>
+	<table name="fint"     key="int"     value="int" cacheCapacity="1"/>
+	<table name="flong"    key="long"    value="int" cacheCapacity="1"/>
+	<table name="fshort"   key="short"   value="int" cacheCapacity="1"/>
+	<table name="fstring"  key="string"  value="int" foreign="" cacheCapacity="1" capacity="key:32"/>
+	<xbean name="fxbean0">
+		<variable name="a" type="set"    value="boolean"             foreign="fboolean" capacity="100"/>
+		<variable name="b" type="list"   value="fcbean"              foreign="fcbean" capacity="100"/>
+	</xbean>
+	<xbean name="fxbean">
+		<variable name="a" type="set"     value="boolean"            foreign="fboolean" capacity="20"/>
+		<variable name="b" type="list"    value="fcbean"             foreign="fcbean" capacity="20"/>
+		<variable name="c" type="vector"  value="float"              foreign="ffloat" capacity="100"/>
+		<variable name="d" type="map"     key="int" value="fcbean"   foreign="key:fint;fcbean" capacity="100"/>
+		<variable name="e" type="treemap" key="string" value="short" foreign="key:fstring;fshort" capacity="100;key:32"/>
+		<variable name="f" type="fxbean0"                            foreign=""/>
+		<variable name="g" type="int"                                foreign="fint" default="1"/>
+		<variable name="h" type="binary"                             foreign="warn" capacity="128"/>
+	</xbean>
+	<table name="f1" key="int" value="fcbean" foreign="key:fint;value:fcbean" cacheCapacity="1"/>
+	<table name="f2" key="string" value="fxbean" foreign="key:fstring" cacheCapacity="1" capacity="key:32"/>
+	<table name="f3" key="string" value="fxbean" foreign="key:f2" cacheCapacity="1" capacity="key:32"/>
+
+	<!-- depends 循环. error test -->
+	<xbean name="depends1">
+		<variable name="dummyAvoidWarning" type="int"/>
+		<!--
+		<variable name="a" type="list" value="fxbean2" capacity="20"/>
+		<variable name="a" type="fxbean2"/>
+		-->
+	</xbean>
+	<cbean name="depends2">
+		<!--
+		<variable name="a" type="depends2"/>
+		-->
+	</cbean>
+
+	<!-- checkpoint+clean 设置很小的 cache 容量 -->
+	<xbean name="Flush">
+		<variable name="countlong" type="long"/>
+		<variable name="busy" type="float"/>
+		<variable name="dummy" type="Family"/>
+	</xbean>
+	<table name="flush1" key="int" value="Flush" cacheCapacity="2000"/>
+	<table name="flush2" key="int" value="Flush" cacheCapacity="2000"/>
+	<table name="flush3" key="int" value="Flush" cacheCapacity="2000"/>
+
+	<!-- secondary index -->
+	<xbean name="SecondaryIndex">
+		<variable name="secondaryindex" type="int" index="unique"/>
+<!-- 
+// 实现伪码和锁：当需要保持锁时，总是先锁主表，然后锁次要索引表。
+// add      : master.add + lock && secondary.add + lock
+//            错误处理的事务问题：主表成功，次表失败如何处理？如，执行 master.remove(key)或者异常？
+// getBy    : key = secondary.select; return master.get(key) + lock
+// removeBy : key = secondary.select, master.remove(key) + lock && secondary.remove + lock
+// remove   : master.remove + lock -> secondary.remove + lock
+//            错误处理的事务问题：主表成功，次表失败如何处理？如，忽略次表错误？
+// set      : 通过 get 返回的引用直接修改 secondaryindex 字段.
+//            secondary.remove(old) + lock && secondary.add(new) + lock
+//            错误处理的事务问题：remove or add fail？如，抛出异常？
+// selectBy : secondary.select, master.select(key) - no lock
+
+selectKeyBySecondaryindex(int secondary)
+	return _Tables_.getInstance()._secondaryindex_secondaryindex_.select(secondary);
+getBySecondaryindex(int secondary)
+	Long key = selectKeyBySecondaryindex(secondary)
+	if (null == key) return null; // TODO hold lock of secondary.key
+	return _Tables_.getInstance().secondaryindex.select(key);
+selectBySecondaryindex(int secondary)
+	Long key = selectKeyBySecondaryindex(secondary)
+	if (null == key) return null;
+	return _Tables_.getInstance().secondaryindex.select(key);
+removeBySecondaryindex(int secondaryindex)
+	Long key = selectKeyBySecondaryindex(secondary)
+	if (null == key) return false;
+	return _Tables_.getInstance().secondaryindex.remove(key)
+		&& _Tables_.getInstance()._secondaryindex_secondaryindex_.remove(secondaryindex);
+-->
+	</xbean>
+	<table name="secondaryindex" key="long" value="SecondaryIndex" cacheCapacity="2000"/>
+
+	<xbean name="Diskdbh">
+		<variable name="data" type="binary"/>
+	</xbean>
+	<table name="diskdbh" key="long" value="Diskdbh" cacheCapacity="2000"/>
+
+<!-- caijiacheng Test Definition -->
+	<xbean name="yyy">
+		<variable capacity="4096" name="a" type="set" value="int"/>
+		<variable name="b" type="int"/>
+		<variable capacity="4096" name="c" type="string"/>
+	</xbean>
+	
+	<xbean name="xxx">
+		<variable capacity="4096" name="a" type="set" value="int"/>
+		<variable name="b" type="yyy"/>
+		<variable capacity="4096" name="c" type="string"/>
+	</xbean>
+	
+	<xbean name="varValue">
+		<variable name="VInt" type="int"/>
+		<variable capacity="4096" default="i am string" name="VString" type="string"/>
+		<variable name="VShort" type="short"/>
+		<variable name="VBool" type="boolean"/>
+		<variable name="VLong" type="long"/>
+		<variable capacity="4096" name="VBinary" type="binary"/>
+		<variable name="Vxxx" type="xxx"/>
+		<variable name="Vyyy" type="xxx"/>
+		<variable capacity="4096;value:1024" key="int" name="VMap" type="map" value="string"/>
+		<variable capacity="4096" name="VSet" type="set" value="xxx"/>
+		<variable capacity="4096" name="VList" type="list" value="yyy"/>
+		<variable capacity="4096" name="VVector" type="vector" value="short"/>
+	</xbean>
+	
+	<table cacheCapacity="4096" cachehigh="128" cachelow="64"
+		key="long" name="var_test_m" persistence="MEMORY"  value="varValue"/>
+	<table cacheCapacity="4096" cachehigh="128" cachelow="64"
+		key="string" name="var_test_s" value="varValue" capacity="key:32"/>
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64"
+		key="int" name="table_int_int" value="int"/>
+
+	<UniqNameConf localId="0">
+		<XioConf name="mkdb.util.UniqName">
+			<Manager maxSize="1" name="Client">
+				<Coder>
+					<Rpc class="mkdb.util.UniqName$Allocate"/>
+					<Rpc class="mkdb.util.UniqName$Confirm"/>
+					<Rpc class="mkdb.util.UniqName$Release"/>
+					<Rpc class="mkdb.util.UniqName$Exist"/>
+					<Rpc class="mkdb.util.UniqName$AllocateId"/>
+					<Rpc class="mkdb.util.UniqName$ReleaseId"/>
+				</Coder>
+				<Connector inputBufferSize="131072" outputBufferSize="131072"
+					receiveBufferSize="131072" remoteIp="127.0.0.1" remotePort="22200"
+					sendBufferSize="131072" tcpNoDelay="false"/>
+			</Manager>
+		</XioConf>
+	</UniqNameConf>
+</xdb>

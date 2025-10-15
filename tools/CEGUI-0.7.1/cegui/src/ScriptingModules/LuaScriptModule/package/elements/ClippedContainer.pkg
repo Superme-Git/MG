@@ -1,0 +1,66 @@
+class ClippedContainer : public Window
+{
+public:
+    /*************************************************************************
+        Constants
+    *************************************************************************/
+    static const string WidgetTypeName;     //!< Type name for ClippedContainer.
+    static const string EventNamespace;     //!< Namespace for global events
+
+    /*************************************************************************
+    	Object construction and destruction
+    *************************************************************************/
+    /*!
+    \brief
+        Constructor for ClippedContainer objects.
+    */
+    ClippedContainer(const string& type, const string& name);
+
+    /*!
+    \brief
+        Destructor for ClippedContainer objects.
+    */
+    ~ClippedContainer(void);
+
+    /*************************************************************************
+    	Public interface methods
+    *************************************************************************/
+    /*!
+    \brief
+        Return the current clipping rectangle.
+
+    \return
+        Rect object describing the clipping area in pixel that will be applied during rendering.
+    */
+    const Rect& getClipArea(void) const;
+
+    /*!
+    \brief
+        Returns the reference window used for converting the clipper rect to screen space.
+    */
+    Window* getClipperWindow(void) const;
+
+    /*!
+    \brief
+        Set the custom clipper area in pixels.
+    */
+    void setClipArea(const Rect& r);
+
+    /*!
+    \brief
+        Set the clipper reference window.
+
+    \param w
+        The window to be used a base for converting the custom clipper rect to
+        screen space. NULL if the clipper rect is relative to the screen.
+    */
+    void setClipperWindow(Window* w);
+
+    // Overridden from Window.
+    virtual Rect getUnclippedInnerRect_impl(void) const;
+
+public:
+	ClippedContainer(const string& type);
+	virtual Window* clone(Window* wnd);
+	virtual bool onRenameTemplatePrefix(const string& sPrefix);
+};

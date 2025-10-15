@@ -1,0 +1,1 @@
+LJFilePack.exe getstrcrc32

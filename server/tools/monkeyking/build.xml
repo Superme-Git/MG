@@ -1,0 +1,57 @@
+
+<project name="monkeyking" default="dist">
+
+<property name="src" value="src/"/>
+<property name="build" value="classes/"/>
+<property name="lib" value="../bin"/>
+<property name="gslib" value="../../server/game_server/gs/lib"/>
+<property name="monkeykingjar" value="./monkeyking.jar"/>
+
+<target name="init">
+	<mkdir dir="${build}" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+		<pathelement path="${lib}/jio.jar"/>
+	</path>
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}" includeantruntime="false"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+	
+<target name="clean">
+	<delete dir="${build}" />
+	<delete dir="${dist}" />
+</target>
+
+<target name="dist" depends="clean, compile">
+	<jar jarfile="monkeyking.jar" basedir="${build}" manifest="${src}/MANIFEST.MF"/>
+</target>
+	
+<target name="mkgen" depends="dist">
+	<java jar="${monkeykingjar}" fork="true">
+		<arg value="mkdb.xml"/>
+		<arg value="-noverify"/>
+	</java>
+</target>
+
+<target name="install" depends="clean, dist">
+	<copy file="monkeyking.jar" todir="${lib}"/>
+	<copy file="monkeyking.jar" todir="${gslib}"/>
+</target>
+	
+<!--
+<target name="jmxserver" depends="compile" description="build an agent jar that can be used with -javaagent ">
+	<jar jarfile="jmxserver.jar">
+		<fileset dir="${build}" includes="xdb/util/JMXServer.class"/>
+		<manifest>
+			<attribute name="Premain-Class" value="xdb.util.JMXServer"/>
+		</manifest>
+	</jar>
+	<echo>To use this application with agent try:</echo>
+	<echo>java -Dxdb.util.jmxserver.rmi.port=1098 -javaagent:jmxserver.jar ...</echo>
+</target>
+-->
+ </project>

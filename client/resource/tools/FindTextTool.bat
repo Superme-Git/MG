@@ -1,0 +1,1 @@
+text1.exe FindText E:\MT_GMemory E:\MT_GMemory\client\resource\tools\FindTextKeyWord.txt E:\MT_GMemory\client\resource\tools\FindTextResult.txt

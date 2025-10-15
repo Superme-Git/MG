@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="activity">
+
+	<bean name="FestivalConf">
+		<variable name="id" fromCol="ID" type="int" />
+		<variable name="date" fromCol="日期" type="string" />
+		<variable name="item1" fromCol="道具1ID" type="int" />
+		<variable name="item1num" fromCol="道具1数量" type="int" />
+		<variable name="item1bind" fromCol="道具1是否绑定" type="int" />
+		<variable name="item2" fromCol="道具2ID" type="int" />
+		<variable name="item2num" fromCol="道具2数量" type="int" />
+		<variable name="item2bind" fromCol="道具2是否绑定" type="int" />
+		<variable name="item3" fromCol="道具3ID" type="int" />
+		<variable name="item3num" fromCol="道具3数量" type="int" />
+		<variable name="item3bind" fromCol="道具3是否绑定" type="int" />
+	</bean>
+		
+	<bean name="SFestivalConf" from="f福利奖励/节日奖励表" genxml="server" baseclass="FestivalConf">
+	</bean>
+	
+	<bean name="SFestivalConf4D" from="D点卡服表格/DMT3节日奖励表" genxml="server"  baseclass="FestivalConf">
+	</bean>
+
+	<bean name="ActivityConfNew" from="h活动配置表新" genxml="server">
+		<variable name="id" type="int" fromCol="序号" />
+		<variable name="level" type="int" fromCol="需求等级" />
+		<variable name="maxlevel" type="int" fromCol="上限等级" />
+		<variable name="maxnum" type="int" fromCol="最大次数" />
+		<variable name="resettype" type="int" fromCol="重置次数类型" />
+		<variable name="maxact" type="int" fromCol="最大活跃度" />
+		<variable name="peract" type="double" fromCol="每次获得活跃" />
+		<variable name="getfoodid1" type="int" fromCol="物品id" />
+		<variable name="getfoodid2" type="int" fromCol="物品id2" />
+		<variable name="getfoodid3" type="int" fromCol="物品id3" />
+		<variable name="getfoodid4" type="int" fromCol="物品id4" />
+		<variable name="getfoodid5" type="int" fromCol="物品id5" />
+		<variable name="recommend" type="int" fromCol="推荐度" />
+        <variable name="yingfu" type="int" fromCol="盈福经验" />
+        <variable name="yingfuawardid" type="int" fromCol="盈福经验奖励" /> 计算该角色会有多少盈福经验
+        <variable name="yingfutimes" type="int" fromCol="盈福总次数" />
+        <variable name="weekrepeat" type="string" fromCol="活动周期"/>
+    </bean>
+	
+	<bean name="ActivityConfNew4D" from="D点卡服表格/h活动配置表for点卡服" genxml="server">
+		<variable name="id" type="int" fromCol="序号" />
+		<variable name="level" type="int" fromCol="需求等级" />
+		<variable name="maxlevel" type="int" fromCol="上限等级" />
+		<variable name="maxnum" type="int" fromCol="最大次数" />
+		<variable name="resettype" type="int" fromCol="重置次数类型" />
+		<variable name="maxact" type="int" fromCol="最大活跃度" />
+		<variable name="peract" type="double" fromCol="每次获得活跃" />
+		<variable name="getfoodid1" type="int" fromCol="物品id" />
+		<variable name="getfoodid2" type="int" fromCol="物品id2" />
+		<variable name="getfoodid3" type="int" fromCol="物品id3" />
+		<variable name="getfoodid4" type="int" fromCol="物品id4" />
+		<variable name="getfoodid5" type="int" fromCol="物品id5" />
+		<variable name="recommend" type="int" fromCol="推荐度" />
+        <variable name="yingfu" type="int" fromCol="盈福经验" />
+        <variable name="yingfuawardid" type="int" fromCol="盈福经验奖励" /> 计算该角色会有多少盈福经验
+        <variable name="yingfutimes" type="int" fromCol="盈福总次数" />
+        <variable name="weekrepeat" type="string" fromCol="活动周期"/>
+    </bean>
+
+</namespace>

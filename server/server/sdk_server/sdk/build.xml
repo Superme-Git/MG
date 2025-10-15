@@ -1,0 +1,61 @@
+<project name="sdkserver" default="dist">
+
+	<property name="src" value="src/"/>
+	<property name="toolsbin" value="../../../tools/bin/"/>
+	<property name="libs" value="libs"/>
+	<property name="build" value="bin/"/>
+
+	<target name="init">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="genio">
+		<java fork="true" jar="${toolsbin}rpcgen.jar" dir="../">
+			<arg line="-outputEncoding utf-8 -inputEncoding utf-8 -validateMarshal -validateUnmarshal -java gnet.sdk.xml" />
+		</java>
+	</target>
+	
+	<target name="gendb">
+		<java fork="true" classname="mkgen.Main">
+			<arg line="-outputEncoding utf-8 sdk.db.xml" />
+			<classpath>
+				<fileset dir="${toolsbin}">
+					<include name="monkeyking.jar" />
+					<include name="jio.jar" />
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="build" depends="init,gendb,genio">
+	</target>
+	
+	<target name="compile" depends="init,gendb,genio">
+		<path id="classpath">
+			<fileset dir="${toolsbin}">
+				<include name="monkeyking.jar"/>
+				<include name="jio.jar"/>
+			</fileset>		
+			<fileset dir="${libs}">
+				<include name="**/*.jar"/>
+			</fileset>		
+		</path>
+		<javac encoding="UTF-8" destdir="${build}" classpathref="classpath" debug="true" debuglevel="lines,source" includeantruntime="false">
+			<src path="beans" />
+			<src path="${src}" />
+		    <compilerarg line="-Xlint:unchecked" />
+		</javac>
+	</target>
+		
+	<target name="clean">
+		<delete dir="${build}" />
+	    <delete dir="beans" />
+		<delete dir="${src}/xbean" />
+		<delete dir="${src}/xtable" />
+	</target>
+	
+	<target name="dist" depends="compile">
+		<jar jarfile="sdkserver.jar" basedir="${build}" manifest="${src}/MANIFEST.MF"/>
+	</target>
+
+</project>

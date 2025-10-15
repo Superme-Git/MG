@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="effect"> 
+	
+	  <bean name="CEffectConfig" from="技能相关表/s属性效果id表" genxml="client">
+			  <variable name="id" type="int" fromCol="属性id" /> id
+			  <variable name="classname" type="string" fromCol="属性名"   />  属性名
+			  <variable name="xianshi" type="int" fromCol="是否显示"   /> 
+			  <variable name="color" type="int" fromCol="显示颜色"   /> 
+			  <variable name="order" type="int" fromCol="显示优先级"   /> 
+			  <variable name="effectid" type="int" fromCol="特效id"   />
+        <variable name="reducecolor" type="int" fromCol="减属性显示颜色"   /> 
+			  <variable name="reduceeffectid" type="int" fromCol="减属性特效id"   />      
+        <variable name="width" type="int" fromCol="特效宽度"   />  
+			  <variable name="ablLimit" type="double" fromCol="数值型值上限"   /> 
+			  <variable name="pctLimit" type="double" fromCol="百分比型值上限"   /> 	
+		</bean>
+
+	  <bean name="SAttrEffectID2Name" from="技能相关表/s属性效果id表" genxml="server">
+			  <variable name="id" type="int" fromCol="属性id" /> 属性id
+			  <variable name="classname" type="string" fromCol="属性名"   />  属性名		  
+			  <variable name="attrname" type="string" fromCol="变量名"   /> 属性名
+			  <variable name="initValue" type="double" fromCol="初值"   /> 
+			  <variable name="ablEffctId" type="int" fromCol="数值型效果id" /> 数值型效果id
+			  <variable name="ablEffctName" type="string" fromCol="数值型变量名"   /> 数值型变量名
+			  <variable name="ablLimit" type="double" fromCol="数值型值上限"   /> 
+			  <variable name="pctEffctId" type="int" fromCol="百分比型效果id" /> 百分比型效果id
+			  <variable name="pctEffctName" type="string" fromCol="百分比型变量名"   /> 百分比型变量名		
+		      <variable name="pctLimit" type="double" fromCol="百分比型值上限"   />
+			  <variable name="needSendAttr" type="int" fromCol="属性面板是否显示" /> 初始是否发送属性
+			  
+		</bean>
+		
+		<bean name="Ccoloreffect" from="s特效数字表" genxml="client">
+		   <variable name="id" type="int" fromCol="数字id" />
+		   <variable name="red" type="int" fromCol="红色" />
+		   <variable name="yellow" type="int" fromCol="黄色" />
+		   <variable name="blue" type="int" fromCol="蓝色" />
+		   <variable name="green" type="int" fromCol="绿色" />
+	   </bean>
+		
+		<bean name="SEquipSkillShowConfig" from="技能相关表/t特技特效显示表" genxml="server">
+			  <variable name="id" type="int" fromCol="技能id" /> 
+			  <variable name="产出级别" type="int" fromCol="产出级别" /> 
+			  <variable name="产出级别2" type="int" fromCol="产出级别2" /> 
+			  <variable name="produceEquip" type="int" fromCol="装备打造" /> 
+			  <variable name="lianGongQu" type="int" fromCol="练功区" /> 
+			  <variable name="zhenShou" type="int" fromCol="降服灵兽" /> 
+			  <variable name="effectid" fromCol="魔法入口" type="int" />
+		</bean>
+		
+		
+		<bean name="CUseItemEffect" from="x新手引导/d道具使用粒子轨迹配置" genxml="client">
+			  <variable name="id" type="int" fromCol="道具ID" />
+			  <variable name="destWindow" type="string" fromCol="目标控件"   />
+		</bean>
+    
+        <bean name="SAbilityScore" from="p评分/n能力评分表" genxml="server">
+			  <variable name="id" type="int" fromCol="id"/> id
+			  <variable name="ablilityName" type="string" fromCol="能力名称"/>  能力名称
+			  <variable name="coefficient" type="double" fromCol="系数"/>  系数
+			  <variable name="parameter" type="string" fromCol="参数"/>  参数
+			  <variable name="formula" type="string" fromCol="公式"/>  公式
+		</bean>
+        
+        <bean name="SPetAbilityScore" from="p评分/c宠物资质评分表" genxml="server">
+			  <variable name="id" type="int" fromCol="资质编号"/> 资质编号
+			  <variable name="name" type="string" fromCol="资质名称"/>  资质名称
+			  <variable name="score" type="double" fromCol="对应评分"/>  对应评分			  
+		</bean>        
+    
+        <bean name="SEquipAbilityScore" from="p评分/z装备白属性能力评分表" genxml="server">
+			  <variable name="id" type="int" fromCol="属性id"/> 属性id
+			  <variable name="name" type="string" fromCol="属性名"/>  属性名
+			  <variable name="coefficient" type="double" fromCol="对应评分系数"/>  对应评分系数
+              <variable name="weapon" type="double" fromCol="武器"/>  武器
+              <variable name="armor" type="double" fromCol="衣服"/>  衣服
+              <variable name="headdress" type="double" fromCol="头盔"/>  头盔
+              <variable name="accessory" type="double" fromCol="项链"/>  项链
+              <variable name="belt" type="double" fromCol="腰带"/>  腰带
+              <variable name="boot" type="double" fromCol="鞋子"/>  鞋子
+		</bean>
+		
+	</namespace>	

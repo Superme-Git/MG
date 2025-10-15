@@ -1,0 +1,26 @@
+
+class CFileUtil
+{
+public:    
+    static std::string GetRootDir();
+    static std::string MakePath(const char* aPathPrefix, const char* aPathSubfix);    
+    
+    static std::string GetDocDir();
+    
+    static std::string GetCacheDir();
+    
+    static std::string GetTempDir();
+    
+    static bool IsCurLanguageSimpleCh();
+
+	static double GetTotalMemory();//获取当前设备总内存(单位：MB）
+
+	static double GetAvailableMemory();//获取当前设备可用内存(单位：MB）
+
+	static double GetUsedMemory(); //获取当前任务所占用的内存（单位：MB）
+	
+	static int CopyFileByFS(std::wstring Src, std::wstring Dst);
+	
+	static int DelFileArrOfPath(std::wstring wsBasePath, std::wstring wsFileType, bool bLoop);
+
+};

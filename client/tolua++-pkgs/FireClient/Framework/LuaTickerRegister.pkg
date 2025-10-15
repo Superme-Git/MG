@@ -1,0 +1,5 @@
+
+class LuaTickerRegister
+{
+	void RegisterTickerHandler(LUA_FUNCTION handler);
+};

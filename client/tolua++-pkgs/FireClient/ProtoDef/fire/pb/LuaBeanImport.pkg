@@ -1,0 +1,52 @@
+
+
+
+namespace fire { 
+namespace pb { 
+
+class LuaBeanImport : public aio::Protocol
+{
+public:
+	// Protocol
+
+
+	fire::pb::item::BagTypes b1;
+	fire::pb::circletask::ActiveQuestData b4;
+	fire::pb::DataInit b8;
+	fire::pb::talk::TipsMsgType b68;
+	fire::pb::pet::PetTypeEnum b10;
+	fire::pb::item::EquipItemType b152;
+	fire::pb::attr::EffectType b28;
+	fire::pb::attr::AttrType b27;
+	fire::pb::Pet b168;
+	fire::pb::item::IDType b29;
+	fire::pb::npc::NpcServices b18;
+	fire::pb::Petskill b169;
+	fire::pb::circletask::SpecialQuestType b55;
+	fire::pb::circletask::SpecialQuestID b58;
+	fire::pb::circletask::CircTaskClass b191;
+	fire::pb::shop::ShopBuyType b192;
+	fire::pb::game::MoneyType b199;
+	fire::pb::attr::RoleCurrency b300;
+	fire::pb::skill::AssistSkill b208;
+	fire::pb::skill::EquipSkill b209;
+	fire::pb::Item b211;
+	fire::pb::RoleInfo b215;
+	fire::pb::move::RoleBasic b100;
+	fire::pb::move::NpcBasic b101;
+	fire::pb::talk::FunModelType b216;
+
+	LuaBeanImport() ;
+
+	LuaBeanImport(const fire::pb::item::BagTypes & _b1_, const fire::pb::circletask::ActiveQuestData & _b4_, const fire::pb::DataInit & _b8_, const fire::pb::talk::TipsMsgType & _b68_, const fire::pb::pet::PetTypeEnum & _b10_, const fire::pb::item::EquipItemType & _b152_, const fire::pb::attr::EffectType & _b28_, const fire::pb::attr::AttrType & _b27_, const fire::pb::Pet & _b168_, const fire::pb::item::IDType & _b29_, const fire::pb::npc::NpcServices & _b18_, const fire::pb::Petskill & _b169_, const fire::pb::circletask::SpecialQuestType & _b55_, const fire::pb::circletask::SpecialQuestID & _b58_, const fire::pb::circletask::CircTaskClass & _b191_, const fire::pb::shop::ShopBuyType & _b192_, const fire::pb::game::MoneyType & _b199_, const fire::pb::attr::RoleCurrency & _b300_, const fire::pb::skill::AssistSkill & _b208_, const fire::pb::skill::EquipSkill & _b209_, const fire::pb::Item & _b211_, const fire::pb::RoleInfo & _b215_, const fire::pb::move::RoleBasic & _b100_, const fire::pb::move::NpcBasic & _b101_, const fire::pb::talk::FunModelType & _b216_);
+
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	aio::Protocol * Clone();
+
+};
+
+} 
+} 

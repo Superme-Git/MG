@@ -1,0 +1,2 @@
+call ant remove
+pause

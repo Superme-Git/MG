@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="cegui">
+      <UniqueIdentifier>{25253dc2-d959-40a8-b263-e16768ca5b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src">
+      <UniqueIdentifier>{968c5bfe-9147-48fd-b3f2-cabf813fc483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\ImageCodecModules">
+      <UniqueIdentifier>{6bf3fb33-4eaf-46f9-8414-8881f428c471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\ImageCodecModules\CoronaImageCodec">
+      <UniqueIdentifier>{5c6433dd-5ca8-407b-9ac1-782a50dd2b9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\include">
+      <UniqueIdentifier>{d3d7d32b-48a4-4871-908c-9b712b700896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\include\ImageCodecModules">
+      <UniqueIdentifier>{b3e15ffb-32f7-4daf-9ffb-eae042b2ff81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\include\ImageCodecModules\CoronaImageCodec">
+      <UniqueIdentifier>{4524414d-a807-473b-8ea3-acd2046b8333}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\cegui\src\ImageCodecModules\CoronaImageCodec\CEGUICoronaImageCodec.cpp">
+      <Filter>cegui\src\ImageCodecModules\CoronaImageCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cegui\src\ImageCodecModules\CoronaImageCodec\CEGUICoronaImageCodecModule.cpp">
+      <Filter>cegui\src\ImageCodecModules\CoronaImageCodec</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\cegui\include\ImageCodecModules\CoronaImageCodec\CEGUICoronaImageCodec.h">
+      <Filter>cegui\include\ImageCodecModules\CoronaImageCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\cegui\include\ImageCodecModules\CoronaImageCodec\CEGUICoronaImageCodecModule.h">
+      <Filter>cegui\include\ImageCodecModules\CoronaImageCodec</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,63 @@
+/***********************************************************************
+	TabControl
+***********************************************************************/
+class TabControl : public Window
+{
+	// ycl: events
+	static const string EventNamespace;				//!< Namespace for global events
+
+	/*************************************************************************
+		Constants
+	*************************************************************************/
+	// event names
+	static const string EventSelectionChanged;			//!< Event triggered when there is a change to the currently selected tab.
+
+	enum TabPanePosition
+	{
+		Top,
+		Bottom,
+		Left
+	};
+
+	unsigned int getTabCount() const;
+
+	TabPanePosition getTabPanePosition(void) const;
+	void	setTabPanePosition(TabPanePosition pos);
+
+	void setSelectedTab(string name);
+	void setSelectedTab(unsigned int ID);
+	void setSelectedTabAtIndex(unsigned int index);
+
+	void    makeTabVisible(const string &name);
+	void    makeTabVisible(CEGUI::uint ID);
+	void    makeTabVisibleAtIndex(size_t index);
+
+	Window* getTabContentsAtIndex(unsigned int index) const;
+	Window* getTabContents(string name) const;
+	Window* getTabContents(unsigned int ID) const;
+
+	bool isTabContentsSelected(Window* wnd) const;
+	unsigned int getSelectedTabIndex() const;
+
+	const UDim& getTabHeight() const;
+	const UDim& getTabTextPadding() const;
+	const float& getTabSeparation(void) const;
+	const float& getTabFirstInterval(void) const;
+
+	void setTabHeight(const UDim& height);
+	void setTabTextPadding(const UDim& pad);
+	void setTabSeparation(const float& separation);
+	void setTabFirstInterval(const float& thickness);
+
+	void addTab(Window* wnd);
+
+	void removeTab(unsigned int ID);
+	void removeTab(string name);
+
+	TabButton* getTabButtonAtIndex(size_t index) const;
+
+	TabControl(const string& type, const string& name);
+	virtual ~TabControl(void);
+
+	TabControl(const string& type);
+};

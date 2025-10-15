@@ -1,0 +1,11 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// Stripped to support Express editions, who come without a resource editor. 
+// This is an wxWidgets project anyway, so there's no need for MFC resource
+// editing.
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "..\\src\\bitmaps\\icon48.ico"

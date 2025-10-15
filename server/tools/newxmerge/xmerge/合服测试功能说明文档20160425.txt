@@ -1,0 +1,7 @@
+注意：针对不同阶段服务器版本合服，如果有数据库结构改变都需要重新编写生成合服工具
+
+合服具体步骤：
+1.合服执行命令run.bat文件，内容如下
+java -jar xmerge_run.jar -conf xmerge.xml -srcdb "F:\\xmergetest\\src_db" -destdb "F:\\xmergetest\\dest_db" -resultdb "F:\\xmergetest\\result_db" 
+主要包括原数据库、目的数据库、合服后的结果数据库，以及合服配置文件xmerge.xml
+需要依赖的jar包是游戏服务器gs.jar

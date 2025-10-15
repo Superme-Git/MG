@@ -1,0 +1,21 @@
+Index: ConnectGetServerInfo.cpp
+===================================================================
+--- ConnectGetServerInfo.cpp	(revision 53424)
++++ ConnectGetServerInfo.cpp	(working copy)
+@@ -1236,6 +1236,7 @@
+ 	}
+ }
+ void ConnectGetServerInfo::HandleCheckRecruitOneRole(cocos2d::extension::CCHttpClient* client, cocos2d::extension::CCHttpResponse* response){
++	m_RecruitRoleList.clear();
+ 	int rcode = response->getResponseCode();
+ 	std::string jsonStr;
+ 	bool isSuccess = false;
+@@ -1273,7 +1274,7 @@
+ 			Json* data = Json_getItem(root, "data");
+ 			if (data && data->type == Json_Array)
+ 			{
+-				m_RecruitList.clear();
++				m_RecruitRoleList.clear();
+ 				Json* child = data->child;
+ 				while (child)
+ 				{

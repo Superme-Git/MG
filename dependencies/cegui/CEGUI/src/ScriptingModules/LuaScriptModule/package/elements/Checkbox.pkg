@@ -1,0 +1,9 @@
+class Checkbox : public ButtonBase
+{
+public:
+
+	bool	isSelected(void) const;
+	void	setSelected(bool select);
+	void	setSelectedNoEvent(bool select);
+
+};

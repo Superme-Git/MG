@@ -1,0 +1,222 @@
+说明：
+1.这里的gdelivery是指与GACD相连接的程序，祖龙项目的就是指gdelivery，梦诛、倚天等架构的游戏指GS。
+2.这里的协议指的是该系统的协议，如ACStatusAnnounce可能指的是ACStatusAnnounce也可能是ACStatusAnnounce2 ACStatusAnnounce3，具体使用哪个协议，各个项目因自己的需求而订。
+  通常来说:
+  a)角色ID或者账号ID是64位的，需要用该协议中下标最大的那个，ACStatusAnnounce ACReportCheater使用下标为3的协议，其他协议使用下标为2的协议；
+  b)角色ID和账号ID都是32位的，需要用该协议中下标次大的那个，ACStatusAnnounce ACReportCheater使用下标为2的协议，其他协议使用不掉下标的协议。
+  几个例外：ACWhoAmI GMKickoutUser_Re ACForbidUser只有一个协议，不分32位、64位。
+
+1，协议相关
+
+gacd收到的gdelivery发来的协议
+<state name="ACServer" timeout="86400">
+	<protocol ref="ACWhoAmI"/> 		gdelivery-->gacd 发id为1标识身份，gacdclient发0
+    	<protocol ref="ACReport"/>		gclient-->glink-->gdelivery-->gacd 大概每30s-60s客户端主动发过来他的信息， 和执行代码碎片后的返回值
+    	<protocol ref="ACAnswer"/>		gclient-->glink-->gdelivery-->gacd 图片答题返回
+    	<protocol ref="ACProtoStat"/>		glink-->gdelivery-->gacd link统计的玩家协议状态，包括gamedatasend协议个数，publicchat个数，keepalive协议个数 每180s一次，
+    	<protocol ref="GMKickoutUser_Re"/>	gdelivery-->gacd gacd发kickoutuser协议给delivery后的响应，反应是否成功
+    
+    	<protocol ref="ACStatusAnnounce2"/> 	gdelivery-->gacd 每当有角色登入登出服务器，delivery通知gacd
+    	<protocol ref="ACReportCheater2"/>	gdelivery-->gacd gamed发ACReportCheater gdelivery 转发给gacd
+    	<protocol ref="ACTriggerQuestion"/>	gamed-->gdelivery-->gacd gamed根据打怪数量等来触发答题
+</state>
+
+gacd发给gdelivery的协议
+<state name="ACClient" timeout="86400">
+    	<protocol ref="ACRemoteCode"/>		gacd生成代码碎片-->gdelivery转发-->glink转发-->gclient执行代码，返回ACReport
+    	<protocol ref="ACQuestion"/>		gacd生成图片答题-->gdelivery转发-->glink转发-->gclient提示答题，返回ACAnswer
+    	<protocol ref="ACKickoutUser"/> 	gacd根据配置封人-->gdelivery处理，(可能需要发AU)发KickoutUser-->glink发ErrorInfo-->gclient显示被踢下线
+    	<protocol ref="ACForbidUser"/> 	        gacd根据配置封人-->gdelivery处理，(需要发AU,按游戏封禁)发KickoutUser-->glink发ErrorInfo-->gclient显示被踢下线
+    	<protocol ref="ACReportCheater"/>	gacd嫌疑此人用挂时发-->gdelivery转发-->gamed处理，比如触发答题。
+</state>
+
+
+link需要实现:
+	转发ACReport, ACAnswer, 统计协议信息间隙3分钟发ACProtoStat
+delivery需要实现:
+	转发ACRemoteCode, ACQuestion, ACReportCheater，ACTriggerQuestion 处理ACKickoutUser，准时发ACStatusAnnounce
+gamed需要实现：
+	触发答题ACTriggerQuestion， 发现可疑角色发ACReportCheater
+
+
+以上是相关协议的说明，至于协议格式请参考rpcall.xml
+
+
+2，gacd的工作方式
+
+gacd的主要作用：
+	<1>生成代码碎片，根据配置定时发送
+	<2>生成图片答题, 根据gamed发来的ACTriggerQuestion发送图片
+	<3>处理ACReport，根据配置封禁
+	<4>记录ACReport, 供gacdclient查询，以及处理与gacdclient的交互
+
+代码碎片是从一个配置文件gacd.xml中读出来（gacd.xml中的代码则是从.obj文件中读出来的）后经过一点变形后生成。
+图片答题是从charlib.dat中读出矢量字体经过扭曲加噪后生成的。
+配置文件gacd.xml 通过gacdclient来控制更新，一开始有一个默认的gacd.xml。
+
+gacdclient连接所有的gacd，为gacd提供一个CLI操作界面，同时定时从gacd中取信息记录入数据库中。
+gacdman和gacdclient相连，和gacd提供WEB操作界面。
+这两个可先不用理会
+
+defence的介绍请参照 defence详细文档.doc 和defence代码说明.doc
+
+3, 需要的配置文件
+
+io.conf 配置连接地址，端口，网络缓冲区大小等，还有zoneid要单独配。
+charlib.dat 图片答题的字形库
+gacd.xml 一个默认的反外挂配置文件。
+
+
+4，需要注意的事项,这些都是神鬼出现过的问题。
+
+<1> gacd更新时会断开delivery的连接，要求delivery在断开连接时马上重连gacd，同时发送ACStatusAnnounce2给gacd重传所有的角色。
+<2> 重传角色时把所有的角色都放到一个ACStatusAnnounce2中就行了，不要每个角色发一个协议。
+<3> ACStatusAnnounce2只在角色登陆登出时传（对应状态STATUS_ONLINE, STATUS_OFFLINE），就是角色进入世界，和角色离开世界的时间点发次协议给gacd，角色其他状态转化gacd并不关心。
+<4> 针对上海项目： 网络底层8k问题改了吗。
+
+
+5, gacd,delivery ackickoutuser协议接口备忘
+
+	1, gmuserid 固定为1984，代表gacd
+
+	2，idtype (byroleid) 为0时 按游戏封禁，  userid是帐号id， delivery转发au
+						 为1时 按服务器封禁，userid是角色id， delivery转发gs
+
+	3，userid 根据idtype不同代表不同的id，参照2
+
+	4，forbid_time 是封禁时间，1和-1有特别含义（如下）这两个情况之外此值应该>1。 常用值如下
+					31536000  1年（365天算的）
+					259200	  3天
+					86400	  1天
+					以上三个是有充值保护的。其他无充值保护。
+
+					31536001  无视充值封1年
+					1		  解封，若在线就不用踢了。根据idtype按游戏解封或按服务器解封。
+					-1		  踢玩家下线，现在只用在idtype=1，按服务器封禁上。
+					-2		  给梦诛用，让gs用来累计玩家次数，决定封禁时间
+
+	5，reason 是ucs2编码的封禁理由
+
+6, gacd,gs acreportcheater 协议接口备忘
+
+	gacd->gs cheattype=0 答题正确要求奖励
+		 cheattype=1 请求惩罚
+
+	gs->gacd cheattype   用于gs通知gacd作弊信息，gacd根据配置做相应处理和记录。记录到cheaterlog中 100-cheattype
+	
+	如果协议包含roleid，userid，则roleid必须正确，userid尽量正确。
+
+7, ACStatusAnounce里的status取值
+	#define _STATUS_ONGAME          5
+	#define _STATUS_OFFLINE         0
+	为和以前兼容，请用0，5吧。
+
+8, gacd对delivery增加了64位roleid的协议接口
+   原来的协议只保留了ACWhoAmI,其他的都在后面加了2， 除了ACReportCheater和ACReportCheater2都去掉了改为和ACReportCheater3，去掉了GMKickoutUser_Re
+   还有就是增加了ACPP
+   还有要注意的是：传帐号id时都假设是64位。
+   
+   
+9, deliver接口
+	整理了下rpcalls.xml , 对deliver来说，
+	
+	最新的接收协议的接口为state ACClient下：
+	<!--newest interface for delivery -->
+        <protocol ref="ACRemoteCode2"/>
+        <protocol ref="ACQuestion2"/>
+        <protocol ref="ACPP"/>
+        这个只要转发就行。
+        <protocol ref="ACKickoutUser2"/>
+		参考5
+        <protocol ref="ACReportCheater3"/>
+		参考6
+	
+	最新的发送协议的接口为state ACServer下：
+	<!--newest interface for gacd-->
+        <protocol ref="ACWhoAmI"/>
+		clienttype = 1 （#define _DELIVERY_CLIENT 1）
+		subid = 0 （扩展用，现在请填为0）
+        <protocol ref="ACReport2"/>
+        <protocol ref="ACAnswer2"/>
+        <protocol ref="ACProtoStat2"/>
+        <protocol ref="ACStatusAnnounce3"/>
+		一定要参考4，即时重传。
+		status 参考7
+		ip  就是正常的网络序的int值 (127.0.0.1 为 0x0100007f)
+        <protocol ref="ACTriggerQuestion2"/>
+		reserved = 0 （扩展用）
+        <protocol ref="ACReportCheater3"/>
+
+	
+	说明
+	<1>acprotostat 如果难以统计，可以不发, （现在梦诛没发。）这个其实gacd用作角色的心跳协议了，如果没这个，务必保证角色退出世界时即时给gacd发ACStatusAnnounce协议
+	<2>不用发GMKickoutUser_Re这个了，gacd现在未对这个做处理。
+	<3>ACReportCheater3统一为一个协议了，因为包含roleid,userid。deliver收到gacd的时，请以roleid为准。userid有可能为-1
+	<4>有关协议格式请参考rpcalls.xml。使用./rpcgen自动生成相关文件
+
+
+10，defence接口
+	接口在idefence.h里，里面有详细说明
+	和网络的接口包括 Defence::RegisterProtocols;  IDefence::SendProtocol，以及protocol目录下的协议处理
+	接收的协议包括
+		ACQuestion2
+		ACRemoteCode2
+		ACPP
+	其中ACRemoteCode2,ACPP都是在网络线程转发给defence线程来处理了。
+	而ACQuestion2是直接在网络线程里解密好结构传给逻辑线程了。玩家点击后逻辑线程通过调用IDefence::AnswerNotify来发送答题
+	ACAnswer2和ACReport2会在defence线程里发送，已经包好了。
+	
+	说明：
+	<1> inline int signum(int64_t a)  { return (int)(a >> 63 | ((uint64_t)-a) >> 63); } // see java.lang.Long.signum
+		这个是用来返回64位数的符号的，用在协议的compareTo函数中来比较大小
+	<2> enum { PROTOCOL_TYPE = 857012 }
+		可以看到这些协议号与rpcalls.xml里的协议号不同，这个是因为网络引擎平台有个pvid（providerid）这样的概念
+		各服务器会自动mask pvid。。
+		这个上海就还是使用原始的rpcalls.xml里的协议号吧。
+	<4> 现在defence有13对VMProtect标志对
+	
+11, 新加Captcha说明
+	<protocol debug="0" name="ACTriggerCaptcha" type="5052" maxsize="64" prior="1">
+		<variable name="count" type="int" />
+		<variable name="reserved" type="int" />
+	</protocol>
+
+	<rpcdata name="ACCaptchaUnit">
+		<variable name="id" type="std::string" />
+		<variable name="challenge" type="Octets" attr="ref" />
+	</rpcdata>
+
+	<protocol debug="0" name="ACCaptchaList" type="5053" maxsize="33554432" prior="1">
+		<variable name="captype" type="int" />
+		<variable name="reserved" type="int" />
+		<variable name="captcha_list" type="std::vector&lt;ACCaptchaUnit&gt;" attr="ref"/>
+	</protocol>
+
+
+	<1> 服务器端gs调用ACTriggerCaptcha来请求图片码，参数count表示请求个数，count可以在[0,100]之间
+	    如果大于100，gacd也只会生成100个ACCaptchaUnit，通过ACCaptchaList发回。
+	    captype，reserved现在都为0，
+	    注：gs请控制ACTriggerCaptcha来连续请求，gacd大概1秒只能生成100多个CaptchaUnit
+	    
+	<2> gs发送ACCaptcha协议给客户端，再defence里解压后，回调IDefence的OnCaptcha接口
+	    captype=0表示现在这种协议，大小为200*80像素
+	    
+	<3> gs就别区分大小写吧，因为虽然我们生成的都是小写。但S，M，W有时是挺难区分的。
+	    在用户打错时，请给gacd发送ACReportCheater3吧。
+	    约定cheattype=1为Captcha打错。
+	    约定所有的ACReportCheater3的cheatinfo的头4个字节为network序的IP值吧。
+	    
+	<4> 这个跟现在的图片答题有点不同，gacd只提供图片码生成器。发送，出错重发等都在gs端做。
+	    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+   
+   
+

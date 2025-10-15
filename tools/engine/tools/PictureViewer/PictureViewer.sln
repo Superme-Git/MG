@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PictureViewer", "PictureViewer.vcproj", "{3C643200-4C64-4EC0-8DD3-D7612FFA6880}"
+	ProjectSection(ProjectDependencies) = postProject
+		{89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1} = {89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libdds", "..\libdds\libdds.vcproj", "{89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C643200-4C64-4EC0-8DD3-D7612FFA6880}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3C643200-4C64-4EC0-8DD3-D7612FFA6880}.Debug|Win32.Build.0 = Debug|Win32
+		{3C643200-4C64-4EC0-8DD3-D7612FFA6880}.Release|Win32.ActiveCfg = Release|Win32
+		{3C643200-4C64-4EC0-8DD3-D7612FFA6880}.Release|Win32.Build.0 = Release|Win32
+		{89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1}.Debug|Win32.Build.0 = Debug|Win32
+		{89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1}.Release|Win32.ActiveCfg = Release|Win32
+		{89ED734F-BB25-4E4C-84EC-00C7D0EFB4A1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

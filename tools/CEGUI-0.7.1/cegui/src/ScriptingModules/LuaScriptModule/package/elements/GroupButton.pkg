@@ -1,0 +1,33 @@
+/***********************************************************************
+	GroupButton
+***********************************************************************/
+class GroupButton : public ButtonBase
+{
+public:
+    enum enumGroupButtonState
+	{
+		eNormalState,
+		eHoverState,
+		ePushedState,
+		eDisabledState,
+		eSelectState
+	};
+
+	bool	isSelected(void) const;
+	unsigned long	getGroupID(void) const;
+	GroupButton*	getSelectedButtonInGroup(void) const;
+	void	setSelected(bool select, bool fireEvent = true);
+	void	setGroupID(unsigned long group);
+	void    setStateTextColour(enumGroupButtonState state,const ColourRect& cl);
+	const 	ColourRect& GetStateColour(enumGroupButtonState state);
+	const 	ColourRect& GetStateColour();
+	unsigned long getGroupID(void) const;
+	
+	void  setStateBordcerColour(enumGroupButtonState state,const colour& cl);
+	const colour& GetStateBorderColour(enumGroupButtonState state);
+	const colour& GetStateBorderColour();
+	void SetBorderEnable(bool b);
+	bool isBorderEnable();
+	void SetStateImageExtendID(int id);
+
+};

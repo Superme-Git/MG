@@ -1,0 +1,12 @@
+class GameCenter
+{
+public:
+	static GameCenter* GetInstance();
+
+	bool isAvailable() const;
+
+	void login();
+	void requestAchievementInfo();
+
+	void sendAchievementScore(int id, int score);
+};

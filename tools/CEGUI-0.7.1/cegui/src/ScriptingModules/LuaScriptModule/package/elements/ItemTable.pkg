@@ -1,0 +1,71 @@
+/***********************************************************************
+	ItemTable
+***********************************************************************/
+class ItemTable : public Window
+{
+public:
+	static const string WidgetTypeName;     //!< Type name for DragContainer.
+	static const string EventNamespace;     //!< Namespace for global events
+	static const string EventTableClick;    //!< click events
+	static const string EventTableDoubleClick;
+	typedef	std::vector<ItemCell*>	ItemCellList;
+	typedef ItemCellList::iterator ItemCellListIterator;
+
+    ItemTable(const String& type, const String& name);
+    ItemTable(const string& type, const string& name);
+    virtual ~ItemTable(void);
+	void doTableRender();
+	void initialiseComponents(bool bClone);
+	ItemCell* AddCell(size_t index);
+	void DestroyCell(size_t index);
+	size_t GetCellCount();
+	ItemCell* GetCell(size_t index);
+	ItemCell* GetCellAtPoint(CEGUI::Point pt);
+	void SetRowCount(size_t RowCount);
+	void SetColCount(size_t ColCount);
+	void DestroyAllCell();
+	void RefreshCellPos(bool bFilterHideCell);
+
+	void RefreshCellPosAndSize();  // ycl 刷新所有 Cell 的位置和尺寸
+	void CalCellPosByIndex(size_t index, float* pX, float* pY) const;  // 计算并返回一个 Cell 的位置
+	void SetCellPosByIndex(ItemCell* pCell, size_t index);  // ycl  设置一个 Cell 的位置
+
+	ItemCell* GetFirstSelectCell();
+    ItemCellList& GetAllCell();
+	size_t GetRowCount()const;
+	size_t GetColCount()const;
+	
+	void SetCellWidth(int width);
+	void SetCellHeight(int height);
+	void SetSpaceX(int x);
+	void SetSpaceY(int y);
+	void SetStartX(int x);
+	void SetStartY(int y);
+	
+	int GetCellWidth()const;
+	int GetCellHeight()const;
+	int GetSpaceX()const;
+	int GetSpaceY()const;
+	int GetStartX()const;
+	int GetStartY()const;
+	void	SetType(int type);
+	int		GetType();
+
+	bool testClassName_impl(const string& class_name) const;
+
+	void onTableClick(MouseEventArgs& e);
+
+	ItemTable(const string& type);
+	virtual Window* clone(Window* wnd);
+	virtual bool onRenameTemplatePrefix(const string& sPrefix);
+
+    void onTableDoubleClick(MouseEventArgs& e);
+	virtual int writeChildWindowsXML(CEGUI::XMLSerializer& xml_stream)const;
+
+	void SetMulitySelect(bool b);
+	bool GetMulitySelect();
+	void DeSelectAll();
+
+	void SetItemCellStyle(int style);
+	int GetItemCellStyle()const;
+};

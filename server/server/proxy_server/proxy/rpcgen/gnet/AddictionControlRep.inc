@@ -1,0 +1,56 @@
+	// Protocol
+
+	enum { PROTOCOL_TYPE = 123 };
+
+	int localsid;
+	int zoneid;
+	int userid;
+	int rate;
+	int msg;
+	std::vector<gnet::GPair> data;
+
+	AddictionControlRep() {
+		type = PROTOCOL_TYPE;
+		localsid = 0;
+		zoneid = 0;
+		userid = 0;
+		rate = 0;
+		msg = 0;
+	}
+
+	AddictionControlRep(int _localsid_, int _zoneid_, int _userid_, int _rate_, int _msg_, const std::vector<gnet::GPair> & _data_)
+		: localsid(_localsid_), zoneid(_zoneid_), userid(_userid_), rate(_rate_), msg(_msg_), data(_data_) {
+		type = PROTOCOL_TYPE;
+	}
+
+	explicit AddictionControlRep(void *) : Protocol(PROTOCOL_TYPE) { } // define stub
+
+	bool _validator_() const {
+		for (std::vector<gnet::GPair>::const_iterator _i_ = data.begin(); _i_ != data.end(); ++_i_)
+			if (!_i_->_validator_()) return false;
+		return true;
+	}
+
+	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {
+		_os_ << localsid;
+		_os_ << zoneid;
+		_os_ << userid;
+		_os_ << rate;
+		_os_ << msg;
+		_os_ << GNET::MarshalContainer(data);
+		return _os_;
+	}
+
+	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {
+		_os_ >> localsid;
+		_os_ >> zoneid;
+		_os_ >> userid;
+		_os_ >> rate;
+		_os_ >> msg;
+		_os_ >> GNET::MarshalContainer(data);
+		return _os_;
+	}
+
+	GNET::Protocol * Clone() const { return new AddictionControlRep(*this); }
+	int  PriorPolicy( ) const { return 1; }
+	bool SizePolicy(size_t size) const { return size <= 512; }

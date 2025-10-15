@@ -1,0 +1,181 @@
+
+
+系统环境需求
+linux + nginx + mysql + php  + redis(最好放于同代码同一机器)
+
+
+
+
+MT3精灵接口文档
+
+
+
+一, 接口说明
+
+返回结果统一格式为
+{"errno":"","message":"","data":[]}
+{"errno":"","message":"","data":''}
+其中data可能为字符串, 数组
+
+以下为errno 错误号
+1001 没有找到该模块对应的栏目
+2001 没有找到该模块对应的栏目
+3001 等级为空
+4001 帖子id为空
+4002 帖子不存在
+5001 用户标识为空
+5002 来源关键词为空
+5003 当前帖子id为空
+5004 反馈结果为空
+6001 搜索关键词为空
+
+
+二, 接口文档
+2.1热点问题模块, 左侧第一栏
+
+接口名称:左侧第一栏
+接口地址:faq/getListByColumn
+接口参数:无
+返回值:
+
+errno
+message
+data 
+- - 0
+- - - faq_id : 帖子id
+- - - title : 标题
+- - - style : 标题样式
+- - - content : 内容
+- - 1
+- - - faq_id : 帖子id
+- - - title : 标题
+- - - style : 标题样式
+- - - content : 内容
+
+返回值示例
+{"errno":"","message":"","data":[{"faq_id":"1014","category_id":"1","title":"\u3010\u65b0\u95fb\u4e13\u533a\u3011\u300a\u6211\u53ebMT3\u300b\u79cd\u65cf\u4ecb\u7ecd \u516d\u5927\u79cd\u65cf\u4efb\u4f60\u6311\u9009","style":"","thumb":"","keywords":"","description":"","sort":"0","status":"0","create_time":"1458125127","content":"<p>\r\n\t<strong>\u5de8 \u9b54<\/strong>\r\n<\/p>\r\n<br \/>\r\n&nbsp; &nbsp; &nbsp; \r\n\u6240\u4ee5\u201c\u82b1\u74f6\u201d\u8fd9\u4e2a\u8bcd\u53ef\u4e0d\u80fd\u7528\u5728\u6211\u4eec\u5973\u738b\u5927\u4eba\u8eab\u4e0a\uff0c\u5426\u5219\uff0c\u5475\u5475\u2026\u2026\u7ed3\u679c\u4f60\u61c2\u5f97<br \/>\r\n<br \/>\r\n<br \/>\r\n\u53ef\u9009\u804c\u4e1a\uff1a[\u7267\u5e08] [\u672f\u58eb] [\u6cd5\u5e08]"}]}
+
+
+2.2 获得帖子详情
+接口名称:获得帖子详情
+接口地址:faq/detail
+接口参数:faq_id : 帖子id
+返回值:
+
+errno
+message
+data 第二维数组
+- faq_id : 帖子id
+- title : 标题
+- style : 标题样式
+- content : 内容
+
+返回值示例
+{"errno":"","message":"","data":{"faq_id":"1014","category_id":"1","title":"\u3010\u65b0\u95fb\u4e13\u533a\u3011\u300a\u6211\u53ebMT3\u300b\u79cd\u65cf\u4ecb\u7ecd \u516d\u5927\u79cd\u65cf\u4efb\u4f60\u6311\u9009","style":"","thumb":"","keywords":"","description":"","sort":"0","status":"0","create_time":"1458125127","content":"<p>\r\n\t<strong>\u5de8 \u9b54<\/strong>\r\n<\/p>\r\n<br \/>\r\n&nbsp; &nbsp; &nbsp; \r\n\u6240\u4ee5\u201c\u82b1\u74f6\u201d\u8fd9\u4e2a\u8bcd\u53ef\u4e0d\u80fd\u7528\u5728\u6211\u4eec\u5973\u738b\u5927\u4eba\u8eab\u4e0a\uff0c\u5426\u5219\uff0c\u5475\u5475\u2026\u2026\u7ed3\u679c\u4f60\u61c2\u5f97<br \/>\r\n<br \/>\r\n<br \/>\r\n\u53ef\u9009\u804c\u4e1a\uff1a[\u7267\u5e08] [\u672f\u58eb] [\u6cd5\u5e08]"}}
+
+
+
+
+2.3 反馈接口
+接口名称:反馈接口
+接口地址:faq/feedback
+接口参数:
+userkey : 用户标识
+from_keyword : 原关键词
+faq_id : 当前帖子id
+feedback_result : 反馈结果, 1已解决,2未解决
+返回值:
+
+errno
+message
+data : 正确将返回 1
+
+
+2.4 搜索
+接口名称:搜索接口
+接口地址:faq/search
+接口参数:
+q : 关键词
+返回值:
+
+errno
+message
+data 
+- q : 所搜索的关键词
+- count : 所匹配的总数
+- corrected : 相近词
+- related : 关联词汇
+- data : 搜索的结果
+- - faq_id : 帖子id
+- - title : 标题
+- - percent : 匹配度
+- - rank : 排名
+
+
+返回值示例
+返回值示例1 : 匹配到关键词的情况. 返回值中有 info的字段
+
+http://192.168.41.5:8801/faq/search?q=宝宝
+{"errno":"","message":"","data":{"q":"\u5b9d\u5b9d","search_cost":0.0017130374908447,"total_cost":0.0025949478149414,"count":1,"corrected":[],"related":[],"info":{"faq_id":"1015","category_id":"0","title":"\u6d4b\u7ed8\u6d4b\u8bd5\u6d4b\u8bd5\u6d4b\u8bd5","style":"","thumb":"","keywords":"\u5b9d\u5b9d \u5ba0\u7269","description":"","sort":"0","status":"0","create_time":"1458126712","content":"<p><a><aDFFFD rhf=\"\u53d1\u5927\u53d1@#@#@@##EDDDD\">AA\r\n\t22222222222<\/aa><\/a><\/p><p><a>%^%$^%$&%*^&*^&*^JUJHJKJLL:<m<?m<bnmbmnbcnmmn<<><\/m<?m<bnmbmnbcnmmn<<><\/a><\/p><p><a><br \/><\/a><\/p><p><a>65656232323<\/a><\/p><p><a><br \/><\/a><\/p><p><a><img title=\"\" src=\"http:\/\/resource.locojoy.com\/cms\/2016\/03\/16\/5bf047b5da8db7fdd2dc84163229269c.jpg\" alt=\"\" height=\"614\" align=\"\" width=\"408\" \/> <\/a><\/p><p><a><br \/><\/a><\/p>'<>>(*()*&)UYUI"}}}
+
+返回值示例2 : 未匹配到关键词的情况. 返回值中有 list 的字段
+http://192.168.41.5:8801/faq/search?q=宝
+{"errno":"","message":"","data":{"q":"3","list":[{"faq_id":"1010","title":"3\u67083\u65e5\u4f8b\u884c\u7ef4\u62a4\u516c\u544a","percent":100,"rank":1},{"faq_id":"861","title":"\u5e93\u80af3","percent":97,"rank":2},{"faq_id":"871","title":"\u9b3c\u811a\u87f93","percent":96,"rank":3},{"faq_id":"1012","title":"3\u670810\u65e5\u4f8b\u884c\u7ef4\u62a4\u516c\u544a","percent":90,"rank":4},{"faq_id":"1011","title":"3\u670810\u65e5\u4f8b\u884c\u7ef4\u62a4\u516c\u544a","percent":90,"rank":5},{"faq_id":"629","title":"3\u670812\u65e5\u4f8b\u884c\u7ef4\u62a4\u53ca\u6d3b\u52a8\u4e0a\u7ebf\u516c\u544a","percent":86,"rank":6},{"faq_id":"638","title":"3\u670819\u65e5\u4f8b\u884c\u7ef4\u62a4\u53ca\u6d3b\u52a8\u4e0a\u7ebf\u516c\u544a","percent":86,"rank":7},{"faq_id":"646","title":"3\u670826\u65e5\u4f8b\u884c\u7ef4\u62a4\u53ca\u6d3b\u52a8\u4e0a\u7ebf\u516c\u544a","percent":86,"rank":8},{"faq_id":"652","title":"\u26054.3.2\u3010\u8d85\u7ea7\u65b0\u624b\u6bd5\u4e1a\u3011\u4e4b\u9aa8\u7070\u653b\u7565\u6574\u5408","percent":86,"rank":9},{"faq_id":"892","title":"9\u67083\u65e5\u4f8b\u884c\u7ef4\u62a4\u53ca\u6d3b\u52a8\u4e0a\u7ebf\u516c\u544a","percent":86,"rank":10}],"search_cost":0.0031630992889404,"total_cost":0.004626989364624,"count":12,"corrected":[],"related":[]}}
+http://mt3.kfjl.locojoy.com/faq/search?q=宝
+
+
+
+2.5 获得热词
+接口名称:搜索接口
+接口地址:faq/hotquery
+接口参数:
+返回值:
+
+errno
+message
+data : 
+- - 字段 : 搜索数
+- - 
+
+返回值示例
+{"errno":"","message":"","data":{"mt12122121":"1","\u5927\u5927\u59d0":"1","\u6211\u7231\u5927\u5927\u5929\u5b89\u95e8":"2","\u6591\u9a6c\u5c0f\u6b6a":"1","\u5927\u5927\u59d0\u5927\u5927":"1","\u6211\u7231\u5927\u5927\u59d0\u5929\u5b89\u95e8":"2"}}
+
+
+
+二, 管理后台
+
+已简单开发了一个管理后台.
+
+
+账号
+用户名: admin@joyogame.com
+密码  : 111111
+
+
+1.分类管理
+2.栏目管理
+3.FAQ管理
+添加和编辑可支持分配到多个栏目
+4.记录管理
+支持手动水平分表功能, 按月份
+
+
+三 问题总结
+1.图片上传问题
+上传到哪
+如何同步
+
+目前上传到cms cdn http://resource.locojoy.com/cms/ 文件夹下
+
+2.
+
+
+
+
+
+
+
+
+
+
+

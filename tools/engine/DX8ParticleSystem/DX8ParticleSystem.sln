@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DX8ParticleSystemLib", "DX8ParticleSystemLib\DX8ParticleSystemLib.vcproj", "{A28018F8-D2A2-4061-B675-1F601A22D570}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pfslib", "..\pfs\projects\pfslib.vcproj", "{3432A0EC-49DD-4FEE-A6F8-C158F2EE231A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlibstatic", "..\pfs\contrib\zlib-1.2.3\contrib\vstudio\vc7\zlibstatic.vcproj", "{F61532F5-D662-49EE-85EE-111474945E4E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xmliolib", "..\xmlio\projects\xmliolib.vcproj", "{663FE2ED-2931-43AD-953C-E62920F7A94E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pfsx-x2o", "..\pfs\pfsx\x2o\pfsx-x2o.vcproj", "{BEFD14F6-E1E2-4D3B-B035-4EBA362F03B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{663FE2ED-2931-43AD-953C-E62920F7A94E} = {663FE2ED-2931-43AD-953C-E62920F7A94E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pfsx-zip", "..\pfs\pfsx\zip\pfsx-zip.vcproj", "{E47E4B0F-240A-41DD-84D1-0368299A9647}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A28018F8-D2A2-4061-B675-1F601A22D570}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A28018F8-D2A2-4061-B675-1F601A22D570}.Debug|Win32.Build.0 = Debug|Win32
+		{A28018F8-D2A2-4061-B675-1F601A22D570}.Release|Win32.ActiveCfg = Release|Win32
+		{A28018F8-D2A2-4061-B675-1F601A22D570}.Release|Win32.Build.0 = Release|Win32
+		{3432A0EC-49DD-4FEE-A6F8-C158F2EE231A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3432A0EC-49DD-4FEE-A6F8-C158F2EE231A}.Debug|Win32.Build.0 = Debug|Win32
+		{3432A0EC-49DD-4FEE-A6F8-C158F2EE231A}.Release|Win32.ActiveCfg = Release|Win32
+		{3432A0EC-49DD-4FEE-A6F8-C158F2EE231A}.Release|Win32.Build.0 = Release|Win32
+		{F61532F5-D662-49EE-85EE-111474945E4E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F61532F5-D662-49EE-85EE-111474945E4E}.Debug|Win32.Build.0 = Debug|Win32
+		{F61532F5-D662-49EE-85EE-111474945E4E}.Release|Win32.ActiveCfg = Release|Win32
+		{F61532F5-D662-49EE-85EE-111474945E4E}.Release|Win32.Build.0 = Release|Win32
+		{663FE2ED-2931-43AD-953C-E62920F7A94E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{663FE2ED-2931-43AD-953C-E62920F7A94E}.Debug|Win32.Build.0 = Debug|Win32
+		{663FE2ED-2931-43AD-953C-E62920F7A94E}.Release|Win32.ActiveCfg = Release|Win32
+		{663FE2ED-2931-43AD-953C-E62920F7A94E}.Release|Win32.Build.0 = Release|Win32
+		{BEFD14F6-E1E2-4D3B-B035-4EBA362F03B1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BEFD14F6-E1E2-4D3B-B035-4EBA362F03B1}.Debug|Win32.Build.0 = Debug|Win32
+		{BEFD14F6-E1E2-4D3B-B035-4EBA362F03B1}.Release|Win32.ActiveCfg = Release|Win32
+		{BEFD14F6-E1E2-4D3B-B035-4EBA362F03B1}.Release|Win32.Build.0 = Release|Win32
+		{E47E4B0F-240A-41DD-84D1-0368299A9647}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E47E4B0F-240A-41DD-84D1-0368299A9647}.Debug|Win32.Build.0 = Debug|Win32
+		{E47E4B0F-240A-41DD-84D1-0368299A9647}.Release|Win32.ActiveCfg = Release|Win32
+		{E47E4B0F-240A-41DD-84D1-0368299A9647}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

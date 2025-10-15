@@ -1,0 +1,11 @@
+
+class IniManager
+{
+public:
+	IniManager(string SettingPath);
+	~IniManager();
+    bool GetValueByName(const std::string& stringSectionName, const std::string& stringParameterName, std::string& stringValue);
+    bool WriteValueByName(const std::string& stringSectionName, const std::string& stringParameterName, const std::string& stringValue);
+	bool RemoveValueByName(const string& stringSectionName, const string& stringParameterName);	//by liugeng
+	bool RemoveSection(const string& stringSectionName); //by liugeng
+};

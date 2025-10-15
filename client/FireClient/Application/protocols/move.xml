@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 4001 开始 -->
+<namespace name="move">
+	<bean name="Pos">  
+		<variable name="x" type="short"/>		x
+		<variable name="y" type="short"/>		y		
+	</bean>
+	<bean name="PickItemTypes">
+		<enum name="money" value="1" />	现金
+		<enum name="Item" value="3" />	物品
+	</bean>
+	
+	<bean name="SceneState">			场景状态（int 32位）
+		<enum name="BATTLE_FIGHTER" value="1" />	1:战斗状态
+		<enum name="BATTLE_WATCHER" value="2" />	2:观战状态
+		<enum name="BATTLE_REPLAY" value="4" />		4:观看录像
+		<enum name="PLAY_CG" value="8" />			8:动画播放
+		<enum name="NO_PAY_DAY" value="16"/>		16没有支付日卡 by changhao
+		<enum name="GM_FLAG" value="2097152" />	    22:场景中显示gm图标
+	</bean>
+	
+	<bean name="DynamicSceneType">			动态场景的实例类型
+		<enum name="NORMAL_SCENE" value="0" />	普通动态场景
+		<enum name="FACTION_SCENE" value="1" />	公会场景
+		<enum name="FAMILY_SCENE" value="2" />	场景
+		<enum name="DREAMLAND_SCENE" value="4" /> 虚幻境场景
+	</bean>	
+	
+	<protocol  name="CRoleMove" type="4001" maxsize="65535" prior="1"> 角色请求移动
+		<variable name="srcPos" type="Pos"/>	 出发点
+		<variable name="destPos" type="Pos"/>   到达点
+		<variable name="sceneID" type="long"/>   场景id
+	</protocol>	
+	
+	<protocol  name="SRoleMove" type="4002" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long"/>		 角色ID	
+		<variable name="destPos" type="Pos"/>   到达点
+	</protocol>	
+	<protocol  name="CCheckMove" type="4003" maxsize="65535" prior="1">
+		<variable name="curPos" type="Pos"/>	 人物当前点
+		<variable name="Poslist" type="list" value="Pos"/>	路径上的关键点
+		<variable name="sceneID" type="long"/>   场景id
+	</protocol>
+
+	<bean name="SpriteComponents">			角色换装枚举
+		<enum name="SPRITE_WEAPON" value="1" />		武器
+		<enum name="SPRITE_HEADDRESS" value="2" />	头饰
+		<enum name="SPRITE_BACKDRESS" value="3" />	背饰
+		<enum name="SPRITE_FACEDRESS1" value="4" />	面饰1
+		<enum name="SPRITE_FACEDRESS2" value="5" /> 面饰2
+		<enum name="SPRITE_HORSEDRESS" value="6" /> 坐骑
+		<enum name="SPRITE_WEAPONCOLOR" value="7" />武器颜色	武器颜色	byte 1为白色，2为绿色。。4为紫色 5为橙色
+		<enum name="SPRITE_FASHION" value="8"/> 时装
+        <enum name="ROLE_COLOR1" value="50"/> 染色部位1
+		<enum name="ROLE_COLOR2" value="51"/> 染色部位2
+        <enum name="SPRITE_EQUIP_EFFECT" value="60"/> 装备特效
+    </bean>
+	<bean name="RoleBasicOctets">  
+		<variable name="roleid" type="long"/> 
+		<variable name="rolename" type="string"/>
+		<variable name="dirandschool" type="byte"/>  dir为高四位：[0,7] ；school为低4位 [1,9],转化为职业ID[11,19]		
+		<variable name="shape" type="int"/> 玩家造型	只能是1-10，换造型之后，不要改变这个shape值，而是改变人物可选数据枚举值里的ROLE_ACTUALLY_SHAPE
+		<variable name="level" type="int"/>
+		<variable name="camp" type="byte" /> 0中立  1部落 2联盟
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举
+		<variable name="datas"  type="map" key="byte" value="octets"/> 可选数据，key值参考下面的枚举(key将来会变为byte类型，因为int太大)
+		<!--人物可选数据枚举值-->
+		<enum name="SHOW_PET" value="1"/> 展示宠物 ShowPetOctets
+		<enum name="TEAM_INFO" value="2"/> 组队信息 TeamInfoOctets
+		<enum name="TITLE_ID" value="3"/> 称谓ID byte [-1,)
+		<enum name="TITLE_NAME" value="4"/> 称谓名称 String
+		<enum name="STALL_NAME" value="5"/> 招牌名称 String
+		<enum name="MODEL_TEMPLATE" value="6"/> 人物造型模板 byte [0,255]
+		<enum name="HEADRESS_SHAPE" value="7"/> 头饰造型 byte [0,255]
+		<enum name="SCENE_STATE" value="8"/> 地图状态 int ，参考SceneState
+		<enum name="WEAPON_BASEID" value="9"/> 当前装备武器的baseID int 没装备则为0
+		<enum name="WEAPON_COLOR" value="10"/> 当前装备武器的颜色 byte 1为白色，2为绿色。。。6为暗金色
+		<enum name="ROLE_ACTUALLY_SHAPE" value="12"/> 角色变造型时的造型 int
+		<enum name="PLAYING_ACTION" value="13"/> 角色正在做的持续性动作id byte
+		<enum name="STALL_BOARD" value="14"/> 摊位招牌id byte
+		<enum name="FOOT_LOGO_ID" value="15"/> id int
+		<enum name="AWAKE_STATE" value="16"/> 觉醒状态 95到99 00000 5个bit位，0代表对应阶段未觉醒，1代表已经觉醒（具体值是int数值）
+		<enum name="FOLLOW_NPC" value="17"/> 跟随npc id
+		<enum name="CRUISE" value="18"/> 巡游id int,0为没有巡游，非0为巡游表的id
+		<enum name="EFFECT_EQUIP" value="19"/> 装备特效
+		<enum name="CRUISE2" value="20"/> 巡游id2 int,路线id
+		<enum name="CRUISE3" value="21"/> 巡游id3 int,路线id
+    </bean>
+	
+	<bean name="ShowPetOctets">
+		<variable name="showpetid" type="int" validator="value=[-1,)" />	角色展示宠物相关
+		<variable name="showpetname" type="string" />		角色展示的宠物相关
+		<variable name="petcoloursndsize" type="short" /> 高四位：宠物的颜色 [1,8]，低四位：宠物大小[1,5]
+		<variable name="showskilleffect" type="byte" />  气质类技能的特效ID[1,128]
+		<variable name="evolvelevel" type="byte" />		 宠物进化等级
+	</bean>
+	
+	<bean name="TeamInfoOctets">
+		<variable name="teamid" type="long" />				玩家的队伍ID，如果没有队伍则为0
+		<variable name="teamindexstate" type="byte" />		高四位是index[1,5]，低四位是state玩家的队伍状态[1,5]
+		<variable name="hugindex" type="byte" />		[1,5]拥抱对象的index
+		<variable name="normalnum" type="byte"/> 正常队员的数量 by changaho
+	</bean>
+	
+	<bean name="RoleBasic">
+		<variable name="rolebasicOctets" type="octets" /> 	角色数据
+		<variable name="pos" type="Pos"/>  									当前坐标
+		<variable name="posz" type="byte"/>  									当前z坐标
+		<variable name="poses" type="list" value="Pos"/>    个数不同代表的含义不同。1：走路的目的坐标；2：一段跳起始坐标；4：二段跳起始坐标*2
+	</bean>
+	<bean name="NpcBasic"> 
+		<variable name="npckey" type="long" /> npckey :npc的唯一ID
+		<variable name="id" type="int"/> npcid: npc的基本ID
+		<variable name="name" type="string"/>
+		<variable name="pos" type="Pos"/>
+		<variable name="posz" type="byte"/> 
+		<variable name="destpos" type="Pos"/>运动中的NPC的目的点 
+		<variable name="speed" type="int"/> 移动NPC速度
+		<variable name="dir" type="int"/>
+		<variable name="shape" type="int"/> npc 造型
+        <variable name="scenestate" type="int"/> npc 状态
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举
+	</bean>
+	<protocol name="SSetRoleLocation" type="4004" maxsize="65535" prior="1" tolua="3"> 服务器强制设置角色的位置
+		<variable name="roleid" type="long"/>	 
+		<variable name="position" type="Pos"/>	人物当前点
+		<variable name="locz" type="byte"/>   	人物当前点z坐标
+	</protocol>
+	<protocol  name="SAddUserScreen" type="4005" maxsize="65535" prior="1" tolua="3">
+		<variable name="rolelist" type="list" value="RoleBasic"/>		角色
+		<variable name="npclist" type="list" value="NpcBasic"/>		NPC
+	</protocol>
+	<protocol  name="SRemoveUserScreen" type="4006" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleids" type="list" value="long"/>		角色
+		<variable name="npcids" type="list" value="long"/>		NPC
+	</protocol>
+	
+	<protocol  name="CSendAutoMovePathID" type="4060" maxsize="65535" prior="1">
+		<variable name="pathid" type="int" />巡游ID
+		<variable name="pathid2" type="int" />路线ID
+		<variable name="pathid3" type="int" />路线id3 by changhao
+	</protocol>
+
+	<protocol  name="CRoleTurn" type="4007" maxsize="65535" prior="1">
+		<enum name="DIR_UP" value="0"/> 		向上
+		<enum name="DIR_RIGHTUP" value="1"/> 	右上
+		<enum name="DIR_RIGHT" value="2"/> 		向右
+		<enum name="DIR_RIGHTDOWN" value="3"/>  右下
+		<enum name="DIR_DOWN" value="4"/>  		向下
+		<enum name="DIR_LEFTDOWN" value="5"/> 	左下
+		<enum name="DIR_LEFT" value="6"/> 		向左
+		<enum name="DIR_LEFTUP" value="7"/> 	左上
+		<variable name="direction" type="int" />		转向的方向	
+	</protocol>
+	
+	<protocol  name="SRoleTurn" type="4008" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long"/>		角色ID
+		<variable name="direction" type="int" />	所转向的方向			
+	</protocol>
+	
+	<protocol name="SRoleEnterScene" type="4009" maxsize="65535" prior="1" tolua="3">		
+		<!-- 以下为新的类型，上面的将要删除，注掉的为暂时名字冲突的 -->
+		<enum name="CHANNEAL" value="516012"/>					跳转点跳转
+		<enum name="ITEM" value= "516013"/>							道具跳转
+		<enum name="SYSTEM_DRAG" value="516014"/>				系统拉人
+		<enum name="ENTER" value="516015"/>							进入游戏
+		<enum name="DEATH" value="516016"/>							死亡跳转
+		<enum name="CHEFU" value="516017"/>							跳转
+		<enum name="QUEST_CG" value="516018"/>  				任务跳转（播动画） 
+		<enum name="FORCE_GOTO" value="516019"/>  			强制跳转
+		<enum name="SKILL" value="516020"/>  						回职业技能跳转
+		<enum name="MARRIAGE" value="516021"/>  				结婚任务跳转
+		<enum name="QUEST" value="516022"/>							任务跳转（不播动画）
+		<enum name="DRAGONBOAT" value="516023"/>				进入赛船地图
+		<enum name="GM_HOLD" value="516025"/>						GM拉人
+		<enum name="INSTANCE" value="516026"/>			副本任务
+		<enum name="ENTER_COMMON_SCENCE" value="516028"/>	通用副本进入
+        <enum name="ENTER_LINE_SCENCE" value="516029"/>	一次性副本进入
+        <enum name="CLAN_GOTO" value="516030"/>	公会副本跳转
+        <enum name="BING_FENG_GOTO" value="516031"/>	冰封王座副本跳转
+        <variable name="ownerName" type="string" />		场景所属者名字(副本场景有效)
+		<variable name="destPos" type="Pos" />			目标地点
+		<variable name="destz" type="byte" />			  目标z
+		<variable name="changetype" type="int"/>		跳转类型(参考以上三个枚举值)
+		<variable name="sceneID" type="long"/>   		场景id
+		<variable name="weatherId" type="byte"/>   		气候Id
+		<variable name="tipsParm" type="string" />		tips参数
+	</protocol>
+	
+	<protocol name="CRoleStop" type="4010" maxsize="65535" prior="1">
+		<variable name="Poslist" type="list" value="Pos"/>	路径上的关键点
+		<variable name="pos" type="Pos"/>		位置
+		<variable name="sceneid" type="long"/>
+	</protocol>
+	
+	<protocol name="SRoleStop" type="4011" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long"/>
+		<variable name="pos" type="Pos"/>		位置
+	</protocol>
+	<protocol name="SSetRoleTeamInfo" type="4012" maxsize="65535" prior="1" tolua="3">	设置场景中玩家的队伍信息
+		<variable name="roleid" type="long"/>
+		<variable name="teamid" type="long" />
+		<variable name="teamindex" type="int" />
+		<variable name="teamstate" type="int"/>
+		<variable name="teamnormalnum" type="int"/> 正常队员的数量 by changhao
+	</protocol>
+	
+	<bean name="PickUpItem">
+		<variable name="uniqueid" type="long"/> 物品的实例ID
+		<variable name="baseid" type="int"/>	物品的模板ID
+		<variable name="pos" type="Pos"/>		位置
+	</bean>
+	
+	<protocol name="SAddPickupScreen" type="4013" maxsize="65535" prior="1" tolua="3">
+		<variable name="pickuplist" type="list" value="PickUpItem"/>
+	</protocol>
+	
+	<protocol name="SRemovePickupScreen" type="4014" maxsize="65535" prior="1" tolua="3">
+		<variable name="pickupids" type="list" value="long"/>		物品的实例ID
+	</protocol>
+	<protocol name="CRelocateRolePos" type="4015" maxsize="65535" prior="1">	玩家暂离或离开队伍时，重新告诉服务器当前坐标（逻辑坐标）
+		<variable name="sceneId" type="long" />
+		<variable name="curPos" type="Pos" />
+		<variable name="locz" type="byte"/>   	RelocateRolePos的z坐标
+	</protocol>
+	
+	
+	<protocol  name="SHideRole" type="4026" maxsize="65535" prior="1" tolua="3"> 	场景中人物进出战斗群发九屏幕
+		<variable name="hide" type="int"/>		1为玩家进入hide状态,行走速度快3倍且无视阻挡点.0为恢复正常状态
+	</protocol>	
+	<protocol name="SRelocateRolePos" type="4027" maxsize="65535" prior="1" tolua="3">	玩家暂离或离开队伍时，服务器获取当前坐标（逻辑坐标）
+		<enum name="MAX_DISTANCE" value="600"/>				 离队长最远距离
+	</protocol>
+	
+	
+	<protocol name="SAddActivityNpc" type="4031" maxsize="65535" prior="1" tolua = "3">
+		<variable name="npcids" type="vector" value="int"/>	
+		<variable name="poslist" type="vector" value="Pos"/>	  需要添加的npc的坐标
+	</protocol>
+	<protocol name="SRemoveActivityNpc" type="4032" maxsize="65535" prior="1" tolua = "3">
+		<variable name="npcids" type="vector" value="int"/>		需要删除的npc的id
+	</protocol>
+	<!-- 改变玩家造型 -->
+	<protocol name="STransfromShape" type="4033" maxsize="65535" prior="1" tolua="3">
+		<variable name="playerid" type="long"/> 玩家id
+		<variable name="shape" type="int"/>		玩家新造型
+	</protocol>
+	
+	
+	<!-- 客户端发给服务器确认要进入危险场景 -->
+	<protocol name="CEnterDangerConfirm" type="4036" maxsize="65535" prior="101" tolua="3">
+	</protocol>
+	
+	<bean name="RoleSimpleInfo">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+		<variable name="name" type="string" />
+		<variable name="shape" type="int"/>	
+		<variable name="school" type="int"/>	
+		<variable name="level" type="int"/>
+		<variable name="campType" type="int"/>	
+	</bean>
+	
+	<!-- GM 请求gm周围所有的玩家信息-->
+	<protocol name="CGMGetAroundRoles" type="4037" maxsize="65535" prior="101" tolua="3">
+	</protocol>
+	
+	<!-- 服务器回复GM请求周围所有玩家信息 -->
+	<protocol name="SGMGetAroundRoles" type="4038" maxsize="65536" prior="101" tolua = "3">
+		<variable name="roles" type="vector" value="RoleSimpleInfo" />
+	</protocol>
+	
+	<!-- 服务器刷新一个玩家的场景状态 -->
+	<protocol name="SUpdateRoleSceneState" type="4039" maxsize="65536" prior="101" tolua="3">
+		<variable name="roleId" type="long" />
+		<variable name="scenestate" type="int" />
+	</protocol>
+
+    <!-- 服务器刷新一个Npc的场景状态 -->
+    <protocol name="SUpdateNpcSceneState" type="4040" maxsize="64" prior="101" tolua="3">
+        <variable name="npckey" type="long" />
+        <variable name="scenestate" type="int" />
+    </protocol>
+		
+	<protocol name="SRoleModelChange" type="4042" maxsize="64" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)"/>
+		<variable name="shape" type="int" validator="value=[1,)" />
+	</protocol>
+	
+		
+	<protocol name="SRoleComponentsChange" type="4044" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" />					精灵ID（包括人物和npc）
+		<variable name="spritetype" type="byte"/>					0代表角色，1代表npc
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+	</protocol>
+	
+	<protocol  name="CRoleJump" type="4045" maxsize="65535" prior="1" tolua="3"> 		角色请求跳跃
+		<variable name="Poslist" type="list" value="Pos"/>	跳跃之前未check的关键点
+		<variable name="srcPos" type="Pos"/>	 出发点
+		<variable name="destPos" type="Pos"/>   到达点
+		<variable name="jumptype" type="byte"/>	0为普通跳，1为2段跳
+		<variable name="sceneID" type="long"/>   场景id
+	</protocol>	
+	
+	<protocol  name="SRoleJump" type="4046" maxsize="65535" prior="1" tolua="3">		服务器广播角色跳跃
+		<variable name="roleid" type="long"/>		 角色ID	
+		<variable name="srcPos" type="Pos"/>	 出发点
+		<variable name="destPos" type="Pos"/>   到达点
+		<variable name="jumptype" type="byte"/>	0为普通跳，1为2段跳
+	</protocol>
+	
+	<protocol  name="CRoleJumpStop" type="4047" maxsize="65535" prior="1" tolua="3">	角色跳跃停止
+		<variable name="destPos" type="Pos"/>		飞越停止点
+		<variable name="destz" type="byte"/>		飞越停止z坐标
+	</protocol>
+	
+	<protocol  name="SRoleJumpDrawback" type="4048" maxsize="65535" prior="1" tolua="3">	角色跳跃被拉回
+		<variable name="roleid" type="long"/>   	角色id
+		<variable name="srcpos" type="Pos"/>   	被拉回的点
+		<variable name="srcz" type="byte"/>   	被拉回的z坐标
+	</protocol>
+	<!--<protocol  name="SRoleJumpStop" type="4048" maxsize="65535" prior="1">	服务器广播角色跳跃停止
+		<variable name="roleid" type="long"/>		 角色ID	
+		<variable name="sceneID" type="long"/>   场景id
+	</protocol>-->
+	<protocol  name="SNPCMoveTo" type="4050" maxsize="65535" prior="1" tolua="3">	NPC 移动
+		<variable name="npckey" type="long"/>   	npckey
+		<variable name="speed" type="int"/>			速度
+		<variable name="destpos" type="Pos"/>   	目的点
+	</protocol>
+	<!-- 开始婚礼，里边带着新郎新娘的id-->
+	<protocol name="SBeginBaitang" type="4051" maxsize="65535" prior="101" tolua="3">
+		<variable name="roleid1" type="long" validator="value=[1,)" />
+		<variable name="roleid2" type="long" validator="value=[1,)" />
+	</protocol>
+	<protocol name="SRoleChangeShape" type="4052" maxsize="65535" prior="101" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)" />
+		<variable name="shape" type="int" validator="value=[1,)" />
+	</protocol>	
+	
+	<!-- 主动请求跟某个在周围的角色互相看见，如果在周围，就推下来 -->
+	<protocol name="CReqSeeEachOther" type="4054" maxsize="65535" prior="1" tolua="3">		
+		<variable name="roleId" type="long"/>
+	</protocol>
+	
+	<!-- 服务器广播角色做某个动作 -->
+	<protocol name="SRolePlayAction" type="4056" maxsize="128" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)" />
+		<variable name="actionid" type="byte"/> 如果为0，则为取消当前的持续性动作
+	</protocol>	
+
+    <!-- 改变玩家装备特效 -->
+    <protocol name="SChangeEquipEffect" type="4059" maxsize="64" prior="1" tolua = "3">
+        <variable name="playerid" type="long"/> 玩家id
+        <variable name="effect" type="int"/>    玩家装备特效
+    </protocol>
+</namespace>

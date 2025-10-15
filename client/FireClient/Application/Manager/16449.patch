@@ -1,0 +1,20 @@
+Index: GameUIManager.cpp
+===================================================================
+--- GameUIManager.cpp	(revision 53990)
++++ GameUIManager.cpp	(working copy)
+@@ -3187,7 +3187,6 @@
+ }
+ void GameUImanager::OnGameStart()
+ {
+-	getClipboard();
+ 	float pro = 33;
+ 	float step = 2;
+ 	cocos2d::CCDirector::sharedDirector()->SetSwapBuffer(true);
+@@ -4133,6 +4132,7 @@
+ 	OpenClipboard(NULL);
+ 	HANDLE hData = GetClipboardData(CF_TEXT);
+ 	if (hData == NULL){
++		CloseClipboard();
+ 		return "";
+ 	}
+ 	length = GlobalSize(hData);

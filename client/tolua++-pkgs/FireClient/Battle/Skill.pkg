@@ -1,0 +1,48 @@
+class SkillStage
+{
+public:    
+    int         m_iBeginTick;
+    int         m_iDelayTicks;
+    int         m_iExecuteTicks;
+    int         m_iLifeTicks;
+    int         m_iLastTicks;
+    int         m_iTriggerTicks;
+    bool        m_bIsStageComplete;
+    bool        m_bIsTriggerStage;
+    bool        m_bIsTriggered;
+    SkillStage(int aLife);
+    virtual ~SkillStage();
+    virtual void OnStageBegin();
+    virtual void OnStageEnd();
+    virtual void OnStageTick(int now, int delta);
+	virtual void SetDelayTicks(int iDelayTicks);
+    void Begin(int now);
+	virtual bool Run(int now, int delta);
+};
+
+class ParallelSkillStage : public SkillStage
+{
+public:
+    ParallelSkillStage(int aTicks);
+    void AddStage(SkillStage* aStage);
+    virtual void OnStageBegin();
+    virtual void OnStageEnd();
+    virtual void OnStageTick(int now, int delta);
+	virtual bool Run(int now, int delta);
+};
+
+class Skill
+{
+public:
+    Skill(sBattleDemoScript& aScript, int SubSkillIndex);
+    virtual ~Skill();
+    void Begin();
+    void Run(int now, int delta);
+    bool IsComplete();
+    void SetLimitTime(int aMs);
+    void PushStageBack(SkillStage* aPStage);
+    sBattleDemoScript GetScript();
+	stBattleDemoResultArr GetResultList();
+};
+Skill* gBuildSkill(sBattleDemoScript& aScript, int SubSkillIndex);
+

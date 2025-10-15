@@ -1,0 +1,1 @@
+%~dp0LJFilePack.exe decode:%1

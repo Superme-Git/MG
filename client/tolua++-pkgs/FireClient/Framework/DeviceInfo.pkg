@@ -1,0 +1,30 @@
+
+class DeviceInfo
+{ 
+public:
+    
+    static int sGetDeviceType(); // 0:DEBUG, 1:ios, 2:android, 3:wp8
+	static const char* sGetCurDeviceName();
+
+	static void sInitDeviceInfo();
+
+	static int sGetCpuFrequency();
+	static int sGetMaxCpuFreq();
+	static int sGetCpuCount();
+	static const char* sGetCpuName();
+
+    static int sGetTotalMemSize();
+    static int sGetFreeMemSize();
+    
+	static float sGetAppCpuRate();				// ANDROID游戏CPU占用率
+    static const char* sGetOSVersion();			// ANDROID手机系统版本号
+	static const char* sGetProductModel();		// ANDROID手机型号
+	static const char* sGetNetEnvir();			// ANDROID手机网络类型
+	static const char* sGetScreenWidthInfo();	// ANDROID屏幕宽度（像素）
+    static const char* sGetScreenHeightInfo();	// ANDROID屏幕高度（像素）
+    static const char* sGetVersionName();		// ANDROID游戏版本号
+    static const char* sGetPhoneNumber();		// ANDROID用户手机号
+	static const char* sGetDeviceID();			// ANDROID设备唯一标识：IMEI
+	static const char* sGetProvider();			// ANDROID用户网络运营商
+
+};

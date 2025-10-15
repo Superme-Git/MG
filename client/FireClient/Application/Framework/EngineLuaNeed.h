@@ -1,0 +1,31 @@
+#include <vector>
+#include <map>
+
+#include "ljfmfex.h"
+#include "ljfmasync.h"
+#include "ljfmfs.h"
+#include "ljfmfsmanager.h"
+#include "ljfmtableloader.h"
+
+#include "sprite/nuspritemanager.h"
+#include "engine/nuengine.h"
+#include "engine/nuconfigmanager.h"
+#include "engine/nuanimanager.h"
+#include "engine/nusystemresourcemanager.h"
+#include "effect/nueffectmanager.h"
+#include "engine/nurenderable.h"
+#include "engine/nuguobj.h"
+#include "nuiengine.h"
+#include "effect/nueffect.h"
+#include "effect/nueffectmanager.h"
+#include "effect/nuparticleeffect.h"
+#include "renderer/nucocos2d_render.h"
+#include "log/CoreLog.h"
+#include "ini/IniFile.h"
+#include "utils/FileUtil.h"
+#include "utils/Utils.h"
+#include "utils/StringCover.h"
+#include "include/octets.h"
+#include "IniManager.h"
+
+#include "Utils/Utils2.h"

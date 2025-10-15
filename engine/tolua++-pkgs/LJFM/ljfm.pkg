@@ -1,0 +1,65 @@
+$#include "../../../../common/ljfm/code/include/ljfmfex.h"
+$#include "../../../../common/ljfm/code/include/ljfmopen.h"
+
+
+namespace LJFM
+{
+	class LJFMBF : public LJFMUO
+	{
+	};
+	
+	class LJFMFS : public LJFM::LJFMUO
+	{
+		LJFMFS(LJFM::LJFMBF& file);
+		virtual ~LJFMFS();
+	}
+
+	class LJFMIF : public LJFMBF
+	{
+	public:
+		LJFMIF();
+		virtual ~LJFMIF();
+	};
+	
+	class LJFMFSManager
+	{
+	public:
+		static LJFMFSManager* GetLJFMFSManager();
+	    
+	public:
+		LJFMFS* GetFSPtr(LJFM::LJFMBF& );
+		bool ReleaseFSPtr(LJFMFS* );
+	};
+	
+	
+	enum FILE_MODE
+	{
+		FM_EXCL         = 0x00000001, 
+		FM_CREAT        = 0x00000002, 
+		FM_TRUNC        = 0x00000004, 
+	};
+
+	enum FILE_ACCESS
+	{
+		FA_RDONLY       = 0x00000001,	
+		FA_WRONLY       = 0x00000002,	
+		FA_RDWR         = 0x00000003,	
+	};
+
+	class LJFMF : public LJFMBF
+	{
+		LJFMF();
+		virtual bool Open(const std::wstring& filename, FILE_MODE fm, FILE_ACCESS fa);
+		virtual void Close();
+	};
+	
+	inline int ShortValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	inline int IntValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	inline long long LongValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	inline double DoubleValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	inline bool BoolValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	inline std::wstring StringValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	inline unsigned int UIntValueFromTable(LJFM::LJFMF* fp, int& iStatus);
+	
+}
+

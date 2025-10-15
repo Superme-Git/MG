@@ -1,0 +1,21 @@
+
+typedef void(*NoParam)(void);
+class CBroadcastEvent
+{
+    TOLUA_TEMPLATE_BIND(T, NoParam)
+
+	int InsertScriptFunctor(LUA_FUNCTION handler);
+	void RemoveScriptFunctor(int handler);
+	void Bingo();
+};
+
+
+class CEvent
+{
+    TOLUA_TEMPLATE_BIND(T, int, int64_t)
+	
+	void call(int args);
+	int InsertScriptFunctor(LUA_FUNCTION handler);
+	void RemoveScriptFunctor(int handler);
+};
+

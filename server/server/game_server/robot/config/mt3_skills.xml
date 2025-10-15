@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<root>
+    <skillconfig>
+		<school id="11"> 战士
+			<skill id="110001" name="幻影冲锋"/>
+			<skill id="110002" name="嘲讽"/>
+			<skill id="110003" name="毁灭打击"/>
+			<skill id="110004" name="蓄力猛击"/>
+			<skill id="110005" name="破甲"/>
+			<skill id="110007" name="无敌斩"/>
+		</school>
+		<school id="12"> 圣骑士
+			<skill id="120001" name="审判之锤"/>
+			<skill id="120002" name="无边定罪"/>
+			<skill id="120003" name="复仇之盾"/>
+			<skill id="120004" name="圣光洗礼"/>
+			<skill id="120005" name="神谕责难"/>
+		</school>
+  		<school id="13"> 猎人
+			<skill id="130001" name="多重打击"/>
+			<skill id="130002" name="穿刺打击"/>
+			<skill id="130003" name="野性召唤"/>
+			<skill id="130004" name="生命献祭"/>
+			<skill id="130005" name="精准打击"/>
+		</school>
+		<school id="14"> 德鲁伊
+			<skill id="140001" name="月蚀"/>
+			<skill id="140002" name="精灵之怒"/>
+			<skill id="140003" name="缠绕根须"/>
+			<skill id="140004" name="休眠"/>
+			<skill id="140005" name="自然之眼"/>
+		</school>
+		<school id="15"> 法师
+			<skill id="150001" name="暴风雪"/>
+			<skill id="150002" name="奥术冲击"/>
+			<skill id="150003" name="变形术"/>
+			<skill id="150004" name="魔爆术"/>
+			<skill id="150005" name="冰霜血脉"/>
+			
+		</school>
+		<school id="16"> 牧师
+			<skill id="160001" name="神圣新星"/>
+			<skill id="160002" name="治疗祷言"/>
+			<skill id="160003" name="复生"/>
+			<skill id="160004" name="心灵之火"/>
+			<skill id="160005" name="神圣救赎"/>
+		</school>
+		<school id="17"> 萨满
+			<skill id="161001" name="闪电链"/>
+			<skill id="161002" name="治疗图腾"/>
+			<skill id="161003" name="闪电箭"/>
+			<skill id="161004" name="先祖之魂"/>
+			<skill id="161005" name="狂热图腾"/>	
+		</school>
+		<school id="18"> 盗贼
+			<skill id="162001" name="淬毒刀扇"/>
+			<skill id="162002" name="穿刺影袭"/>
+			<skill id="162003" name="剔骨"/>
+			<skill id="162004" name="潜行"/>
+			<skill id="162005" name="闷棍"/>
+		</school>
+		<school id="19"> 术士
+			<skill id="163001" name="火焰之雨"/>
+			<skill id="163002" name="沉默诅咒"/>
+			<skill id="163003" name="生命虹吸"/>
+			<skill id="163004" name="恶魔降临"/>
+			<skill id="163005" name="失忆诅咒"/>
+		</school>
+    </skillconfig>
+</root>

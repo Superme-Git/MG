@@ -1,0 +1,39 @@
+// LinkText
+class LinkText : public Window
+{
+public:
+	
+	static const string EventNamespace;				//!< Namespace for global events
+	static const string WidgetTypeName;             //!< Window factory name
+
+	static const string ClickEventName;
+	
+	/*************************************************************************
+		Construction and Destruction
+	*************************************************************************/
+	/*!
+	\brief
+		Constructor for ButtonBase objects
+	*/
+	LinkText(const string& type, const string& name);
+
+
+	/*!
+	\brief
+		Destructor for ButtonBase objects
+	*/
+	virtual ~LinkText(void);
+
+	bool isMouseOn();
+	bool isPushed() ;
+	int GetUserID()const ;
+	void SetUserID(int id) ;
+
+	void SetClickLinkToWordBook(bool bLinkToWordBook);
+
+public:
+	LinkText(const string& type);
+	virtual Window* clone(Window* wnd);
+	virtual bool onRenameTemplatePrefix(const string& sPrefix);
+};
+

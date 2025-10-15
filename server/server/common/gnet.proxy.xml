@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="gnet" shareHome="../../core" pvids="">
+	
+	<import file="gnet.xml"/>
+	<import file="gnet.cross.xml"/>
+	<import file="gnet.openau.xml"/>
+		
+	<!-- AU和gdeliverd之间的协议,历史原因旧的协议号没规律，但新的都大于8000 -->
+
+	<!-- 证书验证相关协议 -->
+	<protocol name="CertRequest" type="545" maxsize="8192" prior="1">
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+
+	<protocol name="CertAnswer" type="546" maxsize="8192" prior="1">
+		<variable name="authd_cert" type="octets"/>
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+
+	<protocol name="CertKey" type="547" maxsize="8192" prior="1">
+		<variable name="d_key1_encrypt" type="octets"/>
+		<variable name="d_key2_encrypt" type="octets"/>
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+
+	<protocol name="CertFinish" type="548" maxsize="8192" prior="1">
+		<variable name="reserved1" type="int" default="0"/>
+	</protocol>
+	<!-- end 证书验证相关协议 -->
+	
+	<rpc name="MatrixPasswd" argument="MatrixPasswdArg" result="MatrixPasswdRes"
+		type="550" maxsize="512" prior="1" timeout="20"/>
+	
+	<bean name="MatrixPasswd2Arg">     
+		<variable name="account" type="octets"/>
+		<variable name="challenge" type="octets"/>
+		<variable name="loginip" type="int" default="0"/>
+	</bean>
+	<bean name="MatrixPasswd2Res">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="algorithm" type="int" default="0"/>
+		<variable name="response" type="octets"/>
+		<variable name="matrix" type="octets"/>
+		<variable name="seed" type="octets"/>
+		<variable name="pin" type="octets"/>
+		<variable name="rtime" type="int" default="0"/>
+		<variable name="currenttime" type="int" default="0"/>
+		<variable name="forbid" type="vector" value="RoleForbid"/>
+		<variable name="last_used_elec_number" type="octets"/>
+	</bean>
+	<rpc name="MatrixPasswd2" argument="MatrixPasswd2Arg" result="MatrixPasswd2Res"
+		type="8066" maxsize="1024" prior="1" timeout="20"/>
+
+	<rpc name="UserLogin" type="15" argument="UserLoginArg" result="UserLoginRes" 
+				maxsize="128" prior="1" timeout="20"/>
+
+	<bean name="UserLogin2Arg">
+		<variable name="userid"   type="int" default="-1"/>
+		<variable name="localsid" type="int" default="0"/>
+		<variable name="blkickuser"   type="byte" default="0"/>
+		<variable name="freecreatime" type="int" default="0"/>
+		<variable name="used_elec_number" type="octets"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="octets"/>
+	</bean>
+	<bean name="UserLogin2Res">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="remain_playtime" type="int" default="0"/>
+		<variable name="func" type="int" default="0"/>
+		<variable name="funcparm" type="int" default="0"/>
+		<variable name="blIsGM" type="byte" default="0"/>
+		<variable name="free_time_left" type="int" default="0"/>
+		<variable name="free_time_end" type="int" default="0"/>
+		<variable name="creatime" type="int" default="0"/>
+		<variable name="adduppoint" type="int" default="0"/>
+		<variable name="soldpoint" type="int" default="0"/>
+		<variable name="auth" type="vector" value="byte" attr="ref"/>
+		<variable name="gender" type="byte" default="0"/>
+		<variable name="remain_coupon" type="int" default="0"/>
+		<variable name="today_exchange_coupon" type="int" default="0"/>
+		<variable name="today_remain_exchange_coupon" type="int" default="0"/>
+		<variable name="nickname" type="octets"/>
+	</bean>
+	<rpc name="UserLogin2" type="8067" argument="UserLogin2Arg" result="UserLogin2Res" 
+				maxsize="512" prior="1" timeout="20"/>
+
+	<bean name="UserLogoutArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="localsid" type="int" default="0"/>
+	</bean>
+	<bean name="UserLogoutRes">
+		<variable name="retcode" type="byte" default="-1"/>
+	</bean>
+	<rpc name="UserLogout" type="33" argument="UserLogoutArg" result="UserLogoutRes" 
+				maxsize="128" prior="1" timeout="20"/>
+
+	<protocol name="MatrixFailure" type="553" maxsize="64" prior="1">
+		<variable name="userid" type="int"/>
+		<variable name="loginip" type="int" default="0"/>
+        	<variable name="weight" type="int" default="0"/>
+	</protocol>
+	
+	<protocol name="AnnounceZoneid2" type="523" maxsize="32" prior="1">
+		<variable name="zoneid" type="int"/>
+		<variable name="aid" type="int" />
+		<variable name="blreset" type="byte"/>
+	</protocol>
+
+	<protocol name="AnnounceZoneid3" type="527" maxsize="64" prior="1">
+		<variable name="zoneid" type="int"/>
+		<variable name="aid" type="int" />
+		<variable name="blreset" type="byte"/>
+		<variable name="ip1" type="int" />
+		<variable name="ip2" type="int" />
+		<variable name="ip3" type="int" />
+		<variable name="version" type="int" /> default 1
+		<variable name="reserved" type="int" />
+	</protocol>
+	
+	<protocol name="QueryUserForbid_Re" type="509" maxsize="4096" prior="1">
+		<variable name="userid" type="int"/>
+		<variable name="list_type" type="int"/><!--0:forbid list at login,1:reply of forbid-->
+		<variable name="forbid" type="vector" value="RoleForbid"/>
+	</protocol>
+
+	<!-- 根据角色名查角色信息 -->
+	<bean name="QueryUserid2Arg">
+		<variable name="rolename" type="octets" attr="ref"/>
+	</bean>
+	<bean name="QueryUserid2Res">
+		<variable name="result" type="int" default="0"/>
+		<variable name="userid" type="int" default="0"/>
+		<variable name="roleid" type="long" default="0"/>
+		<variable name="level" type="int" default="0"/>
+	</bean>
+	<rpc name="QueryUserid2" argument="QueryUserid2Arg" result="QueryUserid2Res" maxsize="256" type="8002" prior="1" timeout="10"/>
+
+	<!-- 充值相关 -->
+	<bean name="GetAddCashSNArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+	</bean>
+	<bean name="GetAddCashSNRes">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="sn" type="int" default="0"/>
+	</bean>
+	<rpc name="GetAddCashSN" type="514" argument="GetAddCashSNArg" result="GetAddCashSNRes" maxsize="128" prior="1" timeout="20"/>
+	
+	<bean name="GetAddCashSN2Arg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="force" type="byte" default="-1"/>
+	</bean>
+	<bean name="GetAddCashSN2Res">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="sn" type="int" default="0"/>
+	</bean>
+	<rpc name="GetAddCashSN2" type="8009" argument="GetAddCashSN2Arg" result="GetAddCashSN2Res" maxsize="128" prior="1" timeout="20"/>
+	
+	<protocol name="AuthdVersion" maxsize="256" prior="1" type="8010">
+		<enum name="RET_OK" value="0"/>
+		<enum name="RET_ZONEID_INVALID" value="1"/>
+		<enum name="RET_ZONEID_CONFLICT" value="2"/>
+		<variable name="version" type="int" default="0"/>
+		<variable name="retcode" type="int" default="0"/>
+		<variable name="reserved" type="int" default="0"/>
+	</protocol>	
+
+	<protocol name="AuGameKeepAlive" maxsize="32" prior="1" type="8058">
+		<variable name="code" type="long"/>
+	</protocol>
+
+	<bean name="PassportGetRoleListArg">
+		<variable name="userid" type="int"/>
+	</bean>
+	<bean name="PassportGetRoleListRes">
+		<variable name="retcode" type="int"/>
+		<variable name="rolelist" type="vector" value="RoleSimpleInfo"/> 角色列表
+	</bean>
+	<rpc name="PassportGetRoleList" type="8013" argument="PassportGetRoleListArg" result="PassportGetRoleListRes" maxsize="512" prior="1" timeout="15"/>
+	
+	<!-- 游戏内利用充值卡充值 -->
+	<bean name="InstantAddCashArg">
+		<variable name="userid" type="int"/>
+		<variable name="loginip" type="int"/>
+		<variable name="cardnum" type="octets"/> 充值卡号
+		<variable name="cardpasswd" type="octets"/> 充值卡密码
+		<variable name="reserved" type="int"/>
+	</bean>
+	<bean name="InstantAddCashRes">
+		<variable name="retcode" type="int"/>
+	</bean>
+	<rpc name="InstantAddCash" type="8015" argument="InstantAddCashArg" result="InstantAddCashRes" maxsize="128" prior="1" timeout="15"/>
+	
+	<bean name="GetUserNickNameArg">
+		<variable name="userid" type="int"/>
+	</bean>
+	<bean name="GetUserNickNameRes">
+		<variable name="retcode" type="int"/>
+		<variable name="nickname" type="octets"/>
+		<variable name="reserved" type="int"/>
+	</bean>
+	<rpc name="GetUserNickName" type="8003" argument="GetUserNickNameArg" result="GetUserNickNameRes" maxsize="256" prior="1" timeout="15"/>
+
+	<bean name="SetUserNickNameArg">
+		<variable name="userid" type="int"/>
+		<variable name="nickname" type="octets"/>
+		<variable name="reserved" type="int"/>
+	</bean>
+	<bean name="SetUserNickNameRes">
+		<variable name="retcode" type="int"/>
+		<variable name="reserved" type="int"/>
+	</bean>
+	<rpc name="SetUserNickName" type="8004" argument="SetUserNickNameArg" result="SetUserNickNameRes" maxsize="256" prior="1" timeout="15"/>
+
+
+	<!-- 点券相关 -->
+	<!-- 查询帐号的点券余额 -->
+	<bean name="GetUserCouponArg">
+		<variable name="userid" type="int" default="-1"/>
+	</bean>
+	<bean name="GetUserCouponRes">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="remain_coupon" type="int" default="-1"/>
+		<variable name="today_exchange_coupon" type="int" default="-1"/>
+		<variable name="today_remain_exchange_coupon" type="int" default="-1"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+	</bean>
+	<rpc debug="0" name="GetUserCoupon" type="8062" argument="GetUserCouponArg" result="GetUserCouponRes" maxsize="128" prior="2" timeout="15"/>
+	
+	<!-- 申请划拨一定数量的点券到游戏 -->
+	<bean name="CouponExchangeArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="coupon_number" type="int" default="-1"/>
+		<variable name="cash_number" type="int" default="-1"/>
+		<variable name="timestamp" type="long" default="-1"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+	</bean>
+	<bean name="CouponExchangeRes">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="remain_coupon" type="int" default="-1"/>
+		<variable name="today_exchange_coupon" type="int" default="-1"/>
+		<variable name="today_remain_exchange_coupon" type="int" default="-1"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+	</bean>
+	<rpc debug="0" name="CouponExchange" type="8063" argument="CouponExchangeArg" result="CouponExchangeRes" maxsize="128" prior="2" timeout="15"/>
+	<!-- END AU和gdeliverd之间的协议 -->
+		
+	<state name="DeliverService">
+		<protocol ref="MatrixPasswdReq"/>
+		<protocol ref="UserLoginReq"/>
+		<protocol ref="MatrixResponseReq"/>
+		<protocol ref="StatusAnnounce"/>
+		<protocol ref="InstantAddCashReq"/>
+		<protocol ref="GetUserCouponReq"/>
+		<protocol ref="CouponExchangeReq"/>
+		<protocol ref="SSOGetTicketReq"/>
+		<protocol ref="ForceLoginRep"/>
+	</state>
+	
+	<state name="AuthClient">
+		<rpc ref="MatrixPasswd"/>
+		<rpc ref="MatrixPasswd2"/>
+		<rpc ref="UserLogin"/>
+		<rpc ref="UserLogin2"/>
+		<rpc ref="UserLogout"/>
+		<rpc ref="GetAddCashSN"/>
+		<rpc ref="GetAddCashSN2"/>
+		<rpc ref="InstantAddCash"/>
+		<rpc ref="QueryUserid2"/>
+		<rpc ref="PassportGetRoleList"/>
+		<protocol ref="AddCash"/>
+		<protocol ref="CertAnswer"/>
+		<protocol ref="CertFinish"/>
+		<protocol ref="QueryUserForbid_Re"/>
+		<protocol ref="QueryUserPrivilege3_Re"/>
+		<protocol ref="AddictionControl"/>
+		<protocol ref="KickoutUser"/>
+		<protocol ref="SysSendMail2"/>
+		<protocol ref="SysSendMail3"/>
+		<protocol ref="SysSendMail4"/>
+		<protocol ref="VerifyMaster2"/>
+		<protocol ref="NetBarAnnounce"/>
+		<protocol ref="AuthdVersion"/>
+		<protocol ref="AU2Game"/>
+		<protocol ref="SSOGetTicketRep"/>
+		<rpc ref="GetUserCoupon"/>
+		<rpc ref="CouponExchange"/>
+		<rpc ref="GetUserNickName"/>
+		<rpc ref="SetUserNickName"/>
+		<protocol ref="VIPAnnounce"/>
+		<protocol ref="AuGameKeepAlive"/>
+		<protocol ref="DiscountAnnounce"/>
+		<protocol ref="GameDataTransferByAU"/>
+	</state>
+	
+	<state name="GameDBServer">
+		<!--gamedbd to deliver to au-->
+		<protocol ref="GMKickoutUser"/>
+		<protocol ref="GMShutup"/>
+		<protocol ref="QueryUserPrivilege3"/>
+		<protocol ref="AddCash_Re"/>
+		<protocol ref="SysSendMail2_Re"/>
+		<protocol ref="SysSendMail3_Re"/>
+		<protocol ref="SysSendMail4_Re"/>
+		<protocol ref="VerifyMaster2_Re"/>
+		<protocol ref="Game2AU"/>
+		<protocol ref="GameDataTransferByAU"/>
+		<!--gamedbd to deliver-->
+		<rpc ref="SetServerAttr"/>
+		<rpc ref="SetMaxOnlineNum"/>
+		<rpc ref="GetMaxOnlineNum"/>
+		<protocol ref="UserInfoReq"/>
+		<protocol ref="GetAddCashSNRep"/>
+		<protocol ref="GetAddCashSN2Rep"/>
+		<protocol ref="QueryUserid2Rep"/>
+		<protocol ref="PassportGetRoleListRep"/>
+		<protocol ref="GetUserNickNameReq"/>
+		<protocol ref="SetUserNickNameReq"/>
+		
+		<!--gamedbd to deliver to Cross server-->
+		<protocol ref="cross.SendUserInfoAndTicket"/>
+		<protocol ref="cross.SendUserInfoAndTicket_Re"/>
+		<protocol ref="cross.UserDataTransfer"/>
+		<protocol ref="cross.CommonDataTransfer"/>
+		<protocol ref="cross.BroadcastData"/>
+		
+		<!--gamedbd to deliver to AuAny server-->
+		<protocol ref="openau.QueryOrderRequest"/>
+		<protocol ref="openau.DataBetweenAuAnyAndGS"/>
+	</state>
+
+	<state name="CrossServer">
+		<protocol ref="cross.AnnounceZoneidToCross"/>
+		<protocol ref="cross.BroadcastCrossStatus_Re"/>
+		<protocol ref="cross.SendUserInfoAndTicket"/>
+		<protocol ref="cross.SendUserInfoAndTicket_Re"/>
+		<protocol ref="cross.UserDataTransfer"/>
+		<protocol ref="cross.CommonDataTransfer"/>
+	</state>
+
+	<state name="CrossClient">
+		<protocol ref="cross.AnnounceZoneidToCross_Re"/>
+		<protocol ref="cross.BroadcastCrossStatus"/>
+		<protocol ref="cross.SendUserInfoAndTicket"/>
+		<protocol ref="cross.SendUserInfoAndTicket_Re"/>
+		<protocol ref="cross.UserDataTransfer"/>
+		<protocol ref="cross.CommonDataTransfer"/>
+		<protocol ref="cross.BroadcastData"/>
+	</state>
+
+	<state name="AuAnyClient">
+		<rpc ref="openau.AuAnyLogin"/>
+		<protocol ref="openau.DataBetweenAuAnyAndGS"/>
+		<protocol ref="openau.DataBetweenAuAnyAndClient"/>
+		<protocol ref="openau.RegistGameServerResponse"/>
+		<protocol ref="openau.QueryOrderResponse"/>
+		<protocol ref="AuGameKeepAlive"/>
+	</state>
+
+	<!-- 跟gdeliverd相关的但是未在上面的state里定义的都在DeliverImport中罗列 -->	
+	<state name="DeliverImport">
+		<!-- gdeliverd to au -->
+		<protocol ref="CertRequest"/>
+		<protocol ref="CertKey"/>
+		<protocol ref="AnnounceZoneid3"/>
+		<protocol ref="MatrixFailure"/>
+		<protocol ref="Game2AU"/>
+		<!-- gdeliverd to glinkd -->	
+		<protocol ref="MatrixPasswdRep"/>
+		<protocol ref="MatrixResponseRep"/>
+		<protocol ref="UserLoginRep"/>
+		<protocol ref="AnnounceForbidInfo"/>
+		<protocol ref="AddictionControlRep"/>
+		<protocol ref="OnlineAnnounce"/>
+		<protocol ref="ErrorInfoRep"/>
+		<protocol ref="CertVerify"/>
+		<protocol ref="AnnounceServerAttribute"/>
+		<protocol ref="InstantAddCashRep"/>
+		<protocol ref="DeliverAnnounceToLink"/>
+		<protocol ref="ForceLoginReq"/>
+		<!-- gdeliverd to gamedbd -->	
+		<protocol ref="UserInfoRep"/>
+		<protocol ref="GetAddCashSNReq"/>
+		<protocol ref="GetAddCashSN2Req"/>
+		<protocol ref="QueryUserid2Req"/>
+		<protocol ref="GMKickoutUser_Re"/>
+		<protocol ref="GMShutup_Re"/>
+		<protocol ref="PassportGetRoleListReq"/>
+		<!-- gdeliverd to tradeserver -->	
+		<protocol ref="AnnounceZoneid2"/>
+		<!-- gdeliverd to IM and SNS server -->	
+		<protocol ref="GetUserCouponRep"/>
+		<protocol ref="CouponExchangeRep"/>
+		<protocol ref="GetUserNickNameRep"/>
+		<protocol ref="SetUserNickNameRep"/>
+		<!-- gdeliverd to AuAny-->
+		<protocol ref="openau.RegistGameServerRequest"/>
+		<protocol ref="openau.ServerIDResponse"/>
+	</state>
+
+	<state name="Null" timeout="5"/>
+	
+	<service name="proxy">
+		<manager name="DeliverServer" type="server" initstate="DeliverService" port="10002">
+			<state ref="DeliverImport"/>
+			<state ref="DeliverService"/>
+		</manager>
+		<manager name="AuthClient" type="client" initstate="AuthClient" port="29200">
+			<state ref="AuthClient"/>
+		</manager>
+		<manager name="GameDBServer" type="server" initstate="GameDBServer" port="29251">
+			<state ref="GameDBServer"/>
+		</manager>
+		<manager name="CrossServer" type="server" initstate="CrossServer" port="29202">
+			<state ref="CrossServer"/>
+			<state ref="Null"/>
+		</manager>
+		<manager name="CrossClient" type="client" initstate="CrossClient" port="29202">
+			<state ref="CrossClient"/>
+			<state ref="Null"/>
+		</manager>
+		<manager name="AuAnyClient" type="client" initstate="AuAnyClient" port="29202">
+			<state ref="AuAnyClient"/>
+		</manager>
+
+	</service>
+</application>
+

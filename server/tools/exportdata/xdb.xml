@@ -1,0 +1,33 @@
+<xdb xgenOutput="src" trace="debug" traceTo=":file:out" corePoolSize="30" procPoolSize="10" schedPoolSize="5" dbhome="xdb" logpages="4096" backupDir="xbackup" checkpointPeriod="60000" backupIncPeriod="600000" backupFullPeriod="36000000" angelPeriod="5000" xdbVerify="true">
+	<ProcedureConf executionTime="3000" maxExecutionTime="0" retryTimes="3" retryDelay="100"/>
+
+	<xbean name="UserInfo">
+		<variable name="plat" type="string" />
+		<variable name="uid" type="string" /> 实际就是username，account，platformUID
+	</xbean>
+	<table name="users" key="long" value="UserInfo" cacheCapacity="10240" cachehigh="512" cachelow="256" lock="userlock" autoIncrement="true"/> key为自增long型id
+
+<!-- 下面开始是 locojoyplat相关的  -->
+	<xbean name="LocojoyPlatUserInfo">
+		<variable name="userid" type="int" />     游戏里用的userid
+		<variable name="userinfoid" type="long" /> users表里的key
+	</xbean>
+	<table name="locojoyplatusers" key="string" value="LocojoyPlatUserInfo" cacheCapacity="10240" cachehigh="512" cachelow="256" lock="locojoyplatuserlock"/> key为帐号
+	
+	<xbean name="LocojoyPlatOrderInfo">
+		<variable name="createtime" type="long" />
+		<variable name="orderserialplat" type="string" />
+		<variable name="orderserialgame" type="string" />
+		<variable name="username" type="string" />
+		<variable name="vars" type="binary" />
+	</xbean>
+	<table name="locojoyplatorderinfos" key="string" value="LocojoyPlatOrderInfo" cacheCapacity="10240" cachehigh="512" cachelow="256" lock="locojoyplatorderinfolock"/>
+	<table name="locojoyplatordergametoplat" key="string" value="string" cacheCapacity="10240" cachehigh="512" cachelow="256" lock="locojoyplatordergametoplatlock"/>
+
+<!-- localid信息 -->
+	<TableSysConf name="_sys_" cacheCapacity="1" cachehigh="512" cachelow="256"/>
+  	<UniqNameConf localId="1">
+		<XioConf name="xdb.util.UniqName">
+		</XioConf>
+	</UniqNameConf>
+</xdb>

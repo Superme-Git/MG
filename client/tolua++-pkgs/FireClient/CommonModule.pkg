@@ -1,0 +1,5 @@
+$pfile "Common/GameCommon.pkg"
+$pfile "Common/RoleSkillCommon.pkg"
+$pfile "Common/SceneCommon.pkg"
+$pfile "Common/BuffCommon.pkg"
+$pfile "Common/MessageCommon.pkg"

@@ -1,0 +1,6 @@
+"系统ID","系统名称","提醒特效","图片"
+"1","每日签到","1","set:jiangli image:meiriqiandao"
+"2","首充礼包","0","set:jiangli image:shouchonglibao"
+"3","七日签到","1","set:jiangli image:qiriqiandao"
+"4","新手礼包","1","set:jiangli image:xinshoulibao"
+"5","升级大礼包",,

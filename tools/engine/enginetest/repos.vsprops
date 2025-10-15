@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="world"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="&quot;$(ReposDir)/Nuclear&quot;;&quot;$(ReposDir)/share&quot;"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalLibraryDirectories="$(ReposDir)/share/win32;$(ReposDir)/Nuclear/lib;$(ReposDir)/snail/bin"
+	/>
+	<UserMacro
+		Name="ReposDir"
+		Value="../.."
+	/>
+</VisualStudioPropertySheet>

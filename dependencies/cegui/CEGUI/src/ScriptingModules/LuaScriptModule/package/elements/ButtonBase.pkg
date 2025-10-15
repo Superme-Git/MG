@@ -1,0 +1,22 @@
+/***********************************************************************
+	ButtonBase
+***********************************************************************/
+class ButtonBase : public Window
+{
+public:
+	bool	isHovering(void) const;
+	bool	isPushed(void) const;
+
+	void SetMouseLeaveReleaseInput(bool b);
+
+	bool isDrawFlash();
+
+	void OnPlayClickSound();
+    
+    void EnableClickAni(bool bEnable);
+    
+    bool isClickAniEnable() const;
+
+	bool isLeftBtnDown();
+
+};

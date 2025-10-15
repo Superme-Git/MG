@@ -1,0 +1,46 @@
+// PanelItem
+class PanelItem
+{
+public:
+
+    PanelItem(const string& name,const string& intro,const string& tips, int item_id = 0, bool bAutodelete = false,void* item_data = 0,bool bHide = false);
+
+    virtual ~PanelItem(void) ;
+
+    int    getID(void) const           ;
+   
+	void*   getUserData(void) const     ;
+
+	string getItemName(void) const ;
+   
+	bool    isOpen(void) const      ;
+	bool    isAutoDelete() const     ;
+	bool    isHide() const ;
+  
+	// void    setTooltipText(const string& text)      ;
+    void    setID(int item_id)     ;
+
+    void    setSortID(int sortid)     ;
+
+    void    setUserData(void* item_data)    ;
+
+	void    setHide(bool bHide) ;
+
+	virtual void toggleIsOpen(void)
+	;
+
+   virtual void setOwnerWindow(const Window* owner) ;
+
+    void    setBackImage(const Image* image)      ;
+	void    setLeftIconImage(const Image* icon)      ;
+	
+	bool isMouseOn() ;
+	void SetMouseOnState(bool state) ;
+
+
+    virtual Size    getSize(void) const;
+
+    virtual void draw(GeometryBuffer* buffer, const Rect& targetRect, float alpha, const Rect* clipper) = 0;
+
+	ColourRect getModulateAlphaColourRect(const ColourRect& cols, float alpha) const;
+};

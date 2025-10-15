@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="role"> 	
+		<bean name="RoleConfig" from="z职业配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id" /> id
+			<variable name="type" type="int" fromCol="类型" />
+			<variable name="mapx" type="int" fromCol="出生范围左上角x" />
+			<variable name="mapy" type="int" fromCol="出生范围左上角y" />
+			<variable name="regionx" type="int" fromCol="出生范围宽" />
+			<variable name="regiony" type="int" fromCol="出生范围高" />
+			<variable name="mapid" type="int" fromCol="出生地图id" />
+			<variable name="level" type="int" fromCol="初始等级" />
+			<variable name="race" type="int" fromCol="所属种族" />
+			<variable name="presents" type="vector" value="int" fromCol="赠送物品1,赠送物品2,赠送物品3,赠送物品4,赠送物品5,赠送物品6"/>
+			<variable name="nums" type="vector" value="int" fromCol="数量1,数量2,数量3,数量4,数量5,数量6"/>
+			<variable name="addpoint" type="vector" value="int" fromCol="推荐体1,推荐智1,推荐力1,推荐耐1,推荐敏1" />
+			<variable name="addpoint2" type="vector" value="int" fromCol="推荐体2,推荐智2,推荐力2,推荐耐2,推荐敏2" />
+			<variable name="addpoint3" type="vector" value="int" fromCol="推荐体3,推荐智3,推荐力3,推荐耐3,推荐敏3" />
+			<variable name="defaultscheme" type="int" fromCol="默认加点方案" />
+			<variable name="extAi" type="int" fromCol="辅助AI" />
+		</bean>
+		<bean name="Redirect" from="z职业配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id" /> id
+			<variable name="remapid" type="int" fromCol="重定位地图id" /> 
+			<variable name="reposx" type="int" fromCol="重定位x坐标" /> 
+			<variable name="reposy" type="int" fromCol="重定位y坐标" />
+		</bean>
+		<bean name="SchoolInfo" from="z职业配置表" genxml="client" priority="1" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" /> 职业id
+			<variable name="name" type="string" fromCol="名字" />
+			<variable name="englishName" type="string" fromCol="英文名称" />
+			<variable name="describe" type="string" fromCol="描述" />
+			<variable name="schoolicon" type="string" fromCol="职业图标" />
+			<variable name="schoolback" type="string" fromCol="职业背景" />
+			<variable name="schoolmapid" type="int" fromCol="出生地图id" /> 出生地图id
+			<variable name="schooljobmapid" type="int" fromCol="职业地图id" />
+			<variable name="scheme" type="string" fromCol="推荐加点1" />
+			<variable name="explain" type="string" fromCol="加点1说明" />
+			<variable name="addpoint" type="vector" value="int" fromCol="推荐体1,推荐智1,推荐力1,推荐耐1,推荐敏1" />
+			<variable name="scheme2" type="string" fromCol="推荐加点2" />
+			<variable name="explain2" type="string" fromCol="加点2说明" />
+			<variable name="addpoint2" type="vector" value="int" fromCol="推荐体2,推荐智2,推荐力2,推荐耐2,推荐敏2" />
+			<variable name="scheme3" type="string" fromCol="推荐加点3" />
+			<variable name="explain3" type="string" fromCol="加点3说明" />
+			<variable name="addpoint3" type="vector" value="int" fromCol="推荐体3,推荐智3,推荐力3,推荐耐3,推荐敏3" />
+			<variable name="schooliconpath" type="string" fromCol="职业图标路径" />
+			<variable name="jobtype" type="int" fromCol="类型" />
+			<variable name="normalbtnimage" type="string" fromCol="普通态职业"/>
+			<variable name="pushbtnimage" type="string" fromCol="按下态职业" />
+		<variable name="schoolpicpath" type="string" fromCol="战斗职业" />
+
+		</bean>
+		
+		<bean name="CreateRoleConfig" from="j角色创建配置" genxml="client" priority="1" gencode="mtlua">
+			<variable name="id" type="int" fromCol="角色id" /> id
+			<variable name="sex" type="int" fromCol="性别" /> 性别
+			<variable name="name" type="string" fromCol="种族" />
+			<variable name="englishname" type="string" fromCol="英文名称" />
+			<variable name="describe" type="string" fromCol="描述" />
+			<variable name="schools" type="vector" value="int" fromCol="职业1ID,职业2ID,职业3ID" />
+			<variable name="weapons" type="vector" value="int" fromCol="默认武器1ID,默认武器2ID,默认武器3ID" />
+			<variable name="model" type="int" fromCol="人物模型" /> 
+			<variable name="roleimage" type="string" fromCol="创建角色界面角色图" />
+			<variable name="schoolimg1" type="string" fromCol="职业按钮图片1" />
+			<variable name="schoolimg2" type="string" fromCol="职业按钮图片2" />
+			<variable name="schoolimg3" type="string" fromCol="职业按钮图片3" />
+			<variable name="diwenimg1" type="string" fromCol="职业底图1" />
+			<variable name="diwenimg2" type="string" fromCol="职业底图2" />
+			<variable name="diwenimg3" type="string" fromCol="职业底图3" />
+			<variable name="headimg" type="string" fromCol="职业大头像" />
+			<variable name="surebtnimg" type="string" fromCol="开始游戏按钮" />
+			<variable name="returnimg" type="string" fromCol="返回按钮" />
+			<variable name="leftbtnimg" type="string" fromCol="左翻页按钮" />
+			<variable name="rightbtnimg" type="string" fromCol="右翻页按钮" />
+			<variable name="bgimg" type="string" fromCol="背景图" />
+			<variable name="bgbandimg" type="string" fromCol="背景横框" />
+			<variable name="effectOnTop" type="string" fromCol="图片上层" />
+			<variable name="effectOnBottom" type="string" fromCol="图片下层" />
+			<variable name="xuanzezhiyeimg" type="string" fromCol="请选择职业文字" />
+			<variable name="pagedotimg" type="string" fromCol="人物选择页签" />
+			<variable name="smallflag" type="string" fromCol="旗子图标" />
+			<variable name="flageffect" type="string" fromCol="旗子特效" />
+			<variable name="spine" type="string" fromCol="人物创建骨骼动画" />
+			<variable name="topflag" type="string" fromCol="底框旗子" />
+		</bean>
+		
+		<bean name="SCreateRoleConfig" from="j角色创建配置" genxml="server">
+			  <variable name="id" type="int" fromCol="角色id" /> id
+			  <variable name="sex" type="int" fromCol="性别" /> 性别
+			  <variable name="schools" type="vector" value="int" fromCol="职业1ID,职业2ID,职业3ID" />
+			  <variable name="initequip" type="vector" value="int" fromCol="默认武器,默认衣服,默认护腕,默认项链,默认腰带,默认鞋子" />
+		</bean>
+		
+		<bean name="RoleModData" from="z人物属性修正表" genxml="server">
+			<variable name="id" type="int" fromCol="种族" />
+			<variable name="consinit" type="int" fromCol="体质初值" />
+			<variable name="iqinit" type="int" fromCol="智力初值" />
+			<variable name="strinit" type="int" fromCol="力量初值" />
+			<variable name="enduinit" type="int" fromCol="耐力初值" />
+			<variable name="agiinit" type="int" fromCol="敏捷初值" />
+			<variable name="hpinit" type="int" fromCol="生命初值" />
+			<variable name="mpinit" type="int" fromCol="魔法初值" />
+			<variable name="damageinit" type="int" fromCol="物理攻击初值" />
+			<variable name="defendinit" type="int" fromCol="物理防御初值" />
+			<variable name="magicattackinit" type="int" fromCol="法术攻击初值" />
+			<variable name="magicdefendinit" type="int" fromCol="法术防御初值" />
+			
+			<variable name="hitinit" type="int" fromCol="命中初值" />
+			<variable name="dodgeinit" type="int" fromCol="躲闪初值" />
+			<variable name="speedinit" type="int" fromCol="速度初值" />
+            <variable name="danderlimit" type="int" fromCol="怒气上限" />
+          <variable name="medical" type="int" fromCol="治疗强度" />
+          <variable name="sealhit" type="int" fromCol="控制命中" />
+          <variable name="unseal" type="int" fromCol="控制抗性" />
+		</bean>
+		<bean name="AttrModData" from="s属性/y一级属性转换表" genxml="server">
+			<variable name="id" type="int" fromCol="属性ID" /> 二级属性ID
+			<variable name="consfactor" type="double" fromCol="体质" />
+			<variable name="iqfactor" type="double" fromCol="智力" />
+			<variable name="strfactor" type="double" fromCol="力量" />
+			<variable name="endufactor" type="double" fromCol="耐力" />
+			<variable name="agifactor" type="double" fromCol="敏捷" />
+		</bean>
+		
+		<bean name="CAttrModData" from="s属性/y一级属性转换表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="属性ID" /> 二级属性ID
+			<variable name="consfactor" type="double" fromCol="体质" />
+			<variable name="iqfactor" type="double" fromCol="智力" />
+			<variable name="strfactor" type="double" fromCol="力量" />
+			<variable name="endufactor" type="double" fromCol="耐力" />
+			<variable name="agifactor" type="double" fromCol="敏捷" />
+		</bean>
+		
+		<bean name="NextExpAndResMoney" from="s升级经验限制表" genxml="server">
+			<variable name="id" type="int" fromCol="等级" />
+			<variable name="exp" type="int" fromCol="升级经验" />
+			<variable name="petfightnum" type="int" fromCol="宠物出战上限" />
+			<variable name="addpointschemenum" type="int" fromCol="加点方案数量" />
+			<variable name="offlexppermin" type="int" fromCol="离线每分钟经验值" />
+			<variable name="dpointexp" type="int" fromCol="每点双倍点数经验" />
+			<variable name="standardexp" type="int" fromCol="基准经验" />
+			<variable name="standardmoney" type="int" fromCol="基准银币" />
+			<variable name="helpfightnum" type="int" fromCol="援助战斗次数" />
+			<variable name="helpgiveitemnum" type="int" fromCol="援助物品次数" />
+			<variable name="helpitemnum" type="int" fromCol="求助物品次数" />
+			<variable name="shengwangmax" type="int" fromCol="援助声望上限" />
+			<variable name="clanvaluemax" type="int" fromCol="援助贡献上限" />
+		</bean>
+		
+		<bean name="CResMoneyConfig" from="s升级经验限制表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="等级" />
+			<variable name="resmoney" type="int" fromCol="金钱上限" />
+			<variable name="nextexp" type="long" fromCol="升级经验" />
+			<variable name="petfightnum" type="int" fromCol="宠物出战上限" />
+			<variable name="addpointschemenum" type="int" fromCol="加点方案数量" />
+			<variable name="shengwangmax" type="int" fromCol="援助声望上限" />
+		</bean>		
+		
+		<bean name="SRoleNameData" from="j角色名字库" genxml="server">
+			<variable name="id" type="int" fromCol="ID" />
+			<variable name="xManName" type="string" fromCol="男姓" />
+			<variable name="xWomanName" type="string" fromCol="女姓" />
+			<variable name="mWomanName" type="string" fromCol="女名" />
+			<variable name="mManName" type="string" fromCol="男名" />
+		</bean>
+		
+		<bean name="SchoolMasterSkillInfo" from="m职业师父对照表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="ID" />
+			<variable name="masterid" type="int" fromCol="任务师父ID" />
+		</bean>
+		
+		<bean name="AcupointInfo" from="j技能格系统/技能格信息表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="技能格ID" />
+			<variable name="isMain" type="bool" fromCol="是否主技能格" />
+			<variable name="name" type="string" fromCol="技能格名称" />
+			<variable name="isJueji" type="bool" fromCol="是否绝技" />
+			<variable name="maxlevel" type="int" fromCol="可学等级上限" />
+			<variable name="details" type="string" fromCol="技能格文案包装" />
+			<variable name="describe" type="string" fromCol="技能格描述" />
+			<variable name="iconNormal" type="string" fromCol="技能格图标正常" />
+			<variable name="iconPushed" type="string" fromCol="技能格图标按下" />
+			<variable name="iconHover" type="string" fromCol="技能格图标悬浮" />
+			<variable name="iconDisable" type="string" fromCol="技能格图标不可用" />
+			<variable name="locX" type="int" fromCol="技能格位置x" />
+			<variable name="locY" type="int" fromCol="技能格位置y" />
+			<variable name="femalelocX" type="int" fromCol="女技能格位置x" />
+			<variable name="femalelocY" type="int" fromCol="女技能格位置y" />
+			<variable name="lvlocX" type="int" fromCol="技能格等级位置x" />
+			<variable name="lvlocY" type="int" fromCol="技能格等级位置y" />
+			<variable name="femalelvlocX" type="int" fromCol="女技能格等级位置x" />
+			<variable name="femalelvlocY" type="int" fromCol="女技能格等级位置y" />			
+			<variable name="attribute" type="int" fromCol="技能格附加属性类型" />
+			<variable name="paraA" type="double" fromCol="技能格附加属性公式系数a" />
+			<variable name="paraB" type="double" fromCol="技能格附加属性公式系数b" />
+			<variable name="paraC" type="double" fromCol="技能格附加属性公式系数c" />
+			<variable name="dependAcupoint" fromCol="依赖技能格ID" type="string" />
+			<variable name="dependLevel" fromCol="依赖技能格等级要求" type="int" />
+			<variable name="pointToSkillList" type="vector" value="int" fromCol="影响技能ID1,影响技能ID2,影响技能ID3,影响技能ID4,影响技能ID5"/>
+			<variable name="studyCostRule" type="int" fromCol="技能格学习消耗规则" />
+			<variable name="juejiDependLevel" type="string" fromCol="绝技依赖技能格等级要求" />
+		</bean>
+		
+		<bean name="AcupointLevelUp" from="j技能格系统/技能格消耗表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="技能格ID" />
+			<variable name="level" type="int" fromCol="技能格等级" />
+			<variable name="needExp" type="vector" value="int" fromCol="第一重经验,第二重经验,第三重经验,第四重经验,第五重经验,第六重经验,第七重经验"/>
+			<variable name="needMoney" type="vector" value="int" fromCol="第一重金钱,第二重金钱,第三重金钱,第四重金钱,第五重金钱,第六重金钱,第七重金钱"/>
+			<variable name="needQihai" type="vector" value="int" fromCol="第一重气海值,第二重气海值,第三重气海值,第四重气海值,第五重气海值,第六重气海值,第七重气海值"/>
+			<variable name="moneyCostRule" type="vector" value="int" fromCol="金钱消耗规则1,金钱消耗规则2,金钱消耗规则3" />
+			<variable name="moneyCostRuleType" type="vector" value="int" fromCol="金钱消耗类型1,金钱消耗类型2,金钱消耗类型3" />
+			
+		</bean>
+		<bean name="AcupointLevelUpPay" from="D点卡服表格/点卡服技能格消耗表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="技能格ID" />
+			<variable name="level" type="int" fromCol="技能格等级" />
+			<variable name="needExp" type="vector" value="int" fromCol="第一重经验,第二重经验,第三重经验,第四重经验,第五重经验,第六重经验,第七重经验"/>
+			<variable name="needMoney" type="vector" value="int" fromCol="第一重金钱,第二重金钱,第三重金钱,第四重金钱,第五重金钱,第六重金钱,第七重金钱"/>
+			<variable name="needQihai" type="vector" value="int" fromCol="第一重气海值,第二重气海值,第三重气海值,第四重气海值,第五重气海值,第六重气海值,第七重气海值"/>
+			<variable name="moneyCostRule" type="vector" value="int" fromCol="金钱消耗规则1,金钱消耗规则2,金钱消耗规则3" />
+			<variable name="moneyCostRuleType" type="vector" value="int" fromCol="金钱消耗类型1,金钱消耗类型2,金钱消耗类型3" />
+			
+		</bean>	
+		<bean name="SkillAcupointConfig" from="j技能格系统/技能熟练配置表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="技能ID" />
+			<variable name="initValue" type="int" fromCol="初始熟练度" />
+			<variable name="AcupointIDList" type="vector" value="int" fromCol="影响技能格1ID,影响技能格2ID,影响技能格3ID,影响技能格4ID,影响技能格5ID,影响技能格6ID,影响技能格7ID,影响技能格8ID,影响技能格9ID,影响技能格10ID,影响技能格11ID,影响技能格12ID,影响技能格13ID,影响技能格14ID,影响技能格15ID,影响技能格16ID,影响技能格17ID,影响技能格18ID,影响技能格19ID,影响技能格20ID,影响技能格21ID"/>
+			<variable name="AcupointParaList" type="vector" value="double" fromCol="影响技能格1权值,影响技能格2权值,影响技能格3权值,影响技能格4权值,影响技能格5权值,影响技能格6权值,影响技能格7权值,影响技能格8权值,影响技能格9权值,影响技能格10权值,影响技能格11权值,影响技能格12权值,影响技能格13权值,影响技能格14权值,影响技能格15权值,影响技能格16权值,影响技能格17权值,影响技能格18权值,影响技能格19权值,影响技能格20权值,影响技能格21权值"/>
+		</bean>
+		
+		<bean name="SkillInfoConfig" from="j技能格系统/技能信息表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="技能id" />
+			<variable name="SkillDisableDes" type="String" fromCol="未学会时描述" />
+			<variable name="SkillLevelRequireList" type="vector" value="int" fromCol="技能等级1所需熟练度,技能等级2所需熟练度,技能等级3所需熟练度,技能等级4所需熟练度,技能等级5所需熟练度,技能等级6所需熟练度,技能等级7所需熟练度,技能等级8所需熟练度,技能等级9所需熟练度,技能等级10所需熟练度,技能等级11所需熟练度,技能等级12所需熟练度,技能等级13所需熟练度,技能等级14所需熟练度,技能等级15所需熟练度,技能等级16所需熟练度"/>
+			<variable name="SkillDesList" type="vector" value="String" fromCol="技能等级1描述,技能等级2描述,技能等级3描述,技能等级4描述,技能等级5描述,技能等级6描述,技能等级7描述,技能等级8描述,技能等级9描述,技能等级10描述,技能等级11描述,技能等级12描述,技能等级13描述,技能等级14描述,技能等级15描述,技能等级16描述" />
+		</bean>
+		<bean name="SServerMaxLevelConfig" from="f服务器等级上限配置" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="maxlevel" type="int" fromCol="等级上限" />
+		</bean>
+		
+		<bean name="Saddpointchange" from="s属性/j加点方案切换消耗" genxml="server">
+			<variable name="id" type="int" fromCol="次数" />
+			<variable name="consume" type="int" fromCol="消耗" />
+		</bean>	
+		
+		<bean name="Caddpointchange" from="s属性/j加点方案切换消耗" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="次数" />
+			<variable name="consume" type="int" fromCol="消耗" />
+		</bean>
+
+
+    <bean name="CAddPointResetItemConfig" from="d道具表/x洗点道具配置表" genxml="client" gencode="mtlua">
+      <variable name="id" fromCol="道具ID" type="int"/>      
+      <variable name="type" fromCol="类型" type="int"/>
+      <variable name="tizhi" fromCol="体质" type="int"/>
+      <variable name="moli" fromCol="魔力" type="int"/>
+      <variable name="liliang" fromCol="力量" type="int"/>
+      <variable name="naili" fromCol="耐力" type="int"/>
+      <variable name="minjie" fromCol="敏捷" type="int"/>
+    </bean>
+	
+	<bean name="CRoleRColorConfig" from="R染色表" genxml="client" gencode="mtlua">
+      <variable name="id" fromCol="id" type="int"/>      
+      <variable name="rolepos" fromCol="部位" type="int"/>
+      <variable name="modeltype" fromCol="方案" type="int"/>
+      <variable name="res" fromCol="美术资源" type="int"/>
+      <variable name="itemcode" fromCol="道具1" type="int"/>
+	  <variable name="colorlist" type="vector" value="String" fromCol="角色1颜色图,角色2颜色图,角色3颜色图,角色4颜色图,角色5颜色图,角色6颜色图" />
+      <variable name="itemnum" fromCol="数量1" type="int"/>
+    </bean>
+	
+	<bean name="SRoleRColorConfig" from="R染色表" genxml="server">
+      <variable name="id" fromCol="id" type="int"/>      
+      <variable name="rolepos" fromCol="部位" type="int"/> 部位
+      <variable name="modeltype" fromCol="方案" type="int"/> 方案
+      <variable name="res" fromCol="美术资源" type="string"/> 美术资源
+      <variable name="itemcode" fromCol="道具1" type="int"/> 道具1
+      <variable name="itemnum" fromCol="数量1" type="int"/> 数量1
+    </bean>
+	
+	<bean name="CEquipEffectConfig" from="Z装备品质特效表" genxml="client" gencode="mtlua">
+      <variable name="id" fromCol="id" type="int"/>      
+      <variable name="equipNum" fromCol="穿戴装备数量" type="int"/>
+      <variable name="quality" fromCol="品质" type="int"/>
+	  <variable name="effectId" fromCol="特效" type="int"/>
+    </bean>
+
+    <bean name="SEquipEffectConfig" from="Z装备品质特效表" genxml="server">
+        <variable name="id" fromCol="id" type="int"/>
+        <variable name="equipNum" fromCol="穿戴装备数量" type="int"/>
+        <variable name="quality" fromCol="品质" type="int"/>
+    </bean>
+	
+	<bean name="SRoleSymbolRepository" from="z字符库" genxml="server">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="symbol" type="string" fromCol="字符" />
+			<variable name="type" type="int" fromCol="类型" />
+			<variable name="gender" type="int" fromCol="性别" />			
+	</bean>
+        
+    <bean name="SServiceLevelConfig" from="F服务器等级持续时间表" genxml="server">
+		<variable name="id" type="int" fromCol="ID" />
+		<variable name="slevel" type="int" fromCol="服务器等级" />
+		<variable name="lastday" type="int" fromCol="持续时间" />
+		<variable name="openday" type="int" fromCol="服务器开放时间" />			
+	</bean>
+
+	<bean name="CServiceLevelConfig" from="F服务器等级持续时间表" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="ID" />
+		<variable name="slevel" type="int" fromCol="服务器等级" />
+		<variable name="lastday" type="int" fromCol="持续时间" />
+		<variable name="openday" type="int" fromCol="服务器开放时间" />		
+	</bean>
+        
+    <bean name="SServiceExpConfig" from="F服务器经验限制表" genxml="server">
+		<variable name="id" type="int" fromCol="ID" />
+		<variable name="midlevel" type="int" fromCol="受限类型等级" />
+		<variable name="bili" type="double" fromCol="受限制比例" />
+	</bean>.
+	<bean name="CServiceExpConfig" from="F服务器经验限制表" genxml="client" gencode="mtlua">
+		<variable name="id" type="int" fromCol="ID" />
+		<variable name="midlevel" type="int" fromCol="受限类型等级" />
+		<variable name="bili" type="double" fromCol="受限制比例" />
+	</bean>
+
+  </namespace>

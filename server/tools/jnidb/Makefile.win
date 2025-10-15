@@ -1,0 +1,36 @@
+# Project: db_amd64
+# Makefile created by Dev-C++ 5.8.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = mkdb_Logger.o mkdb_Storage.o ../../core/common/octets.o
+LINKOBJ  = mkdb_Logger.o mkdb_Storage.o ../../core/common/octets.o
+LIBS     = -L"C:/Dev-Cpp/MinGW64/lib" -L"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -m64
+INCS     = -I"C:/Dev-Cpp/MinGW64/include" -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files/Java/jdk1.8.0_45/include" -I"C:/Program Files/Java/jdk1.8.0_45/include/win32" -I"." -I"../../" -I"../../core" -I"../../core/common/"
+CXXINCS  = -I"C:/Dev-Cpp/MinGW64/include" -I"C:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++" -I"C:/Program Files/Java/jdk1.8.0_45/include" -I"C:/Program Files/Java/jdk1.8.0_45/include/win32" -I"." -I"../../" -I"../../core" -I"../../core/common/"
+BIN      = db_amd64.dll
+CXXFLAGS = $(CXXINCS) -m64 -DBUILDING_DLL=1 -mthreads -DABSINC -D_FILE_OFFSET_BITS=64
+CFLAGS   = $(INCS) -m64 -DBUILDING_DLL=1
+RM       = rm.exe -f
+DEF      = libdb_amd64.def
+STATIC   = libdb_amd64.a
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN) $(DEF) $(STATIC)
+
+$(BIN): $(LINKOBJ)
+	$(CPP) -shared $(LINKOBJ) -o $(BIN) $(LIBS) -Wl,--output-def,$(DEF),--out-implib,$(STATIC),--add-stdcall-alias
+
+mkdb_Logger.o: mkdb_Logger.cpp
+	$(CPP) -c mkdb_Logger.cpp -o mkdb_Logger.o $(CXXFLAGS)
+
+mkdb_Storage.o: mkdb_Storage.cpp
+	$(CPP) -c mkdb_Storage.cpp -o mkdb_Storage.o $(CXXFLAGS)
+
+../../core/common/octets.o: ../../core/common/octets.cpp
+	$(CPP) -c ../../core/common/octets.cpp -o ../../core/common/octets.o $(CXXFLAGS)

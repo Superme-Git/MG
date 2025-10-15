@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="gbk"?>
+<xmerge libpath="lib" srcDir="F:\xmergetest\src_db" destDir="F:\xmergetest\dest_db" resultDir="F:\xmergetest\result_db">
+	 
+	 <cleartable name="wheelprogress"/>
+	 <cleartable name="wheelitemlimit"/>
+	 <cleartable name="claninstbestlevel"/>
+	 <cleartable name="totalregisternum"/>
+	 <cleartable name="marketattentionroletab"/>
+	 <cleartable name="marketattentiongoodstab"/>
+	 <cleartable name="normaltab"/>
+	 <cleartable name="equiptab"/>
+	 <cleartable name="pettab"/>
+	 <cleartable name="markettradelogtab"/>
+	 <cleartable name="awarditemlimit"/>
+	 <cleartable name="activitytable"/>
+	 <cleartable name="itemrecycleidx"/>
+	 <cleartable name="roleranknotifytime"/>
+	 <cleartable name="funopenclosetab"/>
+	 <cleartable name="yaoqianshutables"/>
+	 <cleartable name="singlecompensations"/>
+	 <cleartable name="compensationroles"/>
+	 <cleartable name="livedieroleinfotab"/>
+	 <cleartable name="livedie2key"/>
+	 <!--<cleartable name="serviceinfos"/>
+	 <cleartable name="broadcastmsgtab"/> -->
+	 
+	 <preprocesstable name="clans" class="mylogic.ClanInfoPreProcess"/>
+	 
+	 <!--<preprocesstable name="properties" class="mylogic.PropertiesPreProcess"/>
+	 <preprocesstable name="rolelevellist" class="mylogic.RoleLevelPreProcess"/>
+	 <allocator name="rolerankdatalist" class="mylogic.RolerankdatalistAllocator"/>
+	 <allocator name="roleprofessionranklist" class="mylogic.RoleprofessionranklistAllocator"/>
+	 <allocator name="clanprogressranklist" class="mylogic.ClanprogressranklistAllocator"/> -->
+
+	 <table name="bag" type="known_key_conflict" class="mylogic.BagTable"/>
+	 <table name="depot" type="known_key_conflict" class="mylogic.DepotTable"/>
+	 <table name="equip" type="known_key_conflict" class="mylogic.EquipTable"/>
+	 <table name="temp" type="known_key_conflict" class="mylogic.TempTable"/>
+	 <table name="questbag" type="known_key_conflict" class="mylogic.QuestbagTable"/>
+	 <table name="itemrecyclebin" type="known_key_conflict" class="mylogic.ItemRecycleBinTable"/>
+	 <table name="petrecyclebin" type="known_key_conflict" class="mylogic.PetRecycleBinTable"/>
+	 <table name="uniquepets" type="known_key_conflict" class="mylogic.UniquePetsTable"/>
+	 <table name="user" type="known_key_conflict" class="mylogic.User"/>
+	 <table name="userdeviceinfotab" type="known_key_conflict" class="mylogic.UserDeviceinfoTable"/>
+	 <table name="properties" type="known_key_conflict" class="mylogic.PropertiesTable"/>
+	 <table name="helpcount" type="known_key_conflict" class="mylogic.HelpCountTable"/>
+	 <table name="roleupdatetimetab" type="known_key_conflict" class="mylogic.RoleUpdateTimeTable"/>
+	 <table name="petdepot" type="known_key_conflict" class="mylogic.PetDepotTable"/>
+	 <table name="pet" type="known_key_conflict" class="mylogic.PetTable"/>
+	 <table name="rolepetsellcount" type="known_key_conflict" class="mylogic.RolePetSellCountTable"/>
+	 <table name="multiexp" type="known_key_conflict" class="mylogic.MultiexpTable"/>
+	 <table name="missioncameras" type="known_key_conflict" class="mylogic.MissionCamerasTable"/>
+	 <table name="quality" type="known_key_conflict" class="mylogic.QualityTable"/>
+	 <table name="enhancement" type="known_key_conflict" class="mylogic.EnhancementTable"/>
+	 <table name="buffrolestodisk" type="known_key_conflict" class="mylogic.Buffrolestodisk"/>
+	 <table name="debugflag" type="known_key_conflict" class="mylogic.DebugFlagTable"/>
+	 <table name="skillroles" type="known_key_conflict" class="mylogic.SkillRolesTable"/>
+	 <table name="roleid2liveskill" type="known_key_conflict" class="mylogic.Roleid2LiveSkill"/>
+	 <table name="roleid2particleskill" type="known_key_conflict" class="mylogic.Roleid2ParticleSkill"/>
+	 <table name="archmaps" type="known_key_conflict" class="mylogic.ArchmapsTable"/>
+	 <table name="role2impexam" type="known_key_conflict" class="mylogic.Role2ImpexamTable"/>
+	 <table name="impexamstatetbl" type="known_key_conflict" class="mylogic.ImpexamStateTable"/>
+	 <table name="winnerscore" type="known_key_conflict" class="mylogic.WinnerScoreTable"/>
+	 <table name="vipinfo" type="known_key_conflict" class="mylogic.VipinfoTable"/>
+	 <table name="firstchargenew" type="known_key_conflict" class="mylogic.Firstchargenew"/>
+	 <table name="fushinum" type="known_key_conflict" class="mylogic.FushiNumTable"/>
+	 <table name="roledaypay" type="known_key_conflict" class="mylogic.RoleDayPayTable"/>
+	 <table name="equips" type="known_key_conflict" class="mylogic.EquipsTable"/>
+	 <table name="friends" type="known_key_conflict" class="mylogic.FriendsTable"/>
+	 <table name="friendgivenum" type="known_key_conflict" class="mylogic.FriendGiveNumTable"/>
+	 <table name="rolespaces" type="known_key_conflict" class="mylogic.RoleSpacesTable"/>
+	 <table name="festival" type="known_key_conflict" class="mylogic.FestivalTable"/>
+	 <table name="offlinemsg" type="known_key_conflict" class="mylogic.Offlinemsg"/>
+	  <table name="broadcastmsgtab" type="known_key_conflict" class="mylogic.Broadcastmsgtab"/>
+	 <table name="rolename2key" type="known_key_conflict" class="mylogic.Rolename2keyTable"/>
+	 <table name="clanindex" type="known_key_conflict" class="mylogic.Clanindex"/>
+	 <table name="tablekeynum" type="known_key_conflict" class="mylogic.Tablekeycounter"/>
+	 <table name="clanroleevent" type="known_key_conflict" class="mylogic.ClanRoleEvent"/>
+	 <table name="medicitemlisttab" type="known_key_conflict" class="mylogic.MedicItemlistTable"/>
+	 <table name="clanweeknumtab" type="known_key_conflict" class="mylogic.ClanWeekNumTable"/>
+	 <table name="buymedicitemnum" type="known_key_conflict" class="mylogic.BuyMedicItemNumTable"/>
+	 <table name="runeinfotab" type="known_key_conflict" class="mylogic.RuneInfoTable"/>
+	 <table name="requestruneinfotab" type="known_key_conflict" class="mylogic.RequestRuneInfoTable"/>
+	 <table name="roleidclan" type="known_key_conflict" class="mylogic.RoleidClanTable"/>
+	 <table name="roleclanpoint" type="known_key_conflict" class="mylogic.RoleClanPointTable"/>
+	 <table name="roleapplyclantab" type="known_key_conflict" class="mylogic.RoleApplyClanTable"/>
+	 <table name="clanranklist" type="known_key_conflict" class="mylogic.ClanRanklist"/>
+	 <table name="clanzonghelist" type="known_key_conflict" class="mylogic.Clanzonghelist"/>
+	 <table name="rolezonghelist" type="known_key_conflict" class="mylogic.RolezonghelistTable"/>
+	 <table name="roleprofessionranklist" type="known_key_conflict" class="mylogic.Roleprofessionranklist"/>
+	 <table name="clanprogressranklist" type="known_key_conflict" class="mylogic.Clanprogressranklist"/>
+	 <table name="rolerankdatalist" type="known_key_conflict" class="mylogic.Rolerankdatalist"/>
+	 <table name="rolelevellist" type="known_key_conflict" class="mylogic.Rolelevellist"/>
+	 <table name="petscorelist" type="known_key_conflict" class="mylogic.Petscorelist"/>
+	 <table name="pvp3historyscorelist" type="known_key_conflict" class="mylogic.Pvp3historyscorelist"/>
+	 <table name="pvp5scorelist" type="known_key_conflict" class="mylogic.Pvp5scorelist"/>
+	 <table name="pvp5historyscorelist" type="known_key_conflict" class="mylogic.Pvp5historyscorelist"/>
+	 <table name="bingfenglists" type="known_key_conflict" class="mylogic.Bingfenglists"/>
+	 <table name="commitedmission" type="known_key_conflict" class="mylogic.CommitedMissionTable"/>
+	 <table name="commitedscenariomission" type="known_key_conflict" class="mylogic.CommitedScenarioMissionTable"/>
+	 <table name="acceptedscenariomission" type="known_key_conflict" class="mylogic.AcceptedScenarioMissionTable"/>
+	 <table name="majorscenariomission" type="known_key_conflict" class="mylogic.MajorscenarioMissionTable"/>
+	 <table name="trackedmission" type="known_key_conflict" class="mylogic.TrackedMissionTable"/>
+	 <table name="anyemaxituan" type="known_key_conflict" class="mylogic.AnyemaxituanTable"/>
+	 <table name="rolecircletask" type="known_key_conflict" class="mylogic.RoleCircleTaskTable"/>
+	 <table name="rolerenxingdata" type="known_key_conflict" class="mylogic.RoleRenXingdataTable"/>
+	 <table name="rolecircletaskcomplete" type="known_key_conflict" class="mylogic.RoleCircleTaskcomplete"/>
+	 <table name="professionleader" type="known_key_conflict" class="mylogic.Professionleader"/>
+	 <table name="professionleadercandidates" type="known_key_conflict" class="mylogic.Professionleadercandidates"/>
+	 <table name="professionleadervotechallenge" type="known_key_conflict" class="mylogic.Professionleadervotechallenge"/>
+	 <table name="roleid2professionleadertickets" type="known_key_conflict" class="mylogic.Roleid2professionleadertickets"/>
+	 <table name="professionleaderfightdata" type="known_key_conflict" class="mylogic.Professionleaderfightdata"/>
+	 <table name="roletasks" type="known_key_conflict" class="mylogic.Roletasks"/>
+	 <table name="apprents" type="known_key_conflict" class="mylogic.ApprentsTable"/>
+	 <table name="menstor" type="known_key_conflict" class="mylogic.MenstorTable"/>
+	 <table name="roleposes" type="known_key_conflict" class="mylogic.RolePosesTable"/>
+	 <table name="timingreward" type="known_key_conflict" class="mylogic.TimingRewardTable"/>
+	 <table name="roleinstancetask" type="known_key_conflict" class="mylogic.RoleInstanceTaskTable"/>
+	 <table name="activeusertable" type="known_key_conflict" class="mylogic.Activeusertable"/>
+	 <table name="activeroletable" type="known_key_conflict" class="mylogic.Activeroletable"/>
+	 <table name="lianyunaward" type="known_key_conflict" class="mylogic.Lianyunaward"/>
+	 <table name="beginnertip" type="known_key_conflict" class="mylogic.Beginnertip"/>
+	 <table name="rolequitstatistics" type="known_key_conflict" class="mylogic.RoleQuitStatistics"/>
+	 <table name="courses" type="known_key_conflict" class="mylogic.CoursesTable"/>
+	 <table name="activitycalendar" type="known_key_conflict" class="mylogic.ActivityCalendarTable"/>
+	 <table name="rolesplayactive" type="known_key_conflict" class="mylogic.RolesPlayActiveTable"/>
+	 <table name="rolesplayactiveweek" type="known_key_conflict" class="mylogic.RolesPlayActiveWeekTable"/>
+	 <table name="userpunish" type="known_key_conflict" class="mylogic.Userpunish"/>
+	 <table name="compensation" type="known_key_conflict" class="mylogic.Compensation"/>
+	 <table name="usercompensation" type="known_key_conflict" class="mylogic.UsercompensationTable"/>
+	 <table name="levelseal" type="known_key_conflict" class="mylogic.Levelseal"/>
+	 <table name="instancezones" type="known_key_conflict" class="mylogic.Instancezones"/>
+	 <table name="role2instancezone" type="known_key_conflict" class="mylogic.Role2Instancezone"/>
+	 <table name="instanceactivitys" type="known_key_conflict" class="mylogic.InstanceActivitys"/>
+	 <table name="instanceturngroups" type="known_key_conflict" class="mylogic.InstanceTurngroups"/>
+	 <table name="claninstances" type="known_key_conflict" class="mylogic.ClanInstances"/>
+	 <table name="bingfengroles" type="known_key_conflict" class="mylogic.BingFengRoles"/>
+	 <table name="bingfenginfos" type="known_key_conflict" class="mylogic.BingFengInfos"/>
+	 <table name="triggerroles" type="known_key_conflict" class="mylogic.TriggerRoles"/>
+	 <table name="payplatform" type="known_key_conflict" class="mylogic.PayPlatform"/>
+	 <table name="rolenumfornewserver" type="known_key_conflict" class="mylogic.Rolenumfornewserver"/>
+	 <table name="pvp1roles" type="known_key_conflict" class="mylogic.Pvp1roles"/>
+	 <table name="pvp3roles" type="known_key_conflict" class="mylogic.Pvp3roles"/>
+	 <table name="pvp5roles" type="known_key_conflict" class="mylogic.Pvp5roles"/>
+	 <table name="modnameitemroles" type="known_key_conflict" class="mylogic.ModnameItemRoles"/>
+	 <table name="chargeorder" type="known_key_conflict" class="mylogic.Chargeorder"/>
+	 <table name="failedchargeorder" type="known_key_conflict" class="mylogic.FailedChargeOrder"/>
+	 <table name="chargehistory" type="known_key_conflict" class="mylogic.ChargehistoryTable"/>
+	 <table name="appstoretidstatus" type="known_key_conflict" class="mylogic.Appstoretidstatus"/>
+	 <table name="rolerollcard" type="known_key_conflict" class="mylogic.RoleRollCard"/>
+	 <table name="invitepeopleinfo" type="known_key_conflict" class="mylogic.InvitePeopleInfo"/>
+	 <table name="roleofflinehook" type="known_key_conflict" class="mylogic.RoleOfflinehook"/>
+	 <table name="transformbyitem" type="known_key_conflict" class="mylogic.TransformByItem"/>
+	 <table name="ticketiteminfo" type="known_key_conflict" class="mylogic.TicketItemInfo"/>
+	 <table name="rolesafelock" type="known_key_conflict" class="mylogic.RoleSafeLock"/>
+	 <table name="rolemuldayloginreward" type="known_key_conflict" class="mylogic.RolemulDayLoginReward"/>
+	 <table name="roletimernpcinfos" type="known_key_conflict" class="mylogic.RoleTimerNpcInfos"/>
+	 <table name="roleeventnpcinfos" type="known_key_conflict" class="mylogic.RoleEventNpcInfos"/>
+	 <table name="role2weibonotify" type="known_key_conflict" class="mylogic.Role2WeiBoNotify"/>
+	 <table name="rolenpcjiangliinfos" type="known_key_conflict" class="mylogic.RoleNpcjiangliinfos"/>
+	 <table name="rolepingbirolesinfos" type="known_key_conflict" class="mylogic.Rolepingbirolesinfos"/>
+	 <table name="fushirecordtable" type="known_key_conflict" class="mylogic.FushiRecordTable"/>
+	 <table name="regtbl" type="known_key_conflict" class="mylogic.Regtbl"/>
+	 <table name="roledoublecharge" type="known_key_conflict" class="mylogic.RoleDoubleCharge"/>
+	 <table name="roleid2chargereturnprofit" type="known_key_conflict" class="mylogic.Roleid2ChargeReturnprofit"/>
+	 <table name="role2npcawards" type="known_key_conflict" class="mylogic.Role2NpcAwards"/>
+	 <table name="huobancolumns" type="known_key_conflict" class="mylogic.HuobanColumns"/>
+	 <table name="huobanzhenrongs" type="known_key_conflict" class="mylogic.HuobanZhenRongs"/>
+	 <table name="huobanvips" type="known_key_conflict" class="mylogic.HuobanVips"/>
+	 <table name="rolebuygoodslimits" type="known_key_conflict" class="mylogic.RoleBuyGoodsLimits"/>
+	 <table name="rolesalegoodslimits" type="known_key_conflict" class="mylogic.RoleSaleHoodsLimits"/>
+	 <table name="npcsalebusinesstab" type="known_key_conflict" class="mylogic.Npcsalebusinesstab"/>
+	 <table name="market" type="known_key_conflict" class="mylogic.Market"/>
+	 <table name="marketpet" type="known_key_conflict" class="mylogic.Marketpet"/>
+	 <table name="marketfloatingtab" type="known_key_conflict" class="mylogic.Marketfloatingtab"/>
+	 <table name="rolehook" type="known_key_conflict" class="mylogic.Rolehook"/>
+	 <table name="roleuseitemcount" type="known_key_conflict" class="mylogic.RoleUseItemCount"/>
+	 <table name="rolekaibaoxiang" type="known_key_conflict" class="mylogic.Rolekaibaoxiang"/>
+	 <table name="rolebestow" type="known_key_conflict" class="mylogic.Rolebestow"/>
+	 <table name="serviceinfos" type="known_key_conflict" class="mylogic.Serviceinfos"/>
+	 <table name="weekindexs" type="known_key_conflict" class="mylogic.Weekindexs"/>
+	 <!--<table name="livedieroleinfotab" type="known_key_conflict" class="mylogic.LiveDieRoleInfotab"/>
+	 <table name="livedie2key" type="known_key_conflict" class="mylogic.LiveDie2key"/> -->
+	 <table name="ldvideoroleinfodeslisttab" type="known_key_conflict" class="mylogic.Ldvideoroleinfodeslisttab"/>
+	 <table name="ldvideohislisttab" type="known_key_conflict" class="mylogic.Ldvideohislisttab"/>
+	 <table name="ldvideoroleroseinfolisttab" type="known_key_conflict" class="mylogic.Ldvideoroleroseinfolisttab"/>
+	 <table name="livedieweeknumtab" type="known_key_conflict" class="mylogic.Livedieweeknumtab"/>
+	 <table name="redpackinfoviewlisttab" type="known_key_conflict" class="mylogic.Redpackinfoviewlisttab"/>
+	 <table name="redpackroleinfolisttab" type="known_key_conflict" class="mylogic.Redpackroleinfolisttab"/>
+	 <table name="srredpacknumlisttab" type="known_key_conflict" class="mylogic.Srredpacknumlisttab"/>
+	 <table name="roleredpackrecordtab" type="known_key_conflict" class="mylogic.Roleredpackrecordtab"/>
+	 <table name="rolereceiveredpackrecordtab" type="known_key_conflict" class="mylogic.Rolereceiveredpackrecordtab"/>
+	 <table name="accusationinfos" type="known_key_conflict" class="mylogic.Accusationinfos"/>
+	 <table name="roletradingrecordstab" type="known_key_conflict" class="mylogic.Roletradingrecordstab"/>
+	 <table name="roletradinghisrecordlisttab" type="known_key_conflict" class="mylogic.Roletradinghisrecordlisttab"/>
+	 <table name="roletradinginfolisttab" type="known_key_conflict" class="mylogic.Roletradinginfolisttab"/>
+	 <table name="roleyaoqianshutables" type="known_key_conflict" class="mylogic.Roleyaoqianshutables"/>
+	 <table name="roleid2monthcard" type="known_key_conflict" class="mylogic.Roleid2monthcard"/>
+	 <table name="yybfushi" type="known_key_conflict" class="mylogic.YYBFushiNumTable"/>
+	 <table name="yybchargeorder" type="known_key_conflict" class="mylogic.Yybchargeorder"/>
+  
+  
+  
+  
+  
+  
+
+  <!-- addbyyesheng新增cleartable标签,name表示table名,指定的这些table将在合服时被清空,也就是说合服后会得到一个新的空表 -->
+  
+  <!--
+  <cleartable name="shouxicandidates"/>
+  <cleartable name="kejudianshi"/> 
+  <cleartable name="solicit"/> 
+  <cleartable name="rosewinner"/> 
+  <cleartable name="expstate"/> 
+  <cleartable name="waraward"/>
+  <cleartable name="snowmaninfo"/>
+  <cleartable name="nianshou"/>
+  <cleartable name="discountyuanbaoitem"/>
+  <cleartable name="selloutyuanbaoitem"/>
+  <cleartable name="yuanxiaodatas"/>
+  <cleartable name="ysrwranklist"/>
+  <cleartable name="pvpladder"/>
+  <cleartable name="gongchenginfo"/>
+  <cleartable name="firstcharge"/>
+  <cleartable name="mijingdata"/>
+  <cleartable name="fightsnowman"/>
+  <cleartable name="pwatcher"/>
+  <cleartable name="camprace"/>
+  <cleartable name="yzddranklist"/>
+  
+  <cleartable name="rolecampaignlist"/>
+  <cleartable name="yzdd"/>
+  <cleartable name="feiliuduom"/>
+  
+  <cleartable name="campteamdata"/>
+  
+  
+  
+  <preprocesstable name="rolepkrefresh" class="mylogic.RolepkrefreshProcess"/>
+  <preprocesstable name="roselist" class="mylogic.RoselistPreprocess"/>
+  <table name="activeroselist" type="known_key_conflict" class="mylogic.ActiveRoselist"/>
+  
+  <table name="rosefirst" type="known_key_conflict" class="mylogic.Rosefirst"/>
+  
+  
+  
+  <table name="xiakescorelist" type="known_key_conflict" class="mylogic.Xiakescorelist"/>
+  <table name="roselist" type="known_key_conflict" class="mylogic.Roselist"/>
+  
+  <table name="antiquetotaltable" type="known_key_conflict" class="mylogic.Antiquetotaltable"/>
+  <table name="antiquediscoverytable" type="known_key_conflict" class="mylogic.Antiquediscoverytable"/>
+  <table name="roleidtoyuanbaosell" type="known_key_conflict" class="mylogic.Roleidtoyuanbaosell"/>
+  <table name="yuanbaonum" type="known_key_conflict" class="mylogic.Yuanbaonum"/>
+  <table name="kejudianshi" type="known_key_conflict" class="mylogic.Kejudianshi"/>
+  <table name="roleidtoyuanbaobuy" type="known_key_conflict" class="mylogic.Roleidtoyuanbaobuy"/>
+  <table name="diamond" type="known_key_conflict" class="mylogic.Diamond"/>
+  
+  
+  <table name="itemuid2info" type="known_key_conflict" class="mylogic.Itemuid2info"/> 
+  <table name="factiontaskhighreward" type="known_key_conflict" class="mylogic.Factiontaskhighreward"/>
+  <table name="npchateitems" type="known_key_conflict" class="mylogic.Npchateitems"/>
+  <table name="apprenticelist" type="known_key_conflict" class="mylogic.Apprenticelist"/>
+  <table name="rolelevellist" type="known_key_conflict" class="mylogic.Rolelevellist"/>
+  <table name="solicit" type="known_key_conflict" class="mylogic.Solicit"/>
+  
+  
+  
+  <table name="achievementlist" type="known_key_conflict" class="mylogic.Achievementlist"/>
+  
+  <table name="expstate" type="known_key_conflict" class="mylogic.ExpState"/>
+  
+  
+  <table name="broadmsg" type="known_key_conflict" class="mylogic.Broadmsg"/>
+  <table name="equippaper" type="known_key_conflict" class="mylogic.EquipPaperPrice"/>
+  <table name="kejutoprecord" type="known_key_conflict" class="mylogic.KejutoprecordTable"/>
+
+  
+  
+  
+  <table name="yuanbaosuishenskill" type="known_key_conflict" class="mylogic.Yuanbaosuishenskill"/>
+  <table name="fashiondress" type="known_key_conflict" class="mylogic.FashionSellList"/>
+  <table name="fixeddatetimeoutitem" type="known_key_conflict" class="mylogic.Fixeddatetimeoutitem"/>
+  <table name="limitcard" type="known_key_conflict" class="mylogic.Limitcard"/>
+  <table name="limitfashion" type="known_key_conflict" class="mylogic.Limitfashion"/>
+  <table name="fashionsale" type="known_key_conflict" class="mylogic.FashSaleInfo"/>
+  <table name="spvpgrades" type="known_key_conflict" class="mylogic.Spvpgrades"/>
+  <table name="top" type="known_key_conflict" class="mylogic.TopTable"/>
+  <table name="enchoululist" type="known_key_conflict" class="mylogic.Enchoululist"/>
+  <table name="roserankingtitles" type="known_key_conflict" class="mylogic.Roserankingtitles"/>
+  <table name="yuanbaoitemcreated" type="known_key_conflict" class="mylogic.Yuanbaoitemcreated"/>
+  
+  <table name="achievedchengjiu" type="known_key_conflict" class="mylogic.AchievedchengjiuTable"/>
+  <table name="unachievechengjiu" type="known_key_conflict" class="mylogic.UnachievechengjiuTable"/>
+  <table name="presentitemlimit" type="known_key_conflict" class="mylogic.PresentitemlimitTable"/>
+  <table name="receivechargeaward" type="known_key_conflict" class="mylogic.Receivechargeaward"/>
+  <table name="continuepay" type="known_key_conflict" class="mylogic.Continuepay"/>
+  <table name="xunbaosellbagextinfo" type="known_key_conflict" class="mylogic.Xunbaosellbagextinfo"/>
+  <table name="xunbaosellbag" type="known_key_conflict" class="mylogic.Xunbaosellbag"/>
+
+  
+  <table name="protecttime" type="known_key_conflict" class="mylogic.ProtecttimeTable"/>
+  
+  <table name="shouxicandidates" type="known_key_conflict" class="mylogic.Shouxicandidates"/>
+  <table name="campinfo" type="known_key_conflict" class="mylogic.CampinfoTable"/>
+  <table name="rolescoreranklist" type="known_key_conflict" class="mylogic.RolescoreranklistTable"/>
+  <table name="camprank" type="known_key_conflict" class="mylogic.CamprankTable"/>
+  
+  <table name="footballranks" type="known_key_conflict" class="mylogic.FootBallRank"/>
+  
+  
+  <table name="yibaicenglist" type="known_key_conflict" class="mylogic.YiBaiCengRanklist"/>
+  <table name="fflitemlimit" type="known_key_conflict" class="mylogic.FflitemlimitTable"/>
+  <table name="crossmatrix" type="known_key_conflict" class="mylogic.CrossmatrixTable"/>
+  <table name="hsljteams" type="known_key_conflict" class="mylogic.HsljteamsTable"/>
+  <table name="hslj" type="known_key_conflict" class="mylogic.HsljTable"/>
+  <table name="campscoreranklist" type="known_key_conflict" class="mylogic.CampscoreranklistTable"/>
+  <table name="binglinlist" type="known_key_conflict" class="mylogic.BinglinlistTable"/>
+  <table name="rolecampleaderlist" type="known_key_conflict" class="mylogic.RolecampleaderlistTable"/>
+  <table name="binglinnpcinfos" type="known_key_conflict" class="mylogic.BinglinnpcinfosTable"/>
+  
+  
+ 
+  <table name="laohuuidtouserid" type="known_key_conflict" class="mylogic.LaohuuidtouseridTable"/>
+  <table name="rolespecialquest" type="known_key_conflict" class="mylogic.RolespecialquestTable"/>
+  <table name="zhanyaochumo" type="known_key_conflict" class="mylogic.ZhanyaochumoTable"/>
+  <table name="specialitemexchange" type="known_key_conflict" class="mylogic.SpecialitemexchangeTable"/>
+  <table name="xiakejiuguan" type="known_key_conflict" class="mylogic.XiakejiuguanTable"/>
+  <table name="couplechart" type="known_key_conflict" class="mylogic.CoupleChartTable"/>
+  <table name="zonghe2role" type="known_key_conflict" class="mylogic.XGYDZongheInfoMerge"/>
+  <table name="acceptedscenariotask" type="known_key_conflict" class="mylogic.AcceptedScenarioTaskTable"/>
+  
+  <allocator name="marketdbtab" class="mylogic.MarketdbtabAllocator"/>
+  
+  
+  <allocator name="pvpladder" class="mylogic.PvpladderAllocator"/>
+  
+  
+  
+  
+  -->
+  
+</xmerge>
+

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--这些协议仅在服务器内部使用，与protocols里的协议不会冲突-->
+<namespace name="move">
+
+	<bean name="DynamicSceneParams">
+		<variable name="mazeid" type="int" />地图取哪个maze
+		<variable name="addnpcs" type="list" value="fire.msp.move.CreateNpcInfo"/>需要添加的npcs
+		<variable name="delnpcs" type="list" value="int"/>需要删除的npcs
+		<variable name="npcstates" type="map" key="int" value="int"/>  key:npcid   value:show = 0,hide = 1
+	</bean>
+
+
+	 <protocol name="GMoveTest" type="4001" maxsize="65535" prior="1">  <!--测试用-->
+		<variable name="roleid" type="long"/>
+	 </protocol>
+	 
+	  <!--Transfor相关的方法-->
+	 <protocol name="GGoto" type="4002" maxsize="65535" prior="1">  <!--测试用-->
+		<variable name="roleid" type="long"/>
+		<variable name="sceneID" type="long"/> 场景id
+		<variable name="xpos" type="int"/>
+		<variable name="ypos" type="int"/>
+		<variable name="delta" type="int"/> 允许误差
+		<variable name="gototype" type="int"/> 跳转类型
+	 </protocol>
+	 <protocol name="MGotoAfterBattle" type="4003" maxsize="65535" prior="1">  让角色在战斗结束后跳转的协议
+		<variable name="roleid" type="long"/>
+		<variable name="sceneId" type="long"/> 地图id
+		<variable name="posx" type="int"/>
+		<variable name="posy" type="int"/>
+		<variable name="gototype" type="int"/>
+	 </protocol>
+	 <protocol name="GGotoRandom" type="4005" maxsize="65535" prior="1">  跳转场景的随机位置,如果roleid是队长的角色ID,那么传送整支队伍
+		<variable name="roleid" type="long"/>
+		<variable name="sceneid" type="long"/> 场景id
+		<variable name="gototype" type="int"/> 跳转类型
+	 </protocol>
+
+	  <!--Transfor相关的方法 END-->
+	 <bean name="CreateNpcInfo">
+	 	<variable name="npcid" type="int"/>
+	 	<variable name="npcname" type="string"/>
+	 	<variable name="dir" type="int"/>
+	 	<variable name="sceneID" type="long"/> 场景id
+		<variable name="xpos" type="int"/>
+		<variable name="ypos" type="int"/>
+	 </bean>
+	<protocol name="GCreateNpc" type="4007" maxsize="65535" prior="1"> 
+		<variable name="npcs" type="list" value="CreateNpcInfo"/>
+	</protocol>
+	<protocol name="GRemoveNpc" type="4008" maxsize="65535" prior="1"> 
+		<variable name="npcs" type="list" value="long"/>
+		<variable name="trace" type="string"/> 
+	</protocol>
+	
+	<!-- GS 向 地图模块 发送消息， 通知展示宠物的信息, 并通知周围玩家-->
+	<protocol name="GNotifyMapPetInfo" type="4010" maxsize="65535" prior="1">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+		<variable name="showpetinfo" type="fire.msp.showpetinfo" />
+	</protocol>
+	
+	<!--场景相关操作-->
+	<protocol name="GEnterDynamicScene" type="4011" maxsize="65535" prior="1">
+		<variable name="roleid" type="long"/>
+		<variable name="mapId" type="int"/> 地图id
+		<variable name="ownerID" type="long"/> 副本的所有者ID(可能是角色ID,也可能是团体ID)
+		<variable name="ownerName" type="string"/>  
+		<variable name="posx" type="int"/>
+		<variable name="posy" type="int"/>
+		<variable name="reusable" type="byte" /> 副本对象是否可重用(角色都离开后是否可重进入,还是重新创建新的对象)
+		<variable name="livetime" type="int"/>  空场景存活时间，单位秒。可重用副本时，等于0则一直存活不销毁；不可重用的副本时，此字段无效
+		<variable name="scenetype" type="int"/> 场景类型
+		<variable name="gototype" type="int"/>  跳转类型
+		<variable name="parameters" type="octets"/>  创建副本用到的参数，默认为DynamicSceneParams类型，不同的副本用到的参数可能不同，所以用octets
+	</protocol>
+	
+	<protocol name="GDestroyDynamicSceneByMapOwner" type="4012" maxsize="65535" prior="1">
+		<variable name="baseMapID" type="int"/> 副本的地图ID
+		<variable name="ownerID" type="long"/> 副本的所有者ID(可能是角色ID,也可能是团体ID)
+	</protocol>
+	
+	<protocol name="GDestroyDynamicSceneById" type="4013" maxsize="65535" prior="1">
+		<variable name="sceneId" type="long"/> 场景实例ID
+	</protocol>
+	
+	<protocol name="GGotoRandomInARegion" type="4015" maxsize="65535" prior="1">  跳转到地图的指定区域
+		<variable name="roleid" type="long"/>
+		<variable name="sceneid" type="long"/> 场景id
+		<variable name="xpos" type="int"/> left top point
+		<variable name="ypos" type="int"/>
+		<variable name="lenx" type="int"/> 矩形的宽
+		<variable name="leny" type="int"/> 矩形的高
+		<variable name="gototype" type="int"/> 跳转类型
+	</protocol>
+	
+	<protocol name="MCreateDynamicScene" type="4016" maxsize="65535" prior="1">  创建动态副本
+		<variable name="sceneId" type="long" /> 场景模块创建的场景ID
+		<variable name="ownerID" type="long"/> 副本的所有者ID(可能是角色ID,也可能是团体ID)
+		<variable name="scenetype" type="int"/> 副本场景的类型，如果为0，表示为静态场景
+	</protocol>
+	
+	<protocol name="MDestroyDynamicScene" type="4017" maxsize="65535" prior="1">  销毁动态副本
+		<variable name="sceneId" type="long" /> 场景模块创建的场景ID
+		<variable name="ownerID" type="long"/> 副本的所有者ID(可能是角色ID,也可能是团体ID)
+		<variable name="scenetype" type="int"/> 副本场景的类型，如果为0，表示为静态场景
+		<variable name="roleids" type="list" value="long"/> 副本销毁时被强行踢出副本的roleid
+	</protocol>
+
+	<protocol name="MMoveCheckHideBattle" type="4019" maxsize="65535" prior="1"> CCheckMove时，发送的检查进暗雷战斗协议
+		<variable name="roleId" type="long"/> 
+		<variable name="sceneId" type="long"/> 场景ID
+		<variable name="ownerId" type="long"/> ownerID
+		<variable name="length" type="int"/> 这次行走的步数
+		<variable name="monsterConfig" type="int"/> 暗雷区配置ID，如果为0，表示这里不是暗雷区
+	</protocol>
+	<protocol name="MCancelProgressBar" type="4020" maxsize="65535" prior="1"> 打断进度条
+		<variable name="roleid" type="long"/> 
+	</protocol>
+	<protocol name="MRoleGotoNotify" type="4022" maxsize="65535" prior="1">  角色发生跳转，需要处理队伍中自己和普通队员的状态
+		<variable name="roleId" type="long"/>
+		<variable name="gototype" type="int"/>
+		<variable name="oldsceneid" type="long"/>
+		<variable name="newsceneid" type="long"/>
+	</protocol>
+	<!--protocol name="GRoleModelChange" type="4023" maxsize="65535" prior="1">  
+		<variable name="roleid" type="long"/>
+		<variable name="newshapeid" type="int"/> 换装值
+		<variable name="teammembers" type="set" value="long"/>
+	</protocol-->
+	<protocol name="MAfterEnterDragonScene" type="4024" maxsize="65535" prior="1">  
+		<variable name="roleid" type="long"/>
+		<variable name="ownerid" type="long"/>
+		<variable name="mapid" type="int"/>	
+	</protocol>
+	<protocol name="GUpdateDynamicScene" type="4025" maxsize="65535" prior="1">  
+		<variable name="mapId" type="int"/> 地图id
+		<variable name="ownerId" type="long"/> 副本的所有者ID(可能是角色ID,也可能是团体ID)
+		<variable name="parameters" type="octets"/>  更新副本用到的参数，因为不同的副本用到的参数可能不同，自己unmarshal
+	</protocol>
+	<protocol name="MUpdateUnitPos" type="4027" maxsize="65535" prior="1">  
+		<variable name="unittype" type="int"/> 1 = role, 2 = npc
+		<variable name="key" type="long"/> roleid或者npckey
+		<variable name="sceneid" type="long"/> 
+		<variable name="posx" type="int"/> 
+		<variable name="posy" type="int"/>
+		<variable name="posz" type="int"/>
+	</protocol>
+	<protocol name="GCreateDynamicScene" type="4028" maxsize="65535" prior="1">  
+		<variable name="mapId" type="int"/> 地图id
+		<variable name="ownerID" type="long"/> 副本的所有者ID(可能是角色ID,也可能是团体ID)
+		<variable name="ownerName" type="string"/>
+		<variable name="reusable" type="byte" /> 副本对象是否可重用(角色都离开后是否可重进入,还是重新创建新的对象)
+		<variable name="livetime" type="int"/>  空场景存活时间，单位秒。可重用副本时，等于0则一直存活不销毁；不可重用的副本时，此字段无效
+		<variable name="scenetype" type="int"/> 场景类型
+		<variable name="parameters" type="octets"/>  创建副本用到的参数，默认为DynamicSceneParams类型，不同的副本用到的参数可能不同，所以用octets
+	</protocol>
+
+	<protocol name="GLeaveDynamicScene" type="4030" maxsize="65535" prior="1">  
+		<variable name="roleid" type="long"/> 
+		<variable name="sceneid" type="long"/>
+		<variable name="gototype" type="int"/>  
+	</protocol>
+	<protocol name="MRoleJump" type="4031" maxsize="65535" prior="1"> 通知逻辑端加buff
+		<variable name="roleid" type="long"/>
+		<variable name="jumpstate" type="byte"/> 0=停止时发送，1=跳跃开始时发送,2=二段跳时发送
+		<variable name="minus" type="byte"/> 扣除的气力值，为正
+	</protocol>
+	<protocol name="GJumpDrawback" type="4032" maxsize="65535" prior="1">  逻辑通知场景停止跳跃，拉回起始点
+		<variable name="roleid" type="long"/> 
+	</protocol>
+	<protocol name="GRoleEquipChange" type="4033" maxsize="65535" prior="1">  
+		<variable name="roleid" type="long"/>
+		<variable name="itemid" type="int"/>
+		<variable name="itemcolor" type="int"/>
+		<variable name="pos" type="int"/> 
+		<variable name="ride" type="int"/>
+        <variable name="effect" type="int"/>
+	</protocol>
+	
+	<protocol name="GAddPowerRestore" type="4034" maxsize="65535" prior="1">  添加气力储备
+		<variable name="roleid" type="long"/>
+		<variable name="powerrestore" type="int"/> 如果为-1，则为直接清除气力储备
+	</protocol>
+	
+	<protocol name="GWeatherChange" type="4035" maxsize="65535" prior="1">  添加气力储备
+		<variable name="weatherId" type="byte"/>   		天气Id
+		<variable name="tipsParm" type="string" />		tips参数
+		<variable name="sceneid" type="long"/>
+	</protocol>
+	
+	<protocol name="MCreateWeather" type="4036" maxsize="65535" prior="1"> 通知逻辑端添加场景天气用与启动服务器的时候
+		<variable name="weatherId" type="byte"/>   		天气Id
+		<variable name="sceneid" type="long"/>
+		<variable name="tipsParm" type="string"/>
+		<variable name="remainTime" type="long"/>
+	</protocol>
+		
+	<protocol name="GSetEnchouJump" type="4037" maxsize="65535" prior="1"> 
+		<variable name="roleId" type="long"/>   		角色
+		<variable name="jump" type="byte"/> 0不能跳,1可以跳
+	</protocol>
+	
+	<protocol name="GRoleCampChange" type="4038" maxsize="65535" prior="1"> 
+		<variable name="roleId" type="long"/>   		角色
+		<variable name="campType" type="byte"/> 0=中立  1= 部落 2= 联盟
+		<variable name="selectType" type="byte"  validator="value=[0,1]"/> 0=选择阵营 1=更换阵营
+	</protocol>
+
+    <!--场景相关操作-->
+    <protocol name="GEnterDynamicSceneById" type="4039" maxsize="65535" prior="1">
+        <variable name="roleid" type="long"/>
+        <variable name="sceneID" type="long"/> 场景id
+        <variable name="posx" type="int"/>
+        <variable name="posy" type="int"/>       
+        <variable name="scenetype" type="int"/> 场景类型
+        <variable name="gototype" type="int"/>  跳转类型
+    </protocol>
+</namespace>	

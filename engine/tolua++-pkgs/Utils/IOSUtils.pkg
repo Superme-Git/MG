@@ -1,0 +1,8 @@
+$#include "Utils/IOS_Utils.h"
+
+namespace IOS_MHSD_UTILS
+{
+	extern void OpenURL(const std::string& urlstring);
+	extern float GetCurBrightness();
+	extern void  SetCurBrightness(float brightness);
+}

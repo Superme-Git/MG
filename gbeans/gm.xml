@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="gm">	
+		<bean name="Cbattlelist" from="z战斗信息表-复合/z战斗信息表_1xxx,z战斗信息表-复合/z战斗信息表_剧情_8xxx,z战斗信息表-复合/z战斗信息表_练功区特殊_9xxx" genxml="client">
+			<variable name="id" fromCol="ID" type="int"/> id
+			<variable name="positionsid" fromCol="站位配置ID" type="int" />
+		</bean>
+		
+		<bean name="SGMStandard" from="GM控制台/b标准" genxml="server">
+			<variable name="id" fromCol="id" type="int"/> id
+			<variable name="schoolname" fromCol="职业" type="string" /> 职业
+			<variable name="about" fromCol="策划备注" type="string" /> 策划备注
+			<variable name="rolelv" fromCol="等级" type="int" /> 等级
+			<variable name="equipinfo" fromCol="装备" type="string" /> 装备
+			<variable name="skillinfo" fromCol="技能等级" type="string" /> 技能等级
+			<variable name="xiulianinfo" fromCol="修炼等级" type="string" /> 修炼等级
+			<variable name="guildskillinfo" fromCol="公会技能" type="string" /> 公会技能
+			<variable name="geminfo" fromCol="宝石等级" type="string" /> 宝石等级
+			<variable name="petinfo" fromCol="宝宝等级" type="string" /> 宝宝等级
+		</bean>
+		
+		<bean name="About360XuanShang" from="X悬赏任务条件表" genxml="server">
+			<variable name="id" fromCol="ID" type="int"/> ID
+			<variable name="needRoleLv" fromCol="领取等级" type="int" /> 领取等级
+			<variable name="needFirstCharge" fromCol="是否需要首充" type="bool" /> 是否需要首充
+			<variable name="chargeDaysExceptFirst" fromCol="除首充日外的连续充值天数" type="int" /> 除首充日外的连续充值天数
+			<variable name="loginDays" fromCol="领取连续登陆天数" type="int" /> 领取连续登陆天数
+			<variable name="totalPlayedTime" fromCol="累积游戏时间" type="long" /> 累积游戏时间
+			<variable name="prizeId" type="vector" value="int" fromCol="道具ID1,道具ID2,道具ID3,货币类型" /> 道具ID
+			<variable name="prizeNum" type="vector" value="int" fromCol="道具1数量,道具2数量,道具3数量,数量" /> 道具数量
+			<variable name="desc" fromCol="描述" type="string" /> 描述
+		</bean>
+	</namespace>

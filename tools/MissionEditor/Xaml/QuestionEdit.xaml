@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Knight.MissionEditor.Xaml.QuestionEdit"
+        xmlns:src="clr-namespace:Knight.MissionEditor"
+        Title="答题编辑"
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterOwner" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" Height="556" Width="425">
+    <Grid Height="515" Width="408">
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">正确答案</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Height="60" Margin="83,10,9,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Name="CorrectAnswerEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,81,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">错误选项一</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Height="60" Margin="83,81,9,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Name="WrongAnswerAEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,153,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">错误选项二</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Height="60" Margin="83,153,9,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Name="WrongAnswerBEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">错误选项三</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Margin="83,225,9,231" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Name="WrongAnswerCEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,0,0,185" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">错误选项四</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Height="60" Margin="83,0,9,155" TextWrapping="Wrap" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto" Name="WrongAnswerDEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,0,0,105" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">错误选项五</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Height="60" Margin="83,0,9,75" TextWrapping="Wrap" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto" Name="WrongAnswerEEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="1,0,0,42" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="101">对话NPC</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="123,0,0,42" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="73" TextChanged="NpcIDChanged" x:Name="NpcIDEditBox"/>
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalContentAlignment="Center" Margin="0,0,69,42" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="120" Name="NpcNameLable">Label</Label>
+        <TextBox AcceptsReturn="True" FontFamily="宋体" FontSize="15" Height="31" Margin="9,0,9,9" TextWrapping="Wrap" VerticalAlignment="Bottom" VerticalScrollBarVisibility="Auto" Name="ConversionEditBox" />
+    </Grid>
+</Window>

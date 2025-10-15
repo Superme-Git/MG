@@ -1,0 +1,7 @@
+enum ePetState
+{
+	ePetState_Normal = 0x00,
+	ePetState_Death	= 0x01,
+	ePetState_Flyout	= 0x02,
+	ePetState_AlreadyFight = 0x04,
+};

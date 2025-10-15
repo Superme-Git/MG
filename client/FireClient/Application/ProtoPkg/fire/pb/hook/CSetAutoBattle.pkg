@@ -1,0 +1,32 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace hook { 
+
+class CSetAutoBattle : public aio::Protocol
+{
+public:
+	// Protocol
+
+
+	char isautobattle; // 设置是否自动战斗
+
+	CSetAutoBattle() ;
+
+	explicit CSetAutoBattle(char _isautobattle_);
+
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const CSetAutoBattle &_o_) const ;
+
+	aio::Protocol * Clone();
+
+};
+
+} 
+} 
+} 

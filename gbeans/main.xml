@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="fire" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <namespace name="pb"> 
+	<namespace name="main">
+		<bean name="ModuleInfo" from="f服务器模块列表" genxml="server">			 
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="name" fromCol="name"  type="string"     />
+			  <variable name="classname" fromCol="类名"  type="string"     />
+			  <variable name="dep" fromCol="依赖1,依赖2,依赖3,依赖4"  type="vector"  value="string"    />
+		</bean>
+		<bean name="HotfixConfig" from="f服务器热加载配置" genxml="server">			 
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="type" fromCol="类型"  type="int"     />
+			  <variable name="name" fromCol="名称"  type="string"     />
+		</bean>
+		<bean name="HotfixXml2ModuleConfig" from="f服务器热加载文件模块对应表" genxml="server">			 
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="filename" fromCol="文件名"  type="string"     />
+			  <variable name="canreload" fromCol="是否支持"  type="bool"     />
+			  <variable name="module" fromCol="对应模块1"  type="string"     />
+		</bean>
+		<bean name="LoginLimit" from="f服务器登录限制表" genxml="server">			 
+			  <variable name="id" fromCol="id" type="int" /> id
+			  <variable name="serverid" fromCol="服务器id"  type="int" />
+			  <variable name="loginlimittype" fromCol="登录限制模式"  type="int" />
+			  <variable name="whitelist" fromCol="白名单"  type="string" />
+			  <variable name="blacklist" fromCol="黑名单"  type="string" />
+			  <variable name="msgid" fromCol="提示信息id"  type="int" />
+		</bean>
+		<bean name="JumpQueueUser" from="f服务器登录排队白名单" genxml="server">			 
+			  <variable name="id" fromCol="userid" type="int" /> id
+		</bean>
+		<bean name="LoginQueueUp" from="f服务器登录排队配置" genxml="server">			 
+			  <variable name="id" fromCol="编号" type="int" /> id
+			  <variable name="connectusernum" fromCol="服务器人数" type="int" /> 连接人数
+			  <variable name="time" fromCol="时间" type="int" /> 时间
+			  <variable name="enterusernum" fromCol="放入人数" type="int" /> 放入人数
+		</bean>
+
+	</namespace>
+	
+	<!-- 每个模块一个子文件 -->
+	<xi:include href="map.xml" />
+	<xi:include href="item.xml" />
+	<xi:include href="effect.xml" />
+	<xi:include href="npc.xml" />
+	<xi:include href="role.xml" />
+	<xi:include href="pet.xml"/>
+	<xi:include href="battlemagic.xml"/>
+	<xi:include href="login.xml"/>
+	<xi:include href="sysconfig.xml" />
+	<xi:include href="title.xml" />
+	<xi:include href="game.xml" />
+	<xi:include href="buff.xml" />
+	<xi:include href="message.xml" />
+	<xi:include href="skill.xml" />
+	<xi:include href="mission.xml" />
+	<xi:include href="team.xml" />
+	<xi:include href="timer.xml" />
+	<xi:include href="circletask.xml" />
+	<xi:include href="chat.xml" />
+	<xi:include href="mainmissioninfo.xml" />
+	<xi:include href="clan.xml" />
+	<xi:include href="EffectPath.xml"/>
+	<xi:include href="gm.xml"/>
+	<xi:include href="fushi.xml"/>
+	<xi:include href="instance.xml"/>
+	<xi:include href="triggers.xml"/>
+	<xi:include href="common.xml"/>
+	<xi:include href="shop.xml"/>
+	<xi:include href="activity.xml"/>
+	<xi:include href="treasuremap.xml"/>
+	<xi:include href="move.xml"/>
+	<xi:include href="friends.xml"/>
+  </namespace>
+</namespace>  

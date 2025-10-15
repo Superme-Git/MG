@@ -1,0 +1,72 @@
+
+SHARE_HOME = ../../../core
+TOP_SRCDIR = $(SHARE_HOME)
+
+MYSQL_INC = /usr/include/mysql
+MYSQLPP_INC = /usr/include
+
+SINGLE_THREAD = true
+DEBUG_VERSION = true
+LOG_NOT_TO_CONSOLE = false
+USE_LOGCLIENT = false
+ALL_GM = false
+CROSS_SERVER = false
+USE_AUANY = true
+
+
+include $(SHARE_HOME)/mk/gcc.defs.mk
+INCLUDES = -I. -I$(TOP_SRCDIR) -I$(IO_DIR) -I$(CO_DIR) -I$(PERF_DIR) -I$(TOP_SRCDIR)/rpc
+INCLUDES += -I$(SHARE_HOME) -I./rpcgen
+
+ifeq ($(USE_LOGCLIENT),true)
+LOG_DIR = ../../common/logclient
+LOGSRC  = $(LOG_DIR)/rpcgen.cpp $(LOG_DIR)/LogClientManager.cpp $(LOG_DIR)/LogClientTcpManager.cpp \
+        $(LOG_DIR)/log.cpp $(LOG_DIR)/glog.cpp
+LOGOBJ := $(LOGSRC:%.cpp=%.o)
+INCLUDES += -I$(LOG_DIR)
+DEFINES += -DUSE_LOGCLIENT
+else
+LOGOBJ :=
+endif
+
+OBJS = rpcgen.o proxy.o DeliverServer.o AuthClient.o GameDBServer.o cert.o CrossServer.o CrossClient.o AuAnyClient.o
+
+ifeq ($(USE_AUANY),false)
+INCLUDES +=  #-I$(MYSQLPP_INC) -I$(MYSQL_INC)
+MYSQLOBJS := mysqlppconn.o
+MYSQLLIBS = -lmysqlpp_excommon -lmysqlpp -L/usr/local/mysql/lib  -lmysqlclient
+else
+MYSQLOBJS :=
+MYSQLLIBS =
+endif
+
+DEFINES += -DUSE_HASH_MAP -DUSE_EPOLL -DMYSQLPP_MYSQL_HEADERS_BURIED -O0 -g -ggdb -fexceptions#-pg
+LDFLAGS += -DUSE_HASH_MAP -static -O1 -g -ggdb #-pg
+
+ifeq ($(LOG_NOT_TO_CONSOLE),true)
+	DEFINES += -DLOG_NOT_TO_CONSOLE
+endif
+
+ifeq ($(ALL_GM),true)
+DEFINES += -DALL_GM
+endif
+
+ifeq ($(CROSS_SERVER),true)
+DEFINES += -DCROSS_SERVER
+endif
+
+ifeq ($(USE_AUANY),true)
+DEFINES += -DUSE_AUANY
+endif
+
+all : myclean proxyserver
+
+proxyserver : $(OBJS) $(SHAREOBJ) $(SHARE_SOBJ) $(LOGOBJ)
+	rm -f proxyserver
+	$(LD) $(LDFLAGS) -o $@ $(OBJS) $(SHAREOBJ) $(SHARE_SOBJ) $(LOGOBJ) $(MYSQLOBJS) -lpcre -lssl -lcrypto -ldl -lpthread -llog4cpp $(MYSQLLIBS) -L/usr/local/gcc-4.7.0/zlib -lz
+
+myclean :
+	rm -rf $(OBJS)
+
+include $(SHARE_HOME)/mk/gcc.rules.mk
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消息协议号从 7001 开始 -->
+<namespace name="battle">
+	<protocol  name="MStartShowNpcBattle" type="7001" maxsize="65535" prior="1"> 开始明雷怪战斗
+		 <variable name="roleid" type="long"/> 
+		 <variable name="teamsize" type="int"/> 
+		 <variable name="npcuniqueid" type="long"/>
+		 <variable name="npcbaseid" type="int"/>
+		 <variable name="areaconf" type="int"/> 		
+	</protocol>
+	
+	<protocol  name="GFortyThievesBattle" type="7002" maxsize="65535" prior="1"> 开始明雷怪战斗
+		 <variable name="roleid" type="long"/> 
+		 <variable name="npckey" type="long"/> 四十大盗的npckey 		
+	</protocol>
+	
+	<protocol  name="MFortyThievesBattle" type="7003" maxsize="65535" prior="1"> 开始明雷怪战斗
+		 <variable name="roleid" type="long"/>
+		 <variable name="npckey" type="long"/> 四十大盗的npckey
+		 <variable name="areaconfig" type="int"/> 四十大盗NPC所在地点的暗雷区域等级 		
+	</protocol>
+	<!-- battle conduct protocol end-->	
+	
+	<protocol  name="GAddShowBattleLoser" type="7007" maxsize="65535" prior="1"> 给明雷怪添加战斗失败者
+		<variable name="npckey" type="long" /> 地图上的npckey
+		<variable name="losers" type="list" value="long" />失败者
+	</protocol>
+	
+	<protocol  name="GRemoveMonstershow" type="7008" maxsize="65535" prior="1"> 给明雷怪添加战斗失败者
+		<variable name="monsterkey" type="long" /> 地图上的npckey
+	</protocol>
+	
+	
+</namespace>

@@ -1,0 +1,30 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace pet { 
+
+class PetTypeEnum : public FireNet::Marshal
+{
+public:
+	enum {
+		WILD = 1, // “∞…˙
+		BABY = 2, // ±¶±¶
+		VARIATION = 3, // ±‰“Ï
+		SACREDANIMAL = 4, // …Ò ﬁ
+	};
+
+	PetTypeEnum() ;
+
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const PetTypeEnum &_o_) const ;
+
+};
+
+} 
+} 
+} 

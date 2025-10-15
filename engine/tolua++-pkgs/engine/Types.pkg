@@ -1,0 +1,529 @@
+struct POINT
+{
+	 long x,y;
+};
+
+struct RECT
+{
+	long left,top,right,bottom;
+};
+
+namespace Nuclear
+{
+	enum NuclearDirection
+	{
+		XPDIR_TOP = 0,
+		XPDIR_TOPRIGHT,
+		XPDIR_RIGHT,
+		XPDIR_BOTTOMRIGHT,
+		XPDIR_BOTTOM,
+		XPDIR_BOTTOMLEFT,
+		XPDIR_LEFT,
+		XPDIR_TOPLEFT,
+	};
+	enum 
+	{
+		XPDIR_COUNT = XPDIR_TOPLEFT + 1
+	};
+
+	struct NuclearFPoint
+	{
+		float x;
+		float y;
+		NuclearFPoint(float _x = 0.f, float _y = 0.f);
+		NuclearFPoint(const POINT& p);
+
+		NuclearFPoint operator+(const NuclearFPoint &fp);
+		NuclearFPoint operator-(const NuclearFPoint &fp);
+		NuclearFPoint operator * ( float k) const;
+		NuclearFPoint operator / ( float k) const;
+		bool operator==(const NuclearFPoint &fp) const;
+		float Dis2(const NuclearFPoint &cp) const;
+		bool isInPolygon(const std::vector<NuclearFPoint>& polygon) const;
+		bool isInTriangle(NuclearFPoint p0, NuclearFPoint p1, NuclearFPoint p2) const;
+	};
+
+	typedef NuclearFPoint NuclearVector2;
+
+	struct NuclearPoint : public POINT
+	{
+		NuclearPoint(int _x=0, int _y=0);
+		NuclearPoint(const POINT &pt);
+		NuclearPoint(const NuclearFPoint &pt);
+
+		NuclearPoint operator-(const NuclearPoint &cp) const;
+		NuclearPoint operator+(const NuclearPoint &cp) const;
+
+		int Dis2(const NuclearPoint &cp) const;
+		NuclearFPoint ToFPOINT() const;
+	};
+
+	typedef NuclearPoint NuclearLocation;
+
+	enum Nuclear_EffectAssureResResult
+	{
+		XPEARR_RESREADY = 0,
+		XPEARR_LOADING,
+		XPEARR_LOAD_ERROR,
+	};
+
+	enum Nuclear_EffectScaleType
+	{
+		XPEST_NOSCALE = 0,
+		XPEST_ONLY_SCALE_POS,
+		XPEST_ALLSCALE,
+	};
+
+	enum Nuclear_EffectState
+	{
+		XPES_PLAYING,
+		XPES_PAUSE,
+		XPES_STOP,
+		XPES_EMPTY,
+	};
+
+	struct NuclearRect : public RECT
+	{
+		NuclearRect(int l=0, int t=0, int r=0, int b=0);
+		NuclearRect(const NuclearPoint &ltpoint, int width, int height);
+		NuclearRect(const RECT &r);
+		NuclearRect Widen(int d);
+		NuclearRect Union(const NuclearRect &rhs); 
+
+		NuclearPoint GetPos(); 
+		NuclearPoint Center(); 
+		NuclearFRectt ToFRECT(); 
+		bool PtInRect(const NuclearPoint &pt) const;
+		bool IsCross(const NuclearRect& rhs, NuclearRect &res) ;
+		bool Cut(const NuclearRect& vrect, NuclearRect &drect, NuclearFRectt& srect) ;
+	};
+
+	struct NuclearVector4
+	{
+		NuclearVector4 (float _x=0.0, float _y=0.0, float _z=0.0, float _w=0.0);
+	};
+
+	union NuclearColor
+	{
+		NuclearColor();
+		NuclearColor(DWORD color); 
+		NuclearColor(const NuclearVector4 &v) ;
+		NuclearColor(unsigned char _a, unsigned char _r, unsigned char _g, unsigned char _b);
+		void Reset(const NuclearVector4 &v);
+		NuclearVector4 ToXPVECTOR4() ;
+		void Reset(unsigned char _b, unsigned char _g, unsigned char _r, unsigned char _a);
+	};
+	
+	enum NuclearPlayMode
+	{
+		XPPM_LOOP,
+		XPPM_LOOPNUM,
+		XPPM_TIME,
+	};
+	typedef int PictureHandle;
+
+	class INuclearRunnable
+	{
+	public:
+		virtual ~INuclearRunnable();
+	};
+
+	struct NuclearDisplayMode
+	{
+		NuclearDisplayMode();
+		bool equalExceptScreenMode(const NuclearDisplayMode &df); 
+	};
+
+	enum NuclearMultiSampleType
+	{
+		XPMULTISAMPLE_NONE            =  0,
+		XPMULTISAMPLE_2_SAMPLES       =  2,
+		XPMULTISAMPLE_3_SAMPLES       =  3,
+		XPMULTISAMPLE_4_SAMPLES       =  4,
+		XPMULTISAMPLE_5_SAMPLES       =  5,
+		XPMULTISAMPLE_6_SAMPLES       =  6,
+		XPMULTISAMPLE_7_SAMPLES       =  7,
+		XPMULTISAMPLE_8_SAMPLES       =  8,
+		XPMULTISAMPLE_9_SAMPLES       =  9,
+		XPMULTISAMPLE_10_SAMPLES      = 10,
+		XPMULTISAMPLE_11_SAMPLES      = 11,
+		XPMULTISAMPLE_12_SAMPLES      = 12,
+		XPMULTISAMPLE_13_SAMPLES      = 13,
+		XPMULTISAMPLE_14_SAMPLES      = 14,
+		XPMULTISAMPLE_15_SAMPLES      = 15,
+		XPMULTISAMPLE_16_SAMPLES      = 16,
+	};
+
+	class INuclearTimer
+	{
+	public:
+        int m_iTimerID;
+        INuclearTimer();
+		virtual void OnTimer() = 0; 
+		virtual ~INuclearTimer() ;
+	};
+
+	enum NuclearTextureBlendMode
+	{
+		XPTEXBM_DEFAULT = 0,
+		XPTEXBM_MODULATE = 0,
+		XPTEXBM_ADDITIVE = 1,
+		XPTEXBM_COPY = 2,
+		XPTEXBM_ADDITIVE_ALPHA = 3,
+		XPTEXBM_MODULATE2X = 4,  
+		XPTEXBM_ADDITIVE2X = 5,	
+		XPTEXBM_MUTIPLY = 6, 
+		XPTEXBM_MUTIPLY_ALPHA = 7,
+	};
+
+	enum NuclearTextureAddRess 
+	{
+		XPTEXADDRESS_WRAP = 1,
+		XPTEXADDRESS_MIRROR = 2,
+		XPTEXADDRESS_CLAMP = 3,
+		XPTEXADDRESS_BORDER = 4,
+		XPTEXADDRESS_MIRRORONCE = 5,
+		XPTEXADDRESS_FORCE_DWORD = 0x7fffffff
+	};
+
+	struct NuclearFRectt
+	{
+		NuclearFRectt(float l = 0.f, float t = 0.f, float r = 0.f, float b = 0.f);
+		NuclearFRectt(const NuclearFPoint &ltpoint, float width, float height);
+		NuclearFRectt(const NuclearFPoint & lt, float size);
+		NuclearFRectt(const NuclearFPoint & lt, const NuclearFPoint & rb);
+		NuclearFRectt& Assign(float l, float t, float r, float b);
+		float Width();
+		float Height();
+		bool PtInRect(const NuclearFPoint &pt);
+	};
+
+	struct NuclearVector3
+	{
+		NuclearVector3 (float _x=0.0f, float _y=0.0f, float _z=0.0f);
+		NuclearVector3& Reset(float _x,float _y,float _z);
+		NuclearVector3& Add(float _x,float _y,float _z);
+		float Length();
+	};
+
+	struct NuclearFColor
+	{
+		NuclearFColor(float _r=0.f,float _g=0.f,float _b=0.f,float _a=0.f);
+		void Reset(float _r,float _g,float _b,float _a);
+		DWORD ToDWORD();
+	};
+
+	struct NuclearTriangle
+	{
+		bool PtInTriangle(const NuclearFPoint &pt);
+	};
+
+	struct NuclearEllipse
+	{
+		NuclearEllipse();
+		bool PtInEllipse(const NuclearPoint &pt);
+	};
+
+	struct NuclearMatrix3
+	{
+		NuclearMatrix3();
+		NuclearMatrix3( float _11, float _12, float _13,
+			float _21, float _22, float _23,
+			float _31, float _32, float _33);
+		void Translation(NuclearMatrix3 &result, const NuclearFPoint &fp); 
+		void Translation(NuclearMatrix3 &result, float x, float y); 
+		NuclearMatrix3 *inverse (NuclearMatrix3 *pOut); 
+	} ;
+
+    enum NuclearFillMode
+	{
+		XPFM_WIREFRAME = 0,
+		XPFM_SOLIDFILL = 1
+	};
+
+	enum NuclearShapeType
+	{
+		XPSHAPE_TYPE_CIRCLE = 0,
+		XPSHAPE_TYPE_POLYGON,
+	};
+
+	class INuclearShape
+	{
+	public:
+		virtual ~INuclearShape();
+		bool IsPointIn(const NuclearPoint &pt);
+		float DistanceTo(const NuclearPoint &pt);
+	};
+
+	class NuclearCircle : public INuclearShape
+	{
+	public:
+		NuclearCircle(NuclearPoint	pos = NuclearPoint(0, 0), int r = 0); 
+		virtual NuclearShapeType GetType(); 
+		virtual bool IsPointIn(int x, int y);
+		virtual float DistanceTo(int x, int y);
+		virtual void Render(Nuclear::Renderer *pRenderer, const NuclearRect &viewport, NuclearColor color, NuclearFillMode fillmode, int pointR) const;
+		virtual INuclearShape* Extension(int l);
+		virtual bool IsVaild();
+	};
+
+	class NuclearPolygon : public INuclearShape
+	{
+	public:
+		NuclearPolygon(); 
+		virtual NuclearShapeType GetType();
+		virtual bool IsPointIn(int x, int y);
+		virtual float DistanceTo(int x, int y) const;
+		virtual void Render(Renderer *pRenderer, const NuclearRect &viewport, NuclearColor color, NuclearFillMode fillmode, int pointR) const;
+		virtual INuclearShape* Extension(int l) const;
+		virtual bool IsVaild();
+	};
+
+	enum Nuclear_EffectLayer
+	{
+		XPEL_UNDER_SPRITE = 0,
+		XPEL_SPRITE = 1,
+		XPEL_ABOVE_SPRITE = 2,
+		XPEL_TOP = 4,
+		XPEL_NORMAL_UNDER_SPRITE = 0,
+		XPEL_NORMAL_SPRITE_1 = 1,   
+		XPEL_NORMAL_ABOVE_SPRITE = 2, 
+		XPEL_NORMAL_SPRITE_2 = 3,	
+		XPEL_NORMAL_TOP = 4,	
+		XPEL_BATTLE_LOW = 5,
+		XPEL_BATTLE_MID = 6,
+		XPEL_BATTLE_HEIGHT = 7,
+	};
+
+	typedef unsigned int WarBackgroundHandle;
+
+	enum NuclearBGSoundMode
+	{
+		XPBGSM_AUTO,
+		XPBGSM_CUSTOM,
+		XPBGSM_BATTLE,
+	};
+
+	enum eNuclearWorldMode
+	{
+		XPWM_NORMAL = 0,
+		XPWM_SIMPLE_BATTLE,
+		XPWM_WORLD_BATTLE,
+		XPWM_FLY,
+	};
+
+	enum NuclearWarBackgroundType
+	{
+		XPWBT_CENTER = 0,
+		XPWBT_SCALE,
+	};
+
+	enum NuclearCameraUpdateType
+	{
+		XPCAMERA_HERO_ALWAYS_IN_CENTER = 0,
+		XPCAMERA_UPDATE_TYPE2,
+		XPCAMERA_FOLLOW_HERO_WHEN_OUT_OF_INSENCE,
+		XPCAMERA_FOLLOW_HEROS_DIR_WHEN_OUT_OF_INSENCE,
+		XPCAMERA_SMOOTH,
+		XPCAMERA_MOVE_TO_POSITION_IN_DURATION,
+		XPCAMERA_ACCELERATE,
+	};
+
+	class XPCAMERA_MOVE_TO_POSITION_IN_DURATION_PARAMS
+	{
+	public:
+		NuclearPoint mStartPosition, mTargetPosition;
+		int mDuration;
+
+	public:
+		XPCAMERA_MOVE_TO_POSITION_IN_DURATION_PARAMS();
+	};
+
+	enum NuclearPoolType {
+		XPPOOL_VIDEOMEM = 0,
+		XPPOOL_MANAGED = 1,
+		XPPOOL_SYSTEMMEM = 2,
+	};
+
+	enum NuclearComputerConfigType
+	{
+		XPCOMPUTERCONFIG_L = 0,
+		XPCOMPUTERCONFIG_M = 1,
+		XPCOMPUTERCONFIG_H = 2,
+	};
+
+	enum NuclearConsoleInfo
+	{
+		XPCSINFO_FPS = 1 << 0,
+		XPCSINFO_COORDINATE = 1 << 1,
+		XPCSINFO_RENDERINFO = 1 << 2,
+		XPCSINFO_SYSINFO = 1 << 3,
+		XPCSINFO_WORLDINFO = 1 << 4,
+		XPCSINFO_FRAMESTAT = 1 << 5,
+		XPCSINFO_ALL = 0xfFfFfFfF
+	};
+
+	enum NuclearFrameStatType
+	{
+		XPFRAMESTAT_FRAME_TIME = 0,
+		XPFRAMESTAT_CAMERA_DIS,
+		XPFRAMESTAT_FILE_IO,
+		XPFRAMESTAT_TASK_TIME,
+		XPFRAMESTAT_IAPP_MSG,
+	};
+
+	enum NuclearWindowState
+	{
+		XPWS_ACTIVE = 0,
+		XPWS_INACTIVE,
+		XPWS_MINIMIZE,
+	};
+
+	enum NuclearSpriteTranslucentType
+	{
+		XPSTT_NONE = 0,
+		XPSTT_ELEMENT_TRANSLUCENT,
+		XPSTT_SPRITE_TRANSLUCENT,
+	};
+
+	typedef unsigned short ActionTypeFlag;
+
+	enum NuclearPrefetchResult
+	{
+		XPPR_OK = 0,
+		XPPR_BASE_ASYNC_OK,
+		XPPR_ASYNC_LOADING,
+	};
+
+	enum NuclearWaterSurfaceType
+	{
+		WST_ALWAYS_PLANE = 0,
+		WST_OBEY_DIR,		
+		WST_ATHWART_DIR,
+	};
+
+	enum Nuclear_Mouse_TestMode
+	{
+		XPTM_PIC_RECT = 0,
+		XPTM_POLYGON,	
+		XPTM_ALPHA,	
+	};
+
+	struct NuclearBase
+	{
+		NuclearPoint left;
+		NuclearPoint right;
+		NuclearBase();
+	};
+
+	enum NuclearImageFileFormat 
+	{
+		XPIFF_BMP = 0,
+		XPIFF_JPG = 1,
+		XPIFF_TGA = 2,
+		XPIFF_PNG = 3,
+		XPIFF_DDS = 4,
+		XPIFF_PPM = 5,
+		XPIFF_DIB = 6,
+		XPIFF_HDR = 7,
+		XPIFF_PFM = 8,
+        XPIFF_PVR2 = 9,
+        XPIFF_PVR4 = 10,
+        XPIFF_ATC  = 11,
+		XPIFF_FORCE_DWORD = 0x7fffffff
+	};
+
+	enum NuclearTextureFormat
+	{
+		XPTEXFMT_DEFAULT  = 0, 
+		XPTEXFMT_A8R8G8B8 = 21,
+		XPTEXFMT_A4R4G4B4 = 26,
+		XPTEXFMT_R5G6B5 = 23,
+		XPTEXFMT_DXT1 = ((DWORD)(BYTE)('D') | ((DWORD)(BYTE)('X') << 8) | ((DWORD)(BYTE)('T') << 16) | ((DWORD)(BYTE)('1') << 24 ))
+		XPTEXFMT_DXT2 = ((DWORD)(BYTE)('D') | ((DWORD)(BYTE)('X') << 8) | ((DWORD)(BYTE)('T') << 16) | ((DWORD)(BYTE)('2') << 24 ))
+		XPTEXFMT_DXT3 = ((DWORD)(BYTE)('D') | ((DWORD)(BYTE)('X') << 8) | ((DWORD)(BYTE)('T') << 16) | ((DWORD)(BYTE)('3') << 24 ))
+		XPTEXFMT_DXT4 = ((DWORD)(BYTE)('D') | ((DWORD)(BYTE)('X') << 8) | ((DWORD)(BYTE)('T') << 16) | ((DWORD)(BYTE)('4') << 24 ))
+		XPTEXFMT_DXT5 = ((DWORD)(BYTE)('D') | ((DWORD)(BYTE)('X') << 8) | ((DWORD)(BYTE)('T') << 16) | ((DWORD)(BYTE)('5') << 24 ))
+	};
+
+	enum Nuclear_EffectBindType
+	{
+		XPEBT_NULL = -1,
+		XPEBT_ORIGIN = 0,
+		XPEBT_EFFECT_POS,
+	};
+	typedef int TextBlockHandle;
+
+	struct sNuclearFontEffectParam
+	{
+		NuclearFPoint fMaxScale;
+		NuclearFPoint fMinScale;
+		float fCycle;	
+		int nPlayTime;
+		int nLoopNum;
+		NuclearFRectt* pFrctSrc;
+		sNuclearFontEffectParam();
+	};
+
+	enum Nuclear_EffectType
+	{
+		XPET_ANI = 0,
+		XPET_PARTICLE,
+		XPET_AUDIO,	
+		XPET_GEFFECT,
+		XPET_LISTEFFECT,
+		XPET_3D,
+	};
+
+	enum Nuclear_ResState
+	{
+		XPRS_UNAVAILABLE = -1,
+		XPRS_AVAILABLE_NEED_LOOKUP = 0,
+		XPRS_AVAILABLE_NEED_NOT_LOOKUP,
+	};
+
+	typedef unsigned int EngineSpriteHandle;
+
+	struct NuclearTCVertex
+	{
+		float x,y,z;
+		float rhw;
+		DWORD c;
+		NuclearTCVertex(float _x=0.0f, float _y=0.0f, float _z=0.0f, float _rhw=1.0f, DWORD _c=0xFFFFFFFF);
+	};
+
+	struct NuclearUTCT1Vertex
+	{
+		float x,y,z;
+		DWORD c;
+		float u,v;
+		NuclearUTCT1Vertex(float _x=0.0f, float _y=0.0f, float _z=0.0f, DWORD _c=0xFFFFFFFF, float _u=0.0f, float _v=0.0f) ;
+	};
+
+	struct NuclearTCT1Vertex
+	{
+		float x,y,z;
+		float rhw;
+		DWORD c;
+		float u,v;
+		float u2,v2;
+		NuclearTCT1Vertex(float _x=0.0f, float _y=0.0f, float _z=0.0f, float _rhw=1.0f, DWORD _c=0xFFFFFFFF, float _u=0.0f, float _v=0.0f,float _u2=0.0f, float _v2=0.0f) ;
+	};
+    
+    enum NuclearPaniReleaseFlag
+    {
+        XPANI_RELEASE_WAIT_GC,
+		XPANI_RELEASE_IMMEDIATE_GC,
+    };
+
+	//titleµÄ¹Ò½Óµã
+	enum NuclearTitleAlign
+	{
+		XPTA_DEFAULT = 0,
+		XPTA_CENTER_BOTTOM = 0,
+		XPTA_CENTER_TOP = 1,
+	};
+
+	typedef unsigned int EntitativeTitleHandle;
+	typedef std::map<int, int>  UsingDirMap;
+}

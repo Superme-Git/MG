@@ -1,0 +1,83 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+// #include "versiondefine.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_BUGREPORT           ICON                  ICON_FILE_PATH
+IDI_SMALL               ICON                  SMALL_ICON_FILE_PATH
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+1                       RT_MANIFEST             "XPStyle.manifest"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION FileVersion
+ PRODUCTVERSION ProductVersion
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK VersionBlockString
+        BEGIN
+            VALUE "CompanyName", CompanyNameString
+            VALUE "FileDescription", FileDescriptionString
+            VALUE "FileVersion", FileVersionText
+            VALUE "InternalName", "BugReport"
+            VALUE "LegalCopyright", LegalCopyrightString
+            VALUE "OriginalFilename", "BugReport.exe"
+            VALUE "ProductName", ProductName
+            VALUE "ProductVersion", ProductVersionText
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", TranslationCodeValue
+    END
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APP_TITLE           APP_TITLE_STRING
+END
+
+/////////////////////////////////////////////////////////////////////////////

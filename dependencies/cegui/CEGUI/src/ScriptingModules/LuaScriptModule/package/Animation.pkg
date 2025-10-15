@@ -1,0 +1,18 @@
+class Animation
+{
+	enum ReplayMode
+    	{
+        	RM_Once,
+        	RM_Loop,
+       	 	RM_Bounce
+    	};
+	Animation(const string name);
+	const string getName() const;
+	void setReplayMode(ReplayMode mode);
+	ReplayMode getReplayMode() const;
+	void setDuration(float duration);
+	float getDuration() const;
+	void setAutoStart(bool autoStart);
+	bool getAutoStart() const;
+	~Animation(void);
+};

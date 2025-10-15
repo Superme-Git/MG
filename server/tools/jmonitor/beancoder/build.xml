@@ -1,0 +1,34 @@
+﻿<project name="beancoder" default="all">
+
+	<property name="build" value="build" />
+	<property name="dist" value="../dist" />
+	<property name="lib" value="../lib" />
+	<property name="jarfile" value="${dist}/${ant.project.name}.jar" />
+
+	<target name="init">
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+    <target name="compile" depends="init">
+		<javac includeAntRuntime="false" includeJavaRuntime="false" encoding="UTF-8" destdir="${build}" fork="true" memorymaximumsize="500M" debug="true" debuglevel="lines,source">
+			<src path="src" />
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile">
+		<jar jarfile="${jarfile}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="com.locojoy.jmonitor.beancoder.Coder" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="all" depends="dist,clean" />
+	
+</project>
+

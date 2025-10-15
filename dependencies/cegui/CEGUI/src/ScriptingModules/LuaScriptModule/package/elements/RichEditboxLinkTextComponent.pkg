@@ -1,0 +1,8 @@
+class RichEditboxLinkTextComponent:public RichEditboxTextComponent 
+{
+	void setTextHorizontalCenter(bool center);
+	void setTextVerticalCenter(bool center);
+	virtual Size getPixelSize();
+	void SetClickEventID(const int64_t& id);
+	int64_t GetClickEventID();
+};

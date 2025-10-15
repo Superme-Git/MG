@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="../css/main.css" />
+<style type="text/css">
+	html{
+	scrollbar-face-color:#FAE58D;
+	scrollbar-track-color:#f1f1f1;
+	scrollbar-arrow-color:#FF0000;
+	scrollbar-darkshadow-color:#FDE582;
+	scrollbar-shadow-color:#AC7101;
+	scrollbar-3dlight-color:#FDE582;
+	}
+</style>
+
+<script language="javascript">
+	function switchSysBar(){
+		var switchPoint = document.getElementById("on_of_value");
+		if (switchPoint.value==3){
+			switchPoint.value=4;
+			var doc = window.parent.document.getElementById("lfrom");
+			doc.cols="0,10,*";
+		}
+		else{
+			switchPoint.value=3;
+			window.parent.document.getElementById("lfrom").cols="236,10,*";
+		}
+	}
+</script>
+</head>
+<body class="lf_m">
+<div class="bar lf_t">
+	<span class="op" id="isop"  onclick="switchSysBar();"></span>
+	<input type="hidden" id="on_of_value" value="3"/>
+</div>
+<div class="lf_mu" id="mu">
+</div>
+</body>
+</html>

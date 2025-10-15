@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="protocol">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\APILoader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\defence.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\EnumWin32Pro.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\infocollection.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Mouse.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PerfectProtector-x64.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PerfectProtector.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Process.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\socket_helper.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stackchecker.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stackinfocollection.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protocol\rpcgen.cpp">
+      <Filter>protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\APILoader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\defence.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\EnumWin32Pro.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\hardinfo.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\infocollection.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Mouse.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\native.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PerfectProtector-x64.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PerfectProtector.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Process.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\socket_helper.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\stackchecker.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\stackinfocollection.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\VMProtectSDK.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\ACAnswer2.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\ACCaptcha.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\ACPP.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\ACQuestion2.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\ACRemoteCode2.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\ACReport2.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\protocols.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protocol\rpcgen.hpp">
+      <Filter>protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\idefence.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\protocol\ACAnswer2.inc">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="..\protocol\ACCaptcha.inc">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="..\protocol\ACPP.inc">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="..\protocol\ACQuestion2.inc">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="..\protocol\ACRemoteCode2.inc">
+      <Filter>protocol</Filter>
+    </None>
+    <None Include="..\protocol\ACReport2.inc">
+      <Filter>protocol</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\readme.txt" />
+    <Text Include="..\反外挂系统说明.txt" />
+  </ItemGroup>
+</Project>

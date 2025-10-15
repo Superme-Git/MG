@@ -1,0 +1,732 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AddictionControl	gnet/AddictionControl.hpp	/^class AddictionControl : public GNET::Protocol$/;"	c	namespace:gnet
+AddictionControlRep	gnet/AddictionControlRep.hpp	/^class AddictionControlRep : public GNET::Protocol$/;"	c	namespace:gnet
+AnnounceForbidInfo	gnet/AnnounceForbidInfo.hpp	/^class AnnounceForbidInfo : public GNET::Protocol$/;"	c	namespace:gnet
+AnnounceLinkId	gnet/link/AnnounceLinkId.hpp	/^class AnnounceLinkId : public GNET::Protocol$/;"	c	namespace:gnet::link
+AnnounceServerAttribute	gnet/AnnounceServerAttribute.hpp	/^class AnnounceServerAttribute : public GNET::Protocol$/;"	c	namespace:gnet
+Authority	pf.hpp	/^class Authority$/;"	c	namespace:portforward
+AuthorityParameter	pfp.hpp	/^	AuthorityParameter()$/;"	f	struct:portforward::AuthorityParameter
+AuthorityParameter	pfp.hpp	/^struct AuthorityParameter : public GNET::Marshal$/;"	s	namespace:portforward
+BACKOFF_DEADLINE	DeliveryClient.hpp	/^	enum { BACKOFF_INIT = 2, BACKOFF_DEADLINE = 8 };$/;"	e	enum:glinkd::DeliveryClient::__anon1
+BACKOFF_INIT	DeliveryClient.hpp	/^	enum { BACKOFF_INIT = 2, BACKOFF_DEADLINE = 8 };$/;"	e	enum:glinkd::DeliveryClient::__anon1
+Bind	gnet/link/Bind.hpp	/^class Bind : public GNET::Protocol$/;"	c	namespace:gnet::link
+Broadcast	LinkServer.cpp	/^	void LinkServer::Broadcast(int ptype, const GNET::Octets & pdata, int time)$/;"	f	class:glinkd::LinkServer
+Broadcast	gnet/link/Broadcast.hpp	/^class Broadcast : public GNET::Protocol$/;"	c	namespace:gnet::link
+Broadcaster	LinkServer.hpp	/^			Broadcaster(int _ptype, const GNET::Octets & _pdata, int time, int sid, int onlines)$/;"	f	class:glinkd::LinkServer::Broadcaster
+Broadcaster	LinkServer.hpp	/^		class Broadcaster$/;"	c	class:glinkd::LinkServer
+BrokenInfo	LinkBrokenCache.hpp	/^        BrokenInfo() { }$/;"	f	class:glinkd::BrokenInfo
+BrokenInfo	LinkBrokenCache.hpp	/^        BrokenInfo(const BrokenInfo& r) : userid(r.userid),reason(r.reason) {}$/;"	f	class:glinkd::BrokenInfo
+BrokenInfo	LinkBrokenCache.hpp	/^        BrokenInfo(int _userid, int _reason) : userid(_userid),reason(_reason)  {}$/;"	f	class:glinkd::BrokenInfo
+BrokenInfo	LinkBrokenCache.hpp	/^class BrokenInfo$/;"	c	namespace:glinkd
+CacheLRUMap	LinkBrokenCache.hpp	/^		typedef	GNET::simplelru<int,BrokenInfo,std::less<int> >		CacheLRUMap;$/;"	t	class:glinkd::LinkBrokenCache
+CertVerify	gnet/CertVerify.hpp	/^class CertVerify : public GNET::Protocol$/;"	c	namespace:gnet
+Challenge	gnet/Challenge.hpp	/^class Challenge : public GNET::Protocol$/;"	c	namespace:gnet
+CheckConnection	checktimer.cpp	/^	void CheckTimer::CheckConnection()$/;"	f	class:glinkd::CheckTimer
+CheckTimer	checktimer.hpp	/^		CheckTimer(int _time,int _proir=1) : Runnable(_proir),update_time(_time) { }$/;"	f	class:glinkd::CheckTimer
+CheckTimer	checktimer.hpp	/^	class CheckTimer : public GNET::Thread::Runnable$/;"	c	namespace:glinkd
+CheckUnknownProtocol	LinkServer.cpp	/^	bool LinkServer::CheckUnknownProtocol(Session::ID, GNET::Protocol::Type ptype, unsigned int psize)$/;"	f	class:glinkd::LinkServer
+Clone	LinkServer.cpp	/^		virtual GNET::Protocol * Clone() const { abort(); return 0; }$/;"	f	struct:glinkd::ProtocolBox
+Clone	pf.cpp	/^	virtual	GNET::NetSession* Clone() const             { return new Session(*this); }$/;"	f	class:portforward::Session
+Clone	rpcgen/gnet/GPair.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::GPair
+Clone	rpcgen/gnet/MatrixPasswdArg.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::MatrixPasswdArg
+Clone	rpcgen/gnet/RoleForbid.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::RoleForbid
+Clone	rpcgen/gnet/SSOUser.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::SSOUser
+Clone	rpcgen/gnet/ServerAttr.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::ServerAttr
+Clone	rpcgen/gnet/UserLoginArg.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::UserLoginArg
+Clone	rpcgen/gnet/UserLoginRes.hpp	/^	virtual GNET::Rpc::Data * Clone() const $/;"	f	class:gnet::UserLoginRes
+ConnectParameterV0	pfp.hpp	/^struct ConnectParameterV0 : public GNET::Marshal$/;"	s	namespace:portforward
+CouponExchangeRep	gnet/CouponExchangeRep.hpp	/^class CouponExchangeRep : public GNET::Protocol$/;"	c	namespace:gnet
+CouponExchangeReq	gnet/CouponExchangeReq.hpp	/^class CouponExchangeReq : public GNET::Protocol$/;"	c	namespace:gnet
+DEBUG_VERSION	Makefile	/^DEBUG_VERSION = true$/;"	m
+DataBetweenAuAnyAndClient	openau/DataBetweenAuAnyAndClient.hpp	/^class DataBetweenAuAnyAndClient : public GNET::Protocol$/;"	c	namespace:openau
+DeliverAnnounceToLink	gnet/DeliverAnnounceToLink.hpp	/^class DeliverAnnounceToLink : public GNET::Protocol$/;"	c	namespace:gnet
+DeliveryClient	DeliveryClient.hpp	/^	DeliveryClient()$/;"	f	class:glinkd::DeliveryClient
+DeliveryClient	DeliveryClient.hpp	/^class DeliveryClient : public GNET::Protocol::Manager$/;"	c	namespace:glinkd
+Destroy	pf.cpp	/^	virtual void Destroy()                              { delete this; }$/;"	f	class:portforward::Session
+Dispatch	gnet/link/Dispatch.hpp	/^class Dispatch : public GNET::Protocol$/;"	c	namespace:gnet::link
+DispatchUnknownProtocol	LinkServer.cpp	/^	void LinkServer::DispatchUnknownProtocol(Session::ID sid, GNET::Protocol::Type type, const GNET::Marshal::OctetsStream & os)$/;"	f	class:glinkd::LinkServer
+ENABLE_FLASHPOLICY	Makefile	/^ENABLE_FLASHPOLICY = flase$/;"	m
+ENABLE_QQPLATFORMPOLICY	Makefile	/^ENABLE_QQPLATFORMPOLICY = false$/;"	m
+ErrorInfo	gnet/ErrorInfo.hpp	/^class ErrorInfo : public GNET::Protocol$/;"	c	namespace:gnet
+ErrorInfoRep	gnet/ErrorInfoRep.hpp	/^	class ErrorInfoRep : public GNET::Protocol$/;"	c	namespace:gnet
+ExceedHalfloginLimit	LinkServer.hpp	/^		bool ExceedHalfloginLimit(size_t size) $/;"	f	class:glinkd::LinkServer
+ExceedUserLimit	LinkServer.hpp	/^		bool ExceedUserLimit(size_t size) $/;"	f	class:glinkd::LinkServer
+FLAG_DOUBLE_DROP	rpcgen/gnet/ServerAttr.hpp	/^		FLAG_DOUBLE_DROP = 4,$/;"	e	enum:gnet::ServerAttr::__anon3
+FLAG_DOUBLE_SP	rpcgen/gnet/ServerAttr.hpp	/^		FLAG_DOUBLE_SP = 8,$/;"	e	enum:gnet::ServerAttr::__anon3
+ForbidIpValue	LinkServer.hpp	/^			ForbidIpValue()$/;"	f	class:glinkd::ForbidIpValue
+ForbidIpValue	LinkServer.hpp	/^	class ForbidIpValue$/;"	c	namespace:glinkd
+ForbidMap	LinkServer.hpp	/^		typedef std::map<int, ForbidIpValue>		ForbidMap;$/;"	t	class:glinkd::LinkServer
+ForceLoginRep	gnet/ForceLoginRep.hpp	/^class ForceLoginRep : public GNET::Protocol$/;"	c	namespace:gnet
+ForceLoginReq	gnet/ForceLoginReq.hpp	/^class ForceLoginReq : public GNET::Protocol$/;"	c	namespace:gnet
+Forward	pf.cpp	/^Forward::Forward()$/;"	f	class:portforward::Forward
+Forward	pf.hpp	/^struct Forward$/;"	s	namespace:portforward
+ForwardTimer	pf.cpp	/^	ForwardTimer()$/;"	f	class:portforward::Session::ForwardTimer	file:
+ForwardTimer	pf.cpp	/^class ForwardTimer : public GNET::Timer::Observer$/;"	c	class:portforward::Session	file:
+Forwards	pf.hpp	/^	Forwards() { }$/;"	f	class:portforward::Forwards
+Forwards	pf.hpp	/^class Forwards$/;"	c	namespace:portforward
+GNET_LINK_PVID	rpcgen.hpp	/^	GNET_LINK_PVID = 1,$/;"	e	enum:__anon2
+GPair	rpcgen/gnet/GPair.hpp	/^	GPair() {$/;"	f	class:gnet::GPair
+GPair	rpcgen/gnet/GPair.hpp	/^	GPair(int _key_, int _value_)$/;"	f	class:gnet::GPair
+GPair	rpcgen/gnet/GPair.hpp	/^class GPair : public GNET::Rpc::Data$/;"	c	namespace:gnet
+GenerateKey	gnet/KeyExchange.hpp	/^			GNET::Octets& GenerateKey(GNET::Octets& identity, GNET::Octets& password, GNET::Octets &nonce, GNET::Octets &key)$/;"	f	class:gnet::KeyExchange
+GetBrokenInfo	LinkBrokenCache.hpp	/^	void GetBrokenInfo(int &u, int &r)$/;"	f	class:glinkd::BrokenInfo
+GetCheckPolicy	LinkServer.hpp	/^		int GetCheckPolicy() const 		{ return checkunknownprotocol;}$/;"	f	class:glinkd::LinkServer
+GetForbidIpInterval	LinkServer.hpp	/^		int GetForbidIpInterval() const 	{ return forbid_ip_interval;}$/;"	f	class:glinkd::LinkServer
+GetForbidIpValue	LinkServer.hpp	/^		ForbidIpValue * GetForbidIpValue(int loginip)$/;"	f	class:glinkd::LinkServer
+GetHalfLoginLimit	LinkServer.hpp	/^		int GetHalfLoginLimit () const  { return halflogin_limit; }$/;"	f	class:glinkd::LinkServer
+GetHalfLoginSet	LinkServer.hpp	/^		SessionIdSet & GetHalfLoginSet() 	{ return halfloginset; }$/;"	f	class:glinkd::LinkServer
+GetInitState	DeliveryClient.cpp	/^	const GNET::Protocol::Manager::Session::State* DeliveryClient::GetInitState() const$/;"	f	class:glinkd::DeliveryClient
+GetInitState	LinkServer.cpp	/^	const GNET::Protocol::Manager::Session::State* LinkServer::GetInitState() const$/;"	f	class:glinkd::LinkServer
+GetInitState	ProviderServer.cpp	/^const GNET::Protocol::Manager::Session::State* ProviderServer::GetInitState() const$/;"	f	class:glinkd::ProviderServer
+GetInstance	DeliveryClient.hpp	/^	static DeliveryClient *GetInstance() { return &instance; }$/;"	f	class:glinkd::DeliveryClient
+GetInstance	LinkBrokenCache.hpp	/^		static LinkBrokenCache* GetInstance()$/;"	f	class:glinkd::LinkBrokenCache
+GetInstance	LinkServer.hpp	/^		static LinkServer *GetInstance()   $/;"	f	class:glinkd::LinkServer
+GetInstance	ProviderServer.hpp	/^	static ProviderServer *GetInstance()   { return &instance; }$/;"	f	class:glinkd::ProviderServer
+GetInstance	checktimer.hpp	/^		static CheckTimer* GetInstance(int _time=60,int _proir=1) {$/;"	f	class:glinkd::CheckTimer
+GetInstance	stat.hpp	/^		static ProtocolStat * GetInstance()$/;"	f	class:glinkd::ProtocolStat
+GetInstance	stat.hpp	/^		static Stat* GetInstance(int _time=60,int _proir=1) {$/;"	f	class:glinkd::Stat
+GetKeepAliveInterval	LinkServer.hpp	/^		int GetKeepAliveInterval() const 	{ return keepalive_interval;}$/;"	f	class:glinkd::LinkServer
+GetKeepAliveOpen	LinkServer.hpp	/^		int GetKeepAliveOpen() const	 	{ return keepalive_open;}$/;"	f	class:glinkd::LinkServer
+GetLinkBrokenLimit	LinkServer.hpp	/^		IntLimit & GetLinkBrokenLimit() 	{ return linkbrokenlimit;}$/;"	f	class:glinkd::LinkServer
+GetLinkSession	LinkServer.hpp	/^		LinkSession * GetLinkSession(Session::ID sid)$/;"	f	class:glinkd::LinkServer
+GetLinkSessionByUserid	LinkServer.hpp	/^		LinkSession * GetLinkSessionByUserid(int userid) \/\/ add by lich 2011\/6\/10$/;"	f	class:glinkd::LinkServer
+GetListenPolicy	LinkServer.hpp	/^		int GetListenPolicy() const 		{ return listen_port_open;}$/;"	f	class:glinkd::LinkServer
+GetLogLevel	LinkServer.hpp	/^		int GetLogLevel() const			{ return log_level; }$/;"	f	class:glinkd::LinkServer
+GetServerAttr	LinkServer.hpp	/^		gnet::ServerAttr & GetServerAttr() { return server_attr; } $/;"	f	class:glinkd::LinkServer
+GetSessionStateCheck	LinkServer.hpp	/^		int GetSessionStateCheck() const 	{ return session_state_check;}$/;"	f	class:glinkd::LinkServer
+GetSessions	LinkServer.hpp	/^		LinkSessions & GetSessions() 		{ return sessions; }$/;"	f	class:glinkd::LinkServer
+GetSidByUserid	LinkServer.hpp	/^		Session::ID GetSidByUserid(int userid)$/;"	f	class:glinkd::LinkServer
+GetStatOpen	LinkServer.hpp	/^		int GetStatOpen() const			{ return stat_open; }$/;"	f	class:glinkd::LinkServer
+GetUserCountLimit	LinkServer.hpp	/^		int GetUserCountLimit () const 	{ return user_count_limit;}$/;"	f	class:glinkd::LinkServer
+GetUserCouponRep	gnet/GetUserCouponRep.hpp	/^class GetUserCouponRep : public GNET::Protocol$/;"	c	namespace:gnet
+GetUserCouponReq	gnet/GetUserCouponReq.hpp	/^class GetUserCouponReq : public GNET::Protocol$/;"	c	namespace:gnet
+GetUseridMap	LinkServer.hpp	/^		UseridMap & GetUseridMap() 		{ return useridmap; }$/;"	f	class:glinkd::LinkServer
+HALFLOGIN_MIN	LinkServer.hpp	19;"	d
+HALFLOGIN_THRESHOLD	LinkServer.hpp	20;"	d
+HIGH	speedlimit.h	/^		int	HIGH;$/;"	m	class:glinkd::SpeedLimit
+Identification	DeliveryClient.hpp	/^	virtual std::string Identification() const  { return "DeliveryClient"; }$/;"	f	class:glinkd::DeliveryClient
+Identification	LinkServer.hpp	/^		std::string Identification() const  { return "LinkServer"; }$/;"	f	class:glinkd::LinkServer
+Identification	ProviderServer.hpp	/^	std::string Identification() const     { return "ProviderServer"; }$/;"	f	class:glinkd::ProviderServer
+Identification	pf.cpp	/^	virtual std::string Identification () const         { return ""; } \/\/ not used$/;"	f	class:portforward::Session
+InstantAddCashRep	gnet/InstantAddCashRep.hpp	/^class InstantAddCashRep : public GNET::Protocol$/;"	c	namespace:gnet
+InstantAddCashReq	gnet/InstantAddCashReq.hpp	/^class InstantAddCashReq : public GNET::Protocol$/;"	c	namespace:gnet
+IntLimit	LinkServer.hpp	/^		typedef SpeedLimit<int,std::less<int> >					IntLimit;$/;"	t	class:glinkd::LinkServer
+IsForbid	LinkServer.hpp	/^			bool IsForbid()$/;"	f	class:glinkd::ForbidIpValue
+IsListening	LinkServer.hpp	/^		bool IsListening() { return passiveio != NULL; }$/;"	f	class:glinkd::LinkServer
+Iterator	speedlimit.h	/^		typedef typename MapType::iterator 		Iterator;$/;"	t	class:glinkd::SpeedLimit
+KeepAlive	gnet/KeepAlive.hpp	/^   class KeepAlive : public GNET::Protocol$/;"	c	namespace:gnet
+KeyExchange	gnet/KeyExchange.hpp	/^	class KeyExchange : public GNET::Protocol$/;"	c	namespace:gnet
+Kick	gnet/link/Kick.hpp	/^class Kick : public GNET::Protocol$/;"	c	namespace:gnet::link
+KickoutUser	gnet/KickoutUser.hpp	/^class KickoutUser : public GNET::Protocol$/;"	c	namespace:gnet
+LOGOBJ	Makefile	/^LOGOBJ := $(LOGSRC:%.cpp=%.o) $/;"	m
+LOGSRC	Makefile	/^LOGSRC  = $(LOG_DIR)\/rpcgen.cpp $(LOG_DIR)\/LogClientManager.cpp $(LOG_DIR)\/LogClientTcpManager.cpp \\$/;"	m
+LOG_DIR	Makefile	/^LOG_DIR = ..\/logclient$/;"	m
+LOG_NOT_TO_CONSOLE	Makefile	/^LOG_NOT_TO_CONSOLE = false$/;"	m
+LimitConfig	LinkServer.hpp	/^		void LimitConfig(int window=60,int high=3)$/;"	f	class:glinkd::LinkServer
+LinkBroken	gnet/link/LinkBroken.hpp	/^class LinkBroken : public GNET::Protocol$/;"	c	namespace:gnet::link
+LinkBrokenCache	LinkBrokenCache.hpp	/^		LinkBrokenCache():brokenmap(20000) { }$/;"	f	class:glinkd::LinkBrokenCache
+LinkBrokenCache	LinkBrokenCache.hpp	/^class LinkBrokenCache$/;"	c	namespace:glinkd
+LinkServer	LinkServer.hpp	/^		LinkServer() : $/;"	f	class:glinkd::LinkServer
+LinkServer	LinkServer.hpp	/^	class LinkServer : public GNET::Timer::Observer,public GNET::Protocol::Manager$/;"	c	namespace:glinkd
+LinkServerControl	gnet/link/LinkServerControl.hpp	/^class LinkServerControl : public GNET::Protocol$/;"	c	namespace:gnet::link
+LinkSession	LinkSession.hpp	/^	LinkSession()$/;"	f	class:glinkd::LinkSession
+LinkSession	LinkSession.hpp	/^class LinkSession$/;"	c	namespace:glinkd
+LinkSessions	LinkSession.hpp	/^	LinkSessions()$/;"	f	class:glinkd::LinkSessions
+LinkSessions	LinkSession.hpp	/^class LinkSessions$/;"	c	namespace:glinkd
+Map	stat.hpp	/^		typedef std::map<int\/*protocol type*\/,int64_t\/*protocol num*\/>	Map;$/;"	t	class:glinkd::ProtocolStat
+MapType	speedlimit.h	/^		typedef	std::map< TKey,Record<TKey>,Compare>	MapType;$/;"	t	class:glinkd::SpeedLimit
+MatrixChallenge	gnet/MatrixChallenge.hpp	/^class MatrixChallenge : public GNET::Protocol$/;"	c	namespace:gnet
+MatrixPasswdArg	rpcgen/gnet/MatrixPasswdArg.hpp	/^	MatrixPasswdArg() {$/;"	f	class:gnet::MatrixPasswdArg
+MatrixPasswdArg	rpcgen/gnet/MatrixPasswdArg.hpp	/^	MatrixPasswdArg(const GNET::Octets & _account_, const GNET::Octets & _challenge_, int _loginip_, int _logintype_, const GNET::Octets & _mid_, int _reserved1_, const GNET::Octets & _reserved2_)$/;"	f	class:gnet::MatrixPasswdArg
+MatrixPasswdArg	rpcgen/gnet/MatrixPasswdArg.hpp	/^class MatrixPasswdArg : public GNET::Rpc::Data$/;"	c	namespace:gnet
+MatrixPasswdRep	gnet/MatrixPasswdRep.hpp	/^class MatrixPasswdRep : public GNET::Protocol$/;"	c	namespace:gnet
+MatrixPasswdReq	gnet/MatrixPasswdReq.hpp	/^class MatrixPasswdReq : public GNET::Protocol$/;"	c	namespace:gnet
+MatrixResponse	gnet/MatrixResponse.hpp	/^class MatrixResponse : public GNET::Protocol$/;"	c	namespace:gnet
+MatrixResponseRep	gnet/MatrixResponseRep.hpp	/^class MatrixResponseRep : public GNET::Protocol$/;"	c	namespace:gnet
+MatrixResponseReq	gnet/MatrixResponseReq.hpp	/^class MatrixResponseReq : public GNET::Protocol$/;"	c	namespace:gnet
+NoMoreData	pf.cpp	/^	virtual bool NoMoreData() const$/;"	f	class:portforward::Session
+OBJS	Makefile	/^OBJS = rpcgen.o glinkd.o LinkServer.o ProviderServer.o DeliveryClient.o checktimer.o pf.o stat.o\\$/;"	m
+OnAbort	pf.cpp	/^	virtual void OnAbort(const GNET::SockAddr& sa)$/;"	f	class:portforward::Session
+OnAbortSession	DeliveryClient.cpp	/^	void DeliveryClient::OnAbortSession(const GNET::SockAddr &sa)$/;"	f	class:glinkd::DeliveryClient
+OnAddSession	DeliveryClient.cpp	/^	void DeliveryClient::OnAddSession(Session::ID sid)$/;"	f	class:glinkd::DeliveryClient
+OnAddSession	LinkServer.cpp	/^	void LinkServer::OnAddSession(Session::ID sid)$/;"	f	class:glinkd::LinkServer
+OnAddSession	ProviderServer.cpp	/^void ProviderServer::OnAddSession(Session::ID sid)$/;"	f	class:glinkd::ProviderServer
+OnCheckAccumulate	DeliveryClient.hpp	/^	virtual bool OnCheckAccumulate(size_t size) const {$/;"	f	class:glinkd::DeliveryClient
+OnCheckAccumulate	LinkServer.hpp	/^		bool OnCheckAccumulate(size_t size) const $/;"	f	class:glinkd::LinkServer
+OnCheckAccumulate	ProviderServer.hpp	/^	bool OnCheckAccumulate(size_t size) const {$/;"	f	class:glinkd::ProviderServer
+OnCheckAddress	DeliveryClient.cpp	/^	void DeliveryClient::OnCheckAddress(GNET::SockAddr & sa) const$/;"	f	class:glinkd::DeliveryClient
+OnCheckAddress	pf.cpp	/^	virtual void OnCheckAddress(GNET::SockAddr &) const { }$/;"	f	class:portforward::Session
+OnClose	pf.cpp	/^	virtual void OnClose()$/;"	f	class:portforward::Session
+OnDelSession	DeliveryClient.cpp	/^	void DeliveryClient::OnDelSession(Session::ID sid)$/;"	f	class:glinkd::DeliveryClient
+OnDelSession	DeliveryClient.cpp	/^	void DeliveryClient::OnDelSession(Session::ID sid,int state)$/;"	f	class:glinkd::DeliveryClient
+OnDelSession	LinkServer.cpp	/^	void LinkServer::OnDelSession(Session::ID sid) { }$/;"	f	class:glinkd::LinkServer
+OnDelSession	LinkServer.cpp	/^	void LinkServer::OnDelSession(Session::ID sid,int state)$/;"	f	class:glinkd::LinkServer
+OnDelSession	ProviderServer.cpp	/^void ProviderServer::OnDelSession(Session::ID sid)$/;"	f	class:glinkd::ProviderServer
+OnDelSession	ProviderServer.cpp	/^void ProviderServer::OnDelSession(Session::ID sid,int state)$/;"	f	class:glinkd::ProviderServer
+OnOpen	pf.cpp	/^	virtual void OnOpen()$/;"	f	class:portforward::Session
+OnOpen	pf.cpp	/^	virtual void OnOpen(const GNET::SockAddr& local, const GNET::SockAddr& peer) { this->OnOpen(); }$/;"	f	class:portforward::Session
+OnRecv	pf.cpp	/^	virtual void OnRecv()$/;"	f	class:portforward::Session
+OnSend	pf.cpp	/^	virtual void OnSend()$/;"	f	class:portforward::Session
+OnSetTransport	LinkServer.cpp	/^	void LinkServer::OnSetTransport(Session::ID sid,const GNET::SockAddr& local,const GNET::SockAddr& peer)$/;"	f	class:glinkd::LinkServer
+OnlineAnnounce	gnet/OnlineAnnounce.hpp	/^class OnlineAnnounce : public GNET::Protocol$/;"	c	namespace:gnet
+PortForward	gnet/PortForward.hpp	/^class PortForward : public GNET::Protocol$/;"	c	namespace:gnet
+PriorQueue	speedlimit.h	/^		typedef std::priority_queue<Record<TKey>,std::vector<Record<TKey> >,RecordCompare<TKey> > PriorQueue;$/;"	t	class:glinkd::SpeedLimit
+Process	LinkServer.cpp	/^		virtual void Process(GNET::Protocol::Manager*, unsigned int) { abort(); }$/;"	f	struct:glinkd::ProtocolBox
+Process	LinkServer.cpp	/^      void Broadcast::Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::link::Broadcast
+Process	LinkServer.cpp	/^      void Send::Process(Manager *, Manager::Session::ID pvid)$/;"	f	class:gnet::link::Send
+Process	LinkServer.cpp	/^      void SetLogin::Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::link::SetLogin
+Process	gnet/AddictionControl.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::AddictionControl
+Process	gnet/AddictionControlRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::AddictionControlRep
+Process	gnet/AnnounceForbidInfo.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::AnnounceForbidInfo
+Process	gnet/AnnounceServerAttribute.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::AnnounceServerAttribute
+Process	gnet/CertVerify.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::CertVerify
+Process	gnet/Challenge.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::Challenge
+Process	gnet/CouponExchangeRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::CouponExchangeRep
+Process	gnet/CouponExchangeReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid)$/;"	f	class:gnet::CouponExchangeReq
+Process	gnet/DeliverAnnounceToLink.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::DeliverAnnounceToLink
+Process	gnet/ErrorInfo.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::ErrorInfo
+Process	gnet/ErrorInfoRep.hpp	/^		virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::ErrorInfoRep
+Process	gnet/ForceLoginRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid) $/;"	f	class:gnet::ForceLoginRep
+Process	gnet/ForceLoginReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::ForceLoginReq
+Process	gnet/GetUserCouponRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::GetUserCouponRep
+Process	gnet/GetUserCouponReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid)$/;"	f	class:gnet::GetUserCouponReq
+Process	gnet/InstantAddCashRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::InstantAddCashRep
+Process	gnet/InstantAddCashReq.hpp	/^	virtual void Process(Manager *manager, Manager::Session::ID sid) $/;"	f	class:gnet::InstantAddCashReq
+Process	gnet/KeepAlive.hpp	/^	 virtual void Process(Manager *manager, Manager::Session::ID sid)$/;"	f	class:gnet::KeepAlive
+Process	gnet/KeyExchange.hpp	/^			virtual void Process(Manager *, Manager::Session::ID sid)$/;"	f	class:gnet::KeyExchange
+Process	gnet/KickoutUser.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid) $/;"	f	class:gnet::KickoutUser
+Process	gnet/MatrixChallenge.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::MatrixChallenge
+Process	gnet/MatrixPasswdRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::MatrixPasswdRep
+Process	gnet/MatrixPasswdReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::MatrixPasswdReq
+Process	gnet/MatrixResponse.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid) $/;"	f	class:gnet::MatrixResponse
+Process	gnet/MatrixResponseRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::MatrixResponseRep
+Process	gnet/MatrixResponseReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) { \/* protocol handle *\/ }$/;"	f	class:gnet::MatrixResponseReq
+Process	gnet/OnlineAnnounce.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid )$/;"	f	class:gnet::OnlineAnnounce
+Process	gnet/Response.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid)$/;"	f	class:gnet::Response
+Process	gnet/SSOGetTicketRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::SSOGetTicketRep
+Process	gnet/SSOGetTicketReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid) $/;"	f	class:gnet::SSOGetTicketReq
+Process	gnet/StatusAnnounce.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) { \/* protocol handle *\/ }$/;"	f	class:gnet::StatusAnnounce
+Process	gnet/UserLoginRep.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::UserLoginRep
+Process	gnet/UserLoginReq.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::UserLoginReq
+Process	gnet/link/AnnounceLinkId.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) { \/* protocol handle *\/ }$/;"	f	class:gnet::link::AnnounceLinkId
+Process	gnet/link/Bind.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid)$/;"	f	class:gnet::link::Bind
+Process	gnet/link/Dispatch.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::link::Dispatch
+Process	gnet/link/Kick.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::link::Kick
+Process	gnet/link/LinkBroken.hpp	/^	virtual void Process(Manager *, Manager::Session::ID )$/;"	f	class:gnet::link::LinkBroken
+Process	gnet/link/LinkServerControl.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:gnet::link::LinkServerControl
+Process	gnet/link/UnBind.hpp	/^	virtual void Process(Manager *, Manager::Session::ID sid)$/;"	f	class:gnet::link::UnBind
+Process	openau/DataBetweenAuAnyAndClient.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:openau::DataBetweenAuAnyAndClient
+Process	openau/ServerIDResponse.hpp	/^	virtual void Process(Manager *, Manager::Session::ID ) $/;"	f	class:openau::ServerIDResponse
+Process	pf.cpp	/^void PortForward::Process(Manager * manager, Manager::Session::ID linksid)$/;"	f	class:gnet::PortForward
+ProtocolBox	LinkServer.cpp	/^		ProtocolBox(Type type, const GNET::Octets & _data) : data(_data) { this->type = type; }$/;"	f	struct:glinkd::ProtocolBox
+ProtocolBox	LinkServer.cpp	/^	struct ProtocolBox : public GNET::Protocol$/;"	s	namespace:glinkd	file:
+ProtocolStat	stat.hpp	/^		ProtocolStat() : g2c_num(0),c2g_num(0) { }$/;"	f	class:glinkd::ProtocolStat
+ProtocolStat	stat.hpp	/^	class ProtocolStat$/;"	c	namespace:glinkd
+ProviderId	ProviderMap.hpp	/^typedef int ProviderId;$/;"	t	namespace:glinkd
+ProviderMap	ProviderMap.hpp	/^class ProviderMap$/;"	c	namespace:glinkd
+ProviderServer	ProviderServer.hpp	/^	ProviderServer() : accumulate_limit(0) { linkid = 0; }$/;"	f	class:glinkd::ProviderServer
+ProviderServer	ProviderServer.hpp	/^class ProviderServer : public GNET::Protocol::Manager$/;"	c	namespace:glinkd
+Reconnect	DeliveryClient.cpp	/^	void DeliveryClient::Reconnect()$/;"	f	class:glinkd::DeliveryClient
+Record	speedlimit.h	/^		Record<K>(K _key, int window = 0) : key(_key),count(1),deadline(window + time(NULL)) {}$/;"	f	struct:glinkd::Record
+Record	speedlimit.h	/^	struct	Record$/;"	s	namespace:glinkd
+RecordCompare	speedlimit.h	/^	struct RecordCompare$/;"	s	namespace:glinkd
+RecvAndForwardData	pf.cpp	/^	void RecvAndForwardData(Forward * fw)$/;"	f	class:portforward::Session
+ReloadSizePolicy	LinkServer.cpp	/^	void LinkServer::ReloadSizePolicy()$/;"	f	class:glinkd::LinkServer
+RemoveIpForbid	LinkServer.hpp	/^		void RemoveIpForbid(int loginip) { forbidipmap.erase(loginip); }$/;"	f	class:glinkd::LinkServer
+Response	gnet/Response.hpp	/^class Response : public GNET::Protocol$/;"	c	namespace:gnet
+RoleForbid	rpcgen/gnet/RoleForbid.hpp	/^	RoleForbid() {$/;"	f	class:gnet::RoleForbid
+RoleForbid	rpcgen/gnet/RoleForbid.hpp	/^	RoleForbid(char _ltype_, int _time_, int _createtime_, const GNET::Octets & _reason_)$/;"	f	class:gnet::RoleForbid
+RoleForbid	rpcgen/gnet/RoleForbid.hpp	/^class RoleForbid : public GNET::Rpc::Data$/;"	c	namespace:gnet
+Run	checktimer.hpp	/^		void Run()$/;"	f	class:glinkd::CheckTimer
+Run	stat.hpp	/^		void Run()$/;"	f	class:glinkd::Stat
+SHARE_HOME	Makefile	/^SHARE_HOME = ..\/..\/..\/share$/;"	m
+SINGLE_THREAD	Makefile	/^SINGLE_THREAD = true$/;"	m
+SSOGetTicketRep	gnet/SSOGetTicketRep.hpp	/^class SSOGetTicketRep : public GNET::Protocol$/;"	c	namespace:gnet
+SSOGetTicketReq	gnet/SSOGetTicketReq.hpp	/^class SSOGetTicketReq : public GNET::Protocol$/;"	c	namespace:gnet
+SSOUser	rpcgen/gnet/SSOUser.hpp	/^	SSOUser() {$/;"	f	class:gnet::SSOUser
+SSOUser	rpcgen/gnet/SSOUser.hpp	/^	SSOUser(char _isagent_, int64_t _userid_, const GNET::Octets & _account_, const GNET::Octets & _agentname_, const GNET::Octets & _agentaccount_)$/;"	f	class:gnet::SSOUser
+SSOUser	rpcgen/gnet/SSOUser.hpp	/^class SSOUser : public GNET::Rpc::Data$/;"	c	namespace:gnet
+Send	gnet/link/Send.hpp	/^class Send : public GNET::Protocol$/;"	c	namespace:gnet::link
+SendErr	LinkServer.cpp	/^	void LinkServer::SendErr(Session::ID sid, int errorcode, const GNET::Octets & info)$/;"	f	class:glinkd::LinkServer
+SendErr	LinkServer.cpp	/^	void LinkServer::SendErr(Session::ID sid, int errorcode, const char *info)$/;"	f	class:glinkd::LinkServer
+SendProtocol	DeliveryClient.hpp	/^	bool SendProtocol(const GNET::Protocol & p) { return conn_state && Send(sid, p); }$/;"	f	class:glinkd::DeliveryClient
+SendProtocol	DeliveryClient.hpp	/^	bool SendProtocol(const GNET::Protocol * p) { return conn_state && Send(sid, p); }$/;"	f	class:glinkd::DeliveryClient
+ServerAttr	rpcgen/gnet/ServerAttr.hpp	/^	ServerAttr() {$/;"	f	class:gnet::ServerAttr
+ServerAttr	rpcgen/gnet/ServerAttr.hpp	/^	ServerAttr(int _flags_, char _load_, const std::map<int, int> & _extra_)$/;"	f	class:gnet::ServerAttr
+ServerAttr	rpcgen/gnet/ServerAttr.hpp	/^class ServerAttr : public GNET::Rpc::Data$/;"	c	namespace:gnet
+ServerIDResponse	openau/ServerIDResponse.hpp	/^class ServerIDResponse : public GNET::Protocol$/;"	c	namespace:openau
+Session	pf.cpp	/^	Session(const Session & rhs) : NetSession(rhs)  { this->linksid = rhs.linksid; this->portsid = rhs.portsid; }$/;"	f	class:portforward::Session
+Session	pf.cpp	/^	Session(link_sid_t linksid, port_sid_t portsid) { this->linksid = linksid; this->portsid = portsid; }$/;"	f	class:portforward::Session
+Session	pf.cpp	/^class Session : public GNET::NetSession$/;"	c	namespace:portforward	file:
+SessionId	ProviderMap.hpp	/^typedef GNET::Protocol::Manager::Session::ID SessionId;$/;"	t	namespace:glinkd
+SessionIdSet	LinkServer.hpp	/^		typedef std::set<Session::ID>						SessionIdSet;$/;"	t	class:glinkd::LinkServer
+SetAccumulate	DeliveryClient.hpp	/^	void SetAccumulate(size_t size)     { accumulate_limit = size; }$/;"	f	class:glinkd::DeliveryClient
+SetAccumulate	LinkServer.hpp	/^		void SetAccumulate(size_t size)     		{ accumulate_limit = size; }$/;"	f	class:glinkd::LinkServer
+SetAccumulate	ProviderServer.hpp	/^	void SetAccumulate(size_t size)        { accumulate_limit = size; }$/;"	f	class:glinkd::ProviderServer
+SetAliveTime	LinkServer.hpp	/^		void SetAliveTime(Session::ID sid, int time) 	{ alivetimemap[sid] = time; }$/;"	f	class:glinkd::LinkServer
+SetCheckPolicy	LinkServer.hpp	/^		void SetCheckPolicy(int _sizepolicy) 		{ checkunknownprotocol = _sizepolicy; }$/;"	f	class:glinkd::LinkServer
+SetForbidIpInterval	LinkServer.hpp	/^		void SetForbidIpInterval(int _interval)		{ forbid_ip_interval = _interval; }$/;"	f	class:glinkd::LinkServer
+SetHalfLoginLimit	LinkServer.hpp	/^		void SetHalfLoginLimit(size_t size) $/;"	f	class:glinkd::LinkServer
+SetIpForbid	LinkServer.hpp	/^		void SetIpForbid(int loginip,ForbidIpValue & value)$/;"	f	class:glinkd::LinkServer
+SetKeepAliveInterval	LinkServer.hpp	/^		void SetKeepAliveInterval(int _interval)	{ keepalive_interval = _interval; }$/;"	f	class:glinkd::LinkServer
+SetKeepAliveOpen	LinkServer.hpp	/^		void SetKeepAliveOpen(int _open)		{ keepalive_open = _open; }$/;"	f	class:glinkd::LinkServer
+SetListenPolicy	LinkServer.hpp	/^		void SetListenPolicy(int _open) 		{ listen_port_open = _open; }$/;"	f	class:glinkd::LinkServer
+SetLogLevel	LinkServer.hpp	/^		void SetLogLevel(int _level)			{ log_level = _level; }$/;"	f	class:glinkd::LinkServer
+SetLogin	gnet/link/SetLogin.hpp	/^class SetLogin : public GNET::Protocol$/;"	c	namespace:gnet::link
+SetServerAttr	LinkServer.hpp	/^		void SetServerAttr(const gnet::ServerAttr& _server_attr)$/;"	f	class:glinkd::LinkServer
+SetSessionStateCheck	LinkServer.hpp	/^		void SetSessionStateCheck(int _check) 		{ session_state_check = _check; }$/;"	f	class:glinkd::LinkServer
+SetStatOpen	LinkServer.hpp	/^		void SetStatOpen(int _open)			{ stat_open = _open; }$/;"	f	class:glinkd::LinkServer
+SetUserCountLimit	LinkServer.hpp	/^		void SetUserCountLimit(size_t size) $/;"	f	class:glinkd::LinkServer
+SetVersion	LinkServer.hpp	/^		void SetVersion(int _version) 			{ version = _version; } $/;"	f	class:glinkd::LinkServer
+Setup	gnet/Challenge.hpp	/^	void Setup(size_t size)$/;"	f	class:gnet::Challenge
+Setup	gnet/KeyExchange.hpp	/^			void Setup(\/*const*\/ GNET::Octets &identity,\/* const *\/GNET::Octets &password, Manager *manager, Manager::Session::ID sid)$/;"	f	class:gnet::KeyExchange
+SizepolicyComparator	LinkServer.hpp	/^		struct SizepolicyComparator$/;"	s	class:glinkd::LinkServer
+SortMap	stat.hpp	/^		typedef std::multimap<int64_t,int,std::greater<int64_t> > 	SortMap;$/;"	t	class:glinkd::ProtocolStat
+SpeedLimit	speedlimit.h	/^		SpeedLimit() { }	$/;"	f	class:glinkd::SpeedLimit
+SpeedLimit	speedlimit.h	/^	class	SpeedLimit$/;"	c	namespace:glinkd
+StartListen	LinkServer.hpp	/^		void StartListen() $/;"	f	class:glinkd::LinkServer
+Stat	stat.hpp	/^		Stat(int _time,int _proir=1) : Runnable(_proir),update_time(_time) { }$/;"	f	class:glinkd::Stat
+Stat	stat.hpp	/^	class Stat : public GNET::Thread::Runnable$/;"	c	namespace:glinkd
+StatTask	stat.cpp	/^	void Stat::StatTask()$/;"	f	class:glinkd::Stat
+StatusAnnounce	gnet/StatusAnnounce.hpp	/^class StatusAnnounce : public GNET::Protocol$/;"	c	namespace:gnet
+StopListen	LinkServer.hpp	/^		void StopListen()$/;"	f	class:glinkd::LinkServer
+TIMER_INTERVAL	LinkServer.hpp	14;"	d
+TOP_SRCDIR	Makefile	/^TOP_SRCDIR = $(SHARE_HOME)$/;"	m
+TimeoutMap	LinkServer.hpp	/^		typedef std::map<Session::ID, int>		TimeoutMap;$/;"	t	class:glinkd::LinkServer
+TriggerListen	LinkServer.cpp	/^	void LinkServer::TriggerListen()$/;"	f	class:glinkd::LinkServer
+USERCOUNT_MIN	LinkServer.hpp	16;"	d
+USERCOUNT_THRESHOLD	LinkServer.hpp	17;"	d
+UnBind	gnet/link/UnBind.hpp	/^class UnBind : public GNET::Protocol$/;"	c	namespace:gnet::link
+UnderHalfloginLimit	LinkServer.hpp	/^		bool UnderHalfloginLimit(size_t size) $/;"	f	class:glinkd::LinkServer
+UnderUserLimit	LinkServer.hpp	/^		bool UnderUserLimit(size_t size) $/;"	f	class:glinkd::LinkServer
+Update	LinkServer.cpp	/^	void LinkServer::Update()$/;"	f	class:glinkd::LinkServer
+Update	pf.cpp	/^	virtual void Update()$/;"	f	class:portforward::Session::ForwardTimer	file:
+UserLoginArg	rpcgen/gnet/UserLoginArg.hpp	/^	UserLoginArg() {$/;"	f	class:gnet::UserLoginArg
+UserLoginArg	rpcgen/gnet/UserLoginArg.hpp	/^	UserLoginArg(int _userid_, int _localsid_, char _blkickuser_, int _freecreatime_)$/;"	f	class:gnet::UserLoginArg
+UserLoginArg	rpcgen/gnet/UserLoginArg.hpp	/^class UserLoginArg : public GNET::Rpc::Data$/;"	c	namespace:gnet
+UserLoginRep	gnet/UserLoginRep.hpp	/^class UserLoginRep : public GNET::Protocol$/;"	c	namespace:gnet
+UserLoginReq	gnet/UserLoginReq.hpp	/^class UserLoginReq : public GNET::Protocol$/;"	c	namespace:gnet
+UserLoginRes	rpcgen/gnet/UserLoginRes.hpp	/^	UserLoginRes() {$/;"	f	class:gnet::UserLoginRes
+UserLoginRes	rpcgen/gnet/UserLoginRes.hpp	/^	UserLoginRes(char _retcode_, int _remain_playtime_, int _func_, int _funcparm_, char _blisgm_, int _free_time_left_, int _free_time_end_, int _creatime_)$/;"	f	class:gnet::UserLoginRes
+UserLoginRes	rpcgen/gnet/UserLoginRes.hpp	/^class UserLoginRes : public GNET::Rpc::Data$/;"	c	namespace:gnet
+UseridMap	LinkServer.hpp	/^		typedef std::map<int,Session::ID> 		UseridMap;$/;"	t	class:glinkd::LinkServer
+ValidSid	LinkServer.hpp	/^		static bool ValidSid(Session::ID sid) $/;"	f	class:glinkd::LinkServer
+ValidUser	LinkServer.hpp	/^		static bool ValidUser(Session::ID sid, int userid) $/;"	f	class:glinkd::LinkServer
+WINDOW	speedlimit.h	/^		int	WINDOW;$/;"	m	class:glinkd::SpeedLimit
+_DeliveryClient	rpcgen.cpp	/^static GNET::Protocol::Type _DeliveryClient[] = {$/;"	m	namespace:gnet::state	file:
+_Forward	rpcgen.cpp	/^static GNET::Protocol::Type _Forward[] = {$/;"	m	namespace:gnet::state	file:
+_GResponseReceive	rpcgen.cpp	/^static GNET::Protocol::Type _GResponseReceive[] = {$/;"	m	namespace:gnet::state	file:
+_KeyExchgSend	rpcgen.cpp	/^static GNET::Protocol::Type _KeyExchgSend[] = {$/;"	m	namespace:gnet::state	file:
+_LinkImport	rpcgen.cpp	/^static GNET::Protocol::Type _LinkImport[] = {$/;"	m	namespace:gnet::state	file:
+_LinkProvider	rpcgen.cpp	/^static GNET::Protocol::Type _LinkProvider[] = {$/;"	m	namespace:gnet::state	file:
+_LinkService	rpcgen.cpp	/^static GNET::Protocol::Type _LinkService[] = {$/;"	m	namespace:gnet::state	file:
+_Null	rpcgen.cpp	/^static GNET::Protocol::Type _Null[] = {$/;"	m	namespace:gnet::state	file:
+_VerifyMatrix	rpcgen.cpp	/^static GNET::Protocol::Type _VerifyMatrix[] = {$/;"	m	namespace:gnet::state	file:
+_validator_	rpcgen/gnet/GPair.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::GPair
+_validator_	rpcgen/gnet/MatrixPasswdArg.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::MatrixPasswdArg
+_validator_	rpcgen/gnet/RoleForbid.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::RoleForbid
+_validator_	rpcgen/gnet/SSOUser.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::SSOUser
+_validator_	rpcgen/gnet/ServerAttr.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::ServerAttr
+_validator_	rpcgen/gnet/UserLoginArg.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::UserLoginArg
+_validator_	rpcgen/gnet/UserLoginRes.hpp	/^	bool _validator_() const {$/;"	f	class:gnet::UserLoginRes
+account	rpcgen/gnet/MatrixPasswdArg.hpp	/^	GNET::Octets account;$/;"	m	class:gnet::MatrixPasswdArg
+account	rpcgen/gnet/SSOUser.hpp	/^	GNET::Octets account;$/;"	m	class:gnet::SSOUser
+accumulate_limit	DeliveryClient.hpp	/^	size_t        accumulate_limit;$/;"	m	class:glinkd::DeliveryClient
+accumulate_limit	LinkServer.hpp	/^		size_t			accumulate_limit;$/;"	m	class:glinkd::LinkServer
+accumulate_limit	ProviderServer.hpp	/^	size_t accumulate_limit;$/;"	m	class:glinkd::ProviderServer
+add	pf.cpp	/^	void add(link_sid_t linksid, port_sid_t portsid) { events.insert(std::make_pair(linksid, portsid)); }$/;"	f	class:portforward::Session::ForwardTimer
+add	speedlimit.h	/^		bool add(const TKey& key)$/;"	f	class:glinkd::SpeedLimit
+addForward	pfp.hpp	/^	void addForward()      { allow |= 1; }         \/\/ 是否允许使用端口转发。$/;"	f	struct:portforward::AuthorityParameter
+addGrant	pfp.hpp	/^	void addGrant()        { allow |= 2; }         \/\/ 是否允许给别人分配权限。$/;"	f	struct:portforward::AuthorityParameter
+addPort	pfp.hpp	/^	void addPort(int port) { ports.insert(port); } \/\/ 是否允许访问特定端口。$/;"	f	struct:portforward::AuthorityParameter
+address	pfp.hpp	/^	std::string address;$/;"	m	struct:portforward::ConnectParameterV0
+agentaccount	rpcgen/gnet/SSOUser.hpp	/^	GNET::Octets agentaccount;$/;"	m	class:gnet::SSOUser
+agentname	rpcgen/gnet/SSOUser.hpp	/^	GNET::Octets agentname;$/;"	m	class:gnet::SSOUser
+alivetimemap	LinkServer.hpp	/^		TimeoutMap 					alivetimemap;$/;"	m	class:glinkd::LinkServer
+allow	pfp.hpp	/^	int allow;$/;"	m	struct:portforward::AuthorityParameter
+allowForward	pf.hpp	/^	bool allowForward() const      { return data.allowForward(); }$/;"	f	class:portforward::Authority
+allowForward	pfp.hpp	/^	bool allowForward() const      { return 0 != (allow & 1); }$/;"	f	struct:portforward::AuthorityParameter
+allowGrant	pf.hpp	/^	bool allowGrant() const        { return data.allowGrant(); }$/;"	f	class:portforward::Authority
+allowGrant	pfp.hpp	/^	bool allowGrant() const        { return 0 != (allow & 2); }$/;"	f	struct:portforward::AuthorityParameter
+allowPort	pf.hpp	/^	bool allowPort(int port) const { return data.allowPort(port); }$/;"	f	class:portforward::Authority
+allowPort	pfp.hpp	/^	bool allowPort(int port) const { return ports.empty() || ports.find(port) != ports.end(); }$/;"	f	struct:portforward::AuthorityParameter
+ask	speedlimit.h	/^		bool ask(const TKey& key)$/;"	f	class:glinkd::SpeedLimit
+auth	pf.hpp	/^	Authority auth;$/;"	m	class:portforward::Forwards
+authority	pf.hpp	/^	Authority & authority() { return auth; }$/;"	f	class:portforward::Forwards
+azcompare	pf.hpp	/^	bool azcompare(const std::string & chunk, int az)$/;"	f	class:portforward::Authority
+backoff	DeliveryClient.hpp	/^	size_t backoff;$/;"	m	class:glinkd::DeliveryClient
+begin	LinkSession.hpp	/^	links_map::iterator begin()                    { return links.begin(); }$/;"	f	class:glinkd::LinkSessions
+begin	ProviderMap.hpp	/^	const_iterator begin() const { return map.begin(); }$/;"	f	class:glinkd::ProviderMap
+begin	ProviderMap.hpp	/^	iterator begin() { return map.begin(); }$/;"	f	class:glinkd::ProviderMap
+bind	LinkSession.hpp	/^	void bind(ProviderId pvid, const std::set<int> & linkids, SessionId psid)$/;"	f	class:glinkd::LinkSessions
+bind	ProviderMap.hpp	/^	void bind(ProviderId pvid, SessionId psid)$/;"	f	class:glinkd::ProviderMap
+blisgm	rpcgen/gnet/UserLoginRes.hpp	/^	char blisgm;$/;"	m	class:gnet::UserLoginRes
+blkickuser	rpcgen/gnet/UserLoginArg.hpp	/^	char blkickuser;$/;"	m	class:gnet::UserLoginArg
+broadcast	LinkServer.cpp	/^	inline void broadcast(ProviderMap * pm, const GNET::Protocol & p)$/;"	f	namespace:glinkd
+broadcasters	LinkServer.hpp	/^		std::set<Broadcaster*> broadcasters;$/;"	m	class:glinkd::LinkServer
+brokenmap	LinkBrokenCache.hpp	/^		CacheLRUMap							brokenmap;$/;"	m	class:glinkd::LinkBrokenCache
+buffer	pf.hpp	/^	octets_t   buffer;  \/\/ 转发连接没有建立成功时，缓存收到的数据。$/;"	m	struct:portforward::Forward
+c2g_map	stat.hpp	/^		Map		c2g_map;$/;"	m	class:glinkd::ProtocolStat
+c2g_num	stat.hpp	/^		int64_t		c2g_num;$/;"	m	class:glinkd::ProtocolStat
+challenge	LinkSession.hpp	/^	GNET::Octets challenge;$/;"	m	class:glinkd::LinkSession
+challenge	rpcgen/gnet/MatrixPasswdArg.hpp	/^	GNET::Octets challenge;$/;"	m	class:gnet::MatrixPasswdArg
+checkunknownprotocol	LinkServer.hpp	/^		int			checkunknownprotocol;\/\/checkunknownprotocol size and policy	$/;"	m	class:glinkd::LinkServer
+close	pf.cpp	/^	void close(int status = GNET::CLOSE_ACTIVE) const   { const_cast<Session*>(this)->Close(status); }$/;"	f	class:portforward::Session
+collectSessionId	ProviderMap.hpp	/^	void collectSessionId(std::set<SessionId> & out) const$/;"	f	class:glinkd::ProviderMap
+compareTo	rpcgen/gnet/GPair.hpp	/^	int compareTo(const GPair &_o_) const {$/;"	f	class:gnet::GPair
+compareTo	rpcgen/gnet/UserLoginArg.hpp	/^	int compareTo(const UserLoginArg &_o_) const {$/;"	f	class:gnet::UserLoginArg
+compareTo	rpcgen/gnet/UserLoginRes.hpp	/^	int compareTo(const UserLoginRes &_o_) const {$/;"	f	class:gnet::UserLoginRes
+config	speedlimit.h	/^		void config(int window,int high)$/;"	f	class:glinkd::SpeedLimit
+conn_state	DeliveryClient.hpp	/^	bool          conn_state;$/;"	m	class:glinkd::DeliveryClient
+connect	pf.cpp	/^void Forwards::connect(link_sid_t linksid, port_sid_t portsid, const ConnectParameterV0 & param)$/;"	f	class:portforward::Forwards
+const_iterator	ProviderMap.hpp	/^	typedef map_t::const_iterator const_iterator;$/;"	t	class:glinkd::ProviderMap
+count	speedlimit.h	/^		int count;	$/;"	m	struct:glinkd::Record
+createtime	rpcgen/gnet/RoleForbid.hpp	/^	int createtime; \/\/ 封禁开始时间$/;"	m	class:gnet::RoleForbid
+creatime	rpcgen/gnet/UserLoginRes.hpp	/^	int creatime;$/;"	m	class:gnet::UserLoginRes
+data	LinkServer.cpp	/^		const GNET::Octets & data;$/;"	m	struct:glinkd::ProtocolBox	file:
+data	pf.hpp	/^	AuthorityParameter data;$/;"	m	class:portforward::Authority
+deadline	speedlimit.h	/^		time_t deadline;$/;"	m	struct:glinkd::Record
+defaultProviders	LinkSession.hpp	/^	ProviderMap defaultProviders;$/;"	m	class:glinkd::LinkSessions
+delBrokenInfo	LinkBrokenCache.hpp	/^		void delBrokenInfo(int sid)$/;"	f	class:glinkd::LinkBrokenCache
+dump	pf.cpp	/^void Forwards::dump()$/;"	f	class:portforward::Forwards
+dump	speedlimit.h	/^		void dump()$/;"	f	class:glinkd::SpeedLimit
+eAnsiText	pfp.hpp	/^	eAnsiText   = 8, \/\/ 给客户端返回一些ansi编码的信息。$/;"	e	enum:portforward::ePortForward
+eAuthority	pfp.hpp	/^	eAuthority  = 7, \/\/ 设置用户权限（临时性的，用户必须在当前linkd且在线）。$/;"	e	enum:portforward::ePortForward
+eAuthorityGet	pfp.hpp	/^	eAuthorityGet = 2, \/\/ 查询指定用户授权。查询结果也使用此操作指令返回。$/;"	e	enum:portforward::ePortForward
+eAuthoritySet	pfp.hpp	/^	eAuthoritySet = 1, \/\/ 根据参数覆盖指定的用户的授权并返回旧的授权。$/;"	e	enum:portforward::ePortForward
+eClose	pfp.hpp	/^	eClose      = 2, \/\/ 关闭映射（断开连接）。$/;"	e	enum:portforward::ePortForward
+eCloseActiveFromConsole	pfp.hpp	/^	eCloseActiveFromConsole      = 8,$/;"	e	enum:portforward::ePortForward
+eCloseConnectDuplicatePort	pfp.hpp	/^	eCloseConnectDuplicatePort   = 4,$/;"	e	enum:portforward::ePortForward
+eCloseConnectUnsupported	pfp.hpp	/^	eCloseConnectUnsupported     = 9,$/;"	e	enum:portforward::ePortForward
+eCloseForwardAckPortNotFound	pfp.hpp	/^	eCloseForwardAckPortNotFound = 7,$/;"	e	enum:portforward::ePortForward
+eCloseForwardPortNotFound	pfp.hpp	/^	eCloseForwardPortNotFound    = 3,$/;"	e	enum:portforward::ePortForward
+eCloseForwardProcessExp	pfp.hpp	/^	eCloseForwardProcessExp      = 10,$/;"	e	enum:portforward::ePortForward
+eCloseNoAuthAidOrZoneid	pfp.hpp	/^	eCloseNoAuthAidOrZoneid      = 13,$/;"	e	enum:portforward::ePortForward
+eCloseNoAuthPort	pfp.hpp	/^	eCloseNoAuthPort             = 12,$/;"	e	enum:portforward::ePortForward
+eCloseNoAuthority	pfp.hpp	/^	eCloseNoAuthority            = 11,$/;"	e	enum:portforward::ePortForward
+eCloseSessionAbort	pfp.hpp	/^	eCloseSessionAbort           = 5, \/\/ 连接失败$/;"	e	enum:portforward::ePortForward
+eCloseSessionClose	pfp.hpp	/^	eCloseSessionClose           = 6, \/\/ 连接关闭$/;"	e	enum:portforward::ePortForward
+eCloseUnknownConnectVersion	pfp.hpp	/^	eCloseUnknownConnectVersion  = 1,$/;"	e	enum:portforward::ePortForward
+eCloseUnknownForwardType	pfp.hpp	/^	eCloseUnknownForwardType     = 2,$/;"	e	enum:portforward::ePortForward
+eConnect	pfp.hpp	/^	eConnect    = 1, \/\/ 建立映射（连接远程服务）。$/;"	e	enum:portforward::ePortForward
+eConnectV0	pfp.hpp	/^	eConnectV0 = 0,  \/\/ 参数版本。具体参数见 class ConnectParameterV0;$/;"	e	enum:portforward::ePortForward
+eDumpLinkd	pfp.hpp	/^	eDumpLinkd  = 6, \/\/ 命令glinkd打印一些统计信息出来。用来调试。$/;"	e	enum:portforward::ePortForward
+eForward	pfp.hpp	/^	eForward    = 3, \/\/ 转发数据。$/;"	e	enum:portforward::ePortForward
+eForwardAck	pfp.hpp	/^	eForwardAck = 4, \/\/ 流量控制。$/;"	e	enum:portforward::ePortForward
+eForwardRaw	pfp.hpp	/^	eForwardRaw = 0, \/\/ 原生数据，直接转发。没有压缩，也没有加密。$/;"	e	enum:portforward::ePortForward
+eForwardWindowHighSize	pfp.hpp	/^	eForwardWindowHighSize = 64 * 1024, \/\/ 当未确认数据长度大于此数时，停止转发（停止读取本地连接）。$/;"	e	enum:portforward::ePortForward
+eForwardWindowLowSize	pfp.hpp	/^	eForwardWindowLowSize  = 48 * 1024, \/\/ 当未确认数据长度小于此数时，重启转发（读取本地连接并转发）。$/;"	e	enum:portforward::ePortForward
+ePortForward	pfp.hpp	/^enum ePortForward$/;"	g	namespace:portforward
+end	LinkSession.hpp	/^	links_map::iterator end()                      { return links.end(); }$/;"	f	class:glinkd::LinkSessions
+end	ProviderMap.hpp	/^	const_iterator end()   const { return map.end(); }$/;"	f	class:glinkd::ProviderMap
+end	ProviderMap.hpp	/^	iterator end()   { return map.end(); }$/;"	f	class:glinkd::ProviderMap
+erase	LinkSession.hpp	/^	void erase(SessionId sid)$/;"	f	class:glinkd::LinkSessions
+erase	ProviderMap.hpp	/^	void erase(iterator it)        { map.erase(it); }$/;"	f	class:glinkd::ProviderMap
+events	pf.cpp	/^	events_set events;$/;"	m	class:portforward::Session::ForwardTimer	file:
+events_set	pf.cpp	/^	typedef std::set<std::pair<link_sid_t, port_sid_t> > events_set;$/;"	t	class:portforward::Session::ForwardTimer	file:
+extra	rpcgen/gnet/ServerAttr.hpp	/^	std::map<int, int> extra;$/;"	m	class:gnet::ServerAttr
+find	LinkSession.hpp	/^	LinkSession * find(SessionId sid)$/;"	f	class:glinkd::LinkSessions
+find	LinkSession.hpp	/^	LinkSession * find(SessionId sid,int userid)$/;"	f	class:glinkd::LinkSessions
+find	ProviderMap.hpp	/^	const_iterator find(ProviderId pvid) const { return map.find(pvid); }$/;"	f	class:glinkd::ProviderMap
+find	ProviderMap.hpp	/^	iterator find(ProviderId pvid) { return map.find(pvid); }$/;"	f	class:glinkd::ProviderMap
+find	pf.hpp	/^	Forward * find(port_sid_t portsid)$/;"	f	class:portforward::Forwards
+flags	rpcgen/gnet/ServerAttr.hpp	/^	int flags; \/\/ 当前服务器状态，即上面列出的状态$/;"	m	class:gnet::ServerAttr
+forbid_end_time	LinkServer.hpp	/^			long forbid_end_time;$/;"	m	class:glinkd::ForbidIpValue
+forbid_ip_interval	LinkServer.hpp	/^		int			forbid_ip_interval;\/\/forbid ip time$/;"	m	class:glinkd::LinkServer
+forbidipmap	LinkServer.hpp	/^		ForbidMap 					forbidipmap;$/;"	m	class:glinkd::LinkServer
+forward	pf.cpp	/^void Forwards::forward(link_sid_t linksid, port_sid_t portsid, octets_t & data \/* not const *\/)$/;"	f	class:portforward::Forwards
+forwardAck	pf.cpp	/^void Forwards::forwardAck(link_sid_t linksid, port_sid_t portsid, int code)$/;"	f	class:portforward::Forwards
+forwards	LinkSession.hpp	/^	portforward::Forwards forwards;$/;"	m	class:glinkd::LinkSession
+forwards	pf.cpp	/^	Forwards * forwards() const$/;"	f	class:portforward::Session
+forwards	pf.hpp	/^	forwards_t forwards;$/;"	m	class:portforward::Forwards
+forwards_t	pf.hpp	/^	typedef std::map<port_sid_t, Forward*> forwards_t;$/;"	t	class:portforward::Forwards
+free_time_end	rpcgen/gnet/UserLoginRes.hpp	/^	int free_time_end;$/;"	m	class:gnet::UserLoginRes
+free_time_left	rpcgen/gnet/UserLoginRes.hpp	/^	int free_time_left;$/;"	m	class:gnet::UserLoginRes
+freecreatime	rpcgen/gnet/UserLoginArg.hpp	/^	int freecreatime;$/;"	m	class:gnet::UserLoginArg
+func	rpcgen/gnet/UserLoginRes.hpp	/^	int func;$/;"	m	class:gnet::UserLoginRes
+funcparm	rpcgen/gnet/UserLoginRes.hpp	/^	int funcparm;$/;"	m	class:gnet::UserLoginRes
+g2c_map	stat.hpp	/^		Map		g2c_map;$/;"	m	class:glinkd::ProtocolStat
+g2c_num	stat.hpp	/^		int64_t		g2c_num;$/;"	m	class:glinkd::ProtocolStat
+getBrokenInfo	LinkBrokenCache.hpp	/^		bool getBrokenInfo(const int sid,int& userid,int& reason)$/;"	f	class:glinkd::LinkBrokenCache
+getChallenge	LinkSession.hpp	/^	const GNET::Octets& getChallenge() const	{ return challenge; }$/;"	f	class:glinkd::LinkSession
+getData	pf.hpp	/^	const AuthorityParameter & getData() const { return data; }$/;"	f	class:portforward::Authority
+getDefaultProviders	LinkSession.hpp	/^	ProviderMap * getDefaultProviders()$/;"	f	class:glinkd::LinkSessions
+getForward	pf.cpp	/^	Forward * getForward() const$/;"	f	class:portforward::Session
+getForwards	LinkSession.hpp	/^	portforward::Forwards * getForwards() { return &forwards; }$/;"	f	class:glinkd::LinkSession
+getIdentity	LinkSession.hpp	/^\/*	const*\/ GNET::Octets& getIdentity()\/* const*\/ 	{ return identity; }$/;"	f	class:glinkd::LinkSession
+getLinkId	ProviderServer.hpp	/^	int getLinkId()			{ assert(0 != linkid); return linkid; }$/;"	f	class:glinkd::ProviderServer
+getLinksid	pf.cpp	/^	link_sid_t getLinksid() const { return this->linksid; }$/;"	f	class:portforward::Session
+getLogin	LinkSession.hpp	/^	const int  getLogin() const                   	{ return login; }$/;"	f	class:glinkd::LinkSession
+getLogintime	LinkSession.hpp	/^	const time_t  getLogintime() const		{ return logintime; }$/;"	f	class:glinkd::LinkSession
+getLogintype	LinkSession.hpp	/^	const int  getLogintype() const			{ return logintype; }$/;"	f	class:glinkd::LinkSession
+getMid	LinkSession.hpp	/^	GNET::Octets& getMid() 				{ return mid; }$/;"	f	class:glinkd::LinkSession
+getPeer	LinkSession.hpp	/^	GNET::SockAddr getPeer()			{ return peer; }$/;"	f	class:glinkd::LinkSession
+getPeerAddr	LinkSession.hpp	/^	const struct in_addr& getPeerAddr() const     {  return ((const struct sockaddr_in*)peer)->sin_addr; }$/;"	f	class:glinkd::LinkSession
+getPlatType	LinkServer.hpp	/^		int getPlatType() const		{ return plattype; }$/;"	f	class:glinkd::LinkServer
+getPortsid	pf.cpp	/^	port_sid_t getPortsid() const { return this->portsid; }$/;"	f	class:portforward::Session
+getProviders	LinkSession.hpp	/^	ProviderMap * getProviders()    { return & providers; }$/;"	f	class:glinkd::LinkSession
+getResponse	LinkSession.hpp	/^\/*	const*\/ GNET::Octets& getResponse()\/* const*\/ 	{ return response; }$/;"	f	class:glinkd::LinkSession
+getServerId	LinkServer.hpp	/^		GNET::Octets& getServerId() 	{ return serverid; }$/;"	f	class:glinkd::LinkServer
+getSid	DeliveryClient.hpp	/^	Session::ID getSid() const { return sid; }$/;"	f	class:glinkd::DeliveryClient
+getUserId	LinkSession.hpp	/^	const int getUserId() const     { return userid; }$/;"	f	class:glinkd::LinkSession
+glinkd	DeliveryClient.cpp	/^namespace glinkd { $/;"	n	file:
+glinkd	DeliveryClient.hpp	/^namespace glinkd { $/;"	n
+glinkd	LinkBrokenCache.hpp	/^namespace glinkd $/;"	n
+glinkd	LinkServer.cpp	/^namespace glinkd { $/;"	n	file:
+glinkd	LinkServer.hpp	/^namespace glinkd {$/;"	n
+glinkd	LinkSession.hpp	/^namespace glinkd$/;"	n
+glinkd	ProviderMap.hpp	/^namespace glinkd$/;"	n
+glinkd	ProviderServer.cpp	/^namespace glinkd { $/;"	n	file:
+glinkd	ProviderServer.hpp	/^namespace glinkd { $/;"	n
+glinkd	checktimer.cpp	/^namespace glinkd$/;"	n	file:
+glinkd	checktimer.hpp	/^namespace glinkd$/;"	n
+glinkd	speedlimit.h	/^namespace glinkd$/;"	n
+glinkd	stat.cpp	/^namespace glinkd$/;"	n	file:
+glinkd	stat.hpp	/^namespace glinkd$/;"	n
+gnet	LinkServer.cpp	/^namespace gnet$/;"	n	file:
+gnet	gnet/AddictionControl.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/AddictionControlRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/AnnounceForbidInfo.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/AnnounceServerAttribute.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/CertVerify.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/Challenge.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/CouponExchangeRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/CouponExchangeReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/DeliverAnnounceToLink.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/ErrorInfo.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/ErrorInfoRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/ForceLoginRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/ForceLoginReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/GetUserCouponRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/GetUserCouponReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/InstantAddCashRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/InstantAddCashReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/KeepAlive.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/KeyExchange.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/KickoutUser.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/MatrixChallenge.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/MatrixPasswdRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/MatrixPasswdReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/MatrixResponse.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/MatrixResponseRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/MatrixResponseReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/OnlineAnnounce.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/PortForward.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/Response.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/SSOGetTicketRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/SSOGetTicketReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/StatusAnnounce.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/UserLoginRep.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/UserLoginReq.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/AnnounceLinkId.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/Bind.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/Broadcast.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/Dispatch.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/Kick.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/LinkBroken.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/LinkServerControl.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/Send.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/SetLogin.hpp	/^namespace gnet { $/;"	n
+gnet	gnet/link/UnBind.hpp	/^namespace gnet { $/;"	n
+gnet	pf.cpp	/^namespace gnet$/;"	n	file:
+gnet	rpcgen.cpp	/^namespace gnet { $/;"	n	file:
+gnet	rpcgen.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/GPair.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/MatrixPasswdArg.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/RoleForbid.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/SSOUser.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/ServerAttr.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/UserLoginArg.hpp	/^namespace gnet { $/;"	n
+gnet	rpcgen/gnet/UserLoginRes.hpp	/^namespace gnet { $/;"	n
+grantcheck	pfp.hpp	/^	int grantcheck(const AuthorityParameter & ap) const$/;"	f	struct:portforward::AuthorityParameter
+halflogin_limit	LinkServer.hpp	/^		size_t			halflogin_limit;$/;"	m	class:glinkd::LinkServer
+halfloginset	LinkServer.hpp	/^		SessionIdSet		halfloginset;$/;"	m	class:glinkd::LinkServer
+identity	LinkSession.hpp	/^	GNET::Octets identity;$/;"	m	class:glinkd::LinkSession
+insert	LinkSession.hpp	/^	bool insert(SessionId sid)$/;"	f	class:glinkd::LinkSessions
+instance	DeliveryClient.cpp	/^	DeliveryClient DeliveryClient::instance;$/;"	m	class:glinkd::DeliveryClient	file:
+instance	DeliveryClient.hpp	/^	static DeliveryClient instance;$/;"	m	class:glinkd::DeliveryClient
+instance	ProviderServer.cpp	/^ProviderServer ProviderServer::instance;$/;"	m	class:glinkd::ProviderServer	file:
+instance	ProviderServer.hpp	/^	static ProviderServer instance;$/;"	m	class:glinkd::ProviderServer
+instance	pf.cpp	/^	static ForwardTimer * instance()$/;"	f	class:portforward::Session::ForwardTimer
+isConnected	DeliveryClient.hpp	/^	bool isConnected() const { return conn_state; }$/;"	f	class:glinkd::DeliveryClient
+isLimit	speedlimit.h	/^		bool isLimit(int high)$/;"	f	struct:glinkd::Record
+isTimeout	speedlimit.h	/^		bool isTimeout(time_t deadline)$/;"	f	struct:glinkd::Record
+isagent	rpcgen/gnet/SSOUser.hpp	/^	char isagent;$/;"	m	class:gnet::SSOUser
+iterator	ProviderMap.hpp	/^	typedef map_t::iterator iterator;$/;"	t	class:glinkd::ProviderMap
+keepalive_interval	LinkServer.hpp	/^		int			keepalive_interval;\/\/keepalive time$/;"	m	class:glinkd::LinkServer
+keepalive_open	LinkServer.hpp	/^		int			keepalive_open;\/\/keepalive open$/;"	m	class:glinkd::LinkServer
+key	rpcgen/gnet/GPair.hpp	/^	int key;$/;"	m	class:gnet::GPair
+key	speedlimit.h	/^		K key;$/;"	m	struct:glinkd::Record
+lastInput	pf.cpp	/^	octets_t lastInput;$/;"	m	class:portforward::Session	file:
+link	LinkServer.cpp	/^   namespace link$/;"	n	namespace:gnet	file:
+link	gnet/link/AnnounceLinkId.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/Bind.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/Broadcast.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/Dispatch.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/Kick.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/LinkBroken.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/LinkServerControl.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/Send.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/SetLogin.hpp	/^namespace link { $/;"	n	namespace:gnet
+link	gnet/link/UnBind.hpp	/^namespace link { $/;"	n	namespace:gnet
+link_sid_t	pf.hpp	/^typedef GNET::Protocol::Manager::Session::ID link_sid_t;$/;"	t	namespace:portforward
+linkbrokenlimit	LinkServer.hpp	/^		IntLimit	        linkbrokenlimit;$/;"	m	class:glinkd::LinkServer
+linkid	ProviderServer.hpp	/^	int linkid;$/;"	m	class:glinkd::ProviderServer
+links	LinkSession.hpp	/^	links_map links;$/;"	m	class:glinkd::LinkSessions
+links_map	LinkSession.hpp	/^	typedef std::map<SessionId, LinkSession*> links_map;$/;"	t	class:glinkd::LinkSessions
+linksid	pf.cpp	/^	link_sid_t linksid;$/;"	m	class:portforward::Session	file:
+listen_port_open	LinkServer.hpp	/^		int			listen_port_open;	$/;"	m	class:glinkd::LinkServer
+load	rpcgen/gnet/ServerAttr.hpp	/^	char load;$/;"	m	class:gnet::ServerAttr
+localsid	rpcgen/gnet/UserLoginArg.hpp	/^	int localsid;$/;"	m	class:gnet::UserLoginArg
+locker_state	DeliveryClient.hpp	/^	GNET::Thread::Mutex locker_state;$/;"	m	class:glinkd::DeliveryClient
+log_level	LinkServer.hpp	/^		int			log_level;\/\/only for login and logout	$/;"	m	class:glinkd::LinkServer
+login	LinkSession.hpp	/^	int login;\/\/as gnet::link::SetLogin 0:logout,1:login$/;"	m	class:glinkd::LinkSession
+loginip	rpcgen/gnet/MatrixPasswdArg.hpp	/^	int loginip;$/;"	m	class:gnet::MatrixPasswdArg
+logintime	LinkSession.hpp	/^	time_t logintime;$/;"	m	class:glinkd::LinkSession
+logintype	LinkSession.hpp	/^	int	logintype;$/;"	m	class:glinkd::LinkSession
+logintype	rpcgen/gnet/MatrixPasswdArg.hpp	/^	int logintype;$/;"	m	class:gnet::MatrixPasswdArg
+lower_bound	LinkSession.hpp	/^	links_map::iterator lower_bound(SessionId sid) { return links.lower_bound(sid); }$/;"	f	class:glinkd::LinkSessions
+ltype	rpcgen/gnet/RoleForbid.hpp	/^	char ltype; \/\/ default 0$/;"	m	class:gnet::RoleForbid
+main	glinkd.cpp	/^int main(int argc, char *argv[])$/;"	f
+map	ProviderMap.hpp	/^	map_t map;$/;"	m	class:glinkd::ProviderMap
+map_t	ProviderMap.hpp	/^	typedef std::map<ProviderId, SessionId> map_t;$/;"	t	class:glinkd::ProviderMap
+marshal	LinkServer.cpp	/^		virtual OctetsStream & marshal(OctetsStream & os) const { return os.push_byte((const char *)data.begin(), data.size()); }$/;"	f	struct:glinkd::ProtocolBox
+marshal	pfp.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	struct:portforward::AuthorityParameter
+marshal	pfp.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	struct:portforward::ConnectParameterV0
+marshal	rpcgen/gnet/GPair.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::GPair
+marshal	rpcgen/gnet/MatrixPasswdArg.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::MatrixPasswdArg
+marshal	rpcgen/gnet/RoleForbid.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::RoleForbid
+marshal	rpcgen/gnet/SSOUser.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::SSOUser
+marshal	rpcgen/gnet/ServerAttr.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::ServerAttr
+marshal	rpcgen/gnet/UserLoginArg.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::UserLoginArg
+marshal	rpcgen/gnet/UserLoginRes.hpp	/^	GNET::Marshal::OctetsStream & marshal(GNET::Marshal::OctetsStream & _os_) const {$/;"	f	class:gnet::UserLoginRes
+mid	LinkSession.hpp	/^	GNET::Octets	mid;$/;"	m	class:glinkd::LinkSession
+mid	rpcgen/gnet/MatrixPasswdArg.hpp	/^	GNET::Octets mid;$/;"	m	class:gnet::MatrixPasswdArg
+octets_t	pf.hpp	/^typedef GNET::Octets octets_t;$/;"	t	namespace:portforward
+openau	openau/DataBetweenAuAnyAndClient.hpp	/^namespace openau { $/;"	n
+openau	openau/ServerIDResponse.hpp	/^namespace openau { $/;"	n
+operator ()	LinkServer.hpp	/^			bool operator()(const sizepolicy_t::value_type & p1, const sizepolicy_t::value_type & p2) const$/;"	f	struct:glinkd::LinkServer::SizepolicyComparator
+operator ()	speedlimit.h	/^		bool operator() (const Record<K> & lh,const Record<K> & rh)$/;"	f	struct:glinkd::RecordCompare
+operator <	rpcgen/gnet/GPair.hpp	/^	bool operator<(const GPair &_o_) const {$/;"	f	class:gnet::GPair
+operator <	rpcgen/gnet/UserLoginArg.hpp	/^	bool operator<(const UserLoginArg &_o_) const {$/;"	f	class:gnet::UserLoginArg
+operator <	rpcgen/gnet/UserLoginRes.hpp	/^	bool operator<(const UserLoginRes &_o_) const {$/;"	f	class:gnet::UserLoginRes
+operator =	rpcgen/gnet/GPair.hpp	/^	GPair& operator=(const GPair & d)$/;"	f	class:gnet::GPair
+operator =	rpcgen/gnet/GPair.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::GPair
+operator =	rpcgen/gnet/MatrixPasswdArg.hpp	/^	MatrixPasswdArg& operator=(const MatrixPasswdArg & d)$/;"	f	class:gnet::MatrixPasswdArg
+operator =	rpcgen/gnet/MatrixPasswdArg.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::MatrixPasswdArg
+operator =	rpcgen/gnet/RoleForbid.hpp	/^	RoleForbid& operator=(const RoleForbid & d)$/;"	f	class:gnet::RoleForbid
+operator =	rpcgen/gnet/RoleForbid.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::RoleForbid
+operator =	rpcgen/gnet/SSOUser.hpp	/^	SSOUser& operator=(const SSOUser & d)$/;"	f	class:gnet::SSOUser
+operator =	rpcgen/gnet/SSOUser.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::SSOUser
+operator =	rpcgen/gnet/ServerAttr.hpp	/^	ServerAttr& operator=(const ServerAttr & d)$/;"	f	class:gnet::ServerAttr
+operator =	rpcgen/gnet/ServerAttr.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::ServerAttr
+operator =	rpcgen/gnet/UserLoginArg.hpp	/^	UserLoginArg& operator=(const UserLoginArg & d)$/;"	f	class:gnet::UserLoginArg
+operator =	rpcgen/gnet/UserLoginArg.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::UserLoginArg
+operator =	rpcgen/gnet/UserLoginRes.hpp	/^	UserLoginRes& operator=(const UserLoginRes & d)$/;"	f	class:gnet::UserLoginRes
+operator =	rpcgen/gnet/UserLoginRes.hpp	/^	virtual GNET::Rpc::Data & operator=(const GNET::Rpc::Data & d)$/;"	f	class:gnet::UserLoginRes
+passiveio	LinkServer.hpp	/^		GNET::PassiveIO		* passiveio;$/;"	m	class:glinkd::LinkServer
+pdata	LinkServer.hpp	/^			GNET::Octets pdata;$/;"	m	class:glinkd::LinkServer::Broadcaster
+peer	LinkSession.hpp	/^	GNET::SockAddr peer;$/;"	m	class:glinkd::LinkSession
+plattype	LinkServer.hpp	/^		int			plattype;$/;"	m	class:glinkd::LinkServer
+port	pfp.hpp	/^	std::string port;$/;"	m	struct:portforward::ConnectParameterV0
+port_sid_t	pf.hpp	/^typedef int port_sid_t;$/;"	t	namespace:portforward
+portforward	pf.cpp	/^namespace portforward$/;"	n	file:
+portforward	pf.hpp	/^namespace portforward$/;"	n
+portforward	pfp.hpp	/^namespace portforward$/;"	n
+ports	pfp.hpp	/^	std::set<int> ports; \/\/ 为空的时候允许连接全部端口。$/;"	m	struct:portforward::AuthorityParameter
+portsid	pf.cpp	/^	port_sid_t portsid;$/;"	m	class:portforward::Session	file:
+priorQuque	speedlimit.h	/^		PriorQueue priorQuque;$/;"	m	class:glinkd::SpeedLimit
+providers	LinkSession.hpp	/^	ProviderMap providers;$/;"	m	class:glinkd::LinkSession
+ptype	LinkServer.hpp	/^			int ptype;$/;"	m	class:glinkd::LinkServer::Broadcaster
+qports	pf.cpp	/^bool Authority::qports(const std::string & chunk)$/;"	f	class:portforward::Authority
+reason	LinkBrokenCache.hpp	/^        int         reason;$/;"	m	class:glinkd::BrokenInfo
+reason	rpcgen/gnet/RoleForbid.hpp	/^	GNET::Octets reason;$/;"	m	class:gnet::RoleForbid
+remain_hint	LinkServer.hpp	/^			int remain_hint;$/;"	m	class:glinkd::LinkServer::Broadcaster
+remain_playtime	rpcgen/gnet/UserLoginRes.hpp	/^	int remain_playtime;$/;"	m	class:gnet::UserLoginRes
+remain_time	LinkServer.hpp	/^			int remain_time;$/;"	m	class:glinkd::LinkServer::Broadcaster
+remove	pf.hpp	/^	Forward * remove(port_sid_t portsid)$/;"	f	class:portforward::Forwards
+reserved1	rpcgen/gnet/MatrixPasswdArg.hpp	/^	int reserved1;$/;"	m	class:gnet::MatrixPasswdArg
+reserved2	rpcgen/gnet/MatrixPasswdArg.hpp	/^	GNET::Octets reserved2;$/;"	m	class:gnet::MatrixPasswdArg
+reset	pfp.hpp	/^	void reset()           { allow = 0; ports.clear(); }$/;"	f	struct:portforward::AuthorityParameter
+reset	stat.hpp	/^		void reset()$/;"	f	class:glinkd::ProtocolStat
+response	LinkSession.hpp	/^	GNET::Octets response;$/;"	m	class:glinkd::LinkSession
+retcode	rpcgen/gnet/UserLoginRes.hpp	/^	char retcode;$/;"	m	class:gnet::UserLoginRes
+send	pf.cpp	/^	size_t send(Forward * fw, const octets_t & data)$/;"	f	class:portforward::Session
+sendAnsiTextToClient	pf.cpp	/^void sendAnsiTextToClient(portforward::link_sid_t linksid, portforward::port_sid_t portsid, const char * text)$/;"	f	namespace:gnet
+sendCloseToClient	pf.cpp	/^void sendCloseToClient(portforward::link_sid_t linksid, portforward::port_sid_t portsid, int code, const char * reason = NULL)$/;"	f	namespace:gnet
+serv_sid_t	pf.hpp	/^typedef int serv_sid_t;$/;"	t	namespace:portforward
+server_attr	LinkServer.hpp	/^		gnet::ServerAttr	server_attr;$/;"	m	class:glinkd::LinkServer
+serverid	LinkServer.hpp	/^		GNET::Octets		serverid;$/;"	m	class:glinkd::LinkServer
+session	pf.hpp	/^	Session *  session;$/;"	m	struct:portforward::Forward
+session_state_check	LinkServer.hpp	/^		int			session_state_check;\/\/control if CheckSessionTimePolicy$/;"	m	class:glinkd::LinkServer
+sessions	LinkServer.hpp	/^		LinkSessions		sessions;$/;"	m	class:glinkd::LinkServer
+setBrokenInfo	LinkBrokenCache.hpp	/^		void setBrokenInfo(int sid,int userid,int reason)$/;"	f	class:glinkd::LinkBrokenCache
+setChallenge	LinkSession.hpp	/^	void setChallenge(const GNET::Octets &_challenge) { challenge = _challenge; }$/;"	f	class:glinkd::LinkSession
+setIdentity	LinkSession.hpp	/^	void setIdentity(const GNET::Octets &_identity)   { identity = _identity; }$/;"	f	class:glinkd::LinkSession
+setLinkId	ProviderServer.hpp	/^	void setLinkId(int linkid)		{ assert(0 != linkid); this->linkid = linkid; }$/;"	f	class:glinkd::ProviderServer
+setLogin	LinkSession.hpp	/^	void setLogin(int _login)                         { login = _login; }$/;"	f	class:glinkd::LinkSession
+setLogintime	LinkSession.hpp	/^	void setLogintime(time_t _logintime)              { logintime = _logintime; }$/;"	f	class:glinkd::LinkSession
+setLogintype	LinkSession.hpp	/^	void setLogintype(time_t _type)		          { logintype = _type; }$/;"	f	class:glinkd::LinkSession
+setMaxSize	LinkBrokenCache.hpp	/^		void setMaxSize(size_t size) $/;"	f	class:glinkd::LinkBrokenCache
+setMid	LinkSession.hpp	/^	void setMid (const GNET::Octets &_mid)  	  { mid = _mid; }$/;"	f	class:glinkd::LinkSession
+setPeer	LinkSession.hpp	/^	void setPeer(const GNET::SockAddr &_peer)         { peer = _peer; }$/;"	f	class:glinkd::LinkSession
+setPlatType	LinkServer.hpp	/^		void setPlatType(int _p)	{ plattype = _p; }$/;"	f	class:glinkd::LinkServer
+setResponse	LinkSession.hpp	/^	void setResponse (const GNET::Octets &_response)  { response = _response; }$/;"	f	class:glinkd::LinkSession
+setServerId	LinkServer.hpp	/^		void setServerId(const GNET::Octets& _id) { serverid.replace(_id.begin(),_id.size()); }$/;"	f	class:glinkd::LinkServer
+setUserId	LinkSession.hpp	/^	void setUserId(int _userid)                       { userid = _userid; }$/;"	f	class:glinkd::LinkSession
+setupAllowInOnlineAnnounce	pf.cpp	/^void Authority::setupAllowInOnlineAnnounce(int algorithm, int aid, int zoneid, const GNET::Octets & account)$/;"	f	class:portforward::Authority
+sid	DeliveryClient.hpp	/^	Session::ID   sid;$/;"	m	class:glinkd::DeliveryClient
+sid_lower	LinkServer.hpp	/^			int sid_lower;$/;"	m	class:glinkd::LinkServer::Broadcaster
+sig_handler	glinkd.cpp	/^static void sig_handler(int signo)$/;"	f	file:
+size	LinkSession.hpp	/^	int size() const { return links.size(); }$/;"	f	class:glinkd::LinkSessions
+sizepolicy	LinkServer.hpp	/^		sizepolicy_t		sizepolicy; \/\/ sorted by pair.first$/;"	m	class:glinkd::LinkServer
+sizepolicy_t	LinkServer.hpp	/^		typedef std::vector<std::pair<GNET::Protocol::Type, unsigned int> >	sizepolicy_t;$/;"	t	class:glinkd::LinkServer
+smap	speedlimit.h	/^		MapType	smap;$/;"	m	class:glinkd::SpeedLimit
+sortmap	stat.hpp	/^		SortMap		sortmap;$/;"	m	class:glinkd::ProtocolStat
+stat_open	LinkServer.hpp	/^		int			stat_open;$/;"	m	class:glinkd::LinkServer
+state	rpcgen.cpp	/^namespace state { $/;"	n	namespace:gnet	file:
+state	rpcgen.hpp	/^namespace state { $/;"	n	namespace:gnet
+str2int	pf.hpp	/^	bool str2int(const std::string & chunk, int & out, int base = 10)$/;"	f	class:portforward::Authority
+swap	pf.hpp	/^	void swap(AuthorityParameter & param)$/;"	f	class:portforward::Authority
+time	rpcgen/gnet/RoleForbid.hpp	/^	int time; \/\/ 剩余封禁时间$/;"	m	class:gnet::RoleForbid
+timeout	pfp.hpp	/^	int         timeout;$/;"	m	struct:portforward::ConnectParameterV0
+timer	LinkServer.hpp	/^			GNET::Timer timer;$/;"	m	class:glinkd::LinkServer::Broadcaster
+unbind	LinkSession.hpp	/^	void unbind(ProviderId pvid, const std::set<int> & linkids, SessionId psid)$/;"	f	class:glinkd::LinkSessions
+unbind	ProviderMap.hpp	/^	void unbind(ProviderId pvid, SessionId sid)$/;"	f	class:glinkd::ProviderMap
+unmarshal	LinkServer.cpp	/^		virtual const OctetsStream & unmarshal(const OctetsStream & os) { abort(); return os; }$/;"	f	struct:glinkd::ProtocolBox
+unmarshal	pfp.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	struct:portforward::AuthorityParameter
+unmarshal	pfp.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	struct:portforward::ConnectParameterV0
+unmarshal	rpcgen/gnet/GPair.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::GPair
+unmarshal	rpcgen/gnet/MatrixPasswdArg.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::MatrixPasswdArg
+unmarshal	rpcgen/gnet/RoleForbid.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::RoleForbid
+unmarshal	rpcgen/gnet/SSOUser.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::SSOUser
+unmarshal	rpcgen/gnet/ServerAttr.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::ServerAttr
+unmarshal	rpcgen/gnet/UserLoginArg.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::UserLoginArg
+unmarshal	rpcgen/gnet/UserLoginRes.hpp	/^	const GNET::Marshal::OctetsStream & unmarshal(const GNET::Marshal::OctetsStream & _os_) {$/;"	f	class:gnet::UserLoginRes
+update	LinkServer.cpp	/^	void LinkServer::Broadcaster::update(LinkServer * ls)$/;"	f	class:glinkd::LinkServer::Broadcaster
+update	speedlimit.h	/^		bool update(int high)$/;"	f	struct:glinkd::Record
+update_c2g_map	stat.hpp	/^		void update_c2g_map(int protocol_type,int times = 1)$/;"	f	class:glinkd::ProtocolStat
+update_c2g_num	stat.hpp	/^		void update_c2g_num(int data_size)$/;"	f	class:glinkd::ProtocolStat
+update_g2c_map	stat.hpp	/^		void update_g2c_map(int protocol_type,int times = 1)$/;"	f	class:glinkd::ProtocolStat
+update_g2c_num	stat.hpp	/^		void update_g2c_num(int data_size)$/;"	f	class:glinkd::ProtocolStat
+update_time	checktimer.hpp	/^		int update_time;$/;"	m	class:glinkd::CheckTimer
+update_time	stat.hpp	/^	   	int update_time;$/;"	m	class:glinkd::Stat
+upper_bound	LinkSession.hpp	/^	links_map::iterator upper_bound(SessionId sid) { return links.upper_bound(sid); }$/;"	f	class:glinkd::LinkSessions
+user_count_limit	LinkServer.hpp	/^		size_t			user_count_limit;$/;"	m	class:glinkd::LinkServer
+userid	LinkBrokenCache.hpp	/^        int 	    userid;$/;"	m	class:glinkd::BrokenInfo
+userid	LinkSession.hpp	/^	int userid;$/;"	m	class:glinkd::LinkSession
+userid	rpcgen/gnet/SSOUser.hpp	/^	int64_t userid;$/;"	m	class:gnet::SSOUser
+userid	rpcgen/gnet/UserLoginArg.hpp	/^	int userid;$/;"	m	class:gnet::UserLoginArg
+useridmap	LinkServer.hpp	/^		UseridMap					useridmap;$/;"	m	class:glinkd::LinkServer
+value	rpcgen/gnet/GPair.hpp	/^	int value;$/;"	m	class:gnet::GPair
+version	LinkServer.hpp	/^		int			version;$/;"	m	class:glinkd::LinkServer
+windowSize	pf.hpp	/^	long windowSize;   \/\/ 未确认的数据大小。$/;"	m	struct:portforward::Forward
+~Forward	pf.cpp	/^Forward::~Forward()$/;"	f	class:portforward::Forward
+~Forwards	pf.cpp	/^Forwards::~Forwards()$/;"	f	class:portforward::Forwards
+~LinkSessions	LinkSession.hpp	/^	~LinkSessions()$/;"	f	class:glinkd::LinkSessions
+~SpeedLimit	speedlimit.h	/^		~SpeedLimit()$/;"	f	class:glinkd::SpeedLimit

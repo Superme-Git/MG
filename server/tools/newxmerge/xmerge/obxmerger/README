@@ -1,0 +1,9 @@
+1.合服脚本的使用
+   ./xmerge.sh /export/xdb1 /export/xdb2 /export/outputdb
+  
+2.各个文件的说明
+  xmerge.jar 合服工具的jar包
+  mylogic.jar 合服工具的jar包
+  validator.jar 合服工具的jar包
+  xmerge.xml 配置文件,比如默认目录就可以在这个配置里改
+  trace.log   合服的trace

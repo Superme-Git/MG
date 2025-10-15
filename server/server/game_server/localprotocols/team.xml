@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消息协议号从 8001 开始 -->
+<namespace name="team">
+	
+	<bean name="TeamChangeType">
+		<enum name="CREATE" value="1" /> 创建队伍
+		<enum name="DISMISS" value="2" /> 销毁队伍
+		<enum name="SWITCH_LEADER" value="3" /> 交换队长
+		<enum name="ADD_NORMAL_MEMBER" value="4" /> 添加正常队员
+		<enum name="ADD_ABSENT_MEMBER" value="5" /> 添加暂离队员
+		<enum name="REMOVE_MEMBER" value="6" /> 删除队员
+		<enum name="SWITCH_MEMBER" value="7" /> 交换队员
+		<enum name="CHANGE_MEMBER_NORMAL" value="8" /> 成为正常队员
+		<enum name="CHANGE_MEMBER_ABSENT" value="9" /> 成为暂离队员
+		<enum name="MEMBER_OFFLINE" value="10" /> 队员下线
+	</bean>
+	
+	<bean name="SceneTeam">
+		<variable name="teamId" type="long" />
+		<variable name="leaderId" type="long" />
+		<variable name="memebers" type="list" value="SceneTeamMember" />
+	</bean>
+	
+	<bean name="SceneTeamMember">
+		<variable name="roleId" type="long" />
+		<variable name="state" type="int" />
+	</bean>
+
+	<protocol  name="GRequestTeamList" type="8001" maxsize="65535" prior="1"> 请求角色所在场景的队伍列表
+		 	<variable name="roleId" type="long" /> 请求队伍列表的roleId		
+	</protocol>
+	<protocol  name="MRespondTeamList" type="8002" maxsize="65535" prior="1"> 返回角色所在场景的队伍列表
+			<variable name="roleId" type="long"/> 角色Id
+			<variable name="teamlist" type="list" value="long" /> 场景内的队伍列表
+	</protocol>
+	<protocol  name="GRequestSingleRoles" type="8003" maxsize="65535" prior="1"> 请求角色所在场景的无队伍角色
+		 	<variable name="roleId" type="long" /> 请求无队伍角色的roleIds
+	</protocol>
+	
+	<protocol  name="GCreateTeam" type="8004" maxsize="65535" prior="1"> 创建场景队伍
+		 	<variable name="roleId" type="long" /> 队长roleId
+		 	<variable name="teamId" type="long" /> 队伍ID
+	</protocol>
+	
+	<protocol  name="GUpdateTeam" type="8005" maxsize="65535" prior="1"> 更新场景队伍
+		 	<variable name="sceneteam" type="SceneTeam" /> 新的SceneTeam
+		 	<variable name="newMemberId" type="map" key="long" value="int" /> 新成员ID与状态
+	</protocol>
+	
+	<protocol  name="GDismissTeam" type="8006" maxsize="65535" prior="1"> 销毁场景队伍
+		 	<variable name="teamId" type="long" /> 队伍ID
+	</protocol>
+
+	<protocol  name="GNotifyTeamChange" type="8007" maxsize="65535" prior="1"> 销毁场景队伍
+		 	<variable name="changetype" type="int" /> 队伍改变的类型,参考TeamChangeType
+		 	<variable name="teamId" type="long" /> 队伍ID
+		 	<variable name="roleId" type="long" /> 与改变相关的roleid
+		 	<variable name="roleId2" type="long" /> 如果是交换队员位置，会有第二个roleid
+	</protocol>
+	
+	<protocol  name="GRefreshTeamHugs" type="8008" maxsize="65535" prior="1"> 通知场景刷新某队伍的拥抱状态
+		<variable name="teamid" type="long"/>
+		<variable name="hugs" type="map" key="long" value="long" /> key=抱的人角色Id，value=被抱的人角色id
+	</protocol>
+	
+</namespace>

@@ -1,0 +1,34 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace mission { 
+
+class CReqGoto : public aio::Protocol
+{
+public:
+	// Protocol
+
+
+	int mapid;
+	int xpos;
+	int ypos;
+
+	CReqGoto() ;
+
+	CReqGoto(int _mapid_, int _xpos_, int _ypos_);
+
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const CReqGoto &_o_) const ;
+
+	aio::Protocol * Clone();
+
+};
+
+} 
+} 
+} 

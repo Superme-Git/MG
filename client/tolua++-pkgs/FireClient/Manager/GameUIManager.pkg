@@ -1,0 +1,137 @@
+
+$pfile "Framework/XPRenderEffect.pkg"
+$pfile "Framework/LuaXPRenderEffect.pkg"
+
+class GameUImanager 
+{
+public:
+
+	bool ChnInjectChar(CEGUI::utf32 code_point);
+	void AddMessageTipById(int id);
+	void AddSystemBoard(const std::wstring& message, bool bAddToChat = true, bool bforceshow = false);
+	void AddMessageTip(const std::wstring& messageTip, bool bAddToChat = true, bool bEnalbe = true, bool bCheckSame = false);
+	void InitMessageTip(CEGUI::MessageTip* & tip, const std::wstring& messageTip, CEGUI::TipType type, bool bAddToChat, bool bExistSysMes = false);
+	bool IsHaveSameMessageTip(const std::wstring& messageTip);
+	std::wstring GetFullPathFileName(std::wstring PathFileName);
+	int QuickCommand(std::wstring Cmd, std::wstring& Param0, std::wstring& Param1, std::wstring& Param2, std::wstring& Param3);//LUA向C++发送和接受数据用接口
+	int QuickCommandToLua(std::wstring Cmd, std::wstring Param0, std::wstring Param1, std::wstring Param2, std::wstring Param3);//C++向LUA发送和接受数据用接口
+	void OnExitGameApp();
+	void OnExitGameToSelectRole();
+	void OnExitGameToLogin(int relogin = eExitToLoginType_ChangeLogin);
+	void OnGameStart();
+	void HandleEsc();
+	void UnInitGameUI();
+	void Run(int now, int delta);
+	bool FloatSkillOnMouseButtonDown();
+	void AddWndToRootWindow(CEGUI::Window* pWnd);
+	CEGUI::Window* GetMainRootWnd();
+	bool FloatItemOnMouseButtonDown();
+	void Draw();
+	void initialiseDefaultResourceGroups();
+	void initialiseResourceGroupDirectories();
+	bool InitGameUIPostInit();
+	bool InitGameUI();
+	static LuaXPRenderEffect* createXPRenderEffect(int userid,LUA_FUNCTION handler);
+	static Nuclear::IEffectNotify* createNotify(LUA_FUNCTION handler);
+
+	CEGUI::Window* GetCursorWindow();
+	Dialog* getDialog(CEGUI::Window* pWin);
+	void DrawSysMsgEffect();
+	void DrawFPS();
+	void OnSysMesEnd();
+	void OnSysMesFade();
+	void OnSysMesBegin();
+	bool HandleSysMesFade(const CEGUI::EventArgs &e);
+	bool HandleMessageTipOut(const CEGUI::EventArgs &e);
+	CEGUI::LuaScriptModule* GetLuaScriptModule();
+	bool IsBagMirrorDlgOpen();
+	void CloseDialogBeforeMapChange();
+	void CloseDialogBeforeBattle();
+	bool OnUIDialogDestructionStarted(const CEGUI::EventArgs &args);
+	void RemoveUIDialog(CEGUI::Window* window);
+	void AddUIDialog(CEGUI::Window* window, Dialog* dialog);
+	bool IsGameUIVisible();
+	void SetGameUIVisible(bool b);
+
+	bool SdkOutTimeOpen();
+	bool SdkOutTimeClose();
+	void RenderWindowSprite(XPRenderEffect* pRenderEffect);
+	void RenderUIEffect(XPRenderEffect* pRenderEffect);
+	bool IsWindowHaveEffect(CEGUI::Window* pWnd);
+	void RemoveAllUIEffect();
+	CEGUI::Window* GetWndByEffect(Nuclear::IEffect* pEffect);
+	void RemoveWindowSpriteByWnd(CEGUI::Window* pWnd);
+	void RemoveWindowSprite(UISprite* pSprite);
+	void RemoveScreenEffect(Nuclear::IEffect* pEffect);
+	void PlayScreenEffect(int effectid, float fx = 0.5, float fy = 0.5, bool delSame = true);
+	void RemoveAllBoundsEffect();
+	void RemoveBoundsEffect(Nuclear::IEffect* pEffect);
+	void RemoveUIEffect(CEGUI::Window* pWnd);
+	void RemoveUIEffect(Nuclear::IEffect* pEffect);
+	UISprite* AddWindowSprite(CEGUI::Window* pWnd, int modleId, Nuclear::NuclearDirection dir = Nuclear::XPDIR_BOTTOMRIGHT, int x = 0, int y = 0, bool clip = false);
+	Nuclear::IEffect* AddUIEffect(CEGUI::Window* pWnd, const std::wstring& strEffectName, bool bCycle = true, int x = 0, int y = 0, bool clip = false);
+	void UpdateEffectBoundsPos(Nuclear::IEffect* pEffect, CEGUI::Window* pWnd);
+	Nuclear::IEffect* AddParticalEffect(CEGUI::Window *pWnd, const std::wstring& strEffectName, bool bCycle = true, int x = 0, int y = 0, bool clip = false, bool bRoundBounds = false);
+
+	void sdkInit();
+	void sdkLogin();
+	void setTreasureMapId(int id);
+	int getTreasureMapId();
+	void setCurrentItemId(int id);
+	int getCurrentItemId();
+	bool isSameNpcSoundPlaying(int iId);
+	bool isNpcSoundPlaying();
+	CEGUI::String& getCurNpcSound();
+	int getCurNpcId();
+	void setCurNpcId(int iId);
+	void setCurNpcSound(const CEGUI::String& soundRes);
+	void PlayNPCSound(const std::wstring& soundRes, const int iNpcId,bool bForcePlay=false);
+	void PlayUISound(const CEGUI::String& soundRes);
+	void EnableDlgSound(bool bEnable);
+	bool isEnableDlgSound();
+	void setSuperTreasureMapEnable(bool bEnable);
+	bool isSuperTreasureMapEnable();
+	void SetShowGameUI(bool bSHow);
+
+	UISprite* FindUISprite(int iHandle);
+	UISprite* GetUISprite(int iIndex);
+	int GetUISpriteCount();
+	void ClearUISprite();
+	void RemoveUISprite(UISprite* pUISprite);
+	void AddUISprite(UISprite* pUISprite);
+
+	void HideAllUI(bool bHide);
+
+	UISpineSprite* FindUISpineSprite(int iHandle);
+	UISpineSprite* GetUISpineSprite(int iIndex);
+	int  GetUISpineSpriteCount();
+	void ClearUISpineSprite();
+	void RemoveUISpineSprite(UISpineSprite* pUISpineSprite);
+	bool AddUISpineSprite(UISpineSprite* pUISpineSprite);
+	void OnBackSpace();
+	void InjectString(const char* pStr);
+	void InjectChar(const char* pStr);
+	void SetDetachIMEState();
+	float GetCurEditBoxBottom(); //获得当前的编辑区的底部位置
+	bool DetachIME();
+	void AttachIME(const CEGUI::String& str);
+	void OnClickEditArea(const CEGUI::String& str);
+
+	void removeGameUpdateTextView();
+	void showGameUpdateTextView();
+	void hideGameUpdateTextView();
+	void resumeGameUpdateTextView();
+
+	void clearMessages();
+
+	// yeqing 2015-12-14
+	virtual void setLoginProgress(bool bLoginProgress);
+	virtual bool getLoginProgress();
+
+	void asyncLoadWindowLayout(const char* szFilename, const char* szNamePrefix, const char* szLuaCallbackFunc);
+	
+	std::string getClipboard();
+};
+
+inline GameUImanager* gGetGameUIManager();
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="xbrowse" default="dist">
+	<property name="src" value="src/" />
+	<property name="build" value="build/" />
+	<property name="dist" value="dist/" />
+	<property name="lib" value="lib/" />
+	<property name="res" value="resources/" />
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<path id="classpath">
+			<fileset dir="${lib}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>		
+		<javac encoding="GBK"  destdir="${build}" classpathref="classpath" debug="true" debuglevel="lines,source" includeAntRuntime="false">
+			<src path="${src}" />
+		</javac>
+	</target>
+	
+	<!--混淆代码-->
+	<target name="obfuscate">
+		<taskdef resource="proguard/ant/task.properties"
+	           classpath="lib/proguard.jar" />
+		<proguard configuration="applications.pro" />
+	</target>
+	
+	<target name="compiledist" depends="compile">
+		<jar jarfile="${dist}/xbrowse.jar" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="com.pwrd.XdbBrowser"/>
+				<attribute name="Class-Path" value="lib/commons-beanutils-1.8.0.jar lib/commons-collections-3.1.jar lib/commons-lang-2.6.jar lib/commons-logging-1.2.jar lib/ezmorph-1.0.6.jar lib/javadocking.jar lib/jio.jar lib/json-lib-2.3-jdk15.jar lib/log4j-1.2.15.jar lib/monkeyking.jar lib/yl.jar"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="dist" depends="compiledist,obfuscate">
+		<mkdir dir="${dist}/lib/"/>
+		<copy overwrite="true" todir="${dist}">
+			<fileset dir="./">
+				<include name="db_amd64.dll"/>
+				<include name="json_out_tbl.ini"/>
+				<include name="gsd.jar"/>
+				<include name="run_xbrowse_cmd.bat"/>
+				<include name="readme.txt"/>
+				<include name="${res}"/>
+				<include name="${lib}"/>
+			</fileset>
+		</copy>
+		<!-- delete file="${dist}/xbrowse.jar"/ -->
+	</target>
+</project>

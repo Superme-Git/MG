@@ -1,0 +1,28 @@
+
+
+
+namespace fire { 
+namespace pb { 
+
+class RoleInfo : public FireNet::Marshal
+{
+public:
+	int64_t roleid; // ID
+	std::wstring rolename; // 名称
+	int school; // 人物职业
+	int shape; // 角色id
+	int level; // 等级
+	std::map<char, int> components; // 角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+	int64_t rolecreatetime; // 角色创建时间
+
+	RoleInfo() ;
+
+	RoleInfo(int64_t _roleid_, const std::wstring & _rolename_, int _school_, int _shape_, int _level_, const std::map<char, int> & _components_, int64_t _rolecreatetime_);
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+};
+
+} 
+} 

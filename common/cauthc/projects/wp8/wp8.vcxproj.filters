@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="..\..\authc\share\marshal.cpp">
+      <Filter>gnet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\octets.cpp">
+      <Filter>gnet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\security.cpp">
+      <Filter>gnet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\streamcompress.cpp">
+      <Filter>gnet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\rpcgen.cpp">
+      <Filter>gnet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\authc.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\ioengine.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\netsession.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\pollio.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\protocol.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\timer.cpp">
+      <Filter>share</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\authc\share\byteorder.cpp">
+      <Filter>gnet</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\authc\share\byteorder_i386.h">
+      <Filter>gnet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\share\byteorder_x86_64.h">
+      <Filter>gnet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\share\platform.h">
+      <Filter>gnet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\rpcgen.hpp">
+      <Filter>gnet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\protocols.hpp">
+      <Filter>gnet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\aliasing.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\authc.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\boo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\byteorder.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cauthc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\depinc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\marshal.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\netsession.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\octets.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\protocol.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\security.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\streamcompress.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\sysconf.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\activeio.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\ioengine.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\loginbase.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\netio.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\pollio.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\timer.h">
+      <Filter>share</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\authc\os\windows\usbhidkey.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="gnet">
+      <UniqueIdentifier>{226d3d82-feb0-4421-bb3d-809434ab2dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{8dc87af6-6595-4b2d-b056-e2e4a3b61304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="share">
+      <UniqueIdentifier>{41e6b883-64cd-4c76-a03e-17332c8cc589}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

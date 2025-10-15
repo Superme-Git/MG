@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Knight.MissionEditor.Xaml.AIEdit"
+        xmlns:src="clr-namespace:Knight.MissionEditor"
+        Title="Npc战斗AI编辑"
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterOwner" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" Height="244" Width="356">
+    <Grid Height="208" Width="339">
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="101">战斗AI</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,45,0,0" VerticalContentAlignment="Center" Width="101" Height="24" VerticalAlignment="Top">结果要求</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="0,10,68,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="101" x:Name="AIIDEditBox"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,45,68,0" Width="101" Height="24" VerticalAlignment="Top" Name="ResultComboBox" SelectionChanged="UpdateBattleResult">
+            <ComboBoxItem>要求胜利</ComboBoxItem>
+            <ComboBoxItem>均可</ComboBoxItem>
+        </ComboBox>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,83,0,97" VerticalContentAlignment="Center" Width="101">是否死亡惩罚</Label>
+        <ComboBox HorizontalAlignment="Right" Margin="0,87,68,97" Width="101" Name="DeathPunish" SelectionChanged="UpdateDeathPunish">
+            <ComboBoxItem>0：不接受</ComboBoxItem>
+            <ComboBoxItem>1：接受</ComboBoxItem>
+        </ComboBox>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,50" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="101">战斗难度等级</Label>
+        <TextBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,0,68,50" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="101" Name="BattleLevelEditBox" />
+    </Grid>
+</Window>

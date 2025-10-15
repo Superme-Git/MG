@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="instance">
+		<bean name="SInstanceAct" from="f副本玩法/公会副本NPC行为" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="type" fromCol="类型" type="int" />
+			<variable name="parameters" fromCol="参数"  type="string"  />
+			<variable name="belongfuben" fromCol="所属副本" type="int" />
+		</bean>
+		<bean name="SInstanceSave" from="f副本玩法/公会副本进度" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="name" fromCol="名称" type="string" />
+			<variable name="jinduid" fromCol="进度ID"  type="int"  />
+			<variable name="belongfuben" fromCol="所属副本ID" type="int" />
+			<variable name="maxpoint" fromCol="积分上限"  type="int"  />
+			<variable name="activeif" fromCol="激活条件1,激活条件2,激活条件3,激活条件4"  type="vector" value="string"  />
+			<variable name="endif" fromCol="完成条件1,完成条件2,完成条件3,完成条件4"  type="vector" value="string"  />
+			<variable name="activeCG" fromCol="激活播动画" type="int" />
+			<variable name="endCG" fromCol="完成播动画" type="int" />
+			<variable name="chestlibid" fromCol="完成宝箱库ID" type="int" />
+			<variable name="chestnum" fromCol="每人宝箱数" type="int" />	
+	        <variable name="awardid" fromCol="完成时积分兑换奖励" type="int" />
+            <variable name="isstep" fromCol="可否同步"  type="int" />
+			<variable name="gotoposition" fromCol="进度默认传送点"  type="string" />
+            <variable name="haveboss" fromCol="是否存在BOSS"  type="int" />
+            <variable name="pastaward" fromCol="通关奖励"  type="int" />
+            <variable name="mendaward" fromCol="击杀奖励"  type="int" />
+            <variable name="pastexpaward" fromCol="通关经验奖励"  type="int" />
+        </bean>
+		<bean name="SInstanceService" from="f副本玩法/公会副本NPC服务" genxml="server">
+			<variable name="id" fromCol="服务id" type="int" />
+			<variable name="name" fromCol="名称" type="string" />
+			<variable name="belongfuben" fromCol="所属副本ID" type="int" />
+			<variable name="friststate" fromCol="初始状态"  type="int"  />
+			<variable name="changestate" fromCol="状态改变1,状态改变2,状态改变3,状态改变4"  type="vector" value="string"  />
+		</bean>
+        <bean name="SInstaceNpc" from="f副本玩法/公会副本NPC参数" genxml="server">
+            <variable name="id" fromCol="npcid" type="int" />
+            <variable name="name" fromCol="名称" type="string" />
+            <variable name="belongfuben" fromCol="所属副本ID" type="int" />
+            <variable name="friststate" fromCol="初始状态"  type="int"  />
+            <variable name="srrviceslist" fromCol="服务列表" type="string" />
+            <variable name="actId" fromCol="初始动作" type="int" /> npc对应的动作id
+            <variable name="jinduidlist" fromCol="所属进度" type="string" /> 进度列表,一个npc可以属于多个进度
+            <variable name="rolenumber" fromCol="单次交互人数下限" type="int" />
+            <variable name="npcminnumber" fromCol="NPC随机最小数量" type="int" />
+            <variable name="npcmaxnumber" fromCol="NPC随机最大数量" type="int" />
+            <variable name="baoxiangid" fromCol="完成宝箱库ID" type="int" />
+            <variable name="baoxingnumber" fromCol="每人宝箱数" type="int" /> 人数系统
+            <variable name="npctype" fromCol="npc类型" type="int" /> 0 静态Npc,1 动态Npc
+            <variable name="changestate" fromCol="状态改变1,状态改变2,状态改变3,状态改变4" type="vector" value="string"/>
+            <variable name="awardid" fromCol="奖励" type="int"/>
+            <variable name="matchtype" fromCol="匹配奖励方式" type="int"/> 1 表示匹配个人等级 2 表示队伍平均等级
+            <variable name="awardids" fromCol="分级奖励" type="string"/> 添加根据角色等级匹配不同的奖励id
+            <variable name="posx" fromCol="固定刷新坐标X" type="int"/>
+            <variable name="posy" fromCol="固定刷新坐标Y" type="int"/>
+            <variable name="multibattle" fromCol="是否可同时进行多场战斗" type="int"/>
+        </bean>
+		
+		<bean name="SInstaceConfig" from="f副本玩法/公会副本参数" genxml="server">					
+			<variable name="id" fromCol="id" type="int" />	
+			<variable name="name" fromCol="名称" type="string" />
+			<variable name="classname" fromCol="类名" type="string" />
+			<variable name="serviceid" fromCol="npc服务id"  type="int"  />
+            <variable name="afterid" fromCol="前置副本ID"  type="int"  />
+		    <variable name="team" fromCol="组队类型"  type="int"  />		
+			<variable name="minlevel" fromCol="最低等级"  type="int"  />			
+			<variable name="maxlevel" fromCol="最高等级"  type="int"  />			
+			<variable name="playernum" fromCol="创建人数"  type="int"  />			
+			<variable name="maxnum" fromCol="副本内最大人数"  type="int"  />			
+			<variable name="mapids" fromCol="副本地图ID"  type="string"  />	
+            <variable name="mapidfirst" fromCol="初始地图ID"  type="int"  />					
+			<variable name="posxfirst" fromCol="初始X坐标"  type="int"  />			
+			<variable name="posyfirst" fromCol="初始Y坐标"  type="int"  />
+            <variable name="mapidgoto" fromCol="跳出地图ID"  type="int"  />	
+            <variable name="posxgoto" fromCol="跳出X坐标"  type="int"  />			
+			<variable name="posygoto" fromCol="跳出Y坐标"  type="int"  />
+			<variable name="refreshtype" fromCol="冷却刷新类型"  type="int"  />			
+			<variable name="gototime" fromCol="进入时间"  type="string"  />	
+            <variable name="gototype" fromCol="进入时间类型"  type="int"  />			
+			<variable name="refreshtime" fromCol="刷新时间"  type="string"  />				
+			<variable name="firstjindu" fromCol="初始化进度ID"  type="int"  />			
+			<variable name="lastjindu" fromCol="最终进度"  type="int"  />
+			<variable name="destroy" fromCol="提前销毁"  type="int"  />
+			<variable name="iscreate" fromCol="完成后可否创建"  type="int"  />
+			<variable name="xiezhan" fromCol="协战个数"  type="int"  />	
+		</bean>
+		
+		<bean name="CInstaceConfig" from="f副本玩法/公会副本参数" genxml="client" gencode="mtlua">					
+			<variable name="id" fromCol="id" type="int" />	
+			<variable name="name" fromCol="名称" type="string" />
+			<variable name="serversid" fromCol="npc服务id" type="int" />
+		</bean>
+		
+		<bean name="CbingfengwangzuoMap" from="b冰静态地图" genxml="client" gencode="mtlua">					
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="level" fromCol="等级" type="int" />	
+			<variable name="enemyNum" fromCol="关卡" type="int" />	
+			<variable name="mapName" fromCol="名称" type="string" />
+			<variable name="image1" fromCol="图片1"  type="string"  />
+			<variable name="image2" fromCol="图片2"  type="string"  />
+			<variable name="image3" fromCol="图片3"  type="string"  />
+			<variable name="image4" fromCol="图片4"  type="string"  />
+			<variable name="image5" fromCol="图片5"  type="string"  />
+			<variable name="image6" fromCol="图片6"  type="string"  />
+			<variable name="image7" fromCol="图片7"  type="string"  />
+			<variable name="image8" fromCol="图片8"  type="string"  />
+		</bean>
+		
+		<bean name="CShiguangzhixueConfig" from="s时光之穴/精英副本任务" genxml="client" gencode="mtlua">					
+			  <variable name="id"  fromCol="ID" type="int" />
+			  <variable name="nfubentasktype"  fromCol="任务类型" type="int" />
+			  <variable name="taskpanelefttitle" fromCol="任务栏任务名称"  type="string"  />  
+			  <variable name="taskpanetitle" fromCol="任务名称"  type="string"  />  
+			  <variable name="taskpanedis" fromCol="任务目的"  type="string"  />  
+			  <variable name="taskpanedes" fromCol="任务描述"  type="string"  /> 
+			  <variable name="tracetitle" fromCol="追踪显示任务名"  type="string"  />  
+			  <variable name="tracedes" fromCol="追踪描述"  type="string"  />
+		</bean>
+		
+		<bean name="CShiguangzhixueNpc" from="s时光之穴/精英副本刷新" genxml="client" gencode="mtlua">					
+			<variable name="id" fromCol="id" type="int"/>
+			<variable name="taskid" fromCol="任务id" type="int"/>
+			<variable name="tasktype" fromCol="任务类型" type="int"/>
+			<variable name="mapid" fromCol="mapid" type="int"/>
+			<variable name="solonpcid" fromCol="npcid" type="int"/>
+			<variable name="step" fromCol="step" type="int"/>
+			
+			<variable name="steprate" fromCol="出现几率" type="int"/>
+			
+			<variable name="lefttopx" fromCol="LefttopX" type="int"/>
+			<variable name="lefttopy" fromCol="LefttopY" type="int"/>
+			<variable name="endtask" fromCol="结束任务" type="int"/>
+			
+			<variable name="decoratenpc1" fromCol="装饰npc1" type="int"/>
+			<variable name="x1" fromCol="坐标x1" type="int"/>
+			<variable name="y1" fromCol="坐标y1" type="int"/>
+			<variable name="decoratenpc2" fromCol="装饰npc2" type="int"/>
+			<variable name="x2" fromCol="坐标x2" type="int"/>
+			<variable name="y2" fromCol="坐标y2" type="int"/>
+			<variable name="decoratenpc3" fromCol="装饰npc3" type="int"/>
+			<variable name="x3" fromCol="坐标x3" type="int"/>
+			<variable name="y3" fromCol="坐标y3" type="int"/>
+		</bean>
+		
+		<bean name="SInstaceEvent" from="f副本玩法/公会副本事件" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="name" fromCol="事件名称" type="string" />
+			<variable name="type" fromCol="类型" type="int" />
+			<variable name="thingcondition" fromCol="事件条件"  type="string"  />
+			<variable name="belongfuben" fromCol="所属副本" type="int" />
+			<variable name="thingresult" fromCol="事件结果" type="string" />
+			<variable name="point" fromCol="积分" type="string" />
+		</bean>
+		
+		<bean name="SInstanceChildSave" from="f副本玩法/公会副本子进度" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="belongfuben" fromCol="所属副本ID" type="int" />
+			<variable name="belongjindu" fromCol="所属进度ID" type="int" />
+			<variable name="childrenjindu" fromCol="子进度ID"  type="int"  />
+			<variable name="YNchildrenjindu" fromCol="互斥子进度ID"  type="string"  />
+			<variable name="num" fromCol="数量" type="int" />
+			<variable name="eachpoint" fromCol="单个积分" type="string" />
+			<variable name="finishpoint" fromCol="完成积分" type="string" />
+		</bean>
+	
+		<bean name="CParnterNpcConfig" from="NPC-复合/z战斗NPC_协战_28xxx" genxml="client">					
+			<variable name="id" fromCol="编号" type="int" />	
+			<variable name="name" fromCol="名称" type="string" />
+			<variable name="schoolid" fromCol="职业" type="int"  />
+			<variable name="type" fromCol="职业类型" type="int" />
+			<variable name="modelid" fromCol="造型id" type="int" />			
+			<variable name="serverid" fromCol="NPC服务"  type="int"  />
+			<variable name="bufferid" fromCol="BuffID"  type="int"  />
+			<variable name="follownpcid" fromCol="跟随NPC"  type="int" />
+			<variable name="jiadian" fromCol="方案" type="string" />
+			<variable name="skillname" fromCol="携带技能" type="string" />
+			<variable name="roleintro" fromCol="角色背景" type="string" />
+		</bean>
+					
+		<bean name="SBingFengJiangLiCfg" from="b冰封王座奖励配置表" genxml="server">					
+			<variable name="id" fromCol="id" type="int" />	
+			<variable name="rankid" fromCol="入口ID" type="int" />
+			<variable name="fubenid" fromCol="副本id" type="int" />
+			<variable name="ranklv" fromCol="排行限制LV" type="int" />
+		</bean>
+		
+		<bean name="SBingFengCfg" from="b冰封王座配置表新" genxml="server">					
+			<variable name="id" fromCol="id" type="int" />	
+			<variable name="minlevel" fromCol="等级min" type="int" />
+			<variable name="maxlevel" fromCol="等级max" type="int" />
+			<variable name="instzoneid" fromCol="等级段id" type="int" />
+			<variable name="state" fromCol="当前状态" type="int" />
+			<variable name="Map" fromCol="所在地图" type="int" />
+			<variable name="ZuoBiao" fromCol="跳转坐标" type="string" />
+			<variable name="FocusNpc" fromCol="挑战npc" type="int" />
+			<variable name="expawardid" fromCol="常规奖励id" type="int" />
+			<variable name="serviceid" fromCol="挑战服务" type="int" />
+			<variable name="Fightid" fromCol="战斗id" type="int" />
+			<variable name="JiangyouNpc" fromCol="服务npc" type="string" />
+			<variable name="BaoxiangRate" fromCol="掉宝箱概率" type="string" />
+			<variable name="awardid" fromCol="宝箱奖励id" type="string" />
+			<variable name="destmap" fromCol="跳转点map" type="int" />
+			<variable name="destx" fromCol="跳转点x" type="int" />
+			<variable name="desty" fromCol="跳转点y" type="int" />
+            <variable name="boss" fromCol="是否BOSS" type="int" />
+            <variable name="fanpaitime" fromCol="开宝箱次数" type="int" />
+            <variable name="fanpailist" type="vector" value="int" fromCol="S级奖励id,A级奖励id,B级奖励id,C级奖励id"/>
+		</bean>
+		
+		<bean name="CEnChouLuNewConfig" from="b冰封王座配置表新" genxml="client" gencode="mtlua">					
+			<variable name="id" fromCol="id" type="int" />	
+			<variable name="minlevel" fromCol="等级min" type="int" />
+			<variable name="maxlevel" fromCol="等级max" type="int" />
+			<variable name="instzoneid" fromCol="等级段id" type="int" />
+			<variable name="levelall" fromCol="总关卡数" type="int" />
+			<variable name="state" fromCol="当前状态" type="int" />
+			<variable name="Map" fromCol="所在地图" type="int" />
+			<variable name="ZuoBiao" fromCol="跳转坐标" type="string" />
+			<variable name="FocusNpc" fromCol="挑战npc" type="int" />
+			<variable name="Fightid" fromCol="战斗id" type="int" />
+			<variable name="JiangyouNpc" fromCol="服务npc" type="string" />
+			<variable name="title" fromCol="关卡描述" type="string" />
+			<variable name="describe" fromCol="攻略" type="string" />
+			<variable name="boss" fromCol="是否BOSS" type="int" />
+			<variable name="level" fromCol="第几关" type="string" />
+			<variable name="introduce" fromCol="介绍" type="string" />
+			<variable name="name" fromCol="名字" type="string" />
+			<variable name="posX" fromCol="x坐标" type="int" />
+			<variable name="posY" fromCol="y坐标" type="int" />
+		</bean>
+        
+        <bean name="SBingFengPingJi" from="b冰封王座评级配置表" genxml="server">
+			<variable name="id" fromCol="id" type="int"/>
+			<variable name="level" fromCol="等级" type="string"/>
+			<variable name="minround" fromCol="最小回合数" type="int"/>
+			<variable name="maxround" fromCol="最大回合数" type="int"/>	
+			<variable name="exppersent" fromCol="奖励经验百分比" type="int"/>
+		</bean>
+	</namespace>

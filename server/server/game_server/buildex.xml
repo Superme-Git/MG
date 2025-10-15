@@ -1,0 +1,130 @@
+<project name="server">  
+  <!-- 相对于本build.xml -->
+  <property name="snail.bin" value="../snail/bin"/>
+
+  <!-- 相对于本build.xml -->
+  <property name="uniqname.dir" value="uniq"/>   
+  
+  
+  <target name="uniqname">
+    <!-- 拷贝重新打包脚本 -->
+    <!-- <copy overwrite="true"  file="${snail.bin}/uniqname.install.xml" todir="${uniqname.dir}"/>  -->
+    <delete dir="uniq/install.work.dir/" />
+    <ant dir="${uniqname.dir}" antfile="uniqname.install.xml" target="install"> 
+      <!--新的uniqname.jar的生成目录 -->
+      <property name="output.dir" value="."/>
+      <property name="snail.bin" value="../${snail.bin}"/>
+      <property name="xdb.xml" value="../uniqname.xdb.xml"/>  
+    </ant>
+    
+    <!-- <delete file="${uniqna	me.dir}/uniqname.install.xml"/>  -->
+   
+  </target>
+  
+  
+   <target name="genrpc">    
+    <!-- 生sizepolicyconf -->
+    <java jar="rpcgen.jar" fork="true">
+      <arg line="-aio -sizepolicyconf linksize.xml"/>
+    </java>
+    <delete dir="gclient" />
+    
+    <!-- 生服务器所需要的java文件 -->
+    <delete file="xml.tmp" />
+		
+    <delete dir="gs/beans" />
+    <delete file="gs/gs.xio.xml" />
+    <java jar="rpcgen.jar" fork="true">
+      <arg line="-outputEncoding utf-8 -inputEncoding utf-8  -validateMarshal -validateUnmarshal -java protocol.main.xml"/>
+    </java>
+    <delete file="xml.tmp" />	
+		<condition property="m4bin" value="bin/m4.exe" else="m4">
+			 <os family="windows"/>
+		</condition>
+		<xslt in="gs/gs.xio.xml" out="xml.tmp" style="xsl/gs.xio.xml.xsl" />
+    <concat destfile="gs/gs.xio.xml.m4" outputencoding="utf-8" encoding="utf-8" >
+       <filelist files="xsl/gsxio.header.m4,xml.tmp"/>
+    </concat>
+		<exec executable="${m4bin}" output="gs/gs.xio.xml">
+			<arg line="-I. gs/gs.xio.xml.m4"/>		
+		</exec>
+		<exec executable="${m4bin}" output="gs/gsx.mkdb.xml">
+			<arg line="-I. gs/gsx.mkdb.xml.m4"/>		
+		</exec>
+  </target>
+    
+  <target name="dist" depends="uniqname,genfiles,mhsdcounter">         
+    <ant dir="gs" target="dist"/>
+	<copy overwrite="true" todir="../serverbin/gs" file="gs/gs.xio.xml.m4" /> 
+	<copy overwrite="true" todir="../serverbin/gs" file="gs/gsx.mkdb.xml.m4" /> 
+    <copy overwrite="true" tofile="../serverbin/gs/gsxdb.jar" file="gs/dist/gs.jar" />
+    <!-- <copy overwrite="true" tofile="../serverbin/gs/gsxdbdebug.jar" file="gs/dist/gsdebug.jar" />-->
+    <copy overwrite="true" todir="../serverbin/uniqname" file="uniq/install.work.dir/uniqname.jar" />
+    <copy overwrite="true" todir="../serverbin/uniqname" file="gs/lib/jio.jar" />    
+	<copy overwrite="true" todir="../serverbin/uniqname" file="gs/lib/monkeyking.jar" />
+	<copy overwrite="true" todir="../serverbin" file="conf.m4.sample" />
+	<copy overwrite="true" todir="../serverbin/gs/lib" >    
+		<fileset dir="gs/lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</copy>
+		<copy overwrite="true" todir="../serverbin/gs/lib2" >    
+		<fileset dir="gs/lib2">
+			<include name="**/*.jar" />
+		</fileset>
+	</copy>
+	<copy overwrite="true" todir="../serverbin/gs/lib2" file="bakscaner/scaner.jar" />
+	
+	<copy overwrite="true" todir="../serverbin/gs/" file="bakscaner/data/snapshot.conf" />  
+	 <!-- properties文件从gamedata移到gs下面 -->
+	<copy overwrite="true" todir="../serverbin/gs/properties" >    
+		<fileset dir="gs/properties">
+			<include name="**/*.properties" />
+		</fileset>
+	</copy>
+	
+    <copy overwrite="true" todir="../serverbin/uniqname" file="gs/lib/monkeyking.jar" />
+    <copy overwrite="true" todir="../serverbin/link/" file="sizepolicy.conf" />    
+	<delete file="xml.tmp" />
+    <xslt in="uniqname.xdb.xml" out="xml.tmp" style="xsl/uniq.xdb.xml.xsl" />
+    <concat destfile="../serverbin/uniqname/uniqname.xdb.xml.m4" outputencoding="utf-8" encoding="utf-8" >
+       <filelist files="xsl/header.m4,xml.tmp"/>
+    </concat>
+    <delete file="xml.tmp" />	
+    <delete dir="uniq/install.work.dir/" />
+  </target>
+  
+  <target name="genxdb" >
+	  <condition property="m4bin" value="bin/m4.exe" else="m4">
+			 <os family="windows"/>
+		</condition>
+		<exec executable="${m4bin}" output="gs/gsx.mkdb.xml">
+			<arg line="-DSTARTPORT=1  gs/gsx.mkdb.xml.m4"/>		
+		</exec>
+		<ant dir="gs" target="genxdb"/>
+  </target>
+  <target name="genfiles" depends="genxdb,genrpc,genbean">
+  </target>
+  <target name="genbean">
+  	<ant dir="gs" target="genbean"/>
+  </target>  
+  <target name="mhsdcounter"> 	
+   		<ant dir="counter" />
+   		<mkdir dir="gs/lib2" />
+      <copy overwrite="true"  file="counter/dist/mhsdcounter.jar" todir="gs/lib2" /> 
+	 </target> 
+   
+  <target name="init" depends="genfiles,mhsdcounter"> 	
+	<fail message="没有找到修改的xls或者gbeans文件">
+     <condition>
+	 <not>
+		<resourceexists>
+			<file file="conf.m4"/>
+		</resourceexists>
+	 </not>		
+     </condition>
+	</fail>
+
+	
+  </target> 
+</project>  

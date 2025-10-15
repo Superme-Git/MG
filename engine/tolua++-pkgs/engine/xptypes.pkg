@@ -1,0 +1,15 @@
+namespace Nuclear
+{
+	// 精灵的八个方向
+	enum NuclearDirection
+	{
+		XPDIR_TOP = 0,
+		XPDIR_TOPRIGHT,
+		XPDIR_RIGHT,
+		XPDIR_BOTTOMRIGHT,
+		XPDIR_BOTTOM,
+		XPDIR_BOTTOMLEFT,
+		XPDIR_LEFT,
+		XPDIR_TOPLEFT,
+	};
+}

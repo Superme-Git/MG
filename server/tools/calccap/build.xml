@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<project default="install">
+	<property name="src" value="src"/>
+	<property name="build" value="classes"/>
+	<property name="monkeykingjar" value="../bin/monkeyking.jar"/>
+
+	<target name="compile">
+		<mkdir dir="${build}" />
+		<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+			debug="true" debuglevel="lines,source">
+		     <classpath>
+		        <pathelement path="${java.home}/../lib/tools.jar"/>
+		        <pathelement path="${java.home}/../lib/jconsole.jar"/>
+		        <pathelement path="${monkeykingjar}"/>
+		      </classpath>
+			<compilerarg line="-Xlint:unchecked" />
+		</javac>
+	</target>
+
+	<target name="compress" depends="compile">
+		<jar jarfile="../bin/calccap.jar" manifest="${src}/MANIFEST.MF">
+			<fileset dir="${build}"/>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="install" depends="clean, compress">
+	</target>
+
+</project>

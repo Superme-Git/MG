@@ -1,0 +1,75 @@
+<Root>
+	<Channel Count="2">
+		<0 Description="IOS_Locojoy">
+			<ChannelInfo Channel="0" ChannelCaption="IOS_Locojoy"/>
+		</0>
+		<1 Description="Android_Locojoy">
+			<ChannelInfo Channel="0" ChannelCaption="Android_Locojoy"/>
+		</1>
+	</Channel>
+	<Code Count="1">
+		<0 Description="Some texts">
+			<UnCodeFileName>0</UnCodeFileName>
+			<UnCodeFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml">3</UnCodeFileNameFull>
+			<UnCodeFileType 0="ogg" 1="mp3" 2="mp4" 3="ini">4</UnCodeFileType>
+		</0>
+	</Code>
+	<Compress Count="1">
+		<0 Description="Some texts">
+			<UnCompressFileName>0</UnCompressFileName>
+			<UnCompressFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml">3</UnCompressFileNameFull>
+			<UnCompressFileType 0="ogg" 1="mp3" 2="mp4" 3="ini" 4="png">5</UnCompressFileType>
+		</0>
+	</Compress>
+	<Extend Count="2">
+		<0 Description="IOS">
+			<ExtendInfo Test1="0" Test2="0.0.1"/>
+		</0>
+		<1 Description="Android">
+			<ExtendInfo Test1="0" Test2="0.0.1"/>
+		</1>
+	</Extend>
+	<Filter Count="1">
+		<0 Description="Some texts">
+			<FilterDirName>0</FilterDirName>
+			<FilterDirNameFull 0="config/autoconfig">1</FilterDirNameFull>
+			<FilterFileName>0</FilterFileName>
+			<FilterFileNameFull>0</FilterFileNameFull>
+			<FilterFileType 0="db" 1="ilk" 2="pdb" 3="exe">4</FilterFileType>
+		</0>
+	</Filter>
+	<IO Count="4">
+		<0 Description="Some texts" FindPath="Root/" OutputPath="IOS_Pack/" OutputType="Pack"/>
+		<1 Description="Some texts" FindPath="Root/" OutputPath="IOS_File/" OutputType="File"/>
+		<2 Description="Some texts" FindPath="Root/" OutputPath="Android_Pack/" OutputType="Pack"/>
+		<3 Description="Some texts" FindPath="Root/" OutputPath="Android_File/" OutputType="File"/>
+	</IO>
+	<Pack Count="1">
+		<0 Description="Some texts" MaxSize="52428800">
+			<UnPackFileName>0</UnPackFileName>
+			<UnPackFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml">3</UnPackFileNameFull>
+			<UnPackFileType 0="ogg" 1="mp3" 2="mp4" 3="ini">4</UnPackFileType>
+		</0>
+	</Pack>
+	<Update Count="2">
+		<0 Description="IOS">
+			<URLInfo AppURL="http://store.apple.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="ios" URL="http://192.168.29.164:8090/ios/"/>
+			</URLInfo>
+		</0>
+		<1 Description="Android">
+			<URLInfo AppURL="http://store.google.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="android" URL="http://192.168.29.164:8090/android/"/>
+			</URLInfo>
+		</1>
+	</Update>
+	<Version Count="2">
+		<0 Description="IOS">
+			<VersionInfo VersionCaption="0.0.1" VersionCaptionBase="0.0.1" VersionCaptionMinimum="0.0.1" VersionDonotCheck="0"/>
+		</0>
+		<1 Description="Android">
+			<VersionInfo VersionCaption="0.0.1" VersionCaptionBase="0.0.1" VersionCaptionMinimum="0.0.1" VersionDonotCheck="0"/>
+		</1>
+	</Version>
+</Root>
+

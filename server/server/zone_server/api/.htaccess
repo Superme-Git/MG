@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+RewriteCond $1 !^(index\.php|tmp|resource|serverListFile|robots\.txt|$)
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA] 
+RewriteRule ^(tmp\/.*)/(\d+).jpg!thumb$ $1/thumb_$2.jpg [L]
+</IfModule>

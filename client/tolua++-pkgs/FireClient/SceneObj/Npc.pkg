@@ -1,0 +1,77 @@
+class Npc : public ComponentsObject
+{
+public:
+	Npc();
+	virtual ~Npc();
+
+	Nuclear::TextBlockHandle    m_TitleTextureHandle;  //称谓纹理句柄
+	Nuclear::ITextBlock*		m_pTitleTextBlock; //称谓的TextBlock
+
+	virtual bool IsInHighLevel();
+
+	void SetTitle(const std::wstring &title);
+	std::wstring GetTitle() const;
+
+	void InitNameAndTitleColor();
+
+	virtual std::wstring GetName();
+	
+	virtual int GetShapeID() ;
+
+	int	GetTotalDir();
+	int GetNpcBaseID();
+	int GetNpcTypeID();
+	void SetShapeID(int shapeID);
+
+	bool IsDefaultHide();
+
+	void BeginLeaveScene();	//npc离场表现
+
+	//设置任务状态
+	void SetQuestState(eNpcMissionState queststate, bool bHideImmediate = true);
+	eNpcMissionState GetQuestState() const;
+	eNpcMissionState GetQuestState();
+
+	void RemoveVisitEffect();
+    void AddVisitEffect();
+
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+
+	virtual void Run(int now,int delta);
+	virtual void Draw(int now);
+
+	void		 RandomWalk();	//随机走路
+	virtual bool OnSetCursor();
+
+	virtual	bool SetAttribute(stNpcData* pData);
+
+	virtual void SetArea1Color(int color);
+	virtual void SetArea2Color(int color);
+	
+	//将npc设置为玩家的造型
+	void SetShouXiNewShapeAndName(int modelid,std::wstring& strName,const std::map<char, int>& components); //lua
+	
+	stNPCConfig& GetNpcConfig();
+	
+	void UpdateNpcState(int scenestate);
+
+public://鼠标移向该单位时处理相关
+	virtual bool CanBeAttack();
+	virtual bool CanBeGiven();
+	virtual bool CanFossick();
+	virtual bool CanPickedUp();
+	virtual int CanBeTriggered();
+
+	virtual bool CanBeVisited();
+
+	virtual bool CanFBAttack();	//是否能被工会战攻城物资使用
+	virtual bool CanFBRepair();	//是否能被工会战维修物资使用	
+
+	Nuclear::NuclearLocation	GetRandomVisitPosition();//得到随机访问的逻辑坐标
+
+	void SetFadeOut();
+	bool IsDisappear();
+
+	Nuclear::NuclearLocation GetInitLocation();
+
+};

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="game">
+		
+		<bean name="ThreePvpWhiteMenu" from="3V3竞赛服白名单" genxml="client" gencode="mtlua">
+			<variable name="id" type="string" fromCol="id"/> 
+			<variable name="sid" type="string" fromCol="sid"/> 
+			<variable name="username" type="string" fromCol="username" />
+			<variable name="roleid" type="string" fromCol="roleid" />
+		</bean>
+
+		<bean name="SPVPCrossWhiteList" from="3V3竞赛服白名单" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="userid" type="int" fromCol="userid"/>
+			<variable name="roleid" type="long" fromCol="roleid"/>
+		</bean>
+
+		<bean name="Cloginaward" from="f福利奖励/累积登陆礼包" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="累积登陆天数" />
+			<variable name="dayimg" type="string"  fromCol="标题"/>
+			<variable name="item1id" type="vector" value="string" fromCol="角色ID1道具1,角色ID2道具1,角色ID3道具1,角色ID4道具1,角色ID5道具1,角色ID6道具1" />
+			<variable name="item1num" type="vector" value="int"  fromCol="角色ID1数量1,角色ID2数量1,角色ID3数量1,角色ID4数量1,角色ID5数量1,角色ID6数量1" />
+			<variable name="item1bind" type="vector" value="int"  fromCol="角色ID1道具1是否绑定,角色ID2道具1是否绑定,角色ID3道具1是否绑定,角色ID4道具1是否绑定,角色ID5道具1是否绑定,角色ID6道具1是否绑定" />
+			<variable name="item2id" type="vector" value="string" fromCol="角色ID1道具2,角色ID2道具2,角色ID3道具2,角色ID4道具2,角色ID5道具2,角色ID6道具2" />
+			<variable name="item2num" type="vector" value="int" fromCol="角色ID1数量2,角色ID2数量2,角色ID3数量2,角色ID4数量2,角色ID5数量2,角色ID6数量2" />
+			<variable name="item2bind" type="vector" value="int"  fromCol="角色ID1道具2是否绑定,角色ID2道具2是否绑定,角色ID3道具2是否绑定,角色ID4道具2是否绑定,角色ID5道具2是否绑定,角色ID6道具2是否绑定" />
+			<variable name="item3id" type="vector" value="string"  fromCol="角色ID1道具3,角色ID2道具3,角色ID3道具3,角色ID4道具3,角色ID5道具3,角色ID6道具3" />
+			<variable name="item3num" type="vector" value="int" fromCol="角色ID1数量3,角色ID2数量3,角色ID3数量3,角色ID4数量3,角色ID5数量3,角色ID6数量3" />
+			<variable name="item3bind" type="vector" value="int"  fromCol="角色ID1道具3是否绑定,角色ID2道具3是否绑定,角色ID3道具3是否绑定,角色ID4道具3是否绑定,角色ID5道具3是否绑定,角色ID6道具3是否绑定" />
+			<variable name="needcapacity" type="vector" value="int"  fromCol="角色ID1物品需要包裹格,角色ID2物品需要包裹格,角色ID3物品需要包裹格,角色ID4物品需要包裹格,角色ID5物品需要包裹格,角色ID6物品需要包裹格"/>
+			<variable name="pet1id" type="vector" value="int" fromCol="角色ID1宠物1,角色ID2宠物1,角色ID3宠物1,角色ID4宠物1,角色ID5宠物1,角色ID6宠物1" />
+			<variable name="pet1bind" type="vector" value="int" fromCol="角色ID1宠物1是否绑定,角色ID2宠物1是否绑定,角色ID3宠物1是否绑定,角色ID4宠物1是否绑定,角色ID5宠物1是否绑定,角色ID6宠物1是否绑定" />
+			<variable name="pet2id" type="vector" value="int" fromCol="角色ID1宠物2,角色ID2宠物2,角色ID3宠物2,角色ID4宠物2,角色ID5宠物2,角色ID6宠物2" />
+			<variable name="pet2bind" type="vector" value="int" fromCol="角色ID1宠物2是否绑定,角色ID2宠物2是否绑定,角色ID3宠物2是否绑定,角色ID4宠物2是否绑定,角色ID5宠物2是否绑定,角色ID6宠物2是否绑定" />
+			<variable name="pet3id" type="vector" value="int" fromCol="角色ID1宠物3,角色ID2宠物3,角色ID3宠物3,角色ID4宠物3,角色ID5宠物3,角色ID6宠物3" />
+			<variable name="pet3bind" type="vector" value="int" fromCol="角色ID1宠物3是否绑定,角色ID2宠物3是否绑定,角色ID3宠物3是否绑定,角色ID4宠物3是否绑定,角色ID5宠物3是否绑定,角色ID6宠物3是否绑定" />
+			<variable name="needpetcapacity" type="vector" value="int" fromCol="角色ID1宠物需要包裹格,角色ID2宠物需要包裹格,角色ID3宠物需要包裹格,角色ID4宠物需要包裹格,角色ID5宠物需要包裹格,角色ID6宠物需要包裹格"/>
+
+		</bean>
+
+		<bean name="Smuldayloginreward" from="f福利奖励/累积登陆礼包" genxml="server">
+			<variable name="id" type="int" fromCol="累积登陆天数" />
+			<variable name="rewardvec" type="vector" value="MulDayLoginGiftData"/>
+		</bean>
+		
+		<bean name="MulDayLoginGiftData">
+			<variable name="item1id" type="string" fromCol="角色ID1道具1,角色ID2道具1,角色ID3道具1,角色ID4道具1,角色ID5道具1,角色ID6道具1" />
+			<variable name="item1num" type="int" fromCol="角色ID1数量1,角色ID2数量1,角色ID3数量1,角色ID4数量1,角色ID5数量1,角色ID6数量1" />
+			<variable name="item1bind" type="int" fromCol="角色ID1道具1是否绑定,角色ID2道具1是否绑定,角色ID3道具1是否绑定,角色ID4道具1是否绑定,角色ID5道具1是否绑定,角色ID6道具1是否绑定" />
+			<variable name="item2id" type="string" fromCol="角色ID1道具2,角色ID2道具2,角色ID3道具2,角色ID4道具2,角色ID5道具2,角色ID6道具2" />
+			<variable name="item2num" type="int" fromCol="角色ID1数量2,角色ID2数量2,角色ID3数量2,角色ID4数量2,角色ID5数量2,角色ID6数量2" />
+			<variable name="item2bind" type="int" fromCol="角色ID1道具2是否绑定,角色ID2道具2是否绑定,角色ID3道具2是否绑定,角色ID4道具2是否绑定,角色ID5道具2是否绑定,角色ID6道具2是否绑定" />
+			<variable name="item3id" type="string" fromCol="角色ID1道具3,角色ID2道具3,角色ID3道具3,角色ID4道具3,角色ID5道具3,角色ID6道具3" />
+			<variable name="item3num" type="int" fromCol="角色ID1数量3,角色ID2数量3,角色ID3数量3,角色ID4数量3,角色ID5数量3,角色ID6数量3" />
+			<variable name="item3bind" type="int" fromCol="角色ID1道具3是否绑定,角色ID2道具3是否绑定,角色ID3道具3是否绑定,角色ID4道具3是否绑定,角色ID5道具3是否绑定,角色ID6道具3是否绑定" />
+			<variable name="needbagvolume" type="int" fromCol="角色ID1物品需要包裹格,角色ID2物品需要包裹格,角色ID3物品需要包裹格,角色ID4物品需要包裹格,角色ID5物品需要包裹格,角色ID6物品需要包裹格"/>
+			<variable name="pet1id" type="int" fromCol="角色ID1宠物1,角色ID2宠物1,角色ID3宠物1,角色ID4宠物1,角色ID5宠物1,角色ID6宠物1" />
+			<variable name="pet1bind" type="int" fromCol="角色ID1宠物1是否绑定,角色ID2宠物1是否绑定,角色ID3宠物1是否绑定,角色ID4宠物1是否绑定,角色ID5宠物1是否绑定,角色ID6宠物1是否绑定" />
+			<variable name="pet2id" type="int" fromCol="角色ID1宠物2,角色ID2宠物2,角色ID3宠物2,角色ID4宠物2,角色ID5宠物2,角色ID6宠物2" />
+			<variable name="pet2bind" type="int" fromCol="角色ID1宠物2是否绑定,角色ID2宠物2是否绑定,角色ID3宠物2是否绑定,角色ID4宠物2是否绑定,角色ID5宠物2是否绑定,角色ID6宠物2是否绑定" />
+			<variable name="pet3id" type="int" fromCol="角色ID1宠物3,角色ID2宠物3,角色ID3宠物3,角色ID4宠物3,角色ID5宠物3,角色ID6宠物3" />
+			<variable name="pet3bind" type="int" fromCol="角色ID1宠物3是否绑定,角色ID2宠物3是否绑定,角色ID3宠物3是否绑定,角色ID4宠物3是否绑定,角色ID5宠物3是否绑定,角色ID6宠物3是否绑定" />
+			<variable name="needpetbagvolume" type="int" fromCol="角色ID1宠物需要包裹格,角色ID2宠物需要包裹格,角色ID3宠物需要包裹格,角色ID4宠物需要包裹格,角色ID5宠物需要包裹格,角色ID6宠物需要包裹格"/>
+		</bean>
+		
+		<bean name="BindTelAwardData">
+			<variable name="item1id" type="string" fromCol="角色1道具ID,角色2道具ID,角色3道具ID,角色4道具ID,角色5道具ID,角色6道具ID" />
+			<variable name="item1num" type="int" fromCol="角色1道具数量,角色2道具数量,角色3道具数量,角色4道具数量,角色5道具数量,角色6道具数量" />
+		</bean>
+
+		<bean name="SBindTelAward" from="f福利奖励/手机绑定礼包" genxml="server">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="rewardvec" type="vector" value="BindTelAwardData"/>
+		</bean>
+		
+		<bean name="SPointCardBindTelAward" from="D点卡服表格/DMT3手机绑定礼包" genxml="server">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="rewardvec" type="vector" value="BindTelAwardData"/>
+		</bean>
+		
+		<bean name="CBindTelAward" from="f福利奖励/手机绑定礼包" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="itemid" type="vector" value="int" fromCol="角色1道具ID,角色2道具ID,角色3道具ID,角色4道具ID,角色5道具ID,角色6道具ID" />
+			<variable name="itemnum" type="vector" value="int" fromCol="角色1道具数量,角色2道具数量,角色3道具数量,角色4道具数量,角色5道具数量,角色6道具数量" />
+		</bean>
+		
+		<bean name="CPointCardBindTelAward" from="D点卡服表格/DMT3手机绑定礼包" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="itemid" type="vector" value="int" fromCol="角色1道具ID,角色2道具ID,角色3道具ID,角色4道具ID,角色5道具ID,角色6道具ID" />
+			<variable name="itemnum" type="vector" value="int" fromCol="角色1道具数量,角色2道具数量,角色3道具数量,角色4道具数量,角色5道具数量,角色6道具数量" />
+		</bean>
+		
+		<bean name="WisdomTrialVill" from="z智慧试炼/z智慧试炼1题库" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="name" type="string" fromCol="题目"/> 
+			<variable name="options" type="vector"  value="string" fromCol="选项1,选项2,选项3,选项4"   />
+			<variable name="jinglingid" type="int" fromCol="精灵id" />
+		</bean>
+		
+		<bean name="WisdomTrialProv" from="z智慧试炼/z智慧试炼2题库" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="name" type="string" fromCol="题目"/> 
+			<variable name="options" type="vector"  value="string" fromCol="选项1,选项2,选项3,选项4"   />
+			<variable name="jinglingid" type="int" fromCol="精灵id" />			
+		</bean>
+		
+		<bean name="WisdomTrialState" from="z智慧试炼/z智慧试炼3题库" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="name" type="string" fromCol="题目"/> 
+			<variable name="options" type="vector"  value="string" fromCol="选项1,选项2,选项3,选项4"   />
+			<variable name="jinglingid" type="int" fromCol="精灵id" />
+		</bean>
+		<bean name="WisdomTrialVillPay" from="D点卡服表格/DMT3智慧试炼/z智慧试炼1题库" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="name" type="string" fromCol="题目"/> 
+			<variable name="options" type="vector"  value="string" fromCol="选项1,选项2,选项3,选项4"   />
+			<variable name="jinglingid" type="int" fromCol="精灵id" />
+		</bean>
+		
+		<bean name="WisdomTrialProvPay" from="D点卡服表格/DMT3智慧试炼/z智慧试炼2题库" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="name" type="string" fromCol="题目"/> 
+			<variable name="options" type="vector"  value="string" fromCol="选项1,选项2,选项3,选项4"   />
+			<variable name="jinglingid" type="int" fromCol="精灵id" />			
+		</bean>
+		
+		<bean name="WisdomTrialStatePay" from="D点卡服表格/DMT3智慧试炼/z智慧试炼3题库" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序号" />
+			<variable name="name" type="string" fromCol="题目"/> 
+			<variable name="options" type="vector"  value="string" fromCol="选项1,选项2,选项3,选项4"   />
+			<variable name="jinglingid" type="int" fromCol="精灵id" />
+		</bean>		
+		<bean name="SFortuneWheel" from="d大转盘奖励表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 大转盘的id,会有多种大转盘,奖励不一样
+			<variable name="cards" type="vector" value="string" fromCol="物品1,物品2,物品3,物品4,物品5,物品6,物品7,物品8,物品9,物品10,物品11,物品12,物品13,物品14,物品15,物品16,物品17,物品18,物品19,物品20,物品21,物品22,物品23,物品24,物品25,物品26,物品27,物品28,物品29,物品30" /> 	
+		</bean>	
+		
+		<bean name="SRollCardConfig" from="f翻牌配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 大转盘的id,会有多种大转盘,奖励不一样
+			<variable name="objs" type="vector" value="string" fromCol="物品1,物品2,物品3,物品4,物品5,物品6,物品7,物品8,物品9,物品10,物品11,物品12,物品13,物品14,物品15,物品16,物品17,物品18,物品19,物品20,物品21,物品22,物品23,物品24,物品25,物品26,物品27,物品28,物品29,物品30" /> 	
+		</bean>			
+		
+		
+		
+		<bean name="ImperialExamVillageRepo">
+			<variable name="id" type="int" fromCol="序号"/>
+			<variable name="topic" type="string" fromCol="题目"/>
+			<variable name="answer" type="int" fromCol="正确答案"/>
+			<variable name="rightrewardid" fromCol="正确奖励id" type="int"/>
+			<variable name="errorrewardid" fromCol="错误奖励id" type="int"/>
+		</bean>
+		
+		<bean name="ImperialExamProvinceRepo">
+			<variable name="id" type="int" fromCol="序号"/>
+			<variable name="answer" type="int" fromCol="正确答案"/>
+			<variable name="rightrewardid" fromCol="正确奖励id" type="int"/>
+			<variable name="errorrewardid" fromCol="错误奖励id" type="int"/>
+		</bean>
+        
+		<bean name="ImperialExamStateRepo">
+			<variable name="id" type="int" fromCol="序号"/>
+			<variable name="answer" type="int" fromCol="正确答案"/>
+		    <variable name="rightrewardid" fromCol="正确奖励id" type="int"/>
+			<variable name="errorrewardid" fromCol="错误奖励id" type="int"/>
+		</bean>
+		
+		<bean name="SImperialExamVillageRepo" from="z智慧试炼/z智慧试炼1题库" genxml="server" baseclass="ImperialExamVillageRepo">
+		</bean>
+		<bean name="SImperialExamProvinceRepo" from="z智慧试炼/z智慧试炼2题库" genxml="server" baseclass="ImperialExamProvinceRepo">
+		</bean>
+		<bean name="SImperialExamStateRepo" from="z智慧试炼/z智慧试炼3题库" genxml="server" baseclass="ImperialExamStateRepo">
+		</bean>
+		
+		
+		<bean name="SPointCardImperialExamVillageRepo" from="D点卡服表格/DMT3智慧试炼/z智慧试炼1题库" genxml="server" baseclass="ImperialExamVillageRepo">
+		</bean>
+		<bean name="SPointCardImperialExamProvinceRepo" from="D点卡服表格/DMT3智慧试炼/z智慧试炼2题库" genxml="server" baseclass="ImperialExamProvinceRepo">
+		</bean>
+		<bean name="SPointCardImperialExamStateRepo" from="D点卡服表格/DMT3智慧试炼/z智慧试炼3题库" genxml="server" baseclass="ImperialExamStateRepo">
+		</bean>
+		
+		
+		
+		<bean name="SImperialExamStateRankReward" from="S试炼排行奖表" genxml="server">
+			<variable name="id" type="int" fromCol="排名"/>
+			<variable name="rewardid1" type="int" fromCol="奖励ID1"/>
+		    <variable name="rewardid2" type="int" fromCol="奖励ID2"/>
+			<variable name="rewardid3" type="int" fromCol="奖励ID3"/>
+			<variable name="titleid" type="int" fromCol="称谓ID"/>
+		</bean>
+
+        <bean name="ActivityAward">
+            <variable name="id" type="int" fromCol="id"/>
+            <variable name="money" type="string" fromCol="游戏币奖励"/>
+            <variable name="gold" type="string" fromCol="金币奖励"/>
+            <variable name="credit" type="int" fromCol="信用值比例"/> 发金币时根据比例发信用值
+			<variable name="creditValue" type="string" fromCol="信用值额外"/> 发金币时根据比例和确定值发信用值
+            <variable name="SchoolContribute" type="string" fromCol="职业贡献奖励"/>
+            <variable name="FestivalCredit" type="string" fromCol="节日积分奖励"/>
+            <variable name="GangContribution" type="string" fromCol="公会贡献奖励"/>
+            <variable name="GangTaskContribution" type="string" fromCol="公会任务贡献资金"/>
+            <variable name="GangTaskProfit" type="string" fromCol="公会任务个人分红"/>
+            <variable name="exp" type="string" fromCol="经验奖励"/>
+            <variable name="shengwang" type="string" fromCol="声望"/>
+            <variable name="petExp" type="string" fromCol="宠物经验奖励"/>
+            <variable name="bind" type="int" fromCol="是否绑定"/>
+            <variable name="msgitemid" type="string" fromCol="公告物品id"/> 会发公告的物品id
+            <variable name="msgid" type="int" fromCol="公告编号"/> 公告msg的id
+            <variable name="teammsg" type="int" fromCol="是否发队伍提示"/> 是否发队伍提示
+            <variable name="equipGenWay" type="int" fromCol="产出装备途径"/>
+            <variable name="activityid" type="int" fromCol="定时活动id"/>
+            <variable name="itemLimitString" type="string" fromCol="服务器获得上限"/>
+            <variable name="cleartype" type="int" fromCol="上限清除方式"/>
+            <variable name="msg2itemid" type="string" fromCol="提示物品id"/>
+            <variable name="msg2id" type="int" fromCol="提示编号"/>
+            <variable name="msg2type" type="int" fromCol="提示类型"/>
+            <!-- 第一类奖励是必给的-->
+            <variable name="firstClassAward" type="vector" value="int" fromCol="必给物品1类ID,必给物品1类数量,必给物品1类属性,必给物品1类属性值,必给物品2类ID,必给物品2类数量,必给物品2类属性,必给物品2类属性值,必给物品3类ID,必给物品3类数量,必给物品3类属性,必给物品3类属性值,必给物品4类ID,必给物品4类数量,必给物品4类属性,必给物品4类属性值"/>
+            <!-- 第二类奖励是几种物品根据概率给其中一种-->
+            <variable name="secondClassAward" type="vector" value="int" fromCol="物品1类,物品1类数量,物品2类,物品2类数量,物品3类,物品3类数量,物品4类,物品4类数量,物品5类,物品5类数量,物品6类,物品6类数量,物品7类,物品7类数量,物品8类,物品8类数量,物品9类,物品9类数量,物品10类,物品10类数量,物品11类,物品11类数量,物品12类,物品12类数量,物品13类,物品13类数量,物品14类,物品14类数量,物品15类,物品15类数量,物品16类,物品16类数量"/>
+            <variable name="secondClassAwardProb" type="vector" value="string" fromCol="物品1类掉率,物品2类掉率,物品3类掉率,物品4类掉率,物品5类掉率,物品6类掉率,物品7类掉率,物品8类掉率,物品9类掉率,物品10类掉率,物品11类掉率,物品12类掉率,物品13类掉率,物品14类掉率,物品15类掉率,物品16类掉率"/>
+            <variable name="secondClassDenominator" type="int" fromCol="总概率"/> 二类奖励的总概率
+            <variable name="randomType" type="int" fromCol="随机方式"/> 二类奖励的随机方式,0为关联随机,1为不关联随机
+            <variable name="totalProb" type="string" fromCol="获得概率"/> 是否给予物品奖励
+            <variable name="tempBag" type="int" fromCol="是否放入临时包裹"/> 是否放入临时包裹,0不放,1放
+            <variable name="drop1timesprob" type="int" fromCol="掉落随机1次几率"/>
+            <variable name="drop2timesprob" type="int" fromCol="掉落随机2次几率"/>
+            <variable name="drop3timesprob" type="int" fromCol="掉落随机3次几率"/>
+            <variable name="MergeServer" type="int" fromCol="MergeServer"/>合服buff是否启用，0 不启用，1启用
+            <variable name="shared" type="int" fromCol="是否共享掉落"/>
+            <variable name="yingfu" type="int" fromCol="是否触发盈福经验"/> 0 不触发, 1 触发
+            <variable name="expweaken" type="int" fromCol="是否受服务器等级衰减"/>0 不衰减, 1 衰减
+            <variable name="expaddition" type="int" fromCol="是否受服务器等级加成"/>0 不加成, 1 加成
+            <variable name="shengwangtips" type="int" fromCol="获得声望提示"/>
+        </bean>
+        
+		<bean name="SActivityAward" from="j奖励表" genxml="server" baseclass="ActivityAward">
+			
+        </bean>
+		
+		<bean name="SPointCardActivityAward" from="D点卡服表格/D点卡服奖励表" genxml="server"  baseclass="ActivityAward">
+			
+        </bean>
+		
+		<bean name="CActivityAward" from="j奖励表" genxml="client" gencode="mtlua">  游戏所有活动的奖励表,这是一级表,二级表是w物品类型库,在map.xml中
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="msgitemid" type="string" fromCol="公告物品id"/> 会发公告的物品id 
+			<!-- 第一类奖励是必给的-->
+			<variable name="firstClassAward" type="vector" value="int" fromCol="必给物品1类ID,必给物品1类数量,必给物品1类属性,必给物品1类属性值,必给物品2类ID,必给物品2类数量,必给物品2类属性,必给物品2类属性值,必给物品3类ID,必给物品3类数量,必给物品3类属性,必给物品3类属性值,必给物品4类ID,必给物品4类数量,必给物品4类属性,必给物品4类属性值"/>
+			<!-- 第二类奖励是几种物品根据概率给其中一种-->
+			<variable name="secondClassAward" type="vector" value="int" fromCol="物品1类,物品1类数量,物品2类,物品2类数量,物品3类,物品3类数量,物品4类,物品4类数量,物品5类,物品5类数量,物品6类,物品6类数量,物品7类,物品7类数量,物品8类,物品8类数量"/>
+			<variable name="secondClassAwardProb" type="vector" value="string" fromCol="物品1类掉率,物品2类掉率,物品3类掉率,物品4类掉率,物品5类掉率,物品6类掉率,物品7类掉率,物品8类掉率"/>
+			<variable name="secondClassDenominator" type="int" fromCol="总概率"/> 二类奖励的总概率
+			<variable name="randomType" type="int" fromCol="随机方式"/> 二类奖励的随机方式,0为关联随机,1为不关联随机
+			<variable name="totalProb" type="string" fromCol="获得概率"/> 是否给予物品奖励
+			<variable name="tempBag" type="int" fromCol="是否放入临时包裹"/> 是否放入临时包裹,0不放,1放
+		</bean>		
+
+		<bean name="FirstPayGiftData">
+			<variable name="itemid" type="int" fromCol="物品id1,物品id2,物品id3,物品id4,物品id5,物品id6" />
+			<variable name="itemnum" type="int" fromCol="物品数量1,物品数量2,物品数量3,物品数量4,物品数量5,物品数量6" />
+			<variable name="isbind" type="int" fromCol="物品1是否绑定,物品2是否绑定,物品3是否绑定,物品4是否绑定,物品5是否绑定,物品6是否绑定" />
+			<variable name="petid" type="int" fromCol="宠物id1,宠物id2,宠物id3,宠物id4,宠物id5,宠物id6" />
+			<variable name="petnum" type="int" fromCol="宠物数量1,宠物数量2,宠物数量3,宠物数量4,宠物数量5,宠物数量6" />
+			<variable name="petisbind" type="int" fromCol="宠物1是否绑定,宠物2是否绑定,宠物3是否绑定,宠物4是否绑定,宠物5是否绑定,宠物6是否绑定" />
+		</bean>
+		
+				
+		<bean name="SFirstPayReward" from="f福利奖励/首充礼包" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="rewardmap" type="vector" value="FirstPayGiftData"/>
+        </bean>
+		
+		<bean name="SPointCardFirstPayReward" from="D点卡服表格/DMT3首充礼包" genxml="server"  baseclass="SFirstPayReward">
+			
+        </bean>
+		
+		<bean name="Cshouchonglibao" from="f福利奖励/首充礼包" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="itemid" type="vector" value="int" fromCol="物品id1,物品id2,物品id3,物品id4,物品id5,物品id6" />
+			<variable name="itemnum" type="vector" value="int" fromCol="物品数量1,物品数量2,物品数量3,物品数量4,物品数量5,物品数量6" />
+			<variable name="petid" type="vector" value="int" fromCol="宠物id1,宠物id2,宠物id3,宠物id4,宠物id5,宠物id6" />
+			<variable name="petnum" type="vector" value="int" fromCol="宠物数量1,宠物数量2,宠物数量3,宠物数量4,宠物数量5,宠物数量6" />
+			<variable name="borderpic" type="vector" value="string" fromCol="标签1,标签2,标签3,标签4,标签5,标签6" />
+		</bean>
+		
+		<bean name="Cshouchonglibaopay" from="D点卡服表格/DMT3首充礼包" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="itemid" type="vector" value="int" fromCol="物品id1,物品id2,物品id3,物品id4,物品id5,物品id6" />
+			<variable name="itemnum" type="vector" value="int" fromCol="物品数量1,物品数量2,物品数量3,物品数量4,物品数量5,物品数量6" />
+			<variable name="petid" type="vector" value="int" fromCol="宠物id1,宠物id2,宠物id3,宠物id4,宠物id5,宠物id6" />
+			<variable name="petnum" type="vector" value="int" fromCol="宠物数量1,宠物数量2,宠物数量3,宠物数量4,宠物数量5,宠物数量6" />
+			<variable name="borderpic" type="vector" value="string" fromCol="标签1,标签2,标签3,标签4,标签5,标签6" />
+		</bean>		
+		
+		<bean name="Cqiandaojiangli" from="f福利奖励/签到奖励" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="itemid" type="int" fromCol="道具id" />
+			<variable name="itemnum" type="int" fromCol="道具数量" />
+      <variable name="mtype" type="int" fromCol="货币类型" />
+      <variable name="money" type="int" fromCol="货币数量" />
+      <variable name="borderpic" type="string" fromCol="角标" />
+    </bean>	
+		
+		<bean name="Sregreward" from="f福利奖励/签到奖励" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="itemid" type="int" fromCol="道具id" />
+			<variable name="itemnum" type="int" fromCol="道具数量" />
+			<variable name="isbind" type="int" fromCol="是否绑定" />
+			<variable name="mtype" type="int" fromCol="货币类型" />
+			<variable name="money" type="int" fromCol="货币数量" />
+			<variable name="ratio" type="int" fromCol="双倍类型" />
+		</bean>	
+			
+		
+		<bean name="Cpaihangbang" from="p排行榜配置表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="name1" type="string" fromCol="名称1" />
+			<variable name="kuandu1" type="double" fromCol="宽度1" />
+			<variable name="name2" type="string" fromCol="名称2" />
+			<variable name="kuandu2" type="double" fromCol="宽度2" />
+			<variable name="name3" type="string" fromCol="名称3" />
+			<variable name="kuandu3" type="double" fromCol="宽度3" />
+			<variable name="name4" type="string" fromCol="名称4" />
+			<variable name="kuandu4" type="double" fromCol="宽度4" />
+			<variable name="name5" type="string" fromCol="名称5" />
+			<variable name="kuandu5" type="double" fromCol="宽度5" />
+			<variable name="name6" type="string" fromCol="名称6" />
+			<variable name="kuandu6" type="double" fromCol="宽度6" />
+			<variable name="lingjiang" type="int" fromCol="是否领取奖励" />
+			<variable name="leixing" type="string" fromCol="类型" />
+		</bean>	
+		<bean name="Sdongtaifuwu" from="d动态NPC服务配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="npcid" type="int" fromCol="NPCid" />
+			<variable name="fuwuid" type="int" fromCol="服务id" />
+			<variable name="kaishitime" type="string" fromCol="开始时间" />
+			<variable name="jeishutime" type="string" fromCol="结束时间" />
+		</bean>	
+		
+		<bean name="Snpcjianglifafang" from="j节庆相关/f福利配置" genxml="server">
+			<variable name="id" type="int" fromCol="npc服务id"/>
+			<variable name="jiangliid" type="int" fromCol="奖励id"/>		
+			<variable name="jianglicishu" type="int" fromCol="数量"/>	
+			<variable name="lvxianzhi" type="int" fromCol="领取等级"/>				
+		</bean>		
+
+		<bean name="CDeathNote" from="s死亡提醒表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="level" type="int" fromCol="等级"/>		
+			<variable name="icon" type="string" fromCol="图标icon"/>
+			<variable name="eventId" type="int" fromCol="跳转编号"/>
+			<variable name="text" type="string" fromCol="描述"/>
+			<variable name="functionId" type="int" fromCol="功能开启序号"/>
+		</bean>
+		
+		<bean name="CNotifyConfig" from="Y养成提醒" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="序列"/>
+			<variable name="text" type="string" fromCol="文本"/>
+		</bean>
+
+        <bean name="SSchoolWheel" from="z职业转盘表" genxml="server">
+            <variable name="id" type="int" fromCol="id"/>
+            <variable name="items" type="vector" value="string" fromCol="物品1,物品2,物品3,物品4,物品5,物品6,物品7,物品8,物品9,物品10,物品11,物品12,物品13,物品14" />
+			<variable name="mustitem" type="int" fromCol="必给物品"/>
+			<variable name="mustnum" type="int" fromCol="必给数量"/>
+        </bean>
+
+		<bean name="CSchoolWheel" from="z职业转盘表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="items" type="vector" value="string" fromCol="物品1,物品2,物品3,物品4,物品5,物品6,物品7,物品8,物品9,物品10,物品11,物品12,物品13,物品14" />
+		</bean>
+		
+		<bean name="CShareConfig" from="F分享资源配置" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="iconWechat" type="string" fromCol="微信图标"/>
+			<variable name="titleWechat" type="string" fromCol="微信标题"/>
+			<variable name="describWechat" type="string" fromCol="微信描述"/>
+			<variable name="iosUrlWechat" type="string" fromCol="iOS微信URL"/>
+			<variable name="androidUrlWechat" type="string" fromCol="安卓微信URL"/>
+			<variable name="iconMonents" type="string" fromCol="朋友圈图标"/>
+			<variable name="titleMonents" type="string" fromCol="朋友圈标题"/>
+			<variable name="describMonents" type="string" fromCol="朋友圈描述"/>
+			<variable name="iosUrlMonents" type="string" fromCol="iOS朋友圈URL"/>
+			<variable name="androidUrlMonents" type="string" fromCol="安卓朋友圈URL"/>
+			<variable name="iconWeibo" type="string" fromCol="微博图标"/>
+			<variable name="titleWeibo" type="string" fromCol="微博标题"/>
+			<variable name="describWeibo" type="string" fromCol="微博描述"/>
+			<variable name="iosUrlWeibo" type="string" fromCol="iOS微博URL"/>
+			<variable name="androidUrlWeibo" type="string" fromCol="安卓微博URL"/>
+		</bean>
+		<bean name="CShareConfigPay" from="D点卡服表格/DMT3分享资源配置" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="iconWechat" type="string" fromCol="微信图标"/>
+			<variable name="titleWechat" type="string" fromCol="微信标题"/>
+			<variable name="describWechat" type="string" fromCol="微信描述"/>
+			<variable name="iosUrlWechat" type="string" fromCol="iOS微信URL"/>
+			<variable name="androidUrlWechat" type="string" fromCol="安卓微信URL"/>
+			<variable name="iconMonents" type="string" fromCol="朋友圈图标"/>
+			<variable name="titleMonents" type="string" fromCol="朋友圈标题"/>
+			<variable name="describMonents" type="string" fromCol="朋友圈描述"/>
+			<variable name="iosUrlMonents" type="string" fromCol="iOS朋友圈URL"/>
+			<variable name="androidUrlMonents" type="string" fromCol="安卓朋友圈URL"/>
+			<variable name="iconWeibo" type="string" fromCol="微博图标"/>
+			<variable name="titleWeibo" type="string" fromCol="微博标题"/>
+			<variable name="describWeibo" type="string" fromCol="微博描述"/>
+			<variable name="iosUrlWeibo" type="string" fromCol="iOS微博URL"/>
+			<variable name="androidUrlWeibo" type="string" fromCol="安卓微博URL"/>
+		</bean>
+		
+		<bean name="STransferTable" from="k跨服/k跨服数据表拷贝" genxml="server">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="tableName" type="string" fromCol="表名"/>
+			<variable name="valueType" type="string" fromCol="记录类型"/>
+			<variable name="keyType" type="string" fromCol="key类型"/> 
+		</bean>		
+		
+		<bean name="STransferRoleTable" from="k跨服/k跨服角色roleid表" genxml="server">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="tableName" type="string" fromCol="表名"/>
+		</bean>
+		
+		<bean name="SCrossGlobal" from="k跨服/k跨服PK赛全局配置" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="zoneid" type="int" fromCol="服务器id"/>
+			<variable name="openornot" type="int" fromCol="战队赛结束后开启跨服赛"/>
+			<variable name="session" type="int" fromCol="跨服赛的届数"/>
+			<variable name="list" type="string" fromCol="白名单"/>
+			<variable name="time" type="string" fromCol="跨服结束时间"/>
+			<variable name="award" type="int" fromCol="全服奖励ID"/>
+			<variable name="deadline" type="string" fromCol="领奖截止时间"/>
+			<variable name="laba" type="int" fromCol="发喇叭收费"/>		
+			<variable name="ip" type="string" fromCol="ip"/>		
+			<variable name="duankou" type="int" fromCol="端口号"/>		
+			<variable name="duankoushu" type="int" fromCol="端口数量"/>					
+		</bean>	
+  </namespace>

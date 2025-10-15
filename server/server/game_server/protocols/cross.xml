@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--跨服相关协议,协议号从32632-32832-->
+<namespace name="cross">
+    <!--  跨服和原服之间的协议  start  32632到 32682 -->
+	<protocol name="SendRoleInfo" type="32632" maxsize="1024" prior="1" tolua="3">
+		<variable name="myZoneId" type="int"/>
+		<variable name="userId" type="int"/>
+		<variable name="roleId" type="long"/>
+		<variable name="flag" type="byte"/> 1到跨服，2到原服
+		<variable name="needClearData" type="byte"/>  是否需要重置跨服临时数据
+	</protocol>
+		
+	<protocol name="SendRoleInfo_Rep" type="32633" maxsize="1024" prior="1" tolua="3"> 
+		<variable name="roleId" type="long"/>
+		<variable name="myZoneId" type="int"/>
+		<variable name="flag" type="byte"/> 1到跨服，2到原服
+	</protocol>
+		
+	<bean name="TableData">
+		<variable name="tableName" type="string"/>
+		<variable name="valueData" type="octets"/>
+		<variable name="keyData" type="octets"/>
+	</bean>
+	
+	<protocol name="SendRoleData" type="32634" maxsize="1048576" prior="1" tolua="3"> 
+		<variable name="roleId" type="long"/>
+		<variable name="tableName" type="string"/>
+		<variable name="valueData" type="octets"/>
+		<variable name="keyData" type="octets"/>
+		<variable name="isEmptyTable" type="byte"/> 是否为空表，1是
+		<variable name="relationData" type="list" value="TableData"/>  相关联数据
+	</protocol>
+	
+	<protocol name="FinishCopyRole" type="32635" maxsize="1048576" prior="1" tolua="3"> 
+		<variable name="roleId" type="long"/>
+	</protocol>
+
+	<protocol name="SendWordMsg" type="32639" maxsize="128" prior="1" tolua="3"> 
+	    <variable name="roleName" type="string"/> 角色名字
+		<variable name="serverName" type="string"/> 服务器
+		<variable name="serverId" type="int"/> 服务器id
+		<variable name="worldMsg" type="string"/>
+	   <variable name="flag" type="int"/> 1=跨服战队赛消息 2=普通世界消息
+	</protocol>
+	<!--  跨服和原服之间的协议  end-->
+	 
+	<!--  服务器和客户端之间的协议 32683 到 32765  start-->
+	<protocol name="SBeginCorssServer" type="32683" maxsize="65535" prior="1" tolua="3">
+		<variable name="account" type="string"/>帐号
+		<variable name="ticket" type="string"/>门票
+		<variable name="crossIp" type="string"/>
+		<variable name="crossPort" type="int"/>
+		<variable name="crossNum" type="int"/>
+	</protocol>
+	
+	<protocol name="CSendAllServerMsg" type="32687" maxsize="1024" prior="1" tolua="3"> 
+       <variable name="worldMsg" type="string"/>
+	   <variable name="flag" type="int"/> 1=跨服战队赛消息 2=普通世界消息
+	</protocol>
+	<!--  服务器和客户端之间的协议  start 32683 到 32832 end-->
+</namespace>

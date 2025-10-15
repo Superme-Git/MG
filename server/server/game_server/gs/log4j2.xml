@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" name="MyApp" packages="">
+
+	<Properties>
+		<Property name="baseDir">logs</Property>
+	</Properties>
+
+	<Appenders>
+
+		<!--<Flume name="SYSTEM" compress="true"> <Agent host="192.168.10.101" 
+			port="8800" /> <Agent host="192.168.10.102" port="8800" /> <RFC5424Layout 
+			enterpriseNumber="18060" includeMDC="true" appName="MyApp" /> </Flume> -->
+		<RollingFile name="SYSTEM" fileName="${baseDir}/SYSTEM.log"
+			filePattern="${baseDir}/SYSTEM.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="MAPMAIN" fileName="${baseDir}/MAPMAIN.log"
+			filePattern="${baseDir}/MAPMAIN.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="CHAT" fileName="${baseDir}/CHAT.log"
+			filePattern="${baseDir}/CHAT.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="MARKET" fileName="${baseDir}/MARKET.log"
+			filePattern="${baseDir}/MARKET.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+		
+		<RollingFile name="BLACKMARKET" fileName="${baseDir}/BLACKMARKET.log"
+			filePattern="${baseDir}/BLACKMARKET.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="SENDPROTOCOL" fileName="${baseDir}/SENDPROTOCOL.log"
+			filePattern="${baseDir}/SENDPROTOCOL.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="BATTLE" fileName="${baseDir}/BATTLE.log"
+			filePattern="${baseDir}/BATTLE.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="RECHARGE" fileName="${baseDir}/RECHARGE.log"
+			filePattern="${baseDir}/RECHARGE.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="AWARD" fileName="${baseDir}/AWARD.log"
+			filePattern="${baseDir}/AWARD.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="ITEM" fileName="${baseDir}/ITEM.log"
+			filePattern="${baseDir}/ITEM.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="SHOP" fileName="${baseDir}/SHOP.log"
+			filePattern="${baseDir}/SHOP.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="SKILL" fileName="${baseDir}/SKILL.log"
+			filePattern="${baseDir}/SKILL.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="HUOBAN" fileName="${baseDir}/HUOBAN.log"
+			filePattern="${baseDir}/HUOBAN.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="TASK" fileName="${baseDir}/TASK.log"
+			filePattern="${baseDir}/TASK.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="CLAN" fileName="${baseDir}/CLAN.log"
+			filePattern="${baseDir}/CLAN.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="ACTIVE" fileName="${baseDir}/ACTIVE.log"
+			filePattern="${baseDir}/ACTIVE.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="TEAM" fileName="${baseDir}/TEAM.log"
+			filePattern="${baseDir}/TEAM.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="LIVESKILL" fileName="${baseDir}/LIVESKILL.log"
+			filePattern="${baseDir}/LIVESKILL.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="INSTANCEZONE" fileName="${baseDir}/INSTANCEZONE.log"
+			filePattern="${baseDir}/INSTANCEZONE.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="RANKLIST" fileName="${baseDir}/RANKLIST.log"
+			filePattern="${baseDir}/RANKLIST.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="PET" fileName="${baseDir}/PET.log"
+			filePattern="${baseDir}/PET.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="FRIEND" fileName="${baseDir}/FRIEND.log"
+			filePattern="${baseDir}/FRIEND.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="MAIL" fileName="${baseDir}/MAIL.log"
+			filePattern="${baseDir}/MAIL.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+		
+		<RollingFile name="CARD" fileName="${baseDir}/CARD.log"
+			filePattern="${baseDir}/CARD.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+		
+		<RollingFile name="REDPACK" fileName="${baseDir}/REDPACK.log"
+			filePattern="${baseDir}/REDPACK.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="PVP" fileName="${baseDir}/PVP.log"
+			filePattern="${baseDir}/PVP.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="YYLOG" fileName="${baseDir}/YYLOG.log"
+			filePattern="${baseDir}/YYLOG.%d{yyyy-MM-dd-HH}.log" append="true">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%m%n" />
+		</RollingFile>
+
+		<!--<RollingFile name="ERRORLOG" fileName="${baseDir}/ERRORLOG.log" filePattern="${baseDir}/ERRORLOG.%d{yyyy-MM-dd-HH}.log" 
+			append="true" immediateFlush="false" bufferedIO="true" bufferSize="262144"> 
+			<CronTriggeringPolicy schedule="0 0 * * * ?" /> <PatternLayout pattern="%d{yyyy-MM-dd 
+			HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" /> </RollingFile> -->
+
+		<RollingFile name="GMCOMMAND" fileName="${baseDir}/GMCOMMAND.log"
+			filePattern="${baseDir}/GMCOMMAND.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="GMHTTP" fileName="${baseDir}/GMHTTP.log"
+			filePattern="${baseDir}/GMHTTP.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<RollingFile name="PUSH" fileName="${baseDir}/PUSH.log"
+			filePattern="${baseDir}/PUSH.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+		
+		<RollingFile name="FUSHIWARN" fileName="${baseDir}/FUSHIWARN.log"
+			filePattern="${baseDir}/FUSHIWARN.%d{yyyy-MM-dd-HH}.log" append="true"
+			immediateFlush="false" bufferedIO="true" bufferSize="262144">
+			<CronTriggeringPolicy schedule="0 0 * * * ?" />
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</RollingFile>
+
+		<Console name="CONSOLE" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p %c{1}:%L%t - %m%n" />
+		</Console>
+
+	</Appenders>
+
+	<Loggers>
+		<AsyncLogger name="SYSTEM" level="INFO">
+			<AppenderRef ref="SYSTEM" />
+		</AsyncLogger>
+		<!-- <Logger name="SYSTEM" level="INFO"> <AppenderRef ref="SYSTEM" /> </Logger> -->
+
+		<AsyncLogger name="MAPMAIN" level="INFO">
+			<AppenderRef ref="MAPMAIN" />
+		</AsyncLogger>
+
+		<AsyncLogger name="BATTLE" level="INFO">
+			<AppenderRef ref="BATTLE" />
+		</AsyncLogger>
+
+		<AsyncLogger name="SENDPROTOCOL" level="INFO">
+			<AppenderRef ref="SENDPROTOCOL" />
+		</AsyncLogger>
+
+		<AsyncLogger name="RECHARGE" level="INFO">
+			<AppenderRef ref="RECHARGE" />
+		</AsyncLogger>
+
+		<AsyncLogger name="AWARD" level="INFO">
+			<AppenderRef ref="AWARD" />
+		</AsyncLogger>
+
+		<AsyncLogger name="ITEM" level="INFO">
+			<AppenderRef ref="ITEM" />
+		</AsyncLogger>
+
+		<AsyncLogger name="SHOP" level="INFO">
+			<AppenderRef ref="SHOP" />
+		</AsyncLogger>
+
+		<AsyncLogger name="MARKET" level="INFO">
+			<AppenderRef ref="MARKET" />
+		</AsyncLogger>
+		
+		<AsyncLogger name="BLACKMARKET" level="INFO">
+			<AppenderRef ref="BLACKMARKET" />
+		</AsyncLogger>
+
+		<AsyncLogger name="SKILL" level="INFO">
+			<AppenderRef ref="SKILL" />
+		</AsyncLogger>
+
+		<AsyncLogger name="HUOBAN" level="INFO">
+			<AppenderRef ref="HUOBAN" />
+		</AsyncLogger>
+
+		<AsyncLogger name="TASK" level="INFO">
+			<AppenderRef ref="TASK" />
+		</AsyncLogger>
+
+		<AsyncLogger name="CLAN" level="INFO">
+			<AppenderRef ref="CLAN" />
+		</AsyncLogger>
+
+		<AsyncLogger name="CHAT" level="INFO">
+			<AppenderRef ref="CHAT" />
+		</AsyncLogger>
+
+		<AsyncLogger name="ACTIVE" level="INFO">
+			<AppenderRef ref="ACTIVE" />
+		</AsyncLogger>
+
+		<AsyncLogger name="TEAM" level="INFO">
+			<AppenderRef ref="TEAM" />
+		</AsyncLogger>
+
+		<AsyncLogger name="LIVESKILL" level="INFO">
+			<AppenderRef ref="LIVESKILL" />
+		</AsyncLogger>
+
+		<AsyncLogger name="INSTANCEZONE" level="INFO">
+			<AppenderRef ref="INSTANCEZONE" />
+		</AsyncLogger>
+
+		<AsyncLogger name="RANKLIST" level="INFO">
+			<AppenderRef ref="RANKLIST" />
+		</AsyncLogger>
+
+		<AsyncLogger name="PET" level="INFO">
+			<AppenderRef ref="PET" />
+		</AsyncLogger>
+
+		<AsyncLogger name="FRIEND" level="INFO">
+			<AppenderRef ref="FRIEND" />
+		</AsyncLogger>
+
+		<AsyncLogger name="MAIL" level="INFO">
+			<AppenderRef ref="MAIL" />
+		</AsyncLogger>
+		
+		<AsyncLogger name="CARD" level="INFO">
+			<AppenderRef ref="CARD" />
+		</AsyncLogger>
+		
+		<AsyncLogger name="REDPACK" level="INFO">
+			<AppenderRef ref="REDPACK" />
+		</AsyncLogger>
+
+		<AsyncLogger name="PVP" level="INFO">
+			<AppenderRef ref="PVP" />
+		</AsyncLogger>
+
+		<AsyncLogger name="GMCOMMAND" level="INFO">
+			<AppenderRef ref="GMCOMMAND" />
+		</AsyncLogger>
+
+		<AsyncLogger name="GMHTTP" level="All">
+			<AppenderRef ref="GMHTTP" />
+		</AsyncLogger>
+
+		<AsyncLogger name="PUSH" level="All">
+			<AppenderRef ref="PUSH" />
+		</AsyncLogger>
+
+		<AsyncLogger name="YYLOG" level="INFO">
+			<AppenderRef ref="YYLOG" />
+		</AsyncLogger>
+		
+		<AsyncLogger name="FUSHIWARN" level="INFO">
+			<AppenderRef ref="FUSHIWARN" />
+		</AsyncLogger>
+
+		<Root level="INFO">
+			<AppenderRef ref="CONSOLE" />
+			<!--<AppenderRef ref="ERRORLOG" /> -->
+		</Root>
+	</Loggers>
+</Configuration>

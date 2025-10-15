@@ -1,0 +1,62 @@
+// MessageTip
+
+enum TipType
+{
+	eMsgTip = 1, //透明消息框，会在消息频道里打出
+	eSystemTip = 2, //系统公告，会在系统消息频道打出
+};
+
+class MessageTip : public Window
+{
+	public:		
+		/*************************************************************************
+		Constants
+		*************************************************************************/
+		static const string WidgetTypeName;                 //!< Window factory name
+		static const string EventNamespace;                 //!< Namespace for global events
+		static const string RichEditboxNameSuffix;          //!< Widget name suffix for the editbox component.
+		static const string EventStartFade;
+		/*************************************************************************
+		Construction and Destruction
+		*************************************************************************/
+		/*!
+		\brief
+		Constructor for MessageTip objects
+		*/
+		MessageTip(const string& type, const string& name);
+
+		/*!
+		\brief
+		Destructor for MessageTip objects
+		*/
+		virtual ~MessageTip(void);
+
+		virtual void	initialiseComponents(bool bClone);
+
+		RichEditbox* getRichEditbox() const;
+		
+		Size		getTextSize() const;
+
+		void		SetDestYPos(float height) ;
+
+		float		GetDestYPos() ;
+
+		bool		GetTextureIsLoading();
+
+		void        SetTipsType(CEGUI::TipType type);// ;
+		CEGUI::TipType     GetTipType();
+
+		void		InitSysMsgParamter();
+
+		//yanji 20150921
+		void		SetStartYPos(float yPos) ;
+		float		GetStartYPos() ;
+		void		SetDisplayTime(float fDisplayTime) ;
+		float		GetHeightScale() ;
+		void		SetHeightScale(float fHeightScale) ;
+
+	public:
+		MessageTip(const string& type);
+		virtual Window* clone(Window* wnd);
+		virtual bool onRenameTemplatePrefix(const string& sPrefix);
+};

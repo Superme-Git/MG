@@ -1,0 +1,657 @@
+/****************************************
+	Vertical alignment modes
+*****************************************/
+enum VerticalAlignment
+{
+	VA_TOP,
+	VA_CENTRE,
+	VA_BOTTOM
+};
+
+
+/****************************************
+	Horizontal alignment modes
+*****************************************/
+enum HorizontalAlignment
+{
+	HA_LEFT,
+	HA_CENTRE,
+	HA_RIGHT
+};
+/****************************************
+	window effect enums	
+*****************************************/
+enum CreateWindowEffect
+{
+	CreateWndEffect_None,
+	CreateWndEffect_Drop,
+	CreateWndEffect_FlyFromLeft,
+	CreateWndEffect_FlyFromRight,
+	CreateWndEffect_ZoomOut,
+};
+    
+enum WndEffectState
+{
+	WndEffectState_None,
+	WndEffectState_Ready,
+	WndEffectState_Go,
+	WndEffectState_Create,
+	WndEffectState_Close,
+};
+    
+enum CloseWndEffect
+{
+	CloseWndEffect_None,
+	CloseWndEffect_FlyUp,
+	CloseWndEffect_FlyDown,
+	CloseWndEffect_FlyLeft,
+	CloseWndEffect_FlyRight,
+	CloseWndEffect_ZoomIn,
+
+};
+
+/****************************************
+	Window
+*****************************************/
+class Window //: public EventSet
+{
+	// ycl: events
+	/*************************************************************************
+	Event name constants
+	*************************************************************************/
+	//! Namespace for global events
+	static const string EventNamespace;
+
+	// generated internally by Window
+	//! Signal the time based update of window.
+	static const string EventWindowUpdated;
+	//! Parent of this Window has been re-sized.
+	static const string EventParentSized;
+	//! Window size has changed
+	static const string EventSized;
+	//! Window position has changed
+	static const string EventMoved;
+	//! Text string for the Window has changed
+	static const string EventTextChanged;
+	//!Font object for the Window has been changed
+	static const string EventFontChanged;
+	//! Alpha blend value for the Window has changed
+	static const string EventAlphaChanged;
+	//! Client assigned ID code for the Window has changed
+	static const string EventIDChanged;
+	//! Window has been activated (has input focus)
+	static const string EventActivated;
+	//! Window has been deactivated (loses input focus)
+	static const string EventDeactivated;
+	//! Window has been made visible
+	static const string EventShown;
+	//! Window has been hidden from view
+	static const string EventHidden;
+	//! Window has been enabled (interaction is possible)
+	static const string EventEnabled;
+	//! Window has been disabled (interaction is no longer possible)
+	static const string EventDisabled;
+	//! Clipping by parent mode has been modified
+	static const string EventClippedByParentChanged;
+	//! Destruction by parent mode has been modified
+	static const string EventDestroyedByParentChanged;
+	//! Alpha inherited from parent mode has been modified.
+	static const string EventInheritsAlphaChanged;
+	//! Always on top mode has been modified
+	static const string EventAlwaysOnTopChanged;
+	//! Top most mode has been modified
+	static const string EventTopMostChanged;
+	//! Window has captured all inputs
+	static const string EventInputCaptureGained;
+	//! Window has lost it's capture on inputs
+	static const string EventInputCaptureLost;
+	//! Rendering of the Window has started
+	static const string EventRenderingStarted;
+	//! Rendering for the Window has finished
+	static const string EventRenderingEnded;
+	//! A child Window has been added
+	static const string EventChildAdded;
+	//! A child window has been removed
+	static const string EventChildRemoved;
+	//! Destruction of the Window is about to begin.
+	static const string EventDestructionStarted;
+	//! The z-order of the window has changed
+	static const string EventZOrderChanged;
+	//! A DragContainer has been dragged over this window.
+	static const string EventDragDropItemEnters;
+	//! A DragContainer has left this window.
+	static const string EventDragDropItemLeaves;
+	//! A DragContainer was dropped on this Window.
+	static const string EventDragDropItemDropped;
+	//! The vertical alignment of the window has changed.
+	static const string EventVerticalAlignmentChanged;
+	//! The vertical alignment of the window has changed.
+	static const string EventHorizontalAlignmentChanged;
+	//! The a new window renderer was attached.
+	static const string EventWindowRendererAttached;
+	//! The currently assigned window renderer was detached.
+	static const string EventWindowRendererDetached;
+	//! Window rotation factor(s) changed
+	static const string EventRotated;
+	//! Window non-client setting was changed
+	static const string EventNonClientChanged;
+	//! Window text parsing setting was changed
+	static const string EventTextParsingChanged;
+
+	// generated externally (inputs)
+	//! Mouse cursor has entered the Window.
+	static const string EventMouseEnters;
+	//! Mouse cursor has left the Window.
+	static const string EventMouseLeaves;
+	//! Mouse cursor was moved within the area of the Window.
+	static const string EventMouseMove;
+	//! Mouse wheel was scrolled within the Window.
+	static const string EventMouseWheel;
+	//! A mouse button was pressed down within the Window.
+	static const string EventMouseButtonDown;
+	//! A mouse button was released within the Window.
+	static const string EventMouseButtonUp;
+	//! A mouse button was clicked (down then up) within the Window.
+	static const string EventMouseClick;
+	//! A mouse button was double-clicked within the Window.
+	static const string EventMouseDoubleClick;
+	//! A mouse button was triple-clicked within the Window.
+	static const string EventMouseTripleClick;
+
+	static const string EventLongPress;
+
+	static const string EventSlide;
+	static const string EventDrag;
+	//! A key on the keyboard was pressed.
+	static const string EventKeyDown;
+	//! A key on the keyboard was released.
+	static const string EventKeyUp;
+	//! A text character was typed on the keyboard.
+	static const string EventCharacterKey;
+	//! Amen
+	static const string EventDieTimeTick;
+
+	static const string EventDisplaySizeChange;
+
+	static const string EventAlignWindowMoved;
+
+	static const string EventGuideEnd;
+
+	static const string EventScreenAreaChange;
+
+	static const string EventCreateWndEffectBegin;
+	static const string EventCreateWndEffectEnd;
+	static const string EventCloseWndEffectBegin;
+	static const string EventCloseWndEffectEnd;
+
+	static const string EventFlyToTargetPosition;
+
+	string getType() const;
+	string getName() const;
+    tolua_throws|CEGUI::Exception,error| void rename(string new_name);
+
+    bool isAutoWindow() const;
+    
+	bool isDestroyedByParent() const;
+	bool isAlwaysOnTop() const;
+	bool isAlwaysOnBottom() const;
+	bool isTopMost(void) const;
+	bool isDisabled() const;
+	bool isDisabled(bool localOnly=false) const;
+	bool GetEnableLocal();
+	bool isVisible() const;
+	bool isVisible(bool localOnly=false) const;
+	bool GetVisbleLocal();
+	bool isActive() const;
+	bool GetActiveLocal();
+	bool isClippedByParent() const;
+	void setDestroyedByParent(bool setting);
+	void setAlwaysOnTop(bool setting);
+	void setAlwaysOnBottom(bool setting);
+	void setTopMost(bool setting);
+	void setEnabled(bool setting);
+	void enable();
+	void disable();
+	void setVisible(bool setting);
+	void setDrawIt(bool setting);
+	bool getDrawIt();
+	void show();
+	void hide();
+	void activate();
+	void deactivate();
+	void SetAllChildrenVis(bool bVis);
+
+	void DrawModalStateEffect(float ctx_x, float ctx_y);
+
+    bool HasGuide();
+	void SetGuideState(bool bHasGuide) ;
+	void setClippedByParent(bool setting);
+
+	unsigned int getID() const;
+	unsigned int getID2()const;
+	void setID(unsigned int ID);
+	void setID2(unsigned int ID);
+
+	void* getUserData() const;
+	void setUserData(void* user_data);
+
+	unsigned int getChildCount() const;
+
+	bool isChild(unsigned int ID) const;
+	bool isChild(string name) const;
+	bool isChild(const Window* window) const;
+	bool isChildRecursive(unsigned int ID) const;
+
+	void addChildWindow(string name);
+	void addChildWindow(Window* window);
+
+	void removeChildWindow(unsigned int ID);
+	void removeChildWindow(string name);
+	void removeChildWindow(Window* window);
+
+	virtual void cleanupChildren(void);
+	bool isExistNonAutoChildren();
+	void cleanupAllEvent(void);
+
+	tolua_throws|CEGUI::UnknownObjectException,nil| Window* getChild(unsigned int ID) const;
+	tolua_throws|CEGUI::UnknownObjectException,nil| Window* getChild(string name) const;
+    Window* getChildRecursive(unsigned int ID) const;
+    Window* getChildRecursive(string name) const;
+	Window* getChildAtIdx(unsigned int ID) const;
+	Window* getChildAtPosition(const Vector2& pos) const;
+    Window* getTargetChildAtPosition(const Vector2& pos) const;
+
+    Window* getActiveChild() const;
+    Window* getActiveSibling();
+
+    Window* geKeyboardTargetChild(void);
+    Window* getEscCloseWindow(void);
+
+    Window* getParent() const;
+
+    const Window* getRootWindow() const;
+    Window* getRootWindow();
+
+	bool isAncestor(unsigned int ID) const;
+	bool isAncestor(string name) const;
+	bool isAncestor(const Window* window) const;
+
+	void setFont(string name);
+	void setFont(Font* font);
+	Font* getFont() const;
+	Font* getFont(bool useDefault = true) const;
+
+	void setText(string text);
+	void setText(string text, unsigned int  defcolour = 0);
+	void setText(string text, unsigned int  defcolour = 0,bool triggerEvent = true);
+    void insertText(string text, unsigned long position);
+    void appendText(string text);
+	string getText() const;
+	string getTextVisual() const;
+
+	bool inheritsAlpha() const;
+	float getAlpha() const;
+	float getEffectiveAlpha() const;
+	void setAlpha(float a);
+	void setInheritsAlpha(bool setting);
+
+	void invalidate();
+	void invalidate(const bool recursive);
+	
+	bool isZOrderingEnabled() const;
+	void setZOrderingEnabled(bool setting);
+
+    Rect getUnclippedOuterRect() const;
+    Rect getUnclippedInnerRect() const;
+    Rect getUnclippedRect(bool inner) const;
+    Rect getOuterRectClipper() const;
+    Rect getInnerRectClipper() const;
+    Rect getClipRect() const;
+    Rect getClipRect(bool non_client = false) const;
+    Rect getHitTestRect() const;
+
+    Size getPixelSize() const;
+    Size getParentPixelSize() const;
+    float getParentPixelWidth() const;
+    float getParentPixelHeight() const;
+
+	static Window* getCaptureWindow();
+	void setRestoreCapture(bool setting);
+	bool restoresOldCapture() const;
+
+	bool distributesCapturedInputs() const;
+	void setDistributesCapturedInputs(bool setting);
+
+	bool captureInput();
+	void releaseInput();
+
+	bool isCapturedByThis() const;
+	bool isCapturedByAncestor() const;
+	bool isCapturedByChild() const;
+
+	bool isHit(const Vector2& pos) const;
+
+	bool isRiseOnClickEnabled() const;
+	void setRiseOnClickEnabled(bool setting);
+
+	const Image* getMouseCursor() const;
+	void setMouseCursor(MouseCursorImage cursor);
+	void setMouseCursor(const Image* image);
+	void setMouseCursor(string imageset, string image);
+
+	void moveToFront();
+	void moveToBack();
+	void bringWindowAbove(Window* upperWnd, Window* lowerWnd);
+
+	bool wantsMultiClickEvents() const;
+	bool isMouseAutoRepeatEnabled() const;
+	float getAutoRepeatDelay() const;
+	float getAutoRepeatRate() const;
+	float getDieTime(void) const;
+	void setDieTime(float val);
+	bool getDieingState(void) const;
+	void setDieingState(bool);
+	bool getLimitSize(void) const;
+	void setLimitSize(bool val);
+	void setWantsMultiClickEvents(bool setting);
+	void setMouseAutoRepeatEnabled(bool setting);
+	void setAutoRepeatDelay(float delay);
+	void setAutoRepeatRate(float rate);
+
+	//void destroy();
+
+	bool isUsingDefaultTooltip() const;
+	Tooltip* getTooltip() const;
+	string getTooltipType() const;
+	string getTooltipText() const;
+	bool inheritsTooltipText() const;
+
+	void setTooltip(Tooltip* tooltip);
+	void setTooltipType(string tooltipType);
+	void setTooltipText(string tip);
+	void setInheritsTooltipText(bool setting);
+
+	bool testClassName(string class_name) const;
+
+    bool isDragDropTarget() const;
+    void setDragDropTarget(bool setting);
+	void notifyDragDropItemEnters(DragContainer* item);
+	void notifyDragDropItemLeaves(DragContainer* item);
+	void notifyDragDropItemDropped(DragContainer* item);
+
+	VerticalAlignment getVerticalAlignment() const;
+	HorizontalAlignment getHorizontalAlignment() const;
+
+    // these actually have a const, but tolua++ chokes on that
+    void setVerticalAlignment(VerticalAlignment alignment);
+    void setHorizontalAlignment(HorizontalAlignment alignment);
+
+	string getLookNFeel() const;
+    tolua_throws|CEGUI::Exception,error| void setLookNFeel(string lnf,bool bClone);
+
+    tolua_throws|CEGUI::Exception,error| void setWindowRenderer(string name);
+    string getWindowRendererName() const;
+
+	bool getModalState() const;
+	void setModalState(bool state);
+
+	virtual void performChildWindowLayout();
+
+    tolua_throws|CEGUI::UnknownObjectException,nil| string getUserString(string name) const;
+    bool isUserStringDefined(string name) const;
+    void setUserString(string name, string value);
+
+    void beginInitialisation();
+    void endInitialisation();
+
+	// unified stuff
+	void setArea(const UDim& xpos, const UDim& ypos, const UDim& width, const UDim& height);
+	void setArea(const UVector2& pos, const UVector2& size);
+	void setArea(const URect& area);
+	void setPosition(const UVector2& pos);
+	void setXPosition(const UDim& x);
+	void setYPosition(const UDim& y);
+	void setSize(const UVector2& size);
+	void setWidth(const UDim& width);
+	void SetWidthClip(const float& clip);
+	float GetWidthClip();
+	void setHeight(const UDim& height);
+	void setMaxSize(const UVector2& size);
+	void setMinSize(const UVector2& size);
+
+	const URect& getArea() const;
+	const UVector2& getPosition() const;
+	const UDim& getXPosition() const;
+	const UDim& getYPosition() const;
+	UVector2 getSize() const;
+	UDim getWidth() const;
+	UDim getHeight() const;
+	const UVector2& getMaxSize() const;
+	const UVector2& getMinSize() const;
+
+	bool test_render();
+
+	Point GetScreenPos()const;
+	Point GetScreenPosOfCenter();
+
+	Point GetTopLeftPosOnParent();
+
+    // event pass through
+    bool isMousePassThroughEnabled() const;
+    bool isParentMousePassThroughEnabled();
+    void setMousePassThroughEnabled(bool setting);
+
+    // xml writing
+    bool isWritingXMLAllowed() const;
+    void setWritingXMLAllowed(bool allow);
+
+    void notifyScreenAreaChanged();
+    void notifyScreenAreaChanged(bool recursive = true);
+
+    void setFalagardType(const string& type);
+    void setFalagardType(const string& type, const string& rendererType = "");
+
+    // rotation
+    const Vector3& getRotation() const;
+    void setRotation(const Vector3& rotation);
+	void setGeomRotation(const Vector3& rotation);
+	
+	//scale
+	void setScale(const Vector3& scale);
+	const Vector3& getScale() const;
+	void setGeomScale(const Vector3& scale);
+	
+    void setGeomPivot(const Vector3& p);
+	
+    // rendering surface related
+    RenderingSurface& getTargetRenderingSurface() const;
+    void getRenderingContext(RenderingContext& ctx) const;
+    RenderingSurface* getRenderingSurface() const;
+    void setRenderingSurface(RenderingSurface* surface);
+    bool isUsingAutoRenderingSurface() const;
+    void setUsingAutoRenderingSurface(bool setting);
+    void invalidateRenderingSurface();
+
+    bool trySaveRenderedImageToFile(const string& filename);
+
+    // behave as client / non-client child
+    bool isNonClientWindow() const;
+    void setNonClientWindow(const bool setting);
+
+    GeometryBuffer* getGeometryBuffer();
+
+    bool isTextParsingEnabled() const;
+    void setTextParsingEnabled(bool setting);
+
+    Vector2 getUnprojectedPosition(const Vector2& pos) const;
+
+    void SetTextColor();
+    void SetTextColor(argb_t color = 0xFFFFFFFF);
+    void SetTextColor(argb_t color = 0xFFFFFFFF, const string& text = "");
+
+	//////////////////////////////////////////////
+	// PropertySet
+	void setProperty(string name, string value);
+	string getProperty(string name) const;
+	string getPropertyDefault(string name) const;
+
+	bool isPropertyPresent(string name) const;
+	bool isPropertyDefault(string name) const;
+
+    tolua_outside PropertyIterator ceguiLua_getPropertyIterator @ getPropertyIterator() const;
+
+	//////////////////////////////////////////////
+	// EventSet
+	void addEvent(string name);
+	void removeEvent(string name);
+	void removeAllEvents();
+	bool isEventPresent(string name);
+
+    tolua_throws|CEGUI::UnknownObjectException,error| tolua_outside EventConnection LuaFunctorSubscribeEvent @ subscribeEvent(string name, lua_Object funcIndex, lua_Object selfIndex=LUA_NOREF, lua_Object error_handler = LUA_NOREF, lua_State*);
+
+    tolua_throws|CEGUI::UnknownObjectException,error| tolua_outside void LuaFunctorSubscribeDragEvent @ subscriberEventDrag(lua_Object funcIndex, lua_Object selfIndex=LUA_NOREF, lua_Object error_handler = LUA_NOREF, lua_State*);
+    tolua_throws|CEGUI::UnknownObjectException,error| tolua_outside void LuaFunctorSubscribeLongpressEvent @ subscriberEventLongPress(lua_Object funcIndex, lua_Object selfIndex=LUA_NOREF, lua_Object error_handler = LUA_NOREF, lua_State*);
+	tolua_throws|CEGUI::UnknownObjectException,error| EventConnection subscribeScriptedEvent @ subscribeEvent(string name, string callback_name);
+	
+	void fireEvent(string name, EventArgs& args);
+	void fireEvent(string name, EventArgs& args, string eventnamespace="");
+
+	bool isMuted() const;
+	void setMutedState(bool setting);
+
+    tolua_outside EventIterator ceguiLua_getEventIterator @ getEventIterator() const;
+	//////////////////////////////////////////////
+	// add by sun
+	// window effect
+
+    bool isAllChildrenShow();
+    bool isAllChildrenHide();
+
+	void BeginCreateEffect();
+	void EndCreateEffect();
+	void BeginCloseEffect();
+	void EndCloseEffect();
+
+	void SetWndCenterInParentXPos(float xPos);
+	void SetWndCenterInParentYPos(float yPos);
+
+	CloseWndEffect GetCloseWndEffect()const;
+	CreateWindowEffect GetCreateWndEffect()const;
+	WndEffectState GetWndEffectState()const;
+
+	//////////////////////////////////////////////
+	// add by sun
+	bool GetCloseIsHide() const;
+	void SetIsPixelDecide(bool b);
+	bool GetIsPixelDecide() const;
+
+	void SetAllChildAlphaButModal(float alpha);
+	void CenterInParent();
+	void FlyToScreenPoint(Point targetPoint, float time);
+	void FlyToWndCenter(Window* pTargetWnd, float time);
+	void FlyFromPointToWndCenter(Point startPoint, Window* pTargetWnd, float time);
+
+	void SetClickAniScale(float scale);
+	float GetClickAniScale()const;
+
+	// modal state
+	bool isModalAfterShow()const;
+	void EnableModalStateAfterShow(bool b);
+	bool isAllowModalState()const;
+	bool isAllowModalState(bool local = false)const;
+	void EnabledAllowShowWithModalState(bool b);
+	bool isAllowShowWithModalState()const;
+	void EnableAllowModalState(bool b);
+	void SeModalStateDrawEffect(bool b);
+	void SetCloseIsHide(bool b);
+    void cleanupNonAutoChildren();
+	// add by ouyang
+	void SetDisplaySizeChangePosEnable(bool b);
+	void SetDisplaySizeEnable( bool b );
+
+	// added by xiaolong
+	void setAllChildrenMousePassThroughEnabled(bool bEnable);
+	
+	//added by wuyao
+	void SetHandleDragMove(bool b);
+	bool isHandleDragMove() const;
+	float GetXOffset() const;
+	float GetYOffset() const;
+	void MoveToHorzCenter();
+	void MoveToVertCenter();
+	Size GetOldSize();
+	void SetAutoSizeWithParent(bool b);
+	void SetSoundEnable(bool bEnable);
+	bool isSoundEable() const;
+	void SetSoundResource(const string& soundRes);
+	const string& GetSoundResource() const;
+	void SetCloseSoundResource(const string& soundRes);
+	const string& GetCloseSoundResource() const;
+	void EnbaleSlide(bool bEnable);
+	void SetCreateEffectType(CreateWindowEffect type);
+	void SetCloseEffectType(CloseWndEffect type);
+
+	void EnableDrag();
+	void EnableDrag(bool bEnable = true);
+	
+	bool isTimeAutoClose();
+	void SetTimeAutoClose(bool b);
+	void SetLifeTime(float time);
+	
+	virtual void CheckGuideEnd(MouseButton button);
+
+	Editbox* GetNextEditBox(int tabOrderID);
+	const string& GetWindowType();
+
+	void EnableLongPress();
+	void EnableLongPress(bool bEnable = true);
+	
+	// set loaded draw ui
+	void SetLoadedDraw(bool loadedDraw);
+	bool GetLoadedDraw();
+	
+	bool isDestroyStarted();
+	bool IsCanEdit();
+	void SetCanEdit(bool bCanEdit);
+	Window* GetKeyBoardTargetWnd();
+	bool isInputFocus();
+	virtual void InsertText(const string& strText);
+
+	bool isTextBorder();
+	void SetTextBoder(bool bBorder);
+	const ColourRect& GetBorderColour();
+	void SetTextBorderColour(const ColourRect& color);
+	bool isDisplaySizeEnable();
+	void FixWndSize(float xScale, float yScale);
+	void SetInParentCenter(bool b);
+	void CheckWndPos();
+	bool GetDisplaySizeChangePosEnable() const;
+
+	void StartFlash();
+	void StartFlash(float frequence = 1.5f);
+	void StopFlash();
+	bool isFlash();
+	bool isEnableFlash();
+	void SetEnableFlash(bool b);
+
+	void SetEscClose(bool bEscClose);
+	bool IsEscClose();
+	bool GetDragMoveEnable()const;
+	void SetDragMoveEnable(bool b);
+
+	Window* GetAlignWindow();
+	void SetAlignWindow(Window* pAlignWnd, CEGUI::WindowAlignType type);
+	void RefreshAlignWindowPos();
+	bool isMouseOnThisWnd();
+	bool isInChatOutWnd()const;
+	void SetInChatOutWnd(bool bInChatOutWnd);
+	void SetOnShiedUIState(bool b);
+	void ShieAll();
+	void ShowAll();
+	void SetShiedUIOldState(bool bVis);
+
+	void offsetPixelPosition(const Vector2& offset);
+	void CheckLeftTopPos();
+	
+	std::vector<Window*>& getDrawList();
+};

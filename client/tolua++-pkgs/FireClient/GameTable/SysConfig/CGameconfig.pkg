@@ -1,0 +1,24 @@
+namespace GameTable
+{
+    namespace SysConfig
+    {
+        class CGameconfig
+        {
+            public:
+            int id;
+            std::wstring key;
+            std::wstring wndname;
+            int leixingtype;
+            int value;
+        };
+        class CGameconfigTable
+        {
+            public:
+        CGameconfig& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CGameconfigTable&  GetCGameconfigTableInstance();
+    }
+}

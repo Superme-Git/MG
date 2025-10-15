@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<sdk 
+    default.plat.type="1"
+    http.server.ip="0.0.0.0"
+    http.server.port="8081"
+	redis.isuse="false"
+	redis.server.ip="127.0.0.1"
+	redis.server.port="6379"
+	jmx.rmiport="2701"
+    jmx.serverport="2702"
+	xio.output.security="khSrmjpjrsarmks3aAfrvldn5zafuzdd" 
+    xio.input.security="oyvxyskVhnydfl8vgasqTuzee3bnbopl"
+	robot.allow="false"
+	robot.allowname="mt3robot"
+	refunds.list="refunds.csv"
+    >
+	<!--refunds.list="refunds1.csv,refunds2.csv"-->
+	<plat
+        class="com.locojoy.sdk.plats.LocojoyPlat"
+        type="1"
+		gameid="88"
+        gamekey="b18a26ffc632752987bd24a7bf0353f3"
+        httpurl="http://billingtest.locojoy.com/api/open/VerifySession.ashx"
+		httpcallbackapi="/locojoycallback"
+        >
+	    <httpconfig
+	        connecttimeout="15000"
+	        readtimeout="5000"
+			/>
+	</plat>
+	<plat
+        class="com.locojoy.sdk.plats.OneSdkPlat"
+        type="2"
+		gameid="88"
+        gamekey="b18a26ffc632752987bd24a7bf0353f3"
+        httpurl="http://billingtest.locojoy.com/api/1sdk/Login.ashx"
+		httpcallbackapi=""
+        >
+	    <httpconfig
+	        connecttimeout="15000"
+	        readtimeout="5000"
+			/>
+	</plat>
+    <plat
+        class="com.locojoy.sdk.plats.Hybrid"
+        type="9999"
+        default="1"
+        >
+	    <use type="1"/>
+    </plat>
+</sdk>

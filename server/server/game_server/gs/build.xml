@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="gs" default="dist">
+
+	<property name="src" value="src/" />
+	<property name="build" value="build/" />
+	<property name="build2" value="build2/" />
+	<property name="build3" value="build3/" />
+	<property name="build4" value="build4/" />
+	<property name="dist" value="dist/" />
+	<property name="lib" value="lib/" />
+	<property name="gsdir" value="../../gs" />
+
+	<target name="init" depends="clean">
+		<mkdir dir="${build}" />
+		<mkdir dir="${build2}" />
+		<mkdir dir="${build3}/xbean" />
+		<mkdir dir="${build3}/xtable" />
+		<mkdir dir="${dist}" />
+		<mkdir dir="${build4}/fire/pb/msg" />
+	</target>
+
+	<target name="genxdb">
+		<java fork="true" classname="mkgen.Main">
+			<arg line="-outputEncoding utf-8 gsx.mkdb.xml" />
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="monkeyking.jar" />
+					<include name="jio.jar" />
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+
+
+	<target name="genbean" depends="init">
+		<delete dir="confsrc" />
+		<mkdir dir="confsrc" />
+		<java fork="true" classname="mytools.Main">
+			<arg line="gamedata/xml/gbeans/main.xml confsrc gamedata/xml/codetemplates 1"/>
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="freemarker.jar"/>
+					<include name="convxml.jar"/>
+					<include name="log4j-1.2.15.jar"/>
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="run" depends="compile">
+		<java fork="true" classname="scm.Main">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar" />
+				</fileset>
+				<pathelement location="${build}" />
+			</classpath>
+		</java>
+	</target>
+
+
+	<target name="compile" depends="init,genxdb">
+		<path id="classpath">
+			<fileset dir="lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="libsys">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<copy overwrite="true"  tofile="src/config/CompileArg.java" file="src/config/CompileArg.debug" />
+		<javac encoding="UTF-8"  destdir="${build}" debug="true" debuglevel="lines,source" includeAntRuntime="false">
+			<src path="beans" />
+			<src path="${src}" />
+			<src path="confsrc" />
+			<classpath refid="classpath"/>
+		</javac>
+		<jar jarfile="${dist}/gsdebug.jar" basedir="${build}" manifest="${src}/MANIFEST.MF" />
+	</target>
+
+
+	<target name="compiledist" depends="init,genxdb">
+		<path id="classpath">
+			<fileset dir="lib">
+				<include name="**/*.jar" />
+			</fileset>
+			<fileset dir="libsys">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<copy overwrite="true"  tofile="src/config/CompileArg.java" file="src/config/CompileArg.dist" />
+		<javac encoding="UTF-8"  destdir="${build2}" debug="true" debuglevel="lines,source,vars" includeAntRuntime="false">
+			<classpath refid="classpath"/>
+			<src path="beans" />
+			<src path="${src}" />
+			<src path="confsrc" />
+		</javac>
+		<jar jarfile="${dist}/gs.jar" basedir="${build2}" manifest="${src}/MANIFEST.MF" />
+
+		<!--生成xbean.jar,用于倒库-->
+		<copy overwrite="true" todir="${build3}/xbean">
+			<fileset dir="${build2}/xbean">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy overwrite="true" todir="${build3}/xtable">
+			<fileset dir="${build2}/xtable">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+
+		<jar jarfile="${dist}/xbean.jar" basedir="${build3}" />
+
+
+
+
+	</target>
+
+
+	<target name="dist" depends="compiledist,obfuscate">
+		<!--不再生成编译版本gsdebug.jar-->
+	</target>
+
+	<!--混淆代码-->
+	<target name="obfuscate">
+		<taskdef resource="proguard/ant/task.properties"
+	           classpath="lib/proguard.jar" />
+
+		<proguard configuration="applications.pro" />
+
+
+
+	</target>
+
+	<!--生成hotdeploy.jar  如果需要可以在dist里面加入，需要加在代码混淆之前，把需要热更新的代码达成jar包-->
+	<target name="hotdeploy">
+		<copy overwrite="true" todir="${build4}/fire/pb/msg" file="${build2}/fire/pb/msg/CSendChatMsg2.class" />
+		<copy overwrite="true" todir="${build4}/fire/pb" file="${build2}/fire/pb/PAddExpProc2.class" />
+		<jar jarfile="${dist}/hotdeploy1.jar" basedir="${build4}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${build2}" />
+		<delete dir="${build3}" />
+		<delete dir="${build4}" />
+		<delete dir="${dist}" />
+	</target>
+
+
+	<target name="updateManifest" >
+		<manifest file="src/MANIFEST.MF">
+			<attribute name="Built-By" value="${user.name}"/>
+			<attribute name="Main-Class" value="fire.pb.main.Gs"/>
+			<attribute name="Specification-Title" value="pb"/>
+			<attribute name="Specification-Version" value="${version}"/>
+			<attribute name="Specification-Vendor" value="locojoy.inc."/>
+			<attribute name="Implementation-Title" value="pb"/>
+			<attribute name="Implementation-Version" value="${version}"/>
+			<attribute name="Implementation-Vendor" value="locojoy.inc."/>
+		</manifest>
+	</target>
+
+
+</project>

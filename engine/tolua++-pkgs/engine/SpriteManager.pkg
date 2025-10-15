@@ -1,0 +1,156 @@
+namespace Nuclear
+{
+	class HorseHeight
+	{
+	public:
+		bool Load(NuclearFileIOManager* pFileIOMan, const std::wstring &modelname);
+		bool Save(NuclearFileIOManager* pFileIOMan, const std::wstring &modelname) const;
+		int GetHeight(const std::wstring &horsename); 
+		void SetHeight(const std::wstring &horsename, int height);
+	};
+
+	struct SpriteSoundParam
+	{
+		std::wstring soundname;
+		unsigned char vol;
+		unsigned char freq;
+		SpriteSoundParam(); 
+	};
+
+	struct ModelSoundParam
+	{
+		int keyComponentID;
+		ModelSoundParam();
+		void ClearSoundMap(); 
+	};
+
+	class ActionType
+	{
+	public:
+		ActionType() ;
+		virtual ~ActionType(void) ;
+		void Init(NuclearFileIOManager* pFileIOMan); 
+		bool Load();
+		ActionTypeFlag GetActionType(const std::wstring &name);
+	};
+
+	class Action 
+	{
+	public:
+		Action();
+		int GetLineFrame(int seq);
+		void SetDir(int dir);
+		void ClearDir(int dir);
+		bool TestDir(int dir);
+		int GetDirMask() ;
+		void SetEquip(int ec);
+		void ClearEquip(int ec);
+		bool TestEquip(int ec); 
+		int GetEquipMask();
+		void SetEquipMask(int m);
+		bool IsInd();
+		void SetInd(bool f);
+		void SetFrameLink(int seq, const std::wstring &n, int f);
+		void SetFrameOrder(int seq, int dir, const int *ec, int size);
+		void GetFrameOrder(int seq, int dir, int *ec, int size) const;
+		float GetFrameStartTime(int seq);
+		void SetFrameStartTime(int seq, float t);
+		void SetFrameTime(int seq, int t);
+		int GetFrameTime(int seq);
+		int GetFrameCount();
+		int GetStride (); 
+		int GetTime(); 
+		void SetTime(int nTime);
+		int GetEffectPoint(); 
+		int GetDamagePoint();
+		void SetDamagePoint(int p);
+		void SetEffectPoint(int p);
+		void SetStride(int stride);
+		void SetFrameCount(int n );
+		const NuclearRect& GetBoundingBox(int dir);
+		void SetBoundingBox(int dir, const NuclearRect& rect);
+		bool IsValid();
+	};
+
+	class Component
+	{
+	public:
+		Component(EngineBase *pEB);
+		Component(EngineBase *pEB, int layer, const std::wstring &name);
+		Component(EngineBase *pEB, int layer, const std::wstring &name, const std::wstring &linkname) ; 
+		~Component();
+		void Release();
+		bool IsInSegmPak();
+		void SetSegmPak(bool b);
+		int GetLayer();
+		std::wstring GetName(); 
+		const std::wstring& GetConstName();
+		virtual void OnLoadAniReady(const std::wstring &filename);
+		virtual void OnLoadAniBaseReady(const std::wstring &filename);
+		void ReleaseAction(const std::wstring &action_name);
+		void SetName(const std::wstring &name);
+		void SetLinkName(const std::wstring &linkname);
+		void DeleteAction(const std::wstring &modelname,const std::wstring &name);
+		void RenameAction(const std::wstring &modelname,const std::wstring &oldname, const std::wstring &newname, bool renamexap = true);
+
+	};
+
+	class SpriteManager
+	{
+	public:
+		struct Layer
+		{
+			std::wstring name;
+			std::wstring des;
+			bool	bRide;
+			bool	bEffect;
+			Layer();
+			Layer(const std::wstring &n, const std::wstring &d, bool r, bool e);
+		};
+		SpriteManager(EngineBase *pEB);
+		~SpriteManager();
+		std::wstring GetModelDes(const std::wstring &modelname) const;
+		void DumpModelNames(std::vector<std::wstring> &modellist) const;
+		bool DelModel(const std::wstring &modelname);
+		int GetLayerCount(const std::wstring &modelname) const;
+		std::wstring GetLayerName(const std::wstring &modelname, int i) const;
+		std::wstring GetLayerDes(const std::wstring &modelname, int i) const;
+		bool GetLayerRideEnable(const std::wstring &modelname, int i) const;
+		bool GetLayerEffectEnable(const std::wstring &modelname, int i) const;
+		int GetTitlePos(const std::wstring &modelname) const;
+		float GetModelScale(const std::wstring &modelname) const;
+		const NuclearPoint &GetEffectPos(const std::wstring &modelname) const;
+		int GetHorseHeight(const std::wstring &modelname, const std::wstring &horsename);
+		unsigned char GetActionSoundType(const std::wstring &action_name);
+		void SetActionSoundType(const std::wstring &action_name, unsigned char type);
+		const std::wstring& GetActionRef(const std::wstring &modelname, const std::wstring &actname) const;
+		bool SaveSoundParam(const std::wstring &modelname); 
+		bool SaveBase(const std::wstring &modelname);
+		bool SetTitlePos(const std::wstring &modelname, int pos); 
+		bool SetEffectPos(const std::wstring &modelname, const NuclearPoint& pos);
+		bool SetHorseHeight(const std::wstring &modelname, const std::wstring &horsename, int pos);
+		bool SetWaterSurfaceType(const std::wstring &modelname, NuclearWaterSurfaceType type); 
+		void DeleteAction2(const std::wstring &modelname, const std::wstring &name);
+		void RenameAction2(const std::wstring &modelname, const std::wstring &oldname, const std::wstring &newname, bool renamexap = true);
+		bool AddComponent(const std::wstring &modelname, const Component &equip);
+		bool DeleteComponent(const std::wstring &modelname, const Component &equip);
+		Component* GetComponent(const std::wstring &modelname, int ectype, const std::wstring &name);
+		void DumpComponent(const std::wstring &modelname, int ectype, std::vector<std::wstring> &equiplist) const; 
+		void RenameComponent(const std::wstring &modelname, const std::wstring &oldname, const std::wstring &newname);
+		ModelSoundParam &GetSoundParam(const std::wstring &modelname); 
+		const ModelSoundParam &GetSoundParam(const std::wstring &modelname) const;
+
+		const Action* GetAction(const std::wstring &modelname, const std::wstring &actName) const;
+		void SetAction(const std::wstring &modelname, const std::wstring &actName, const Action& act); 
+		bool SaveActions(const std::wstring &modelname) const; 
+		bool AddAction(const std::wstring &modelname, const std::wstring &name, const Action &act);
+		bool DeleteAction(const std::wstring &modelname, const std::wstring &name); 
+		bool RenameAction(const std::wstring &modelname, const std::wstring &oldname, const std::wstring &newname); 
+		void DumpAction(const std::wstring &modelname, std::vector<std::wstring> &actlist) const; 
+		bool PreInit();
+		bool PostInit();
+		bool SaveModels();
+		size_t GetInitCount() ;
+	};
+
+}

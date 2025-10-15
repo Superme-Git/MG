@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="lauthc" shareHome="../../../../share" pvids="">
+
+	<import file="../../gnet/gnet.xml"/>
+	<import file="infoserver.xml"/>
+
+	<state name="Client">
+		<protocol ref="gnet.ErrorInfo"/>
+		<protocol ref="gnet.KeepAlive"/>
+		<protocol ref="gnet.Challenge"/>
+		<protocol ref="gnet.Response"/>
+		<protocol ref="gnet.KeyExchange"/>
+		<protocol ref="gnet.OnlineAnnounce"/>
+		<protocol ref="gnet.MatrixChallenge"/>
+		<protocol ref="gnet.MatrixResponse"/>
+		<protocol ref="gnet.AddictionControl"/>
+		<protocol ref="gnet.AnnounceForbidInfo"/>
+		<protocol ref="gnet.InstantAddCashReq"/>
+		<protocol ref="gnet.InstantAddCashRep"/>
+		<protocol ref="gnet.GetUserCouponReq"/>
+		<protocol ref="gnet.GetUserCouponRep"/>
+		<protocol ref="gnet.CouponExchangeReq"/>
+		<protocol ref="gnet.CouponExchangeRep"/>
+		<protocol ref="gnet.PortForward"/>
+		<bean ref="gnet.GPair"/>
+		<bean ref="gnet.RoleForbid"/>
+	</state>
+
+	<state name="InfoServer">
+		<protocol ref="infoserver.CGetServerInfo"/>
+		<protocol ref="infoserver.SGetServerInfo"/>
+		<!-- bean ref="infoserver.ServerInfos"/ -->
+	</state>
+
+	<service name="lauthc">
+		<manager name="LinkClient" type="client" initstate="Client" port="29000"/>
+		<manager name="InfoServer" type="server" initstate="InfoServer" port="27000"/>
+	</service>
+</application>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议从32501开始 -->
+<namespace name="lock">
+	
+	  <protocol name="CReqLockInfo" type="32501" maxsize="65535"  prior="1" tolua="3" >  客户端请求角色安全锁信息
+		</protocol>
+
+		<protocol name="CReqAddLock" type="32502" maxsize="65535"  prior="1" tolua="3" >  客户端请求设置安全锁
+			<variable name="password" type="string" /> 密码
+		</protocol>
+
+	  <protocol name="CReqUnlock" type="32503" maxsize="65535"  prior="1" tolua="3" >  客户端请求解锁
+			<variable name="password" type="string" /> 密码
+		</protocol>
+
+		<protocol name="CReqForceUnlock" type="32504" maxsize="65535"  prior="1" tolua="3">  客户端请求强行解锁
+		</protocol>
+
+		<protocol name="CReqChangePassword" type="32505" maxsize="65535"  prior="1" tolua="3">  客户端请求修改密码
+			<variable name="oldPassword" type="string" /> 旧密码
+			<variable name="newPassword" type="string" /> 新密码
+		</protocol>
+
+		<protocol name="CReqCancelLock" type="32506" maxsize="65535"  prior="1" tolua="3" >  客户端请求取消安全锁
+			<variable name="password" type="string" /> 密码
+		</protocol>
+
+		<protocol name="SLockInfo" type="32507" maxsize="65535"  prior="1" tolua="3" >  服务器返回角色安全锁信息
+		  <variable name="status" type="int" /> 安全锁状态0未设置安全锁1未解锁2已解锁
+		</protocol>
+
+		<protocol name="SNeedUnlock" type="32508" maxsize="65535"  prior="1" tolua="3">  服务器通知客户端需要解锁
+		</protocol>
+
+		<protocol name="SAddLockSuc" type="32509" maxsize="65535"  prior="1" tolua="3">  服务器通知客户端设置安全锁成功
+		</protocol>
+
+		<protocol name="SUnlockSuc" type="32510" maxsize="65535"  prior="1" tolua="3">  服务器通知客户端解锁成功
+		</protocol>
+
+		<protocol name="SCancelLockSuc" type="32511" maxsize="65535"  prior="1" tolua="3">  服务器通知客户端取消安全锁成功
+		</protocol>
+
+		<protocol name="SForceUnlockSuc" type="32512" maxsize="65535"  prior="1" tolua="3">  服务器通知客户端申请强行解锁成功
+		</protocol>
+
+		<protocol name="SChangePasswordSuc" type="32513" maxsize="65535"  prior="1" tolua="3">  服务器通知客户端修改密码成功
+		</protocol>
+
+		<protocol name="SUpdateLockInfo" type="32514" maxsize="65535"  prior="1" tolua="3" >  服务器返回更新的角色安全锁信息
+		  <variable name="status" type="int" /> 安全锁状态0未设置安全锁1未解锁2已解锁
+		</protocol>
+	 
+</namespace>

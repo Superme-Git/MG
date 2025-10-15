@@ -1,0 +1,90 @@
+
+class TeamManager
+{
+	CBroadcastEvent<NoParam> 	EventApplicantChange;
+	CBroadcastEvent<NoParam> 	EventTeamListChange;
+	CBroadcastEvent<NoParam> 	EventMemberDataRefresh;
+	CBroadcastEvent<NoParam>	EventTeamSettingChange;
+	CBroadcastEvent<NoParam>	EventAutoMatchChange;
+	CEvent<int64_t>             EventMemberComponentChange;
+	CEvent<int64_t>             EventMemberStateChange;
+
+	int GetTeamFormationID();
+
+	int64_t GetTeamID();
+	int GetTeamMemberNum();
+	void AddTeamMember(stTeamMember* pData);
+	void RemoveTeamMember(int64_t id);
+	void UpdateMemberState(int64_t id,int state);
+	void UpdateMemberLevel(int64_t id,int level);
+	void UpdateMemberHpMp(int64_t id,int Hp,int Mp);
+	void UpdateMemberMaxHpMp(int64_t id,int maxHp,int maxMp);
+	void UpdateMemberPosition(int64_t id,Nuclear::NuclearLocation loc,int64_t sceneid);
+	void ClearTeamApplicantList();
+	void ClearTeamMemberList();
+	void DismissTeam();
+	void SetTeamLeader(int64_t leaderid);
+	bool IsTeamFull();
+	bool IsOnTeam();
+	bool IsMyselfLeader();
+	bool IsHaveOffLineMember();
+	bool IsHaveAbsentMember();
+	stTeamMember* GetTeamMemberByID(int64_t id);
+	int64_t GetTeamMemberIndexByID(int64_t id);
+	bool IsAlreadyInviteCharacter(int64_t roleid);
+	void AddAlreadyInviterInfo(int64_t roleid);
+	bool isOffLineByRoleid(int64_t roleId);
+	void RequestCreateTeam();
+
+	void RequestJoinOneTeam(int64_t roleid);
+	void RequestInviteToMyTeam(int64_t roleid);
+	void RequestAcceptToMyTeam(int64_t roleid);
+	void RequestRemoveTeamApply(int64_t roleid);
+	void RequestSwapMember(int index1,int index2);
+	void RequestExpelMember(int index);
+	void RequestSetLeader(int index);
+	void RequestCallbackMember(long memberId);
+	void RequestAbsentReturnTeam(bool absent);
+	void SetReturnTeamWalk();
+	void RequestQuitTeam();
+	void RequestDismissTeam();
+	void SwapMember(int index1,int index2);
+	void ClearInviterList();
+	bool IsIndexValid(int index);
+	stTeamMember* GetMemberSelf();
+	stTeamMember* GetTeamLeader();
+	bool isAbsentByRoleid(int64_t roleId);
+	int GetMemberNum();
+	stTeamMember* GetMember(int num);
+	std::vector<stTeamMember*>& GetMemberList();
+	int GetApplicationNum();
+	stApplyMember* GetApplication(int num);
+	void AddApplicant(stApplyMember* pData);
+	void RemoveApplicant(int64_t id);
+
+	std::vector<stApplyMember*>& GetApplicantList();
+	void ShowErrorInfo(int errortype);
+	void CreateTeam(int64_t teamid,int state = 0,int smapid = 0,int formationid = 0);
+	
+	stTeamMatchInfo* GetTeamMatchInfo();
+	bool IsMatching();
+	void RequestTeamMatch(int matchtype, int targetId, int minlevel, int maxlevel);
+	void StopTeamMatch();
+	bool CanIMove();
+
+	void recvStopTeamMatch();
+	void ForceRequestInviteToMyTeam(int64_t roleid);
+	void SetTeamMatchInfo(int targetid, int minlevel, int maxlevel);
+	void StartTeamMatch();
+	void DoAbsentReturnTeam(); //询问后归队
+
+	bool isMyselfAbsent(); //判断自己是否暂离
+    void AskIfAcceptJoinTeam(std::wstring leadername, int level, int64_t leaderID = 0);
+	void AskIfAcceptBeCallback(int64_t leaderid);
+	
+	void RemoveWhenInviterJoin(int64_t roleid);
+	void UpdateMemberSpeed();
+};	
+	
+
+inline TeamManager* GetTeamManager();

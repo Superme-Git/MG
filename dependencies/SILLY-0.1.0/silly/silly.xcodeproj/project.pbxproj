@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7BEA259216DDBA1100046875 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEA259116DDBA1100046875 /* Foundation.framework */; };
+		7BEA259716DDBA1100046875 /* silly.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7BEA259616DDBA1100046875 /* silly.h */; };
+		7BEA259916DDBA1100046875 /* silly.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA259816DDBA1100046875 /* silly.m */; };
+		7BEA25F616DDBA5B00046875 /* SILLYJPGImageContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25E716DDBA5B00046875 /* SILLYJPGImageContext.cpp */; };
+		7BEA25F716DDBA5B00046875 /* SILLYJPGImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25E816DDBA5B00046875 /* SILLYJPGImageLoader.cpp */; };
+		7BEA25F816DDBA5B00046875 /* SILLYPNGImageContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25E916DDBA5B00046875 /* SILLYPNGImageContext.cpp */; };
+		7BEA25F916DDBA5B00046875 /* SILLYPNGImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25EA16DDBA5B00046875 /* SILLYPNGImageLoader.cpp */; };
+		7BEA25FA16DDBA5B00046875 /* SILLYTGAImageContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25EB16DDBA5B00046875 /* SILLYTGAImageContext.cpp */; };
+		7BEA25FB16DDBA5B00046875 /* SILLYTGAImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25EC16DDBA5B00046875 /* SILLYTGAImageLoader.cpp */; };
+		7BEA25FC16DDBA5B00046875 /* SILLYDataSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25EF16DDBA5B00046875 /* SILLYDataSource.cpp */; };
+		7BEA25FD16DDBA5B00046875 /* SILLYFileDataSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25F016DDBA5B00046875 /* SILLYFileDataSource.cpp */; };
+		7BEA25FE16DDBA5B00046875 /* SILLYImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25F116DDBA5B00046875 /* SILLYImage.cpp */; };
+		7BEA25FF16DDBA5B00046875 /* SILLYImageContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25F216DDBA5B00046875 /* SILLYImageContext.cpp */; };
+		7BEA260016DDBA5B00046875 /* SILLYImageLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25F316DDBA5B00046875 /* SILLYImageLoader.cpp */; };
+		7BEA260116DDBA5B00046875 /* SILLYImageLoaderManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25F416DDBA5B00046875 /* SILLYImageLoaderManager.cpp */; };
+		7BEA260216DDBA5B00046875 /* SILLYMemoryDataSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BEA25F516DDBA5B00046875 /* SILLYMemoryDataSource.cpp */; };
+		7BEA264716DDBDA300046875 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEA259116DDBA1100046875 /* Foundation.framework */; };
+		7BEA276316DDBE8500046875 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		7BEA276416DDBE8500046875 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7BEA258C16DDBA1100046875 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				7BEA259716DDBA1100046875 /* silly.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BEA264416DDBDA300046875 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BEA26CA16DDBE2300046875 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7BEA258E16DDBA1100046875 /* libsilly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsilly.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BEA259116DDBA1100046875 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7BEA259516DDBA1100046875 /* silly-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "silly-Prefix.pch"; sourceTree = "<group>"; };
+		7BEA259616DDBA1100046875 /* silly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = silly.h; sourceTree = "<group>"; };
+		7BEA259816DDBA1100046875 /* silly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = silly.m; sourceTree = "<group>"; };
+		7BEA25A016DDBA1200046875 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		7BEA25A216DDBA1200046875 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		7BEA25C316DDBA5100046875 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		7BEA25D316DDBA5100046875 /* SILLY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLY.h; sourceTree = "<group>"; };
+		7BEA25D416DDBA5100046875 /* SILLYBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYBase.h; sourceTree = "<group>"; };
+		7BEA25D516DDBA5100046875 /* SILLYDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYDataSource.h; sourceTree = "<group>"; };
+		7BEA25D716DDBA5100046875 /* SILLYFileDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYFileDataSource.h; sourceTree = "<group>"; };
+		7BEA25D916DDBA5100046875 /* SILLYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYImage.h; sourceTree = "<group>"; };
+		7BEA25DB16DDBA5100046875 /* SILLYImageContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYImageContext.h; sourceTree = "<group>"; };
+		7BEA25DD16DDBA5100046875 /* SILLYImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYImageLoader.h; sourceTree = "<group>"; };
+		7BEA25DF16DDBA5100046875 /* SILLYImageLoaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYImageLoaderManager.h; sourceTree = "<group>"; };
+		7BEA25E116DDBA5100046875 /* SILLYMemoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYMemoryDataSource.h; sourceTree = "<group>"; };
+		7BEA25E316DDBA5100046875 /* SILLYOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SILLYOptions.h; sourceTree = "<group>"; };
+		7BEA25E716DDBA5B00046875 /* SILLYJPGImageContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYJPGImageContext.cpp; sourceTree = "<group>"; };
+		7BEA25E816DDBA5B00046875 /* SILLYJPGImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYJPGImageLoader.cpp; sourceTree = "<group>"; };
+		7BEA25E916DDBA5B00046875 /* SILLYPNGImageContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYPNGImageContext.cpp; sourceTree = "<group>"; };
+		7BEA25EA16DDBA5B00046875 /* SILLYPNGImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYPNGImageLoader.cpp; sourceTree = "<group>"; };
+		7BEA25EB16DDBA5B00046875 /* SILLYTGAImageContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYTGAImageContext.cpp; sourceTree = "<group>"; };
+		7BEA25EC16DDBA5B00046875 /* SILLYTGAImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYTGAImageLoader.cpp; sourceTree = "<group>"; };
+		7BEA25EF16DDBA5B00046875 /* SILLYDataSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYDataSource.cpp; sourceTree = "<group>"; };
+		7BEA25F016DDBA5B00046875 /* SILLYFileDataSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYFileDataSource.cpp; sourceTree = "<group>"; };
+		7BEA25F116DDBA5B00046875 /* SILLYImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYImage.cpp; sourceTree = "<group>"; };
+		7BEA25F216DDBA5B00046875 /* SILLYImageContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYImageContext.cpp; sourceTree = "<group>"; };
+		7BEA25F316DDBA5B00046875 /* SILLYImageLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYImageLoader.cpp; sourceTree = "<group>"; };
+		7BEA25F416DDBA5B00046875 /* SILLYImageLoaderManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYImageLoaderManager.cpp; sourceTree = "<group>"; };
+		7BEA25F516DDBA5B00046875 /* SILLYMemoryDataSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SILLYMemoryDataSource.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7BEA258B16DDBA1100046875 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BEA276316DDBE8500046875 /* (null) in Frameworks */,
+				7BEA276416DDBE8500046875 /* (null) in Frameworks */,
+				7BEA259216DDBA1100046875 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BEA264316DDBDA300046875 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BEA264716DDBDA300046875 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BEA26C916DDBE2300046875 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7BEA258316DDBA1100046875 = {
+			isa = PBXGroup;
+			children = (
+				7BEA259316DDBA1100046875 /* silly */,
+				7BEA259016DDBA1100046875 /* Frameworks */,
+				7BEA258F16DDBA1100046875 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7BEA258F16DDBA1100046875 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA258E16DDBA1100046875 /* libsilly.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BEA259016DDBA1100046875 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA259116DDBA1100046875 /* Foundation.framework */,
+				7BEA25A016DDBA1200046875 /* SenTestingKit.framework */,
+				7BEA25A216DDBA1200046875 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7BEA259316DDBA1100046875 /* silly */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA25E516DDBA5B00046875 /* src */,
+				7BEA25C216DDBA5100046875 /* include */,
+				7BEA259616DDBA1100046875 /* silly.h */,
+				7BEA259816DDBA1100046875 /* silly.m */,
+				7BEA259416DDBA1100046875 /* Supporting Files */,
+			);
+			path = silly;
+			sourceTree = "<group>";
+		};
+		7BEA259416DDBA1100046875 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA259516DDBA1100046875 /* silly-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7BEA25C216DDBA5100046875 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA25C316DDBA5100046875 /* config.h */,
+				7BEA25D316DDBA5100046875 /* SILLY.h */,
+				7BEA25D416DDBA5100046875 /* SILLYBase.h */,
+				7BEA25D516DDBA5100046875 /* SILLYDataSource.h */,
+				7BEA25D716DDBA5100046875 /* SILLYFileDataSource.h */,
+				7BEA25D916DDBA5100046875 /* SILLYImage.h */,
+				7BEA25DB16DDBA5100046875 /* SILLYImageContext.h */,
+				7BEA25DD16DDBA5100046875 /* SILLYImageLoader.h */,
+				7BEA25DF16DDBA5100046875 /* SILLYImageLoaderManager.h */,
+				7BEA25E116DDBA5100046875 /* SILLYMemoryDataSource.h */,
+				7BEA25E316DDBA5100046875 /* SILLYOptions.h */,
+			);
+			name = include;
+			path = ../../include;
+			sourceTree = "<group>";
+		};
+		7BEA25E516DDBA5B00046875 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA25E616DDBA5B00046875 /* loaders */,
+				7BEA25EF16DDBA5B00046875 /* SILLYDataSource.cpp */,
+				7BEA25F016DDBA5B00046875 /* SILLYFileDataSource.cpp */,
+				7BEA25F116DDBA5B00046875 /* SILLYImage.cpp */,
+				7BEA25F216DDBA5B00046875 /* SILLYImageContext.cpp */,
+				7BEA25F316DDBA5B00046875 /* SILLYImageLoader.cpp */,
+				7BEA25F416DDBA5B00046875 /* SILLYImageLoaderManager.cpp */,
+				7BEA25F516DDBA5B00046875 /* SILLYMemoryDataSource.cpp */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		7BEA25E616DDBA5B00046875 /* loaders */ = {
+			isa = PBXGroup;
+			children = (
+				7BEA25E716DDBA5B00046875 /* SILLYJPGImageContext.cpp */,
+				7BEA25E816DDBA5B00046875 /* SILLYJPGImageLoader.cpp */,
+				7BEA25E916DDBA5B00046875 /* SILLYPNGImageContext.cpp */,
+				7BEA25EA16DDBA5B00046875 /* SILLYPNGImageLoader.cpp */,
+				7BEA25EB16DDBA5B00046875 /* SILLYTGAImageContext.cpp */,
+				7BEA25EC16DDBA5B00046875 /* SILLYTGAImageLoader.cpp */,
+			);
+			path = loaders;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7BEA258D16DDBA1100046875 /* silly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BEA25B316DDBA1200046875 /* Build configuration list for PBXNativeTarget "silly" */;
+			buildPhases = (
+				7BEA258A16DDBA1100046875 /* Sources */,
+				7BEA258B16DDBA1100046875 /* Frameworks */,
+				7BEA258C16DDBA1100046875 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = silly;
+			productName = silly;
+			productReference = 7BEA258E16DDBA1100046875 /* libsilly.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7BEA264516DDBDA300046875 /* jpeg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BEA266416DDBDA300046875 /* Build configuration list for PBXNativeTarget "jpeg" */;
+			buildPhases = (
+				7BEA264316DDBDA300046875 /* Frameworks */,
+				7BEA264416DDBDA300046875 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = jpeg;
+			productName = jpeg;
+			productType = "com.apple.product-type.library.static";
+		};
+		7BEA26CB16DDBE2300046875 /* png */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BEA26D516DDBE2300046875 /* Build configuration list for PBXNativeTarget "png" */;
+			buildPhases = (
+				7BEA26C816DDBE2300046875 /* Sources */,
+				7BEA26C916DDBE2300046875 /* Frameworks */,
+				7BEA26CA16DDBE2300046875 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = png;
+			productName = png;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BEA258516DDBA1100046875 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = sunwenming;
+			};
+			buildConfigurationList = 7BEA258816DDBA1100046875 /* Build configuration list for PBXProject "silly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7BEA258316DDBA1100046875;
+			productRefGroup = 7BEA258F16DDBA1100046875 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BEA258D16DDBA1100046875 /* silly */,
+				7BEA264516DDBDA300046875 /* jpeg */,
+				7BEA26CB16DDBE2300046875 /* png */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7BEA258A16DDBA1100046875 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BEA259916DDBA1100046875 /* silly.m in Sources */,
+				7BEA25F616DDBA5B00046875 /* SILLYJPGImageContext.cpp in Sources */,
+				7BEA25F716DDBA5B00046875 /* SILLYJPGImageLoader.cpp in Sources */,
+				7BEA25F816DDBA5B00046875 /* SILLYPNGImageContext.cpp in Sources */,
+				7BEA25F916DDBA5B00046875 /* SILLYPNGImageLoader.cpp in Sources */,
+				7BEA25FA16DDBA5B00046875 /* SILLYTGAImageContext.cpp in Sources */,
+				7BEA25FB16DDBA5B00046875 /* SILLYTGAImageLoader.cpp in Sources */,
+				7BEA25FC16DDBA5B00046875 /* SILLYDataSource.cpp in Sources */,
+				7BEA25FD16DDBA5B00046875 /* SILLYFileDataSource.cpp in Sources */,
+				7BEA25FE16DDBA5B00046875 /* SILLYImage.cpp in Sources */,
+				7BEA25FF16DDBA5B00046875 /* SILLYImageContext.cpp in Sources */,
+				7BEA260016DDBA5B00046875 /* SILLYImageLoader.cpp in Sources */,
+				7BEA260116DDBA5B00046875 /* SILLYImageLoaderManager.cpp in Sources */,
+				7BEA260216DDBA5B00046875 /* SILLYMemoryDataSource.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BEA26C816DDBE2300046875 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7BEA25B116DDBA1200046875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7BEA25B216DDBA1200046875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					NDEBUG,
+				);
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BEA25B416DDBA1200046875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DSTROOT = "";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "silly/silly-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					../include,
+					../../jpeg/include/ios,
+					../../png/include/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7BEA25B516DDBA1200046875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DSTROOT = "";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "silly/silly-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					../include,
+					../../jpeg/include/ios,
+					../../png/include/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7BEA266516DDBDA300046875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DSTROOT = /tmp/jpeg.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jpeg/jpeg-Prefix.pch";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7BEA266616DDBDA300046875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DSTROOT = /tmp/jpeg.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jpeg/jpeg-Prefix.pch";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7BEA26D616DDBE2300046875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DSTROOT = /tmp/png.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "png/png-Prefix.pch";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7BEA26D716DDBE2300046875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DSTROOT = /tmp/png.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "png/png-Prefix.pch";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7BEA258816DDBA1100046875 /* Build configuration list for PBXProject "silly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BEA25B116DDBA1200046875 /* Debug */,
+				7BEA25B216DDBA1200046875 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BEA25B316DDBA1200046875 /* Build configuration list for PBXNativeTarget "silly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BEA25B416DDBA1200046875 /* Debug */,
+				7BEA25B516DDBA1200046875 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BEA266416DDBDA300046875 /* Build configuration list for PBXNativeTarget "jpeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BEA266516DDBDA300046875 /* Debug */,
+				7BEA266616DDBDA300046875 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BEA26D516DDBE2300046875 /* Build configuration list for PBXNativeTarget "png" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BEA26D616DDBE2300046875 /* Debug */,
+				7BEA26D716DDBE2300046875 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BEA258516DDBA1100046875 /* Project object */;
+}

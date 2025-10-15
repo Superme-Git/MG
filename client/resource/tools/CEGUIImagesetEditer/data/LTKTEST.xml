@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Imageset Name="LTKTest" Imagefile="data\TaharezLook.tga" >
+    <Image Name="BUTTON" XPos="0" YPos="1" Width="69" Height="67" />
+</Imageset>

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="circletask">
+		
+		<bean name="CSpecialQuestConfig" from="r任务相关/r任务追踪配置" genxml="client" gencode="mtlua">
+			  <variable name="id"  fromCol="ID" type="int" />
+			  <variable name="questname" fromCol="任务面板名称"  type="string"  />  
+			  <variable name="name" fromCol="任务名称"  type="string"  />  
+			  <variable name="aim" fromCol="任务目标"  type="string"  />  
+			  <variable name="discribe" fromCol="任务描述"  type="string"  /> 
+			  <variable name="tracname" fromCol="追踪显示任务名"  type="string"  />  
+			  <variable name="tracdiscribe" fromCol="追踪描述"  type="string"  />
+			  <variable name="tasknumber" fromCol="任务编号"  type="int"  />
+		</bean>
+		
+		<!--<bean name="BuyDest">
+			<variable name="itemid" type="int" fromCol="目的道具1,目的道具2,目的道具3,目的道具4,目的道具5,目的道具6,目的道具7,目的道具8,目的道具9,目的道具10,目的道具11,目的道具12,目的道具13,目的道具14,目的道具15,目的道具16,目的道具17,目的道具18,目的道具19,目的道具20,目的道具21,目的道具22,目的道具23,目的道具24,目的道具25" />
+			<variable name="rate" type="int" fromCol="概率1,概率2,概率3,概率4,概率5,概率6,概率7,概率8,概率9,概率10,概率11,概率12,概率13,概率14,概率15,概率16,概率17,概率18,概率19,概率20,概率21,概率22,概率23,概率24,概率25" />
+		</bean>
+
+		<bean name="CatchDest">
+			<variable name="petid" type="int" fromCol="守护1,守护2,守护3,守护4,守护5,守护6,守护7,守护8,守护9,守护10,守护11,守护12,守护13,守护14,守护15,守护16,守护17,守护18,守护19,守护20,守护21,守护22,守护23,守护24,守护25,守护26,守护27,守护28,守护29,守护30,守护31,守护32,守护33,守护34,守护35" />
+			<variable name="rate" type="int" fromCol="概率1,概率2,概率3,概率4,概率5,概率6,概率7,概率8,概率9,概率10,概率11,概率12,概率13,概率14,概率15,概率16,概率17,概率18,概率19,概率20,概率21,概率22,概率23,概率24,概率25,概率26,概率27,概率28,概率29,概率30,概率31,概率32,概率33,概率34,概率35" />
+			<variable name="mapid" type="int" fromCol="地图1,地图2,地图3,地图4,地图5,地图6,地图7,地图8,地图9,地图10,地图11,地图12,地图13,地图14,地图15,地图16,地图17,地图18,地图19,地图20,地图21,地图22,地图23,地图24,地图25,地图26,地图27,地图28,地图29,地图30,地图31,地图32,地图33,地图34,地图35" />
+		</bean>-->
+		
+	
+		
+	<!-- 师门任务 巡逻怪的配置-->
+		<!--<bean name="mmonsterinfo">
+			<variable name="npcid" type="int" fromCol="主怪1,主怪2,主怪3,主怪4,主怪5,主怪6,主怪7,主怪8,主怪9,主怪10,主怪11,主怪12,主怪13,主怪14,主怪15,主怪16,主怪17,主怪18,主怪19,主怪20,主怪21,主怪22,主怪23,主怪24,主怪25,主怪26,主怪27,主怪28,主怪29,主怪30" />
+			<variable name="rate" type="int" fromCol="主怪1概率,主怪2概率,主怪3概率,主怪4概率,主怪5概率,主怪6概率,主怪7概率,主怪8概率,主怪9概率,主怪10概率,主怪11概率,主怪12概率,主怪13概率,主怪14概率,主怪15概率,主怪16概率,主怪17概率,主怪18概率,主怪19概率,主怪20概率,主怪21概率,主怪22概率,主怪23概率,主怪24概率,主怪25概率,主怪26概率,主怪27概率,主怪28概率,主怪29概率,主怪30概率" />
+		</bean>
+		<bean name="lmonsterinfo">
+			<variable name="npcid" type="int" fromCol="喽啰1,喽啰2,喽啰3,喽啰4,喽啰5,喽啰6,喽啰7,喽啰8,喽啰9,喽啰10,喽啰11,喽啰12,喽啰13,喽啰14,喽啰15,喽啰16,喽啰17,喽啰18,喽啰19,喽啰20,喽啰21,喽啰22,喽啰23,喽啰24,喽啰25,喽啰26,喽啰27,喽啰28,喽啰29,喽啰30" />
+			<variable name="rate" type="int" fromCol="喽啰1概率,喽啰2概率,喽啰3概率,喽啰4概率,喽啰5概率,喽啰6概率,喽啰7概率,喽啰8概率,喽啰9概率,喽啰10概率,喽啰11概率,喽啰12概率,喽啰13概率,喽啰14概率,喽啰15概率,喽啰16概率,喽啰17概率,喽啰18概率,喽啰19概率,喽啰20概率,喽啰21概率,喽啰22概率,喽啰23概率,喽啰24概率,喽啰25概率,喽啰26概率,喽啰27概率,喽啰28概率,喽啰29概率,喽啰30概率" />
+		</bean>-->
+	
+		<bean name="DemonstrateDefaultMonster" from="q切磋职业" genxml="server">
+			<variable name="id" type="int" fromCol="职业" />
+			<variable name="npcid" type="int" fromCol="职业NPC" />
+			<variable name="mapid" type="int" fromCol="职业地图" />
+			<variable name="schoolname" type="string" fromCol="职业名字" />
+		</bean>
+		
+		<bean name="PVPScoreAwardConfig" from="PVP/PVP积分奖励表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 
+			<variable name="score" type="int" fromCol="积分"/> 
+			<variable name="score2" type="int" fromCol="积分2"/> 
+			<variable name="win" type="int" fromCol="胜者积分增加"/> 
+			<variable name="lose" type="int" fromCol="负者积分增加"/> 
+			<variable name="adwin" type="int" fromCol="高等级获胜衰减"/> 
+			<variable name="adlose" type="int" fromCol="高等级负衰减"/> 
+			<variable name="diswin" type="int" fromCol="低等级胜增益"/> 
+			<variable name="dislose" type="int" fromCol="低等级负增益"/> 
+		</bean>
+		
+		<bean name="SPVP1MapConfig" from="PVP/PVP1地图表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 
+			<variable name="lev1" type="int" fromCol="等级1"/> 
+			<variable name="lev2" type="int" fromCol="等级2"/> 
+			<variable name="map" type="int" fromCol="地图"/> 
+		</bean>
+		
+		<bean name="PVPMatchTimeConfig" from="PVP/PVP匹配时间对应的等级差" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 
+			<variable name="lev" type="int" fromCol="等级差"/> 
+		</bean>
+		
+		<bean name="SPVP3MapConfig" from="PVP/PVP3地图表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 
+			<variable name="level1" type="int" fromCol="等级1"/> 
+			<variable name="level2" type="int" fromCol="等级2"/> 
+			<variable name="map" type="int" fromCol="地图"/> 
+		</bean>
+
+		<bean name="PVPAwardConfig" from="PVP/PVP奖励配置" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="type" type="int" fromCol="类型"/>
+			<variable name="flag" type="int" fromCol="优胜场标记"/>
+			<variable name="level1" type="int" fromCol="等级下限"/>
+			<variable name="level2" type="int" fromCol="等级上限"/>
+			<variable name="winawardid" type="int" fromCol="战胜奖励ID"/>
+			<variable name="loseawardid" type="int" fromCol="战败奖励ID"/>
+		</bean>
+
+		<bean name="SPVP5MapConfig" from="PVP/PVP5地图表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="level1" type="int" fromCol="等级1"/>
+			<variable name="level2" type="int" fromCol="等级2"/>
+			<variable name="generalMap" type="vector" value="int" fromCol="普通阵营1地图,普通阵营2地图"/>
+			<variable name="excellentMap" type="vector" value="int" fromCol="优胜阵营1地图,优胜阵营2地图"/>
+		</bean>
+
+		<bean name="Random4AnYeMaXiTuan" from="x循环任务/x循环任务-暗夜马戏团环数概率配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+            <variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="roundmin" type="int" fromCol="环数段min" />
+			<variable name="roundmax" type="int" fromCol="环数段max" />
+			<variable name="questrate" type="string" fromCol="任务概率" />
+		</bean>
+
+        <bean name="CircTask" from="x循环任务/x循环任务总表" genxml="server">
+            <variable name="id" type="int" fromCol="循环任务总表id" /> 用于唯一标识一个任务id
+            <variable name="type" type="int" fromCol="循环任务类型" /> 循环类型,即师门、帮派、捉鬼之类
+            <variable name="levelgroup" type="int" fromCol="等级组" /> 确定一个等级组
+            <variable name="levelmin" type="int" fromCol="等级段min" />
+            <variable name="levelmax" type="int" fromCol="等级段max" />
+            <variable name="levelrate" type="int" fromCol="同等级段随机权重"/>  如果一个组里有好几个相同的等级段,则根据权重随机出一个
+            <variable name="cycle" type="int" fromCol="周期" />
+            <variable name="clearround" type="int" fromCol="环数是否清零" />
+            <variable name="round" type="int" fromCol="轮数" />
+            <variable name="ring" type="int" fromCol="环数" />
+            <variable name="totaltime" type="int" fromCol="次数" />
+            <variable name="awardtime" type="int" fromCol="奖励次数" />
+            <variable name="questrate" type="vector" value="string" fromCol="第1环,第2环,第3环,第4环,第5环,第6环,第7环,第8环,第9环,第10环" />
+
+            <variable name="doublepoint" type="int" fromCol="消耗双倍点数" />
+            <variable name="teamshare" type="int" fromCol="是否组队共享" />
+            <variable name="teamnum" type="int" fromCol="队伍人数下限" />
+            <variable name="renxing" type="int" fromCol="是否可任性" />
+            <variable name="renxingfushi" type="int" fromCol="任性符石消耗" />
+            <variable name="giveup" type="int" fromCol="是否可放弃" />
+            <variable name="teamgiveup" type="int" fromCol="解散队伍是否放弃" />
+            <variable name="giveupreset" type="int" fromCol="放弃后是否重置环数" />
+            <variable name="taskcnt" type="int" fromCol="接任务还是交任务计次" />
+            <variable name="timeover" type="int" fromCol="时间限制" />
+            <variable name="isopenaward" type="int" fromCol="是否出开奖" />
+            <variable name="openawardid" type="int" fromCol="奖励转盘ID" />
+            <variable name="openawardnum" type="int" fromCol="开奖需要任务次数" />
+
+            <variable name="specialtask" type="int" fromCol="特殊任务id" />
+            <variable name="specialtaskrate" type="int" fromCol="每轮触发特殊任务几率" />
+            <variable name="specialevent" type="string" fromCol="特殊事件ID与触发几率" />
+            <variable name="gjhuanshu" type="int" fromCol="高奖环数" />
+			<variable name="gjmsgid" type="int" fromCol="高奖任务全部完成提示" />
+            <variable name="gjaward" type="int" fromCol="高奖奖励ID" />
+            <variable name="mlgjitemaward" type="int" fromCol="每轮高奖奖励ID" />
+            <variable name="mldbitemaward" type="int" fromCol="每轮双倍点数附加奖励ID" />
+            <variable name="dbitemaward" type="int" fromCol="双倍点数附加奖励ID" />
+            <variable name="ptitemaward" type="int" fromCol="普通奖励ID" />
+            <variable name="shareaward" type="int" fromCol="共享奖励ID" />
+            <variable name="shengwangaward" type="int" fromCol="日常副本声望奖励ID" />
+
+            <variable name="extraitemaward" type="int" fromCol="额外奖励" />
+            <variable name="extraitemawardring" type="int" fromCol="额外奖励环数" />
+			<variable name="specialaward" type="int" fromCol="特殊情况奖励ID" />
+            <variable name="matchtype" fromCol="匹配奖励方式" type="int"/> 1 表示匹配个人等级 2 表示队伍平均等级
+            <variable name="awardids" fromCol="分级奖励" type="string"/> 添加根据角色等级匹配不同的奖励id
+            <variable name="shareawardids" fromCol="共享分级奖励ID" type="string"/>
+            <variable name="dbappendawardids" fromCol="双倍点数附加分级奖励" type="string"/>
+            <variable name="teamleaderaward" type="vector" value="string" fromCol="队长奖励1及概率,队长奖励2及概率,队长奖励3及概率,队长奖励4及概率,队长奖励5及概率"/>
+            <variable name="successtips" type="int" fromCol="任务领取成功提示" />
+            <variable name="alreadytips" type="int" fromCol="任务已领取提示" />
+            <variable name="maxnumtips" type="int" fromCol="任务没有剩余次数提示" />
+            <variable name="needguild" type="int" fromCol="是否需求公会" />
+            <variable name="dayauto" type="int" fromCol="是否跨天自动接取" />
+
+            <!-- <variable name="exproundlevelcoef" type="double" fromCol="经验环数等级系数" />
+            <variable name="exproundfinal" type="double" fromCol="经验环数系数" />
+            <variable name="explevelcoef" type="double" fromCol="经验等级系数" />
+            <variable name="expfinal" type="double" fromCol="经验常数" />
+            <variable name="moneyroundlevelcoef" type="double" fromCol="金钱环数等级系数" />
+            <variable name="moneyroundcoef" type="double" fromCol="金钱环数系数" />
+            <variable name="moneylevelcoef" type="double" fromCol="金钱等级系数" />
+            <variable name="moneyroundfinal" type="double" fromCol="金钱常数" />
+            <variable name="sroundlevelcoef" type="double" fromCol="公积金环数等级系数" />
+            <variable name="sroundcoef" type="double" fromCol="公积金环数系数" />
+            <variable name="slevelcoef" type="double" fromCol="公积金等级系数" />
+            <variable name="sroundfinal" type="double" fromCol="公积金常数" />
+            <variable name="petexplevelcoef" type="double" fromCol="宠物战斗经验宠物等级系数" />
+            <variable name="petexpfinal" type="double" fromCol="宠物战斗经验常数" />           
+           
+            <variable name="gjexpformula" type="string" fromCol="高奖经验公式" />
+            <variable name="gjyinbiformula" type="string" fromCol="高奖银币公式" />
+            <variable name="gjjinbiformula" type="string" fromCol="高奖金币公式" />
+            <variable name="gjpetexpformula" type="string" fromCol="高奖宠物经验公式" />
+            <variable name="dbexpformula" type="string" fromCol="双倍经验公式" />
+            <variable name="dbyinbiformula" type="string" fromCol="双倍银币公式" />
+            <variable name="dbjinbiformula" type="string" fromCol="双倍金币公式" />
+            <variable name="dbpetexpformula" type="string" fromCol="双倍宠物经验公式" />
+            <variable name="expformula" type="string" fromCol="经验公式" />
+            <variable name="silvercoinformula" type="string" fromCol="银币公式" />
+            <variable name="goldcoinformula" type="string" fromCol="金币公式" />
+            <variable name="petexpformula" type="string" fromCol="宠物经验公式" />
+            <variable name="gaojiang60" type="int" fromCol="60次高奖励触发任务" />
+            <variable name="gaojiang140" type="int" fromCol="140次高奖励触发任务" />-->
+			<variable name="activeid" type="int" fromCol="对应活动类型ID" />
+			<variable name="gaojiang1" type="int" fromCol="高奖次数1" />
+			<variable name="gaojiang1quest" type="int" fromCol="高奖次数触发任务1" />
+            <variable name="gaojiang2" type="int" fromCol="高奖次数2" />
+			<variable name="gaojiang2quest" type="int" fromCol="高奖次数触发任务2" />
+			<variable name="isoutrandom" type="int" fromCol="是否调用环数控制列" /> 0调用，1不调用
+        </bean>
+		
+		<bean name="CSchoolTask" from="x循环任务/x循环任务总表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="循环任务总表id" />
+			<variable name="type" type="int" fromCol="循环任务类型" />
+			<variable name="levelgroup" type="int" fromCol="等级组" /> 确定一个等级组
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="maxnum" type="int" fromCol="环数" />
+			<variable name="exp_round_level_coef" type="double" fromCol="经验环数等级系数" />
+			<variable name="exp_round_final" type="double" fromCol="经验环数系数" />
+			<variable name="exp_level_coef" type="double" fromCol="经验等级系数" />
+			<variable name="exp_final" type="double" fromCol="经验常数" />
+			<variable name="money_round_level_coef" type="double" fromCol="金钱环数等级系数" />	
+			<variable name="money_round_coef" type="double" fromCol="金钱环数系数" />
+			<variable name="money_level_coef" type="double" fromCol="金钱等级系数" />
+			<variable name="money_round_final" type="double" fromCol="金钱常数" />	
+			<variable name="s_round_level_coef" type="double" fromCol="公积金环数等级系数" />
+			<variable name="s_round_coef" type="double" fromCol="公积金环数系数" />
+			<variable name="s_level_coef" type="double" fromCol="公积金等级系数" />
+			<variable name="s_round_final" type="double" fromCol="公积金常数" />
+			<variable name="pet_exp_level_coef" type="double" fromCol="宠物战斗经验宠物等级系数" />
+			<variable name="pet_exp_final" type="double" fromCol="宠物战斗经验常数" />
+
+			<variable name="nautodo" type="int" fromCol="是否自动寻路" />
+			<variable name="nautonextlun" type="int" fromCol="自动领取下一轮" />
+			<variable name="nlunendmsgid" type="int" fromCol="不自动领取确定提示" />
+
+			<variable name="ngaojianground" type="int" fromCol="高奖环数" />
+			<variable name="ngaojiangmsgid" type="int" fromCol="高奖任务全部完成提示" />
+
+			<variable name="doublepoint" type="int" fromCol="消耗双倍点数" />
+
+		</bean>
+		
+		<bean name="CircTaskConf" from="x循环任务/x循环任务配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> 循环任务id(给随机用的唯一标示，不对应任务类型)
+			<variable name="strtaskname" type="string" fromCol="任务名称"/> 任务名称(提示用)
+			<variable name="cttype" type="int" fromCol="任务类型"/> 送信、使用物品之类
+			<variable name="ctgroup" type="int" fromCol="类型下组id"/> 对应到各个类型的分表使用
+			<variable name="gototype" type="int" fromCol="寻路跳转"/>
+			<variable name="autocomp" type="int" fromCol="是否自动完成"/>
+			<variable name="submitnpc" type="string" fromCol="提交任务NPC"/>
+            <variable name="awardid" type="int" fromCol="奖励" />
+            <variable name="matchtype" fromCol="匹配奖励方式" type="int"/> 1 表示匹配个人等级 2 表示队伍平均等级
+            <variable name="awardids" fromCol="分级奖励" type="string"/> 添加根据角色等级匹配不同的奖励id
+            <variable name="isrenxing" type="int" fromCol="是否可任性" />
+			<variable name="nextquest" type="int" fromCol="后置任务" />
+			<variable name="completetip" type="int" fromCol="任务完成后提示" />
+            <variable name="tasklevel" type="int" fromCol="任务难度" />
+        </bean>
+		
+		<bean name="CircTaskMailNpc" from="x循环任务/x循环任务-送信类分表" genxml="server">
+			<variable name="id" type="int" fromCol="送信类id" />
+			<variable name="ctgroup" type="int" fromCol="送信组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="npc" type="string" fromCol="npcid" />
+			<variable name="serviceid" type="int" fromCol="服务ID" />
+		</bean>
+		
+		<bean name="CircTaskItemUse" from="x循环任务/x循环任务-使用道具类分表" genxml="server">
+			<variable name="id" type="int" fromCol="使用道具类id" />
+			<variable name="ctgroup" type="int" fromCol="使用道具组" />
+			<variable name="school" type="int" fromCol="职业" />
+			
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			
+			<variable name="mapid" type="int" fromCol="地图id" />
+			<variable name="xpos" type="int" fromCol="x坐标" />
+			<variable name="ypos" type="int" fromCol="y坐标" />
+			<variable name="excurs" type="int" fromCol="偏移范围" />
+			<variable name="israndompos" type="int" fromCol="是否随机坐标" />
+			<variable name="itemid" type="int" fromCol="道具id" />
+            <variable name="hanhua" type="int" fromCol="使用道具后喊话" />            
+        </bean>
+		
+		<bean name="CSchoolUseItem" from="x循环任务/x循环任务-使用道具类分表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="使用道具类id" />
+			<variable name="nuseitemgroup" type="int" fromCol="使用道具组" />
+			<variable name="nschoolid" type="int" fromCol="职业" />
+			<variable name="nlvmin" type="int" fromCol="等级段min" />
+			<variable name="nlvmax" type="int" fromCol="等级段max" />
+			<variable name="nmapid" type="int" fromCol="地图id" />
+			<variable name="nposx" type="int" fromCol="x坐标" />
+			<variable name="nposy" type="int" fromCol="y坐标" />
+			<variable name="ndis" type="int" fromCol="偏移范围" />
+			<variable name="nrand" type="int" fromCol="是否随机坐标" />
+			<variable name="nitemid" type="int" fromCol="道具id" />
+
+		</bean>
+		
+		<bean name="CircTaskItemCollect" from="x循环任务/x循环任务-收集物品类分表" genxml="server">
+			<variable name="id" type="int" fromCol="收集物品类id" />
+			<variable name="ctgroup" type="int" fromCol="收集物品组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="mapid" type="string" fromCol="地图id" />
+			<variable name="monsterid" type="string" fromCol="怪物id" />
+			<variable name="itemid" type="int" fromCol="物品id" />
+			<variable name="itemnum" type="int" fromCol="物品数量" />
+		</bean>
+		<bean name="CCircTaskItemCollect" from="x循环任务/x循环任务-收集物品类分表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="收集物品类id" />
+			<variable name="ctgroup" type="int" fromCol="收集物品组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="mapid" type="string" fromCol="地图id" />
+			<variable name="monsterid" type="string" fromCol="怪物id" />
+			<variable name="itemid" type="int" fromCol="物品id" />
+			<variable name="itemnum" type="int" fromCol="物品数量" />
+		</bean>
+		
+
+		<bean name="CRepeatTask" from="x循环任务/x循环任务配置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" /> 
+			<variable name="eactivetype" fromCol="活动类型" type="int" />
+			<variable name="etasktype" fromCol="任务类型" type="int" />
+			<variable name="ngroupid" fromCol="类型下组id" type="int" />
+			<variable name="strtypename" fromCol="任务栏任务名称" type="string" />
+			<variable name="strtaskname" fromCol="任务名称" type="string" />
+			<variable name="strtasktitle" fromCol="任务目的" type="string" />
+			<variable name="strtaskdes" fromCol="任务描述" type="string" />
+			<variable name="strtasktitletrack" fromCol="追踪显示任务名" type="string" />
+			<variable name="strtaskdestrack" fromCol="追踪描述" type="string" />
+			<variable name="nflytype" fromCol="寻路跳转" type="int" />
+			<variable name="nautodone" fromCol="是否自动完成" type="int" />
+			<variable name="nacceptchatid" fromCol="接任务对话" type="int" />
+			<variable name="nnpcchatid" fromCol="目标NPC对话" type="int" />
+			<variable name="ncommitchatid" fromCol="交任务对话" type="int" />
+			<variable name="nacceptnpcid" fromCol="接任务npcid" type="int" />
+        </bean>
+		
+		<bean name="CRepeatTaskChat" from="x循环任务/x循环任务对话配置" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" /> 
+			<variable name="strmsg" fromCol="任务对话" type="string" />	
+        	</bean>
+
+		<bean name="CircTaskItemFind" from="x循环任务/x循环任务-寻找物品类分表" genxml="server">
+			<variable name="id" type="int" fromCol="寻找物品类id" />
+			<variable name="ctgroup" type="int" fromCol="寻找物品组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="recycleitem" type="string" fromCol="回收物品" />
+			<variable name="itemnum" type="int" fromCol="物品数量" />
+			<variable name="shopnpc" type="int" fromCol="售卖NPC" />
+			<variable name="islegend" type="int" fromCol="是否可传说" />
+			<variable name="legendtime" type="int" fromCol="传说时间限制" />
+			<variable name="legenditem" type="string" fromCol="传说发放物品" />
+			
+			<variable name="needquality" type="int" fromCol="是否需求品质" />
+			<variable name="qualitya" type="int" fromCol="品质系数" />
+			<variable name="qualityb" type="int" fromCol="品质常数" />
+            <variable name="teshu" type="int" fromCol="是否调用特殊情况奖励" />
+		</bean>
+		
+		<bean name="CCircTaskItemFind" from="x循环任务/x循环任务-寻找物品类分表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="寻找物品类id" />
+			<variable name="ctgroup" type="int" fromCol="寻找物品组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="recycleitem" type="string" fromCol="回收物品" />
+			<variable name="itemnum" type="int" fromCol="物品数量" />
+			<variable name="islegend" type="int" fromCol="是否可传说" />
+			<variable name="legendtime" type="int" fromCol="传说时间限制" />
+
+			<variable name="nneedquality" type="int" fromCol="是否需求品质" />
+			<variable name="nqualitya" type="int" fromCol="品质系数" />
+			<variable name="nqualityb" type="int" fromCol="品质常数" />            
+        </bean>
+		
+		<bean name="CircTaskItemFindLegend" from="x循环任务/x循环任务-寻找物品传说配置表" genxml="server">
+			<variable name="id" type="int" fromCol="传说次数" />
+			<variable name="weight" type="int" fromCol="权重" />
+		</bean>
+		
+		<bean name="CircTaskPatrol" from="x循环任务/x循环任务-巡逻类分表" genxml="server">
+			<variable name="id" type="int" fromCol="巡逻类id" />
+			<variable name="ctgroup" type="int" fromCol="巡逻组" />
+			<variable name="schoolid" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="mapid" type="string" fromCol="地图id" />
+			<variable name="battlecfgid" type="string" fromCol="战斗信息编号" />
+		</bean>
+		
+		<bean name="CCircTaskPatrol" from="x循环任务/x循环任务-巡逻类分表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="巡逻类id" />
+			<variable name="ctgroup" type="int" fromCol="巡逻组" />
+			<variable name="schoolid" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="mapid" type="string" fromCol="地图id" />
+			
+		</bean>
+		
+		<bean name="CircTaskPetCatch" from="x循环任务/x循环任务-寻找宠物类分表" genxml="server">
+			<variable name="id" type="int" fromCol="寻找宠物类id" />
+			<variable name="ctgroup" type="int" fromCol="寻找宠物组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="recycleitem" type="string" fromCol="回收宠物" />
+			<variable name="itemnum" type="int" fromCol="物品数量" />
+			<variable name="shopnpc" type="int" fromCol="售卖NPC" />
+		</bean>
+		<bean name="CCircTaskPetCatch" from="x循环任务/x循环任务-寻找宠物类分表" genxml="client" gencode="mtlua" >
+			<variable name="id" type="int" fromCol="寻找宠物类id" />
+			<variable name="ctgroup" type="int" fromCol="寻找宠物组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="recycleitem" type="string" fromCol="回收宠物" />
+			<variable name="itemnum" type="int" fromCol="物品数量" />
+			<variable name="shopnpc" type="int" fromCol="售卖NPC" />
+		</bean>
+		
+		<bean name="SCircTaskMonsterConfig" from="x循环任务/x循环任务-明雷类分表" genxml="server">
+			<variable name="id" type="int" fromCol="明雷类id" />
+			<variable name="group" type="int" fromCol="明雷组" />
+			<variable name="mapids" type="string" fromCol="地图id" />
+			<variable name="battleinfo" type="string" fromCol="NPCid" />			
+		</bean>
+		
+		<bean name="CircTaskKillMonster" from="x循环任务/x循环任务-杀怪类分表" genxml="server">
+			<variable name="id" type="int" fromCol="杀怪类id" />
+			<variable name="ctgroup" type="int" fromCol="杀怪组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="mapid" type="int" fromCol="地图id" />
+			<variable name="monsterids" type="string" fromCol="怪物id" />
+			<variable name="monsternum" type="int" fromCol="怪物数量" />
+		</bean>
+		
+		<bean name="CircTaskChallengeNpc" from="x循环任务/x循环任务-挑战类分表" genxml="server">
+			<variable name="id" type="int" fromCol="挑战类id" />
+			<variable name="ctgroup" type="int" fromCol="挑战组" />
+			<variable name="school" type="int" fromCol="职业" />
+			<variable name="levelmin" type="int" fromCol="等级段min" />
+			<variable name="levelmax" type="int" fromCol="等级段max" />
+			<variable name="npcid" type="string" fromCol="NPCid" />
+			<variable name="battleinfo" type="string" fromCol="战斗信息编号" />
+			<variable name="npcsrv" type="int" fromCol="挑战服务ID" />
+		</bean>
+		
+		<bean name="RenXingCircTaskCost" from="x循环任务/x循环任务-任性一下花费" genxml="server">
+			<variable name="id" type="int" fromCol="任性次数" />
+			<variable name="stonecost" type="int" fromCol="花费符石" />
+			<variable name="xiayicost" type="int" fromCol="花费声望" />
+		</bean>
+
+		<bean name="CRenXingCircTaskCost" from="x循环任务/x循环任务-任性一下花费" genxml="client"  gencode="mtlua" >
+			<variable name="id" type="int" fromCol="任性次数" />
+			<variable name="stonecost" type="int" fromCol="花费符石" />
+			<variable name="xiayicost" type="int" fromCol="花费声望" />
+		</bean>
+
+		<bean name="CircleTaskAutoAccept" from="x循环任务/x循环任务自动接取配置表" genxml="server">
+			<variable name="id" type="int" fromCol="循环任务自动接取等级" />
+			<variable name="circletype" type="int" fromCol="循环任务类型" />
+		</bean>
+
+		<bean name="CFubenTask" from="r任务相关/z组队副本配置/组队副本任务" genxml="client" gencode="mtlua">
+			  <variable name="id"  fromCol="ID" type="int" />
+			  <variable name="nfubentasktype"  fromCol="任务类型" type="int" />
+			  <variable name="taskpanelefttitle" fromCol="任务栏任务名称"  type="string"  />  
+			  <variable name="taskpanetitle" fromCol="任务名称"  type="string"  />  
+			  <variable name="taskpanedis" fromCol="任务目的"  type="string"  />  
+			  <variable name="taskpanedes" fromCol="任务描述"  type="string"  /> 
+			  <variable name="tracetitle" fromCol="追踪显示任务名"  type="string"  />  
+			  <variable name="tracedes" fromCol="追踪描述"  type="string"  />
+			  
+		</bean>
+		
+		<bean name="AnYeMaXiTuanConf" from="x循环任务/x暗夜马戏团任务配置表" genxml="server">
+			  <variable name="id"  fromCol="ID" type="int" />
+			  <variable name="levelgroup" fromCol="等级组"  type="int"  />  
+			  <variable name="levelmin" fromCol="等级段min"  type="int"  />  
+			  <variable name="levelmax" fromCol="等级段max"  type="int"  />  
+			  <variable name="roundgroup" fromCol="环数组"  type="int"  /> 
+			  <variable name="roundmin" fromCol="环数段min"  type="int"  />  
+			  <variable name="roundmax" fromCol="环数段max"  type="int"  />
+			  <variable name="roundrate" fromCol="环数段随机概率"  type="int"  />
+			  <variable name="period" fromCol="周期"  type="int"  />
+			  <variable name="tasktype" fromCol="任务类型"  type="int"  />
+			  <variable name="group" fromCol="类型下组ID"  type="int"  />
+			  <variable name="isrenxing" fromCol="是否可任性"  type="int"  />
+			  <variable name="renxingcost" fromCol="任性符石消耗"  type="int"  />
+			  <variable name="normalaward" fromCol="普通奖励ID"  type="int"  />
+			  <variable name="extaward" fromCol="额外奖励ID"  type="int"  />
+			  <variable name="specialaward" fromCol="特殊情况奖励ID"  type="int"  />
+			  <variable name="oneloopaward" fromCol="每轮奖励"  type="int"  />
+			  <variable name="round40award" fromCol="40环奖励"  type="int"  />
+			  <variable name="round80award" fromCol="80环奖励"  type="int"  />
+			  <variable name="round120award" fromCol="120环奖励"  type="int"  />
+			  <variable name="round160award" fromCol="160环奖励"  type="int"  />
+			  <variable name="comtips" fromCol="任务完成后提示ID"  type="int"  />
+			  <variable name="taskname" fromCol="任务名称"  type="string" />
+		</bean>
+
+		<bean name="CAnYeMaXiTuanConf" from="x循环任务/x暗夜马戏团任务配置表" genxml="client" gencode="mtlua">
+			<variable name="id"  fromCol="ID" type="int" />
+			<variable name="nactivetype" fromCol="活动类型"  type="int"  /> 
+			<variable name="levelgroup" fromCol="等级组"  type="int"  />  
+			<variable name="levelmin" fromCol="等级段min"  type="int"  />  
+			<variable name="levelmax" fromCol="等级段max"  type="int"  />  
+			<variable name="roundgroup" fromCol="环数组"  type="int"  /> 
+			<variable name="roundmin" fromCol="环数段min"  type="int"  />  
+			<variable name="roundmax" fromCol="环数段max"  type="int"  />
+			<variable name="roundrate" fromCol="环数段随机概率"  type="int"  />
+			<variable name="period" fromCol="周期"  type="int"  />
+			<variable name="tasktype" fromCol="任务类型"  type="int"  />
+			<variable name="group" fromCol="类型下组ID"  type="int"  />
+			<variable name="isrenxing" fromCol="是否可任性"  type="int"  />
+			<variable name="renxingcost" fromCol="任性符石消耗"  type="int"  />
+			<variable name="normalaward" fromCol="普通奖励ID"  type="int"  />
+			<variable name="extaward" fromCol="额外奖励ID"  type="int"  />
+			<variable name="specialaward" fromCol="特殊情况奖励ID"  type="int"  />
+			<variable name="comtips" fromCol="任务完成后提示ID"  type="int"  />
+			<variable name="strtasknameui" fromCol="UI任务名称"  type="string" />
+			<variable name="ntaskicon" fromCol="UI任务图标ID"  type="int"  />
+			<variable name="strtaskdescui" fromCol="UI任务描述"  type="string" />
+			<variable name="strtaskname" fromCol="任务名称"  type="string" />
+			<variable name="strtaskdesc" fromCol="任务描述"  type="string" />
+			<variable name="vrewardid" type="vector" value="int" fromCol="展示道具1,展示道具2,展示道具3,展示道具4,展示道具5,展示道具6"/>
+			<variable name="strtasktypeicon" fromCol="任务图标"  type="string" />
+			<variable name="titledes" fromCol="任务说明标题下描述"  type="string" />
+			<variable name="followtitle" fromCol="寻宝名称"  type="string" />
+			<variable name="followtitledes" fromCol="寻宝目标"  type="string" />
+			<variable name="dialogdes" fromCol="寻宝描述"  type="string" />
+			<variable name="dialogdessuccess" fromCol="寻宝成功描述"  type="string" />
+			<variable name="dialogdesfail" fromCol="寻宝失败描述"  type="string" />
+			<variable name="followdes" fromCol="寻宝追踪描述"  type="string" />
+			<variable name="followdessuccess" fromCol="寻宝成功追踪描述"  type="string" />
+			<variable name="followdesfail" fromCol="寻宝失败追踪描述"  type="string" />
+		</bean>
+
+	</namespace>

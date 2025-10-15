@@ -1,0 +1,15 @@
+Index: GameUIManager.cpp
+===================================================================
+--- GameUIManager.cpp	(revision 53890)
++++ GameUIManager.cpp	(working copy)
+@@ -4132,7 +4132,9 @@
+ 	size_t length;
+ 	OpenClipboard(NULL);
+ 	HANDLE hData = GetClipboardData(CF_TEXT);
+-	assert(hData != NULL);
++	if (hData == NULL){
++		return "";
++	}
+ 	length = GlobalSize(hData);
+ 	url = (char*)malloc(length + 1);
+ 	pData = (char*)GlobalLock(hData);

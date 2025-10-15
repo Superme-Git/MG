@@ -1,0 +1,22 @@
+namespace GameTable
+{
+    namespace EffectPath
+    {
+        class CEffectPath
+        {
+            public:
+            int id;
+            std::wstring Name;
+            std::wstring Patn;
+        };
+        class CEffectPathTable
+        {
+            public:
+        CEffectPath& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CEffectPathTable&  GetCEffectPathTableInstance();
+    }
+}

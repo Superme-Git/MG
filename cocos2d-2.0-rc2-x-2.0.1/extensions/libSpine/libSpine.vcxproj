@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="spine-cocos2dx\include\spine\PolygonBatch.h" />
+    <ClInclude Include="spine-cocos2dx\include\spine\SkeletonAnimation.h" />
+    <ClInclude Include="spine-cocos2dx\include\spine\SkeletonRenderer.h" />
+    <ClInclude Include="spine-cocos2dx\include\spine\spine-cocos2dx.h" />
+    <ClInclude Include="spine-c\include\spine\Animation.h" />
+    <ClInclude Include="spine-c\include\spine\AnimationState.h" />
+    <ClInclude Include="spine-c\include\spine\AnimationStateData.h" />
+    <ClInclude Include="spine-c\include\spine\Atlas.h" />
+    <ClInclude Include="spine-c\include\spine\AtlasAttachmentLoader.h" />
+    <ClInclude Include="spine-c\include\spine\Attachment.h" />
+    <ClInclude Include="spine-c\include\spine\AttachmentLoader.h" />
+    <ClInclude Include="spine-c\include\spine\Bone.h" />
+    <ClInclude Include="spine-c\include\spine\BoneData.h" />
+    <ClInclude Include="spine-c\include\spine\BoundingBoxAttachment.h" />
+    <ClInclude Include="spine-c\include\spine\Event.h" />
+    <ClInclude Include="spine-c\include\spine\EventData.h" />
+    <ClInclude Include="spine-c\include\spine\extension.h" />
+    <ClInclude Include="spine-c\include\spine\IkConstraint.h" />
+    <ClInclude Include="spine-c\include\spine\IkConstraintData.h" />
+    <ClInclude Include="spine-c\include\spine\MeshAttachment.h" />
+    <ClInclude Include="spine-c\include\spine\RegionAttachment.h" />
+    <ClInclude Include="spine-c\include\spine\Skeleton.h" />
+    <ClInclude Include="spine-c\include\spine\SkeletonBounds.h" />
+    <ClInclude Include="spine-c\include\spine\SkeletonData.h" />
+    <ClInclude Include="spine-c\include\spine\SkeletonJson.h" />
+    <ClInclude Include="spine-c\include\spine\Skin.h" />
+    <ClInclude Include="spine-c\include\spine\SkinnedMeshAttachment.h" />
+    <ClInclude Include="spine-c\include\spine\Slot.h" />
+    <ClInclude Include="spine-c\include\spine\SlotData.h" />
+    <ClInclude Include="spine-c\include\spine\spine.h" />
+    <ClInclude Include="spine-c\src\spine\Json.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="spine-cocos2dx\src\spine\PolygonBatch.cpp" />
+    <ClCompile Include="spine-cocos2dx\src\spine\SkeletonAnimation.cpp" />
+    <ClCompile Include="spine-cocos2dx\src\spine\SkeletonRenderer.cpp" />
+    <ClCompile Include="spine-cocos2dx\src\spine\spine-cocos2dx.cpp" />
+    <ClCompile Include="spine-c\src\spine\Animation.c" />
+    <ClCompile Include="spine-c\src\spine\AnimationState.c" />
+    <ClCompile Include="spine-c\src\spine\AnimationStateData.c" />
+    <ClCompile Include="spine-c\src\spine\Atlas.c" />
+    <ClCompile Include="spine-c\src\spine\AtlasAttachmentLoader.c" />
+    <ClCompile Include="spine-c\src\spine\Attachment.c" />
+    <ClCompile Include="spine-c\src\spine\AttachmentLoader.c" />
+    <ClCompile Include="spine-c\src\spine\Bone.c" />
+    <ClCompile Include="spine-c\src\spine\BoneData.c" />
+    <ClCompile Include="spine-c\src\spine\BoundingBoxAttachment.c" />
+    <ClCompile Include="spine-c\src\spine\Event.c" />
+    <ClCompile Include="spine-c\src\spine\EventData.c" />
+    <ClCompile Include="spine-c\src\spine\extension.c" />
+    <ClCompile Include="spine-c\src\spine\IkConstraint.c" />
+    <ClCompile Include="spine-c\src\spine\IkConstraintData.c" />
+    <ClCompile Include="spine-c\src\spine\Json.c" />
+    <ClCompile Include="spine-c\src\spine\MeshAttachment.c" />
+    <ClCompile Include="spine-c\src\spine\RegionAttachment.c" />
+    <ClCompile Include="spine-c\src\spine\Skeleton.c" />
+    <ClCompile Include="spine-c\src\spine\SkeletonBounds.c" />
+    <ClCompile Include="spine-c\src\spine\SkeletonData.c" />
+    <ClCompile Include="spine-c\src\spine\SkeletonJson.c" />
+    <ClCompile Include="spine-c\src\spine\Skin.c" />
+    <ClCompile Include="spine-c\src\spine\SkinnedMeshAttachment.c" />
+    <ClCompile Include="spine-c\src\spine\Slot.c" />
+    <ClCompile Include="spine-c\src\spine\SlotData.c" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A8A2FF85-F33A-490B-8F4E-AAA1D165DA2F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libSpine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_DEBUG;_LIB;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/spine-c/include;$(ProjectDir)/spine-c/include/spine;$(ProjectDir)/spine-c/src;$(ProjectDir)/spine-c/src/spine;$(ProjectDir)/spine-cocos2dx/include;$(ProjectDir)/spine-cocos2dx/include/spine;$(ProjectDir)/spine-cocos2dx/src;$(ProjectDir)/spine-cocos2dx/src/spine;$(ProjectDir)/../../cocos2dx;$(ProjectDir)/../../cocos2dx/include;$(ProjectDir)/../../cocos2dx/platform;$(ProjectDir)/../../cocos2dx/platform/win32;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/iconv;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/zlib;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/pthread;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/OGLES;$(ProjectDir)/../../cocos2dx/kazmath\include;$(ProjectDir)/../../../common/platform;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;WIN7_32;NDEBUG;_LIB;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)/spine-c/include;$(ProjectDir)/spine-c/include/spine;$(ProjectDir)/spine-c/src;$(ProjectDir)/spine-c/src/spine;$(ProjectDir)/spine-cocos2dx/include;$(ProjectDir)/spine-cocos2dx/include/spine;$(ProjectDir)/spine-cocos2dx/src;$(ProjectDir)/spine-cocos2dx/src/spine;$(ProjectDir)/../../cocos2dx;$(ProjectDir)/../../cocos2dx/include;$(ProjectDir)/../../cocos2dx/platform;$(ProjectDir)/../../cocos2dx/platform/win32;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/iconv;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/zlib;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/pthread;$(ProjectDir)/../../cocos2dx/platform/third_party/win32/OGLES;$(ProjectDir)/../../cocos2dx/kazmath\include;$(ProjectDir)/../../../common/platform;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

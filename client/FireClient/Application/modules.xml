@@ -1,0 +1,12 @@
+<root>
+	<module name="battle">
+		<protocol name="fire::pb::battle::SSendBattleStart" />
+		<protocol name="fire::pb::battle::SSendAddFighters" />
+		<protocol name="fire::pb::battle::SSendRoundStart" />
+		<protocol name="fire::pb::battle::SSendBattleEnd" />
+		<protocol name="fire::pb::battle::SSendRoundScript" />
+		<protocol name="fire::pb::battle::SRemoveWatcher" />
+		<protocol name="fire::pb::battle::SSendCameraUrl" />
+		<protocol name="fire::pb::battle::SReqRePlay" />
+	</module>
+</root>

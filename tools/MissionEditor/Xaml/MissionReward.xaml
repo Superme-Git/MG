@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Knight.MissionEditor.Xaml.MissionReward"
+        xmlns:src="clr-namespace:Knight.MissionEditor"
+        Title="任务结果奖励编辑器"
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterOwner" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" Height="774" Width="454">
+    <Grid Height="743" Width="428">
+        <Label Height="28" VerticalAlignment="Top" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="LightSkyBlue" BorderBrush="Cyan" Background="Snow" FontFamily="宋体">任务结果编辑</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalContentAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="79">后置任务</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="83,29.585,155,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="PostMissionID"/>
+        <Button Height="23" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="61" Click="AddPostMission">添加</Button>
+        <Button Height="23" Margin="83,60,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="61" Click="ClearPostMission">删除</Button>
+        <ListBox Height="44" Margin="0,30,11,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="118" Name="PostMissionIDList"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,88,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">变身造型</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="83,88,155,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="TransIDEditBox" TextChanged="TransformIDChanged"/>
+        <Label Height="28" HorizontalAlignment="Right" Margin="0,87.28,26,0" VerticalAlignment="Top" Width="120" FontFamily="宋体" FontSize="13" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Name="TransformNameLable">Label</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">显示Npc</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,222,0,0" VerticalContentAlignment="Center" Width="79" Height="30" VerticalAlignment="Top">透明框提示</Label>
+        <TextBox Margin="83,222,11,0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontFamily="宋体" FontSize="15" Name="NoteInfoEditBox" Height="82" VerticalAlignment="Top" />
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,315,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">经验奖励</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="93,315,145,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="ExpRewardEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,315,73,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="71">金钱奖励</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,314,1,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="69" x:Name="MoneyRewardEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,348,0,367" VerticalContentAlignment="Center" Width="79">宠物经验</Label>
+        <src:IntNumEditBox HorizontalContentAlignment="Right" Margin="93,348,145,367" TextAlignment="Right" VerticalContentAlignment="Center" x:Name="PetExpRewardEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,331" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">历练声望</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="95,0,143,330" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" x:Name="RewardPetIDEditBox" />
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,301" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="71">奖励道具ID:</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,270" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">奖励道具Num:</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="93,0,0,301" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="61" x:Name="RewardItemIDEditBox"/>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="93,0,0,270" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="61" x:Name="RewardItemNumEditBox"/>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="93,0,0,240" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="61" x:Name="RewardItemShapeIDEditBox"/>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="93,0,0,210" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="61" x:Name="RewardItemIsBindEditBox"/>
+        <ListView Height="119" Margin="157,0,1,210" VerticalAlignment="Bottom" Name="RewardItemList" />
+        <Button Height="23" HorizontalAlignment="Left" Margin="93,0,0,179" VerticalAlignment="Bottom" Width="61" Click="OnAddItem">添加道具</Button>
+        <Button Height="23" HorizontalAlignment="Left" Margin="20,0,0,179" VerticalAlignment="Bottom" Width="61" Click="OnDelAllItem">删除道具</Button>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,348,73,367" VerticalContentAlignment="Center" Width="71">储备金奖励</Label>
+        <src:IntNumEditBox HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,347,1,368" TextAlignment="Right" VerticalContentAlignment="Center" Width="69" x:Name="SMoneyEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,138" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">跳转方式</Label>
+        <ComboBox Height="28" Margin="95,0,0,138" VerticalAlignment="Bottom" SelectionChanged="UpdateJumpNodeChanged" Name="JumpTypeComboBox" HorizontalAlignment="Left" Width="59">
+            <ComboBoxItem>无</ComboBoxItem>
+            <ComboBoxItem>传送</ComboBoxItem>
+            <ComboBoxItem>飞行</ComboBoxItem>
+            <ComboBoxItem>副本</ComboBoxItem>
+        </ComboBox>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,101" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">地图</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,63" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">X坐标</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalContentAlignment="Center" Margin="10,0,0,28" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="79">Y坐标</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="93,0,0,101" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" x:Name="MapIDEditBox" HorizontalAlignment="Left" Width="61" />
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="93,0,0,63" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" x:Name="MapXPosEditBox" HorizontalAlignment="Left" Width="61" />
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="95,0,0,28" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" x:Name="MapYPosEditBox" HorizontalAlignment="Left" Width="59" />
+        <ListBox Height="78" HorizontalAlignment="Right" Margin="0,138,11,0" VerticalAlignment="Top" Width="120" Name="DisplayNpcList"/>
+        <Button Height="23" Margin="95,169,165,0" VerticalAlignment="Top" Click="AddNPC">Add</Button>
+        <Button Height="23" Margin="95,193,163,0" VerticalAlignment="Top" Click="DelNPC">Del</Button>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="93,138,145,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="DisplayNpcIDEditbox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalContentAlignment="Center" Margin="157,0,104,138" VerticalAlignment="Bottom" VerticalContentAlignment="Center">进度条时间</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalContentAlignment="Center" Margin="157,0,104,101" VerticalAlignment="Bottom" VerticalContentAlignment="Center">进度条文字</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="28" HorizontalContentAlignment="Center" Margin="157,0,104,63" VerticalAlignment="Bottom" VerticalContentAlignment="Center">进度条颜色</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,0,11,138" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="88" x:Name="ProcessBarTimeEditBox" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,0,11,102.919" VerticalAlignment="Bottom" Width="88" Name="ProcessBarText" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,0,11,68" VerticalAlignment="Bottom" Width="88" Name="ProcessBarColor" />
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,242" VerticalContentAlignment="Center" Width="79" Height="28" VerticalAlignment="Bottom">造型</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="10,0,0,211" VerticalContentAlignment="Center" Width="79" Height="28" VerticalAlignment="Bottom">绑定</Label>
+    </Grid>
+</Window>

@@ -1,0 +1,28 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace skill { 
+
+class AssistSkill : public FireNet::Marshal
+{
+public:
+	int id; // 辅助技能ID
+	int level; // 级别
+	int exp; // 熟练度
+
+	AssistSkill() ;
+
+	AssistSkill(int _id_, int _level_, int _exp_);
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const AssistSkill &_o_) const ;
+
+};
+
+} 
+} 
+} 

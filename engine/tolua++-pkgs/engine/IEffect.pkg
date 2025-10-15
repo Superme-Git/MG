@@ -1,0 +1,316 @@
+namespace Nuclear
+{
+	class IEffect
+	{
+		virtual void AddNotify(IEffectNotify* pNotify) = 0;
+		virtual void RemoveNotify(IEffectNotify* pNotify) = 0;
+		virtual bool Play() = 0;
+		virtual bool Stop() = 0;
+		virtual bool Pause() = 0;
+		virtual bool Resume() = 0;
+		virtual void SetLocation(const NuclearLocation& location) = 0;
+		virtual NuclearLocation GetLocation() const = 0;
+		virtual void SetDirection( NuclearDirection direction ) = 0;
+		virtual NuclearDirection GetDirection() const = 0;
+		virtual void SetDirection(const NuclearFPoint &target) = 0;
+		void SetDirection(float targetx, float targety);
+		virtual void SetRotationRadian( float radian) = 0;
+		virtual float GetRotationRadian() const = 0;
+		virtual void SetScale( float scaleX, float scaleY) = 0;
+		void SetScale( float scale);
+		void SetScale( const NuclearFPoint& scale);
+		virtual const NuclearFPoint& GetScale() const = 0;
+		virtual void SetVertexColor( NuclearColor color) = 0;
+		virtual NuclearColor GetVertexColor() const = 0;
+		virtual const NuclearRect& GetRelBouningBox() const = 0;
+		virtual void SetEffectBindType(Nuclear_EffectBindType t) = 0;
+		virtual Nuclear_EffectBindType GetEffectBindType() const = 0;
+		virtual void SetSoundType(unsigned char type) = 0;
+		virtual void SetSoundType(unsigned char type) = 0;
+		virtual unsigned char GetSoundType() const = 0;
+		virtual void SetSoundPriority(short priority) = 0;
+		virtual short GetSoundPriority() const = 0;
+		virtual Nuclear_EffectState GetPlayState() const = 0;
+		virtual const IParticleEffect* TryConvertToParticle() const = 0;
+		virtual IParticleEffect* TryConvertToParticle() = 0;
+		virtual void ClearNotify() = 0;
+		virtual bool Update(DWORD tickTime) = 0;
+		virtual void SetDefaultActName(const char* szActName);
+	};
+	class IEffectNotify
+	{
+	public:
+		IEffectNotify();
+		virtual void OnStop(IEffect *pEffect);
+		virtual void OnEnd(IEffect *pEffect);
+		virtual void OnDelete(IEffect *pEffect);
+		virtual void OnAsyncLoaded(IEffect *pEffect, bool succeeded);
+		virtual ~IEffectNotify(); 
+	};
+
+	enum XPParticleEffectCycleMode
+	{
+		XPPCM_NO_CYCLE = 0,
+		XPPCM_ALWAY_EMISSION = -1,
+		XPPCM_PULSE_EMISSION = -2,
+	};
+
+	class Effect : public IEffect
+	{
+		virtual ~Effect();
+		bool IsInSegmPak(); 
+		void SetSegmPak(bool b) ;
+
+		virtual Nuclear_EffectAssureResResult AssureResource(bool async) = 0;
+		virtual void Release() = 0;
+
+		virtual void SetScaleType(Nuclear_EffectScaleType t) = 0;
+		virtual Nuclear_EffectScaleType GetScaleType() const = 0;
+
+		virtual void AddNotify(IEffectNotify* pNotify);
+		virtual void RemoveNotify(IEffectNotify* pNotify);
+		virtual void ClearNotify();		
+		virtual void HoldRes();
+		virtual bool Play();
+		virtual bool Stop();
+		virtual bool Pause();
+		virtual bool Resume();
+		
+		virtual Nuclear_EffectState GetPlayState();
+		const std::wstring &GetName();
+
+		virtual void SetScreenCrood(bool b) = 0;
+		virtual bool IsScreenCrood() const = 0;
+
+		virtual const NuclearRect& GetRelBouningBox() ;
+		virtual NuclearDirection GetDirection() ;
+		NuclearLocation GetLocation();
+		const NuclearFPoint& GetTranslation();
+		virtual const NuclearFPoint& GetScale(); 
+		virtual float GetRotationRadian();
+		virtual NuclearColor GetVertexColor() const = 0;
+		virtual float GetTransparent() const = 0;
+		virtual const NuclearVector4& GetColorate() const = 0;
+		virtual void SetDirection( NuclearDirection direction );
+		virtual void SetDirection(const NuclearFPoint &target) ;
+		virtual void SetDirection( NuclearDirection direction, const NuclearFPoint &target ) ;
+		virtual void SetLocation(const NuclearLocation& location);
+		void SetLocation(int x, int y);
+		void SetTranslation(const NuclearFPoint& trans);
+		virtual void SetScale( float scaleX, float scaleY); 
+		virtual void SetRotationRadian( float radian);
+		virtual void SetVertexColor( NuclearColor color) = 0;
+		virtual void SetTransparent( float alpha) = 0;
+		virtual void Colorate( const NuclearVector4& color) = 0;
+		virtual Nuclear_EffectType GetType() const = 0;
+		virtual NuclearPlayMode GetPlayMode() const;
+		virtual int GetLoopNum();
+		virtual int GetPlayTime();
+		virtual bool SetLoopNum( int loopNum);
+		virtual bool SetPlayTime( DWORD time);
+		virtual int GetPlayOnceTime() const = 0;
+		virtual bool GetBase(NuclearBase &base) = 0;
+		
+		virtual void SetSoundType(unsigned char type);
+		virtual unsigned char GetSoundType();
+		virtual void SetSoundPriority(short priority);
+		virtual short GetSoundPriority();
+		virtual void RemoveAudio() ;
+
+	};
+
+	struct LINE
+	{
+		NuclearPoint pt0;
+		NuclearPoint pt1;
+		LINE(NuclearPoint point0 = NuclearPoint(0, 0), NuclearPoint point1 = NuclearPoint(0, 0));
+	};
+		
+	struct PSModifyParam 
+	{
+		NuclearFPoint m_pointCent;
+		float m_fEmitterSpinAngle;
+		NuclearFPoint m_pointObject;
+		float m_fEmissionScale;
+		float m_fLineLength;
+		float m_fRctWidth;
+		float m_fRctHeight;
+		Nuclear_EffectScaleType m_scaleType;
+		float m_fParticleSizeCoef;
+		float m_fParticlePosCoef;
+		NuclearFPoint m_fpoint0;
+		NuclearFPoint m_fpoint1;
+		float m_fLineEmitterRotate;
+		DWORD m_dwColor;
+		PSModifyParam();
+
+	};
+
+	struct PSParameter
+	{
+		PSModifyParam m_psModifyParam;
+		float time;
+		int layer;
+		bool m_bScreenCoord;
+		bool cycle;
+		bool autorender;
+		bool m_bVertexRHWflag;
+		BOOL m_bModifyLineEmitter;
+		NuclearFPoint m_ptLineEmitterStrt;
+		NuclearFPoint m_ptLineEmitterEnd;
+		PSParameter();
+
+	};
+	enum PSL_MOVETYPE
+	{
+		PSLMOVETYPE_DEFAULT = 0,
+		PSLMOVETYPE_FOLLOWSPRITE = 1,
+		PSLMOVETYPE_FULLSCREEN = 2,
+	};
+
+	enum PSL_PARTICLEPATHPOSTYPE
+	{
+		PARTICLEPATHPOS_START = 0,
+		PARTICLEPATHPOS_RANDOM = 1,
+		PARTICLEPATHPOS_PREPOS = 2,
+	};
+
+	enum PSL_PARTICLESIZERANDTYPE
+	{
+		PARTICLESIZERAND_XY = 0,
+		PARTICLESIZERAND_X = 1,
+		PARTICLESIZERAND_Y = 2,
+		PARTICLESIZERAND_ZOOM = 3,
+	};
+
+	enum PSL_EMISSIONTYPE
+	{
+		PSLTYPE_POINT = 0,
+		PSLTYPE_LINE = 1,
+		PSLTYPE_CIRCLE = 2,
+		PSLTYPE_RECT = 3,
+		PSLTYPE_CUSTOMPATH = 4,
+	};
+
+	enum PSL_PATHMIRRORTYPE
+	{
+		PATHMIRRORTYPE_NONE = 0,
+		PATHMIRRORTYPE_LR = 1, 
+		PATHMIRRORTYPE_TB = 2, 
+		PATHMIRRORTYPE_LRTB = 3,
+	};
+
+	enum PSL_CONFIGREQ 
+	{
+		PSLCONFIGREQ_L = 0,
+		PSLCONFIGREQ_M = 1,
+		PSLCONFIGREQ_H = 2,
+	};
+
+	struct PSINFO
+	{
+		NuclearRect m_rctMaxBox;
+		NuclearFPoint m_pointCent;
+		int m_moveType; 
+		int m_emisType;
+		int m_nPSLConfigReq;
+		bool m_bCycle;
+		PSINFO();
+	};
+
+	enum PSL_ERRORTYPE
+	{
+		PSLLOADERROR_SUCC = 100,
+		PSLLOADERROR_FILE = 5, 
+		PSLLOADERROR_TEXTURE = 6,
+		PSLLOADERROR_PATH = 7,
+		PSLLOADERROR_SHAPELIST = 8, 
+	};
+
+	enum PSL_ABSRTACTSHAPETYPE
+	{
+		PSLSHAPETYPE_VORONOI = 1,
+		PSLSHAPETYPE_RECTANGLE = 2,
+		PSLSHAPETYPE_TRIANGLE = 3,
+		PSLSHAPETYPE_2PIC = 4,
+	};
+
+	class IParticleEffect
+	{
+	public:
+		virtual ~IParticleEffect() ;
+		virtual void ModifyObjectPoint(const NuclearFPoint &pt) = 0;
+		virtual void ModifyLineLength(float length) = 0;
+		virtual void ModifyRectWH(float width, float height) = 0;
+		virtual void SetRctBlindAreas(const std::vector<NuclearRect> &vet) = 0;
+		virtual bool SetCycleMode(XPParticleEffectCycleMode mode) = 0;
+		virtual XPParticleEffectCycleMode GetCycleMode() const = 0;
+		virtual bool SetSysLife(float time) = 0;
+		virtual float GetSysLife() = 0;
+		virtual bool SetEmitterLinkPoint(const NuclearFPoint &pt, int type) = 0;
+		virtual bool GetEmitterLinkPoint(NuclearFPoint &pt, int type) = 0;
+		virtual int GetNumActiveParticles() const = 0;
+		virtual float GetParticleMaxLife() const = 0;
+		virtual bool SetSpecialPsTexture(PictureHandle ShapesTexture, float fu=1.0f, float fv=1.0f) = 0;
+		virtual PictureHandle GetSpecialPSTextureHandle() const = 0;
+		virtual bool SetSpecialPsScale(float fcx=1.0f, float fcy=1.0f) = 0;
+		virtual bool SetSilentTime(float ftime) = 0;
+		virtual IEffect* ConvertToIEffect() = 0;
+		virtual const IEffect* ConvertToIEffect() const = 0;
+
+	};
+
+	class ParticleEffect : public Effect
+	{
+	public:
+		virtual ~ParticleEffect(void);
+		virtual void SetScaleType(Nuclear_EffectScaleType t);
+		virtual Nuclear_EffectScaleType GetScaleType();
+		virtual void OnReady(bool success);
+		virtual Nuclear_EffectAssureResResult AssureResource(bool async);
+		virtual void Release();
+		virtual Nuclear_EffectType GetType();
+		virtual void SetEffectBindType(Nuclear_EffectBindType t);
+		virtual Nuclear_EffectBindType GetEffectBindType() const;
+		virtual void SetScreenCrood(bool b);
+		virtual bool IsScreenCrood();
+		virtual void SetLocation(const NuclearLocation& location);
+		virtual bool Render(Canvas* canvas, bool realRender);
+		bool CollectRender();
+		virtual bool SetLoopNum( int loopNum);
+		virtual bool SetPlayTime( DWORD time);
+		virtual bool SetCycleMode(XPParticleEffectCycleMode mode);
+		virtual XPParticleEffectCycleMode GetCycleMode() const;
+		virtual bool SetSysLife(float time);
+		virtual float GetSysLife();
+		virtual bool SetEmitterLinkPoint(const NuclearFPoint &pt, int type);
+		virtual bool GetEmitterLinkPoint(NuclearFPoint &pt, int type);
+		virtual bool Play();
+		virtual int GetPlayOnceTime();
+		virtual bool GetBase(NuclearBase &base);
+		virtual void SetVertexColor( NuclearColor color);
+		virtual void SetTransparent( float alpha);
+		virtual void Colorate( const NuclearVector4& color); 
+		virtual const NuclearVector4& GetColorate();
+		virtual NuclearColor GetVertexColor();
+		virtual float GetTransparent();
+		virtual const IParticleEffect* TryConvertToParticle();
+		virtual const ParticleEffect* TryConvertToParticleEffect();
+		virtual void ModifyObjectPoint(const NuclearFPoint &pt);
+		virtual void ModifyLineLength(float length);
+		virtual void ModifyRectWH(float width, float height);
+		virtual int GetNumActiveParticles() const;
+		virtual PSINFO GetParticleSystemInfo() const;
+		virtual const PSParameter& GetParticleSystemParameter();
+		virtual float GetParticleMaxLife() const;
+		virtual bool SetSpecialPsTexture(PictureHandle ShapesTexture, float fu=1, float fv=1);
+		virtual PictureHandle GetSpecialPSTextureHandle() const;
+		virtual bool SetSpecialPsScale(float fcx=1, float fcy=1);
+		virtual bool SetSilentTime(float ftime);
+		virtual IEffect* ConvertToIEffect();
+
+	};
+
+
+}
+

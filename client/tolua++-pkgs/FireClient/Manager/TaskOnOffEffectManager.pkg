@@ -1,0 +1,12 @@
+class TaskOnOffEffectManager : public CSingleton<TaskOnOffEffectManager>
+{
+    TaskOnOffEffectManager();
+    ~TaskOnOffEffectManager();
+
+	void effectEnd(Nuclear::IEffect* m_pEffect);
+    void DrawEffect();
+	void playOffEffect();
+	void playOnEffect();
+};
+
+inline TaskOnOffEffectManager* gGetTaskOnOffEffectManager();

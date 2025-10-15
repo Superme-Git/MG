@@ -1,0 +1,59 @@
+/***********************************************************************
+	Editbox
+***********************************************************************/
+
+enum eTextAcceptMode  //\u2211\uFFE0\u00E0???\u03A9?o?
+{ 
+	eTextAcceptMode_Enter,           //enter
+	eTextAcceptMode_CtrlEnter,  //ctrl+enter
+	eTextAcceptMode_OnlyEnter,  //\u00F7a\u201C?\u221E\uFFE5?\u00E0enter??\u2211\uFFE0\u00E0?
+
+	eTextAcceptMode_None
+};
+
+class Editbox : public Window
+{
+	bool hasInputFocus() const;
+	bool isReadOnly() const;
+	bool isTextMasked() const;
+	bool isTextValid() const;
+
+	string getValidationString() const;
+
+	unsigned long getCaratIndex() const;
+	unsigned long getSelectionStartIndex() const;
+	unsigned long getSelectionEndIndex() const;
+	unsigned long getSelectionLength() const;
+	unsigned long getMaskCodePoint() const;
+	unsigned long getMaxTextLength() const;
+
+	void setReadOnly(bool setting);
+	void setTextMasked(bool setting);
+	void setValidationString(string validation_string);
+	void setCaratIndex(unsigned long carat_pos);
+	void setSelection(unsigned long start_pos, unsigned long end_pos);
+
+	void SelectAll();
+
+	void setMaskCodePoint(unsigned long code_point);
+	void setMaxTextLength(unsigned long max_len);
+	bool IsShieldSpace();
+
+	void SetCanInputBySoftBoard(bool bSoftBoard);
+	bool IsCanInputBySoftBoard();
+
+	void SetInputPasswordState(bool bInputPassword);
+	void InsertStringInCarat(const String& text);
+
+	virtual void activate();
+
+	void SetOnlyNumberMode(bool bOnlyNumber,long long max_Number,bool bCanFirstIsZero=false);
+	void SetShieldSpace(bool bShield);
+	void SetFrameEnabled(bool bFrameEnable);
+	bool isFrameEnabled() const;
+	string GetSelectText();
+
+	void SetNormalColourRect(uint32 color); //by lg
+	void SetNormalColourRect(const ColourRect& clRect);
+	void SetNormalColourRect(const colour& col);
+};

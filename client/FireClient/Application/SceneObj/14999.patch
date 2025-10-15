@@ -1,0 +1,16 @@
+Index: MainCharacter.cpp
+===================================================================
+--- MainCharacter.cpp	(revision 50599)
++++ MainCharacter.cpp	(working copy)
+@@ -2261,7 +2261,10 @@
+ 	GetSprite()->SetFlyOffsetYCur(0);
+ 	GetSprite()->SetFlyOffsetYTgt(0);
+ 	StopMove();
+-	//SetMoveState(eMove_Normal);
++	if (GetMoveState() == eMove_Fly)
++	{
++		SetMoveState(eMove_Normal);
++	}
+ 	SetSpriteComponent(eSprite_Horse, StringCover::WStrToNum<int>(m_RideNameLast));
+ 	m_AutoMovePathPointIndex = 0;
+ 	m_AutoMovePathPointArr.clear();

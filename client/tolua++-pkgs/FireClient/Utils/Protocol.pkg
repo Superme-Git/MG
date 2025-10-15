@@ -1,0 +1,15 @@
+
+namespace aio
+{
+    class Protocol
+    {
+        public:
+            unsigned int getType() const;
+    };
+
+	class LuaProtocol
+	{
+		unsigned int type;
+		FireNet::Octets data;   
+	};
+}

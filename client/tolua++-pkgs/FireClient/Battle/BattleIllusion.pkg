@@ -1,0 +1,52 @@
+
+class BattleIllusion : public ComponentsObject
+{
+public:
+	BattleIllusion();
+	virtual ~BattleIllusion();
+
+	bool SetAttribute(sBattlerData data,float scale);
+	bool IsDisappear();
+
+	void SetFadeOut();
+	void SetFadeIn(unsigned char desalpha);
+	void SetDisappear();
+	void SetTargetLocation(Nuclear::NuclearLocation loc);
+	void SetDisappearLocation(Nuclear::NuclearLocation loc);
+	Nuclear::NuclearLocation GetTargetLocation();
+
+	virtual std::wstring GetName();
+	void SetDefaultAction(eActionType actionType,bool holdlastframe=false,float freq=g_defaultActionFrequence,eActionType actualActionType = eActionNull);
+	void PlayAction(eActionType actionType,float freq=g_defaultActionFrequence,eActionType actualActionType = eActionNull);
+	virtual int	 GetShapeID();
+
+	virtual void Run(int now,int delta);
+
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+	virtual void Draw(int now);
+
+	virtual bool OnSetCursor();
+
+	virtual bool CanBeAttack();
+	virtual bool CanBeGiven();
+	virtual bool CanJoinTeam();
+	virtual bool CanTradeWith();
+
+	void SetOnHitTarget(bool b);
+	bool IsOnHitTarget();
+
+	void SetBattlerDemoSpeedRate(float rate);
+
+	void	SetJumpDelay(int jumpdelay);
+	void	SetNormalMagicIndex(BYTE index);
+	BYTE	GetNormalMagicIndex();
+
+	void RunTo(Nuclear::NuclearLocation ptMoveTarget);	
+	void RunBack();
+
+	void TurnTo(SceneObject* pSceneObj);
+
+	void RegistListener(IActionListener* aPListener);
+
+	void UnregistListener(IActionListener* aPListener);
+};

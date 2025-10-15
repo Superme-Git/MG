@@ -1,0 +1,54 @@
+	<!--  ****************************************************************  -->
+	<!--  Protocols used only logservice and logclient		 	-->
+	<!--  Protocols typeid is 59 - 62 					-->
+	<!--  ***************************************************************** -->
+
+	<protocol name="StatInfoVital" maxsize="10240" prior="1" type="59">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="hostname" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="servicename" type="Octets" default="Octets(0)" attr="ref"/>
+	</protocol>
+
+	<protocol name="StatInfo" maxsize="10240" prior="2" type="60">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="hostname" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="servicename" type="Octets" default="Octets(0)" attr="ref"/>
+	</protocol>
+
+	<protocol name="RemoteLogVital" maxsize="10240" prior="1" type="61">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="hostname" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="servicename" type="Octets" default="Octets(0)" attr="ref"/>
+	</protocol>
+
+	<protocol name="RemoteLog" maxsize="10240" prior="2" type="62">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="hostname" type="Octets" default="Octets(0)" attr="ref"/>
+		<variable name="servicename" type="Octets" default="Octets(0)" attr="ref"/>
+	</protocol>
+
+	<state name="LogNull" timeout="3600" attr="null">
+	</state>
+
+	<state name="LogNormal" timeout="3600">
+		<protocol ref="StatInfoVital"/>
+		<protocol ref="StatInfo"/>
+		<protocol ref="RemoteLogVital"/>
+		<protocol ref="RemoteLog"/>
+	</state>
+
+	<service name="logservice">
+		<manager name="Logservice" type="server" initstate="LogNormal"/>
+		<manager name="LogserviceTcp" type="server" initstate="LogNormal"/>
+
+		<state ref="LogNormal" />
+
+		<protocol ref="StatInfoVital" />
+		<protocol ref="StatInfo" />
+		<protocol ref="RemoteLogVital" />
+		<protocol ref="RemoteLog" />
+	</service>

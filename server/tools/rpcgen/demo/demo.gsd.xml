@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="demo" shareHome="../../../../share" pvids="12">
+	<import file="../../gnet/gnet.xml"/>
+	<import file="demo.gmapd.xml"/>
+
+	<bean name="Depend0">
+		<variable name="a" type="byte"/> byte
+	</bean>
+
+	<bean name="Depend1">
+		<variable name="d" type="Depend0"/> Depend0
+	</bean>
+
+	<!-- comment 1
+	line
+	line
+	-->
+	<bean name="bfloat">
+		<enum name="eDependsTest" value="0"/>
+		<variable name="b" type="byte"/> byte
+		<variable name="i" type="int" default="eDependsTest"/> int
+		<variable name="f" type="float"/> float
+		<variable name="l" type="long"/> long
+		<variable name="o" type="octets"/> octets
+		<!--variable name="s" type="string"/> string-->
+		<variable name="lt" type="list" value="int"/> list_int
+		<variable name="vt" type="vector" value="octets"/> vector_octets
+		<variable name="st" type="set" value="demo.gs.DependsTestSameSpace"/> set_demo.gs.DependsTestSameSpace
+		<variable name="mp" type="map" key="int" value="demo.gs.DependsTestSameSpace"/> map_string_demo.gs.DependsTestSameSpace
+		<variable name="dep" type="Depend1"/> Depend1
+	</bean>
+
+	<protocol name="DepTest" type="1234" maxsize="3200" prior="1" argument="Depend0">
+		<enum name="eDependsTest" value="0"/>
+		<variable name="b" type="byte"/> byte
+		<variable name="i" type="int" default="eDependsTest"/> int
+		<variable name="f" type="float"/> float
+		<variable name="l" type="long"/> long
+		<variable name="o" type="octets"/> octets
+		<!--variable name="s" type="string"/> string-->
+		<variable name="lt" type="list" value="int"/> list_int
+		<variable name="vt" type="vector" value="octets"/> vector_octets
+		<variable name="st" type="set" value="demo.gs.DependsTestSameSpace"/> set_demo.gs.DependsTestSameSpace
+		<variable name="mp" type="map" key="int" value="demo.gs.DependsTestSameSpace"/> map_string_demo.gs.DependsTestSameSpace
+	</protocol>
+
+	<rpc name="DepTest2" type="1237" argument="demo.bfloat" result="demo.bfloat" maxsize="32" prior="1" timeout="2"/>
+
+	<provider name="gs" pvid="12">
+		<protocol name="CGetRoleList" type="1" maxsize="32" prior="1"/>
+		<protocol name="SGetRoleList" type="2" maxsize="128" prior="1">
+			<variable name="roles" type="list" value="long"/>
+		</protocol>
+		<protocol name="CLoginRole" type="3" maxsize="32" prior="1">
+			<variable name="roleid" type="long"/>
+			<variable name="bb" type="byte"/>
+			<variable name="bf" type="demo.bfloat"/>
+		</protocol>
+		<bean name="DependsTestSameSpace">
+			<enum name="eDependsTest" value="0"/>
+			<variable name="data" type="int" default="demo.bfloat.eDependsTest"/>
+		</bean>
+		<protocol name="SDataSyncSample" type="4" maxsize="32" prior="1">
+			<variable name="data" type="int" default="demo.bfloat.eDependsTest"/>
+			<variable name="data2" type="int" default="DependsTestSameSpace.eDependsTest"/>
+		</protocol>
+		<!-- comment 1
+		line
+		line
+		-->
+		<protocol name="CEnterWorld" type="5" maxsize="32" prior="1"/>
+
+		<!-- gs command sample -->
+		<protocol name="CPerformSkill" type="6" maxsize="32" prior="1"/>
+		<namespace name="fight">
+			<!-- gs command sample -->
+			<rpc name="Enter" type="7" argument="demo.bfloat" result="demo.bfloat" maxsize="32" prior="1" timeout="2"/>
+			<namespace name="subname">
+				<protocol name="CPerformSkill" type="8" maxsize="32" prior="1"/>
+			</namespace>
+		</namespace>
+		<namespace name="fight">
+			<protocol name="CPerformSkill2" type="9" maxsize="32" prior="1"/>
+			<namespace name="subname">
+				<protocol name="CPerformSkill2" type="10" maxsize="32" prior="1"/>
+			</namespace>
+		</namespace>
+		<namespace name="trade">
+			<protocol name="CPerformSkill" type="11" maxsize="32" prior="1"/>
+		</namespace>
+	</provider>
+
+	<state name="GsProvider">
+		<provider ref="gnet.link"/>
+		<provider ref="gs"/>
+	</state>
+
+	<service name="gsd">
+		<manager name="Provider" type="provider" bind="gs" initstate="GsProvider" port="10001">
+			<state ref="GsProvider"/>
+		</manager>
+		<manager name="GsServer" type="server" initstate="MapInner" port="10002">
+			<state ref="MapInner"/>
+		</manager>
+	</service>
+</application>

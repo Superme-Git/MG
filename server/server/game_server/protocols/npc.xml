@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 9001 开始 -->
+<namespace name="npc">
+	<!-- NpcC服务对应标号-->
+	<bean name="NpcServices">
+		<enum name="FORTUNE_WHEEL"  value="14" />	幸运大转盘
+		<enum name="SEND_MAIL" value="69" />             送信: (动态服务)		
+		<enum name="CHECK_CHIEF_ABILITY" value="96" />	查看首席-弟子能力
+		<enum name="CHALLENGE_CHIEF" value="97" />		挑战首席-弟子		
+		<enum name="RUN_FOR_CHIEF" value="98" />	    我要竞选
+		<enum name="VOTING" value="99" />				我要投票
+		<enum name="REFRESH_CHIEF_ABILITY" value="100"/>我要刷新首席-弟子能力
+		<enum name="ATTEND_IMPEXAM" value="136" />	我要参加智慧试炼
+		<enum name="LEARN_IMPEXAM_RULE" value="137" />	我想了解智慧试炼比赛规则
+		<enum name="WINNER_START" value="166" />	准备好了,请告诉我们第一关的挑战地点
+		<enum name="CHECK_PERSONAL_CREDIT" value="167" />	我想查询下自己的活动积分
+		<enum name="ADD_PET_LIFE" value="168" />	我想增加宠物寿命
+		<enum name="FIGHT_WINNER" value="171" />	挑战冠军试炼对手
+		<enum name="ENTER_BINGFENG" value="355"/>	进入冰封王座		
+		<enum name="BACK_COPY_SERVICE" value="1469" />回到副本副本
+	
+		<enum name="CIRCTASK_SCHOOL1" value="3000" /> 新循环任务-职业
+		<enum name="CIRCTASK_SCHOOL2" value="3001" /> 新循环任务-职业
+		<enum name="CIRCTASK_SCHOOL3" value="3002" /> 新循环任务-职业
+		<enum name="CIRCTASK_SCHOOL4" value="3003" /> 新循环任务-职业
+		<enum name="CIRCTASK_SCHOOL5" value="3004" /> 新循环任务-职业
+		<enum name="CIRCTASK_SCHOOL6" value="3005" /> 新循环任务-职业
+
+		<enum name="CIRCTASK_SCHOOL_SUBMIT1" value="3010" /> 新循环任务提交-职业
+		<enum name="CIRCTASK_SCHOOL_SUBMIT2" value="3011" /> 新循环任务提交-职业
+		<enum name="CIRCTASK_SCHOOL_SUBMIT3" value="3012" /> 新循环任务提交-职业
+		<enum name="CIRCTASK_SCHOOL_SUBMIT4" value="3013" /> 新循环任务提交-职业
+		<enum name="CIRCTASK_SCHOOL_SUBMIT5" value="3014" /> 新循环任务提交-职业
+		<enum name="CIRCTASK_SCHOOL_SUBMIT6" value="3015" /> 新循环任务提交-职业
+	
+		<enum name="CATCH_IT" value="4000" /> 循环任务-捉鬼
+		<enum name="CATCH_IT_SUBMIT" value="4001" /> 循环任务-捉鬼
+		<enum name="CATCH_IT_QUERY" value="4002" /> 循环任务-查询捉鬼
+		<enum name="CATCH_IT_BJ" value="4003" /> 循环任务-便捷捉鬼
+		<enum name="CATCH_IT_Battle" value="4004" /> 循环任务-捉鬼进入战斗
+		<enum name="TIMER_NPC_Battle" value="4005" /> 定时刷怪进入战斗
+		<enum name="EVENT_NPC_Battle" value="4006" /> 事件刷怪进入战斗
+		<enum name="SUBMIT_CIRCTASK" value="5000" /> 提交循环任务
+		<enum name="RENXING_CIRCTASK" value="5001" /> 任性一下循环任务
+	
+		<enum name="BUY_MEDICINE" value="30000" /> 购买药品
+		<enum name="BUY_GOODS" value="30001" /> 购买物品
+		<enum name="BUY_EQUIP" value="30002" /> 购买装备
+		<enum name="BUY_PET" value="30003" /> 购买宠物
+		<enum name="OPEN_SHANGHUI" value="30004" /> 打开商会
+
+        <enum name="QUERY_LINEINST" value="100049" />查询精英副本次数
+        <enum name="RESET_LINEINST" value="100187" />重置副本
+
+        <enum name="ONE_LIEVEL_TITLE" value="900054" /> 一级称谓 by changhao
+		<enum name="TWO_LIEVEL_TITLE" value="900055" /> 二级称谓 by changhao
+		<enum name="THREE_LIEVEL_TITLE" value="900056" /> 三级称谓 by changhao		
+		<enum name="LEADER_SEE_CAMPAIGN_LIST" value="900057" /> 查看竞选名单 by changhao
+		<enum name="LEADER_MY_CAMPAIGN" value="900058" /> 我的竞选 by changhao
+		<enum name="LEADER_CHALLENGE" value="900059" /> 挑战领袖 by changhao
+		<enum name="LEADER_CAMPAIGN" value="900060" /> 竞选领袖 by changhao
+		
+		<enum name="PET_STORE" value="100012"/> 宠物仓库
+		<enum name="EXCHANGE_CODE" value="100600"/> 兑换码
+		<enum name="IMPEXAM_STATE" value="100704" /> 智慧试炼
+        
+        <enum name="LOOK_YAO_QIAN" value="200101" /> 照顾摇钱树
+
+        <enum name="ENTER_1V1_PVP" value="910000"/> 送我去竞技场
+		<enum name="LEAVE_1V1_PVP" value="910004"/> 离开竞技场
+		<enum name="ENTER_3V3_PVP" value="910010"/> 送我去3v3竞技场
+		<enum name="LEAVE_3V3_PVP" value="910014"/> 离开3v3竞技场
+		<enum name="ENTER_5V5_PVP" value="910020"/> 送我去5v5竞技场
+		<enum name="LEAVE_5V5_PVP" value="910024"/> 离开5v5竞技场
+        
+        <enum name="WATCH_NPC_BATTLE" value="910115"/> 定时表明雷怪观战
+        <enum name="WATCH_EVENTNPC_BATTLE" value="910116"/> 事件表明雷怪观战
+        
+        <enum name="WATCH_INST_NPC_BATTLE" value="910201"/> 公会副本观战按钮服务
+        <enum name="END_INST_NPC_BATTLE" value="910202"/> 公会副本终止战斗服务
+		
+		<enum name="ENTER_CLAN_FIGHT" value="910030"/> 进入公会战 by changhao
+    </bean>
+
+	<bean name="NpcServiceMappingTypes"> NPC服务映射表对应类型
+		<enum name="NONE" value="0" />
+		<enum name="ACCEPT_CIRCLE_TASK" value="1" /> 接任务
+		<enum name="SUBMIT_CIRCLE_TASK" value="2" /> 提交任务
+        <enum name="QUERY_CIRCLE_TASK" value="3" /> 查询任务
+        <enum name="QUERY_CIRCLE_TEAM" value="4" /> 便捷组队
+        <enum name="QUERY_CIRCLE_BATTLE" value="5" /> 进入战斗
+        <enum name="CIRCLE_PRODUCE" value="6" /> 打造物品
+		<enum name="RENXING_CIRCLE_TASK" value="7" /> 任性任务
+		<enum name="CHALLENGE_NPC" value="9" /> NPC挑战
+		<enum name="ENTER_INST" value="10" /> 进入副本
+		<enum name="POP_UI" value="11" /> 弹界面服务
+		<enum name="QUERY_CAMERA_URL" value="12" /> 请求录像路径
+		<enum name="ACCEPT_TUPO" value="13" /> 接突破任务
+    </bean>
+	
+	<bean name="TransmitTypes">		
+		<enum name="impexamsystem" value="4" />		智慧试炼考试系统拉人
+		<enum name="winnercall" value="5" />  冠军试炼拉人
+		<enum name="backschoolwhile20lv" value="6" />  20级时师傅拉你回职业		
+		<enum name="singlepvp" value="10" />	单人pvp拉人
+		<enum name="pvp3" value="15" />	pvp3拉人
+		<enum name="pvp5" value="16" /> pvp5拉人
+	</bean>
+	<!-- Npc恢复类型 -->
+	<bean name="NpcHealType">
+		<enum name="ROLE_RECOVERY" value="1"/>
+		<enum name="PETS_HEALTH_RECOVERY" value="2"/>
+		<enum name="PETS_LOYALTY_RECOVERY" value="3"/>
+		<enum name="PETS_RECOVERY" value="4"/>
+	</bean>
+	<!-- Npc购买类型 -->
+	<bean name="NpcBuyType">
+		<enum name="COMMON_MONEY_BUY" value="0"/>
+		<enum name="COMMON_SMONEY_BUY" value="1"/>
+		<enum name="FAMILY_SELL" value="2"/>
+		<enum name="SKILL_SELL"  value="3" />
+		<enum name="BUY_AND_USE"  value="6" />用符石购买物品，购买后直接使用，如果购买多个，扣除一个后其余的放入背包
+		<enum name="MONEY_BUY_AND_USE"  value="7" />用现金购买物品，购买后直接使用
+	</bean>
+	
+	<bean name="MultiExpError">
+		<enum name="LevelConditionErr" value="-2" /> 等级不够
+		<enum name="ExistOtherMultiExpBuff" value="-3" /> 存在其他多倍经验的buff，不能领取别的。
+		<enum name="NoOneMultiExpBuff" value="-4" /> 不存在多倍经验的buff，不能退还
+		<enum name="NoHaveBuffTime" value="-5" /> 没有可以领取的时间，不能领取
+		<enum name="OverMaxHours" value="-6" /> 身上多倍时间的buff大于4小时
+	</bean>
+			
+	<bean name="BattleToNpcError">
+		<enum name="NoTeam" value="-1" /> 未组队
+		<enum name="LeaderLevelIsNotEnough" value="-2" /> 队长级别不够
+		<enum name="TeamMemberIsNotEnough" value="-3" /> 队员人数不够
+		<enum name="NpcOnBattle" value="-4" /> npc正在战斗
+	</bean>	
+	
+	<bean name="SubmitType">
+		<enum name="ITEM" value="1" /> 给予npc，任务相关的物品
+		<enum name="PET" value="2" /> 给予npc,任务相关的宠物
+		<enum name="MONEY" value="3"/> 给予npc,任务相关的金钱
+		<enum name="FACTION_MONEY_BOX" value="4"/> 给予npc,公会银箱
+		<enum name="FAMILY_MONEY_BOX" value="5"/> 给予npc,银箱		
+		<enum name="INSTANCE_ZONE_ITEM" value="13" />  副本玩法内的提交物品
+        <enum name="GUILD_ZONE_ITEM" value="22" />  副本玩法内的提交物品
+    </bean>
+		<!-- 幸运大转盘奖励类型 -->
+	<bean name="ForturneWheelType">
+        <variable name="itemtype" type="int" validator="value=[1,)" /> 1为物品,2为经验,3为金钱
+		<variable name="id" type="int" validator="value=[0,)" /> 物品的id,经验和金钱的id为0
+		<variable name="num" type="long" validator="value=[0,)" /> 金钱或经验的数量,物品的数量
+		<variable name="times" type="int" validator="value=[0,)" /> 真正的倍数值*10
+	</bean>
+	<bean name="YouXiaItems">
+    <variable name="itemid" type="int"/> 
+    <variable name="remainNum" type="int"/> 剩余数量
+	</bean>	
+	
+		<!-- 客户端请求访问 NPC -->
+	<protocol name="CVisitNpc" type="9001" maxsize="65535" prior="1">
+			<variable name="npckey" type="long" validator="value=[0,)" />  npckey为npc的唯一ID
+	</protocol>
+	
+	<protocol name="SVisitNpc" type="9002" maxsize="65535" prior="1" tolua="3">
+			<variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+			<variable name="services" type="vector" value="int" /> services 为npc所提供的服务 IDs.
+			<variable name="scenarioquests" type="vector" value="int"/>剧情任务
+	</protocol>
+	
+	<protocol name="CNpcService" type="9003" maxsize="65535" prior="1" tolua="3">		通用向服务器发送NPC服务消息（不带参数）
+			<variable name="npckey" type="long" />	npckey为npc的唯一ID
+			<variable name="serviceid" type="int" />						服务ID
+	</protocol>
+	
+		<!-- 向NPC请求问题 -->
+	<protocol name="CReqQuestion" type="9007" maxsize="65535" prior="1" tolua="3">
+			<variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+	</protocol>
+	
+			<!-- 向NPC请求问题的答案 -->
+	<protocol name="CAnsQuestion" type="9009" maxsize="65535" prior="1" tolua="3">
+			<variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+			<variable name="questionid" type="int" validator="value=[0,)" />
+		  <variable name="answer" type="int" validator="value=[0,)" />玩家的回答
+	</protocol>
+	
+
+	<!-- 服务器发送抽奖 -->
+	<protocol name="SReqFortuneWheel" type="9013" maxsize="65535" prior="1" tolua="3">
+			<variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+			<variable name="serviceid" type="int"/> 						当前转盘服务id
+			<variable name="itemids" type="vector" value="ForturneWheelType" /> 供选择的12个物品,可能是钱或经验
+			<variable name="index" type="int" validator="value=[0,)" /> 最后获得的物品下标
+			<variable name="flag" type="byte"/> 0 大转盘  1翻盘子
+	</protocol>
+	
+	<!-- 客户端请求领奖 -->
+	<protocol name="CFinishFortuneWheel" type="9014" maxsize="65535" prior="1" tolua = "3">
+			<variable name="npckey" type="long" validator="value=[0,)" />	npckey为npc的唯一ID
+			<variable name="serviceid" type="int"/> 							当前转盘服务id
+	</protocol>
+		
+	<protocol name="SBattleToNpcError" type="9021" maxsize="65535" prior="1" tolua = "3">
+		<variable name="battleerror" type="int" validator="value=(,0)" /> 错误代号
+	</protocol>
+	
+	<!-- 服务器发送给客户端，npc提示信息-->
+	<protocol name="SSendNpcMsg" type="9022" maxsize="65535" prior="1" tolua = "3">	
+		<variable name="npckey" type="long" validator="value=(0,)" />
+		<variable name="npcid" type="int" validator="value=(0,)" />
+		<variable name="msgid" type="int" validator="value=(0,)" /> 
+		<variable name="args" type="vector" value="long" /> 
+	</protocol>
+	
+	<!-- 通知客户端提交任务物品或者任务宠物-->
+	<protocol name="SSubmit2Npc" type="9023" maxsize="65535" prior="1" tolua="3">
+		<variable name="questid" type="int" validator="value=[0,)" /> 提交的相关的任务或者其他相关id
+		<variable name="npckey" type="long" validator="value=(0,)" /> 提交的npc
+		<variable name="submittype" type="int" validator=" value=[0,)"  /> 提交类型: 道具0 或者宠物1
+		<variable name="availableIds" type="vector" value="int"  validator="value=[0,)" /> 可以提交的道具ID 或者宠物ID
+		<variable name="availablePos" type="int"  validator="value=[0,5]"/> 开放提交的格子数量
+	</protocol>
+	
+	<bean name="SubmitUnit">
+		<variable name="key" type="int" validator="value=(0,)" /> 给予物品或者道具的key
+		<variable name="num" type="int" validator="value=(0,)" /> 给予物品或者道具的数量
+	</bean>
+	
+	<!-- 客户端请求提交任务物品或者任务宠物-->
+	<protocol name="CSubmit2Npc" type="9024" maxsize="65535" prior="1" tolua="3">
+		<variable name="questid" type="int" validator="value=[0,)" /> 提交物品相关的任务或者其他相关id
+		<variable name="npckey" type="long" validator="value=[0,)" /> npckey
+		<variable name="submittype" type="int" validator="value=[0,)" /> 提交的类型
+		<variable name="things" type="vector" value="SubmitUnit" /> 提交的道具key 或者宠物的key
+	</protocol>
+				<!-- 玩家完成转盘,发给玩家奖励 -->
+	<protocol name="CDoneFortuneWheel" type="9025" maxsize="65535" prior="1" tolua="3">
+		<variable name="npckey" type="long" validator="value=[0,)" />	npckey为npc的唯一ID
+		<variable name="taskid" type="int"/> 							当前转盘的任务id
+		<variable name="succ" type="int"/> 	1表示正常完成,0表示玩家提前关闭了大转盘
+		<variable name="flag" type="byte"/> 0 大转盘  1翻盘子
+	</protocol>	
+	
+	<!-- 智慧试炼 start -->
+	<bean name="ImpExamType">
+		<enum name="IMPEXAM_VILL" value="1" /> 
+		<enum name="IMPEXAM_PROV" value="2" /> 
+		<enum name="IMPEXAM_STATE" value="3" />
+	</bean>
+	
+	<bean name="ImpExamAssistType">
+		<enum name="NOASSIST" value="0" /> 不使用协助
+		<enum name="DELWRONG" value="1" /> 删除一个错误答案
+		<enum name="CHORIGHT" value="2" /> 直接选择正确答案
+	</bean>
+	
+	<protocol name="SAttendImpExam" type="9026" maxsize="65535" prior="1" tolua="3"> 进入游戏的时候发起的确认框
+		<variable name="impexamtype" type="int"/>  考试类型
+	</protocol>
+	
+	<protocol name="CConfirmImpExam" type="9027" maxsize="65535" prior="1" tolua="3">
+		<variable name="impexamtype" type="int"/>  考试类型
+		<variable name="operate" type="byte"/> 	0=愿意  1=放弃参加
+	</protocol>
+
+	<protocol name="CApplyImpExam" type="9028" maxsize="65535" prior="1" tolua="3"> 申请参加智慧试炼
+		<variable name="impexamtype" type="byte"/>
+		<variable name="operate" type="byte"/> 	0=申请  1=开始
+	</protocol>
+
+	<bean name="ImpExamBean">
+		<variable name="questionid" type="int"/>		题目的id
+		<variable name="questionnum" type="int"/>		这道题是第几题,从1开始计数
+		<variable name="righttimes" type="int" />		已答对题目数
+		<variable name="remaintime" type="long" />		距离活动结束时间（只有第一道题目给时间  以后不给时间）
+		<variable name="lastright" type="byte"/>		上一题答对了还是答错了,1表示对,0表示错 -1=第一次发出来题目
+		<variable name="accuexp" type="int" />			本次累积获得多少经验
+		<variable name="accumoney" type="int" />		本次累积获得多少钱
+		<variable name="delwrongval" type="int" />		地王令
+		<variable name="chorightval" type="int" />		天王令
+		<variable name="helpcnt" type="int" />			求助次数
+	</bean>	 
+	
+	<protocol name="SSendImpExamVill" type="9029" maxsize="65535" prior="1" tolua="3">
+		<variable name="impexamdata" type="ImpExamBean" />
+        <variable name="historyright" type="int" />历史最多答对题目数
+		<variable name="isover" type="byte" />结束 0=没结束 1=结束
+	</protocol>
+	
+	<protocol name="SSendImpExamProv" type="9030" maxsize="65535" prior="1" tolua="3">
+		<variable name="impexamdata" type="ImpExamBean" />
+		<variable name="lost" type="byte" /> 0=继续 1=失败
+		<variable name="titlename" type="string" />获得的称号
+		<variable name="rightmap" type="map" key="int" value="int" />
+	</protocol>
+	
+	<protocol name="SSendImpExamState" type="9031" maxsize="65535" prior="1" tolua="3">
+		<variable name="impexamdata" type="ImpExamBean" />
+		<variable name="historymintime" type="long" />历史最短用时
+		<variable name="historymaxright" type="int" />历史最多答对题目数
+		<variable name="titlename" type="string" />获得的称号
+		<variable name="lost" type="byte" /> 0=继续 1=失败 
+		<variable name="impexamusetime" type="long" />当前考试用时
+	</protocol>
+	
+	<protocol name="CSendImpExamAnswer" type="9032" maxsize="65535" prior="1" tolua="3">
+		<variable name="impexamtype" type="byte"/>
+		<variable name="answerid" type="int"/> 		玩家选择的选项
+		<variable name="assisttype" type="byte"/> 	协助类型
+	</protocol>	
+	
+	<protocol name="SSendImpExamStart" type="9033" maxsize="65535" prior="1" tolua="3">
+		<variable name="remaintime" type="long" />距离活动结束时间毫秒
+		<variable name="impexamtype" type="byte"/>
+		<variable name="historymaxright" type="int" />历史最多答对题目数
+		<variable name="historymintime" type="long" />历史最短用时
+	</protocol>
+	
+	<protocol name="SSendImpExamAssist" type="9034" maxsize="65535" prior="1" tolua="3">
+		<variable name="impexamtype" type="byte"/>
+		<variable name="assisttype" type="byte"/> 	协助类型
+		<variable name="answerid" type="int"/>		答案的id，在去除错误的协助类型下是错误答案的id
+	</protocol>	
+	
+	<protocol name="CImpExamHelp" type="9035" maxsize="1024" prior="1" tolua="3"> 智慧试炼求助
+		<variable name="impexamtype" type="byte"/>
+	</protocol>
+	
+	<protocol name="SImpExamHelp" type="9036" maxsize="65535" prior="1" tolua="3">
+		<variable name="helpcnt" type="byte"/>
+	</protocol>
+	
+	<protocol name="CQueryImpExamState" type="9037" maxsize="1024" prior="1" tolua="3"> 查询是否可参加智慧试炼决赛
+	</protocol>
+	
+	<protocol name="SQueryImpExamState" type="9038" maxsize="1024" prior="1" tolua="3">
+		<variable name="isattend" type="byte"/>
+	</protocol>
+	<!-- 智慧试炼 end -->
+	
+	<protocol name="SWinnerChangeTask" type="9051" maxsize="65535" prior="1" tolua="3"> 冠军试炼同步任务
+	</protocol>
+	<protocol name="CWinnerChangeTask" type="9052" maxsize="65535" prior="1" tolua="3"> 冠军试炼同步任务
+		<variable name="acceptflag" type="int"/> 	0表示取消    1表示接受
+	</protocol>
+
+	<protocol name="CStartFortuneWheel" type="9062" maxsize="65535" prior="1" tolua="3"> 客户端申请开始幸运大转盘
+		<variable name="npckey" type="long"/>正在交互的Npckey
+	</protocol>
+	<protocol name="CHasFortuneWheel" type="9063" maxsize="65535" prior="1" tolua="3"> 客户端询问玩家是否有大转盘
+		<variable name="npckey" type="long"/>正在交互的Npckey
+	</protocol>
+	
+	<protocol name="SGeneralSummonCommand" type="9073" maxsize="65525" prior="1" tolua="3">	服务器发送通用拉人消息
+		<variable name="summontype" type="int"/> 					拉人类型 见TransmitTypes
+		<variable name="roleid" type="long"/>						如果是玩家拉人，则此处填玩家ID
+		<variable name="npckey" type="long"/>						npckey
+		<variable name="mapid" type="int"/>							目的地图的baseID，客户端通过这个ID来知道地图名
+		<variable name="minimal" type="int"/>	        弹出的召集令是否最小化,1为最小化,0为不最小化
+	</protocol>
+	SSummonFactionMember和CSummonFactionMemberReply这两个消息可以被替换掉了
+	<protocol name="CGeneralSummonCommand" type="9074" maxsize="65525" prior="1" tolua="3">	客户端回应拉人
+		<variable name="summontype" type="int"/> 					拉人类型 见TransmitTypes
+		<variable name="npckey" type="long"/>						npckey
+		<variable name="agree" type="int"/>							1为同意，0为拒绝
+	</protocol>	
+	
+	<!-- 答题统一协议 -->
+	<protocol name="SAskQuestion" type="9088" maxsize="1024" prior="1" tolua="3"> 服务器出题
+		<variable name="lastresult" type="byte"/> 0 = 没有上一道题，1 = 正确，-1 = 错误
+		<variable name="questionid" type="int"/> 下一道题ID，如果没有下一道为-1
+		<variable name="questiontype" type="int"/> 答题类型，根据不同的类型，客户端/服务器可能会有不同的处理
+		<variable name="npckey" type="long"/> npckey
+		<variable name="xiangguanid" type="int"/>可能需要的相关id
+        <variable name="lasttime" type="int"/> 该题剩余时间(秒)
+		<variable name="cur" type="int"/> 当前答对几道 by changhao
+		<variable name="num" type="int"/> 已经答了多少道 by changhao
+		<variable name="totalexp" type="int"/>  给的总经验 by changhao
+		<variable name="totalmoney" type="int"/> 给的总金钱 by changhao
+		<variable name="helptimes" type="int"/> 已经求助的次数 by changhao
+		<variable name="grab" type="int" /> 1是可以领取2是已经领取3是不能领取 by changhao
+		
+		<variable name="rightanswer" type="list" value="int"/> 已经回答过的多选正确答案
+
+        <enum name="QUEST" value="1" /> 任务
+		<enum name="INSTANCE_ZONE" value="2" /> 副本玩法
+		<enum name="FRIEND_NPC_CHAT" value="3" /> 与结交的npc聊天答题
+		<enum name="SPECIALQUEST_ANSWER" value="5" /> 职业答题分支任务
+        <enum name="GUILD_ANSWER" value="7" /> 公会副本任务
+		<enum name="ACTIVITY_ANSWER" value="8"/> 活动答题 by changhao
+    </protocol>
+	
+	<protocol name="CAnswerQuestion" type="9089" maxsize="1024" prior="1" tolua="3"> 客户端答题
+		<variable name="questionid" type="int"/>
+		<variable name="answerid" type="int"/> [1,) 最多几个答案选项？
+		<variable name="questiontype" type="int"/> 答题类型，根据不同的类型，客户端/服务器可能会有不同的处理
+		<variable name="npckey" type="long"/>
+		<variable name="xiangguanid" type="int"/>可能需要的相关id
+	</protocol>
+
+    <protocol name="CGiveUpQuestion" type="9091" maxsize="1024" prior="1" tolua="3"> 客户端放弃答题
+        <variable name="questiontype" type="int"/> 答题类型，根据不同的类型，客户端/服务器可能会有不同的处理
+        <variable name="npckey" type="long"/>
+    </protocol>
+	
+	<protocol name="CGrabActivityReward" type="9099" maxsize="1024" prior="1" tolua="3"> 领取活动答题奖励 by changhao
+	
+	</protocol>
+	
+	<protocol name="CActivityAnswerQuestionHelp" type="9100" maxsize="1024" prior="1" tolua="3"> 活动答题帮助 by changhao
+		<variable name="questionid" type="int"/> 	
+	</protocol>
+		
+	<protocol name="CAnswerActivityQuestion" type="9101" maxsize="1024" prior="1" tolua="3"> 活动答题 by changhao
+		<variable name="questionid" type="int"/>
+		<variable name="answerid" type="int"/> [1,) 最多几个答案选项？
+		<variable name="xiangguanid" type="int"/>可能需要的相关id
+	</protocol>
+	
+	<protocol name="SGrabActivityReward" type="9102" maxsize="1024" prior="1" tolua="3"> 返回领取活动答题奖励 by changhao
+		
+	</protocol>
+	
+	<protocol name="SActivityAnswerQuestionHelp" type="9103" maxsize="1024" prior="1" tolua="3"> 活动答题帮助 by changhao
+		<variable name="helpnum" type="int"/> 	
+	</protocol>
+	
+	<protocol name="COpenChest" type="9090" maxsize="1024" prior="1" tolua = "3"> 客户端请求打开宝箱
+		<variable name="chestnpckey" type="long"/> 宝箱的npckey		
+	</protocol>
+	
+	<protocol name="SVisitNpcContainChatMsg" type="9094" maxsize="65535" prior="1" tolua="3">
+			<variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+			<variable name="services" type="vector" value="int" /> services 为npc所提供的服务 IDs.
+			<variable name="scenarioquests" type="vector" value="int"/>剧情任务
+			<variable name="msgId" type="int"/>	 	消息提示ID
+			<variable name="parameters" type="vector" value="octets"/>	参数
+	</protocol>
+	
+	<protocol name="CRequestActivityAnswerQuestion" type="9095" maxsize="1024" prior="1" tolua="3"> 请求活动答题 by changhao
+	
+	</protocol>
+	
+	<!-- 通知客户端评级 以及获得的奖励 -->
+	<protocol name="SPingJi" type="9235" maxsize="65535" prior="1" tolua="3">
+		<variable name="grade" type="byte"/> 等级  1=s 2=a 3=b 4=c
+		<variable name="exp" type="int"/> 经验
+	</protocol>
+	
+	<!--离开副本  -->
+	<protocol name="CExitCopy" type="9236" maxsize="65535" prior="1" tolua="3">  离开副本
+        <variable name="gotoType" type="byte"/> 类型  0 正常退出; 1 跳转地图
+    </protocol>
+
+    <protocol name="SNpcBattleTime" type="9237" maxsize="256" prior="1" tolua="3"> npc战斗匹配剩余时间
+        <variable name="npcid" type="int"/> npcid
+        <variable name="npckey" type="long"/> npckey
+        <variable name="usetime" type="long"/> 匹配总时间
+        <variable name="lasttime" type="long"/> 匹配结束时间
+    </protocol>
+
+    <protocol name="CAbandonMacth" type="9238" maxsize="256" prior="1" tolua="3">  放弃匹配
+        <variable name="npckey" type="long"/> npckey
+    </protocol>
+
+    <protocol name="SMacthResult" type="9239" maxsize="256" prior="1" tolua="3">  匹配结果
+        <variable name="npckey" type="long"/> npckey
+        <variable name="result" type="int"/> 结果 0失败; 1成功
+    </protocol>
+	
+    <protocol name="SSendNpcService" type="9257" maxsize="65535" prior="1" tolua="3">
+        <variable name="npckey" type="long"/> npckey
+        <variable name="service" type="int"/> 服务id
+        <variable name="title" type="string" />服务显示的文字
+    </protocol>
+</namespace>

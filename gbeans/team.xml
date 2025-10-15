@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="team">
+		
+		
+		<bean name="STeamMatchInfo" from="队伍列表信息" genxml="server">
+		    <variable name="id" fromCol="ID号" type="int" />
+			<variable name="DisplayInfo" fromCol="显示内容" type="string" />
+			<variable name="Target" fromCol="目标" type="string" />
+			<variable name="Type" fromCol="类型" type="int" />
+			<variable name="MinLevel" fromCol="等级下限" type="int" />
+			<variable name="MaxLevel" fromCol="等级上限" type="int" />
+			<variable name="MinPlayer" fromCol="人数下限" type="int" />
+			<variable name="MaxPlayer" fromCol="人数上限" type="int" />
+			<variable name="Append" fromCol="附加" type="int" />
+		</bean>
+		
+		<bean name="DSTeamMatchInfo" from="D点卡服表格/队伍列表信息for点卡服" genxml="server">
+		    <variable name="id" fromCol="ID号" type="int" />
+			<variable name="DisplayInfo" fromCol="显示内容" type="string" />
+			<variable name="Target" fromCol="目标" type="string" />
+			<variable name="Type" fromCol="类型" type="int" />
+			<variable name="MinLevel" fromCol="等级下限" type="int" />
+			<variable name="MaxLevel" fromCol="等级上限" type="int" />
+			<variable name="MinPlayer" fromCol="人数下限" type="int" />
+			<variable name="MaxPlayer" fromCol="人数上限" type="int" />
+			<variable name="Append" fromCol="附加" type="int" />
+		</bean>
+	
+		<bean name="SGuangHuanLevelup" from="g光环升级经验表" genxml="server">
+			<variable name="id" fromCol="光环等级" type="int" />
+			<variable name="needexp" fromCol="升级需要经验" type="int" />
+		</bean>	
+		
+		<bean name="SZhenFaeffect" from="z光环效果配置表" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="zhenfaid" fromCol="光环id" type="int" />
+			<variable name="zhenfaLv" fromCol="光环等级" type="int" />
+			<variable name="zhenfaExp" fromCol="升级经验" type="int" />
+			<variable name="effect" fromCol="效果1,效果2,效果3,效果4,效果5,效果6,效果7,效果8,效果9,效果10" type="vector" value="string" />
+			<variable name="effectloss" fromCol="被克效果1,被克效果2,被克效果3,被克效果4,被克效果5,被克效果6,被克效果7,被克效果8,被克效果9,被克效果10" type="vector" value="string" />
+		</bean>	
+		
+		<bean name="CZhenFaeffect" from="z光环效果配置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="zhenfaid" fromCol="光环id" type="int" />
+			<variable name="zhenfaLv" fromCol="光环等级" type="int" />
+			<variable name="needexp" fromCol="升级经验" type="int" />
+			<variable name="describe" fromCol="描述1,描述2,描述3,描述4,描述5,描述6,描述7,描述8,描述9,描述10" type="vector" value="string" />
+		</bean>	
+		
+		<bean name="CTeamListInfo" from="队伍列表信息" genxml="client" gencode="mtlua" >
+			<variable name="id" fromCol="ID号" type="int" />
+			<variable name="content" fromCol="显示内容" type="string" />
+			<variable name="target" fromCol="目标" type="string" />
+			<variable name="type" fromCol="类型" type="int" />
+			<variable name="minlevel" fromCol="等级下限" type="int" />
+			<variable name="maxlevel" fromCol="等级上限" type="int" />
+			<variable name="minMember" fromCol="人数下限" type="int" />
+			<variable name="maxMember" fromCol="人数上限" type="int" />
+			<variable name="additional" fromCol="附加" type="int" />
+			<variable name="requirement" fromCol="进入条件" type="string" />
+			<variable name="opentime" fromCol="开放时间" type="string" />
+		</bean>	
+		
+		<bean name="DCTeamListInfo" from="D点卡服表格/队伍列表信息for点卡服" genxml="client" gencode="mtlua" >
+			<variable name="id" fromCol="ID号" type="int" />
+			<variable name="content" fromCol="显示内容" type="string" />
+			<variable name="target" fromCol="目标" type="string" />
+			<variable name="type" fromCol="类型" type="int" />
+			<variable name="minlevel" fromCol="等级下限" type="int" />
+			<variable name="maxlevel" fromCol="等级上限" type="int" />
+			<variable name="minMember" fromCol="人数下限" type="int" />
+			<variable name="maxMember" fromCol="人数上限" type="int" />
+			<variable name="additional" fromCol="附加" type="int" />
+			<variable name="requirement" fromCol="进入条件" type="string" />
+			<variable name="opentime" fromCol="开放时间" type="string" />
+		</bean>
+		
+		<bean name="STeamListInfo" from="队伍列表信息" genxml="server">
+			<variable name="id" fromCol="ID号" type="int" />
+			<variable name="content" fromCol="显示内容" type="string" />
+			<variable name="target" fromCol="目标" type="string" />
+			<variable name="type" fromCol="类型" type="int" />
+			<variable name="minlevel" fromCol="等级下限" type="int" />
+			<variable name="maxlevel" fromCol="等级上限" type="int" />
+			<variable name="minMember" fromCol="人数下限" type="int" />
+			<variable name="maxMember" fromCol="人数上限" type="int" />
+			<variable name="additional" fromCol="附加" type="int" />
+		</bean>	
+		
+	</namespace>

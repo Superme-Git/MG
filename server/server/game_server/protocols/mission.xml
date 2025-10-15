@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从19001开始-->
+<namespace name="mission">
+	<bean name="MissionExeTypes">
+		<enum name="NUL" value="5"/>
+		<enum name="NPC" value="1"/>
+		<enum name="USE" value="2"/>
+		<enum name="PRACTISEAREA" value="3"/>
+		<enum name="AIBATTLE" value="4"/>
+		<enum name="PATROL" value="6"/>
+		<enum name="BUY" value="7"/>
+		<enum name="SKILLUP" value="8"/>
+		<enum name="EQUIP" value="9"/>
+	</bean>
+	<bean name="FairylandStatus">
+		<enum name="LANDOUT" value="1"/>
+		<enum name="LANDIN" value="2"/>
+		<enum name="LANDABSENT" value="3"/>
+	</bean>
+	<bean name="MissionFinTypes">
+		<enum name="NUL" value="0"/>
+		<enum name="MONEY" value="1"/>
+		<enum name="ITEM" value="2"/>
+		<enum name="PET" value="3"/>
+		<enum name="COUNT" value="4"/>
+		<enum name="ITEMCOUNT" value="5"/>
+		<enum name="AREA" value="6"/>
+		<enum name="QUESTION" value="7"/>
+		<enum name="LEVEL" value="8"/>等级
+		<enum name="OTHER" value="9"/>其他
+	</bean>
+	
+	<bean name="NpcExecuteTaskTypes">
+		<enum name="NPC_TALK" value="10"/>点击npc，与npc对话
+		<enum name="GIVE_MONEY" value="11"/>给予金钱
+		<enum name="GIVE_ITEM" value="12"/>给予道具
+		<enum name="GIVE_PET" value="13"/>给予宠物
+		<enum name="ANSWER_QUESTION" value="17"/>答题
+		<enum name="START_BATTLE" value="40"/>开始战斗
+	</bean>
+	
+	<bean name="MissionStatus">
+		<enum name="ABANDON" value="-2"/> 放弃	
+		<enum name="UNACCEPT" value="-1"/>
+		<enum name="COMMITED" value="1"/> 已提交
+		<enum name="FAILED" value="2"/> 任务执行失败
+		<enum name="FINISHED" value="3"/> 完成
+		<enum name="PROCESSING" value="4"/> 进行中
+	</bean>
+	
+	<bean name="AllowTeam">
+		<enum name="NO" value="0"/>
+		<enum name="YES" value="1"/>
+		<enum name="MUST" value="2"/>
+	</bean>
+	
+	<bean name="ReadTimeType">
+		<enum name="TREASE_MAP" value="1"/>挖宝图
+		<enum name="USE_TASK_ITEM" value="2"/>使用任务道具
+		<enum name="FOSSICK" value="3"/>采集
+		<enum name="OPEN_BOX" value="4"/>开宝箱
+		<enum name="END_TALK_QUEST" value="5"/>结束对话类任务
+		<enum name="BEGIN_BATTLE_QUEST" value="6"/>6开始战斗类任务
+		<enum name="END_AREA_QUEST" value="7"/> 区域护送
+	</bean>	
+
+	<!--任务结构-->
+	<bean name="MissionInfo">
+		<variable name="missionid" type="int" validator="value=[0,)"/>
+		<variable name="missionstatus" type="int" validator="value=[0,)"/>
+		<variable name="missionvalue" type="int"/> 任务状态值 
+		<variable name="missionround" type="int"/> 任务的环数
+		<variable name="dstnpckey" type="long" validator="value=[0,)"/>
+	</bean>
+
+	<protocol name="CCommitMission" type="19012" maxsize="65535" prior="1" tolua="3">
+		<variable name="missionid" type="int" validator="value=[1001, 999999]"/> 任务id
+		<variable name="npckey" type="long" validator="value=[0,)" />	npckey为npc的唯一ID
+		<variable name="option" type="int" validator="value=[0,)" />	选项id
+	</protocol>
+
+	<protocol name="SAcceptMission" type="19013" maxsize="65535" prior="1" tolua="3">
+		<variable name="missioninfo" type="fire.pb.mission.MissionInfo"/>
+	</protocol>
+	
+	<!-- 刷新剧情任务状态-->
+	<protocol name="SRefreshMissionState" type="19015" maxsize="65535" prior="1" tolua="3">
+		<variable name="missionid" type="int" validator="value=[1001, 999999]"/> 任务id
+		<variable name="missionstatus" type="int"/>	任务状态
+	</protocol>
+	<protocol name="CAnswerQuestion" type="19016" maxsize="65535" prior="1" tolua="3">
+		<variable name="missionid" type="int" validator="value=[1001, 999999]"/> 任务id
+		<variable name="npckey" type="long"/>npc的key
+		<variable name="answerid" type="int" validator="value=[0,5]"/> 回答的答案
+	</protocol>
+	<protocol name="SRefreshMissionValue" type="19017" maxsize="65535" prior="1" tolua="3">
+		<variable name="missionid" type="int" validator="value=[1001, 999999]"/> 任务id
+		<variable name="missionidvalue" type="int"/> 任务状态值 
+		<variable name="missionidround" type="int"/> 任务的环数
+	</protocol>
+	<protocol name="CTrackMission" type="19018" maxsize="65535" prior="1" tolua = "3">
+		<variable name="missionid" type="int"/> 任务id
+		<variable name="track" type="int" validator="value=[0,1]"/>	任务追踪
+	</protocol>
+	<protocol name="STrackMission" type="19019" maxsize="65535" prior="1" tolua = "3">
+		<variable name="missionid" type="int"/> 任务id
+		<variable name="track" type="int" validator="value=[0,1]" />	任务追踪
+	</protocol>
+	<protocol name="CActiveMissionAIBattle" type="19020" maxsize="65535" prior="1" tolua="3"> 激活任务AI战斗服务
+		<variable name="missionid" type="int" validator="value=[1001, 999999]"/> 任务id
+		<variable name="npckey" type="long"/> npc的key
+		<variable name="activetype" type="int"/> 激活类型:0进入AI战斗,1观看战斗录像
+	</protocol>
+	<protocol name="SFairylandStatus" type="19021" maxsize="65535" prior="1" tolua="3">
+		<variable name="status" type="int" /> 任务id
+	</protocol>
+	<protocol name="CAbsentFairyland" type="19022" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	<protocol name="CReturnFairyland" type="19023" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<protocol name="CReqMissionCanAccept" type="19024" maxsize="65535" prior="1" tolua="3"> 
+	</protocol>
+	<protocol name="SReqMissionCanAccept" type="19025" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="missions" type="list" value="int"/> 可接任务清单
+	</protocol>
+	
+	<protocol name="CMissionDialogEnd" type="19026" maxsize="65535" prior="1" tolua="3"> 任务对话结束
+		<variable name="missionid" type="int" /> 任务id
+	</protocol>
+	
+	<protocol name="SUseMissionItemFail" type="19027" maxsize="65535" prior="1" tolua="3"> 使用任务物品结束
+	</protocol>
+	
+	<protocol name="CMissionReachScene" type="19028" maxsize="65535" prior="1"> 跳转地图
+	</protocol>
+	
+	<bean name="TrackedMission">
+		<variable name="acceptdate" type="long"/> 接收时间
+	</bean>
+	
+	<protocol name="STrackedMissions" type="19029" maxsize="65535" prior="1" tolua="3">
+		<variable name="trackedmissions" type="map" key="int" value="TrackedMission"/> 任务id
+	</protocol>
+	
+	<protocol name="SNpcFollowStart" type="19069" maxsize="65535" prior="1" tolua="3"> npc开始跟随玩家
+		<variable name="npcid" type="int"/>
+	</protocol>
+	
+	<protocol name="SNpcFollowEnd" type="19070" maxsize="65535" prior="1" tolua="3"> npc结束跟随玩家
+		<variable name="npcid" type="int"/>
+	</protocol>
+	
+	<!-- 副本任务 进入副本-->
+    <bean name="InstanceInfo">        
+        <variable name="id" type="int" /> 任务id
+        <variable name="instanceId" type="int" /> 副本id
+        <variable name="state" type="int" /> 0未完成, 2已经完成 完成状态 (角色本身副本状态)
+        <variable name="InstanceState" type="int" /> 0未开启, 1开启 (服务器副本状态)
+        <variable name="starttime" type="long" /> 开启时间
+        <variable name="endtime" type="long" /> 结束时间
+        <variable name="finishedtimes" type="int" /> 完成的次数
+        <variable name="totaltimes" type="int" /> 总次数
+    </bean>
+    <bean name="InstanceTimes">
+        <variable name="instanceId" type="int" /> 副本id
+        <variable name="finishedtimes" type="int" /> 完成的次数
+        <variable name="totaltimes" type="int" /> 总次数
+    </bean>
+	<protocol name="CReqLandTask" type="19036" maxsize="65535" prior="1" tolua="3"> 客户端请求获得副本任务
+		<variable name="taskId" type="int" /> 副本Id
+		<variable name="taskType" type="int" />战斗难度 1=简单模式  2=普通难度 3=困难模式
+	</protocol>
+	
+	<protocol name="CAskLandTimes" type="19037" maxsize="65535" prior="1" tolua="3"> 客户端请求获得副本任务次数
+	</protocol>
+	<protocol name="SLandTimes" type="19038" maxsize="65535" prior="1" tolua="3">
+        <variable name="instances" type="map" key="int" value="InstanceTimes"/>       
+    </protocol>
+	
+	<protocol name="SCopyDestroyTime" type="19039" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="destroyTime" type="long" /> 
+	</protocol>
+    
+    <protocol name="CGetInstanceState" type="19040" maxsize="65535" prior="1" tolua="3">
+    </protocol>
+    <protocol name="SGetInstanceState" type="19041" maxsize="65535" prior="1" tolua="3">
+        <variable name="instances" type="map" key="int" value="InstanceInfo"/>
+    </protocol>
+	<!-- 副本任务 End-->
+
+    <!-- 时光之穴副本-->
+    <bean name="LineInfo">
+        <variable name="id" type="int" /> 副本id
+        <variable name="state" type="int" /> 0 未开启; 1 可以进入, 2 已经完成
+        <variable name="finish" type="int" /> 完成的次数
+    </bean>
+    <protocol name="CGetLineState" type="19042" maxsize="64" prior="1" tolua="3">
+    </protocol>
+    <protocol name="SGetLineState" type="19043" maxsize="65535" prior="1" tolua="3">
+        <variable name="instances" type="map" key="int" value="LineInfo"/>
+    </protocol>
+
+    <protocol name="CReqLineTask" type="19044" maxsize="128" prior="1" tolua="3">  客户端请求进入时光之穴副本
+        <variable name="taskId" type="int" /> 副本Id
+    </protocol>
+    <!-- 时光之穴副本 end-->
+	
+	<protocol name="CNotifyTeamMemeberSubmitItem" type="19045" maxsize="65535" prior="1" tolua="3">
+		<variable name="questid" type="int" validator="value=[0,)" /> 提交的相关的任务
+		<variable name="npckey" type="long" validator="value=(0,)" /> 提交的npc
+		<variable name="submittype" type="int" validator="value=[0,)"  /> 提交类型: 道具0 或者宠物1
+	</protocol>
+	
+	<!--新版活动日历 -->
+	<namespace name="activelist">	活动日历
+		<protocol name="CRefreshActivityListFinishTimes" type="19052" maxsize="65535" prior="1" tolua="3">
+		</protocol>
+		<bean name="SimpleActivityInfo" tolua="3">
+			<variable name="num" type="int" /> 活动次数
+			<variable name="num2" type="int" /> 活动次数2
+			<variable name="activevalue" type="int" /> 活动获得活跃度
+		</bean>
+		<protocol name="SRefreshActivityListFinishTimes" type="19053" maxsize="65535" prior="1" tolua="3">
+			<variable name="activities" type="map" key="int" value="SimpleActivityInfo"/> key为活动id, value为活动信息
+			<variable name="activevalue" type="int" validator="value=[0,)"/>  今日活跃度值
+			<variable name="chests" type="map" key="int" value="int"/> key为宝箱id, value为是否领取,0未领取,1已领取
+			<variable name="recommend" type="int" validator="value=[0,)"/> 当前推荐度
+			<variable name="closeids" type="list" value="int"/> 服务器关闭了这些活动
+		</protocol>
+		
+		<protocol name="CDrawGiftBox" type="19056" maxsize="128" prior="1" tolua="3">  领取宝箱
+			<variable name="id" type="int"/> 宝箱id
+		</protocol>
+		<protocol name="SDrawGiftBox" type="19055" maxsize="128" prior="1" tolua="3"/>  回复已经取过宝箱
+		
+
+		<protocol name="SActivityOpen" type="19054" maxsize="128" prior="1" tolua="3">	有活动开启
+		     <variable name="activityId" type="int"/>
+		</protocol>
+		
+		<protocol name="CShareActivity" type="19057" maxsize="128" prior="1" tolua="3">	分享活动专用！
+		     <variable name="activityId" type="int"/>
+		</protocol>
+	</namespace>
+
+	<protocol name="CReqGoto" type="19084" maxsize="65535" prior="1" tolua="1">
+		<variable name="mapid" type="int"/>
+		<variable name="xpos" type="int"/>
+		<variable name="ypos" type="int"/>
+	</protocol>
+	
+
+	<protocol name="SNotifyTuiSongList" type="19086" maxsize="65535" prior="1" tolua="3"> 推送提醒列表
+		<variable name="notifyList" type="list" value="int"/>
+	</protocol>
+	
+	<protocol name="CReqJionActivity" type="19085" maxsize="65535" prior="1" tolua="3"> 请求参加某个活动
+		<variable name="activityType" type="byte"/> 1=进入PVP
+	</protocol>
+		
+	<bean name="DailyTaskState">
+		<variable name="id" type="byte"/>1=职业 2=副本 3=冰封王座 4.....待定
+		<variable name="state" type="byte"/> 0=未完成  1=已完成 2=为开放
+	</bean>
+	<protocol name="SDailyTaskStateList" type="19088" maxsize="65535" prior="1" tolua = "3"> 推送日常任务状态
+		<variable name="notifyList" type="list" value="DailyTaskState"/>
+	</protocol>
+	
+	<protocol name="SRemoveTuiSong" type="19089" maxsize="65535" prior="1" tolua="3"> 推送提醒列表
+		<variable name="removeId" type="int"/>
+	</protocol>	
+	
+	<protocol name="SQuestion" type="19095" maxsize="65535" prior="1" tolua="3">
+	    <variable name="lastresult" type="int"/> 0 = 没有上一道题，1 = 正确，-1 = 错误
+		<variable name="npckey" type="long" validator="value=[0,)" /> npckey
+		<variable name="questionid" type="int" validator="value=[0,)" /> 问题ID
+		<variable name="flag" type="byte"/>
+	</protocol>
+	
+	<protocol name="CAnsQuestion" type="19096" maxsize="65535" prior="1" tolua="3">
+		<variable name="npckey" type="long" validator="value=[0,)" /> npckey
+		<variable name="questionid" type="int" validator="value=[0,)" />问题ID
+		<variable name="answer" type="int" validator="value=[1,)" />答案选项
+		<variable name="flag" type="byte"/>
+	</protocol>
+
+    <protocol  name="CUseTreasureMap" type="19100" maxsize="65535" prior="1" tolua="3">
+        <variable name="itemkey" type="int"/>
+		<variable name="maptype" type="int"/>0 普通藏宝图; 1 高级藏宝图 
+    </protocol>
+
+    <protocol  name="SUseTreasureMap" type="19101" maxsize="65535" prior="1" tolua="3">
+        <variable name="awardId" type="int"/> 0 表示金钱; 其他表示物品id
+		<variable name="maptype" type="int"/>0 普通藏宝图; 1 高级藏宝图 
+        <!--<variable name="itemids" type="vector" value="int"/> 供选择的物品-->
+    </protocol>
+
+    <protocol name="CUseTreasureMapEnd" type="19102" maxsize="64" prior="1" tolua="3">        
+    </protocol>
+
+    <bean name="ActivityInfo">
+        <variable name="activityId" type="int" /> 活动id
+        <variable name="state" type="int" /> 角色相对活动状态, 0不可进入,1可进入
+        <variable name="activitystate" type="int" /> 状态, 0未开启,1开启
+        <variable name="finishtimes" type="int" /> 完成次数
+        <variable name="nextid" type="int" /> 下周要开启的活动id
+        <variable name="nextnextid" type="int" /> 下下周要开启的活动id
+    </bean>
+
+    <protocol name="CGetActivityInfo" type="19104" maxsize="64" prior="1" tolua="3">
+    </protocol>
+    
+    <protocol name="SGetActivityInfo" type="19105" maxsize="65535" prior="1" tolua="3">
+        <variable name="activityinfos" type="vector" value="ActivityInfo"/> 活动信息
+    </protocol>
+
+    <protocol name="SAskIntoInstance" type="19106" maxsize="1024" prior="1" tolua="3">
+        <variable name="msgid" type="int" /> 消息id
+        <variable name="teamleadername" type="string" /> 队长名字
+        <variable name="awardtimes" type="int" /> 奖励剩余次数
+        <variable name="step" type="int" /> 进度id
+        <variable name="tlstep" type="int" /> 队长进度
+        <variable name="mystep" type="int" /> 我的进度
+        <variable name="allstep" type="int" /> 总进度
+        <variable name="steplist" type="list" value="int"/> 我的未完成进度
+        <variable name="insttype" type="int" /> 0 日常副本; 1时光之穴
+        <variable name="autoenter" type="short"/> 1表示自动确认, 0表示不自动确认
+    </protocol>
+
+    <protocol name="CAskIntoInstance" type="19107" maxsize="128" prior="1" tolua="3">
+        <variable name="answer" type="short"/> 1表示同意, 0表示不同意
+        <variable name="insttype" type="int" /> 0 日常副本; 1时光之穴
+    </protocol>
+
+    <bean name="ArchiveInfo">
+        <variable name="archiveId" type="int" /> 历程id
+        <variable name="state" type="int" /> 状态 0 未完成, 1 已经完成, 2 已经领奖
+    </bean>
+
+    <protocol name="CGetArchiveInfo" type="19108" maxsize="64" prior="1" tolua="3">
+    </protocol>
+
+    <protocol name="SGetArchiveInfo" type="19109" maxsize="65535" prior="1" tolua="3">
+        <variable name="archiveinfos" type="vector" value="ArchiveInfo"/> 历程信息
+    </protocol>
+
+    <protocol name="CGetArchiveAward" type="19110" maxsize="128" prior="1" tolua="3">
+        <variable name="archiveId" type="int"/> 历程id
+    </protocol>
+
+    <protocol name="SWaitRollTime" type="19111" maxsize="128" prior="1" tolua="3">
+        <variable name="messageid" type="int"/> 信息编号
+    </protocol>
+
+    <protocol  name="SPlayXianJingCG" type="19112" maxsize="1024" prior="1" tolua="3"> 踩到陷阱,通知客户端播一个特效        
+    </protocol>
+
+    <protocol  name="SAddTreasureMap" type="19113" maxsize="128" prior="1" tolua="3">
+    </protocol>
+
+    <protocol  name="SAnswerInstance" type="19114" maxsize="128" prior="1" tolua="3">
+        <variable name="roleid" type="long" validator="value=[0,)" />
+        <variable name="answer" type="short"/> 1表示同意, 0表示不同意
+    </protocol>
+    
+    <protocol name="SDefineTeam" type="19115" maxsize="1024" prior="1" tolua="3">
+        <variable name="instid" type="int" /> 副本id
+        <variable name="tlstep" type="int" /> 队长进度
+        <variable name="mystep" type="int" /> 我的进度
+    </protocol>
+    
+    <protocol name="CDefineTeam" type="19116" maxsize="128" prior="1" tolua="3">
+        <variable name="answer" type="short"/> 1表示同意, 0表示不同意
+    </protocol>
+
+    <protocol name="SDropInstance" type="19117" maxsize="1024" prior="1" tolua="3">
+        <variable name="messageid" type="int"/> 信息编号
+        <variable name="landname" type="string"/>
+    </protocol>
+    
+    <protocol name="CDropInstance" type="19118" maxsize="128" prior="1" tolua="3">
+    </protocol>
+
+</namespace>

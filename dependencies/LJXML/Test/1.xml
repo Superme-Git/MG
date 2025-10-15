@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<Root EFT="0.02">
+	<BP pos="118.786 -0.00965881 148.251" dir="0.696369 0.000927809 -0.717127 -0.0282449"/>
+	<BP pos="137.402 -0.00965881 148.552" dir="0.663831 0.000310534 -0.74775 -0.0140909"/>
+	<BP pos="157.573 -0.00965881 149.829" dir="0.660117 0.00243069 -0.740429 -0.126508"/>
+	<BP pos="176.461 -0.00965881 150.01" dir="0.664235 0.00142972 -0.741433 -0.0952163"/>
+	<TOW ID="10191" pos="77.3521 -0.00965881 142.909" dir="0.72564 3.31236e-007 0.688075 1.56766e-007" camp="1" ShooterID="10192"/>
+	<TOW ID="10191" pos="217.296 -0.00965881 151.099" dir="0.755369 -9.28315e-011 -0.6553 -1.54088e-009" camp="0" ShooterID="10192"/>
+	<Wave BT="0" TL="15">
+		<MD ID="10101" Num="1" Time="2.52" ITime="0" Point="1"/>
+		<MD ID="10102" Num="1" Time="5.3" ITime="0" Point="1"/>
+		<MD ID="10103" Num="1" Time="10.5" ITime="0" Point="1"/>
+	</Wave>
+	<Wave BT="15" TL="15">
+		<MD ID="10106" Num="1" Time="15.02" ITime="0" Point="2"/>
+		<MD ID="10105" Num="1" Time="20.2" ITime="0" Point="2"/>
+		<MD ID="10104" Num="1" Time="25.4" ITime="0" Point="2"/>
+	</Wave>
+	<Wave BT="30" TL="15">
+		<MD ID="10107" Num="1" Time="30.02" ITime="0" Point="3"/>
+		<MD ID="10108" Num="1" Time="35.2" ITime="0" Point="3"/>
+		<MD ID="10109" Num="1" Time="40.4" ITime="0" Point="3"/>
+	</Wave>
+	<Wave BT="45" TL="15">
+		<MD ID="10110" Num="1" Time="45.02" ITime="0" Point="4"/>
+		<MD ID="10181" Num="1" Time="50.2" ITime="0" Point="4"/>
+		<MD ID="10111" Num="1" Time="55.4" ITime="0" Point="4"/>
+	</Wave>
+</Root>
+

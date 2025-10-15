@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FC9FF951-1B9E-4389-A00C-266BB189785A}</ProjectGuid>
+    <RootNamespace>defence</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../../lib/</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../../lib/</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../share/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <ProgramDataBaseFileName>../../lib/$(ProjectName)_d.lib</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>../../lib/$(ProjectName)_d.lib</OutputFile>
+      <AdditionalLibraryDirectories>../../../share/win32/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>../../../share/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <ProgramDataBaseFileName>../../lib/$(ProjectName).lib</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>../../lib/$(ProjectName).lib</OutputFile>
+      <AdditionalLibraryDirectories>../../../share/win32/;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\APILoader.cpp" />
+    <ClCompile Include="..\src\defence.cpp" />
+    <ClCompile Include="..\src\EnumWin32Pro.cpp" />
+    <ClCompile Include="..\src\infocollection.cpp" />
+    <ClCompile Include="..\src\Mouse.cpp" />
+    <ClCompile Include="..\src\PerfectProtector-x64.cpp" />
+    <ClCompile Include="..\src\PerfectProtector.cpp" />
+    <ClCompile Include="..\src\pp.cpp" />
+    <ClCompile Include="..\src\Process.cpp" />
+    <ClCompile Include="..\src\socket_helper.cpp" />
+    <ClCompile Include="..\src\stackchecker.cpp" />
+    <ClCompile Include="..\src\stackinfocollection.cpp" />
+    <ClCompile Include="..\protocol\rpcgen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\APILoader.h" />
+    <ClInclude Include="..\src\defence.h" />
+    <ClInclude Include="..\src\EnumWin32Pro.h" />
+    <ClInclude Include="..\src\hardinfo.h" />
+    <ClInclude Include="..\src\infocollection.h" />
+    <ClInclude Include="..\src\Mouse.h" />
+    <ClInclude Include="..\src\native.h" />
+    <ClInclude Include="..\src\PerfectProtector-x64.h" />
+    <ClInclude Include="..\src\PerfectProtector.h" />
+    <ClInclude Include="..\src\pp.h" />
+    <ClInclude Include="..\src\Process.h" />
+    <ClInclude Include="..\src\socket_helper.h" />
+    <ClInclude Include="..\src\stackchecker.h" />
+    <ClInclude Include="..\src\stackinfocollection.h" />
+    <ClInclude Include="..\src\VMProtectSDK.h" />
+    <ClInclude Include="..\protocol\ACAnswer2.hpp" />
+    <ClInclude Include="..\protocol\ACCaptcha.hpp" />
+    <ClInclude Include="..\protocol\ACPP.hpp" />
+    <ClInclude Include="..\protocol\ACQuestion2.hpp" />
+    <ClInclude Include="..\protocol\ACRemoteCode2.hpp" />
+    <ClInclude Include="..\protocol\ACReport2.hpp" />
+    <ClInclude Include="..\protocol\protocols.hpp" />
+    <ClInclude Include="..\protocol\rpcgen.hpp" />
+    <ClInclude Include="..\idefence.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\protocol\ACAnswer2.inc" />
+    <None Include="..\protocol\ACCaptcha.inc" />
+    <None Include="..\protocol\ACPP.inc" />
+    <None Include="..\protocol\ACQuestion2.inc" />
+    <None Include="..\protocol\ACRemoteCode2.inc" />
+    <None Include="..\protocol\ACReport2.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\readme.txt" />
+    <Text Include="..\反外挂系统说明.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

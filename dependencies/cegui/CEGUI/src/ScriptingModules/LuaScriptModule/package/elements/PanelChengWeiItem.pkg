@@ -1,0 +1,30 @@
+// PanelChengWeiItem
+class PanelChengWeiItem : public PanelItem
+{
+public:
+
+	static const CEGUI::ColourRect NameColour;
+	static const CEGUI::ColourRect IntroColor;
+	static const CEGUI::ColourRect TipsColor;//
+
+	static const CEGUI::colour     IntroBoardColor;
+	static const CEGUI::colour     TipsBoardColor;
+	
+	/*************************************************************************
+		Construction and Destruction
+	*************************************************************************/
+	/*!
+	\brief
+		base class constructor
+	*/
+	PanelChengWeiItem(const string& name,const string& intro,const string& tips, const string& finishstr,int item_id = 0,void* item_data = 0,bool bAutodelete = false);
+
+	/*!
+	\brief
+		base class destructor
+	*/
+	virtual ~PanelChengWeiItem(void);
+
+/*************************************************************************/
+    void draw(GeometryBuffer* buffer, const Rect& targetRect, float alpha, const Rect* clipper);
+};

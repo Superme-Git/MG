@@ -1,0 +1,21 @@
+
+常驻内存 AutoLoadTexture="false"
+component.imageset
+component4.imageset
+component11.imageset
+
+
+同步加载 SynLoadTexture="false"
+jiangli1.imageset
+loginback1.imageset
+loginback2.imageset
+loginback9.imageset
+rolebig1.imageset
+rolebig2.imageset
+rolebig3.imageset
+rolebig4.imageset
+rolebig5.imageset
+rolebig6.imageset
+rolebig7.imageset
+rolebig8.imageset
+

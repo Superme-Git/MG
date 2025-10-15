@@ -1,0 +1,561 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\PackZip.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PackZip.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_BITMAP1             BITMAP                  "res\\bitmap1.bmp"
+IDB_BITMAP2             BITMAP                  "res\\bitmap2.bmp"
+IDB_BITMAP3             BITMAP                  "res\\bitmap3.bmp"
+IDB_MESSAGE_PANE        BITMAP                  "res\\MessagePane.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 23
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_FILE_SAVESETUP
+    BUTTON      ID_FILE_SAVERESOURCE
+    BUTTON      ID_FILE_SAVETEMPUPDATE
+    SEPARATOR
+    BUTTON      ID_FILE_ADDPATH
+    BUTTON      ID_EDIT_ADDPATHCONTENT
+    BUTTON      ID_EDIT_ADDNEWPATH
+    BUTTON      ID_EDIT_DELETE
+    SEPARATOR
+    BUTTON      ID_VIEW_EDITFILEZIPLEVEL
+    BUTTON      ID_EDITIGNORE
+    SEPARATOR
+    BUTTON      ID_VIEW_SHOWUNCHECKED
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "新建工程",                        ID_FILE_NEW
+        MENUITEM "打开工程",                        ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "关闭工程",                        ID_FILE_CLOSE
+        MENUITEM SEPARATOR
+        MENUITEM "刷新工程",                        ID_FILE_REFRESH
+        MENUITEM SEPARATOR
+        MENUITEM "保存工程",                        ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "输出安装包",                       ID_FILE_SAVESETUP
+        MENUITEM "输出资源包",                       ID_FILE_SAVERESOURCE
+        MENUITEM "输出临时更新包",                     ID_FILE_SAVETEMPUPDATE
+        MENUITEM SEPARATOR
+        MENUITEM SEPARATOR
+        MENUITEM "退出",                          ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "添加目录",                        ID_FILE_ADDPATH
+        MENUITEM "添加文件",                        ID_EDIT_ADDPATHCONTENT
+        MENUITEM SEPARATOR
+        MENUITEM "添加空目录",                       ID_EDIT_ADDNEWPATH
+        MENUITEM "删除",                          ID_EDIT_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "编辑文件默认压缩方式",                  ID_VIEW_EDITFILEZIPLEVEL
+        MENUITEM "编辑忽略的文件和目录",                  ID_EDITIGNORE
+        MENUITEM "编辑工程目录",                      ID_EDIT_PROJECTPATH
+        MENUITEM "编辑版本信息",                      ID_EDIT_VERSIONMETA
+        MENUITEM SEPARATOR
+        MENUITEM "是否生成MD5值",                    ID_EDIT_SETISMAKEMD5
+        MENUITEM "是否排序操作符",                     ID_EDIT_SORT_OPERATORS
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "安装包",                         ID_SETUPTYPE
+        MENUITEM "资源包",                         ID_RESOURCETYPE
+        MENUITEM SEPARATOR
+        MENUITEM "显示未选中的项",                     ID_VIEW_SHOWUNCHECKED
+        MENUITEM "显示消息窗口",                      ID_VIEW_MESSAGE_PANE
+        MENUITEM SEPARATOR
+        MENUITEM "更新安装包",                       ID_VIEW_UPDATESETUPPFS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About PackZip...",           ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About PackZip"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "PackZip Version 2.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDD_FILEZIPLEVEL DIALOGEX 0, 0, 244, 169
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "编辑文件默认压缩方式"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "应用",IDOK,187,148,50,14
+    CONTROL         "",IDC_LIST_FILEZIPLEVEL,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,138
+    PUSHBUTTON      "添加",IDC_ADDFILEZIP,11,148,50,14
+    PUSHBUTTON      "删除",IDC_DELFILEZIP,70,148,50,14
+END
+
+IDD_ADDZIPLEVEL DIALOGEX 0, 0, 219, 126
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "添加"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,87,105,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,149,105,50,14
+    LTEXT           "请输入文件扩展名( 如 txt, bmp, ... )",IDC_STATIC_PROMPT,8,11,203,8
+    EDITTEXT        IDC_EDIT_FILEEXT,24,28,175,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,73,52,126,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,73,76,126,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "资源包压缩方式：",IDC_STATIC,8,55,65,8
+    LTEXT           "安装包压缩方式：",IDC_STATIC,8,79,65,8
+END
+
+IDD_SAVEPROGRESS DIALOGEX 0, 0, 273, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "处理中，请稍候..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,220,42,44,14
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,26,259,14
+    EDITTEXT        IDC_EDIT1,83,43,60,12,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "正在处理文件：",IDC_STATIC,7,9,57,8
+    EDITTEXT        IDC_EDIT2,64,7,202,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_RECENTPROJECT DIALOGEX 0, 0, 307, 287
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST1,31,47,166,199,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "打开",IDC_BUTTON_OPEN,210,62,50,14
+    PUSHBUTTON      "新建",IDC_BUTTON_NEW,210,102,50,14
+    LTEXT           "",IDC_STATIC,7,7,8,8
+    GROUPBOX        "最近打开工程列表：",IDC_STATIC,20,33,250,224
+END
+
+IDD_EDITIGNORE DIALOGEX 0, 0, 244, 163
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "编辑忽略的文件和目录"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,230,130
+    PUSHBUTTON      "添加",IDC_BUTTON1,7,142,50,14
+    PUSHBUTTON      "删除",IDC_BUTTON2,66,142,50,14
+END
+
+IDD_ADDSETUPLEVEL DIALOGEX 0, 0, 217, 122
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "添加"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,95,101,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,160,101,50,14
+    LTEXT           "请输入文件扩展名( 如 txt, bmp, ... ) 或目录名",IDC_STATIC_PROMPT,7,11,203,8
+    EDITTEXT        IDC_EDIT_FILEEXT,24,28,175,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,73,52,126,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,73,76,126,84,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "是否是目录：",IDC_STATIC,8,55,49,8
+    LTEXT           "是否应用子目录：",IDC_STATIC,8,79,65,8
+END
+
+IDD_ADDNEWPATH DIALOGEX 0, 0, 186, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "添加空目录"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,37,41,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,116,41,50,14
+    LTEXT           "目录名：",IDC_STATIC_PROMPT,7,18,33,8
+    EDITTEXT        IDC_EDIT1,41,14,138,14,ES_AUTOHSCROLL
+END
+
+IDD_PROJECTPATH DIALOGEX 0, 0, 224, 158
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "编辑工程目录"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,167,137,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,210,122
+    PUSHBUTTON      "编辑目录",IDC_BUTTON1,7,137,50,14
+END
+
+IDD_EDITVERSION DIALOGEX 0, 0, 297, 195
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "编辑版本信息"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,169,174,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,237,174,50,14
+    PUSHBUTTON      "添加",IDC_BUTTON1,7,174,50,14
+    PUSHBUTTON      "删除",IDC_BUTTON2,71,174,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,30,283,121
+    LTEXT           "版本：",IDC_STATIC,7,11,25,8
+    EDITTEXT        IDC_EDIT1,33,8,38,14,ES_AUTOHSCROLL
+    LTEXT           "日期：",IDC_STATIC,81,11,25,8
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,106,8,58,15
+    LTEXT           "最低可更新版本：",IDC_STATIC,177,11,69,8
+    EDITTEXT        IDC_EDIT3,245,8,38,14,ES_AUTOHSCROLL
+END
+
+IDD_UPDATESETUPPFS DIALOGEX 0, 0, 320, 206
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "更新安装包"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "保存",IDOK,59,166,50,16
+    PUSHBUTTON      "取消",IDCANCEL,225,167,50,16
+    EDITTEXT        IDC_EDIT_PFSFILE,17,21,249,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BUTTON_OPENPFS,277,21,29,14
+    GROUPBOX        "选择安装包文件",IDC_STATIC,7,6,306,40
+    GROUPBOX        "选择合并补丁包（可忽略）",IDC_STATIC,7,56,304,47
+    EDITTEXT        IDC_EDIT_UPDATEPFSFILE,17,75,249,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BUTTON_OPENUPDATEPFS,277,75,29,14
+    CONTROL         "是否生成安装包md5值",IDC_CHECK_MAKEMD5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,128,117,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,1
+ PRODUCTVERSION 2,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "2.0.0.1"
+            VALUE "InternalName", "PackZip.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "PackZip.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "2.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PROJECTPATH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 217
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_EDITVERSION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 290
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_UPDATESETUPPFS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 194
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+    IDR_PACKDOCTYPE         "PackZip\n\n\npkproj file(*.pkproj)\n.pkproj\nPackZip.Document\nPackZip.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "PackZip"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "PackZip"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\n关于"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_SAVESETUP       "输出安装包\n输出安装包"
+    ID_FILE_ADDPATH         "添加目录\n添加目录"
+    ID_EDIT_ADDPATHCONTENT  "添加文件\n添加文件"
+    ID_VIEW_SHOWUNCHECKED   "显示未选中的项\n显示未选中"
+    ID_EDIT_ADDNEWPATH      "添加空目录\n添加空目录"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_EDITFILEZIPLEVEL "编辑文件默认压缩方式\n压缩方式"
+    ID_VIEW_MESSAGE_PANE    "显示消息窗口\n显示消息窗口"
+    ID_RESOURCETYPE         "资源包\n资源包"
+    ID_SETUPTYPE            "安装包\n安装包"
+    ID_EDITIGNORE           "编辑忽略的文件和目录\n忽略设置"
+    ID_FILE_SAVERESOURCE    "输出资源包\n输出资源包"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_DELETE          "删除\n删除"
+    ID_EDIT_ERRORFILE       "错误文件窗口\n错误文件窗口"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "新建工程\n新建工程"
+    ID_FILE_OPEN            "打开工程\n打开工程"
+    ID_FILE_CLOSE           "关闭工程\n关闭工程"
+    ID_FILE_SAVE            "保存工程\n保存工程"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_PROJECTPATH     "编辑工程目录\n编辑工程目录"
+    ID_EDIT_VERSIONMETA     "编辑版本信息\n编辑版本信息"
+    ID_FILE_SAVETEMPUPDATE  "临时更新包\n临时更新包"
+    ID_EDIT_32845           "（仅供优化时使用，使用前请备份原来的工程文件。"
+    ID_EDIT_SORT_OPERATORS  "对pkproj文件中的operator进行排序。仅供优化使用，使用前请备份原始的pkproj文件。"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\PackZip.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

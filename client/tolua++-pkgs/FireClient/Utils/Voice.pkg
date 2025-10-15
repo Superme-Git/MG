@@ -1,0 +1,17 @@
+
+/////////////////////////////////////begin/////////////////////////////////////
+///////////////////////////////////wav2speex///////////////////////////////////
+void voice_encode_init();
+int voice_encode(short* in, int size, char* encoded, int max_buffer_size);
+std::vector<char> encodeWAV2SPEEX(std::vector<short>& datas);
+void voice_encode_release();
+
+void voice_decode_init();
+int voice_decode(char* encoded, int size, short* output, int max_buffer_size);
+std::vector<short>  decodeSPEEX2WAV(std::string& strData);
+void voice_decode_release();
+
+///////////////////////////////////wav2amr///////////////////////////////////
+int encodeWAVE2AMR(const char* pchWAVEFilename, const char* pchAMRFileName, int nChannels, int nBitsPerSample);
+int decodeAMR2WAV(const char* pchAMRFileName, const char* pchWAVEFilename);
+//////////////////////////////////////end//////////////////////////////////////

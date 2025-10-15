@@ -1,0 +1,119 @@
+<Root>
+	<!--
+	  文件打包与热更新配置说明：
+	  - IO 段：FindPath/OutputPath 为资源输入与输出路径（Android 输出见索引 2/3）
+	  - Update 段：URLInfo 为客户端热更新服务器地址（Android 测试/正式对应 Description="Android_Test"/"Android_BP"）
+	  修改服务器 IP/域名：
+	  1) 在 <Update> 段中将 URL 属性改为新地址（保持与服务端目录结构一致）
+	  2) 客户端 strings.xml 中的 mt3_update_url/mt3_update_select_url/mt3_update_default_select_url 需与服务端协同
+	-->
+	<Channel Count="3">
+		<0 Description="IOS_Locojoy">
+			<ChannelInfo Channel="0" ChannelCaption="0"/>
+		</0>
+		<1 Description="Android_Locojoy">
+			<ChannelInfo Channel="0" ChannelCaption="0"/>
+		</1>
+		<2 Description="Win">
+			<ChannelInfo Channel="100" ChannelCaption="100"/>
+		</2>
+	</Channel>
+	<Code Count="1">
+		<0 Description="Some texts">
+			<UnCodeFileName>0</UnCodeFileName>
+			<UnCodeFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml" 3="cfg/android_notify.xml" 4="image/share/share.png" 5="image/share/share_dianka.png" 6="cfg/blacklist.txt" 7="cfg/ios_notify.plist">8</UnCodeFileNameFull>
+			<UnCodeFileType 0="ogg" 1="mp3" 2="mp4" 3="ini" 4="wmv">5</UnCodeFileType>
+		</0>
+	</Code>
+	<Compress Count="1">
+		<0 Description="Some texts">
+			<UnCompressFileName>0</UnCompressFileName>
+			<UnCompressFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml" 3="cfg/android_notify.xml" 4="image/share/share.png" 5="image/share/share_dianka.png" 6="cfg/blacklist.txt" 7="cfg/ios_notify.plist">8</UnCompressFileNameFull>
+			<UnCompressFileType 0="ogg" 1="mp3" 2="mp4" 3="ini" 4="png" 5="wmv">6</UnCompressFileType>
+		</0>
+	</Compress>
+	<Extend Count="3">
+		<0 Description="IOS">
+			<ExtendInfo Test1="1" Test2="0.0.1" Test3="abc"/>
+		</0>
+		<1 Description="Android">
+			<ExtendInfo Test1="2" Test2="0.0.2" Test3="xyz"/>
+		</1>
+		<2 Description="Win">
+			<ExtendInfo Test1="1" Test2="0.0.1" Test3="abc"/>
+		</2>
+	</Extend>
+	<Filter Count="1">
+		<0 Description="Some texts">
+			<FilterDirName>0</FilterDirName>
+			<FilterDirNameFull 0="table/xmltable">1</FilterDirNameFull>
+			<FilterFileName>0</FilterFileName>
+			<FilterFileNameFull 0="ver.ljvi" >1</FilterFileNameFull>
+			<FilterFileType 0="db" 1="ilk" 2="pdb" 3="exe">4</FilterFileType>
+		</0>
+	</Filter>
+	<IO Count="6">
+		<!-- 说明：FindPath 为原始资源输入目录（通常 ../res/）；OutputPath 为输出目标目录；OutputType=Pack 表示打成包，OutputType=File 表示文件输出 -->
+		<0 Description="Some texts" FindPath="../res/" OutputPath="../../res_ios/res/" OutputType="Pack"/>
+		<1 Description="Some texts" FindPath="../res/" OutputPath="../../res_ios/Update/" OutputType="File"/>
+		<!-- Android 完整资源输出目录（将 ../res/ 导出为可分发的首包资源）；如需变更输出位置可改 OutputPath -->
+		<2 Description="Some texts" FindPath="../res/" OutputPath="../../res_android/res/" OutputType="File"/>
+		<!-- Android 增量更新输出目录（将 ../res/ 导出为热更新文件）；部署到服务器时请同步此目录结构 -->
+		<3 Description="Some texts" FindPath="../res/" OutputPath="../../res_android/Update/" OutputType="File"/>
+		<4 Description="Some texts" FindPath="../res/" OutputPath="../res1/" OutputType="Pack"/>
+		<5 Description="Some texts" FindPath="../res/" OutputPath="../res1/Update/" OutputType="File"/>
+	</IO>
+	<Pack Count="1">
+		<0 Description="Some texts" MaxSize="52428800">
+			<UnPackFileName>0</UnPackFileName>
+			<UnPackFileNameFull 0="image/share/share.png" 1="cfg/ios_notify.plist">2</UnPackFileNameFull>
+			<UnPackFileType 0="ogg" 1="mp3" 2="mp4" 3="ini" 4="wmv">5</UnPackFileType>
+		</0>
+	</Pack>
+	<Update Count="6">
+		<0 Description="IOS_Test">
+			<URLInfo AppURL="11http://store.apple.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="ios" URL="11http://42.62.98.140:8090/ios/"/>
+			</URLInfo>
+		</0>
+		<1 Description="Android_Test">
+			<!-- Android 测试环境热更新服务器地址；切换为自有测试服务器时，修改此 URL（支持 IP/域名/端口） -->
+			<URLInfo AppURL="11http://store.google.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="android" URL="11http://42.62.98.140:8090/android/"/>
+			</URLInfo>
+		</1>
+		<2 Description="IOS_BP">
+			<URLInfo AppURL="11http://store.apple.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="ios" URL="11http://update2.locojoy.com/Update/MTG/ios/"/>
+			</URLInfo>
+		</2>
+		<3 Description="Android_BP">
+			<!-- Android 正式环境热更新服务器地址（生产发布用）；切换时请确保与服务端目录结构保持一致 -->
+			<URLInfo AppURL="11http://store.google.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="android" URL="11http://update2.locojoy.com/Update/MTG/android/"/>
+			</URLInfo>
+		</3>
+		<4 Description="Win_Test">
+			<URLInfo AppURL="11http://store.apple.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="ios" URL="11http://42.62.98.140:8090/ios/"/>
+			</URLInfo>
+		</4>
+		<5 Description="Win_BP">
+			<URLInfo AppURL="11http://store.apple.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="ios" URL="11http://update2.locojoy.com/Update/MTG/ios/"/>
+			</URLInfo>
+		</5>
+	</Update>
+	<Version Count="3">
+		<0 Description="IOS">
+			<VersionInfo VersionCaption="0.0.1" VersionCaptionBase="0.0.1" VersionCaptionMinimum="0.0.1" VersionDonotCheck="1"/>
+		</0>
+		<1 Description="Android">
+			<VersionInfo VersionCaption="0.0.1" VersionCaptionBase="0.0.1" VersionCaptionMinimum="0.0.1" VersionDonotCheck="1"/>
+		</1>
+		<2 Description="Win">
+			<VersionInfo VersionCaption="0.0.219" VersionCaptionBase="0.0.2" VersionCaptionMinimum="0.0.1" VersionDonotCheck="1"/>
+		</2>
+	</Version>
+</Root>
+

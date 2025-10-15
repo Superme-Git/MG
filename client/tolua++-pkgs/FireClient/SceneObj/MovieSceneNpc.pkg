@@ -1,0 +1,27 @@
+class MovieSceneNpc : public ComponentsObject
+{
+public:
+	MovieSceneNpc();
+	virtual ~MovieSceneNpc();
+
+	Nuclear::TextBlockHandle    m_TitleTextureHandle;  //称谓纹理句柄
+	Nuclear::ITextBlock*		m_pTitleTextBlock; //称谓的TextBlock
+	
+	void SetTitle(int title);
+	int GetTitle() const;
+	std::wstring GetName();
+	void UpdateAction(Nuclear::XPUSA_TYPE type);
+	void Run(int now,int delta);
+	void Draw(int now);
+	bool SetAttribute(const stMovieSceneNpcData& pData);
+	void SetArea1Color(int color);
+	void SetArea2Color(int color);
+
+	virtual int GetShapeID();
+	bool IsCharacterModel();
+	
+	virtual void StopMove();
+
+	virtual bool PlayAction(eActionType actionType,float freq = 1.0f);
+
+};

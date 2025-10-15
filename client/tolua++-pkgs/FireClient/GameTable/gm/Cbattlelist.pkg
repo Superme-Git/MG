@@ -1,0 +1,21 @@
+namespace GameTable
+{
+    namespace gm
+    {
+        class Cbattlelist
+        {
+            public:
+            int id;
+            int positionsid;
+        };
+        class CbattlelistTable
+        {
+            public:
+        Cbattlelist& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CbattlelistTable&  GetCbattlelistTableInstance();
+    }
+}

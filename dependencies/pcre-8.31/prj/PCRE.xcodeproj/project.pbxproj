@@ -1,0 +1,1609 @@
+// !$*UTF8*$!
+{
+       archiveVersion = 1;
+       classes = {
+       };
+       objectVersion = 46;
+       objects = {
+
+/* Begin PBXAggregateTarget section */
+              BF4C242B728A4615B2AC4CBA /* ALL_BUILD */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = 5F96CC3CF412480183A0E8C0 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+                     buildPhases = (
+                            0594AAB99A3C4510B1BF5092 /* CMake Rules */,
+                     );
+                     dependencies = (
+                            1E2F1E0A517C4685BA8C5870 /* PBXTargetDependency */,
+                            4A97A30FF0B448D888E469E6 /* PBXTargetDependency */,
+                            4FA51C0E14B64DB6A3AA693E /* PBXTargetDependency */,
+                            D839D4F36D2742E1855E5ED0 /* PBXTargetDependency */,
+                            7C4EA17399574E8586647E21 /* PBXTargetDependency */,
+                     );
+                     name = ALL_BUILD;
+                     productName = ALL_BUILD;
+              };
+              2E6FE4C618864B89869E5DF6 /* RUN_TESTS */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = F282DFAE7DD94135B83FA64D /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */;
+                     buildPhases = (
+                            81FD3E5612E74C788BE43D28 /* CMake PostBuild Rules */,
+                     );
+                     dependencies = (
+                     );
+                     name = RUN_TESTS;
+                     productName = RUN_TESTS;
+              };
+              F4AAC7344B3B444E98F2D777 /* ZERO_CHECK */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = 870B09386005411B8CCFD1F8 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+                     buildPhases = (
+                            A17767E9E7AB4D4C9752E75B /* CMake Rules */,
+                     );
+                     dependencies = (
+                     );
+                     name = ZERO_CHECK;
+                     productName = ZERO_CHECK;
+              };
+              E2F3D8676554419BAC7EBE86 /* install */ = {
+                     isa = PBXAggregateTarget;
+                     buildConfigurationList = 5961DDE2AE9C48DE9F40B4DD /* Build configuration list for PBXAggregateTarget "install" */;
+                     buildPhases = (
+                            63469E8EBA284294BDC6568F /* CMake PostBuild Rules */,
+                     );
+                     dependencies = (
+                            B742516C74DB4C4385CEFF10 /* PBXTargetDependency */,
+                     );
+                     name = install;
+                     productName = install;
+              };
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+37D904F4F8C64B1790458875 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre.h */ = {isa = PBXBuildFile; fileRef = EB45141A6C5A48DBB1478748 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre.h */; settings = { COMPILER_FLAGS = ""; }; };
+FD7F9D00296A4972AE135706 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_byte_order.c */ = {isa = PBXBuildFile; fileRef = 68CC894D6C7E466DBB2472B9 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_byte_order.c */; settings = { COMPILER_FLAGS = ""; }; };
+E0640A509D1746CCBF3DF576 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre_chartables.c */ = {isa = PBXBuildFile; fileRef = 11C44068DA8D485E8FB4C736 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre_chartables.c */; settings = { COMPILER_FLAGS = ""; }; };
+E8351C6BF8254304B4768F22 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_compile.c */ = {isa = PBXBuildFile; fileRef = 8387B7151C7E43C289E6F42C /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_compile.c */; settings = { COMPILER_FLAGS = ""; }; };
+07E6035C2E22440AA6AD69DA /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_config.c */ = {isa = PBXBuildFile; fileRef = 076109E9D1534649AB6635DC /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_config.c */; settings = { COMPILER_FLAGS = ""; }; };
+D6CD13FF2D43418B98262FFE /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_dfa_exec.c */ = {isa = PBXBuildFile; fileRef = 76F086E1916E40899933F163 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_dfa_exec.c */; settings = { COMPILER_FLAGS = ""; }; };
+465390429D214AD29C4EF275 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_exec.c */ = {isa = PBXBuildFile; fileRef = 7667718B717C467E8450C484 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_exec.c */; settings = { COMPILER_FLAGS = ""; }; };
+31DB0959B9D946E895CB2188 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_fullinfo.c */ = {isa = PBXBuildFile; fileRef = 7C11CAAE03044C41AE0EFB57 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_fullinfo.c */; settings = { COMPILER_FLAGS = ""; }; };
+5D00BD47C24B4BC9A0167718 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_get.c */ = {isa = PBXBuildFile; fileRef = 6A3FAC80036A4BFDA3EE9AFF /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_get.c */; settings = { COMPILER_FLAGS = ""; }; };
+3D26E6E9E0854D4CA0716596 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_globals.c */ = {isa = PBXBuildFile; fileRef = 4744D59E4D8D482487DBFD27 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_globals.c */; settings = { COMPILER_FLAGS = ""; }; };
+29A6490B40864EF2986FD47F /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_jit_compile.c */ = {isa = PBXBuildFile; fileRef = 09307B65382E48D49B8B2238 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_jit_compile.c */; settings = { COMPILER_FLAGS = ""; }; };
+9BECE2ED6CE548859EB34354 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_maketables.c */ = {isa = PBXBuildFile; fileRef = 8AF44131C6FE482BB2B06CB8 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_maketables.c */; settings = { COMPILER_FLAGS = ""; }; };
+5A73C3C3709C472CAC0D9BDB /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_newline.c */ = {isa = PBXBuildFile; fileRef = 78E0ACA7EF9F4B679E4E73E0 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_newline.c */; settings = { COMPILER_FLAGS = ""; }; };
+0FD6C37E3471424491E56F99 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ord2utf8.c */ = {isa = PBXBuildFile; fileRef = 50D6515A69EA4A70BF8DE886 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ord2utf8.c */; settings = { COMPILER_FLAGS = ""; }; };
+330A2E9F6CA942FD8E5544FB /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_refcount.c */ = {isa = PBXBuildFile; fileRef = 835741D309EF41C588908ECE /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_refcount.c */; settings = { COMPILER_FLAGS = ""; }; };
+5423546DF0A7413F811AA78E /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_string_utils.c */ = {isa = PBXBuildFile; fileRef = 7B9E4A98476C4D95A5396C46 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_string_utils.c */; settings = { COMPILER_FLAGS = ""; }; };
+97B4C04D7BDE4709979EB5BD /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_study.c */ = {isa = PBXBuildFile; fileRef = 2910F92C37A44FC4B32A56EA /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_study.c */; settings = { COMPILER_FLAGS = ""; }; };
+68C5E88869DD41A7BC023606 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_tables.c */ = {isa = PBXBuildFile; fileRef = 48DEDA0BBA344736BA4AD182 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_tables.c */; settings = { COMPILER_FLAGS = ""; }; };
+428A6A30CB3B4946BEE94406 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ucd.c */ = {isa = PBXBuildFile; fileRef = B135754793BF47989710C073 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ucd.c */; settings = { COMPILER_FLAGS = ""; }; };
+034C437CCC544889BF870278 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_valid_utf8.c */ = {isa = PBXBuildFile; fileRef = 2FF9D0869C7B48EE9AEA3BB4 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_valid_utf8.c */; settings = { COMPILER_FLAGS = ""; }; };
+F6671E0A22984F1588B87200 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_version.c */ = {isa = PBXBuildFile; fileRef = 235029713255443DB0F81CA6 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_version.c */; settings = { COMPILER_FLAGS = ""; }; };
+11EAC5399A49423D95536EC7 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_xclass.c */ = {isa = PBXBuildFile; fileRef = EF6C7BE19D4A4566987C1A27 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_xclass.c */; settings = { COMPILER_FLAGS = ""; }; };
+FB5943AED1D247079BFDBCBD /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/config.h */ = {isa = PBXBuildFile; fileRef = 37A5ECD6B2124A278A26326F /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/config.h */; settings = { COMPILER_FLAGS = ""; }; };
+8CB5731DFC4C4D6C9F952CD6 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+9C84BA9972C94EC595AE7C48 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcregrep.c */ = {isa = PBXBuildFile; fileRef = 347069B5331F471594CA8255 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcregrep.c */; settings = { COMPILER_FLAGS = ""; }; };
+33E817BE1D5B4B32BF122FBF /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+96EE3509E9014850AD2992E3 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.h */ = {isa = PBXBuildFile; fileRef = 170B3779A0994E8F890E4E3D /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.h */; settings = { COMPILER_FLAGS = ""; }; };
+52725B92E3534E71A5068858 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.c */ = {isa = PBXBuildFile; fileRef = D62BFA3D92584C4E815ED1D0 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.c */; settings = { COMPILER_FLAGS = ""; }; };
+783E00DA447644C8B536FEDC /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+C498306218094CACAA70041E /* /Users/magicstudio/Public/3rd/pcre-8.31/pcretest.c */ = {isa = PBXBuildFile; fileRef = B32F04A013C94C74B5CC3306 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcretest.c */; settings = { COMPILER_FLAGS = ""; }; };
+976CE5216480494FB3961C3B /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_printint.c */ = {isa = PBXBuildFile; fileRef = 33891F2640C6481CA1B40963 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_printint.c */; settings = { COMPILER_FLAGS = ""; }; };
+3710A69E2A934FB693E00EA9 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */; settings = { COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+              EF33D20C2E994410BBEDAA3D /*  */ = {
+                     isa = PBXBuildStyle;
+              };
+              AF6B553E336D41CB8EEAF44C /* Debug */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = Debug;
+              };
+              19E7F1AF6B11461682C9354C /* Release */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = Release;
+              };
+              7F6CEABC4C0D451E9F5B5541 /* MinSizeRel */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = MinSizeRel;
+              };
+              45D5B6AA04084B108E9F51D2 /* RelWithDebInfo */ = {
+                     isa = PBXBuildStyle;
+                     buildSettings = {
+                            COPY_PHASE_STRIP = NO;
+                     };
+                     name = RelWithDebInfo;
+              };
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+              B4E9298F173C496B979767DC /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 1017CD2139A146B487CAE7F2 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 1E87A693CCB44F2CABA4E113;
+                     remoteInfo = pcregrep;
+              };
+              38759CC2FFE64F098F55C10E /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 1017CD2139A146B487CAE7F2 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 919118C905304A719AE462C8;
+                     remoteInfo = pcretest;
+              };
+              17AA8A662792460CB04293C4 /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 1017CD2139A146B487CAE7F2 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = FEC746A7D983470B9EA07BF3;
+                     remoteInfo = pcreposix;
+              };
+              99E315E4EFC1402386CBA842 /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 1017CD2139A146B487CAE7F2 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = 7E6E03E3652D41DDA69845FD;
+                     remoteInfo = pcre;
+              };
+              61D3DA5145154676AC60D9BD /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 1017CD2139A146B487CAE7F2 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = F4AAC7344B3B444E98F2D777;
+                     remoteInfo = ZERO_CHECK;
+              };
+              A309EF5B077448289068D091 /* PBXContainerItemProxy */ = {
+                     isa = PBXContainerItemProxy;
+                     containerPortal = 1017CD2139A146B487CAE7F2 /* Project object */;
+                     proxyType = 1;
+                     remoteGlobalIDString = BF4C242B728A4615B2AC4CBA;
+                     remoteInfo = ALL_BUILD;
+              };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text"; name = "CMakeLists.txt"; path = "CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+EB45141A6C5A48DBB1478748 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.h"; name = "pcre.h"; path = "prj/pcre.h"; sourceTree = SOURCE_ROOT; };
+68CC894D6C7E466DBB2472B9 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_byte_order.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_byte_order.c"; path = "pcre_byte_order.c"; sourceTree = SOURCE_ROOT; };
+11C44068DA8D485E8FB4C736 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre_chartables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_chartables.c"; path = "prj/pcre_chartables.c"; sourceTree = SOURCE_ROOT; };
+8387B7151C7E43C289E6F42C /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_compile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_compile.c"; path = "pcre_compile.c"; sourceTree = SOURCE_ROOT; };
+076109E9D1534649AB6635DC /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_config.c"; path = "pcre_config.c"; sourceTree = SOURCE_ROOT; };
+76F086E1916E40899933F163 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_dfa_exec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_dfa_exec.c"; path = "pcre_dfa_exec.c"; sourceTree = SOURCE_ROOT; };
+7667718B717C467E8450C484 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_exec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_exec.c"; path = "pcre_exec.c"; sourceTree = SOURCE_ROOT; };
+7C11CAAE03044C41AE0EFB57 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_fullinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_fullinfo.c"; path = "pcre_fullinfo.c"; sourceTree = SOURCE_ROOT; };
+6A3FAC80036A4BFDA3EE9AFF /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_get.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_get.c"; path = "pcre_get.c"; sourceTree = SOURCE_ROOT; };
+4744D59E4D8D482487DBFD27 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_globals.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_globals.c"; path = "pcre_globals.c"; sourceTree = SOURCE_ROOT; };
+09307B65382E48D49B8B2238 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_jit_compile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_jit_compile.c"; path = "pcre_jit_compile.c"; sourceTree = SOURCE_ROOT; };
+8AF44131C6FE482BB2B06CB8 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_maketables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_maketables.c"; path = "pcre_maketables.c"; sourceTree = SOURCE_ROOT; };
+78E0ACA7EF9F4B679E4E73E0 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_newline.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_newline.c"; path = "pcre_newline.c"; sourceTree = SOURCE_ROOT; };
+50D6515A69EA4A70BF8DE886 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ord2utf8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_ord2utf8.c"; path = "pcre_ord2utf8.c"; sourceTree = SOURCE_ROOT; };
+835741D309EF41C588908ECE /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_refcount.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_refcount.c"; path = "pcre_refcount.c"; sourceTree = SOURCE_ROOT; };
+7B9E4A98476C4D95A5396C46 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_string_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_string_utils.c"; path = "pcre_string_utils.c"; sourceTree = SOURCE_ROOT; };
+2910F92C37A44FC4B32A56EA /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_study.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_study.c"; path = "pcre_study.c"; sourceTree = SOURCE_ROOT; };
+48DEDA0BBA344736BA4AD182 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_tables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_tables.c"; path = "pcre_tables.c"; sourceTree = SOURCE_ROOT; };
+B135754793BF47989710C073 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ucd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_ucd.c"; path = "pcre_ucd.c"; sourceTree = SOURCE_ROOT; };
+2FF9D0869C7B48EE9AEA3BB4 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_valid_utf8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_valid_utf8.c"; path = "pcre_valid_utf8.c"; sourceTree = SOURCE_ROOT; };
+235029713255443DB0F81CA6 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_version.c"; path = "pcre_version.c"; sourceTree = SOURCE_ROOT; };
+EF6C7BE19D4A4566987C1A27 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_xclass.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_xclass.c"; path = "pcre_xclass.c"; sourceTree = SOURCE_ROOT; };
+37A5ECD6B2124A278A26326F /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.h"; name = "config.h"; path = "prj/config.h"; sourceTree = SOURCE_ROOT; };
+833EA8297A2A475EA3A01824 /* pcre */ = {isa = PBXFileReference; explicitFileType = "archive.ar"; path = "libpcre.a"; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+347069B5331F471594CA8255 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcregrep.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcregrep.c"; path = "pcregrep.c"; sourceTree = SOURCE_ROOT; };
+F54BBF30A1F74FD08C35B464 /* pcregrep */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = pcregrep; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+170B3779A0994E8F890E4E3D /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.h"; name = "pcreposix.h"; path = "pcreposix.h"; sourceTree = SOURCE_ROOT; };
+D62BFA3D92584C4E815ED1D0 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcreposix.c"; path = "pcreposix.c"; sourceTree = SOURCE_ROOT; };
+83C30E393DA94BA39D963686 /* pcreposix */ = {isa = PBXFileReference; explicitFileType = "archive.ar"; path = "libpcreposix.a"; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+B32F04A013C94C74B5CC3306 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcretest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcretest.c"; path = "pcretest.c"; sourceTree = SOURCE_ROOT; };
+33891F2640C6481CA1B40963 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_printint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.c.c"; name = "pcre_printint.c"; path = "pcre_printint.c"; sourceTree = SOURCE_ROOT; };
+0EAAD7623ADD4826910F036F /* pcretest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = pcretest; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+              BAE29A6DE552432E8A7202BF  = {
+                     isa = PBXGroup;
+                     children = (
+                            D956293F9B3F4485A91B1EAB /* Sources */,
+                            EE9103FB155644C19CC03641 /* Resources */,
+                            51FDE017558643AFA64DBFD0 /* Products */,
+                     );
+                     sourceTree = "<group>";
+              };
+              D956293F9B3F4485A91B1EAB /* Sources */ = {
+                     isa = PBXGroup;
+                     children = (
+                            ADC5FD0710AB40129E618B12 /* ALL_BUILD */,
+                            C02B95D88ECA404EB793813E /* ZERO_CHECK */,
+                            BDBB798B328A4977B521528C /* pcre */,
+                            15646A842BE2436EA96C1A65 /* pcregrep */,
+                            7A8813F420674A0291569B26 /* pcreposix */,
+                            6FD8201BBD7342E6B9D54C96 /* pcretest */,
+                     );
+                     name = Sources;
+                     sourceTree = "<group>";
+              };
+              EE9103FB155644C19CC03641 /* Resources */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = Resources;
+                     sourceTree = "<group>";
+              };
+              ADC5FD0710AB40129E618B12 /* ALL_BUILD */ = {
+                     isa = PBXGroup;
+                     children = (
+                            A7D8CAA7D70A4AC2AA6CED7B /* CMake Rules */,
+                            155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */,
+                     );
+                     name = ALL_BUILD;
+                     sourceTree = "<group>";
+              };
+              A7D8CAA7D70A4AC2AA6CED7B /* CMake Rules */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = "CMake Rules";
+                     sourceTree = "<group>";
+              };
+              C02B95D88ECA404EB793813E /* ZERO_CHECK */ = {
+                     isa = PBXGroup;
+                     children = (
+                            48FA986247184662ABDF7DFF /* CMake Rules */,
+                            155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */,
+                     );
+                     name = ZERO_CHECK;
+                     sourceTree = "<group>";
+              };
+              48FA986247184662ABDF7DFF /* CMake Rules */ = {
+                     isa = PBXGroup;
+                     children = (
+                     );
+                     name = "CMake Rules";
+                     sourceTree = "<group>";
+              };
+              BDBB798B328A4977B521528C /* pcre */ = {
+                     isa = PBXGroup;
+                     children = (
+                            461BA731B3344CF3A7DA48CE /* Header Files */,
+                            19ED4C9730B54C94B3729CC8 /* Source Files */,
+                            155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */,
+                     );
+                     name = pcre;
+                     sourceTree = "<group>";
+              };
+              461BA731B3344CF3A7DA48CE /* Header Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            EB45141A6C5A48DBB1478748 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre.h */,
+                            37A5ECD6B2124A278A26326F /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/config.h */,
+                     );
+                     name = "Header Files";
+                     sourceTree = "<group>";
+              };
+              19ED4C9730B54C94B3729CC8 /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            68CC894D6C7E466DBB2472B9 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_byte_order.c */,
+                            11C44068DA8D485E8FB4C736 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre_chartables.c */,
+                            8387B7151C7E43C289E6F42C /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_compile.c */,
+                            076109E9D1534649AB6635DC /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_config.c */,
+                            76F086E1916E40899933F163 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_dfa_exec.c */,
+                            7667718B717C467E8450C484 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_exec.c */,
+                            7C11CAAE03044C41AE0EFB57 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_fullinfo.c */,
+                            6A3FAC80036A4BFDA3EE9AFF /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_get.c */,
+                            4744D59E4D8D482487DBFD27 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_globals.c */,
+                            09307B65382E48D49B8B2238 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_jit_compile.c */,
+                            8AF44131C6FE482BB2B06CB8 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_maketables.c */,
+                            78E0ACA7EF9F4B679E4E73E0 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_newline.c */,
+                            50D6515A69EA4A70BF8DE886 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ord2utf8.c */,
+                            835741D309EF41C588908ECE /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_refcount.c */,
+                            7B9E4A98476C4D95A5396C46 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_string_utils.c */,
+                            2910F92C37A44FC4B32A56EA /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_study.c */,
+                            48DEDA0BBA344736BA4AD182 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_tables.c */,
+                            B135754793BF47989710C073 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ucd.c */,
+                            2FF9D0869C7B48EE9AEA3BB4 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_valid_utf8.c */,
+                            235029713255443DB0F81CA6 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_version.c */,
+                            EF6C7BE19D4A4566987C1A27 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_xclass.c */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              15646A842BE2436EA96C1A65 /* pcregrep */ = {
+                     isa = PBXGroup;
+                     children = (
+                            2006E12CC33040F6B5558B26 /* Source Files */,
+                            155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */,
+                     );
+                     name = pcregrep;
+                     sourceTree = "<group>";
+              };
+              2006E12CC33040F6B5558B26 /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            347069B5331F471594CA8255 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcregrep.c */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              7A8813F420674A0291569B26 /* pcreposix */ = {
+                     isa = PBXGroup;
+                     children = (
+                            50426FDB478344549B8F08A7 /* Header Files */,
+                            923B68CEECDB470CB91E43C6 /* Source Files */,
+                            155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */,
+                     );
+                     name = pcreposix;
+                     sourceTree = "<group>";
+              };
+              50426FDB478344549B8F08A7 /* Header Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            170B3779A0994E8F890E4E3D /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.h */,
+                     );
+                     name = "Header Files";
+                     sourceTree = "<group>";
+              };
+              923B68CEECDB470CB91E43C6 /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            D62BFA3D92584C4E815ED1D0 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.c */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              6FD8201BBD7342E6B9D54C96 /* pcretest */ = {
+                     isa = PBXGroup;
+                     children = (
+                            4B2480C91F5442D8938B33C9 /* Source Files */,
+                            155D41649893486B836B4113 /* /Users/magicstudio/Public/3rd/pcre-8.31/CMakeLists.txt */,
+                     );
+                     name = pcretest;
+                     sourceTree = "<group>";
+              };
+              4B2480C91F5442D8938B33C9 /* Source Files */ = {
+                     isa = PBXGroup;
+                     children = (
+                            B32F04A013C94C74B5CC3306 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcretest.c */,
+                            33891F2640C6481CA1B40963 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_printint.c */,
+                     );
+                     name = "Source Files";
+                     sourceTree = "<group>";
+              };
+              51FDE017558643AFA64DBFD0 /* Products */ = {
+                     isa = PBXGroup;
+                     children = (
+                            833EA8297A2A475EA3A01824 /* pcre */,
+                            F54BBF30A1F74FD08C35B464 /* pcregrep */,
+                            83C30E393DA94BA39D963686 /* pcreposix */,
+                            0EAAD7623ADD4826910F036F /* pcretest */,
+                     );
+                     name = Products;
+                     sourceTree = "<group>";
+              };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+              7E6E03E3652D41DDA69845FD /* pcre */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = F417E525121F41DCBB5D2B64 /* Build configuration list for PBXNativeTarget "pcre" */;
+                     buildPhases = (
+                            717E957872F14006B23CB242 /* Sources */,
+                            FCC20F54A64A4A72A5826AE9 /* CMake PostBuild Rules */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            7C4EA17399574E8586647E21 /* PBXTargetDependency */,
+                     );
+                     name = pcre;
+                     productName = pcre;
+                     productReference = 833EA8297A2A475EA3A01824 /* pcre */;
+                     productType = "com.apple.product-type.library.static";
+              };
+              1E87A693CCB44F2CABA4E113 /* pcregrep */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = CA41FA1FD0CE45D88214DFAC /* Build configuration list for PBXNativeTarget "pcregrep" */;
+                     buildPhases = (
+                            41EBADA42DB844CCBF8370FE /* Sources */,
+                            9EC602A2C221457283B3E7B5 /* CMake PostBuild Rules */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            4FA51C0E14B64DB6A3AA693E /* PBXTargetDependency */,
+                            7C4EA17399574E8586647E21 /* PBXTargetDependency */,
+                     );
+                     name = pcregrep;
+                     productName = pcregrep;
+                     productReference = F54BBF30A1F74FD08C35B464 /* pcregrep */;
+                     productType = "com.apple.product-type.tool";
+              };
+              FEC746A7D983470B9EA07BF3 /* pcreposix */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = 3AD37900059C469CA7AFE3BA /* Build configuration list for PBXNativeTarget "pcreposix" */;
+                     buildPhases = (
+                            B4511C35FBAC42E9A1A8C054 /* Sources */,
+                            CED98311C29A4372B1B3E49A /* CMake PostBuild Rules */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            D839D4F36D2742E1855E5ED0 /* PBXTargetDependency */,
+                            7C4EA17399574E8586647E21 /* PBXTargetDependency */,
+                     );
+                     name = pcreposix;
+                     productName = pcreposix;
+                     productReference = 83C30E393DA94BA39D963686 /* pcreposix */;
+                     productType = "com.apple.product-type.library.static";
+              };
+              919118C905304A719AE462C8 /* pcretest */ = {
+                     isa = PBXNativeTarget;
+                     buildConfigurationList = 937E2376161B45D08C4E0A4F /* Build configuration list for PBXNativeTarget "pcretest" */;
+                     buildPhases = (
+                            D37D01F51B0C428F9D9BE2B7 /* Sources */,
+                            B1C0A5BDCB524179A80AF0A6 /* CMake PostBuild Rules */,
+                     );
+                     buildRules = (
+                     );
+                     dependencies = (
+                            4FA51C0E14B64DB6A3AA693E /* PBXTargetDependency */,
+                            D839D4F36D2742E1855E5ED0 /* PBXTargetDependency */,
+                            7C4EA17399574E8586647E21 /* PBXTargetDependency */,
+                     );
+                     name = pcretest;
+                     productName = pcretest;
+                     productReference = 0EAAD7623ADD4826910F036F /* pcretest */;
+                     productType = "com.apple.product-type.tool";
+              };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+              1017CD2139A146B487CAE7F2 /* Project object */ = {
+                     isa = PBXProject;
+                     attributes = {
+                            BuildIndependentTargetsInParallel = YES;
+                     };
+                     buildConfigurationList = 1A2232B2533E4F168951E091 /* Build configuration list for PBXProject  "PCRE" */;
+                     buildSettings = {
+                     };
+                     buildStyles = (
+                            AF6B553E336D41CB8EEAF44C /* Debug */,
+                            19E7F1AF6B11461682C9354C /* Release */,
+                            7F6CEABC4C0D451E9F5B5541 /* MinSizeRel */,
+                            45D5B6AA04084B108E9F51D2 /* RelWithDebInfo */,
+                     );
+                     compatibilityVersion = "Xcode 3.2";
+                     hasScannedForEncodings = 0;
+                     mainGroup = BAE29A6DE552432E8A7202BF;
+                     projectDirPath = "..";
+                     projectRoot = "";
+                     targets = (
+                            BF4C242B728A4615B2AC4CBA /* ALL_BUILD */,
+                            2E6FE4C618864B89869E5DF6 /* RUN_TESTS */,
+                            F4AAC7344B3B444E98F2D777 /* ZERO_CHECK */,
+                            E2F3D8676554419BAC7EBE86 /* install */,
+                            7E6E03E3652D41DDA69845FD /* pcre */,
+                            1E87A693CCB44F2CABA4E113 /* pcregrep */,
+                            FEC746A7D983470B9EA07BF3 /* pcreposix */,
+                            919118C905304A719AE462C8 /* pcretest */,
+                     );
+              };
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+              EFF8E0037C684E6C91DA560B /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              0594AAB99A3C4510B1BF5092 /* CMake Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              F9EABA568AB74F6CAC383710 /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              81FD3E5612E74C788BE43D28 /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/RUN_TESTS_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              D3EE22919D594C86A936DFF7 /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              A17767E9E7AB4D4C9752E75B /* CMake Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              1B532352856B4EA4B89B6466 /*  */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     inputPaths = (
+                     );
+                     outputPaths = (
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "# shell script goes here
+exit 0";
+                     showEnvVarsInLog = 0;
+              };
+              63469E8EBA284294BDC6568F /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/install_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              FCC20F54A64A4A72A5826AE9 /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/pcre_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              9EC602A2C221457283B3E7B5 /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/pcregrep_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              CED98311C29A4372B1B3E49A /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/pcreposix_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+              B1C0A5BDCB524179A80AF0A6 /* CMake PostBuild Rules */ = {
+                     isa = PBXShellScriptBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                     );
+                     name = "CMake PostBuild Rules";
+                     runOnlyForDeploymentPostprocessing = 0;
+                     shellPath = /bin/sh;
+                     shellScript = "make -C /Users/magicstudio/Public/3rd/pcre-8.31/prj -f /Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeScripts/pcretest_postBuildPhase.make$CONFIGURATION all";
+                     showEnvVarsInLog = 0;
+              };
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+              717E957872F14006B23CB242 /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            FD7F9D00296A4972AE135706 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_byte_order.c */,
+                            E0640A509D1746CCBF3DF576 /* /Users/magicstudio/Public/3rd/pcre-8.31/prj/pcre_chartables.c */,
+                            E8351C6BF8254304B4768F22 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_compile.c */,
+                            07E6035C2E22440AA6AD69DA /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_config.c */,
+                            D6CD13FF2D43418B98262FFE /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_dfa_exec.c */,
+                            465390429D214AD29C4EF275 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_exec.c */,
+                            31DB0959B9D946E895CB2188 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_fullinfo.c */,
+                            5D00BD47C24B4BC9A0167718 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_get.c */,
+                            3D26E6E9E0854D4CA0716596 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_globals.c */,
+                            29A6490B40864EF2986FD47F /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_jit_compile.c */,
+                            9BECE2ED6CE548859EB34354 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_maketables.c */,
+                            5A73C3C3709C472CAC0D9BDB /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_newline.c */,
+                            0FD6C37E3471424491E56F99 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ord2utf8.c */,
+                            330A2E9F6CA942FD8E5544FB /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_refcount.c */,
+                            5423546DF0A7413F811AA78E /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_string_utils.c */,
+                            97B4C04D7BDE4709979EB5BD /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_study.c */,
+                            68C5E88869DD41A7BC023606 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_tables.c */,
+                            428A6A30CB3B4946BEE94406 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_ucd.c */,
+                            034C437CCC544889BF870278 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_valid_utf8.c */,
+                            F6671E0A22984F1588B87200 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_version.c */,
+                            11EAC5399A49423D95536EC7 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_xclass.c */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+              41EBADA42DB844CCBF8370FE /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            9C84BA9972C94EC595AE7C48 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcregrep.c */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+              B4511C35FBAC42E9A1A8C054 /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            52725B92E3534E71A5068858 /* /Users/magicstudio/Public/3rd/pcre-8.31/pcreposix.c */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+              D37D01F51B0C428F9D9BE2B7 /* Sources */ = {
+                     isa = PBXSourcesBuildPhase;
+                     buildActionMask = 2147483647;
+                     files = (
+                            C498306218094CACAA70041E /* /Users/magicstudio/Public/3rd/pcre-8.31/pcretest.c */,
+                            976CE5216480494FB3961C3B /* /Users/magicstudio/Public/3rd/pcre-8.31/pcre_printint.c */,
+                     );
+                     runOnlyForDeploymentPostprocessing = 0;
+              };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+              1E2F1E0A517C4685BA8C5870 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 1E87A693CCB44F2CABA4E113 /* pcregrep */;
+                     targetProxy = B4E9298F173C496B979767DC /* PBXContainerItemProxy */;
+              };
+              4A97A30FF0B448D888E469E6 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 919118C905304A719AE462C8 /* pcretest */;
+                     targetProxy = 38759CC2FFE64F098F55C10E /* PBXContainerItemProxy */;
+              };
+              4FA51C0E14B64DB6A3AA693E /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = FEC746A7D983470B9EA07BF3 /* pcreposix */;
+                     targetProxy = 17AA8A662792460CB04293C4 /* PBXContainerItemProxy */;
+              };
+              D839D4F36D2742E1855E5ED0 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = 7E6E03E3652D41DDA69845FD /* pcre */;
+                     targetProxy = 99E315E4EFC1402386CBA842 /* PBXContainerItemProxy */;
+              };
+              7C4EA17399574E8586647E21 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = F4AAC7344B3B444E98F2D777 /* ZERO_CHECK */;
+                     targetProxy = 61D3DA5145154676AC60D9BD /* PBXContainerItemProxy */;
+              };
+              B742516C74DB4C4385CEFF10 /* PBXTargetDependency */ = {
+                     isa = PBXTargetDependency;
+                     target = BF4C242B728A4615B2AC4CBA /* ALL_BUILD */;
+                     targetProxy = A309EF5B077448289068D091 /* PBXContainerItemProxy */;
+              };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+              EB3AD0C7C1BD4C259A012034 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Developer/SDKs/MacOSX10.7.sdk";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj/build";
+                     };
+                     name = Debug;
+              };
+              B71AED3B2EB74514AF53F5A7 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Developer/SDKs/MacOSX10.7.sdk";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj/build";
+                     };
+                     name = Release;
+              };
+              4916F0A421E44B9191DD17D2 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Developer/SDKs/MacOSX10.7.sdk";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj/build";
+                     };
+                     name = MinSizeRel;
+              };
+              B441E2C9867640C08A1D0483 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+                            ONLY_ACTIVE_ARCH = YES;
+                            SDKROOT = "/Developer/SDKs/MacOSX10.7.sdk";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj/build";
+                     };
+                     name = RelWithDebInfo;
+              };
+              C40FE0FAB32A4059BD9626E5 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              3A117752FE424AF884F7E1AD /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              DD77B472C02C40F385782A42 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              71BF1E2C668341239507ACF7 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ALL_BUILD;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              22731FF3F1DC4E2B8A089E88 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = RUN_TESTS;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              B8DFD89D3D164370A776DE03 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = RUN_TESTS;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              EFDF1DD2FAF441E9BAE92894 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = RUN_TESTS;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              501788A1E37145A5B3C5FE1E /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = RUN_TESTS;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              2A9EAAE804AA4F80ACE508AB /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              9231610541E54F95A7C595A5 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              AD3D703F88CE411DB951B82C /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              EE9BD9338CBA405CA73462F4 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = ZERO_CHECK;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              E1480A43455B4369A4B6F849 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = install;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              5C3F3FE360FD4B2691667C64 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = install;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              4A99330416B24FEBBA5AD3A3 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = install;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              FC8A080CC2AE49B982E5A510 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            OTHER_CFLAGS = "  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = install;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              1424BD06F0F0434B987346C6 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "    ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcre;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              45D9141A2BF04D6C8CCDD0F0 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 3;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcre;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              80339EF0CC4C48FC894B5C18 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = s;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcre;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              AC05B9AD64AB4C8D916644DE /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 2;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "        ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcre;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              950C5411D4D94D3181C7CE6E /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "    ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /Users/magicstudio/Public/3rd/pcre-8.31/prj/Debug/libpcreposix.a /usr/lib/libz.dylib /usr/lib/libbz2.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/Debug/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcregrep;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              D2A697A7E98D4FE58A9FB1E0 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 3;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /Users/magicstudio/Public/3rd/pcre-8.31/prj/Release/libpcreposix.a /usr/lib/libz.dylib /usr/lib/libbz2.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/Release/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcregrep;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              7EB2DF71195642098D3B40AB /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = s;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /Users/magicstudio/Public/3rd/pcre-8.31/prj/MinSizeRel/libpcreposix.a /usr/lib/libz.dylib /usr/lib/libbz2.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/MinSizeRel/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcregrep;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              27B9869081B44FB4B1FDA0C8 /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 2;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "        ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /Users/magicstudio/Public/3rd/pcre-8.31/prj/RelWithDebInfo/libpcreposix.a /usr/lib/libz.dylib /usr/lib/libbz2.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/RelWithDebInfo/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcregrep;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              7023D5E5A83142A3ADD88F4B /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "    ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcreposix;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              5BDC1B8814554E86AF2A2DFF /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 3;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcreposix;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              288AC409C09D4F3C8438AC81 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = s;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcreposix;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              117FA1FD01EF4102BDFD12CC /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = lib;
+                            EXECUTABLE_SUFFIX = ".a";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 2;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_STYLE = STATIC;
+                            OTHER_CFLAGS = "        ";
+                            OTHER_LDFLAGS = "";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcreposix;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+              7CC0A739C70F4D84B5D2C3C4 /* Debug */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 0;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "    ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /usr/lib/libreadline.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/Debug/libpcreposix.a /Users/magicstudio/Public/3rd/pcre-8.31/prj/Debug/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcretest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Debug;
+              };
+              1945949251244D19B1D195F7 /* Release */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 3;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /usr/lib/libreadline.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/Release/libpcreposix.a /Users/magicstudio/Public/3rd/pcre-8.31/prj/Release/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcretest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = Release;
+              };
+              577DE03BAC404EFFABA56027 /* MinSizeRel */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = s;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "    -DNDEBUG  ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /usr/lib/libreadline.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/MinSizeRel/libpcreposix.a /Users/magicstudio/Public/3rd/pcre-8.31/prj/MinSizeRel/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcretest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = MinSizeRel;
+              };
+              F1CDE41642074930ACBCFE0E /* RelWithDebInfo */ = {
+                     isa = XCBuildConfiguration;
+                     buildSettings = {
+                            EXECUTABLE_PREFIX = "";
+                            EXECUTABLE_SUFFIX = "";
+                            GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+                            GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+                            GCC_OPTIMIZATION_LEVEL = 2;
+                            GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", HAVE_CONFIG_H, );
+                            GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+                            HEADER_SEARCH_PATHS = ("/Users/magicstudio/Public/3rd/pcre-8.31/prj", "/Users/magicstudio/Public/3rd/pcre-8.31", );
+                            INSTALL_PATH = "";
+                            LIBRARY_SEARCH_PATHS = "";
+                            OTHER_CFLAGS = "        ";
+                            OTHER_LDFLAGS = "  -Wl,-search_paths_first -Wl,-headerpad_max_install_names /usr/lib/libreadline.dylib /Users/magicstudio/Public/3rd/pcre-8.31/prj/RelWithDebInfo/libpcreposix.a /Users/magicstudio/Public/3rd/pcre-8.31/prj/RelWithDebInfo/libpcre.a";
+                            OTHER_REZFLAGS = "";
+                            PRODUCT_NAME = pcretest;
+                            SECTORDER_FLAGS = "";
+                            SYMROOT = "/Users/magicstudio/Public/3rd/pcre-8.31/prj";
+                            USE_HEADERMAP = NO;
+                            WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", );
+                     };
+                     name = RelWithDebInfo;
+              };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+              1A2232B2533E4F168951E091 /* Build configuration list for PBXProject  "PCRE" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            EB3AD0C7C1BD4C259A012034 /* Debug */,
+                            B71AED3B2EB74514AF53F5A7 /* Release */,
+                            4916F0A421E44B9191DD17D2 /* MinSizeRel */,
+                            B441E2C9867640C08A1D0483 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              5F96CC3CF412480183A0E8C0 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            C40FE0FAB32A4059BD9626E5 /* Debug */,
+                            3A117752FE424AF884F7E1AD /* Release */,
+                            DD77B472C02C40F385782A42 /* MinSizeRel */,
+                            71BF1E2C668341239507ACF7 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              F282DFAE7DD94135B83FA64D /* Build configuration list for PBXAggregateTarget "RUN_TESTS" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            22731FF3F1DC4E2B8A089E88 /* Debug */,
+                            B8DFD89D3D164370A776DE03 /* Release */,
+                            EFDF1DD2FAF441E9BAE92894 /* MinSizeRel */,
+                            501788A1E37145A5B3C5FE1E /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              870B09386005411B8CCFD1F8 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            2A9EAAE804AA4F80ACE508AB /* Debug */,
+                            9231610541E54F95A7C595A5 /* Release */,
+                            AD3D703F88CE411DB951B82C /* MinSizeRel */,
+                            EE9BD9338CBA405CA73462F4 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              5961DDE2AE9C48DE9F40B4DD /* Build configuration list for PBXAggregateTarget "install" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            E1480A43455B4369A4B6F849 /* Debug */,
+                            5C3F3FE360FD4B2691667C64 /* Release */,
+                            4A99330416B24FEBBA5AD3A3 /* MinSizeRel */,
+                            FC8A080CC2AE49B982E5A510 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              F417E525121F41DCBB5D2B64 /* Build configuration list for PBXNativeTarget "pcre" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            1424BD06F0F0434B987346C6 /* Debug */,
+                            45D9141A2BF04D6C8CCDD0F0 /* Release */,
+                            80339EF0CC4C48FC894B5C18 /* MinSizeRel */,
+                            AC05B9AD64AB4C8D916644DE /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              CA41FA1FD0CE45D88214DFAC /* Build configuration list for PBXNativeTarget "pcregrep" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            950C5411D4D94D3181C7CE6E /* Debug */,
+                            D2A697A7E98D4FE58A9FB1E0 /* Release */,
+                            7EB2DF71195642098D3B40AB /* MinSizeRel */,
+                            27B9869081B44FB4B1FDA0C8 /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              3AD37900059C469CA7AFE3BA /* Build configuration list for PBXNativeTarget "pcreposix" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            7023D5E5A83142A3ADD88F4B /* Debug */,
+                            5BDC1B8814554E86AF2A2DFF /* Release */,
+                            288AC409C09D4F3C8438AC81 /* MinSizeRel */,
+                            117FA1FD01EF4102BDFD12CC /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+              937E2376161B45D08C4E0A4F /* Build configuration list for PBXNativeTarget "pcretest" */ = {
+                     isa = XCConfigurationList;
+                     buildConfigurations = (
+                            7CC0A739C70F4D84B5D2C3C4 /* Debug */,
+                            1945949251244D19B1D195F7 /* Release */,
+                            577DE03BAC404EFFABA56027 /* MinSizeRel */,
+                            F1CDE41642074930ACBCFE0E /* RelWithDebInfo */,
+                     );
+                     defaultConfigurationIsVisible = 0;
+                     defaultConfigurationName = Debug;
+              };
+/* End XCConfigurationList section */
+       };
+       rootObject = 1017CD2139A146B487CAE7F2;
+}

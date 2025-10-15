@@ -1,0 +1,59 @@
+
+
+安装目录
+/usr/local/xunsearch
+
+
+
+
+
+
+
+
+1.自定义分词器
+XSTokenizerSingle.class.php
+
+放到
+/usr/local/xunsearch/sdk/php/lib
+
+
+2.项目配置文件
+mt3_jingling.ini
+mt3_jingling_keyword.ini
+
+放到目录
+/usr/local/xunsearch/sdk/php/app
+
+
+
+
+20160331部署
+
+alter table faq_content drop faq_content_id;
+
+ALTER TABLE faq_content ADD PRIMARY KEY (faq_id);
+
+
+grant all PRIVILEGES on mt3_jingling.* to jingling@'59.151.112.45' identified by 'locojoymysql';
+
+
+
+http://cmsact.locojoy.com/mt3/yuyue/send_mobilecode?token=7ghtxddqBKmpLFWl1ByMFXU_bvj4Q52Z1Y4hlm2dAkotx8FuUhnrqnG1Cu53lRPeGaBgrKdZZ5ccC9NXnDiF1cpxFFyYZJZECd8Kx4jds_b069XMkwgnYyHlvRChcxCUxDtv2ZL4aJOgvc_bIFzAR_boIRWoioClz7_aLT_a0fkBB_bDud5873IY5F4go92XS_a1KgU0lAcUyV5Hp7aHBiAXADmt7T9dbENxIqCCQnVXyCqADFGOen6Gn77Csvn43mlV4ke1&mobile=18611052601
+
+
+
+
+
+
+php /usr/local/xunsearch/sdk/php/util/Indexer.php  --rebuild --source=mysql://jingling:123456@59.151.112.48/mt3_jingling  --sql="select faq_id,concat(title,' ',keywords) as subject,description,create_time from faq" --project=mt3_jingling_keyword
+
+
+搜索宝石问题
+标题中是"宝石", 但是不是精准搜索
+
+
+
+
+
+
+

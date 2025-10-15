@@ -1,0 +1,34 @@
+Index: StringCover.cpp
+===================================================================
+--- StringCover.cpp	(revision 49248)
++++ StringCover.cpp	(working copy)
+@@ -527,17 +527,21 @@
+         return strtime;
+     }
+     
+-    tm getTimeStruct(long time)
+-    {
+-        time_t et = time;
+-        struct tm times;
++	tm getTimeStruct(long time)
++	{
++		time_t et = time;
++		struct tm times;
+ #if (defined WIN7_32) || (defined WINAPI_FAMILY && WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
+-        localtime_s(&times, &et);
++		localtime_s(&times, &et);
+ #else
+-        localtime_r(&et, &times);
++		struct tm *tempt;
++		//取标准时间  然后加上北京时区8个小时
++		time_t newEt = time + 3600 * 8;
++		tempt = gmtime(&newEt);
++		times = *tempt;
+ #endif
+-        return times;
+-    }
++		return times;
++	}
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     
+ }

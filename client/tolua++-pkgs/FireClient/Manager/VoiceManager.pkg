@@ -1,0 +1,21 @@
+class VoiceManager
+{
+	void ProcessVoiceDataForLua(unsigned int recordTime, int voiceChanelid, int extradata);
+	void tryGetVoice(const std::string& uuid, float fTime, const std::string& yuyinBtnName, bool bTouchPlay=false);
+	
+	void registerAutoClose(int fromType);
+	void unregisterAutoClose();
+	void showTip_RequirePermission();
+
+	std::vector<short> readTempWavData();
+	std::vector<short> amplifyWavVolume(const std::vector<short>& datas);
+
+	void PauseMusicAndEffectForLua();
+	void ResumeEffectForLua();
+	void ResumeMusicForLua();
+	void SendChatToPlatform(int type, CEGUI::String content, int rolelv, int rolefushi);
+	void RoleAccusation(int roleid, int type, CEGUI::String content, int rolelv, int rolefushi, int aid, CEGUI::String aname, int alv, int afushi);
+	void setForbiddenVoicePlay(bool bForbiddenVoicePlay);
+};
+
+VoiceManager* gGetVoiceManager();

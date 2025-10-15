@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="demo" shareHome="../../../../share" pvids="10,11">
+	<import file="../../gnet/gnet.xml"/>
+
+	<provider name="mapo" pvid="10">
+		<!-- gmapd to client -->
+		<bean name="Map">
+			<variable name="mapid"     type="int"/> instance id
+			<variable name="resouceid" type="int"/>
+
+			<variable name="x" type="int"/>
+			<variable name="y" type="int"/>
+			<variable name="z" type="int"/>
+
+			<variable name="direct" type="int"/> int?
+		</bean>
+
+		<!-- gmapd to client -->
+		<protocol name="EnterNow" type="1" argument="Map" maxsize="32" prior="1"/>
+
+		<!-- client to gmapd -->
+		<protocol name="EnterConfirm" type="2" maxsize="32" prior="1">
+			<variable name="mapid" type="int"/> instance id
+		</protocol>
+
+		<protocol name="MoveTo" type="3" maxsize="32" prior="1">
+			<variable name="mapid" type="int"/> map instance id
+			<variable name="x" type="int"/>
+			<variable name="y" type="int"/>
+			<variable name="z" type="int" default="a.b"/>
+			<variable name="f1" type="float" default="b.b"/>
+			<variable name="f2" type="float" default="0.1f"/>
+			<variable name="text" type="string" default="abc"/>
+		</protocol>
+	</provider>
+
+	<provider name="mapi" pvid="11">
+		<bean name="AddRoleArg">
+			<variable name="mip"     type="int"/>
+			<variable name="mport"   type="int"/>
+			<variable name="linksid" type="int"/>
+			<variable name="userid"  type="int"/>
+			<variable name="roleid"  type="long"/>
+		</bean>
+		<bean name="AddRoleRes">
+			<variable name="spriteid" type="int"/>
+		</bean>
+		<rpc name="AddRole" type="2" argument="AddRoleArg" result="AddRoleRes" maxsize="32" prior="1" timeout="2"/>
+
+		<protocol name="DelRole" type="3" maxsize="32" prior="1">
+			<variable name="spriteid" type="int"/>
+		</protocol>
+	</provider>
+
+	<state name="MapProvider">
+		<provider ref="gnet.link"/>
+		<provider ref="mapo"/>
+	</state>
+
+	<state name="MapInner">
+		<provider ref="mapi"/>
+	</state>
+
+	<service name="gmapd">
+		<manager name="Provider" type="provider" initstate="MapProvider" port="10001">
+			<state ref="MapProvider"/>
+		</manager>
+
+		<manager name="GsClient" type="client" initstate="MapInner" port="10002">
+		<state ref="MapInner"/>
+		</manager>
+	</service>
+</application>

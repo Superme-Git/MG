@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<project name="ns" default="install">
+
+<property name="output.dir" value=""/>
+<property name="xdb.xml" value="ns.xdb.xml"/>
+<property name="snail.bin" value="."/>
+
+<property name="install.work.dir" value="install.work.dir"/>
+
+<!-- verify parameters -->
+<condition property="output.dir.present">
+	<and>
+		<not> <equals arg1="${output.dir}" arg2="" trim="true"/> </not>
+		<available file="${output.dir}" type="dir"/>
+	</and>
+</condition>
+<fail message="-Doutput.dir=&lt;value&gt;" unless="output.dir.present"/>
+
+<condition property="xdb.xml.present">
+	<and>
+		<not> <equals arg1="${xdb.xml}" arg2="" trim="true"/> </not>
+		<available file="${xdb.xml}"/>
+	</and>
+</condition>
+<fail message="-Dxdb.xml=&lt;value&gt;" unless="xdb.xml.present"/>
+
+<condition property="snail.bin.present">
+	<and>
+		<available file="${snail.bin}/ns.jar"/>
+		<available file="${snail.bin}/monkeyking.jar"/>
+		<available file="${snail.bin}/jio.jar"/>
+	</and>
+</condition>
+<fail message="-Dsnail.bin=&lt;value&gt;" unless="snail.bin.present"/>
+
+<!-- install now ... -->
+<target name="install">
+	<mkdir dir="${install.work.dir}"/>
+	<mkdir dir="${install.work.dir}/xgenoutput"/>
+	<mkdir dir="${install.work.dir}/classes"/>
+
+	<copy file="${snail.bin}/ns.jar" todir="${install.work.dir}" overwrite="true"/>
+
+	<java jar="${snail.bin}/monkeyking.jar" fork="true">
+		<arg value="${xdb.xml}"/>
+		<arg value="-output"/>
+		<arg value="${install.work.dir}/xgenoutput"/>
+	</java>
+
+	<path id="classpath">
+		<pathelement location="${snail.bin}/monkeyking.jar"/>
+		<pathelement location="${snail.bin}/jio.jar"/>
+	</path>
+	<javac encoding="GBK" srcdir="${install.work.dir}/xgenoutput" destdir="${install.work.dir}/classes"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked"/>
+	</javac>
+
+	<jar jarfile="${install.work.dir}/uniqname.jar" update="true" basedir="${install.work.dir}/classes"/>
+
+	<copy file="${install.work.dir}/uniqname.jar" todir="${output.dir}" overwrite="true"/>
+	<delete dir="${install.work.dir}"/>
+</target>
+
+</project>

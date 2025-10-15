@@ -1,0 +1,15 @@
+
+enum eNetworkType
+{
+	eNetworkOther,
+	eNetworkWifi
+};
+
+class DeviceData
+{ 
+	static const char* sGetTimeStr();
+	static float sGetBatteryRatio();
+	static bool isBatteryCharging();
+	static int sGetNetworkType(); //0.not wifi 1.wifi
+	static bool sIsNetworkConnected();
+};

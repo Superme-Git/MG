@@ -1,0 +1,21 @@
+
+<project name="FireClient-xToLua" basedir=".">
+	<target name="genapp_tolua++">
+  	
+    	<exec executable="${tolua++bin}" >
+    		<arg line="-tFireClient -L ./custom_functions.lua -o ../../FireClient/Application/Framework/LuaFireClient.cpp FireClient.pkg"/>
+			</exec>
+  	</target>
+  	<target name="genwp8app_tolua++">
+  	
+    	<exec executable="${tolua++bin}" >
+    		<arg line="-tFireClient -L ./custom_functions.lua -o ../../FireClient/Application/Framework/LuaFireClientWp8.cpp FireClientWp8.pkg"/>
+			</exec>
+  	</target>
+	<target name="genwin32app_tolua++">
+  	
+    	<exec executable="${tolua++bin}" >
+    		<arg line="-tFireClient -L ./custom_functions.lua -o ../../FireClient/Application/Framework/LuaFireClientWin32.cpp FireClientWin32.pkg"/>
+			</exec>
+  	</target>
+</project>

@@ -1,0 +1,13 @@
+$#include "SystemInfo.h"
+
+class MT3SystemInfo
+{
+public:
+	static float sGetIOSVersionFloatValue();
+	static std::string sGetMacAddr();// MACµÿ÷∑
+	static void sSendSystemInfo();
+
+	static std::wstring sMacValue();
+	static std::wstring sOpenUDIDValue();
+	static std::wstring sIDFAValue();
+};

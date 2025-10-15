@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="gnet" shareHome="../../../share" pvids="">
+	
+	<import file="gnet.xml"/>
+	<import file="gnet.openau.xml"/>
+
+	<state name="Null" timeout="5"/>
+
+	<state name="Forward" timeout="60">
+		<protocol ref="KeepAlive"/>
+		<protocol ref="InstantAddCashReq"/>
+		<protocol ref="GetUserCouponReq"/>
+		<protocol ref="CouponExchangeReq"/>
+		<protocol ref="PortForward"/>
+		<protocol ref="SSOGetTicketReq"/>
+		<protocol ref="ForceLoginRep"/>
+		<protocol ref="openau.DataBetweenAuAnyAndClient"/>
+	</state>
+
+	<state name="LinkService" timeout="60">
+		<protocol ref="Response"/>
+	</state>
+
+	<state name="KeyExchgSend" timeout="60">
+		<protocol ref="KeyExchange"/>
+	</state>
+	
+	<state name="VerifyMatrix" timeout="60">
+		<protocol ref="MatrixResponse"/>
+	</state>
+
+	<state name="GResponseReceive" timeout="60">
+	</state>
+
+	<state name="LinkImport" timeout="0"> timeout小于等于0表示不会超时
+		<!-- glinkd to client -->
+		<protocol ref="ErrorInfo"/>
+		<protocol ref="Challenge"/>
+		<protocol ref="MatrixChallenge"/>
+		<protocol ref="AddictionControl"/>
+		<!-- glinkd to gdeliverd -->
+		<protocol ref="MatrixPasswdReq"/>
+		<protocol ref="UserLoginReq"/>
+		<protocol ref="MatrixResponseReq"/>
+		<protocol ref="StatusAnnounce"/>
+	</state>
+
+	<state name="LinkProvider" timeout="-1">
+		<provider ref="link"/>
+	</state>
+
+	<state name="DeliveryClient" timeout="-1">
+		<protocol ref="MatrixPasswdRep"/>
+		<protocol ref="MatrixResponseRep"/>
+		<protocol ref="UserLoginRep"/>
+		<protocol ref="OnlineAnnounce"/>
+		<protocol ref="ErrorInfoRep"/>
+		<protocol ref="AnnounceForbidInfo"/>
+		<protocol ref="AddictionControlRep"/>
+		<protocol ref="KickoutUser"/>
+		<protocol ref="CertVerify"/>
+		<protocol ref="AnnounceServerAttribute"/>
+		<protocol ref="InstantAddCashRep"/>
+		<protocol ref="DeliverAnnounceToLink"/>
+		<protocol ref="GetUserCouponRep"/>
+		<protocol ref="CouponExchangeRep"/>
+		<protocol ref="SSOGetTicketRep"/>
+		<protocol ref="ForceLoginReq"/>
+		<protocol ref="openau.ServerIDResponse"/>
+		<protocol ref="openau.DataBetweenAuAnyAndClient"/>
+	</state>
+
+	<service name="gate">
+		<manager name="LinkServer" type="server" initstate="LinkService" port="10000">
+			<state ref="LinkImport"/>
+			<state ref="Null"/>
+			<state ref="Forward"/>
+			<state ref="LinkService"/>
+			<state ref="GResponseReceive"/>
+			<state ref="VerifyMatrix"/>
+			<state ref="KeyExchgSend"/>
+		</manager>
+		<manager name="ProviderServer" type="server" initstate="LinkProvider" port="10001">
+			<state ref="LinkProvider"/>
+		</manager>
+		<manager name="DeliveryClient" type="client" initstate="DeliveryClient" port="10002">
+			<state ref="DeliveryClient"/>
+		</manager>
+	</service>
+
+</application>
+

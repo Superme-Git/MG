@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 8001 开始 -->
+<namespace name="team">
+	<bean name="TeamError">
+		<enum name="UnkownError" value="0" /> 未知错误
+		
+		<enum name="SelfInTeam" value="1" /> 自己已经在队伍中
+		<enum name="SelfNotInTeam" value="2" /> 自己不在队伍中
+		<enum name="ObjectInTeam" value="3" /> 对方已经在队伍中
+		<enum name="SelfNOtLeader" value="4" /> 自己不是队长
+		<enum name="ObjectNotLeader" value="5" /> 对方不是队长
+		
+		<enum name="ObjectOffline" value="6" /> 对方不在线（有统一的Error吗）
+		
+		<enum name="SelfTeamFunctionClose" value="7" /> 自己组队开关关闭
+		<enum name="ObjectTeamFunctionClose" value="8" /> 对方组队开关关闭			
+		<enum name="SelfInUnteamState" value="9" /> 自己在不可组队状态
+		<enum name="ObjectInUnteamState" value="10" /> 对方在不可组队状态		
+		<enum name="TeamFull" value="11" /> 队伍人数已满
+		<!-- 邀请 -->
+		<enum name="InvitedInTeam" value="12" /> 对方已经在队伍中
+		<enum name="BeingInvited" value="13" /> 对方正在被其他人邀请中
+		<enum name="InvitedIn30s" value="14" /> 30秒内只能邀请一次同一玩家
+		<enum name="InviteingsFull" value="15" /> 正在邀请人数达到4个，不能再邀请更多
+		<enum name="InviterTeamNotExist" value="16" /> 邀请您的队伍已经解散
+		<enum name="InviterNotLeader" value="17" /> 邀请者不是队长		
+		<!-- 申请 -->
+		<enum name="ApplierInTeam" value="18" /> 申请者已经在队伍中
+		<enum name="ApplyTimeout" value="19" /> 该申请已经超时
+		<enum name="ApplyListFull" value="20" /> 队伍申请列表已满
+		<enum name="ApplierLevelValid" value="21" /> 申请者级别不符合队伍要求
+		<!-- 更换队长 -->
+		<enum name="ChangeLeaderUnable" value="22" /> 队伍处在不可以换队长的状态
+		<enum name="InChangeLeaderStatus" value="23" /> 已经提出更换队长，等待回应中
+		<enum name="ChangeLeaderInCD" value="24" /> 队伍2分钟只能更换队长一次
+		<!-- 交换队员 -->
+		<enum name="MembersNotNormal" value="25" /> 队员不处于正常状态
+		<!-- 归队/暂离 -->
+		<enum name="TooFar" value="26" /> 距离过远，不能归队
+		<enum name="NoAbsentMember" value="27" /> 队伍没有暂离的队员
+		
+		<enum name="RefuseChangeLeader" value="28" /> 拒绝成为队长
+		<enum name="ObjectNotInTeam" value="29" /> 对方不在队伍中
+		<enum name="AlreadyApply" value="30" /> 对方已经在此队伍的申请列表中
+		
+		<enum name="AbsentCantBeLeader" value="31" /> 暂离队员不能成为队长
+		
+		<!-- 队伍匹配 -->
+		<enum name="LevelSetError" value="32"/> 等级设置错误 by changhao
+		<enum name="LevelError" value="33"/>	等级不符合 by changhao
+		<enum name="NoTarget" value="34"/> 没有设置目标 by changhao
+		<enum name="TeamEnoughFull" value="35"/> 队伍已经组满 by changhao
+		<enum name="InMatching" value="36"/> 已经在匹配中 by changhao
+		<enum name="ActiveNotOpen" value="37"/> 活动未开放 by changhao
+		<enum name="NoFaction" value="38"/>没有工会 by changhao
+		<enum name="TeamStateError" value="39"/> 组队状态客户端服务器不同步 by changhao
+		<enum name="OneKeyApplyTeamNoTime" value="40"/> 一键喊话不到时间 by changhao
+		
+		<!--组队分赃 -->
+		<enum name="NoRollNotInTeam" value="50"/> 不在队伍中不能ROLL点 by changhao
+		<enum name="NoReward" value="51"/>	没有奖励可分配 by changhao
+		
+		<!--光环-->
+		<enum name="FormBookHalfNotEnough" value="55"/> 光环残卷不足 by changhao
+		<enum name="UnKnuownFormBook" value="56" /> 无效的光环书 by changhao
+		<enum name="FromLevelMax" value="57"/> 光环等级已经最高了 by changhao
+		<enum name="FormIdError" value="58"/> 光环ID 错误 by changhao
+		<enum name="FormBookNotEnough" value="59"/> 光环书不足 by changhao
+		
+	</bean>
+	<bean name="Pos1">  
+		<variable name="x" type="int"/>		x
+		<variable name="y" type="int"/>		y		
+	</bean>
+	<bean name="TeamMemberState">  队员状态
+		<enum name="eTeamNormal" value="1"/>	正常状态
+		<enum name="eTeamAbsent" value="2"/>	暂离状态
+		<enum name="eTeamReturn" value="3"/>	回归队伍状态
+		<enum name="eTeamFallline" value="4"/>	离线状态
+	</bean>
+	<bean name="TeamState">  队伍状态
+		<enum name="eNormalTeam" value="1"/>	正常状态
+		<enum name="eWaitingSummonTeam" value="2"/>	等待中的队伍状态
+		<enum name="eSummonTeam" value="3"/>	召集令队伍状态
+	</bean>
+	
+	<bean name="TeamMemberSimple">  简单的队伍队员数据结构 by changhao
+		<variable name="roleid" type="long"/>
+		<variable name="rolename" type="string"/>
+		<variable name="level" type="int"/>
+		<variable name="school" type="int"/>
+		<variable name="shape" type="int"/>
+	</bean>	
+	
+	<bean name="TeamMemberBasic">  队伍队员数据结构
+		<variable name="roleid" type="long"/>
+		<variable name="rolename" type="string"/>
+		<variable name="level" type="int"/>
+		<variable name="sceneid" type="long"/>
+		<variable name="pos" type="Pos1"/>
+		<variable name="school" type="int"/>
+		<variable name="hp" type="int"/>
+		<variable name="maxhp" type="int"/>
+		<variable name="mp" type="int"/>
+		<variable name="maxmp" type="int"/>
+		<variable name="title" type="string"/>
+		<variable name="state" type="int"/>
+		<variable name="shape" type="int"/>
+		<variable name="hugindex" type="byte"/> [1,5]拥抱对象的index
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+		<variable name="camp" type="byte" /> 0中立  1部落 2联盟
+	</bean>
+	<bean name="TeamApplyBasic">  申请者数据结构
+		<variable name="roleid" type="long"/>
+		<variable name="rolename" type="string"/>
+		<variable name="level" type="int"/>
+		<variable name="school" type="int"/>
+		<variable name="title" type="string"/>
+		<variable name="shape" type="int"/> 增加外形 by changhao
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+	</bean>
+	
+	<bean name="TeamInfoBasicWithMembers">  队伍数据结构带成员数据 by changhao
+		<variable name="teaminfobasic" type="TeamInfoBasic"/> //队伍基本数据 by changhao
+		<variable name="memberlist" type="list" value="TeamMemberSimple"/> //成员基本数据 by changhao
+		<variable name="status" type="int"/> 状态 0是正常1是申请中by changhao
+	</bean>
+	
+	<bean name="TeamInfoBasic">  队伍数据结构 （搜索队伍功能用）
+		<variable name="teamid" type="long"/>		队伍ID
+		<variable name="leaderid" type="long"/>		队长ID
+		<variable name="minlevel" type="int"/>		等级下限
+		<variable name="maxlevel" type="int"/>		等级上限
+		<variable name="leadername" type="string"/>	队长名字
+		<variable name="leaderlevel" type="int"/>	队长等级
+		<variable name="leaderschool" type="int"/>	队长职业
+		<variable name="membernum" type="int"/>		队伍人数
+		<variable name="membermaxnum" type="int"/>	队伍最大人数 匹配队伍需要 by changhao
+		<variable name="targetid" type="int"/>		队伍目标 by changhao
+	</bean>
+	<bean name="SingleCharacterBasic">  可邀请组队的玩家数据结构 （搜索队伍功能用）
+		<variable name="roleid" type="long"/>		玩家ID
+		<variable name="level" type="int"/>			等级
+		<variable name="name" type="string"/>		名字
+		<variable name="school" type="int"/>		职业
+	    <variable name="position" type="Pos1"/>	     坐标
+		<variable name="camp" type="byte" /> 0中立  1部落 2联盟
+	</bean>
+	<protocol  name="CCreateTeam" type="8001" maxsize="65535" prior="1" tolua="3"> 		角色请求建立队伍
+	</protocol>	
+	<protocol  name="SCreateTeam" type="8002" maxsize="65535" prior="1" tolua="3">		服务器返回建立队伍
+		<variable name="teamid" type="long"/>	队伍ID
+		<variable name="formation" type="int"/>	队伍光环
+		<variable name="teamstate" type="int"/>	队伍状态，参考TeamState：1=普通队伍；2=等待中的队伍；3=召集令队伍
+		<variable name="smapId" type="int" />  地图玩法ID，当处于普通队伍状态时，smapId为0
+	</protocol>	
+	<protocol  name="CAcceptToTeam" type="803" maxsize="65535" prior="1" tolua="3">		队长向服务器发送 接收或拒绝申请者
+		<variable name="roleid" type="long"/>		申请组队者ID
+		<variable name="accept" type="int"/>		0 表示拒绝，1表示接受（拒绝情况下，如果roleid为0，表示清空申请者列表）
+	</protocol>
+	<protocol  name="SAddTeamMember" type="8004" maxsize="655350" prior="1" tolua="3">	服务器返回 添加队伍成员列表
+		<variable name="memberlist" type="list" value="TeamMemberBasic"/>
+	</protocol>
+	<protocol  name="SAddTeamApply" type="8005" maxsize="655350" prior="1" tolua="3">		服务器返回 添加申请者列表
+		<variable name="applylist" type="list" value="TeamApplyBasic"/>
+	</protocol>
+	<protocol  name="SRemoveTeamMember" type="8006" maxsize="65535" prior="1" tolua="3">	服务器返回 删除队员
+		<variable name="memberids" type="list" value="long"/>
+	</protocol>
+	<protocol  name="SRemoveTeamApply" type="8007" maxsize="65535" prior="1" tolua="3">	服务器返回 删除申请者
+		<variable name="applyids" type="list" value="long"/>
+	</protocol>
+	<protocol  name="CQuitTeam" type="8008" maxsize="65535" prior="1" tolua="3">			退出队伍
+	</protocol>
+	<protocol  name="CAbsentReturnTeam" type="8009" maxsize="65535" prior="1" tolua="3">	暂离/回归队伍
+		<variable name="absent" type="byte"/>	1表示暂离 0表示回归
+	</protocol>
+	<protocol  name="SAbsentReturnTeam" type="8099" maxsize="65535" prior="1" tolua="3">	请求回归队伍结果
+		<variable name="ret" type="byte"/>	1表示成功 0表示失败
+	</protocol>
+	<protocol  name="CExpelMember" type="8010" maxsize="65535" prior="1" tolua="3">		请离队员
+		<variable name="roleid" type="long"/>
+	</protocol>
+	<protocol  name="CCallbackMember" type="8011" maxsize="65535" prior="1" tolua="3">	请求召回队员
+		<variable name="memberid" type="long"/> 召唤的队员id by changhao
+	</protocol>
+	<protocol  name="CSetTeamLeader" type="8012" maxsize="65535" prior="1" tolua="3">		重新设置队长
+		<variable name="roleid" type="long"/>
+	</protocol>
+	<protocol  name="SSetTeamLeader" type="8013" maxsize="65535" prior="1" tolua="3">		服务器返回 重新设置队长
+		<variable name="roleid" type="long"/>		队长角色ID
+	</protocol>
+	<protocol  name="CInviteJoinTeam" type="8014" maxsize="65535" prior="1" tolua="3">	邀请对方组队
+		<variable name="roleid" type="long"/>		被邀请者角色ID
+		<variable name="force" type="int"/>			强制对方进组 by changhao
+	</protocol>
+	<protocol  name="SInviteJoinTeam" type="8015" maxsize="65535" prior="1" tolua="3">	服务器返回 某人邀请自己入队，invitername为邀请者 by changhao
+		<variable name="leaderroleid" type="long"/>  队长id 只有op是2的时候才用 by changhao
+		<variable name="invitername" type="string"/> 邀请者名字 by changhao
+		<variable name="inviterlevel" type="int"/>	 邀请者等级 by changhao
+		<variable name="op" type="int"/> 0是正常1是强制邀请2是队员邀请 by changhao
+	</protocol>
+	<protocol  name="CRespondInvite" type="8016" maxsize="65535" prior="1" tolua="3">		回应邀请
+		<variable name="agree" type="byte"/>									agree为1接受邀请，为0拒绝邀请
+	</protocol>
+	<protocol  name="CRequestJoinTeam" type="8017" maxsize="65535" prior="1" tolua="3">	申请加入别人队伍
+		<variable name="roleid" type="long"/>		别人队伍的队长ID
+	</protocol>
+
+	<protocol  name="CSwapMember" type="8020" maxsize="65535" prior="1" tolua="3">		请求交换队员
+		<variable name="index1" type="int"/>	index是队员的序号，5人队伍的话，就是0~4
+		<variable name="index2" type="int"/>
+	</protocol>
+	<protocol  name="SSwapMember" type="8021" maxsize="65535" prior="1" tolua="3">		服务器返回 交换队员
+		<variable name="index1" type="int"/>	index是队员的序号，5人队伍的话，就是0~4
+		<variable name="index2" type="int"/>
+	</protocol>
+	<protocol  name="SAskforSetLeader" type="8022" maxsize="65535" prior="1" tolua="3">	服务器返回 询问是否接受队长任命
+		<variable name="leaderid" type="long"/>	队长ID
+	</protocol>
+	<protocol  name="CAnswerforSetLeader" type="8023" maxsize="65535" prior="1" tolua="3">回答是否接受队长任命
+		<variable name="agree" type="byte"/>	0 拒绝 1同意
+	</protocol>
+	<protocol  name="SAskforCallBack" type="8024" maxsize="65535" prior="1" tolua="3">	服务器返回 询问是否接受队长召唤自己
+		<variable name="leaderid" type="long"/>	队长ID
+	</protocol>
+	<protocol  name="CAnswerforCallBack" type="8025" maxsize="65535" prior="1" tolua="3">	回答是否接受队长召唤自己
+		<variable name="agree" type="byte"/>	0 拒绝 1同意
+	</protocol>
+	<protocol  name="SUpdateMemberState" type="8026" maxsize="65535" prior="1" tolua="3">	服务器返回 更新队员状态
+		<variable name="roleid" type="long"/>
+		<variable name="state" type="int"/>
+	</protocol>
+	<protocol  name="SUpdateMemberLevel" type="8027" maxsize="65535" prior="1" tolua="3">		服务器返回 更新队员等级
+		<variable name="roleid" type="long"/>
+		<variable name="level" type="int"/>
+	</protocol>
+	<protocol  name="SUpdateMemberHPMP" type="8028" maxsize="65535" prior="1" tolua="3">		服务器返回 更新队员当前生命值和魔法值
+		<variable name="roleid" type="long"/>
+		<variable name="hp" type="int"/>
+		<variable name="mp" type="int"/>
+	</protocol>
+	<protocol  name="SUpdateMemberMaxHPMP" type="8029" maxsize="65535" prior="1" tolua="3">	服务器返回 更新队员最大生命值和魔法值
+		<variable name="roleid" type="long"/>
+		<variable name="maxhp" type="int"/>
+		<variable name="maxmp" type="int"/>
+	</protocol>	
+	<protocol  name="CRequestSetTeamLevel" type="8030" maxsize="65535" prior="1" tolua="3">	设置队伍等级限制
+		<variable name="minlevel" type="int"/>
+		<variable name="maxlevel" type="int"/>
+	</protocol>
+	<protocol  name="SSetTeamLevel" type="8031" maxsize="65535" prior="1" tolua="3">			服务器返回队伍等级限制
+		<variable name="minlevel" type="int"/>
+		<variable name="maxlevel" type="int"/>
+	</protocol>
+	<protocol  name="SDismissTeam" type="8034" maxsize="65535" prior="1" tolua="3">			服务器返回 解散队伍
+	</protocol>
+	<protocol  name="SMemberSequence" type="8035" maxsize="65535" prior="1" tolua="3">		服务器返回 队伍成员当前顺序
+		<variable name="teamMemeberlist" type="list" value="long"/> 有序的成员roleid
+	</protocol>
+	<protocol  name="STeamError" type="8036" maxsize="65535" prior="1" tolua="3">				服务器返回 Error信息
+		<variable name="teamError" type="int"/> 参考TeamError的bean定义
+	</protocol>
+	<protocol  name="SRequestJoinSucc" type="8037" maxsize="65535" prior="1" tolua="3">		服务器返回 申请加队成功
+			<variable name="rolename" type="string"/> 队长名称
+	</protocol>
+	<protocol  name="SUpdateMemberPosition" type="8039" maxsize="65535" prior="1" tolua="3">	服务器返回 更新队员当前地图和位置坐标（逻辑坐标）
+		<variable name="roleid" type="long"/>
+		<variable name="position" type="Pos1"/>		坐标
+		<variable name="sceneid" type="long"/>			场景ID
+	</protocol>
+	<protocol  name="SSendSingleCharacterList" type="8040" maxsize="65535" prior="1" tolua="3">	服务器返回 附近未组队的玩家列表
+		<variable name="singlecharacterlist" type="list" value="SingleCharacterBasic"/>
+	</protocol>
+	
+	<protocol  name="SInviteJoinSucc" type="8050" maxsize="65535" prior="1" tolua="3"> 邀请某个玩家入队成功（只是邀请成功，对方还未同意）
+		<variable name="roleId" type="long" /> 被邀请者ID
+	</protocol>
+	<protocol  name="SRequestSetLeaderSucc" type="8051" maxsize="65535" prior="1" tolua="3"> 请求提升某个玩家为队长成功（只是请求成功，对方还未同意）
+		<variable name="roleId" type="long" /> 被提升者ID
+	</protocol>
+	<protocol  name="SSetTeamState" type="8052" maxsize="65535" prior="1" tolua="3"> 设置自己队伍的状态
+		<variable name="state" type="int" /> 队伍状态，参考TeamState：1=普通队伍；2=等待中的队伍；3=召集令队伍
+		<variable name="smapId" type="int" />  地图玩法ID，当处于普通队伍状态时，smapId为0
+	</protocol>
+	<protocol  name="SUpdateTeamMemberBasic" type="8053" maxsize="65535" prior="1" tolua="3"> 更新某个队员的队伍数据
+		<variable name="data" type="TeamMemberBasic" /> 
+	</protocol>
+	<protocol  name="SRespondInvite" type="8054" maxsize="65535" prior="1" tolua="3">		回应邀请
+		<variable name="roleId" type="long"/>									回应邀请的角色
+		<variable name="agree" type="byte"/>									agree为1接受邀请，为0拒绝邀请
+	</protocol>
+	<protocol  name="CDismissTeam" type="8055" maxsize="65535" prior="1" tolua="3">		解散队伍消息
+	</protocol>
+	<protocol  name="SUpdateTeamMemberComponent" type="8056" maxsize="65535" prior="1" tolua="3"> 更新某个队员的Components
+		<variable name="memberid" type="long" /> 						队伍角色id
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+	</protocol>	
+	
+	<protocol  name="CFInviteJoinTeam" type="8061" maxsize="256" prior="1" tolua="3">	邀请公会成员组队
+		<variable name="roleid" type="long"/>		被邀请者角色ID
+	</protocol>
+	
+	<!-- 最新加入功能 by changhao -->
+	<protocol name="CRequestTeamMatch" type="8062" maxsize="65535" prior="1" tolua="3"> 匹配组队 by changhao
+		<variable name="typematch" type="int"/>	   类型为0是个人组队匹配1是队伍匹配 by changhao
+		<variable name="targetid" type="int"/> 目标id by changhao
+		<variable name="levelmin" type="int"/> 等级下限 如果是个人匹配这个忽略 by changhao
+		<variable name="levelmax" type="int"/> 等级上限 如果是个人匹配这个忽略 by changhao
+	</protocol>
+	
+	<protocol name="SRequestTeamMatch" type="8063" maxsize="65535" prior="1" tolua="3"> 匹配组队 by changhao
+		<variable name="typematch" type="int"/>	   类型为0是个人组队匹配1是队伍匹配3是只设置队伍目标 便捷客户端返回 by changhao
+		<variable name="targetid" type="int"/> 目标id 便捷客户端返回 by changhao
+		<variable name="levelmin" type="int"/> 等级下限 如果是个人匹配这个忽略 便捷客户端返回by changhao
+		<variable name="levelmax" type="int"/> 等级上限 如果是个人匹配这个忽略 便捷客户端返回by changhao
+	</protocol>
+
+	<protocol name="CRequestStopTeamMatch" type="8064" maxsize="65535" prior="1" tolua="3"> 停止匹配组队 by changhao
+	
+	</protocol>
+	
+	<protocol name="SStopTeamMatch" type="8065" maxsize="65535" prior="1" tolua="3"> 停止匹配组队 by changhao
+	</protocol>
+	
+	<protocol name="COneKeyTeamMatch" type="8066" maxsize="65535" prior="1" tolua="3"> 一键喊话 by changhao
+		<variable name="channeltype" type="int"/> 频道类型 14组队申请 1当前频道 4帮派 5世界频道 by changhao
+		<variable name="text" type="string"/> 发送的文本 by changhao
+	</protocol>
+		
+	<protocol name="CRequestSetTeamMatchInfo" type="8067" maxsize="65536" prior="1" tolua="3">
+		<variable name="targetid" type="int"/> 目标id by changhao
+		<variable name="levelmin" type="int"/> 等级下限 如果是个人匹配这个忽略 by changhao
+		<variable name="levelmax" type="int"/> 等级上限 如果是个人匹配这个忽略 by changhao	
+	</protocol>
+	
+	<protocol name="SOneKeyTeamMatch" type="8068" maxsize="65535" prior="1" tolua="3"> 一键喊话成功了 by changhao
+		<variable name="ret" type="int"/> 0是成功1是失败 by changhao
+	</protocol>
+	
+	<protocol name="CRequestTeamMatchList" type="8077" maxsize="65535" prior="1" tolua="3"> 请求某个目标下队伍的链表 by changhao
+		<variable name="targetid" type="int"/> 目标ID by changhao
+		<variable name="startteamid" type="long"/> 起始队伍ID （0的话就从头取）by changhao
+		<variable name="num" type="int"/> 取起始队伍id后面的num个数据  by changhao
+	</protocol>
+	
+	<protocol name="SRequestTeamMatchList" type="8078" maxsize="65535" prior="1" tolua="3"> 返回队伍 by changhao
+		<variable name="ret" type="int"/> 错误返回0正确1目标错误2数量错误3其他未知错误 by changhao
+		<variable name="targetid" type="int" /> 目标ID by changhao
+		<variable name="teamlist" type="list" value="TeamInfoBasicWithMembers"/> 一个队伍简单信息 by changhao
+	</protocol>
+	
+	<protocol name="SForceInviteJointTeam" type="8079" maxsize="65535" prior="1" tolua="3"> 强制某个队伍邀请某人 by changhao
+		<variable name="roleid" type="long"/>		强制邀请的某个玩家 by changhao
+	</protocol>
+	
+	<protocol name="CRequestMatchInfo" type="8080" maxsize="65535" prior="1" tolua="3"> 请求队伍匹配和个人匹配数量 by changhao
+	</protocol>
+	
+	<protocol name="SRequestMatchInfo" type="8081" maxsize="65536" prior="1" tolua="3">
+		<variable name="teammatchnum" type="int"/> 队伍匹配数量 by changhao
+		<variable name="playermatchnum" type="int"/>  个人匹配数量 by changhao
+	</protocol>
+	
+	<protocol name="CRequestHaveTeam" type="8083" maxsize="65536" prior="1" tolua="3"> 得到某人是否有队 by changhao
+		<variable name="roleid" type="long"/> 某个人是否有队 by changhao
+	</protocol>
+	
+	<protocol name="SRequestHaveTeam" type="8084" maxsize="65536" prior="1" tolua="3">
+		<variable name="ret" type="int"/> 0是没1是有 by changhao
+	</protocol>	
+
+	<protocol name="COneKeyApplyTeamInfo" type="8085" maxsize="65535" prior="1" tolua="3">  一键喊话队伍信息 by changhao
+		<variable name="teamid" type="long"/> 队伍的ID by changhao
+	</protocol>
+	
+	<protocol name="SOneKeyApplyTeamInfo" type="8086" maxsize="65535" prior="1" tolua="3">  返回一键喊话队伍信息 by changhao
+		<variable name="teamid" type="long" /> 队伍的id by changhao
+		<variable name="memberlist" type="list" value="TeamMemberSimple"/>		
+	</protocol>
+	
+	<namespace name="teammelon"> <!-- 8090-8099 --> 组队分赃 by changhao
+	
+		<bean name="RollMelon">  
+			<variable name="melonid" type="long"/> 分赃ID by changhao
+			<variable name="itemid" type="int"/> 道具表id by changhao
+			<variable name="itemnum" type="int"/> 道具数量 by changhao
+			<variable name="itemdata" type="octets"/> 道具的数据 by changhao
+		</bean>	
+		
+		<bean name="RoleRollInfo"> ROLL点信息 by changhao
+			<variable name="roleid" type="long"/>
+			<variable name="rolename" type="string"/>
+			<variable name="roll" type="int"/> 如果是0就是放弃了 by changhao
+		</bean>
+	
+		<protocol name="STeamRollMelon" type="8090" maxsize="65535" prior="1" tolua="3"> 告诉客户端开始ROLL点 by changhao
+			<variable name="melonlist" type="list" value="RollMelon"/> 有可能是连续好几个 by changhao
+			<variable name="watcher" type="int"/> 1是观察者0是能ROLL的 by changhao
+		</protocol>
+	
+		<protocol name="CTeamRollMelon" type="8091" maxsize="65535" prior="1" tolua="3"> 请求ROLL点  by changhao
+			<variable name="melonid" type="long"/> 分赃id by changhao
+			<variable name="status" type="int"/> 1是ROLL 0是放弃 by changhao
+		</protocol>
+		
+		<bean name="MelonItemBagInfo"> 战力品详细信息 by changhao
+			<variable name="itemkey" type="int"/>
+			<variable name="bagid" type="int"/>
+		</bean>
+		
+		<protocol name="STeamRollMelonInfo" type="8092" maxsize="65536" prior="1" tolua="3"> 大家ROLL了多少点 by changhao
+			<variable name="melonid" type="long"/>
+			<variable name="rollinfolist" type="list" value="RoleRollInfo"/> 每人的ROLL点信息 by changhao
+			<variable name="grabroleid" type="long"/> 谁获得了道具如果是0就是大家都放弃了 by changhao
+			<variable name="grabrolename" type="string"/> 名字 by changhao
+			<variable name="melonitemlist" type="list" value="MelonItemBagInfo"/> 战力品详细信息 by changaho
+		</protocol>
+		
+		<protocol name="CRequestRollItemTips" type="8093" maxsize="65536" prior="1" tolua="3"> 请求ROLL点产生的道具tips by changhao
+			<variable name="melonid" type="long"/>
+		</protocol>
+		
+		<protocol name="SOneTeamRollMelonInfo" type="8094" maxsize="65536" prior="1" tolua="3"> 某玩家ROLL点返回ROLL了多少点 by changhao
+			<variable name="melonid" type="long"/>
+			<variable name="itemid" type="int" />
+			<variable name="rollinfo" type="RoleRollInfo"/> 某人的ROLL点信息 by changhao
+		</protocol>
+		
+	</namespace>
+	
+		<!--- 光环相关   start   -->
+	开启玩家阵型（如果发0表示关闭阵型），返回SSetMyFormation消息
+	如果该玩家是队长，还要广播SSetTeamFormation消息
+	<protocol  name="CRequestSetFormation" type="8032" maxsize="65535" prior="1" tolua="3">	                        
+		<variable name="formation" type="int"/>										
+	</protocol>
+	
+	<protocol  name="SSetTeamFormation" type="8033" maxsize="65535" prior="1" tolua="3"> 队伍阵型变化时发
+		<variable name="formation" type="int"/>
+		<variable name="formationLevel" type="int"/> 光环等级
+		<variable name="msg" type="byte"/> 等于1时给消息提示，等于0时不给消息提示
+	</protocol>
+	
+	<protocol  name="SSetMyFormation" type="8043" maxsize="65535" prior="1" tolua="3">		服务器返回玩家开启阵型
+		<variable name="formation" type="int"/>	上线,玩家改变阵型（为0表示不启用任何阵型）
+		<variable name="entersend" type="int"/>	1是上线发，0是平时刷新
+	</protocol>
+	
+	
+	<protocol name="SFormationsMap" type="8119" maxsize="2048" prior="1" tolua="3">
+	   <variable name="formationMap" type="map" key="int" value="fire.pb.FormBean"/> key=光环id  value=光环等级
+	</protocol>
+	
+	<protocol name="CFormationMakeBook" type="8120" maxsize="2048" prior="1" tolua="3"> 残卷合成 by changhao
+
+	</protocol>
+	
+	<bean name= "UseFormBook">
+		<variable name="bookid" type="int"/>
+		<variable name="num" type="int"/>
+	</bean>
+	
+	<protocol name="CUseFormBook" type="8121" maxsize="2048" prior="1" tolua="3"> 使用光环书 by changhao
+		<variable name="formationid" type="int"/> 光环ID by changhao
+		<variable name="listbook" type="list" value="UseFormBook"/> 使用的光环书 by changhao
+	</protocol>
+	
+	<protocol name="CRequestClanFightTeamList" type="8125" maxsize="65535" prior="1" tolua="3">	 请求公会战队伍数据 by changhao
+		<variable name="isfresh" type="int"/>  客户端用 0刷新 1不刷新  by qyl 						
+		<variable name="start" type="long"/> 起始teamid by changhao							
+		<variable name="num" type="int"/> 请求的数量 by changhao									
+	</protocol>
+	
+	<protocol name="SRequestClanFightTeamList" type="8126" maxsize="65535" prior="1" tolua="3"> 返回队伍数据 by changhao
+		<variable name="isfresh" type="int"/>   客户端用 0刷新 1不刷新  by qyl 	
+		<variable name="teamlist" type="list" value="TeamInfoBasicWithMembers"/> 一个队伍简单信息 by changhao
+		<variable name="ret" type="int"/> 如果是0正常-1就是没数据了 b changhao
+	</protocol>
+	
+	<protocol name="CRequestClanFightRoleList" type="8127" maxsize="65535" prior="1" tolua="3">	 请求单人数据 by changhao               
+		<variable name="isfresh" type="int"/>   客户端用 0刷新 1不刷新  by qyl 							
+		<variable name="start" type="long"/> 起始roleid by changhao							
+		<variable name="num" type="int"/> 请求的数量 by changhao									
+	</protocol>
+	
+	<bean name="RoleSimapleInfo">
+		<variable name="rolename" type="string"/>
+		<variable name="level" type="int"/>
+		<variable name="roleid" type="long"/>
+		<variable name="schoold" type="int"/>
+		<variable name="shape" type="int"/>
+	</bean>
+	
+	<protocol name="SRequestClanFightRoleList" type="8128" maxsize="65535" prior="1" tolua="3"> 返回单人数据 by changhao
+		<variable name="isfresh" type="int"/>   客户端用 0刷新 1不刷新  by qyl 
+		<variable name="rolelist" type="list" value="RoleSimapleInfo"/> 一个个人简单信息 by changhao
+		<variable name="ret" type="int"/> 如果是0正常-1就是没数据了 b changhao
+	</protocol>
+	
+	<protocol name="CRequestClanFightTeamRoleNum" type="8129" maxsize="65535" prior="1" tolua="3">	请求公会战队伍角色数量 by changhao				
+	</protocol>
+	
+	<protocol name="SRequestClanFightTeamRoleNum" type="8130" maxsize="65535" prior="1" tolua="3">	返回公会战队伍角色数量 by changhao							
+		<variable name="teamnum" type="int"/> team num by changhao							
+		<variable name="rolenum" type="int"/> role num by changhao									
+	</protocol>
+	
+</namespace>

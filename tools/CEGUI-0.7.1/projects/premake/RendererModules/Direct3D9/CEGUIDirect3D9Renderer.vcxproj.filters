@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="cegui">
+      <UniqueIdentifier>{6ac902c2-fd2d-4212-a5db-b7219a188351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src">
+      <UniqueIdentifier>{19e3680c-e716-4955-bb71-1e45f75b1fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\RendererModules">
+      <UniqueIdentifier>{752d71b4-2a49-4ed6-bb08-c1f1fbe89d39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\RendererModules\Direct3D9">
+      <UniqueIdentifier>{b37ed599-3f17-4442-b532-7669d2f59a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\include">
+      <UniqueIdentifier>{8f3115ff-0c4b-48d0-8d3f-dd78f646cbcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\include\RendererModules">
+      <UniqueIdentifier>{4f085b59-d899-4c9f-b655-935120d0db88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\include\RendererModules\Direct3D9">
+      <UniqueIdentifier>{0bc1b782-b0f2-450b-8ca1-361beafb38d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\cegui\src\RendererModules\Direct3D9\CEGUIDirect3D9GeometryBuffer.cpp">
+      <Filter>cegui\src\RendererModules\Direct3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cegui\src\RendererModules\Direct3D9\CEGUIDirect3D9Renderer.cpp">
+      <Filter>cegui\src\RendererModules\Direct3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cegui\src\RendererModules\Direct3D9\CEGUIDirect3D9RenderTarget.cpp">
+      <Filter>cegui\src\RendererModules\Direct3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cegui\src\RendererModules\Direct3D9\CEGUIDirect3D9Texture.cpp">
+      <Filter>cegui\src\RendererModules\Direct3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cegui\src\RendererModules\Direct3D9\CEGUIDirect3D9TextureTarget.cpp">
+      <Filter>cegui\src\RendererModules\Direct3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cegui\src\RendererModules\Direct3D9\CEGUIDirect3D9ViewportTarget.cpp">
+      <Filter>cegui\src\RendererModules\Direct3D9</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\cegui\include\RendererModules\Direct3D9\CEGUIDirect3D9GeometryBuffer.h">
+      <Filter>cegui\include\RendererModules\Direct3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\cegui\include\RendererModules\Direct3D9\CEGUIDirect3D9Renderer.h">
+      <Filter>cegui\include\RendererModules\Direct3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\cegui\include\RendererModules\Direct3D9\CEGUIDirect3D9RenderTarget.h">
+      <Filter>cegui\include\RendererModules\Direct3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\cegui\include\RendererModules\Direct3D9\CEGUIDirect3D9Texture.h">
+      <Filter>cegui\include\RendererModules\Direct3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\cegui\include\RendererModules\Direct3D9\CEGUIDirect3D9TextureTarget.h">
+      <Filter>cegui\include\RendererModules\Direct3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\cegui\include\RendererModules\Direct3D9\CEGUIDirect3D9ViewportTarget.h">
+      <Filter>cegui\include\RendererModules\Direct3D9</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

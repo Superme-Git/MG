@@ -1,0 +1,25 @@
+1.安装jdk-6u43-windows-x64.
+2.安装apache-ant-1.8.1.
+3.配置glink,gdeliverd,gs之间的端口.
+	配置conf.m4文件里的服务器地址和STARTPORT.
+	glink: 是gdeliver的客户端，是gs和所有客户端的服务器。配置文件glink.conf中的DeliveryClient是连接gdeliver服务器的配置; ProviderServer 是gs连接glink的地址和端口; LinkServer 是客户端连接glink的地址和端口。
+	gdeliver: 是glink和gs的服务器端，配置文件gdeliverd.conf中的DeliverServer是glink连接的地址和端口; GameDBServer是gs连接的地址和端口。
+	修改gsx.xdb.xml文件的UniqNameConf配置.
+4.在MT_G\mtg_serv\server 目录下执行 ant dist.
+5.整个版本就在\MT_G\mtg_serv\serverbin 目录下的 gs目录里.
+
+安装java环境和ant
+1.server下编译，配置conf.m4.sample文件里的服务器地址和STARTPORT，在该目录执行ant.dist，生成文件在serverbin
+2.serverbin/gs下配置gs.xio.xml和gsx.xdb.xml文件中ip和端口，启动start.bat即可
+3.linux下拷贝新link和deliverd服务器，配置端口
+
+
+
+服务器链接与端口对应关系
+gs --（gs.xio:provider/providerserver）--- glink --（deliveryclient/deliverserver）--- gdeliver  
+c -- （serverconfig.bin配置/linkserver）---glink 
+gs--（gs.xio:GdeliverClient/gamedbserver）--gdeliver
+gs--(gs.xdb:uniqname)--uniqname
+
+
+	

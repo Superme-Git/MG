@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="cross" shareHome="../../../share" pvids="">
+
+	<bean name="ServerInfo">
+		<variable name="zoneid" type="int"/>
+		<variable name="online_num" type="int"/>
+		<variable name="max_online_num" type="int"/>	
+	</bean>
+	
+	<bean name="UserInfo">
+		<variable name="userid" type="int"/>
+		<variable name="func" type="int"/>
+		<variable name="funcparm" type="int"/>
+		<variable name="loginip" type="int"/>
+		<variable name="blisgm" type="byte"/>
+		<variable name="auth" type="vector" value="int" attr="ref"/>
+		<variable name="algorithm" type="int"/>账号安全级别
+		<variable name="gender" type="byte"/> 0-female,1-male,2-unknown
+		<variable name="nickname" type="octets" attr="ref"/>
+	</bean>
+
+	<protocol name="AnnounceZoneidToCross" type="224" maxsize="64" prior="1">
+		<variable name="zoneid" type="int"/>
+		<variable name="boottime" type="long"/>
+	</protocol>
+
+	<protocol name="AnnounceZoneidToCross_Re" type="225" maxsize="64" prior="1">
+		<enum name="RET_OK" value="0"/>
+		<enum name="RET_CONFLICT_ZONE" value="1"/>
+		<enum name="RET_INVALID_ZONE" value="2"/>
+		
+		<variable name="retcode" type="int"/>
+		<variable name="cross_zoneid" type="int"/>
+		<variable name="boottime" type="long"/>
+	</protocol>
+
+	<protocol name="BroadcastCrossStatus" type="226" maxsize="64" prior="1">
+		<variable name="serverinfo" type="ServerInfo"/>
+	</protocol>
+	
+	<protocol name="BroadcastCrossStatus_Re" type="227" maxsize="64" prior="1">
+		<variable name="serverinfo" type="ServerInfo"/>
+	</protocol>
+
+	<protocol name="SendUserInfoAndTicket" type="228" maxsize="2048" prior="1">
+		<variable name="account" type="octets"/>
+		<variable name="userinfo" type="UserInfo"/>
+		<variable name="ticket" type="octets"/>
+		<variable name="flag" type="byte"/> <!-- 1:原服到跨服，2:跨服到原服 -->
+	</protocol>
+
+	<protocol name="SendUserInfoAndTicket_Re" type="229" maxsize="32" prior="1">
+		<enum name="RET_OK" value="0"/>
+		<enum name="RET_NETWORK_ERROR" value="1"/>
+		<enum name="RET_MULTI_LOGIN" value="2"/>
+		<enum name="RET_SERVER_OVERLOAD" value="3"/>
+	
+		<variable name="retcode" type="int"/>
+		<variable name="userid" type="int"/>
+		<variable name="flag" type="byte"/>
+	</protocol>
+
+	<protocol name="UserDataTransfer" type="230" maxsize="1048576" prior="1">
+		<enum name="TO_CROSS" value="1"/>
+		<enum name="FROM_CROSS" value="2"/>
+		
+		<variable name="userid" type="int"/>
+		<variable name="dtype" type="int"/>
+		<variable name="flag" type="byte"/> <!-- 1:原服到跨服，2:跨服到原服 -->
+		<variable name="content" type="octets"/>
+	</protocol>
+
+	<!-- 与user无关的信息传递-->
+	<protocol name="CommonDataTransfer" type="231" maxsize="1048576" prior="1">
+		<enum name="TO_CROSS" value="1"/>
+		<enum name="FROM_CROSS" value="2"/>
+
+		<variable name="zoneid" type="int"/> 跨服gs原值返回
+		<variable name="dtype" type="int"/>
+		<variable name="flag" type="byte"/> <!-- 1:原服到跨服，2:跨服到原服 -->
+		<variable name="content" type="octets"/>
+	</protocol>
+	
+	<protocol name="BroadcastData" type="232" maxsize="1048576" prior="1">
+		<variable name="dtype" type="int"/>
+		<variable name="content" type="octets"/>
+	</protocol>
+
+</application>
+

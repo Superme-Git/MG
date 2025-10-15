@@ -1,0 +1,27 @@
+EXPORTS
+    Java_mkdb_Logger_close @1
+    Java_mkdb_Logger_commit @2
+    Java_mkdb_Logger_create @3
+    Java_mkdb_Logger_loggerid @4
+    Java_mkdb_Logger_prepare @5
+    Java_mkdb_Logger_verify @6
+    Java_mkdb_Storage__1browse @7
+    Java_mkdb_Storage__1compress @8
+    Java_mkdb_Storage__1find @9
+    Java_mkdb_Storage__1insert @10
+    Java_mkdb_Storage__1replace @11
+    Java_mkdb_Storage__1uncompress @12
+    Java_mkdb_Storage__1walk @13
+    Java_mkdb_Storage_browse @14
+    Java_mkdb_Storage_close @15
+    Java_mkdb_Storage_exist @16
+    Java_mkdb_Storage_find @17
+    Java_mkdb_Storage_firstKey @18
+    Java_mkdb_Storage_insert @19
+    Java_mkdb_Storage_nextKey @20
+    Java_mkdb_Storage_open @21
+    Java_mkdb_Storage_remove @22
+    Java_mkdb_Storage_replace @23
+    Java_mkdb_Storage_snapshot_1create @24
+    Java_mkdb_Storage_snapshot_1release @25
+    Java_mkdb_Storage_walk @26

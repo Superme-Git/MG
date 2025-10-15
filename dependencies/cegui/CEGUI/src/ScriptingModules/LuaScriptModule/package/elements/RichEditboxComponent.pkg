@@ -1,0 +1,39 @@
+enum RichEditboxComponentType
+{
+	RichEditboxComponentType_None,
+	RichEditboxComponentType_Text,
+	RichEditboxComponentType_Image,
+	RichEditboxComponentType_Break,   //换行
+	RichEditboxComponentType_LinkText,   //超文本链接
+	RichEditboxComponentType_GoToText,   //自动寻路链接
+	RichEditboxComponentType_Emotion,       //表情
+	RichEditboxComponentType_Tips,         //物品，技能，修炼等链接
+	RichEditboxComponentType_NameLink,         //玩家名字链接
+	RichEditboxComponentType_ButtonImage,         //按钮图片
+	RichEditboxComponentType_FamilyRecruitLink,         //家族招募链接
+	RichEditboxComponentType_HttpAddress,   //网页链接
+	RichEditboxComponentType_JoinTeam,	//申请入队
+	RichEditboxComponentType_RequestTeam,	//请求队伍信息 by yq 2016-03-25
+	RichEditboxComponentType_AnswerQuestion	//答题
+};
+
+class RichEditboxComponent:  public EventSet 
+{
+	void* GetUserData();
+	void  SetUserData( void* pData );
+
+	void SetUserID(int64_t id);
+	int64_t GetUserID();
+	RichEditboxComponentType GetType() const;
+};
+
+class RichEditboxBreakLineComponent : public RichEditboxComponent 
+{
+public:
+	~RichEditboxBreakLineComponent();
+	RichEditboxBreakLineComponent();
+	string GenerateParseText();
+
+	bool isOnlySpace();
+	int GetCharCount();
+};

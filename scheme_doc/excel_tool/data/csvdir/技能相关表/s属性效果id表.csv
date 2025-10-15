@@ -1,0 +1,113 @@
+"属性id","属性名","是否显示","特效id","显示颜色","显示优先级","减属性显示颜色","减属性特效id","特效宽度","数值型值上限","人物属性面板描述","属性面板是否显示","负值描述1","正值描述1","基础属性描述","变量名","初值","数值型效果id","数值型变量名","百分比型效果id","百分比型变量名","百分比型值上限","负值描述2","正值描述2"
+"10","体质","0","0","0","0","0","0","0","9.9999999E7",,"1","体质-$parameters$","体质+$parameters$","体  质+$parameters$","cons","0","11","cons_value","12","cons_percent","10.0","",
+"20","智力","0","0","0","0","0","0","0","9.9999999E7",,"1","智力-$parameters$","智力+$parameters$","智  力+$parameters$","iq","0","21","iq_value","22","iq_percent","10.0","",
+"30","力量","0","0","0","0","0","0","0","9.9999999E7",,"1","力量-$parameters$","力量+$parameters$","力  量+$parameters$","str","0","31","str_value","32","str_percent","10.0","",
+"40","耐力","0","0","0","0","0","0","0","9.9999999E7",,"1","耐力-$parameters$","耐力+$parameters$","耐  力+$parameters$","endu","0","41","endu_value","42","endu_percent","10.0","",
+"50","敏捷","0","0","0","0","0","0","0","9.9999999E7",,"1","敏捷-$parameters$","敏捷+$parameters$","敏  捷+$parameters$","agi","0","51","agi_value","52","agi_percent","10.0","",
+"60","生命","1","10315","4","0","1","11027","42","9.9999999E7",,"1","生命-$parameters$","生命+$parameters$","生    命：$parameters$","maxhp","0","61","maxhp_value","62","maxhp_percent","10.0","",""
+"70","当前生命上限","0","0","0","0","0","0","0","9.9999999E7",,"1","当前生命上限-$parameters$","当前生命上限+$parameters$",,"uplimithp","0","71","uplimithp_value","72","uplimithp_percent","10.0","",""
+"80","生命值","0","0","0","0","0","0","0","9.9999999E7",,"1","生命值-$parameters$","生命值+$parameters$","生 命 值：$parameters$","curhp","0","81","curhp_value","82","curhp_percent","10.0","",
+"90","魔法","1","10314","4","0","1","11028","42","9.9999999E7",,"1","魔法-$parameters$","魔法+$parameters$","魔    法：$parameters$","maxmp","0","91","maxmp_value","92","maxmp_percent","10.0","",""
+"100","魔法值","0","0","0","0","0","0","0","9.9999999E7",,"1","魔法值-$parameters$","魔法值+$parameters$","魔 法 值：$parameters$","curmp","0","101","curmp_value","102","curmp_percent","10.0","",
+"110","怒气","0","0","0","0","0","0","0","9.9999999E7",,"1","怒气-$parameters$","怒气+$parameters$","怒    气：$parameters$","maxsp","150","111","maxsp_value","112","maxsp_percent","10.0","",""
+"120","怒气值","0","0","0","0","0","0","0","9.9999999E7",,"1","怒气值-$parameters$","怒气值+$parameters$","怒 气 值：$parameters$","cursp","0","121","cursp_value","122","cursp_percent","10.0","",""
+"130","物理攻击","1","10313","4","0","1","11022","83","9.9999999E7",,"1","物理攻击-$parameters$","物理攻击+$parameters$","物理攻击：$parameters$","phyattack","0","131","phyattack_value","132","phyattack_percent","10.0","",""
+"140","物理防御","1","10312","4","0","1","11021","83","9.9999999E7",,"1","物理防御-$parameters$","物理防御+$parameters$","物理防御：$parameters$","defend","0","141","defend_value","142","defend_percent","10.0","",""
+"150","法术攻击","1","10310","4","0","1","11034","83","9.9999999E7",,"1","法术攻击-$parameters$","法术攻击+$parameters$","法术攻击：$parameters$","magicattack","0","151","magicattack_value","152","magicattack_percent","10.0","",""
+"160","法术防御","1","11024","4","0","1","11035","83","9.9999999E7",,"1","法术防御-$parameters$","法术防御+$parameters$","法术防御：$parameters$","magicdef","0","161","magicdef_value","162","magicdef_percent","10.0","",""
+"170","治疗强度","1","11026","4","0","1","11025","83","9.9999999E7",,"1","治疗强度-$parameters$","治疗强度+$parameters$","治疗强度：$parameters$","medical","0","171","medical_value","172","medical_percent","10.0",,
+"180","控制命中","1","11030","4","0","1","11031","0","9.9999999E7",,"1","控制命中-$parameters$","控制命中+$parameters$","控制命中：$parameters$","sealhit","0","181","sealhit_value","182","sealhit_percent","10.0","",""
+"190","控制抗性","1","11032","4","0","1","11033","0","9.9999999E7",,"1","控制抗性-$parameters$","控制抗性+$parameters$","控制抗性：$parameters$","unseal","0","191","unseal_value","192","unseal_percent","10.0","",""
+"200","速度","1","10311","4","0","1","11023","42","9.9999999E7",,"1","速度-$parameters$","速度+$parameters$","速　　度：$parameters$","speed","0","201","speed_value","202","speed_percent","10.0","",""
+"210","命中","0","0","0","0","0","0","0","9.9999999E7",,,,,,"hit","1000","211","hit_value","212","hit_percent","10.0","",""
+"220","闪避","0","0","0","0","0","0","0","9.9999999E7",,,,,,"dodge","0","221","dodge_value","222","dodge_percent","10.0","",""
+"230","物理暴击","0","0","0","0","0","0","0","9.9999999E7",,"1","物理暴击-$parameters$","物理暴击+$parameters$","物理暴击：$parameters$","phycruellv","0","231","phycruellv_value","232","phycruellv_percent","10.0","",
+"240","物理抗暴","0","0","0","0","0","0","0","9.9999999E7",,"1","物理抗暴-$parameters$","物理抗暴+$parameters$","物理抗暴：$parameters$","resistcruel","0","241","resistcruel_value","242","resistcruel_percent","10.0","",
+"250","物理暴伤","0","0","0","0","0","0","0","3",,"1","物理暴伤-$parameters$","物理暴伤+$parameters$","物理暴伤：$parameters$","phycrueldegree","1000","251","phycrueldegree_value","252","phycrueldegree_percent","10.0","",""
+"260","法术暴击","0","0","0","0","0","0","0","9.9999999E7",,"1","法术暴击-$parameters$","法术暴击+$parameters$","法术暴击：$parameters$","magiccruellv","0","261","magiccruellv_value","262","magiccruellv_percent","10.0","",
+"270","法术抗暴","0","0","0","0","0","0","0","9.9999999E7",,"1","法术抗暴-$parameters$","法术抗暴+$parameters$","法术抗暴：$parameters$","resistmagiccrule","0","271","resistmagiccrule_value","272","resistmagiccrule_percent","10.0","",
+"280","法术暴伤","0","0","0","0","0","0","0","3",,"1","法术暴伤-$parameters$","法术暴伤+$parameters$","法术暴伤：$parameters$","magiccrueldegree","1000","281","magiccrueldegree_value","282","magiccrueldegree_percent","10.0","",
+"290","治疗暴击","0","0","0","0","0","0","0","9.9999999E7",,"1","治疗暴击-$parameters$","治疗暴击+$parameters$","治疗暴击：$parameters$","heallv","0","291","heallv_value","292","heallv_percent","10.0","",
+"300","治疗暴击量","0","0","0","0","0","0","0","3",,"1","治疗暴击量-$parameters$","治疗暴击量+$parameters$","治疗暴击量：$parameters$","healdegree","500","301","healdegree_value","302","healdegree_percent","10.0","",
+"310","忽视物理防御几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"phynodefrate","0","311","phynodefrate_value","312","phynodefrate_percent","10.0","",""
+"320","忽视物理防御系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"phynodefdegree","0","321","phynodefdegree_value","322","phynodefdegree_percent","10.0",,
+"330","忽视法术防御几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magicnodefrate","0","331","magicnodefrate_value","332","magicnodefrate_percent","10.0",,
+"340","忽视法术防御系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magicnodefdegree","0","341","magicnodefdegree_value","342","magicnodefdegree_percent","10.0",,
+"350","吸血几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"xixuerate","0","351","xixuerate_value","352","xixuerate_percent","10.0","",
+"360","吸血系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"xixuedegree","0","361","xixuedegree_value","362","xixuedegree_percent","10.0","",
+"370","打蓝几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"dalanrate","0","371","dalanrate_value","372","dalanrate_percent","10.0","",
+"380","打蓝系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"xilandegree","0","381","xilandegree_value","382","xilandegree_percent","10.0","",
+"390","上毒几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"poisonrate","0","391","poisonrate_value","392","poisonrate_percent","10.0","",
+"400","毒掉血系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"poisonxue","0","401","poisonxue_value","402","poisonxue_percent","10.0",,
+"410","毒掉蓝系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"poisonlan","0","411","poisonlan_value","412","poisonlan_percent","10.0",,
+"420","毒回合数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"poisonhuihe","0","421","poisonhuihe_value","422","poisonhuihe_percent","10.0",,
+"430","灵魂禁锢几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"deadjijngurate","0","431","deadjijngurate_value","432","deadjijngurate_percent","10.0",,
+"440","灵魂禁锢回合数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"deadjinguhuihe","0","441","deadjinguhuihe_value","442","deadjinguhuihe_percent","10.0",,
+"450","物理连击几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"comborate","0","451","comborate_value","452","comborate_percent","10.0","",""
+"460","物理连击伤害系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"comboratedegree","1","461","comboratedegree_value","462","comboratedegree_percent","10.0","",""
+"470","物理连击次数上限","0","0","0","0","0","0","0","9.9999999E7",,,,,,"phycombolimit","0","471","phycombolimit_value","472","phycombolimit_percent","10.0","",""
+"480","法术连击几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magicdouble","0","481","magicdouble_value","482","magicdouble_percent","10.0","",""
+"490","法术连击伤害系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magiccombo","0","491","magiccombo_value","492","magiccombo_percent","10.0",,
+"500","法术连击次数上限","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magiccombolimit","0","501","magiccombolimit_value","502","magiccombolimit_percent","10.0",,
+"510","追击几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"zhuijirate","0","511","zhuijirate_value","512","zhuijirate_percent","10.0","",""
+"520","追击伤害系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"zhuijidegree","0","521","zhuijidegree_value","522","zhuijidegree_percent","10.0",,
+"530","追击次数上限","0","0","0","0","0","0","0","9.9999999E7",,,,,,"zhuijinum","0","531","zhuijinum_value","532","zhuijinum_percent","10.0","",""
+"540","溅射几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"splashrate","0","541","splashrate_value","542","splashrate_percent","10.0",,
+"550","溅射伤害系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"splashdegree","0","551","splashdegree_value","552","splashdegree_percent","10.0","",
+"560","溅射数量","0","0","0","0","0","0","0","9.9999999E7",,,,,,"splashnum","0","561","splashnum_value","562","splashnum_percent","10.0",,
+"570","格挡几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"blockrate","0.03","571","blockrate_value","572","blockrate_percent","10.0","",
+"580","格挡减伤系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"blockdegree","0.3","581","blockratedegree_value","582","blockratedegree_percent","10.0","",
+"590","反震几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fanzhenrate","0","591","fanzhenrate_value","592","fanzhenrate_percent","10.0","",""
+"600","反震伤害系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fanzhendegree","0","601","fanzhendegree_value","602","fanzhendegree_percent","10.0","",""
+"610","反击几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fanjirate","0.03","611","fanjirate_value","612","fanjirate_percent","10.0","",""
+"620","反击伤害系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fanjidegree","0.5","621","fanjidegree_value","622","fanjidegree_percent","10.0","",
+"630","神佑几率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"reviverate","0","631","reviverate_value","632","reviverate_percent","10.0","",""
+"640","神佑复活血量系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"revivedegree","0","641","revivedegree_value","642","revivedegree_percent","10.0","",""
+"650","火元素法术吸收率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fireabsorb","0","651","fireabsorb_value","652","fireabsorb_percent","10.0","",""
+"660","水元素法术吸收率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"waterabsorb","0","661","waterabsorb_value","662","waterabsorb_percent","10.0","",""
+"670","土元素法术吸收率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"stoneabsorb","0","671","stoneabsorb_value","672","stoneabsorb_percent","10.0","",""
+"680","雷元素法术吸收率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"thunderabsorb","0","681","thunderabsorb_value","682","thunderabsorb_percent","10.0","",""
+"690","预留元素法术吸收率","0","0","0","0","0","0","0","9.9999999E7",,,,,,"woodabsorb","0","691","woodabsorb_value","692","woodabsorb_percent","10.0","",
+"700","火元素法术吸收系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fireabsorbdegree","0","701","fireabsorbdegree_value","702","fireabsorbdegree_percent","10.0",,
+"710","水元素法术吸收系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"waterabsorbdegree","0","711","waterabsorbdegree_value","712","waterabsorbdegree_percent","10.0",,
+"720","土元素法术吸收系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"stoneabsorbdegree","0","721","stoneabsorbdegree_value","722","stoneabsorbdegree_percent","10.0",,
+"730","雷元素法术吸收系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"thunderabsorbdegree","0","731","thunderabsorbdegree_value","732","thunderabsorbdegree_percent","10.0",,
+"740","预留元素法术吸收系数","0","0","0","0","0","0","0","9.9999999E7",,,,,,"woodabsorbdegree","0","741","woodabsorbdegree_value","742","woodabsorbdegree_percent","10.0",,
+"750","物理伤害效果修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"physicrevise","0","751","physicrevise_value","752","physicrevise_percent","10.0",,
+"760","受物理伤害效果修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onphysicrevise","0","761","onphysicrevise_value","762","onphysicrevise_percent","10.0",,
+"770","法术伤害效果修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magicrevise","0","771","magicrevise_value","772","magicrevise_percent","10.0",,
+"780","受法术伤害效果修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onmagicrevise","0","781","onmagicrevise_value","782","onmagicrevise_percent","10.0",,
+"790","治疗效果修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"healrevise","0","791","healrevise_value","792","healrevise_percent","10.0","",""
+"800","被治疗效果修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"healedrevise","0","801","healedrevise_value","802","healedrevise_percent","10.0","",
+"810","控制几率修正","1","10307","4","0","0","0","83","9.9999999E7",,,,,,"enhanceseal","0","811","enhanceseal_value","812","enhanceseal_percent","10.0","",
+"820","被控制几率修正","1","10308","4","0","0","0","83","9.9999999E7",,,,,,"resistseal","0","821","resistseal_value","822","resistseal_percent","10.0","",
+"830","物理暴击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"phycruelrate","0","831","phycruelrate_value","832","phycruelrate_percent","10.0","",""
+"840","被物理暴击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"phyoncruelrate","0","841","phyoncruelrate_value","842","phyoncruelrate_percent","10.0","",""
+"850","法术暴击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magiccruel","0","851","magiccruel_value","852","magiccruel_percent","10.0","",""
+"860","被法术暴击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"magiconcruel","0","861","magiconcruel_value","862","magiconcruel_percent","10.0","",""
+"870","治疗暴击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"medicalcrulerevise","0","871","medicalcrulerevise_value","872","medicalcrulerevise_percent","10.0","",
+"880","被治疗暴击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"medicaloncrulerevise","0","881","medicaloncrulerevise_value","882","medicaloncrulerevise_percent","10.0","",
+"890","攻击和被攻击时中毒几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onpoisonrate","0","891","onpoisonrate_value","892","onpoisonrate_percent","10.0",,
+"900","被灵魂禁锢几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"ondeadjingurate","0","901","ondeadjingurate_value","902","ondeadjingurate_percent","10.0",,
+"910","攻击时被格挡几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onblockrate","0","911","onblockrate_value","912","onblockrate_percent","10.0",,
+"920","攻击时被反震几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onfanzhenrate","0","921","onfanzhenrate_value","922","onfanzhenrate_percent","10.0","",""
+"930","攻击时被反击几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onfanjinum","0","931","onfanjinum_value","932","onfanjinum_percent","10.0","",""
+"940","攻击时被神佑几率修正","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onrevive","0","941","onrevive_value","942","onrevive_percent","10.0","",""
+"950","物理穿透","0","0","0","0","0","0","0","9.9999999E7",,"1","物理穿透-$parameters$","物理穿透+$parameters$","物理穿透：$parameters$","physicchuantou","0","951","physicchuantou_value","952","physicchuantou_percent","10.0","",
+"960","物理抵抗","0","0","0","0","0","0","0","9.9999999E7",,"1","物理抵抗-$parameters$","物理抵抗+$parameters$","物理抵抗：$parameters$","physicdikang","0","961","physicdikang_value","962","physicdikang_percent","10.0","",
+"970","法术穿透","0","0","0","0","0","0","0","9.9999999E7",,"1","法术穿透-$parameters$","法术穿透+$parameters$","法术穿透：$parameters$","magicchuantou","0","971","magicchuantou_value","972","magicchuantou_percent","10.0","",
+"980","法术抵抗","0","0","0","0","0","0","0","9.9999999E7",,"1","法术抵抗-$parameters$","法术抵抗+$parameters$","法术抵抗：$parameters$","magicdikang","0","981","magicdikang_value","982","magicdikang_percent","10.0","",
+"990","治疗加深","0","0","0","0","0","0","0","9.9999999E7",,"1","治疗加深-$parameters$","治疗加深+$parameters$","治疗加深：$parameters$","medicaljiashen","0","991","medicaljiashen_value","992","medicaljiashen_percent","10.0","",
+"1000","被治疗加深","0","0","0","0","0","0","0","9.9999999E7",,"1","被治疗加深-$parameters$","被治疗加深+$parameters$","被治疗加深：$parameters$","medicalonjiashen","0","1001","medicalonjiashen_value","1002","medicalonjiashen_percent","10.0","",
+"1010","连击点","0","0","0","0","0","0","0","9.9999999E7",,"0","连击点-$parameters$","连击点+$parameters$","连击点：$parameters$","effectpoint","0","1011","effectpoint_value","1012","effectpoint_percent","10.0","",
+"2130","控制加成","0","0","0","0","0","0","0","9.9999999E7",,"1","控制加成-$parameters$","控制加成+$parameters$","控制加成：$parameters$","kongzhijiacheng","0","2131","kongzhijiacheng_value","2132","kongzhimianyi_percent","10.0","",
+"2140","控制免疫","0","0","0","0","0","0","0","9.9999999E7",,"1","控制免疫-$parameters$","控制免疫+$parameters$","控制免疫：$parameters$","kongzhimianyi","0","2141","kongzhimianyi_value","2142","kongzhimianyi_percent","10.0","",
+"2150","物理波动","0","0","0","0","0","0","0","9.9999999E7",,,,,,"wulibodong","0.05","2151","wulibodong_value","2152","wulibodong_percent","10.0",,
+"2160","法术波动","0","0","0","0","0","0","0","9.9999999E7",,,,,,"fashubodong","0.05","2161","fashubodong_value","2162","fashubodong_percent","10.0",,
+"2170","治疗波动","0","0","0","0","0","0","0","9.9999999E7",,,,,,"zhiliaobodong","0.05","2171","zhiliaobodong_value","2172","zhiliaobodong_percent","10.0",,
+"2180","被治疗暴击","0","0","0","0","0","0","0","9.9999999E7",,,,,,"onheallv","0","2181","onheallv_value","2182","onheallv_percent","10.0",,
+"1170","动作类型","0","0","0","0","0","0","0","9.9999999E7",,,,,,"operation","0","1171","operation_type","1172","operation_percent","10.0","",
+"1180","动作ID","0","0","0","0","0","0","0","9.9999999E7",,,,,,"operationid","0","1181","operation_id","1182","operationid_percent","10.0","",
+"1580","动作释放者","0","0","0","0","0","0","0","9.9999999E7",,,,,,"operator","0","1581","operator_id","1582","operator_percent","10.0","",
+"1590","动作目标","0","0","0","0","0","0","0","9.9999999E7",,,,,,"aim","0","1591","aim_id","1592","aim_percent","10.0","",
+"3000","模型id","0","0","0","0","0","0","0","9.9999999E7",,,,,,"shapeid","0","3001","shapeid_value","3002","shapeid_percent","10.0","",

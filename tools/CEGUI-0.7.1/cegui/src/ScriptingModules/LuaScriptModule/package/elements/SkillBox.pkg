@@ -1,0 +1,68 @@
+enum SkillBoxTextType         
+{
+	SkillBoxTextType_LeftTop, 
+	SkillBoxTextType_LeftBottom,  
+	SkillBoxTextType_RightBottom,
+	SkillBoxTextType_NUM
+};
+
+struct SkillBoxTextUnit 
+{
+	CEGUI::String Text;
+	SkillBoxTextType type;
+	CEGUI::colour color;
+
+	SkillBoxTextUnit();
+};
+
+class SkillBox : public Window
+{
+	void SetImage( const CEGUI::Image* image);
+		const CEGUI::Image* GetImage() const ; 
+
+		void SetImage(CEGUI::String imageset, CEGUI::String ImageName);
+		bool isMouseOn();
+		void SetTextUnit(CEGUI::String text,SkillBoxTextType type=SkillBoxTextType_LeftBottom,CEGUI::colour color=CEGUI::colour(1,1,1,1));
+		void SetTextUnitText(CEGUI::String text,SkillBoxTextType type=SkillBoxTextType_RightBottom);
+		void SetTextUnitColor(CEGUI::colour color,SkillBoxTextType type=SkillBoxTextType_RightBottom);
+		SkillBoxTextUnit* GetTextUnit(SkillBoxTextType type=SkillBoxTextType_RightBottom);
+		CEGUI::Point GetTextUnitDrawPos(const CEGUI::Rect& rect,SkillBoxTextType type=SkillBoxTextType_RightBottom); 
+
+		bool isBackGroundEnable();
+		void SetBackGroundEnable(bool bEnable);
+
+		bool IsAshy();
+		void SetAshy(bool bAshy);
+
+		bool isSelected() ;
+		void SetSelected(bool bSelect);
+
+		void SetHaveSelectedState(bool bHaveSelected) ;
+
+		void SetBackGroundImage(const CEGUI::Image* image);
+		void SetBackGroundImage(CEGUI::String imageset, CEGUI::String ImageName);
+		bool IsHaveBackGroundImage();
+		const CEGUI::Image* GetBackIamge() const; 
+
+		void SetBackgroundDynamic(bool bDyn);
+		bool GetBackgroundDynamic();
+		
+		//add by liugeng
+		void SetCornerImage(const Image* image);
+		void SetCornerImage(string imageset, string ImageName);
+
+		void Clear();
+
+		void SetSkillID(int id);
+		int  GetSkillID() const;
+
+		void SetSkillDueDate(int64_t time) ;
+		int64_t  GetSkillDueDate() const ;
+		void SetSourceBox(const CEGUI::String& pbox);
+		CEGUI::String GetSourceBox() const;
+
+		void SetCanPickedInBattle();
+		bool IsCanPickedInBattle();
+		void SetBackGroupOnTop(bool bln);
+};
+

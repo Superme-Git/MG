@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.1
+Created-By: 1.6.0_18-b07 (Sun Microsystems Inc.)
+Built-By: locojoy.inc
+Main-Class: fire.pb.main.Main
+Class-path: lib/commons-beanutils-1.8.0.jar lib/log4j-1.2.15.jar lib/commons-collections-3.1.jar lib/commons-lang-2.6.jar lib/commons-logging-1.1.1.jar lib/convxml.jar lib/counter.jar lib/ezmorph-1.0.6.jar lib/freemarker.jar lib/iweb.jar lib/jio.jar lib/jmxc.jar lib/json-lib-2.3-jdk15.jar lib/poi-3.7-beta1-20100620.jar lib/xdb.jar lib/xmlpull-1.1.3.1.jar lib/xpp3_min-1.1.4c.jar lib/xstream-1.4.3.jar
+Specification-Title: pb
+Specification-Version: 12781
+Specification-Vendor: locojoy.inc.
+Implementation-Title: pb
+Implementation-Version: 12781
+Implementation-Vendor: locojoy.inc.
+

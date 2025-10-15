@@ -1,0 +1,147 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace attr { 
+
+class EffectType : public FireNet::Marshal
+{
+public:
+	enum {
+		CONS_ABL = 11,
+		CONS_PCT = 12,
+		IQ_ABL = 21,
+		IQ_PCT = 22,
+		STR_ABL = 31,
+		STR_PCT = 32,
+		ENDU_ABL = 41,
+		ENDU_PCT = 42,
+		AGI_ABL = 51,
+		AGI_PCT = 52,
+		MAX_HP_ABL = 61,
+		MAX_HP_PCT = 62,
+		UP_LIMITED_HP_ABL = 71,
+		UP_LIMITED_HP_PCT = 72,
+		HP_ABL = 81,
+		HP_PCT = 82,
+		MAX_MP_ABL = 91,
+		MAX_MP_PCT = 92,
+		MP_ABL = 101,
+		MP_PCT = 102,
+		MAX_SP_ABL = 111,
+		MAX_SP_PCT = 112,
+		SP_ABL = 121, // 怒气
+		SP_PCT = 122, // 怒气
+		DAMAGE_ABL = 131,
+		DAMAGE_PCT = 132,
+		DEFEND_ABL = 141,
+		DEFEND_PCT = 142,
+		MAGIC_ATTACK_ABL = 151, // 法术攻击力
+		MAGIC_ATTACK_PCT = 152, // 法术攻击力
+		MAGIC_DEF_ABL = 161, // 法术防御力
+		MAGIC_DEF_PCT = 162, // 法术防御力
+		MEDICAL_ABL = 171, // 治疗强度
+		SEAL_ABL = 181, // 控制命中
+		UNSEAL_ABL = 191, // 封系抵抗
+		UNSEAL_PCT = 192, // 封系抵抗
+		SPEED_ABL = 201,
+		SPEED_PCT = 202,
+		HIT_RATE_ABL = 211,
+		HIT_RATE_PCT = 212,
+		DODGE_RATE_ABL = 221,
+		DODGE_RATE_PCT = 222,
+		PHY_CRITC_LEVEL_ABL = 231, // 物理暴击等级
+		PHY_CRITC_LEVEL_PCT = 232,
+		ANTI_PHY_CRITC_LEVEL_ABL = 241, // 抗物理暴击等级
+		PHYSIC_CRIT_PCT_ABL = 251, // 物理暴击加成（初始为200%,即2倍普通伤害）
+		PHYSIC_CRIT_PCT_PCT = 252, // 物理暴击加成（初始为200%,即2倍普通伤害）
+		MAGIC_CRITC_LEVEL_ABL = 261, // 魔法暴击等级
+		MAGIC_CRITC_LEVEL_PCT = 262,
+		ANTI_MAGIC_CRITC_LEVEL_ABL = 271, // 抗魔法暴击等级
+		MAGIC_CRIT_PCT_ABL = 281, // 魔法暴击程度
+		MAGIC_CRIT_PCT_PCT = 282,
+		STEAL_HP_PCT_ABL = 361, // 吸血比例（吸血占造成伤害的百分比，默认0%)
+		STEAL_HP_PCT_PCT = 362, // 吸血比例（吸血占造成伤害的百分比，默认0%)
+		STEAL_MP_PCT_ABL = 381, // 吸蓝比例（吸蓝占造成mp伤害的百分比，默认0%)
+		POISON_RATE_ABL = 391, // 使对方中毒几率（默认0%)
+		POISON_RATE_PCT = 392, // 使对方中毒几率（默认0%)
+		COMBO_ATTACK_RATE_ABL = 451, // 连击几率
+		COMBO_ATTACK_RATE_PCT = 452, // 连击几率
+		COMBO_ATTACK_PCT_ABL = 461, // 连击伤害系数
+		COMBO_ATTACK_PCT_PCT = 462,
+		COMBO_ATTACK_COUNT_ABL = 471, // 连击次数
+		COMBO_ATTACK_COUNT_PCT = 472, // 连击次数
+		MAGIC_COMBO_ATTACK_RATE_ABL = 481, // 法术连击几率
+		MAGIC_COMBO_ATTACK_RATE_PCT = 482,
+		MAGIC_COMBO_ATTACK_PCT_ABL = 491, // 法术连击伤害系数
+		MAGIC_COMBO_ATTACK_PCT_PCT = 492,
+		MAGIC_COMBO_ATTACK_COUNT_ABL = 501, // 法术连击次数
+		MAGIC_COMBO_ATTACK_COUNT_PCT = 502, // 法术连击次数
+		EXTRA_ATTACK_RATE_ABL = 511, // 追击几率
+		EXTRA_ATTACK_RATE_PCT = 512, // 追击几率
+		EXTRA_ATTACK_DEGREE_ABL = 521, // 追击伤害占正常伤害的比率
+		EXTRA_ATTACK_DEGREE_PCT = 522, // 追击伤害占正常伤害的比率
+		EXTRA_ATTACK_COUNT_ABL = 531, // 追击次数
+		EXTRA_ATTACK_COUNT_PCT = 532, // 追击次数
+		PARRY_RATE_ABL = 571, // 招架几率（默认0%)
+		PARRY_RATE_PCT = 572, // 招架几率（默认0%)
+		RETURN_HURT_RATE_ABL = 591, // 反震几率
+		RETURN_HURT_RATE_PCT = 592, // 反震几率
+		RETURN_HURT_PCT_ABL = 601, // 反震程度（反震伤害占造成伤害的百分比，默认30%)
+		RETURN_HURT_PCT_PCT = 602, // 反震程度（反震伤害占造成伤害的百分比，默认30%)
+		RETURN_ATTACK_RATE_ABL = 611, // 反击几率
+		RETURN_ATTACK_RATE_PCT = 612, // 反击几率
+		RETURN_ATTACK_PCT_ABL = 621, // 反击程度（正常反击伤害的百分比，默认100%）
+		RETURN_ATTACK_PCT_PCT = 622, // 反击程度（正常反击伤害的百分比，默认100%）
+		ABSORB_FIRE_ODDS_ABL = 651, // 火系法术吸收率
+		ABSORB_WATER_ODDS_ABL = 661, // 水系法术吸收率
+		ABSORB_EARTH_ODDS_ABL = 671, // 土系法术吸收率
+		ABSORB_THUNDER_ODDS_ABL = 681, // 雷系法术吸收率
+		ABSORB_OTHER_ODDS_ABL = 691, // 预留系法术吸收率
+		SEAL_LEVEL_ABL = 811, // 封印命中等级
+		ANTI_SEAL_LEVEL_ABL = 821, // 封印抗性等级
+		PHYSIC_CRIT_RATE_ABL = 831, // 物理暴击几率
+		PHYSIC_CRIT_RATE_PCT = 832, // 物理暴击几率
+		MAGIC_CRIT_RATE_ABL = 851, // 法术暴击几率（初始为0%）
+		MAGIC_CRIT_RATE_PCT = 852, // 法术暴击几率（初始为0%）
+		ATTACK_BACK_COUNT_ABL = 931, // 反击次数
+		EFFECT_POINT_ABL = 1011, // 技能效果点
+		TEMP_SP_ABL = 1021, // 临时怒气
+		AMEND_HIDDEN_WEAPON_ACTIVE_ABL = 1220, // 飞镖主动伤害修正
+		PET_LIFE_ABL = 1361, // 宠物寿命
+		PET_ATTACK_APT_ABL = 1441, // 宠物攻击资质
+		PET_DEFEND_APT_ABL = 1451, // 宠物防御资质
+		PET_PHYFORCE_APT_ABL = 1461, // 宠物体力资质
+		PET_MAGIC_APT_ABL = 1471, // 宠物法力资质
+		PET_SPEED_APT_ABL = 1481, // 宠物速度资质
+		PET_DODGE_APT_ABL = 1491, // 宠物躲闪资质
+		ENLIMIT_ABL = 1521, // 活力上限
+		PFLIMIT_ABL = 1531, // 体力上限
+		OPERATOR = 1581,
+		AIM = 1591,
+		OPERATE_TYPE = 1171,
+		OPERATE_ID = 1181,
+		ATTACK_BACK_LEVEL_ABL = 1751, // 反击等级
+		RETURN_HURT_LEVEL_ABL = 1761, // 物理反震等级
+		ANTI_ATTACK_BACK_LEVEL_ABL = 1771, // 抗反击等级
+		ANTI_RETURN_HURT_LEVEL_ABL = 1781, // 抗物理反震等级
+		QILIZHI_ABL = 1201, // 气力值
+		KONGZHI_JIACHENG = 2131, // 控制加成
+		KONGZHI_MIANYI = 2141, // 控制免疫
+		SHAPE_ID = 3001, // 模型id
+	};
+
+	EffectType() ;
+
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const EffectType &_o_) const ;
+
+};
+
+} 
+} 
+} 

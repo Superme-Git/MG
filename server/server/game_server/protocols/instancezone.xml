@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 18101 到 18300  -->
+<namespace name="instancezone">
+	<protocol  name="SGongHuiFuBenLastTime" type="18101" maxsize="1024" prior="1" tolua = "3"> 公会副本剩余时间
+		<variable name="lasttime" type="long" /> 还有多少时间结束
+	</protocol>
+    
+	<namespace name="bingfeng">
+		<protocol  name="SBingFengLandInfo" type="18120" maxsize="1024" prior="1" tolua = "3">	每个冰封王座副本的信息,冰封王座的排行榜通过SRequestRankList发送给客户端,本人的排名也在SRequestRankList中
+			<variable name="ranktype" type="int" /> 参加RankType
+			<variable name="landId" type="int" /> 
+			<variable name="lastrank" type="int" /> 上次的排名
+			<variable name="receiveaward" type="int" /> 如果已经领过奖励,为1，客户端应该把领取奖励灰掉
+			<variable name="stage" type="int" /> 我的进度,根据landId和stage可以确定已经挑战过的npc
+			<variable name="yesterdaystage" type="int" /> 昨日进度
+			<variable name="entertimes" type="int" /> 还能进入的次数
+			<variable name="vip" type="int" /> vip等级
+		</protocol>
+		<protocol  name="CEnterBingFengLand" type="18121" maxsize="1024" prior="1" tolua = "3">	请求进入冰封王座副本
+			<variable name="landId" type="int" /> landId,根据配置表里的数据,比如40级冰封王座是1,50级冰封王座是2
+            <variable name="stage" type="int" /> 第几步
+		</protocol>		
+		
+		
+		<protocol  name="CLeaveBingFengLand" type="18126" maxsize="1024" prior="1" tolua = "3">	请求离开冰封王座副本
+		</protocol>
+		<protocol  name="SEnterBingFengLand" type="18127" maxsize="1024" prior="1" tolua = "3">玩家进入冰封王座地图的时候,会发这条消息,客户端根据这条协议可以决定显示哪些npc和挑战的关数
+			<variable name="landId" type="int" /> 
+			<variable name="stage" type="int" />
+            <variable name="autogo" type="int" />
+            <variable name="finishstage" type="int" />
+		</protocol>
+		
+        
+		<protocol  name="CReqBingFengRank" type="18124" maxsize="1024" prior="1" tolua = "3"> 客户端请求打开冰封王座的界面
+			<variable name="npckey" type="long" />
+			<variable name="landId" type="int" /> landId,根据配置表里的数据,比如40级冰封王座是1,50级冰封王座是2
+        </protocol>
+
+        <protocol  name="CCanEnterBingFeng" type="18125" maxsize="128" prior="1" tolua = "3"> 玩家能够进入冰封王座
+        </protocol>
+        
+		<protocol  name="SCanEnterBingFeng" type="18130" maxsize="1024" prior="1" tolua = "3"> 玩家能够进入冰封王座
+            <variable name="finish" type="int" /> 是否已经完成
+		</protocol>		
+
+        <protocol  name="CGetBingFengDetail" type="18133" maxsize="1024" prior="1" tolua="3">  获取该关卡最快通关信息
+            <variable name="landId" type="int" />
+            <variable name="stage" type="int" />
+        </protocol>
+        
+        <protocol  name="SGetBingFengDetail" type="18134" maxsize="4096" prior="1" tolua="3"> 关卡最快通关信息
+            <variable name="rolename" type="string"/>
+            <variable name="usetime" type="int"/>
+            <variable name="stagestate" type="short"/> 自己是否通关, 0 未通关, 1 已通关
+            <variable name="myusetime" type="int"/>
+		</protocol>
+		 <protocol  name="CBattletoBingFeng" type="18135" maxsize="1024" prior="1" tolua="3"> 机器人发送战斗信息
+            <variable name="roleid" type="long"/>
+            <variable name="npcid" type="int"/>
+		</protocol>
+	</namespace>	
+	
+</namespace>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 协议号从 32400 到32500 结束 -->
+<namespace name="huoban">
+
+	<bean name="HuoBanInfo">  
+		<enum name="white" value="1" /> 白
+		<enum name="green" value="2" /> 绿
+		<enum name="blue" value="3" /> 蓝
+		<enum name="purple" value="4" /> 紫
+		<enum name="orange" value="5" /> 橙
+		<enum name="golden" value="6" /> 金
+		<enum name="pink" value="7" /> 粉色
+		<enum name="red" value="8" /> 红色
+		<variable name="huobanID" type="int" /> 伙伴id
+		<variable name="infight" type="int" /> 是否参战,1为参战
+		<variable name="weekfree" type="int" validator="value=[0,1]" /> 本周是否免费 0不免费; 1本周免费
+		<variable name="state" type="long" /> 是否解锁, 0为未解锁; 1为永久使用; 大于10为有多少秒的剩余时间,如 134 表示为免费134 - 10 = 124秒
+	</bean>
+	
+	<bean name="HuoBanDetailInfo">
+		<variable name="huobanID" type="int" /> 伙伴id
+		<variable name="infight" type="int" /> 是否参战,1为参战
+		<variable name="state" type="long" /> 是否解锁, 0为未解锁; 1为永久使用; 大于10为有多少分钟的剩余时间,如 134 表示为免费134 - 10 = 124分钟
+		<variable name="weekfree" type="int" validator="value=[0,1]" /> 本周是否免费 0不免费; 1本周免费
+		<variable name="datas" type="vector" value="int" /> 变量值ID，变量值,气血,攻击,防御等等都在这里面
+	</bean>	
+	
+	<protocol maxsize="65535" name="SHuobanList" prior="1" type="32401" tolua="3">
+		<variable name="huobans" type="vector" value="HuoBanInfo"/> 我的伙伴列表
+	</protocol>
+	
+	<protocol maxsize="128" name="CGetHuobanDetailInfo" tolua="3" prior="1" type="32402">
+		<variable name="huobanID" type="int" />我的伙伴的key
+	</protocol>
+	
+	<protocol maxsize="65535" name="SHuobanDetail" tolua="3" prior="1" type="32403">
+		<variable name="huoban" type="HuoBanDetailInfo" /> 我的一个伙伴信息
+	</protocol>
+	
+	<bean name="ZhenrongInfo">		
+		<variable name="zhenfa" type="int"/> 光环编号
+		<variable name="huobanlist" type="vector" value="int"/> 参战伙伴
+	</bean>
+	
+	<protocol maxsize="65535" name="SZhenrongInfo" prior="1" type="32404" tolua="3">
+		<variable name="dangqianzhenrong" type="int" /> 当前阵容编号		
+		<variable name="zhenrongxinxi" type="map" key="int" value="ZhenrongInfo" /> 阵容列表信息
+	</protocol>	
+	
+	<protocol maxsize="128" name="CSwitchZhenrong" prior="1" type="32405" tolua="3">
+		<variable name="zhenrongid" type="int" />
+	</protocol>	
+	
+	<protocol maxsize="128" name="CZhenrongMember" prior="1" type="32406" tolua="3">
+		<variable name="zhenyingid" type="int" />
+		<variable name="members" type="vector" value="int" />
+	</protocol>
+	
+	<protocol maxsize="1024" name="SChangeZhenrong" tolua="3" prior="1" type="32407">
+		<variable name="zhenrong" type="int"/> 阵容编号
+		<variable name="zhenfa" type="int"/> 光环编号
+		<variable name="huobanlist" type="vector" value="int"/> 参战伙伴
+		<variable name="reason" type="int"/> 更新原因 1-系统第一次自动更新 2-光环更新 3-参战伙伴更新 4-伙伴阵容切换
+	</protocol>
+	<!--解锁伙伴请求-->
+	<protocol maxsize="1024" name="CActiveHuoBan" tolua="3" prior="1" type="32408">
+		<variable name="huobanId" type="int" /> 伙伴ID
+		<variable name="activeType" type="int" />  解锁类型 0 功力解锁; 1 银币解锁
+		<variable name="activeTime" type="int" />  解锁时间 0 解锁7天; 1 解锁30天; 2 永久解锁;
+	</protocol>
+	<!--解锁伙伴返回-->
+	<protocol maxsize="128" name="SActiveHuoBan" tolua="3" prior="1" type="32409">
+		<variable name="huobanId" type="int" /> 伙伴ID
+		<variable name="state" type="int" /> 0为未解锁; 1为永久使用; 2为本周免费; 大于10为有多少分钟的剩余时间,如 134 表示为免费134 - 10 = 124分钟
+	</protocol>
+	<!-- 改变阵容的光环-->
+	<protocol maxsize="128" name="CSwitchZhenfa" prior="1" type="32410" tolua="3">
+		<variable name="zhenrongid" type="int" />
+		<variable name="zhenfaid" type="int" />
+	</protocol>
+	<!-- 改变阵容的光环返回-->
+	<protocol maxsize="128" name="SSwitchZhenfa" prior="1" type="32411" tolua="3">
+		<variable name="zhenrongid" type="int" />
+		<variable name="zhenfaid" type="int" />
+	</protocol>
+	
+	<!-- 获取伙伴信息列表-->
+	<protocol maxsize="64" name="CGetHuoBanList" prior="1" type="32412" tolua="3">
+	</protocol>
+	
+</namespace>

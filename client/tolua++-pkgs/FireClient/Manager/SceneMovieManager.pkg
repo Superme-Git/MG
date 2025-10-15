@@ -1,0 +1,71 @@
+class SceneMovieManager
+{
+public:
+	void DeleAllSection();
+	void DeleSection(MovieSection* pSection);
+	void ExitMovieScene();
+	void EnterMovieScene(int movieID);
+	bool LoadMovie(int movieID);
+	bool isOnSceneMovie();
+	bool CanDrawLoadingBar() const;
+	void SetCanDrawLoadingBar(bool bCan);
+	int GetCurMoiveMapID();
+
+	void DeleteAllSound();
+
+	bool OnBreakMoive();
+
+	void RequestBreakMovie(bool imm = false);
+
+	bool BeginPlayMovie(int movieID);
+	void EndPlayMovie();
+
+	void OnStartSectionStart();
+
+	void ParserSection(const std::wstring& strSectionContent);
+	void EndCurSection();
+
+	void Updata(int elapseTime);
+ 
+	void StartCurFirstSctionInList();
+
+	void ReturnToScene();
+	void ReturnToScene(int mapId, const Nuclear::NuclearLocation& pos);
+	void HandleReturn(const std::wstring& strParserText);
+	void SetPercent(float fPercent);
+
+	void SetCamara(int x,int y);
+	void SetMap(int mapID, int x, int y);
+
+	void CreateNpc(int id,const std::wstring& identityName,int pos_X,int pos_Y,int modelID, const std::wstring& strNpcName, int title, int dir = 0, int colorTemplate = 1, eActionType actype = eActionStand, 
+		float scale = 1.0f, const std::wstring& effectName = L"", int repeat = 1, int ex = 0, int ey = 0, const std::wstring& chengwei = L"", const std::wstring& cwColor = L""); 
+
+	void SetNpcDir(const std::wstring& idenName, int dir);
+	void NpcSayPop(const std::wstring& identityName, const std::wstring strContent);
+	void DeleteNpc(const std::wstring& identityName);
+	void NpcPlayAction(const std::wstring& identityName, int actionID, int endType, int dir);
+	void MoveNpc(const std::wstring& identityName, int dest_X, int dest_Y, int actionID, int time);
+	void SetNpcComponent(const std::wstring& idenName, eSpriteComponentType type, int baseid);
+	
+	void PlaySoundEffect(const std::wstring& strAudioName);
+	void StopSound(int id,int fadeTime);
+	void PlaySound(const std::wstring& strAudioName, int id, int repeat, int fadeTime);
+	void SetSceneEffct(const std::wstring& name, int x, int y, int effectID, int lasttime, int circle, int type);
+
+	void Wait(int time);
+
+	void SetIsMovieEnding(bool b);
+	bool isOnMovieEnding();
+	void RemoveAllMovieEffect();
+
+	bool IsMaskArea(Nuclear::NuclearLocation logicloc);	//≈–∂œ «∑Ò «’⁄’÷«¯”Ú
+    void ExitMovieCloseWindow();
+	void ShowBreakMovieBtn(bool bShow);
+
+	void setSpeakSectionState(bool b);
+	void DeleCurSpeakSectionStartNext(bool next);
+
+	bool IsReturningScene() const;
+};
+
+inline SceneMovieManager* gGetSceneMovieManager();

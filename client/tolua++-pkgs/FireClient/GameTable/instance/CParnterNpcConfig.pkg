@@ -1,0 +1,31 @@
+namespace GameTable
+{
+    namespace instance
+    {
+        class CParnterNpcConfig
+        {
+            public:
+            int id;
+            std::wstring name;
+            int schoolid;
+            int type;
+            int modelid;
+            int serverid;
+            int bufferid;
+            int follownpcid;
+            std::wstring jiadian;
+            std::wstring skillname;
+            std::wstring roleintro;
+        };
+        class CParnterNpcConfigTable
+        {
+            public:
+        CParnterNpcConfig& getRecorder(int id);
+        const CParnterNpcConfig& getRecorderByName(const std::wstring& name);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CParnterNpcConfigTable&  GetCParnterNpcConfigTableInstance();
+    }
+}

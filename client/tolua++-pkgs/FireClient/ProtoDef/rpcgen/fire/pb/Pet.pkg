@@ -1,0 +1,85 @@
+
+
+
+namespace fire { 
+namespace pb { 
+
+class Pet : public FireNet::Marshal
+{
+public:
+	enum {
+		FLAG_LOCK = 1,
+		FLAG_BIND = 2,
+	};
+
+	int id; // 宠物ID
+	int key; // key
+	std::wstring name; // 名称
+	int level; // 等级
+	int uselevel; // 参战等级
+	int xuemai; // 宠物当前资质浓度值
+	int gengu; // root-bone
+	int colour; // 颜色值
+	int hp; // 当前生命
+	int maxhp; // 最大生命
+	int mp; // 当前法力
+	int maxmp; // 最大法力
+	int attack; // 攻击
+	int defend; // 防御
+	int speed; // 速度
+	int magicattack; // 法术攻击
+	int magicdef; // 法术防御
+	char scale; // 1,2,3,4分别代表4个size
+	fire::pb::BasicFightProperties initbfp; // 初始的基础战斗属性
+	fire::pb::BasicFightProperties bfp; // 基础战斗属性
+	short point; // 潜能。未分配点数
+	char autoaddcons; // 加点方案-升级自动加体质
+	char autoaddiq; // 加点方案-升级自动加智力
+	char autoaddstr; // 加点方案-升级自动加力量
+	char autoaddendu; // 加点方案-升级自动加耐力
+	char autoaddagi; // 加点方案-升级自动加敏捷
+	short pointresetcount; // 宠物加点的重置次数
+	int64_t exp; // 当前经验
+	int64_t nexp; // 升级需要经验
+	int attackapt; // 攻击资质
+	int defendapt; // 防御资质
+	int phyforceapt; // 体力资质
+	int magicapt; // 法力资质
+	int speedapt; // 速度资质
+	int dodgeapt; // 躲闪资质
+	float growrate; // 成长率
+	int life; // 寿命
+	int kind; // 宠物类型 野生、宝宝
+	std::list<fire::pb::Petskill> skills; // 宠物技能
+	std::map<int, int64_t> skillexpires; // 有时限的宠物技能的到期时间。key=技能id，value=到期时间
+	char flag; // 宠物标志 1= 锁定，2 = 绑定
+	int64_t timeout; // 如果是时间锁，到期时间（毫秒）
+	int64_t ownerid; // 主人id
+	std::wstring ownername; // 主人名
+	int rank; // 排行榜排名
+	short starid; // 当前星星等级Id
+	short practisetimes; // 当前剩余的训练次数
+	std::map<int, int> zizhi; // 训练后得到的未分配的资质
+	int changegengu; // 训练后得到的root-bone变化值
+	int skill_grids; // 宠物技能格子数
+	char aptaddcount; // 资质培养次数
+	char growrateaddcount; // 成长率培养次数
+	short washcount; // 洗练次数
+	int petscore; // 宠物评分
+	int petbasescore; // 宠物一级属性评分
+	int petdye1; // 宠物染色部位1
+	int petdye2; // 宠物染色部位2
+	int shenshouinccount; // 神兽养成次数
+	int64_t marketfreezeexpire; // 摆摊冻结截止时间,默认0不冻结
+
+	Pet() ;
+
+	Pet(int _id_, int _key_, const std::wstring & _name_, int _level_, int _uselevel_, int _xuemai_, int _gengu_, int _colour_, int _hp_, int _maxhp_, int _mp_, int _maxmp_, int _attack_, int _defend_, int _speed_, int _magicattack_, int _magicdef_, char _scale_, const fire::pb::BasicFightProperties & _initbfp_, const fire::pb::BasicFightProperties & _bfp_, short _point_, char _autoaddcons_, char _autoaddiq_, char _autoaddstr_, char _autoaddendu_, char _autoaddagi_, short _pointresetcount_, int64_t _exp_, int64_t _nexp_, int _attackapt_, int _defendapt_, int _phyforceapt_, int _magicapt_, int _speedapt_, int _dodgeapt_, float _growrate_, int _life_, int _kind_, const std::list<fire::pb::Petskill> & _skills_, const std::map<int, int64_t> & _skillexpires_, char _flag_, int64_t _timeout_, int64_t _ownerid_, const std::wstring & _ownername_, int _rank_, short _starid_, short _practisetimes_, const std::map<int, int> & _zizhi_, int _changegengu_, int _skill_grids_, char _aptaddcount_, char _growrateaddcount_, short _washcount_, int _petscore_, int _petbasescore_, int _petdye1_, int _petdye2_, int _shenshouinccount_, int64_t _marketfreezeexpire_);
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+};
+
+} 
+} 

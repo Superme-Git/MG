@@ -1,0 +1,131 @@
+class Character : public ComponentsObject
+{
+public:
+	Character();
+	virtual ~Character();
+
+	virtual void SetInHighLevel(bool bhighlevel);
+	virtual bool IsInHighLevel();
+			
+	virtual void InitPosition(Nuclear::NuclearLocation loc,bool bhighlevel = false);
+
+	virtual	void SetAttribute(stCharacterData* pData);
+	static void ClearPicPool();
+
+	BYTE GetDefaultAction();
+	virtual void SetDefaultAction(eActionType actiontype,bool holdlastframe = false,float freq=g_defaultActionFrequence);
+
+	void SetTeamLeaderEffectVisible(bool b);
+	virtual std::wstring GetName();
+	virtual void SetName(const std::wstring &name);
+	virtual void SetTitle(const int& id,const std::wstring &title);
+    int GetTitleID();
+	virtual std::wstring GetTitle();
+    std::wstring GetTitleForClassCharacter();
+    
+	virtual void SetDirection(int tx, int ty);
+	virtual void SetDirection(Nuclear::NuclearDirection dir);
+	virtual void SetVisible(bool v);
+	virtual bool PlayAction(eActionType actionType,float freq=g_defaultActionFrequence);
+	virtual int GetShapeID();
+
+	virtual void SetShapeID(int shapeid);
+
+	virtual void Run(int now,int delta);
+	virtual void StopMove();
+	virtual bool MoveTo(Nuclear::NuclearLocation ptMoveTarget);
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+	virtual void Draw(int now);
+
+	virtual int GetLevel();
+	void SetLevel(const int level);
+
+	virtual eSexType GetSex();
+	virtual eSchoolType GetSchool();
+    virtual int GetCamp();
+    void SetCamp(const int camp);
+
+	virtual bool OnSetCursor();
+
+	virtual bool CanBeAttack();
+	virtual bool CanBeGiven();
+	virtual bool CanJoinTeam();
+	virtual bool CanTradeWith();
+	virtual bool CanGiveFlower();
+	virtual bool CanGiveRose();
+	virtual bool CanBeUseSkill(int skillid);
+
+	void				InitCharacterState();
+	void				UpdateCharacterState(int state);
+	void				AddCharacterState(eCharacterState e);
+	void				RemoveCharacterState(eCharacterState e);
+	bool				IsSetCharacterState(eCharacterState e);
+
+	//是否是在战斗状态下
+	bool				IsInBattle();
+	bool				IsWatchBattle();
+	int					GetActuallyShape();
+
+	Character*			GetTeamLeader();
+	Character*			GetTeamFollow();
+	bool				IsOnTeamFollow();
+	virtual void		ClearTeamFollower();
+	void				RunTeamFollow();
+	int64_t				GetTeamID();
+	int					GetTeamIndex();
+	eTeamMemberState	GetTeamState();
+	void				SetTeamInfoOutOfDate(bool b);
+	bool				IsTeamInfoOutOfDate();
+	bool				IsOnTeam();
+	bool				IsTeamLeader();
+	virtual void		SetTeamInfo(int64_t teamid, int teamindex, int teamstate);
+	virtual void		SetTeamFollow();
+	void				UpdateTeamLeaderEffect();
+	
+	virtual	bool		IsInChallengeArea();	//是否在PK台上
+
+	//角色换装相关接口
+	virtual void ChangeSpriteModel(const int& shapeid); //lua
+	virtual void OnCloseStall(bool isRemoveChar); //结束摆摊时造型换回来
+	void UpdataTitleTexture();
+	Nuclear::TextBlockHandle GetTitleTexHandle();
+	Nuclear::ITextBlock* GetTitleTextBlock();
+
+    void AddPopoMsg(int effectid, int value, int colorid, int order); //lua
+	void AddPopoMsgReduce(int effectid, int value, int colorid, int order);
+    virtual void UpdatNameTexture(bool bReleaseOld=false); //bReleaseOld是否释放旧纹理
+
+	void DrawMsgEffect(int now);
+
+	std::wstring GetAutoMoveRideName(int AutoMovePathID, int AutoMovePathID2);
+
+	float GetAutoMoveSpeed(int AutoMovePathID, int AutoMovePathID2);
+
+	int GetRideModeID();
+	int GetRideSpeedByModelID(int iModelID);
+	
+	int GetOffsetYStep(int WayID, int PathID1, int PointID1);
+	int GetOffsetYCur(int WayID, int PathID1, int PointID1);
+	int GetOffsetYNext(int WayID, int PathID1, int PointID1);
+	
+	void SetFlyScaleTgt(int iFlyScaleTgt);
+	void SetFlyScaleCur(int iFlyScaleCur);
+	int GetFlyScaleCur();
+	void SetFlyScaleStep(int iFlyScaleStep);
+	int GetFlyScaleStep();
+	void SetFlyOffsetYTgt(int iFlyOffsetYTgt);
+	void SetFlyOffsetYCur(int iFlyOffsetYCur);
+	int GetFlyOffsetYCur();
+	void SetFlyOffsetYStep(int iFlyOffsetYStep);
+	int GetFlyOffsetYStep();
+
+	void UpdateSpeed();
+
+	virtual void SetMoveSpeed(float speed);
+	virtual void SetDefaultActionWithoutLogic(eActionType actiontype, bool holdlastframe = false, float freq = g_defaultActionFrequence);
+	virtual void SetSpriteComponent(eSpriteComponentType type,int baseid,bool forcechange = false);
+	virtual void SetLocation(const Nuclear::NuclearLocation& location);
+	void SetTeamNumVisible(bool b);
+	void SetTeamNum(std::wstring numstr);
+	void SetTeamNumHeight(int height,int horseheight);
+};

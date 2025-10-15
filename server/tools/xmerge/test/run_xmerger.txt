@@ -1,0 +1,4 @@
+Windows:
+java -Xss4m -Xms512m -Xmx512m -Xbootclasspath/a:./mylogic.jar;../../bin/xdb.jar;../../bin/jio.jar; -jar xmerge.jar -conf xmerge.xml src_db dest_db
+Linux:
+java -Xss4m -Xms512m -Xmx512m -Xbootclasspath/a:./mylogic.jar:../../bin/xdb.jar:../../bin/jio.jar: -jar xmerge.jar -conf xmerge.xml src_db dest_db

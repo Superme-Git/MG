@@ -1,0 +1,5 @@
+E:\mt3\client\FireClient\Application\SceneObj
+
+MTG-14999  
+【BUG】【飞行】飞行结束后会一直自动跳地图【0.0.179PC】 
+ 审核人：刘庚，提交人：王剑峰

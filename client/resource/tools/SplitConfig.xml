@@ -1,0 +1,144 @@
+<!-- 杨印宇 2015-6-17 开发-->
+<!-- 以后打印FRAME的时候，直接打整图，然后使用这个工具切割成9宫格和3宫格,这样可以避免失真-->
+<!-- 每个要切割的Frame需要写一行，行的名字为frame,然后需要写要切割的imageset和image名字，可以在具体的imageset文件中找到-->
+<!-- 然后写type type有3种形式 OnlyWidth OnlyHeight WidthAndHeight 注意要保持大小写一致-->
+<!-- OnlyWidth 切割Frame成为左，中，右三段 后面要跟着写明left_width,center_width,right_width所需要的像素数-->
+<!-- OnlyHeight 切割Frame成为上，中，下三段，后面要跟着写明top_height,center_height,bottom_height所需要的像素数-->
+<!-- WidthAndHeight 切割Frame成9份，左上，上，右上，右，右下，下，左下，左，中，后面要写明left_width,center_width,right_width,top_height,center_height,bottom_height所需要的像素数-->
+<!-- 
+<frame imageset="common_equip.imageset" image="equip_mengban" type="WidthAndHeight" left_width="27" center_width="29" right_width="27" top_height="27" center_height="29" bottom_height="27" />
+-->
+<frame imageset="common.imageset" image="common_buttonyellow60" type="OnlyWidth" left_width="30" center_width="6" right_width="30" />
+<frame imageset="common.imageset" image="common_buttonyellow75" type="OnlyWidth" left_width="36" center_width="38" right_width="36" />
+<frame imageset="common.imageset" image="common_buttonlan75" type="OnlyWidth" left_width="36" center_width="38" right_width="36" />
+<frame imageset="common.imageset" image="common_buttonhui60" type="OnlyWidth" left_width="45" center_width="10" right_width="45" />
+<frame imageset="common.imageset" image="common_buttonhui75" type="OnlyWidth" left_width="36" center_width="38" right_width="36" />
+<frame imageset="common.imageset" image="common_hengxian" type="OnlyWidth" left_width="38" center_width="38" right_width="38" />
+<frame imageset="common.imageset" image="common_namedi" type="OnlyWidth" left_width="28" center_width="30" right_width="28" />
+<frame imageset="common.imageset" image="common_green" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="yellow" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="tiaodi" type="OnlyWidth" left_width="61" center_width="38" right_width="61" />
+<frame imageset="common.imageset" image="red" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="blue" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="purple" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="common_xuetiaodi" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="qiudi" type="OnlyWidth" left_width="33" center_width="19" right_width="33" />
+<frame imageset="common.imageset" image="tit" type="OnlyWidth" left_width="155" center_width="16" right_width="155" />
+<frame imageset="lifeskillui.imageset" image="life_greentiao" type="OnlyWidth" left_width="29" center_width="29" right_width="29" />
+<frame imageset="common.imageset" image="common_buttonjianbianhui32" type="WidthAndHeight" left_width="16" center_width="16" right_width="16" top_height="10" center_height="12" bottom_height="10" />
+<frame imageset="diban2.imageset" image="banzi1" type="WidthAndHeight" left_width="64" center_width="206" right_width="88" top_height="119" center_height="65" bottom_height="64" />
+<frame imageset="diban2.imageset" image="banzi3" type="WidthAndHeight" left_width="131" center_width="143" right_width="133" top_height="226" center_height="43" bottom_height="55" />
+<frame imageset="diban2.imageset" image="banzi5" type="WidthAndHeight" left_width="68" center_width="137" right_width="69" top_height="61" center_height="57" bottom_height="48" />
+<frame imageset="huodong.imageset" image="huodongdi" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="huodong.imageset" image="hongdongbai" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="huodong.imageset" image="hongdongbai1" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="common_xuanzhongkuang" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="renwudi" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="textbg3" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="common_diban" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="common_dibantou" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="wenzitext" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="common_buttondiban" type="WidthAndHeight" left_width="21" center_width="23" right_width="21" top_height="21" center_height="22" bottom_height="21" />
+<frame imageset="common.imageset" image="common_fengexian" type="OnlyHeight" top_height="11" center_height="12" bottom_height="11" />
+<frame imageset="teamui.imageset" image="team_tai1" type="WidthAndHeight" left_width="28" center_width="28" right_width="28" top_height="28" center_height="29" bottom_height="28" />
+<frame imageset="teamui.imageset" image="team_tai2" type="WidthAndHeight" left_width="28" center_width="28" right_width="28" top_height="28" center_height="29" bottom_height="28" />
+<frame imageset="common_equip.imageset" image="equipliang1" type="WidthAndHeight" left_width="19" center_width="21" right_width="19" top_height="14" center_height="15" bottom_height="14" />
+<frame imageset="renwuui.imageset" image="heiban" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="common_buttonlan60" type="OnlyWidth" left_width="30" center_width="6" right_width="30" />
+<frame imageset="common.imageset" image="common_buttonhui52" type="OnlyWidth" left_width="45" center_width="10" right_width="45" />
+<frame imageset="mainui.imageset" image="hongtiao" type="OnlyWidth" left_width="6" center_width="8" right_width="6" />
+<frame imageset="mainui.imageset" image="lantiao" type="OnlyWidth" left_width="6" center_width="8" right_width="6" />
+<frame imageset="mainui.imageset" image="huangtiao" type="OnlyWidth" left_width="6" center_width="8" right_width="6" />
+<frame imageset="mainui.imageset" image="exp_bar" type="OnlyWidth" left_width="5" center_width="4" right_width="5" />
+<frame imageset="mainui.imageset" image="main_exp" type="OnlyWidth" left_width="5" center_width="4" right_width="5" />
+<frame imageset="mainui.imageset" image="tikuang" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="fightui.imageset" image="heibg" type="OnlyHeight" top_height="26" center_height="6" bottom_height="18" />
+<frame imageset="paihangbang.imageset" image="danhesetiao" type="OnlyWidth" left_width="10" center_width="11" right_width="10" />
+<frame imageset="paihangbang.imageset" image="hesetiao" type="OnlyWidth" left_width="10" center_width="11" right_width="10" />
+<frame imageset="paihangbang.imageset" image="huisetiao" type="OnlyWidth" left_width="10" center_width="11" right_width="10" />
+<frame imageset="paihangbang.imageset" image="minghuangsetiao" type="OnlyWidth" left_width="10" center_width="11" right_width="10" />
+<frame imageset="renwuui.imageset" image="xiaoditukuang" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="skillui.imageset" image="toumingkuang" type="WidthAndHeight" left_width="10" center_width="10" right_width="10" top_height="10" center_height="10" bottom_height="10" />
+<frame imageset="renwuui.imageset" image="shjiebobao" type="OnlyWidth" left_width="8" center_width="9" right_width="8" />
+<frame imageset="renwuui.imageset" image="jindutiao" type="OnlyWidth" left_width="18" center_width="19" right_width="18" />
+<frame imageset="renwuui.imageset" image="jindu" type="OnlyWidth" left_width="13" center_width="13" right_width="13" />
+<frame imageset="huobanui.imageset" image="heiban" type="OnlyWidth" left_width="90" center_width="89" right_width="90" />
+<frame imageset="huobanui.imageset" image="huoban_mengban1" type="OnlyWidth" left_width="15" center_width="14" right_width="15" />
+<frame imageset="laohuji.imageset" image="laohujigaoliang" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="diban.imageset" image="ransediban" type="WidthAndHeight" left_width="39" center_width="22" right_width="39" top_height="39" center_height="22" bottom_height="39" />
+<frame imageset="huobanui.imageset" image="huoban_mengban1" type="OnlyWidth" left_width="15" center_width="14" right_width="15" />
+<frame imageset="fightui.imageset" image="zhandouxuetiao" type="OnlyWidth" left_width="10" center_width="11" right_width="10" />
+<frame imageset="fightui.imageset" image="zhandouxuetiaodi" type="OnlyWidth" left_width="12" center_width="13" right_width="12" />
+<frame imageset="sceneui.imageset" image="talkframe" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common_pack.imageset" image="liao" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="sceneui.imageset" image="dib2" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="sceneui.imageset" image="duihuakuang" type="OnlyHeight" top_height="13" center_height="15" bottom_height="31" />
+<frame imageset="jiangli.imageset" image="di" type="OnlyHeight" top_height="24" center_height="27" bottom_height="13" />
+<frame imageset="xingongneng.imageset" image="ditu" type="WidthAndHeight" left_width="21" center_width="22" right_width="21" top_height="21" center_height="22" bottom_height="21" />
+<frame imageset="common.imageset" image="common_bg2" type="WidthAndHeight" left_width="182" center_width="216" right_width="134" top_height="216" center_height="48" bottom_height="56" />
+<frame imageset="common.imageset" image="tou" type="OnlyWidth" left_width="168" center_width="2" right_width="168" />
+<frame imageset="common_pack.imageset" image="shurkuang" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="linshi.imageset" image="yindaoyou" type="OnlyWidth" left_width="20" center_width="18" right_width="48" />
+<frame imageset="linshi.imageset" image="yindaoyoushang" type="OnlyWidth" left_width="21" center_width="19" right_width="71" />
+<frame imageset="linshi.imageset" image="yindaoyouxia" type="OnlyWidth" left_width="22" center_width="24" right_width="41" />
+<frame imageset="linshi.imageset" image="yindaozuoshang" type="OnlyWidth" left_width="72" center_width="19" right_width="20" />
+<frame imageset="linshi.imageset" image="yindaozuoxia" type="OnlyWidth" left_width="42" center_width="25" right_width="20" />
+<frame imageset="linshi.imageset" image="mijingdi" type="OnlyWidth" left_width="20" center_width="22" right_width="20" />
+<frame imageset="linshi.imageset" image="yindaozuo" type="OnlyWidth" left_width="49" center_width="18" right_width="19" />
+<frame imageset="common_pack.imageset" image="libaoheidi" type="OnlyHeight" top_height="16" center_height="17" bottom_height="16" />
+<frame imageset="fightui.imageset" image="jinbian" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="fightui.imageset" image="yinbian" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="common_biaoshi" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="zhuangshiui.imageset" image="zhuangshi" type="OnlyWidth" left_width="168" center_width="29" right_width="166" />
+<frame imageset="zhuangshiui.imageset" image="suolian" type="OnlyWidth" left_width="32" center_width="15" right_width="31" />
+<frame imageset="zhuangshiui.imageset" image="ding" type="OnlyWidth" left_width="22" center_width="8" right_width="22" />
+<frame imageset="fightui.imageset" image="yinbian" type="OnlyWidth" left_width="16" center_width="18" right_width="16" />
+<frame imageset="common.imageset" image="nml" type="OnlyWidth" left_width="10" center_width="10" right_width="10" />
+<frame imageset="common.imageset" image="dwn" type="OnlyWidth" left_width="10" center_width="10" right_width="10" />
+<frame imageset="jingjichang.imageset" image="diban" type="OnlyWidth" left_width="15" center_width="10" right_width="15" />
+<frame imageset="huobanui.imageset" image="di5" type="WidthAndHeight" left_width="35" center_width="10" right_width="35" top_height="35" center_height="10" bottom_height="35" />
+<frame imageset="huobanui.imageset" image="di6" type="WidthAndHeight" left_width="35" center_width="10" right_width="35" top_height="35" center_height="10" bottom_height="35" />
+<frame imageset="ditu.imageset" image="hong" type="OnlyWidth" left_width="7" center_width="7" right_width="7" />
+<frame imageset="ditu.imageset" image="lan" type="OnlyWidth" left_width="7" center_width="7" right_width="7" />
+<frame imageset="ditu.imageset" image="title" type="OnlyWidth" left_width="50" center_width="17" right_width="50" />
+<frame imageset="ditu.imageset" image="xuedi" type="OnlyWidth" left_width="10" center_width="9" right_width="10" />
+<frame imageset="common.imageset" image="dis" type="OnlyWidth" left_width="30" center_width="6" right_width="30" />
+<frame imageset="diban.imageset" image="rensexuan" type="WidthAndHeight" left_width="39" center_width="22" right_width="39" top_height="39" center_height="22" bottom_height="39" />
+<frame imageset="common.imageset" image="common_list_textbg" type="WidthAndHeight" left_width="15" center_width="10" right_width="15" top_height="20" center_height="3" bottom_height="20" />
+<frame imageset="common.imageset" image="common_list_textbg2" type="WidthAndHeight" left_width="15" center_width="10" right_width="15" top_height="20" center_height="3" bottom_height="20" />
+<frame imageset="common.imageset" image="common_list_textbg_dwn" type="WidthAndHeight" left_width="15" center_width="10" right_width="15" top_height="20" center_height="6" bottom_height="20" />
+<frame imageset="common.imageset" image="common_list_3textbg" type="OnlyWidth" left_width="15" center_width="10" right_width="15" />
+<frame imageset="common.imageset" image="common_list_3textbg2" type="OnlyWidth" left_width="15" center_width="10" right_width="15" />
+<frame imageset="common.imageset" image="common_list_3textbg_dwn" type="OnlyWidth" left_width="15" center_width="10" right_width="15" />
+<frame imageset="jiangli.imageset" image="zhoulixuanzhong" type="WidthAndHeight" left_width="20" center_width="10" right_width="20" top_height="20" center_height="10" bottom_height="20" />
+<frame imageset="jiangli.imageset" image="zhoulidi" type="WidthAndHeight" left_width="20" center_width="10" right_width="20" top_height="20" center_height="10" bottom_height="20" />
+<frame imageset="fightui.imageset" image="fightui_bossbar_bg" type="OnlyWidth" left_width="6" center_width="6" right_width="18" />
+<frame imageset="fightui.imageset" image="fightui_bossbar_red" type="OnlyWidth" left_width="10" center_width="10" right_width="10" />
+<frame imageset="fightui.imageset" image="fightui_bossbar_xiaobg" type="OnlyWidth" left_width="6" center_width="4" right_width="14" />
+<frame imageset="fightui.imageset" image="fightui_bossbar_xiaored" type="OnlyWidth" left_width="10" center_width="4" right_width="10" />
+<frame imageset="common.imageset" image="btn1" type="OnlyWidth" left_width="15" center_width="14" right_width="15" />
+<frame imageset="common.imageset" image="btn2" type="OnlyWidth" left_width="15" center_width="14" right_width="15" />
+<frame imageset="jiangli.imageset" image="zhoulidi" type="WidthAndHeight" left_width="20" center_width="10" right_width="20" top_height="20" center_height="10" bottom_height="20" />
+<frame imageset="common_pack.imageset" image="common_list_textbg" type="WidthAndHeight" left_width="15" center_width="10" right_width="15" top_height="20" center_height="3" bottom_height="20" />
+<frame imageset="common.imageset" image="common_list_textbg" type="WidthAndHeight" left_width="15" center_width="10" right_width="15" top_height="20" center_height="3" bottom_height="20" />
+<frame imageset="liaotian.imageset" image="liaotian_kuang1" type="WidthAndHeight" left_width="10" center_width="10" right_width="10" top_height="10" center_height="10" bottom_height="10" />
+<frame imageset="liaotian.imageset" image="liaotian_kuang2" type="WidthAndHeight" left_width="10" center_width="10" right_width="10" top_height="10" center_height="10" bottom_height="10" />
+<frame imageset="liaotian.imageset" image="liaotian_yuyin_bofang" type="OnlyWidth" left_width="12" center_width="7" right_width="12" />
+<frame imageset="linshi.imageset" image="xuetiao_da" type="OnlyWidth" left_width="84" center_width="4" right_width="61" />
+<frame imageset="linshi.imageset" image="xuetiao_xiao" type="OnlyWidth" left_width="72" center_width="6" right_width="62" />
+<frame imageset="common_pack.imageset" image="kongdi" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common_pack.imageset" image="liao_bg" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="common.imageset" image="duojue" type="WidthAndHeight" left_width="12" center_width="11" right_width="40" top_height="26" center_height="23" bottom_height="17" />
+<frame imageset="liaotian.imageset" image="huawendi" type="WidthAndHeight" left_width="41" center_width="18" right_width="41" top_height="41" center_height="18" bottom_height="41" />
+<frame imageset="teamui.imageset" image="bang1" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="teamui.imageset" image="bang2" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="teamui.imageset" image="shuxian" type="OnlyHeight" top_height="11" center_height="12" bottom_height="11" />
+<frame imageset="common_pack.imageset" image="bg1" type="WidthAndHeight" left_width="13" center_width="14" right_width="13" top_height="14" center_height="15" bottom_height="14" />
+<frame imageset="common_pack.imageset" image="bg2" type="WidthAndHeight" left_width="13" center_width="14" right_width="13" top_height="14" center_height="15" bottom_height="14" />
+<frame imageset="common_pack.imageset" image="bg3" type="WidthAndHeight" left_width="13" center_width="14" right_width="13" top_height="15" center_height="15" bottom_height="15" />
+<frame imageset="common_pack.imageset" image="bg4" type="WidthAndHeight" left_width="13" center_width="14" right_width="13" top_height="14" center_height="15" bottom_height="14" />
+<frame imageset="tianti.imageset" image="daiqidi" type="WidthAndHeight" left_width="74" center_width="122" right_width="74" top_height="130" center_height="20" bottom_height="83" />
+<frame imageset="hongbao.imageset" image="tiantibai" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="hongbao.imageset" image="tiantihe" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />
+<frame imageset="mainui.imageset" image="biaotou" type="OnlyWidth" left_width="42" center_width="10" right_width="47" />
+<frame imageset="hongbao.imageset" image="baiban" type="WidthAndHeight" left_width="16" center_width="18" right_width="16" top_height="16" center_height="18" bottom_height="16" />

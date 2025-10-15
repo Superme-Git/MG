@@ -1,0 +1,26 @@
+class AnimationInstance
+{
+	AnimationInstance(CEGUI::Animation* definition);
+	~AnimationInstance(void);
+	CEGUI::Animation* getDefinition() const;
+	void setTarget(CEGUI::PropertySet* target);
+	CEGUI::PropertySet* getTarget() const;
+	void setTargetWindow(CEGUI::Window* target);
+	void setPosition(float position);
+	float getPosition() const;
+	void setSpeed(float speed);
+	float getSpeed() const;
+	void setSkipNextStep(bool skip);
+	bool getSkipNextStep() const;
+	void setMaxStepDeltaSkip(float maxDelta);
+	float getMaxStepDeltaSkip() const;
+	void setMaxStepDeltaClamp(float maxDelta);
+	float getMaxStepDeltaClamp() const;
+	void start(bool skipNextStep = true);
+	void stop();
+	void pause();
+	void unpause(bool skipNextStep = true);
+	void togglePause(bool skipNextStep = true);
+	bool isRunning() const;
+	
+};

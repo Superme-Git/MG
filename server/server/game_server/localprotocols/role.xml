@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这些协议仅在服务器内部使用，与protocols里的协议不会冲突，建议从9501~9999-->
+<namespace name="role">
+
+	
+	<protocol  name="GUpdateRoleLevel" type="10001" maxsize="65535" prior="1"> 通知场景模块角色新等级
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="level" type="int"/>   角色新等级
+	</protocol>	
+	<protocol  name="GSetProgressbarInfo" type="10002" maxsize="65535" prior="1">设置角色的进度条开始和结束状态
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="progressOn" type="int"/>   1表示在读进度条,0表示结束或打断
+	</protocol>
+	<protocol  name="GSetPlayCGState" type="10003" maxsize="65535" prior="1">设置角色的播放动画状态
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="isplaying" type="byte"/> 1正在播放动画，0停止播放动画
+	</protocol>	
+	<protocol  name="GSetRoleBattleInfo" type="10004" maxsize="65535" prior="1">设置角色的战斗状态
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="battlestate" type="int"/> 0：无；1：战斗者；2：观战者 
+	</protocol>
+	
+	<protocol  name="GSetNoPayDayState" type="10005" maxsize="65535" prior="1">设置角色是否支付日卡 by changhao
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="ok" type="byte"/> 1没支付0是支付 by changhao
+	</protocol>	
+	
+	<protocol  name="GSendAroundExceptMe" type="10006" maxsize="65535" prior="1">广播给自己周边的所有角色
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets" />协议marshal完的数据
+	</protocol>
+	<protocol  name="GSendAround" type="10007" maxsize="65535" prior="1">广播给自己周边的所有角色
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets" />协议marshal完的数据
+	</protocol>
+	<protocol  name="GSetRoleHideOrShow" type="10008" maxsize="65535" prior="1">开启和关闭hideme状态
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="hide" type="int" />1表示hide,0表示show
+	</protocol>
+	
+	<protocol  name="GAddBuffs" type="10009" maxsize="65535" prior="1">添加buff时，向场景模块通知相关buff
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="addbuffs" type="list" value="int" />buffs
+	</protocol>
+	
+	<protocol  name="GRemoveBuffs" type="10010" maxsize="65535" prior="1">删除buff时，向场景模块通知相关buff
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="rmbuffs" type="list" value="int" />buffs
+	</protocol>
+	
+	<protocol  name="GAddSceneState" type="10011" maxsize="65535" prior="1">通知场景模块添加scenestate
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="scenestate" type="int" />scenestate
+	</protocol>
+	
+	<protocol  name="GRemoveSceneState" type="10012" maxsize="65535" prior="1">通知场景模块删除scenestate
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="scenestate" type="int" />scenestate
+	</protocol>
+	
+	<protocol  name="GAddUserScreen" type="10013" maxsize="65535" prior="1">逻辑模块通知场景，在某个角色附近添加这个角色（协议内验证两者的距离）
+		<variable name="reqRoleId" type="long"/>
+		<variable name="addRoleId" type="long" />
+	</protocol>
+	
+	
+	<protocol  name="GSendAroundByCondition" type="10014" maxsize="65535" prior="1">根据条件广播给自己周边的所有角色
+		<variable name="roleId" type="long"/>	roleid
+		<variable name="exceptstates" type="vector" value="int" /> 九屏内除了此状态的玩家.
+		<variable name="proType" type="int" />协议的类型
+		<variable name="protocol" type="octets" />协议marshal完的数据
+	</protocol>
+
+    <protocol  name="GSetNpcBattleInfo" type="10015" maxsize="64" prior="1">  设置npc的战斗状态
+        <variable name="npckey" type="long"/>	roleid
+        <variable name="battlestate" type="int"/> 0：无；1：战斗者
+    </protocol>
+	
+	<protocol  name="GSetMaxScreenShowNum" type="10017" maxsize="65535" prior="1"> 通知场景更改角色能看到的角色数量
+		<variable name="roleid" type="long"/>
+		<variable name="maxscreenshownum" type="int"/>
+	</protocol>
+	
+	<protocol  name="GRoleChangeShape" type="10018" maxsize="64" prior="1">逻辑模块通知场景，角色shape改变
+		<enum name="TUIBIAN" value="0"/>
+		<enum name="HUANSE" value="1"/>
+		<enum name="OTHER" value="2"/> 
+		<variable name="roleid" type="long"/>	
+		<variable name="shape" type="int"/>
+		<variable name="reason" type="int"/>
+		<variable name="teammembers" type="set" value="long"/>
+	</protocol>
+	<protocol  name="GRemoveRoleFromScene" type="10019" maxsize="20" prior="1"> 通知场景删除Role
+		<variable name="roleId" type="long"/>	roleid
+	</protocol>
+
+    <!--改变角色装备特效-->
+    <protocol name="GChangeEquipEffect" type="10020" maxsize="64" prior="1">
+        <variable name="roleid" type="long"/> 玩家id
+        <variable name="effect" type="int"/> 特效表id
+    </protocol>
+	
+	<protocol  name="GRoleModifyName" type="10021" maxsize="64" prior="1">逻辑模块通知场景，角色名改变
+		<variable name="roleid" type="long"/>	
+		<variable name="newname" type="string"/>
+		<variable name="teammembers" type="set" value="long"/>
+	</protocol>
+</namespace>	
+
+	

@@ -1,0 +1,32 @@
+Index: Application/Framework/GameApplication.cpp
+===================================================================
+--- Application/Framework/GameApplication.cpp	(revision 50599)
++++ Application/Framework/GameApplication.cpp	(working copy)
+@@ -2030,6 +2030,7 @@
+ 		if (GetMainCharacter() && GetMainCharacter()->GetMoveState() == eMove_Fly)
+ 		{
+ 			GetMainCharacter()->StopAutoMove();
++			GetMainCharacter()->SetMoveState(eMove_Normal);
+ 		}
+ 	}
+ 
+Index: Application/SceneObj/MainCharacter.cpp
+===================================================================
+--- Application/SceneObj/MainCharacter.cpp	(revision 50599)
++++ Application/SceneObj/MainCharacter.cpp	(working copy)
+@@ -1775,6 +1775,7 @@
+ 			else
+ 			{
+ 				StopAutoMove();
++				SetMoveState(eMove_Normal);
+ 			}
+ 		}
+ 	}
+@@ -1901,6 +1902,7 @@
+ 					if (m_FlyStopTime > 3000)
+ 					{
+ 						StopAutoMove();
++						SetMoveState(eMove_Normal);
+ 						fire::pb::mission::CReqGoto Goto(gGetScene()->GetMapID(), CurPos.x, CurPos.y);
+ 						gGetNetConnection()->send(Goto);
+ 					}

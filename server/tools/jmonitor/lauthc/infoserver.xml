@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="infoserver" shareHome="../../../../share" pvids="">
+
+	<bean name="ServerInfos">
+		<variable name="name" type="octets"/>
+		<variable name="port1" type="int"/>
+		<variable name="port2" type="int"/>
+	</bean>
+
+	<protocol name="CGetServerInfo" type="1001" maxsize="16" prior="1">
+	</protocol>
+
+	<protocol name="SGetServerInfo" type="1002" maxsize="2048" prior="1">
+		<variable name="infos" type="list" value="ServerInfos"/> 
+	</protocol>
+
+</application>

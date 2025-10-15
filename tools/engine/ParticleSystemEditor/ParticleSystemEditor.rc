@@ -1,0 +1,1115 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\ParticleSystemEditor.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""afxres.rc""         // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ParticleSystemEditor.ico"
+IDR_ParticleSystemETYPE ICON                    "res\\ParticleSystemEditorDoc.ico"
+IDI_ICON_MYPLUS         ICON                    "res\\Plus.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_TOOLBAR_PARTICLESYS BITMAP                  "res\\toolbar1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_TOOLBAR_PARTICLESYS TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_BUTTON_OPENPSL
+    BUTTON      ID_EDIT_CLEAR
+    BUTTON      ID_BUTTON_SAVEASPSL
+    BUTTON      ID_APP_ABOUT
+    BUTTON      ID_BTN_TGA2DDS
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "最近的文件",                       ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "转换(&T)",                      ID_BTN_TGA2DDS
+        MENUITEM "关闭(&C)",                      ID_FILE_CLOSE
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "视图(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                     ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                     ID_VIEW_STATUS_BAR
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 ParticleSystemEditor(&A)...", ID_APP_ABOUT
+    END
+END
+
+IDR_ParticleSystemETYPE MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "关闭(&C)",                      ID_FILE_CLOSE
+        MENUITEM "保存(&S)\tCtrl+S",              ID_FILE_SAVE
+        MENUITEM "另存为(&A)...",                  ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "最近的文件",                       ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "撤消(&U)\tCtrl+Z",              ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "剪切(&T)\tCtrl+X",              ID_EDIT_CUT
+        MENUITEM "复制(&C)\tCtrl+C",              ID_EDIT_COPY
+        MENUITEM "粘贴(&P)\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "视图(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                     ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                     ID_VIEW_STATUS_BAR
+    END
+    POPUP "窗口(&W)"
+    BEGIN
+        MENUITEM "新建窗口(&N)",                    ID_WINDOW_NEW
+        MENUITEM "层叠(&C)",                      ID_WINDOW_CASCADE
+        MENUITEM "平铺(&T)",                      ID_WINDOW_TILE_HORZ
+        MENUITEM "排列图标(&A)",                    ID_WINDOW_ARRANGE
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 ParticleSystemEditor(&A)...", ID_APP_ABOUT
+    END
+END
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP "NENU"
+    BEGIN
+        MENUITEM "删除该点",                        ID_NENU_DELPOINT
+        MENUITEM SEPARATOR
+        MENUITEM "曲线",                          ID_NENU_CURVE
+        MENUITEM "连接",                          ID_NENU_LINK
+        MENUITEM SEPARATOR
+        MENUITEM "关键帧点",                        32800
+    END
+END
+
+IDR_MENU2 MENU 
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "添加粒子系统",                      ID_MENU_AddParticleSys
+        MENUITEM "删除粒子系统",                      ID_MENU_DelParticleSys
+        MENUITEM "修改循环参数...",                   ID_MENU_ModifyParticleSys
+        MENUITEM SEPARATOR
+        MENUITEM "新建效果组",                       ID_MENU_AddEffectGroup
+        MENUITEM "修改组名",                        ID_MENU_MODIFYGROUPNAME
+        MENUITEM "删除该效果组",                      ID_MENU_DELEFFECTGROUP
+        MENUITEM "保存该效果组",                      ID_MENU_SAVEEFFECTGROUP
+        MENUITEM "加载效果组",                       ID_MENU_LAODEFFECTGROUP
+        MENUITEM SEPARATOR
+        MENUITEM "查看PSL属性",                     ID_MENU_pslPROPERTY
+        MENUITEM SEPARATOR
+        MENUITEM "Replay",                      32794
+        MENUITEM SEPARATOR
+    END
+END
+
+IDR_MENU3 MENU 
+BEGIN
+    POPUP "MENU"
+    BEGIN
+        MENUITEM "属性",                          ID_MENU_PROPERTIES
+    END
+END
+
+IDR_MENU_TEXTUREWND MENU 
+BEGIN
+    POPUP "menu"
+    BEGIN
+        MENUITEM "复制路径",                        ID_MENU_COPYPATH
+        MENUITEM "刷新",                          ID_MENU_REFRESHTEXTURE
+    END
+END
+
+IDR_MENU_TextureListCtrl MENU 
+BEGIN
+    POPUP "menu"
+    BEGIN
+        MENUITEM "复制路径",                        ID_MENU_COPYFULLPATH
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 ParticleSystemEditor"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "ParticleSystemEditor 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008",IDC_STATIC,40,34,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,16,WS_GROUP
+    LTEXT           "代码版本：7773",IDC_STATIC,40,22,105,8
+END
+
+IDD_VIEW_PARTICLEPARAMETER DIALOGEX 0, 0, 359, 570
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB_ParticleParams,"SysTabControl32",0x0,0,0,358,567
+END
+
+IDD_DIALOG_TEXTUREWND DIALOGEX 0, 0, 707, 511
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "纹理显示窗口"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,0,497,43,14
+    DEFPUSHBUTTON   "取消",IDCANCEL,69,497,41,14
+    CONTROL         "",IDC_LIST_TEXTURE,"SysListView32",LVS_SHAREIMAGELISTS | WS_BORDER | WS_TABSTOP,220,1,486,490
+    PUSHBUTTON      "大刷新",IDC_BUTTON_Refresh,165,500,29,11
+    CONTROL         "",IDC_TREE_PSLTEXTURELIST,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,0,0,216,490,WS_EX_TRANSPARENT
+END
+
+IDD_DIALOG_PARTICLEPATHWND DIALOGEX 0, 0, 651, 568
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "粒子路径编辑窗口"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,7,540,32,12
+    DEFPUSHBUTTON   "取消",IDCANCEL,50,540,30,12
+    CONTROL         "增加点",IDC_CHECK_ADDPOINT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,0,491,33,12
+    CONTROL         "移动点",IDC_CHECK_MOVEPOINT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,43,491,34,12
+    PUSHBUTTON      "RESET",IDC_BUTTON_RESET,258,487,28,16
+    PUSHBUTTON      "保存路径...",IDC_BUTTON_SAVEPATH,186,505,44,16
+    PUSHBUTTON      "加载路径...",IDC_BUTTON_LOADPATH,241,505,45,16
+    CONTROL         "曲线调整",IDC_CHECK_CurveAdjust,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,87,491,43,12
+    PUSHBUTTON      "导入矢量字符...",IDC_BUTTON_SetVectorChar,191,486,60,17
+    CONTROL         "字符路径",IDC_CHECK_LoadVectorChar,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,140,490,44,13
+    PUSHBUTTON      "设置背景图>>",IDC_BUTTON_SetBkMap,0,505,59,16
+    CONTROL         "",IDC_PICTURE_DRAWPATHRCT,"Static",SS_BLACKFRAME,0,0,651,481
+    CONTROL         "移动地图",IDC_CHECK_MOVEMAP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,508,45,13
+    LTEXT           "注: 1. 路径缩放、旋转、镜像功能暂不支持矢量字符路径\n      2. 在编辑框中输入数字之后请在窗口中非地图区域单击鼠标左键",IDC_STATIC,319,538,240,21
+    LTEXT           "路径缩放：",IDC_STATIC,319,488,42,10
+    CONTROL         "",IDC_SLIDER_PATHZOOM,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,360,485,229,13
+    EDITTEXT        IDC_EDIT_PathZoom,588,483,27,12,ES_AUTOHSCROLL
+    CONTROL         "显示网格",IDC_CHECK_ShowGrid,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,123,511,42,10
+    LTEXT           "路径旋转：",IDC_STATIC,319,501,41,10
+    CONTROL         "",IDC_SLIDER_PATHSPIN,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,360,499,229,12
+    EDITTEXT        IDC_EDIT_PATHSPIN,588,498,27,12,ES_AUTOHSCROLL
+    LTEXT           "路径镜像：",IDC_STATIC,319,520,41,9
+    LTEXT           "这三个参数不修改路径文件，只写入粒子文件",IDC_STATIC,574,530,74,24
+    COMBOBOX        IDC_COMBO_PATHMIRRORTYPE,367,518,82,13,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "保存路径前确认是否需要勾选:)",IDC_STATIC,162,542,120,9
+    GROUPBOX        "",IDC_STATIC,155,521,124,31
+    CONTROL         "不需要程序插值的关键帧路径",IDC_CHECK_CurveSample,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,162,529,116,8
+END
+
+IDD_DIALOG_TextInputDlg DIALOGEX 0, 0, 325, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,121,90,32,14
+    PUSHBUTTON      "取消",IDCANCEL,169,90,34,14
+    LTEXT           "输入字符：",IDC_STATIC,7,16,45,10
+    EDITTEXT        IDC_EDIT_InputText,57,12,254,16,ES_AUTOHSCROLL
+    LTEXT           "字体类型：",IDC_STATIC,7,37,40,13
+    COMBOBOX        IDC_COMBO_FontName,63,37,102,44,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "字体高度：",IDC_STATIC,7,61,42,14
+    LTEXT           "字体间隔：",IDC_STATIC,107,61,42,14
+    EDITTEXT        IDC_EDIT_FontSpace,150,58,50,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FontHeight,50,58,50,16,ES_AUTOHSCROLL
+    LTEXT           "字体角度：",IDC_STATIC,208,59,42,13
+    EDITTEXT        IDC_EDIT_FontAngle,254,58,53,15,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_TestManager DIALOGEX 0, 0, 723, 476
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_Tree_ParticleSysList,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_CHECKBOXES | WS_BORDER | WS_TABSTOP,0,0,183,441,WS_EX_DLGMODALFRAME | WS_EX_TRANSPARENT
+    CONTROL         "移动背景地图",IDC_CHECK_MoveBKMap,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,333,461,61,13
+    PUSHBUTTON      "设置背景地图",IDC_BUTTON_SetBkMap,275,459,54,15
+    CONTROL         "",IDC_PICTURE_DRAWPARTICLES,"Static",SS_BLACKFRAME,186,0,537,458
+    LTEXT           "2010年4月12日以前保存的pslg文件请做版本转换",IDC_STATIC,3,446,170,8
+    PUSHBUTTON      "指定目录下的老版本pslg文件批转换>>",IDC_BUTTON_PSLGfileVERconversion,5,459,143,16,WS_DISABLED
+    CONTROL         "移动选中特效",IDC_CHECK_MOVEEFFECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,463,60,11
+    LTEXT           "机器配置模拟:",IDC_STATIC,396,463,51,12
+    COMBOBOX        IDC_COMBO_COMPUTERCONFIG,451,461,40,13,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "修改特效对机器要求:",IDC_STATIC,495,463,77,12
+    CONTROL         "低配",IDC_RADIO_LOW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,573,461,27,14
+    CONTROL         "中配",IDC_RADIO_MIDDLE,"Button",BS_AUTORADIOBUTTON,610,461,27,14
+    CONTROL         "高配",IDC_RADIO_HIGH,"Button",BS_AUTORADIOBUTTON,644,461,27,14
+    PUSHBUTTON      "保存修改",IDC_SAVE_CONFIGPARAM,678,460,38,15
+    CONTROL         "特效链模拟",IDC_CHECK_LineEmiterDemo,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,156,461,51,11
+END
+
+IDD_DIALOG_PSPARAMETERDLG DIALOGEX 0, 0, 206, 85
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "参数设置"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,143,65,27,14
+    PUSHBUTTON      "取消",IDCANCEL,176,65,26,14
+    LTEXT           "POSX:",IDC_STATIC,4,3,20,8
+    LTEXT           "POSY:",IDC_STATIC,4,20,21,8
+    LTEXT           "TRACKOBJECTX:",IDC_STATIC,4,36,57,9
+    LTEXT           "TRACKOBJECTY:",IDC_STATIC,4,53,56,8
+    LTEXT           "LAYER:",IDC_STATIC,4,69,27,10,WS_DISABLED
+    EDITTEXT        IDC_EDIT_LAYER,31,67,43,13,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "",IDC_SLIDER_posx,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_DISABLED | WS_TABSTOP,73,1,133,11
+    CONTROL         "",IDC_SLIDER_posy,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_DISABLED | WS_TABSTOP,73,17,133,11
+    CONTROL         "",IDC_SLIDER_trackobjectx,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_DISABLED | WS_TABSTOP,73,33,133,11
+    CONTROL         "",IDC_SLIDER_trackobjecty,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_DISABLED | WS_TABSTOP,73,51,133,11
+    CONTROL         "循环",IDC_CHECK_CYCLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,85,68,30,11
+END
+
+IDD_DIALOG_SETEFFECTGROUPNAME DIALOGEX 0, 0, 167, 42
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "效果组名设置框"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,45,27,33,14
+    PUSHBUTTON      "取消",IDCANCEL,90,27,32,14
+    LTEXT           "请输出效果组名:",IDC_STATIC,2,10,61,10
+    EDITTEXT        IDC_EDIT_EFFECTGROUPNAME,67,8,97,12,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_PARAMETERADJUST DIALOGEX 0, 0, 780, 547
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,365,531,28,14
+    PUSHBUTTON      "取消",IDCANCEL,399,531,28,14
+    CONTROL         "",IDC_TREE_ParameterList,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP,5,1,139,544,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC_ParameterCurve,"Static",SS_BLACKFRAME,145,134,632,394
+END
+
+IDD_DIALOG_mnPicTestDlg DIALOGEX 0, 0, 181, 87
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "图片拆分参数设置对话框"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,49,66,35,14
+    PUSHBUTTON      "取消",IDCANCEL,123,66,31,14
+    LTEXT           "行数:",IDC_STATIC,7,12,29,11
+    LTEXT           "列数:",IDC_STATIC,96,12,29,9
+    PUSHBUTTON      "指定要拆分的文件...",IDC_BUTTON_SETFILEPATH,7,30,85,16
+    EDITTEXT        IDC_EDIT_ROW,32,10,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COL,122,10,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FILEPATH,7,50,167,13,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIALOG_PSANI_PARAMDLG DIALOGEX 0, 0, 208, 126
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "特效存序列帧参数设置..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,17,105,50,14
+    PUSHBUTTON      "取消",IDCANCEL,105,105,50,14
+    LTEXT           "帧/秒：",IDC_STATIC,9,13,34,10
+    LTEXT           "序列帧格式：",IDC_STATIC,9,30,49,10
+    LTEXT           "截屏区域：",IDC_STATIC,9,50,43,10
+    EDITTEXT        IDC_EDIT_psAniSpeed,39,11,24,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_PicFileFormat,58,27,46,13,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "包围盒区域",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,58,51,58,9
+    CONTROL         "整个缓冲区(慎用)",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,122,51,76,9
+    PUSHBUTTON      "设置文件保存路径...",IDC_BUTTON_SETFILEPATH,9,67,84,16
+    EDITTEXT        IDC_EDIT_FILEPATH,7,86,194,16,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "选dds格式输出有透明信息",IDC_STATIC,109,25,57,18
+END
+
+IDD_DIALOG_SetPSLinfoParam DIALOGEX 0, 0, 330, 117
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "设置信息收集参数..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,133,96,29,14
+    PUSHBUTTON      "取消",IDCANCEL,173,96,30,14
+    LTEXT           "最大粒子数阈值:",IDC_STATIC,7,44,66,10
+    EDITTEXT        IDC_EDIT_MaxParticles,73,42,36,14,ES_AUTOHSCROLL
+    LTEXT           "有待继续补充..\n收集美术、程序关心的参数...\n比如粒子数多的、使用多纹理的、使用自定义路径的、全屏特效等等\n",IDC_STATIC,8,9,249,28
+    LTEXT           "请选择哪些需要输出粒子文件名：",IDC_STATIC,7,66,114,12
+    CONTROL         "粒子数超阈值",IDC_CHECK_MaxParticles,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,79,59,13
+    CONTROL         "全屏特效",IDC_CHECK_FullScreen,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,68,79,44,13
+    CONTROL         "特殊特效",IDC_CHECK_SpecialPS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,114,79,44,13
+    CONTROL         "多纹理",IDC_CHECK_MultTextures,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,279,80,37,12
+    CONTROL         "自定义路径",IDC_CHECK_CustomPath,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,79,54,13
+    CONTROL         "alphaADD模式",IDC_CHECK_AlphaADD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,215,79,63,13
+END
+
+IDD_DIALOG_BasicSysParam DIALOGEX 0, 0, 215, 549
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "粒子颜色修改...",IDC_BUTTON_psParamColor,139,187,63,16,WS_GROUP
+    PUSHBUTTON      "Replay",IDC_BUTTON_Replay,112,26,33,16
+    PUSHBUTTON      "TestManager>>",IDC_BUTTON_TestManager,105,366,63,16
+    PUSHBUTTON      "打开...",IDC_BUTTON_OPENPARTICLESYS,7,8,35,14
+    PUSHBUTTON      "保存对该特效的修改",IDC_BUTTON_SAVEMODIFYPSL,46,8,87,15
+    PUSHBUTTON      "特效另存为...",IDC_BUTTON_SAVEPARTICLESYS,141,8,58,14
+    PUSHBUTTON      "重置",IDC_BUTTON_RESETPARTICLESYS,153,26,28,16,WS_DISABLED
+    PUSHBUTTON      "设置纹理...",IDC_BUTTON_LOADTEXTURE,7,26,50,16
+    PUSHBUTTON      "大图片分小图片...",IDC_BUTTON_mnPICtest,7,474,67,14
+    PUSHBUTTON      "抓屏参数设置...",IDC_BUTTON_PrintPSANI,7,454,70,14
+    PUSHBUTTON      "开始",IDC_BUTTON_StrtANI,79,455,23,13
+    PUSHBUTTON      "结束",IDC_BUTTON_EndANI,107,454,23,14
+    CONTROL         "设置特效包围盒",IDC_CHECK_MAXBOXFLAG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,158,70,12
+    CONTROL         "循环",IDC_CHECK_CYCLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,77,29,27,13
+    LTEXT           "显示背景图片:",IDC_STATIC,7,118,55,9
+    CONTROL         "显示背景图片",IDC_CHECK_SHOWBKPIC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,62,117,60,11
+    PUSHBUTTON      "背景图片...",IDC_BUTTON_SETBKPIC,56,100,44,15
+    PUSHBUTTON      "背景颜色...",IDC_BUTTON_SETBKCOLOR,9,100,45,15
+    LTEXT           "发射器旋转预览:",IDC_STATIC,14,191,61,8
+    EDITTEXT        IDC_EDIT_EmitterAngle,76,189,26,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "找出指定文件夹下的粒子用到的所有贴图>>",IDC_BUTTON_FINDPSLTEXTURES,7,414,151,14
+    PUSHBUTTON      "粒子文件信息统计分析...",IDC_BUTTON_PslFileInfo,7,435,99,13
+    CONTROL         "移动背景图片",IDC_CHECK_MoveBKPic,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,127,117,61,9
+    CONTROL         "发射器旋转中心设置",IDC_CHECK_SetEmitterSpinCenter,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,47,85,11
+    LTEXT           "勾上选项然后在特效播放窗单击鼠标左键.\n右边窗口中小红圈的圆心就是发射器的旋转中心. X的中心就是粒子影响点",IDC_STATIC,12,71,150,26
+    CONTROL         "粒子影响点设置",IDC_CHECK_SetParticleHole,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,61,72,10
+    LTEXT           "粒子效果实例:",IDC_STATIC,7,384,52,10
+    PUSHBUTTON      "1",IDC_BUTTON_SAMPLE1,9,395,11,13
+    PUSHBUTTON      "2",IDC_BUTTON_SAMPLE2,23,395,11,13
+    PUSHBUTTON      "3",IDC_BUTTON_SAMPLE3,35,395,11,13
+    PUSHBUTTON      "4",IDC_BUTTON_SAMPLE4,49,395,11,13
+    PUSHBUTTON      "5",IDC_BUTTON_SAMPLE5,61,395,11,13
+    PUSHBUTTON      "6",IDC_BUTTON_SAMPLE6,75,395,11,13
+    PUSHBUTTON      "7",IDC_BUTTON_SAMPLE7,87,395,11,13
+    PUSHBUTTON      "8",IDC_BUTTON_SAMPLE8,101,395,11,13
+    PUSHBUTTON      "9",IDC_BUTTON_SAMPLE9,113,395,11,13
+    PUSHBUTTON      "10",IDC_BUTTON_SAMPLE10,127,395,11,13
+    LTEXT           "(按住鼠标右键拖动设置)",IDC_STATIC,81,159,89,10
+    LTEXT           "查看多个粒子的组合效果：",IDC_STATIC,15,370,90,8
+    GROUPBOX        "不写入粒子文件，由调用者修改的参数",IDC_STATIC,7,174,205,185
+    LTEXT           "线发射长度:",IDC_STATIC,7,212,46,10
+    LTEXT           "矩形发射宽度:",IDC_STATIC,7,229,52,10
+    LTEXT           "矩形发射高度:",IDC_STATIC,7,246,51,10
+    CONTROL         "",IDC_SLIDER_LineLength,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,58,211,105,11
+    CONTROL         "",IDC_SLIDER_RctWidth,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,58,227,105,11
+    CONTROL         "",IDC_SLIDER_RctHeight,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,58,244,105,11
+    EDITTEXT        IDC_EDIT_LineLength,167,208,22,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RctWidth,167,225,22,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RctHeight,167,241,22,13,ES_AUTOHSCROLL
+    LTEXT           "粒子盲区(一序列矩形框)、红色阻挡线、黄色反射线、发射器长宽以及旋转角度，如果有需要可以单独存一个磁盘文件，给调用者使用。",IDC_STATIC,14,305,189,24
+    LTEXT           "(以下三个均是按住鼠标右键拖动设置,中键删除)",IDC_STATIC,20,262,170,10
+    CONTROL         "设置粒子盲区",IDC_CHECK_BlindArea,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,275,60,11
+    CONTROL         "设置粒子阻挡线",IDC_CHECK_BlockLine,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,289,69,11
+    CONTROL         "设置粒子反射线",IDC_CHECK_ReflectLine,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,100,289,69,11
+    PUSHBUTTON      "打开参数文件...",IDC_BUTTON_OpenParamFile,9,338,64,15
+    PUSHBUTTON      "保存参数文件...",IDC_BUTTON_SaveParamFile,89,338,64,15
+    CONTROL         "界面特效",IDC_CHECK_InterfacialEffect,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,130,44,9
+    LTEXT           "(放在界面上的特效必须勾上该选项)",IDC_STATIC,57,131,130,10
+    CONTROL         "使用精灵的特效挂点",IDC_CHECK_skillEffectBottom,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,144,83,9
+    PUSHBUTTON      "找出使用了指定纹理的所有粒子",IDC_BUTTON_FromTextureListFindPsl,81,474,111,14
+    EDITTEXT        IDC_EDIT_TextureRow,47,495,40,14,ES_AUTOHSCROLL
+    LTEXT           "图片行数:",IDC_STATIC,7,498,36,8
+    LTEXT           "图片列数:",IDC_STATIC,95,498,36,8
+    EDITTEXT        IDC_EDIT_TextureCol,134,494,40,14,ES_AUTOHSCROLL
+    LTEXT           "图块总数:",IDC_STATIC,7,521,36,8
+    EDITTEXT        IDC_EDIT_TextureCount,47,518,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "All PSL to PTC",IDC_BUTTON_AllPSLtoPTC,113,50,74,16
+END
+
+IDD_DIALOG_EmitterParam DIALOGEX 0, 0, 186, 444
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "发射类型:",IDC_STATIC,7,8,35,10
+    CONTROL         "连续",IDC_CHECK_EMITTERTYPE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,46,8,28,10
+    LTEXT           "效果类型:",IDC_STATIC,7,23,37,10
+    COMBOBOX        IDC_COMBO_EffectType,45,21,92,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "粒子形状类型:",IDC_STATIC,7,39,54,9
+    COMBOBOX        IDC_COMBO_PSLTYPE,62,37,75,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "区域填充",IDC_CHECK_FILLMODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,56,74,44,10
+    CONTROL         "时序保持",IDC_CHECK_ORDER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,73,45,11
+    LTEXT           "点1X:",IDC_STATIC,7,94,23,10
+    LTEXT           "点1Y:",IDC_STATIC,7,108,23,10
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_POSX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,94,109,11
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_POSY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,106,110,11
+    LTEXT           "半径X:",IDC_STATIC,7,153,28,10
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_RADIUSX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,153,110,11
+    LTEXT           "矩形宽:",IDC_STATIC,7,180,29,10
+    LTEXT           "矩形高:",IDC_STATIC,7,194,28,10
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_POSWIDTH,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,179,109,11
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_POSHEIGHT,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,193,110,11
+    LTEXT           "半径Y:",IDC_STATIC,7,167,28,10
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_RADIUSY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,166,110,11
+    LTEXT           "点2X:",IDC_STATIC,7,122,23,10
+    LTEXT           "点2Y:",IDC_STATIC,7,137,23,10
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_POSX2,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,122,109,11
+    CONTROL         "",IDC_SLIDER_SYSTEMPOSITION_POSY2,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,135,110,11
+    EDITTEXT        IDC_EDIT_SysPosX,145,92,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosY,145,107,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosX2,145,121,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosY2,145,134,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosRadiusX,145,150,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosRadiusY,145,166,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosWidth,145,180,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysPosHeight,145,194,19,12,ES_AUTOHSCROLL
+    LTEXT           "发射器角度:",IDC_STATIC,7,210,45,9
+    CONTROL         "",IDC_SLIDER_EMITTERSPIN,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,49,209,90,11
+    EDITTEXT        IDC_EDIT_EMITTERSPIN,142,209,26,12,ES_AUTOHSCROLL
+    CONTROL         "沿路径运动",IDC_CHECK_MotionToPath,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,55,52,11
+    LTEXT           "出生点:",IDC_STATIC,64,56,27,9
+    COMBOBOX        IDC_COMBO_ParticlePathInitPos,94,54,62,14,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "路径编辑器...",IDC_BUTTON_SETCUSTOMPATH,105,71,53,15
+    LTEXT           "粒子系统生命(sec):",IDC_STATIC,10,225,72,10
+    CONTROL         "",IDC_SLIDER_SYSTEMLIFETIME,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,7,236,137,11
+    LTEXT           "发射频率(p/sec):",IDC_STATIC,9,265,62,10
+    CONTROL         "",IDC_SLIDER_SYSTEMEMISSIONRATE,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,7,277,137,11
+    LTEXT           "最大粒子数:",IDC_STATIC,9,250,45,10
+    CONTROL         "",IDC_SLIDER_SYSMAXPARTICLES,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,53,249,94,11
+    EDITTEXT        IDC_EDIT_SysLife,145,233,19,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SysMaxParticles,147,248,19,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_EmissionRate,145,274,19,14,ES_AUTOHSCROLL
+    LTEXT           "EmitterSpeed:",IDC_STATIC,9,291,45,10
+    CONTROL         "",IDC_SLIDER_EMITTERSPEED,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,54,290,86,12
+    EDITTEXT        IDC_EDIT_EMITTERSPEED,142,291,23,12,ES_AUTOHSCROLL
+    LTEXT           "混合模式:",IDC_STATIC,7,325,38,9
+    COMBOBOX        IDC_COMBO_BLENDMODE_SRC,45,324,89,51,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "叠加模式:",IDC_STATIC,9,345,38,9
+    CONTROL         "贴图水平镜像",IDC_CHECK_UVMIRRORH,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,308,59,9
+    CONTROL         "贴图垂直镜像",IDC_CHECK_UVMIRRORV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,308,58,10
+    CONTROL         "粒子播序列帧",IDC_CHECK_SingleParticleAni,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,363,62,11
+    LTEXT           "频率:",IDC_STATIC,7,379,20,10
+    CONTROL         "",IDC_SLIDER_ANIPLAYSPEED,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,27,378,108,12
+    EDITTEXT        IDC_EDIT_AniPlaySpeed,139,374,19,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AniSpeedRand,139,392,19,12,ES_AUTOHSCROLL
+    CONTROL         "从第一帧开始",IDC_CHECK_ParticleANI_1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,77,363,60,11
+    LTEXT           "频率随机值:",IDC_STATIC,7,395,43,9
+    CONTROL         "",IDC_SLIDER_AniSpeedRand,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,53,392,83,12
+    LTEXT           "PSLzoom:",IDC_STATIC,7,408,31,8
+    CONTROL         "",IDC_SLIDER_PSLZOOM,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,41,408,110,11
+    EDITTEXT        IDC_EDIT_PSLZOOM,152,408,19,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_CONFIGUREREQUIRE,74,421,56,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "特效对机器要求:",IDC_STATIC,7,423,62,10
+    CONTROL         "BLEND",IDC_RADIO_BLEND,"Button",BS_AUTORADIOBUTTON | WS_GROUP,48,344,32,10
+    CONTROL         "alphaADD",IDC_RADIO_ADD,"Button",BS_AUTORADIOBUTTON,83,344,44,10
+    CONTROL         "饱和叠加",IDC_RADIO_ONEADD,"Button",BS_AUTORADIOBUTTON,128,344,44,10
+END
+
+IDD_DIALOG_ParticleParam DIALOGEX 0, 0, 351, 518
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "粒子生命(sec):",IDC_STATIC,12,11,72,9
+    LTEXT           "min:",IDC_STATIC,12,23,15,10
+    LTEXT           "max:",IDC_STATIC,12,37,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLELIFETIME_MIN,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,22,105,11
+    CONTROL         "",IDC_SLIDER_PARTICLELIFETIME_MAX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,36,106,11
+    CONTROL         "link",IDC_CHECK_LINKLIFETIME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,106,11,25,8
+    EDITTEXT        IDC_EDIT_ParticleLifeMin,139,18,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParticleLifeMax,139,35,19,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SLIDER_EMISSIONDIRECTION,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,13,65,125,11
+    LTEXT           "发射方向(deg):",IDC_STATIC,7,53,53,10
+    CONTROL         "",IDC_SLIDER_EMISSIONSPREAD,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,13,87,125,11
+    LTEXT           "扩散角(deg):",IDC_STATIC,7,75,50,10
+    EDITTEXT        IDC_EDIT_EmissionDirection,139,63,20,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_EmissionSpread,139,85,19,14,ES_AUTOHSCROLL
+    CONTROL         "弹道模拟",IDC_CHECK_OBJTRACK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,79,102,44,12
+    CONTROL         "AlignToHole",IDC_CHECK_AlignToParticleHole,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,101,51,13
+    LTEXT           "发射速度:",IDC_STATIC,7,119,43,9
+    LTEXT           "min:",IDC_STATIC,7,130,15,10
+    LTEXT           "max:",IDC_STATIC,7,144,15,10
+    CONTROL         "",IDC_SLIDER_STARTSPEED_MIN,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,24,129,111,11
+    CONTROL         "",IDC_SLIDER_STARTSPEED_MAX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,24,143,110,11
+    CONTROL         "link",IDC_CHECK_LINKSPEED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,101,120,25,8
+    EDITTEXT        IDC_EDIT_SpeedMin,139,126,24,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SpeedMax,139,143,23,14,ES_AUTOHSCROLL
+    LTEXT           "重力加速度:",IDC_STATIC,7,159,44,9
+    LTEXT           "value:",IDC_STATIC,7,170,20,10
+    LTEXT           "rand:",IDC_STATIC,7,185,19,10
+    CONTROL         "",IDC_SLIDER_GRAVITY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,29,169,108,11
+    CONTROL         "",IDC_SLIDER_GRAVITY_RAND,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,29,183,107,11
+    LTEXT           "法向加速度:",IDC_STATIC,9,197,65,9
+    LTEXT           "value:",IDC_STATIC,9,209,21,10
+    LTEXT           "rand:",IDC_STATIC,9,222,22,10
+    CONTROL         "",IDC_SLIDER_RADIALACCELERATION,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,29,209,108,11
+    CONTROL         "",IDC_SLIDER_RADIALACCELERATION_RAND,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,29,221,108,11
+    LTEXT           "切向加速度:",IDC_STATIC,7,234,81,9
+    LTEXT           "value:",IDC_STATIC,7,245,22,10
+    LTEXT           "rand:",IDC_STATIC,7,258,21,10
+    CONTROL         "",IDC_SLIDER_TANGACC,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,29,245,108,11
+    CONTROL         "",IDC_SLIDER_TANGACC_RAND,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,29,258,107,11
+    EDITTEXT        IDC_EDIT_Gravity,139,167,24,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_GravityRand,139,182,23,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RadialAcc,139,206,23,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RadialAccRand,139,221,24,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TangAcc,139,242,24,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TangAccRand,139,257,24,13,ES_AUTOHSCROLL
+    LTEXT           "粒子尺寸:",IDC_STATIC,7,275,43,10
+    CONTROL         "",IDC_SLIDER_PARTICLESIZE_STRTX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,286,101,11
+    LTEXT           "strtX:",IDC_STATIC,7,286,20,10
+    CONTROL         "",IDC_SLIDER_PARTICLESIZE_ENDX,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,309,100,11
+    LTEXT           "endX:",IDC_STATIC,7,309,21,10
+    CONTROL         "",IDC_SLIDER_PARTICLESIZE_VAR,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,333,100,11
+    LTEXT           "var:",IDC_STATIC,7,333,15,10
+    LTEXT           "粒子旋转角度:",IDC_STATIC,7,385,58,10
+    CONTROL         "",IDC_SLIDER_PARTICLESPIN_STRT,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,395,99,11
+    LTEXT           "strt:",IDC_STATIC,7,395,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLESPIN_END,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,407,99,11
+    LTEXT           "end:",IDC_STATIC,7,407,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLESPIN_VAR,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,419,99,11
+    LTEXT           "var:",IDC_STATIC,7,419,15,10
+    CONTROL         "link",IDC_CHECK_LINKSIZE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,101,275,25,8
+    CONTROL         "link",IDC_CHECK_LINKSPIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,101,386,25,8
+    CONTROL         "",IDC_SLIDER_PARTICLESIZE_STRTY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,298,101,11
+    LTEXT           "strtY:",IDC_STATIC,7,298,22,10
+    CONTROL         "",IDC_SLIDER_PARTICLESIZE_ENDY,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,321,100,11
+    LTEXT           "endY:",IDC_STATIC,7,321,24,10
+    LTEXT           "SizeRand:",IDC_STATIC,7,346,31,9
+    CONTROL         "",IDC_SLIDER_SIZERAND,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,44,346,91,11
+    LTEXT           "随机范围:",IDC_STATIC,7,448,36,8
+    CONTROL         "",IDC_SLIDER_SPINRANDOM,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,48,447,85,11
+    EDITTEXT        IDC_EDIT_ParSizeStrtX,139,280,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSizeStrtY,139,293,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSizeEndX,139,306,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSizeEndY,139,319,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSizeVar,139,332,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SizeRandom,139,345,20,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSpinStrt,139,391,26,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSpinEnd,139,404,26,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParSpinVar,139,417,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SpinRandom,139,446,22,12,ES_AUTOHSCROLL
+    CONTROL         "旋转随机",IDC_CHECK_RANDANGLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,432,49,10
+    LTEXT           "SizeRand类型:",IDC_STATIC,8,362,50,11
+    COMBOBOX        IDC_COMBO_SIZERANDTYPE,58,361,72,15,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "粒子透明度:",IDC_STATIC,179,92,48,10
+    CONTROL         "",IDC_SLIDER_PARTICLEALPHA_STRT,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,207,103,115,11
+    LTEXT           "strt:",IDC_STATIC,179,103,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLEALPHA_END,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,207,114,115,11
+    LTEXT           "end:",IDC_STATIC,179,114,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLEALPHA_VAR,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,207,127,115,11
+    LTEXT           "var:",IDC_STATIC,179,127,15,10
+    LTEXT           "粒子颜色:",IDC_STATIC,181,170,41,10
+    CONTROL         "link",IDC_CHECK_LINKALPHA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,279,93,25,8
+    CONTROL         "颜色渐变",IDC_CHECK_COLORCHANGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,233,169,44,11
+    LTEXT           "粒子自旋角度:",IDC_STATIC,178,11,58,10
+    CONTROL         "link",IDC_CHECK_LinkAngleUV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,279,11,28,12
+    LTEXT           "strt:",IDC_STATIC,178,27,15,10
+    LTEXT           "end:",IDC_STATIC,178,39,15,10
+    LTEXT           "var:",IDC_STATIC,178,51,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLEANGLE_STRT,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,206,25,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLEANGLE_END,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,206,36,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLEANGLE_VAR,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,206,49,115,11
+    LTEXT           "随机范围:",IDC_STATIC,179,76,38,9
+    CONTROL         "",IDC_SLIDER_ANGLERANDOM,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,220,75,102,11
+    CONTROL         "Align To Motion",IDC_CHECK_ALIGNTOMOTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,463,62,9
+    LTEXT           "偏移角度:",IDC_STATIC,8,479,36,9
+    CONTROL         "",IDC_SLIDER_AlignToMotionAngle,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,43,478,88,11
+    EDITTEXT        IDC_EDIT_AlignToMotionAngle,139,476,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAngleStrt,321,21,26,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAngleEnd,321,34,26,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAngleVar,321,47,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AngleRandom,324,72,23,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAlphaStrt,324,100,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAlphaEnd,324,113,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAlphaVar,324,126,19,12,ES_AUTOHSCROLL
+    LTEXT           "mid:",IDC_STATIC,179,141,15,9
+    CONTROL         "",IDC_SLIDER_ParAlphaMid,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,207,140,115,11
+    LTEXT           "midTime:",IDC_STATIC,179,155,27,9
+    CONTROL         "",IDC_SLIDER_ParAlphaMidTime,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,207,154,115,11
+    EDITTEXT        IDC_EDIT_ParAlphaMid,324,139,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParAlphaMidTime,324,152,19,12,ES_AUTOHSCROLL
+    CONTROL         "Align to path",IDC_CHECK_AlignToPath,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,463,54,11
+    CONTROL         "色彩随机",IDC_CHECK_RandColor,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,285,170,46,10
+    CONTROL         "自旋随机",IDC_CHECK_RANDANGLESELF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,179,63,49,10
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_STRT_R,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,179,199,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_STRT_G,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,179,211,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_STRT_B,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,179,223,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_END_R,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,179,253,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_END_G,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,179,265,115,11
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_END_B,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,179,277,115,11
+    LTEXT           "var:",IDC_STATIC,175,291,15,10
+    CONTROL         "",IDC_SLIDER_PARTICLECOLOR_VAR,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,191,290,103,11
+    EDITTEXT        IDC_EDIT_ParColorStrtR,295,195,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParColorStrtG,295,208,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParColorStrtB,295,221,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParColorEndR,295,249,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParColorEndG,295,263,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParColorEndB,295,275,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ParColorVar,295,289,19,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "颜色A >>",IDC_BUTTON_STARTCOLOR,179,183,40,12
+    PUSHBUTTON      "颜色B >>",IDC_BUTTON_ENDCOLOR,179,239,40,12
+    CONTROL         "link",IDC_CHECK_LINKCOLOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,247,185,23,10
+    CONTROL         "",IDC_PICTURECTRL_PARTICLECOLOR,"Static",SS_GRAYFRAME,321,196,20,105
+    LTEXT           "粒子旋转、缩放中心设置区：（双击鼠标设置）\n(锁定运动方向的特殊粒子效果的运动中心也在这设置)",IDC_STATIC,178,388,109,36
+    CONTROL         "",IDC_PICTURE_RotateCenterSetWnd,"Static",SS_BLACKFRAME,178,426,70,52
+    PUSHBUTTON      "复位",IDC_ResetRotateCenterPos,251,448,24,11
+    CONTROL         "Align To Emitter",IDC_CHECK_ALIGNTOEMITTER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,494,62,9
+    LTEXT           "（粒子旋转角度与发射器旋转角度相关）",IDC_STATIC,67,496,146,14
+END
+
+IDD_DIALOG_SpecialParticleParam DIALOGEX 0, 0, 186, 168
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "特殊特效",IDC_CHECK_AbstractPsl,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,8,43,10
+    CONTROL         "锁定运动方向",IDC_CHECK_DIRmotion,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,114,60,9
+    PUSHBUTTON      "设置特效图片",IDC_BUTTON_SetShapeTexture,7,22,53,13
+    CONTROL         "拆分完毕",IDC_CHECK_CreatePologyOK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,58,41,8
+    PUSHBUTTON      "打开顶点...",IDC_BUTTON_LoadVertex,7,40,51,13
+    PUSHBUTTON      "保存顶点...",IDC_BUTTON_SaveVertex,65,40,48,13
+    COMBOBOX        IDC_COMBO_ApslVertexType,98,69,73,16,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "特殊特效粒子形状类型:",IDC_STATIC,7,72,86,10
+    LTEXT           "行数：",IDC_STATIC,7,88,24,10
+    LTEXT           "列数：",IDC_STATIC,7,101,24,10
+    CONTROL         "",IDC_SLIDER_VERTEXROW,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,88,116,11
+    CONTROL         "",IDC_SLIDER_VERTEXCOL,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,35,100,116,11
+    EDITTEXT        IDC_EDIT_VertexRow,151,86,19,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VertexCol,151,100,19,12,ES_AUTOHSCROLL
+    LTEXT           "调整分割线",IDC_STATIC,7,138,42,9
+    CONTROL         "",IDC_SLIDER_LineAngle,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,52,135,96,11
+    EDITTEXT        IDC_EDIT_LineAngle,150,133,23,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "ParticleSystemEditor.exe"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "ParticleSystemEditor.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_VIEW_PARTICLEPARAMETER, DIALOG
+    BEGIN
+        RIGHTMARGIN, 358
+        BOTTOMMARGIN, 567
+    END
+
+    IDD_DIALOG_TEXTUREWND, DIALOG
+    BEGIN
+        RIGHTMARGIN, 706
+    END
+
+    IDD_DIALOG_PARTICLEPATHWND, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 561
+    END
+
+    IDD_DIALOG_TextInputDlg, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 318
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_DIALOG_TestManager, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 475
+    END
+
+    IDD_DIALOG_PSPARAMETERDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 205
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_DIALOG_SETEFFECTGROUPNAME, DIALOG
+    BEGIN
+        RIGHTMARGIN, 165
+        BOTTOMMARGIN, 41
+    END
+
+    IDD_DIALOG_PARAMETERADJUST, DIALOG
+    BEGIN
+        RIGHTMARGIN, 581
+        BOTTOMMARGIN, 545
+    END
+
+    IDD_DIALOG_mnPicTestDlg, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 174
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_DIALOG_PSANI_PARAMDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 201
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_DIALOG_SetPSLinfoParam, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 110
+    END
+
+    IDD_DIALOG_BasicSysParam, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 543
+    END
+
+    IDD_DIALOG_EmitterParam, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 437
+    END
+
+    IDD_DIALOG_ParticleParam, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 348
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 511
+    END
+
+    IDD_DIALOG_SpecialParticleParam, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_4WAY         CURSOR                  "res\\4WAY01.CUR"
+IDC_CURSOR_EW           CURSOR                  "res\\EW_01.CUR"
+IDC_CURSOR_MOVE         CURSOR                  "res\\hmove.cur"
+IDC_CURSOR_NS           CURSOR                  "res\\NS_01.CUR"
+IDC_CURSOR_ROTATE       CURSOR                  "res\\rotate.cur"
+IDC_CURSOR_INS          CURSOR                  "res\\mask_ins.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "ParticleSystemEditor"
+    IDR_ParticleSystemETYPE "\nParticleSystemE\nParticleSystemE\nptc files(*.ptc)\n.psl\nParticleSystemEditor.Document\nParticleSystemEditor.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "ParticleSystemEditor"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "创建新文档\n新建"
+    ID_FILE_OPEN            "打开现有文档\n打开"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭"
+    ID_FILE_SAVE            "保存活动文档\n保存"
+    ID_FILE_SAVE_AS         "用新名称保存活动文档\n另存为"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息、版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开此文档"
+    ID_FILE_MRU_FILE2       "打开此文档"
+    ID_FILE_MRU_FILE3       "打开此文档"
+    ID_FILE_MRU_FILE4       "打开此文档"
+    ID_FILE_MRU_FILE5       "打开此文档"
+    ID_FILE_MRU_FILE6       "打开此文档"
+    ID_FILE_MRU_FILE7       "打开此文档"
+    ID_FILE_MRU_FILE8       "打开此文档"
+    ID_FILE_MRU_FILE9       "打开此文档"
+    ID_FILE_MRU_FILE10      "打开此文档"
+    ID_FILE_MRU_FILE11      "打开此文档"
+    ID_FILE_MRU_FILE12      "打开此文档"
+    ID_FILE_MRU_FILE13      "打开此文档"
+    ID_FILE_MRU_FILE14      "打开此文档"
+    ID_FILE_MRU_FILE15      "打开此文档"
+    ID_FILE_MRU_FILE16      "打开此文档"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_PREV_PANE            "切换回上一个窗格\n上一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "为活动文档打开另一个窗口\n新建窗口"
+    ID_WINDOW_ARRANGE       "在窗口底部排列图标\n排列图标"
+    ID_WINDOW_CASCADE       "以重叠方式排列窗口\n层叠窗口"
+    ID_WINDOW_TILE_HORZ     "以非重叠的平铺方式排列窗口\n平铺窗口"
+    ID_WINDOW_TILE_VERT     "以非重叠的平铺方式排列窗口\n平铺窗口"
+    ID_WINDOW_SPLIT         "将活动窗口拆分为多个窗格\n拆分"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "清除选定内容\n清除"
+    ID_EDIT_CLEAR_ALL       "清除全部内容\n全部清除"
+    ID_EDIT_COPY            "复制选定内容并将其放到剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切选定内容并将其放到剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的文本\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一操作\n重复"
+    ID_EDIT_REPLACE         "用其他文本替换特定的文本\n替换"
+    ID_EDIT_SELECT_ALL      "选定整个文档\n全选"
+    ID_EDIT_UNDO            "撤消上一操作\n撤消"
+    ID_EDIT_REDO            "恢复上次撤消的操作\n重做"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n切换工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "更改窗口大小"
+    AFX_IDS_SCMOVE          "更改窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小为图标"
+    AFX_IDS_SCMAXIMIZE      "使窗口最大化显示"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到前一个文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动窗口并提示保存文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "将窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务列表"
+    AFX_IDS_MDICHILD        "激活此窗口"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_MENU_PSreplay        "重播右键所选的特效"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_BTN_TGA2DDS          "转换所有*.ptc文件中tga图片格式为dds"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\ParticleSystemEditor.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "afxres.rc"         // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

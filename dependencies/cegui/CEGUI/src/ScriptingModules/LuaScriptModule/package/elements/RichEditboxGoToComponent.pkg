@@ -1,0 +1,4 @@
+class RichEditboxGoToComponent:public RichEditboxTextComponent 
+{
+	bool onParentClicked();
+};

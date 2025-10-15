@@ -1,0 +1,17 @@
+
+
+
+
+sh /usr/local/xunsearch/bin/xs-ctl.sh -b inet -s search restart
+
+
+//此命令部署两个位置,
+1定时任务,
+2手动重建索引,程序位于 admin/application/controllers/faq/Command.php
+//mt3_jingling 计划任务, 支持平滑重建
+0 */2 * * * php /usr/local/xunsearch/sdk/php/util/Indexer.php --rebuild --source=mysql://root:locojoymysql@localhost/mt3_jingling --sql="select faq_id,title as subject,description,create_time from faq" --project=mt3_jingling
+
+//mt3_jingling_keyword 计划任务, 支持平滑重建
+0 */2 * * * php /usr/local/xunsearch/sdk/php/util/Indexer.php --rebuild --source=mysql://root:locojoymysql@localhost/mt3_jingling --sql="select faq_id,concat(title,  ' ',keywords) as subject,description,create_time from faq" --project=mt3_jingling_keyword
+
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消息协议号从 19001 开始 -->
+<namespace name="task">
+	<protocol name="GSpecailQuestUseItemVerifyPos" type="19001" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="mapid" type="int"/>
+		<variable name="xpos" type="int"/>
+		<variable name="ypos" type="int"/>
+		<variable name="specailquestid" type="int"/>
+		<variable name="useitemid" type="int"/>
+	 </protocol>
+	 <protocol name="MSpecailQuestUseItemVerifyPosSucc" type="19002" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="specailquestid" type="int"/>
+		<variable name="useitemid" type="int"/>
+	 </protocol>
+	 <protocol name="MSpecailQuestUseItemVerifyPosFail" type="19003" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="specailquestid" type="int"/>
+		<variable name="useitemid" type="int"/>
+	 </protocol>
+	 <protocol name="GChangeShape" type="19004" maxsize="65535" prior="1">  <!--变身-->
+		<variable name="playerid" type="long"/> 玩家id
+		<variable name="shape" type="int"/>	
+		<variable name="shape2" type="int"/>
+		<variable name="shape3" type="int"/>
+		<variable name="changetype" type="int"/>	0是变身，1是npc跟随，2有座骑时，3巡游，4取消巡游
+	 </protocol>
+	 
+	 <protocol name="GGenTreasuremapPos" type="19005" maxsize="65535" prior="1">  <!--生成藏宝图的坐标-->
+		<variable name="roleid" type="long"/> 玩家id
+		<variable name="bagid" type="int"/> bagid
+		<variable name="key" type="int"/> key
+		<variable name="mapid" type="int"/>
+	 </protocol>
+	 <protocol name="MGenTreasuremapPos" type="19006" maxsize="65535" prior="1">  <!--藏宝图坐标已经生成,返回给gs-->
+		<variable name="roleid" type="long"/> 玩家id
+		<variable name="bagid" type="int"/> bagid
+		<variable name="key" type="int"/> key
+		<variable name="mapid" type="int"/>
+		<variable name="posx" type="int"/>
+		<variable name="posy" type="int"/>
+	 </protocol>
+	 
+	 <protocol name="GScenarioQuestUseItemVerifyPos" type="19007" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="mapid" type="int"/>
+		<variable name="left" type="int"/>
+		<variable name="right" type="int"/>
+		<variable name="top" type="int"/>
+		<variable name="bottom" type="int"/>
+		<variable name="scenarioquestid" type="int"/>
+		<variable name="useitemid" type="int"/>
+	 </protocol>
+	 <protocol name="MScenarioQuestUseItemVerifyPosSucc" type="19008" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="scenarioquestid" type="int"/>
+		<variable name="useitemid" type="int"/>
+	 </protocol>
+	 <protocol name="MScenarioQuestUseItemVerifyPosFail" type="19009" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="scenarioquestid" type="int"/>
+		<variable name="useitemid" type="int"/>
+	 </protocol>
+	 <protocol name="GScenarioQuestVerifyPos" type="19010" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="mapid" type="int"/>
+		<variable name="left" type="int"/>
+		<variable name="right" type="int"/>
+		<variable name="top" type="int"/>
+		<variable name="bottom" type="int"/>
+		<variable name="scenarioquestid" type="int"/>
+	 </protocol>
+	 <protocol name="MScenarioQuestVerifyPosSucc" type="19011" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="scenarioquestid" type="int"/>
+	 </protocol>
+	 <protocol name="MScenarioQuestVerifyPosFail" type="19012" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="scenarioquestid" type="int"/>
+	 </protocol>	
+	 
+</namespace>

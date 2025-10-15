@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
+		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
+		DAC6634A0E0EB9C200936D1E /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC663280E0EB9C200936D1E /* splash.png */; };
+		DAC6634C0E0EB9C200936D1E /* CELayoutEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6632A0E0EB9C200936D1E /* CELayoutEditor.cpp */; };
+		DAC6634D0E0EB9C200936D1E /* CommandAddWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6632B0E0EB9C200936D1E /* CommandAddWindow.cpp */; };
+		DAC6634E0E0EB9C200936D1E /* CopiedSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6632C0E0EB9C200936D1E /* CopiedSelection.cpp */; };
+		DAC6634F0E0EB9C200936D1E /* DialogAbout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6632D0E0EB9C200936D1E /* DialogAbout.cpp */; };
+		DAC663500E0EB9C200936D1E /* DialogAddWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6632E0E0EB9C200936D1E /* DialogAddWindow.cpp */; };
+		DAC663510E0EB9C200936D1E /* DialogGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6632F0E0EB9C200936D1E /* DialogGrid.cpp */; };
+		DAC663520E0EB9C200936D1E /* DialogMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663300E0EB9C200936D1E /* DialogMain.cpp */; };
+		DAC663530E0EB9C200936D1E /* EditorCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663310E0EB9C200936D1E /* EditorCanvas.cpp */; };
+		DAC663540E0EB9C200936D1E /* EditorDocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663320E0EB9C200936D1E /* EditorDocument.cpp */; };
+		DAC663550E0EB9C200936D1E /* EditorFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663330E0EB9C200936D1E /* EditorFrame.cpp */; };
+		DAC663560E0EB9C200936D1E /* EditorView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663340E0EB9C200936D1E /* EditorView.cpp */; };
+		DAC663570E0EB9C200936D1E /* ExceptionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663350E0EB9C200936D1E /* ExceptionManager.cpp */; };
+		DAC663590E0EB9C200936D1E /* Options.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663370E0EB9C200936D1E /* Options.cpp */; };
+		DAC6635A0E0EB9C200936D1E /* pch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663380E0EB9C200936D1E /* pch.cpp */; };
+		DAC6635B0E0EB9C200936D1E /* Selection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC663390E0EB9C200936D1E /* Selection.cpp */; };
+		DAC6635C0E0EB9C200936D1E /* SelectionMover.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6633A0E0EB9C200936D1E /* SelectionMover.cpp */; };
+		DAC6635D0E0EB9C200936D1E /* SimpleSymbolEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6633B0E0EB9C200936D1E /* SimpleSymbolEngine.cpp */; };
+		DAC6635E0E0EB9C200936D1E /* WindowBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6633C0E0EB9C200936D1E /* WindowBox.cpp */; };
+		DAC6635F0E0EB9C200936D1E /* WindowContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6633D0E0EB9C200936D1E /* WindowContext.cpp */; };
+		DAC663690E0EBA1100936D1E /* AUTHORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC663630E0EBA1100936D1E /* AUTHORS.txt */; };
+		DAC6636A0E0EBA1100936D1E /* ChangeLog.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC663640E0EBA1100936D1E /* ChangeLog.txt */; };
+		DAC6636B0E0EBA1100936D1E /* gpl.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC663650E0EBA1100936D1E /* gpl.txt */; };
+		DAC6636C0E0EBA1100936D1E /* ProjectRules.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC663660E0EBA1100936D1E /* ProjectRules.txt */; };
+		DAC6636D0E0EBA1100936D1E /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC663670E0EBA1100936D1E /* readme.txt */; };
+		DAC6636E0E0EBA1100936D1E /* releasenotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = DAC663680E0EBA1100936D1E /* releasenotes.txt */; };
+		DAC663B70E0ED08300936D1E /* CEGUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC663B50E0ED08300936D1E /* CEGUI.framework */; };
+		DAC663B80E0ED08300936D1E /* CEGUIOpenGLRenderer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC663B60E0ED08300936D1E /* CEGUIOpenGLRenderer.framework */; };
+		DAC6646F0E0ED0D500936D1E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC6646E0E0ED0D500936D1E /* OpenGL.framework */; };
+		DAC664910E0ED15B00936D1E /* iniFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAC6648F0E0ED15B00936D1E /* iniFile.cpp */; };
+		DAC664930E0ED1B000936D1E /* CEGUIOpenGLRenderer.framework in Resources */ = {isa = PBXBuildFile; fileRef = DAC663B60E0ED08300936D1E /* CEGUIOpenGLRenderer.framework */; };
+		DAC664940E0ED1B000936D1E /* CEGUI.framework in Resources */ = {isa = PBXBuildFile; fileRef = DAC663B50E0ED08300936D1E /* CEGUI.framework */; };
+		DAC665750E0ED6FB00936D1E /* libwx_base_carbonu-2.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC665710E0ED6FB00936D1E /* libwx_base_carbonu-2.8.a */; };
+		DAC665760E0ED6FB00936D1E /* libwx_macu_adv-2.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC665720E0ED6FB00936D1E /* libwx_macu_adv-2.8.a */; };
+		DAC665770E0ED6FB00936D1E /* libwx_macu_core-2.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC665730E0ED6FB00936D1E /* libwx_macu_core-2.8.a */; };
+		DAC665780E0ED6FB00936D1E /* libwx_macu_gl-2.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC665740E0ED6FB00936D1E /* libwx_macu_gl-2.8.a */; };
+		DAC665920E0EDDDC00936D1E /* libwx_macu_qa-2.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC665900E0EDDDC00936D1E /* libwx_macu_qa-2.8.a */; };
+		DAC665930E0EDDDC00936D1E /* libwxpng-2.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC665910E0EDDDC00936D1E /* libwxpng-2.8.a */; };
+		DAC665A30E0EE24100936D1E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = DAC665A20E0EE24100936D1E /* icon.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		32DBCF6D0370B57F00C91783 /* CELayoutEditor_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CELayoutEditor_Prefix.pch; sourceTree = "<group>"; };
+		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D0C4E970486CD37000505A6 /* CELayoutEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CELayoutEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC662FF0E0EB98300936D1E /* BuildChecks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuildChecks.h; path = ../inc/BuildChecks.h; sourceTree = SOURCE_ROOT; };
+		DAC663000E0EB98300936D1E /* CELayoutEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CELayoutEditor.h; path = ../inc/CELayoutEditor.h; sourceTree = SOURCE_ROOT; };
+		DAC663010E0EB98300936D1E /* CommandAddWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandAddWindow.h; path = ../inc/CommandAddWindow.h; sourceTree = SOURCE_ROOT; };
+		DAC663020E0EB98300936D1E /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = ../inc/Config.h; sourceTree = SOURCE_ROOT; };
+		DAC663030E0EB98300936D1E /* CopiedSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CopiedSelection.h; path = ../inc/CopiedSelection.h; sourceTree = SOURCE_ROOT; };
+		DAC663040E0EB98300936D1E /* DialogAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogAbout.h; path = ../inc/DialogAbout.h; sourceTree = SOURCE_ROOT; };
+		DAC663050E0EB98300936D1E /* DialogAddWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogAddWindow.h; path = ../inc/DialogAddWindow.h; sourceTree = SOURCE_ROOT; };
+		DAC663060E0EB98300936D1E /* DialogGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogGrid.h; path = ../inc/DialogGrid.h; sourceTree = SOURCE_ROOT; };
+		DAC663070E0EB98300936D1E /* DialogMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogMain.h; path = ../inc/DialogMain.h; sourceTree = SOURCE_ROOT; };
+		DAC663080E0EB98300936D1E /* EditorCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorCanvas.h; path = ../inc/EditorCanvas.h; sourceTree = SOURCE_ROOT; };
+		DAC663090E0EB98300936D1E /* EditorDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorDocument.h; path = ../inc/EditorDocument.h; sourceTree = SOURCE_ROOT; };
+		DAC6630A0E0EB98300936D1E /* EditorFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorFrame.h; path = ../inc/EditorFrame.h; sourceTree = SOURCE_ROOT; };
+		DAC6630B0E0EB98300936D1E /* EditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorView.h; path = ../inc/EditorView.h; sourceTree = SOURCE_ROOT; };
+		DAC6630C0E0EB98300936D1E /* ExceptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExceptionManager.h; path = ../inc/ExceptionManager.h; sourceTree = SOURCE_ROOT; };
+		DAC6630D0E0EB98300936D1E /* IDocumentObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDocumentObserver.h; path = ../inc/IDocumentObserver.h; sourceTree = SOURCE_ROOT; };
+		DAC6630E0E0EB98300936D1E /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Options.h; path = ../inc/Options.h; sourceTree = SOURCE_ROOT; };
+		DAC6630F0E0EB98300936D1E /* pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pch.h; path = ../inc/pch.h; sourceTree = SOURCE_ROOT; };
+		DAC663100E0EB98300936D1E /* Selection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Selection.h; path = ../inc/Selection.h; sourceTree = SOURCE_ROOT; };
+		DAC663110E0EB98300936D1E /* SelectionMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionMover.h; path = ../inc/SelectionMover.h; sourceTree = SOURCE_ROOT; };
+		DAC663120E0EB98300936D1E /* SimpleSymbolEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleSymbolEngine.h; path = ../inc/SimpleSymbolEngine.h; sourceTree = SOURCE_ROOT; };
+		DAC663130E0EB98300936D1E /* StringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringHelper.h; path = ../inc/StringHelper.h; sourceTree = SOURCE_ROOT; };
+		DAC663140E0EB98300936D1E /* Version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Version.h; path = ../inc/Version.h; sourceTree = SOURCE_ROOT; };
+		DAC663150E0EB98300936D1E /* WindowBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowBox.h; path = ../inc/WindowBox.h; sourceTree = SOURCE_ROOT; };
+		DAC663160E0EB98300936D1E /* WindowContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowContext.h; path = ../inc/WindowContext.h; sourceTree = SOURCE_ROOT; };
+		DAC6631C0E0EB9C200936D1E /* copy.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copy.xpm; sourceTree = "<group>"; };
+		DAC6631D0E0EB9C200936D1E /* cut.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cut.xpm; sourceTree = "<group>"; };
+		DAC6631E0E0EB9C200936D1E /* delete.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delete.xpm; sourceTree = "<group>"; };
+		DAC6631F0E0EB9C200936D1E /* help.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = help.xpm; sourceTree = "<group>"; };
+		DAC663200E0EB9C200936D1E /* icon32.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon32.xpm; sourceTree = "<group>"; };
+		DAC663210E0EB9C200936D1E /* icon48.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon48.ico; sourceTree = "<group>"; };
+		DAC663220E0EB9C200936D1E /* icon48.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = icon48.xpm; sourceTree = "<group>"; };
+		DAC663230E0EB9C200936D1E /* lock.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lock.xpm; sourceTree = "<group>"; };
+		DAC663240E0EB9C200936D1E /* new.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new.xpm; sourceTree = "<group>"; };
+		DAC663250E0EB9C200936D1E /* open.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = open.xpm; sourceTree = "<group>"; };
+		DAC663260E0EB9C200936D1E /* paste.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = paste.xpm; sourceTree = "<group>"; };
+		DAC663270E0EB9C200936D1E /* save.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = save.xpm; sourceTree = "<group>"; };
+		DAC663280E0EB9C200936D1E /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		DAC663290E0EB9C200936D1E /* unlock.xpm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unlock.xpm; sourceTree = "<group>"; };
+		DAC6632A0E0EB9C200936D1E /* CELayoutEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CELayoutEditor.cpp; path = ../src/CELayoutEditor.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6632B0E0EB9C200936D1E /* CommandAddWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommandAddWindow.cpp; path = ../src/CommandAddWindow.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6632C0E0EB9C200936D1E /* CopiedSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CopiedSelection.cpp; path = ../src/CopiedSelection.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6632D0E0EB9C200936D1E /* DialogAbout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogAbout.cpp; path = ../src/DialogAbout.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6632E0E0EB9C200936D1E /* DialogAddWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogAddWindow.cpp; path = ../src/DialogAddWindow.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6632F0E0EB9C200936D1E /* DialogGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogGrid.cpp; path = ../src/DialogGrid.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663300E0EB9C200936D1E /* DialogMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DialogMain.cpp; path = ../src/DialogMain.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663310E0EB9C200936D1E /* EditorCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EditorCanvas.cpp; path = ../src/EditorCanvas.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663320E0EB9C200936D1E /* EditorDocument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EditorDocument.cpp; path = ../src/EditorDocument.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663330E0EB9C200936D1E /* EditorFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EditorFrame.cpp; path = ../src/EditorFrame.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663340E0EB9C200936D1E /* EditorView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EditorView.cpp; path = ../src/EditorView.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663350E0EB9C200936D1E /* ExceptionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExceptionManager.cpp; path = ../src/ExceptionManager.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663370E0EB9C200936D1E /* Options.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Options.cpp; path = ../src/Options.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663380E0EB9C200936D1E /* pch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pch.cpp; path = ../src/pch.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663390E0EB9C200936D1E /* Selection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Selection.cpp; path = ../src/Selection.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6633A0E0EB9C200936D1E /* SelectionMover.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SelectionMover.cpp; path = ../src/SelectionMover.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6633B0E0EB9C200936D1E /* SimpleSymbolEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleSymbolEngine.cpp; path = ../src/SimpleSymbolEngine.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6633C0E0EB9C200936D1E /* WindowBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowBox.cpp; path = ../src/WindowBox.cpp; sourceTree = SOURCE_ROOT; };
+		DAC6633D0E0EB9C200936D1E /* WindowContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowContext.cpp; path = ../src/WindowContext.cpp; sourceTree = SOURCE_ROOT; };
+		DAC663630E0EBA1100936D1E /* AUTHORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AUTHORS.txt; path = ../AUTHORS.txt; sourceTree = SOURCE_ROOT; };
+		DAC663640E0EBA1100936D1E /* ChangeLog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ChangeLog.txt; path = ../ChangeLog.txt; sourceTree = SOURCE_ROOT; };
+		DAC663650E0EBA1100936D1E /* gpl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gpl.txt; path = ../gpl.txt; sourceTree = SOURCE_ROOT; };
+		DAC663660E0EBA1100936D1E /* ProjectRules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ProjectRules.txt; path = ../ProjectRules.txt; sourceTree = SOURCE_ROOT; };
+		DAC663670E0EBA1100936D1E /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = readme.txt; path = ../readme.txt; sourceTree = SOURCE_ROOT; };
+		DAC663680E0EBA1100936D1E /* releasenotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = releasenotes.txt; path = ../releasenotes.txt; sourceTree = SOURCE_ROOT; };
+		DAC663B50E0ED08300936D1E /* CEGUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CEGUI.framework; path = dependencies/Deployment/CEGUI.framework; sourceTree = "<group>"; };
+		DAC663B60E0ED08300936D1E /* CEGUIOpenGLRenderer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CEGUIOpenGLRenderer.framework; path = dependencies/Deployment/CEGUIOpenGLRenderer.framework; sourceTree = "<group>"; };
+		DAC6646E0E0ED0D500936D1E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		DAC6648F0E0ED15B00936D1E /* iniFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = iniFile.cpp; sourceTree = "<group>"; };
+		DAC664900E0ED15B00936D1E /* iniFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iniFile.h; sourceTree = "<group>"; };
+		DAC665710E0ED6FB00936D1E /* libwx_base_carbonu-2.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwx_base_carbonu-2.8.a"; path = "../../wxMac-2.8.7/build-release/lib/libwx_base_carbonu-2.8.a"; sourceTree = SOURCE_ROOT; };
+		DAC665720E0ED6FB00936D1E /* libwx_macu_adv-2.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwx_macu_adv-2.8.a"; path = "../../wxMac-2.8.7/build-release/lib/libwx_macu_adv-2.8.a"; sourceTree = SOURCE_ROOT; };
+		DAC665730E0ED6FB00936D1E /* libwx_macu_core-2.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwx_macu_core-2.8.a"; path = "../../wxMac-2.8.7/build-release/lib/libwx_macu_core-2.8.a"; sourceTree = SOURCE_ROOT; };
+		DAC665740E0ED6FB00936D1E /* libwx_macu_gl-2.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwx_macu_gl-2.8.a"; path = "../../wxMac-2.8.7/build-release/lib/libwx_macu_gl-2.8.a"; sourceTree = SOURCE_ROOT; };
+		DAC665900E0EDDDC00936D1E /* libwx_macu_qa-2.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwx_macu_qa-2.8.a"; path = "../../wxMac-2.8.7/build-release/lib/libwx_macu_qa-2.8.a"; sourceTree = SOURCE_ROOT; };
+		DAC665910E0EDDDC00936D1E /* libwxpng-2.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwxpng-2.8.a"; path = "../../wxMac-2.8.7/build-release/lib/libwxpng-2.8.a"; sourceTree = SOURCE_ROOT; };
+		DAC665A20E0EE24100936D1E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D0C4E910486CD37000505A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
+				DAC6646F0E0ED0D500936D1E /* OpenGL.framework in Frameworks */,
+				DAC663B80E0ED08300936D1E /* CEGUIOpenGLRenderer.framework in Frameworks */,
+				DAC663B70E0ED08300936D1E /* CEGUI.framework in Frameworks */,
+				DAC665750E0ED6FB00936D1E /* libwx_base_carbonu-2.8.a in Frameworks */,
+				DAC665760E0ED6FB00936D1E /* libwx_macu_adv-2.8.a in Frameworks */,
+				DAC665770E0ED6FB00936D1E /* libwx_macu_core-2.8.a in Frameworks */,
+				DAC665780E0ED6FB00936D1E /* libwx_macu_gl-2.8.a in Frameworks */,
+				DAC665920E0EDDDC00936D1E /* libwx_macu_qa-2.8.a in Frameworks */,
+				DAC665930E0EDDDC00936D1E /* libwxpng-2.8.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D0C4E970486CD37000505A6 /* CELayoutEditor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* CELayoutEditor */ = {
+			isa = PBXGroup;
+			children = (
+				DAC663180E0EB98C00936D1E /* Headers */,
+				20286C2AFDCF999611CA2CEA /* Sources */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = CELayoutEditor;
+			sourceTree = "<group>";
+		};
+		20286C2AFDCF999611CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6648D0E0ED15B00936D1E /* dependencies */,
+				DAC6632A0E0EB9C200936D1E /* CELayoutEditor.cpp */,
+				DAC6632B0E0EB9C200936D1E /* CommandAddWindow.cpp */,
+				DAC6632C0E0EB9C200936D1E /* CopiedSelection.cpp */,
+				DAC6632D0E0EB9C200936D1E /* DialogAbout.cpp */,
+				DAC6632E0E0EB9C200936D1E /* DialogAddWindow.cpp */,
+				DAC6632F0E0EB9C200936D1E /* DialogGrid.cpp */,
+				DAC663300E0EB9C200936D1E /* DialogMain.cpp */,
+				DAC663310E0EB9C200936D1E /* EditorCanvas.cpp */,
+				DAC663320E0EB9C200936D1E /* EditorDocument.cpp */,
+				DAC663330E0EB9C200936D1E /* EditorFrame.cpp */,
+				DAC663340E0EB9C200936D1E /* EditorView.cpp */,
+				DAC663350E0EB9C200936D1E /* ExceptionManager.cpp */,
+				DAC663370E0EB9C200936D1E /* Options.cpp */,
+				DAC663380E0EB9C200936D1E /* pch.cpp */,
+				DAC663390E0EB9C200936D1E /* Selection.cpp */,
+				DAC6633A0E0EB9C200936D1E /* SelectionMover.cpp */,
+				DAC6633B0E0EB9C200936D1E /* SimpleSymbolEngine.cpp */,
+				DAC6633C0E0EB9C200936D1E /* WindowBox.cpp */,
+				DAC6633D0E0EB9C200936D1E /* WindowContext.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6631B0E0EB9C200936D1E /* bitmaps */,
+				DAC665A20E0EE24100936D1E /* icon.icns */,
+				DAC663630E0EBA1100936D1E /* AUTHORS.txt */,
+				DAC663640E0EBA1100936D1E /* ChangeLog.txt */,
+				DAC663650E0EBA1100936D1E /* gpl.txt */,
+				DAC663660E0EBA1100936D1E /* ProjectRules.txt */,
+				DAC663670E0EBA1100936D1E /* readme.txt */,
+				DAC663680E0EBA1100936D1E /* releasenotes.txt */,
+				8D0C4E960486CD37000505A6 /* Info.plist */,
+				0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				DAC665900E0EDDDC00936D1E /* libwx_macu_qa-2.8.a */,
+				DAC665910E0EDDDC00936D1E /* libwxpng-2.8.a */,
+				DAC665710E0ED6FB00936D1E /* libwx_base_carbonu-2.8.a */,
+				DAC665720E0ED6FB00936D1E /* libwx_macu_adv-2.8.a */,
+				DAC665730E0ED6FB00936D1E /* libwx_macu_core-2.8.a */,
+				DAC665740E0ED6FB00936D1E /* libwx_macu_gl-2.8.a */,
+				20286C33FDCF999611CA2CEA /* Carbon.framework */,
+				DAC6646E0E0ED0D500936D1E /* OpenGL.framework */,
+				DAC663B50E0ED08300936D1E /* CEGUI.framework */,
+				DAC663B60E0ED08300936D1E /* CEGUIOpenGLRenderer.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		DAC663180E0EB98C00936D1E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DAC662FF0E0EB98300936D1E /* BuildChecks.h */,
+				DAC663000E0EB98300936D1E /* CELayoutEditor.h */,
+				DAC663010E0EB98300936D1E /* CommandAddWindow.h */,
+				DAC663020E0EB98300936D1E /* Config.h */,
+				DAC663030E0EB98300936D1E /* CopiedSelection.h */,
+				DAC663040E0EB98300936D1E /* DialogAbout.h */,
+				DAC663050E0EB98300936D1E /* DialogAddWindow.h */,
+				DAC663060E0EB98300936D1E /* DialogGrid.h */,
+				DAC663070E0EB98300936D1E /* DialogMain.h */,
+				DAC663080E0EB98300936D1E /* EditorCanvas.h */,
+				DAC663090E0EB98300936D1E /* EditorDocument.h */,
+				DAC6630A0E0EB98300936D1E /* EditorFrame.h */,
+				DAC6630B0E0EB98300936D1E /* EditorView.h */,
+				DAC6630C0E0EB98300936D1E /* ExceptionManager.h */,
+				DAC6630D0E0EB98300936D1E /* IDocumentObserver.h */,
+				DAC6630E0E0EB98300936D1E /* Options.h */,
+				DAC6630F0E0EB98300936D1E /* pch.h */,
+				DAC663100E0EB98300936D1E /* Selection.h */,
+				DAC663110E0EB98300936D1E /* SelectionMover.h */,
+				DAC663120E0EB98300936D1E /* SimpleSymbolEngine.h */,
+				DAC663130E0EB98300936D1E /* StringHelper.h */,
+				DAC663140E0EB98300936D1E /* Version.h */,
+				DAC663150E0EB98300936D1E /* WindowBox.h */,
+				DAC663160E0EB98300936D1E /* WindowContext.h */,
+				32DBCF6D0370B57F00C91783 /* CELayoutEditor_Prefix.pch */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		DAC6631B0E0EB9C200936D1E /* bitmaps */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6631C0E0EB9C200936D1E /* copy.xpm */,
+				DAC6631D0E0EB9C200936D1E /* cut.xpm */,
+				DAC6631E0E0EB9C200936D1E /* delete.xpm */,
+				DAC6631F0E0EB9C200936D1E /* help.xpm */,
+				DAC663200E0EB9C200936D1E /* icon32.xpm */,
+				DAC663210E0EB9C200936D1E /* icon48.ico */,
+				DAC663220E0EB9C200936D1E /* icon48.xpm */,
+				DAC663230E0EB9C200936D1E /* lock.xpm */,
+				DAC663240E0EB9C200936D1E /* new.xpm */,
+				DAC663250E0EB9C200936D1E /* open.xpm */,
+				DAC663260E0EB9C200936D1E /* paste.xpm */,
+				DAC663270E0EB9C200936D1E /* save.xpm */,
+				DAC663280E0EB9C200936D1E /* splash.png */,
+				DAC663290E0EB9C200936D1E /* unlock.xpm */,
+			);
+			name = bitmaps;
+			path = ../src/bitmaps;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAC6648D0E0ED15B00936D1E /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6648E0E0ED15B00936D1E /* iniFile */,
+			);
+			name = dependencies;
+			path = ../dependencies;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAC6648E0E0ED15B00936D1E /* iniFile */ = {
+			isa = PBXGroup;
+			children = (
+				DAC6648F0E0ED15B00936D1E /* iniFile.cpp */,
+				DAC664900E0ED15B00936D1E /* iniFile.h */,
+			);
+			path = iniFile;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D0C4E890486CD37000505A6 /* CELayoutEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "CELayoutEditor" */;
+			buildPhases = (
+				8D0C4E8C0486CD37000505A6 /* Resources */,
+				8D0C4E8F0486CD37000505A6 /* Sources */,
+				8D0C4E910486CD37000505A6 /* Frameworks */,
+				DAC6656A0E0ED49000936D1E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CELayoutEditor;
+			productInstallPath = "$(HOME)/Applications";
+			productName = CELayoutEditor;
+			productReference = 8D0C4E970486CD37000505A6 /* CELayoutEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "CELayoutEditor" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 20286C29FDCF999611CA2CEA /* CELayoutEditor */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D0C4E890486CD37000505A6 /* CELayoutEditor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D0C4E8C0486CD37000505A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC664930E0ED1B000936D1E /* CEGUIOpenGLRenderer.framework in Resources */,
+				DAC664940E0ED1B000936D1E /* CEGUI.framework in Resources */,
+				8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */,
+				DAC6634A0E0EB9C200936D1E /* splash.png in Resources */,
+				DAC663690E0EBA1100936D1E /* AUTHORS.txt in Resources */,
+				DAC6636A0E0EBA1100936D1E /* ChangeLog.txt in Resources */,
+				DAC6636B0E0EBA1100936D1E /* gpl.txt in Resources */,
+				DAC6636C0E0EBA1100936D1E /* ProjectRules.txt in Resources */,
+				DAC6636D0E0EBA1100936D1E /* readme.txt in Resources */,
+				DAC6636E0E0EBA1100936D1E /* releasenotes.txt in Resources */,
+				DAC665A30E0EE24100936D1E /* icon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DAC6656A0E0ED49000936D1E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# strip headers from embedded frameworks; we just want the libs\nrm \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CEGUI.framework/Headers\" &> /dev/null\nrm -rf \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CEGUI.framework/Versions/Current/Headers\" &> /dev/null\nrm \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CEGUIOpenGLRenderer.framework/Headers\" &> /dev/null\nrm -rf \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CEGUIOpenGLRenderer.framework/Versions/Current/Headers\" &> /dev/null\n\n#copy in datafiles\ncp -R \"$CEGUI_DATAFILES_DIR\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\" &> /dev/null\n#remove some things we do not want\nrm -f \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/datafiles/schemes/Demo8.scheme\" &> /dev/null\nrm -f \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/datafiles/schemes/TaharezLookWidgets.scheme\" &> /dev/null\nrm -f \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/datafiles/schemes/TaharezLookWidgetAliases.scheme\" &> /dev/null\nrm -f \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/datafiles/schemes/WindowsLookWidgets.scheme\" &> /dev/null\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D0C4E8F0486CD37000505A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC6634C0E0EB9C200936D1E /* CELayoutEditor.cpp in Sources */,
+				DAC6634D0E0EB9C200936D1E /* CommandAddWindow.cpp in Sources */,
+				DAC6634E0E0EB9C200936D1E /* CopiedSelection.cpp in Sources */,
+				DAC6634F0E0EB9C200936D1E /* DialogAbout.cpp in Sources */,
+				DAC663500E0EB9C200936D1E /* DialogAddWindow.cpp in Sources */,
+				DAC663510E0EB9C200936D1E /* DialogGrid.cpp in Sources */,
+				DAC663520E0EB9C200936D1E /* DialogMain.cpp in Sources */,
+				DAC663530E0EB9C200936D1E /* EditorCanvas.cpp in Sources */,
+				DAC663540E0EB9C200936D1E /* EditorDocument.cpp in Sources */,
+				DAC663550E0EB9C200936D1E /* EditorFrame.cpp in Sources */,
+				DAC663560E0EB9C200936D1E /* EditorView.cpp in Sources */,
+				DAC663570E0EB9C200936D1E /* ExceptionManager.cpp in Sources */,
+				DAC663590E0EB9C200936D1E /* Options.cpp in Sources */,
+				DAC6635A0E0EB9C200936D1E /* pch.cpp in Sources */,
+				DAC6635B0E0EB9C200936D1E /* Selection.cpp in Sources */,
+				DAC6635C0E0EB9C200936D1E /* SelectionMover.cpp in Sources */,
+				DAC6635D0E0EB9C200936D1E /* SimpleSymbolEngine.cpp in Sources */,
+				DAC6635E0E0EB9C200936D1E /* WindowBox.cpp in Sources */,
+				DAC6635F0E0EB9C200936D1E /* WindowContext.cpp in Sources */,
+				DAC664910E0ED15B00936D1E /* iniFile.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0867D6ABFE840B52C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0E91AC608A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CEGUI_BUILD_DIR = ./dependencies/Deployment;
+				CEGUI_DATAFILES_DIR = "../../cegui/src/v0-6/Samples/datafiles";
+				CEGUI_INCLUDE_SEARCH_PATHS = "$CEGUI_BUILD_DIR/CEGUI.framework/Headers $CEGUI_BUILD_DIR/CEGUIOpenGLRenderer.framework/Headers";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					$CEGUI_BUILD_DIR,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/dependencies/Deployment\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CELayoutEditor_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = $WX_PREPROCESSOR_MACROS;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					../dependencies/iniFile,
+					$CEGUI_INCLUDE_SEARCH_PATHS,
+					$WX_INCLUDE_SEARCH_PATHS,
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = $WX_LIB_SEARCH_PATH;
+				OTHER_LDFLAGS = $WX_LINKER_FLAGS;
+				PRODUCT_NAME = CELayoutEditor;
+				WRAPPER_EXTENSION = app;
+				WX_BASE_DIR = "../../wxMac-2.8.7";
+				WX_BUILD_CONFIG_NAME = "mac-unicode-release-static-2.8";
+				WX_BUILD_DIR = "$WX_BASE_DIR/build-release";
+				WX_INCLUDE_SEARCH_PATHS = "$WX_BUILD_DIR/lib/wx/include/$WX_BUILD_CONFIG_NAME $WX_BASE_DIR/include $WX_BASE_DIR/contrib/include";
+				WX_LIB_SEARCH_PATH = $WX_BUILD_DIR/lib;
+				WX_LINKER_FLAGS = "-framework IOKit -framework Carbon -framework Cocoa -framework System -framework QuickTime -framework AGL -lz -lpthread -liconv";
+				WX_PREPROCESSOR_MACROS = "_FILE_OFFSET_BITS=64 _LARGE_FILES __WXMAC__";
+				ZERO_LINK = NO;
+			};
+			name = Debug;
+		};
+		C0E91AC708A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CEGUI_BUILD_DIR = ./dependencies/Deployment;
+				CEGUI_DATAFILES_DIR = "../../cegui/src/v0-6/Samples/datafiles";
+				CEGUI_INCLUDE_SEARCH_PATHS = "$CEGUI_BUILD_DIR/CEGUI.framework/Headers $CEGUI_BUILD_DIR/CEGUIOpenGLRenderer.framework/Headers";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					$CEGUI_BUILD_DIR,
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/dependencies/Deployment\"";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CELayoutEditor_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = $WX_PREPROCESSOR_MACROS;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					../dependencies/iniFile,
+					$CEGUI_INCLUDE_SEARCH_PATHS,
+					$WX_INCLUDE_SEARCH_PATHS,
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = $WX_LIB_SEARCH_PATH;
+				OTHER_LDFLAGS = $WX_LINKER_FLAGS;
+				PRODUCT_NAME = CELayoutEditor;
+				WRAPPER_EXTENSION = app;
+				WX_BASE_DIR = "../../wxMac-2.8.7";
+				WX_BUILD_CONFIG_NAME = "mac-unicode-release-static-2.8";
+				WX_BUILD_DIR = "$WX_BASE_DIR/build-release";
+				WX_INCLUDE_SEARCH_PATHS = "$WX_BUILD_DIR/lib/wx/include/$WX_BUILD_CONFIG_NAME $WX_BASE_DIR/include $WX_BASE_DIR/contrib/include";
+				WX_LIB_SEARCH_PATH = $WX_BUILD_DIR/lib;
+				WX_LINKER_FLAGS = "-framework IOKit -framework Carbon -framework Cocoa -framework System -framework QuickTime -framework AGL -lz -lpthread -liconv";
+				WX_PREPROCESSOR_MACROS = "_FILE_OFFSET_BITS=64 _LARGE_FILES __WXMAC__";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C0E91ACA08A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		C0E91ACB08A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "CELayoutEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91AC608A95435008D54AB /* Debug */,
+				C0E91AC708A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "CELayoutEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91ACA08A95435008D54AB /* Debug */,
+				C0E91ACB08A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

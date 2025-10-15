@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+JMX要管理的数据为key-value数据。分两类
+<1> 静态key。比如key为Memory，value动态变化可能是{used: 12M, init:16M}。
+	objectname的type来做key的标识，mxbean是一个允许嵌套的bean
+	
+<2> 动态key。key动态生成，一般情况下比较多。
+	这个用Map<key, value>来传
+
+note： 
+	bean只能包含基本类型（byte, short, int, long）和嵌套bean。
+	mxbean在情况<1>下和bean相同。在情况<2>下为Map<bean,bean>
+    mxbean必须有属性type，要不然jmonitor不会收集
+-->
+
+<mxbeans domain="gs.counter">
+	
+	<bean name="LevelStatKey" rolebase="1">
+		<variable name="level" type="int" />
+		<variable name="sex" type="int" />
+		<variable name="menpai" type="int" />
+	</bean>
+	
+	<bean name="LevelRoleCount">
+		<variable name="count" type="long"/>
+	</bean>
+	
+	<mxbean name="LevelRoles" type="map" key="LevelStatKey" value="LevelRoleCount" abs="1" rolecount="1"/>
+
+	<bean name="MoneyStatKey" extends="LevelStatKey">
+		<variable name="mtype" type="int" >
+			<enum name="Quest" value="0"/>
+			<enum name="ItemSellBuy"/>
+		</variable>
+		<variable name="asid" type="long" />
+	</bean>
+
+	<bean name="MoneyIOCount">
+		<variable name="incount" type="long"/>
+		<variable name="outcount" type="long"/>
+	</bean>
+
+	<mxbean name="MoneyIOState" type="map" key="MoneyStatKey" value="MoneyIOCount"/>
+	
+	
+</mxbeans>

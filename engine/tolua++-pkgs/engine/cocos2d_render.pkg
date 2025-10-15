@@ -1,0 +1,82 @@
+namespace Nuclear
+{
+	class Cocos2dRenderer : public Renderer
+	{	
+	public:
+		Cocos2dRenderer(NuclearFileIOManager *pFileIOMan);
+		virtual ~Cocos2dRenderer() ;
+		virtual XPCREATE_RENDERER_RESULT Create(const NuclearDisplayMode &dmode, DWORD flags, NuclearMultiSampleType mstype);
+		virtual void Destroy();
+        virtual bool IsTextureEtc(PictureHandle handle);
+		virtual NuclearDisplayMode GetDisplayMode() const ;
+		virtual void SetScissorRect(const NuclearRect* pRect);
+		virtual PictureHandle GetBackBuffer();
+		virtual bool DrawLine(const NuclearFRectt &line, NuclearColor color);
+		virtual bool DrawLine(const NuclearFRectt *lines, int n, NuclearColor color);
+		virtual bool DrawTriangle(float x1, float y1, float x2, float y2, float x3, float y3, NuclearColor color);
+		virtual bool DrawBox(const NuclearFRectt &rect, NuclearColor color, NuclearFillMode fillmode = XPFM_SOLIDFILL, const NuclearMatrix3 *pMatrix = NULL);
+		virtual bool DrawBox(const NuclearFRectt *rects, int n, NuclearColor color, NuclearFillMode fillmode = XPFM_SOLIDFILL, const NuclearMatrix3 *pMatrix = NULL);
+		virtual bool DrawEllipse(float x, float y, float rx, float ry, NuclearColor color, NuclearFillMode fillmode = XPFM_SOLIDFILL, float fAngle = 0.0f);
+		virtual bool DrawFan(float x, float y, float r, float fTheta, NuclearColor color, NuclearFillMode fillmode = XPFM_SOLIDFILL, const NuclearMatrix3 *pMatrix = NULL) ;
+		virtual bool DrawEllipseFan(float x, float y, float rx, float ry, NuclearColor color, NuclearFillMode fillmode = XPFM_SOLIDFILL, float fStartAngle = 0.0f, float fEndAngle = 0.0f, const NuclearMatrix3 *pMatrix = NULL);
+		virtual bool DrawPolygon(const std::vector<NuclearPoint> &pts, NuclearColor color, NuclearFillMode fillmode = XPFM_SOLIDFILL);
+		virtual bool DrawTriangles(const std::vector<NuclearTriangle> &triangles, NuclearColor color, NuclearFillMode fillmode = XPFM_WIREFRAME);
+		virtual bool DrawTriangleList(const NuclearTCVertex* pVertexs, int nVertexNum);
+		virtual bool DrawEllipsePicture(PictureHandle handle, float x, float y, float rx, float ry, float u0, float v0, NuclearColor color);
+		virtual bool DrawEllipsePicture(const DrawEllipsePictureParam& param);
+		virtual bool DrawPicture(const DrawPictureParam& param);
+		virtual bool DrawPicture(PictureHandle picHandle, float left, float top, float right, float bottom);
+		virtual bool FreePicture(PictureHandle handle);
+		virtual bool SelectRenderEffect(XPRENDER_EFFECT xpre);
+		virtual bool SetShaderParam(XPRENDER_EFFECT xpre, const void* pParam);
+		virtual XPRENDER_EFFECT GetRenderEffect();
+		virtual PictureHandle CreateRenderTarget(int iWidth, int iHeight, NuclearTextureFormat texfmt);
+		virtual bool FreeRenderTarget(PictureHandle hRenderTarget);
+		virtual bool PushRenderTarget(PictureHandle hRenderTarget);
+		virtual bool PopRenderTarget();
+		virtual bool DrawBatchPicture(const DrawBatchPictureParam &param);
+		virtual PictureHandle LoadPicture(const std::wstring& filename);
+        virtual void CachePicture(PictureHandle pic, const std::wstring &filename);
+		virtual PictureHandle LoadPictureFromMem(const void *data, int size,NuclearPictureInfo *pPicInfo=NULL,NuclearTextureFormat texfmt=XPTEXFMT_DEFAULT,NuclearPoolType pooltype=XPPOOL_MANAGED, bool bCache = true, PictureHandle handle = 0, int iScale = 100);
+		virtual bool GetTextData(const char* pChar, const std::string &font, int size, unsigned char*& pData, int& w, int& h);
+		virtual PictureHandle NewPicture(int width, int height, NuclearPictureInfo *pPicInfo =NULL, NuclearTextureFormat texfmt=XPTEXFMT_DEFAULT);
+		virtual bool FreePicture(PictureHandle handle);
+		virtual bool DrawText(LPCTSTR text, int nstr, LPRECT rect, NuclearColor color);
+		virtual bool DrawTmpText(LPCTSTR text, int nstr, LPRECT rect, NuclearColor color);
+		virtual bool IsAutoTestDevice(); 
+		virtual void SetAutoTestDevice(bool isAuto);
+		virtual void SetAlphaBlendEnable(bool f);
+		virtual bool GetAlphaBlendEnable() const;
+		virtual void SetAlphaBlendSrcType(XPALPHABLEND_TYPE srcblend);
+		virtual XPALPHABLEND_TYPE GetAlphaBlendSrcType() const;
+		virtual void SetAlphaBlendDstType(XPALPHABLEND_TYPE dstblend);
+		virtual XPALPHABLEND_TYPE GetAlphaBlendDstType() const;
+		virtual void SetTextureColorBlendType(XPTEXCOLORBLEND_TYPE colorop);
+		virtual XPTEXCOLORBLEND_TYPE GetTextureColorBlendType() const;
+		virtual void SetSeparateAlphaBlend(bool f);
+		virtual bool GetSeparateAlphaBlend() const;
+		virtual void SetRenderEffect(XPRENDER_EFFECT re);
+		virtual XPRENDER_EFFECT GetRenderEffect() const;
+		virtual bool DrawTriangleFan(PictureHandle handle, const NuclearTCT1Vertex* pVertexs, int nVertexNum);
+		virtual bool DrawParticles(PictureHandle handle, const NuclearTCT1Vertex* pVertexs, int nVertexNum);
+		virtual bool DrawParticles(PictureHandle handle, const NuclearUTCT1Vertex* pVertexs, int nVertexNum);
+		virtual bool CollectParticles(PictureHandle handle, XPTEXCOLORBLEND_TYPE colorBlend, PSL_RENDSTATE alphaBlend, const NuclearTCT1Vertex* pVertexs, int nVertexNum);
+		virtual bool BatchDrawParticles();
+		virtual bool GetPictureInfo(PictureHandle handle, NuclearPictureInfo& picinfo) const;
+		virtual bool GetPictureInfo(PictureHandle handle, int& pitch, int& width, int& height) const;
+		virtual bool GetPictureHandle(PictureHandle& handle, const std::wstring& fileuri) const;
+		virtual std::wstring GetAdapterDescription();
+		virtual int GetAvailableTextureMem();
+		virtual bool IsTextureCapsNoPow2();
+		virtual IParticleManager* GetParticleManager();
+		virtual IFontManager* GetFontManager();
+		virtual bool SaveTextureToFile(PictureHandle handle, NuclearImageFileFormat filefmt, const std::wstring &path);
+		virtual void DumpAllPicture(const std::wstring &path);
+        virtual PictureHandle LoadPictureFromNativePath(const std::string &nativepath);
+	
+        bool OnResetDevice();
+	};
+
+
+
+}

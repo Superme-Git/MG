@@ -1,0 +1,15 @@
+﻿<UserControl x:Name="UCParticleList1" x:Class="ResourceCheck.UCCommonList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <Grid x:Name="GDBG" SizeChanged="GDBG_SizeChanged">
+        <ListBox x:Name="LBFile" HorizontalAlignment="Left" Width="300" Margin="0,60,0,0" ToolTip="双击进行查询" Background="#FFFFFFC8" Cursor="Hand" MouseDoubleClick="LBFile_MouseDoubleClick"/>
+        <Label x:Name="LBLFileTitle" Content="准备检查的文件 - 0" HorizontalAlignment="Left" Height="30" Margin="0" VerticalAlignment="Top" Width="300" FontSize="16" Background="White" FontWeight="Bold"/>
+        <Button x:Name="BtnCheckAll" Content="检查全部文件" HorizontalAlignment="Left" Height="30" Margin="0,30,0,0" VerticalAlignment="Top" Width="150" Click="BtnCheckAll_Click" FontSize="18"/>
+        <Button x:Name="BtnCopyFileList" Content="复制列表" HorizontalAlignment="Left" Height="30" Margin="150,30,0,0" VerticalAlignment="Top" Width="150" FontSize="18" Click="BtnCopyFileList_Click"/>
+
+    </Grid>
+</UserControl>

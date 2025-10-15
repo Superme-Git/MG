@@ -1,0 +1,12 @@
+<Imageset Name="common_tips_test" Imagefile="common_tips_test.tga" >
+    <Image Name="common_tips_testbg1" XPos="125" YPos="3" Width="129" Height="129" />
+    <Image Name="common_tips_testbg2_lt" XPos="0" YPos="0" Width="10" Height="10" />
+    <Image Name="common_tips_testbg2_lc" XPos="0" YPos="10" Width="10" Height="109" />
+    <Image Name="common_tips_testbg2_lb" XPos="0" YPos="119" Width="10" Height="10" />
+    <Image Name="common_tips_testbg2_ct" XPos="10" YPos="0" Width="109" Height="10" />
+    <Image Name="common_tips_testbg2_cc" XPos="10" YPos="10" Width="109" Height="109" />
+    <Image Name="common_tips_testbg2_cb" XPos="10" YPos="119" Width="109" Height="10" />
+    <Image Name="common_tips_testbg2_rt" XPos="119" YPos="0" Width="10" Height="10" />
+    <Image Name="common_tips_testbg2_rc" XPos="119" YPos="10" Width="10" Height="109" />
+    <Image Name="common_tips_testbg2_rb" XPos="119" YPos="119" Width="10" Height="10" />
+</Imageset>

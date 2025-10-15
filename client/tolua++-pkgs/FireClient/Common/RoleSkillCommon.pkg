@@ -1,0 +1,24 @@
+struct stLifeSkillInfo
+{
+	int	Level;			//技能等级
+	int skilled;		//技能熟练度
+	stLifeSkillInfo(int l,int s);
+	stLifeSkillInfo();
+};
+
+//技能种类
+enum eSkillType
+{
+	eSkillType_NULL,
+	eSkillType_Other,		//其他技能
+	eSkillType_Normal,		//人物招式技能
+	eSkillType_Pet,			//宠物技能
+	eSkillType_Life,			//生活技能
+	eSkillType_Equip,		//装备特技
+	eSkillType_ZaXue,		//杂学技能
+	eSkillType_Marry,		//夫妻技能
+	eSkillType_NuQi,			//怒气技能
+};
+
+//根据技能ID判断技能种类
+inline eSkillType gGetSkillTypeByID(int skillid);

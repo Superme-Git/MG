@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+五态序号(部分属性和Image标签使用):
+0: 无效态
+1: 正常态
+2: 焦点正常态
+3: 按下态/选中态
+4: 焦点按下态/焦点选中态
+
+以下属性含义(如果属性后面加1个数字,表示各态的特殊情况,无数字表示默认情况):
+n: 名称(Desktop内保证唯一)
+x: X坐标(相对于父控件)
+y: Y坐标(相对于父控件)
+w: 宽度
+h: 高度
+b: 背景色ARGB(无背景图时使用或者与背景图混合使用,编辑器的预览暂时使用后者)
+c: 文本色ARGB(c="255,128,128,128")
+t: 文本
+f: 文件名(相对程序的路径)
+i: 字体ID
+w0,w1,h0,h1: 九宫格的左右上下的边距,都为0表示不使用九宫格
+mw,mh: 图像拉伸模式(mw/mh="tile"/"stretch": 平铺/拉伸)
+属性默认值: 字符串是空串,整数是0,颜色是(0,0,0,0),拉伸模式是"平铺",bool是false
+-->
+<Desktop n,w,h,b>
+	<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+	<Frame n,x,y,w,h,b class="string" movetype="none/title/body/all" titleheight="16" notifyclass="string" outdir="string" include="string" autoclose="false" popup="false" hookeditkey="false">
+		<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh>
+		<Content>
+			<ScrollBar n,x,y,w,h,b,class vertical="false">
+				<ImageUp0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向上按钮-->
+				<ImageUp1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向上按钮-->
+				<ImageUp2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向上按钮-->
+				<ImageUp3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向上按钮-->
+				<ImageDown0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向下按钮-->
+				<ImageDown1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向下按钮-->
+				<ImageDown2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向下按钮-->
+				<ImageDown3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--向下按钮-->
+				<ImageSlot f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动槽-->
+				<ImageBlock1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动块-->
+				<ImageBlock2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动块-->
+				<ImageBlock3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动块-->
+			</ScrollBar>
+			<Base n,x,y,w,h,b,class transparent="true"><!--有背景-->
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--可选-->
+			</Base>
+			<Static n,x,y,w,h,b,c0,c1,c2,i,class t="文本"/>
+			<Image n,x,y,w,h,b,class>
+				<Image0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+			</Image>
+			<Text n,x,y,w,h,b,c,i,class t="含标签的文本" multiline="true" select="false" password="false">
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<ScrollBar n,x,y,w,h,b vertical="true">
+					<!--参考上面ScrollBar中的内容-->
+				</ScrollBar>
+			</Text>
+			<Edit n,x,y,w,h,b,c,i,class t="含标签的文本" multiline="true" select="false" password="false" limit="30" number="false">
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<ScrollBar n,x,y,w,h,b vertical="true">
+					<!--参考上面ScrollBar中的内容-->
+				</ScrollBar>
+			</Edit>
+			<ButtonImage n,x,y,w,h,b,class onclick="false">
+				<Image0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+			</ButtonImage>
+			<ButtonText n,x,y,w,h,b,i,c0,c1,c2,class t="确定" onclick="false"/>
+			<ButtonRadio n,x,y,w,h,b,i,c0,c1,c2,class t="文本" boxwidth="12" onclick="false" groupid="1">
+				<Image0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image4 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+			</ButtonRadio>
+			<ButtonCheck n,x,y,w,h,b,i,c0,c1,c2,class t="文本" boxwidth="12" onclick="false">
+				<Image0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image4 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+			</ButtonCheck>
+			<ProgressBar n,x,y,w,h,b,class>
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--进度块-->
+			</ProgressBar>
+			<SliderBar n,x,y,w,h,b,class vertical="false">
+				<ImageSlot f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动槽-->
+				<ImageBlock1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动块-->
+				<ImageBlock2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动块-->
+				<ImageBlock3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--滑动块-->
+			</SliderBar>
+			<ComboBox n,x,y,w,h,b1,b3,c1,c2,c3,i,class btnwidth="12" listboxw="60" listboxh="60" border="2" datatype="image/text" lineheight="15" onselchange="true">
+				<ImageBox f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--文本框的背景-->
+				<ImageList f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--列表框的背景-->
+				<Image0 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--ButtonImage中的内容-->
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image2 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Image3 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<ScrollBar n,x,y,w,h,b vertical="false">
+					<!--参考上面ScrollBar中的内容-->
+				</ScrollBar>
+				<ScrollBar n,x,y,w,h,b vertical="true">
+					<!--参考上面ScrollBar中的内容-->
+				</ScrollBar>
+			</ComboBox>
+			<ListBox n,x,y,w,h,b1,b3,c1,c2,c3,i,class multiselect="false" datatype="image/text" lineheight="15" onselchange="true">
+				<ImageLine f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+			</ListBox>
+			<Table n,x,y,w,h,b1,b3,c1,c2,c3,i,class headheight="16" lineheight="15" dragwidth="false" onselchange="true" onheadclick="false"/>
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--可选-->
+				<ImageHead f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<ImageCell f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				<Column w,b,c,i,t>
+					<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				</Column>
+				<Column w,b,c,i,t>
+					<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				</Column>
+				<Column w,b,c,i,t>
+					<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/>
+				</Column>
+				<!--所有列按顺序存放-->
+			</Table>
+			<Panel n,x,y,w,h,b,class border="4">
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--可选-->
+				<ScrollBar x,y,w,h,b vertical="false">
+					<!--参考上面ScrollBar中的内容-->
+				</ScrollBar>
+				<ScrollBar x,y,w,h,b vertical="true">
+					<!--参考上面ScrollBar中的内容-->
+				</ScrollBar>
+				<Content>
+					<!--这里可以放控件-->
+				</Content>
+			</Panel>
+			<Tab n,x,y,w,h,b,class vertical="false" headsize="20" btnwidth="30" btnheight="15"><!--标签栏的高度/宽度-->
+				<Image1 f,x,y,w,h,w0,w1,h0,h1,mw,mh/><!--可选-->
+				<ButtonImage>
+					<!--参考上面ButtonImage中的内容-->
+				</ButtonImage>
+				<ButtonImage>
+					<!--参考上面ButtonImage中的内容-->
+				</ButtonImage>
+				<ButtonImage>
+					<!--参考上面ButtonImage中的内容-->
+				</ButtonImage>
+				<!--所有ButtonImage顺序存放-->
+				<Content>
+					<Panel n,b,w,h border="4">
+						<!--参考上面Panel中的内容-->
+					</Panel>
+					<Panel n,b,w,h border="4">
+						<!--参考上面Panel中的内容-->
+					</Panel>
+					<Panel n,b,w,h border="4">
+						<!--参考上面Panel中的内容-->
+					</Panel>
+					<!--所有Panel按顺序存放-->
+				</Content>
+			</Tab>
+		</Content>
+	</Frame>
+</Desktop>

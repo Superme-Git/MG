@@ -1,0 +1,88 @@
+SUBDIRS=src bin
+
+noinst_HEADERS=  \
+				inc/BuildChecks.h \
+				inc/CELayoutEditor.h \
+				inc/CommandAddWindow.h \
+				inc/Config.h \
+				inc/CopiedSelection.h \
+				inc/DialogAbout.h \
+				inc/DialogAddWindow.h \
+				inc/DialogGrid.h \
+				inc/DialogMain.h \
+				inc/EditorCanvas.h \
+				inc/EditorDocument.h \
+				inc/EditorFrame.h \
+				inc/EditorView.h \
+				inc/ExceptionManager.h \
+				inc/IDocumentObserver.h \
+				inc/Options.h \
+				inc/Selection.h \
+				inc/SelectionMover.h \
+				inc/SimpleSymbolEngine.h \
+				inc/StringHelper.h \
+				inc/Version.h \
+				inc/WindowBox.h \
+				inc/WindowContext.h \
+				inc/pch.h \
+				dependencies/iniFile/iniFile.h
+
+dist_pkgdata_DATA = src/bitmaps/splash.png
+
+EXTRA_DIST = datafiles/configs/CEGUIConfig.xsd \
+			datafiles/fonts/common.txt \
+			datafiles/fonts/Commonv2c.ttf \
+			datafiles/fonts/Commonwealth-10.font \
+			datafiles/fonts/README \
+			datafiles/imagesets/GPN-2000-001437.tga \
+			datafiles/imagesets/Imageset.xsd \
+			datafiles/imagesets/ReadMe.txt \
+			datafiles/imagesets/TaharezLook.imageset \
+			datafiles/imagesets/TaharezLook.tga \
+			datafiles/imagesets/Vanilla.imageset \
+			datafiles/imagesets/vanilla.tga \
+			datafiles/imagesets/WindowsLook.imageset \
+			datafiles/imagesets/WindowsLook.tga \
+			datafiles/layouts/EditorDefault.layout \
+			datafiles/layouts/GUILayout.xsd \
+			datafiles/looknfeel/Falagard.xsd \
+			datafiles/looknfeel/TaharezLook.looknfeel \
+			datafiles/looknfeel/Vanilla.looknfeel \
+			datafiles/looknfeel/WindowsLook.looknfeel \
+			datafiles/schemes/GUIScheme.xsd \
+			datafiles/schemes/TaharezLook.scheme \
+			datafiles/schemes/VanillaSkin.scheme \
+			datafiles/schemes/WindowsLook.scheme \
+			src/bitmaps/copy.xpm \
+			src/bitmaps/cut.xpm \
+			src/bitmaps/delete.xpm \
+			src/bitmaps/help.xpm \
+			src/bitmaps/icon32.xpm \
+			src/bitmaps/icon48.ico \
+			src/bitmaps/icon48.xpm \
+			src/bitmaps/lock.xpm \
+			src/bitmaps/new.xpm \
+			src/bitmaps/open.xpm \
+			src/bitmaps/paste.xpm \
+			src/bitmaps/save.xpm \
+			src/bitmaps/unlock.xpm \
+			gpl.txt \
+			releasenotes.txt \
+            vc++7.1/CELayoutEditor.rc \
+            vc++7.1/CELayoutEditor.sln \
+			vc++7.1/CELayoutEditor.vcproj \
+			vc++8/CELayoutEditor.rc \
+			vc++8/CELayoutEditor.sln \
+			vc++8/CELayoutEditor.vcproj \
+			vc++9/CELayoutEditor.rc \
+			vc++9/CELayoutEditor.sln \
+			vc++9/CELayoutEditor.vcproj \
+			Xcode/CELayoutEditor.xcodeproj/project.pbxproj \
+			Xcode/CELayoutEditor_Prefix.pch \
+			Xcode/English.lproj/InfoPlist.strings \
+			Xcode/Info.plist \
+			Xcode/icon.icns \
+			AUTHORS.txt \
+			ChangeLog.txt \
+			ProjectRules.txt \
+			readme.txt

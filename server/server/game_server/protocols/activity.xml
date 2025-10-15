@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="activity">
+
+	<bean name="ActivityType">
+		<enum name="ActivityType_CircTaskSchool" value="1" />
+	</bean>	
+	
+	<!-- 签到开始 -->
+	<namespace name="reg">
+		<protocol name="CQueryRegData" type="24100" maxsize="32" prior="1" tolua="3">
+		</protocol>
+		
+		<protocol name="SQueryRegData" type="24101" maxsize="2048" prior="1" tolua="3">
+			<variable name="month" type="int" />		月
+			<variable name="times" type="int" />		签到次数
+			<variable name="suppregtimes" type="int" />	补签次数
+			<variable name="cansuppregtimes" type="int" />	可补签次数
+			<variable name="suppregdays" type="vector" value="int" />	补签日子
+			<variable name="rewardflag" type="int" />	1-领取过 2-未领取
+		</protocol>
+		
+		<protocol name="CReg" type="24102" maxsize="32" prior="1" tolua="3">
+			<variable name="month" type="int" />		月
+		</protocol>
+	</namespace>
+	<!-- 签到结束 -->
+	
+	<!-- 节日奖励 -->
+	<namespace name="festival">
+		<protocol name="CQueryFestivalData" type="24103" maxsize="32" prior="1" tolua="3"> 请求节日签到数据
+		</protocol>
+		
+		<protocol name="SQueryFestivalData" type="24104" maxsize="65535" prior="1" tolua="3"> 返回节日签到数据
+			<variable name="rewards" type="vector" value="int" /> 已经领取的活动奖励id
+		</protocol>
+		
+		<protocol name="CGetFestivalReward" type="24105" maxsize="32" prior="1" tolua="3">
+			<variable name="rewardid" type="int" />		活动奖励id
+		</protocol>
+		
+	</namespace>
+	<!-- 节日签到结束 -->
+	
+	<!-- 兑换码 协议从32764开始到32767-->
+	<namespace name="exchangecode">
+		<protocol name="CQQExchangeCodeStatus" type="32764" maxsize="32" prior="1" tolua="3"> 客户端请求QQ会员兑换码状态
+		</protocol>
+		
+		<protocol name="SQQExchangeCodeStatus" type="32765" maxsize="32" prior="1" tolua="3"> 服务端发送QQ会员兑换码状态
+			<variable name="status" type="int" />	0 = 关 1 = 开
+		</protocol>
+		
+		<bean name="ExchangeCodeRetInfo">
+	    	<variable name="itemtype" type="int"/>  类型Id
+			<variable name="itemid" type="long" />	道具Id
+			<variable name="itemcount" type="int" />	道具数目
+			<variable name="preinfos" type="string"/>	预留信息
+		</bean>
+		<protocol name="CExchangeCode" type="32766" maxsize="65535" prior="1" tolua="3"> 客户端请求兑换兑换码
+			<variable name="exchangeCode" type="string" /> 兑换码
+			<variable name="npckey" type="long" validator="value=[1,)" />  兑换码npc的npckey
+		</protocol>
+		
+		<protocol name="SExchangeCode" type="32767" maxsize="65535" prior="1" tolua="3"> 服务端返回兑换成功标志
+			<variable name="flag" type="int" />	1 = 成功
+			<variable name="iteminfos" type="vector" value="ExchangeCodeRetInfo" />
+		</protocol>
+	</namespace>
+</namespace>

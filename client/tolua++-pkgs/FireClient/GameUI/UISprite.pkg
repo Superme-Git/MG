@@ -1,0 +1,59 @@
+
+$#include "UISprite.h"
+
+enum eSpriteComponentType
+{
+	eSprite_Weapon= 1,
+	eSprite_Headdress= 2,
+	eSprite_Backdress= 3,
+	eSprite_Facedress1= 4,
+	eSprite_Facedress2= 5,
+	eSprite_Horse= 6,
+	eSprite_WeaponColor= 7,
+	eSprite_Fashion= 8,
+};
+
+class UISprite
+{
+	UISprite(int model);
+	UISprite(int model,bool haveshadow=false);
+	virtual ~UISprite();
+
+	void SetModel(const int& modelid);
+	void SetModel(const int& modelid,bool haveshadow = false);
+	int	 GetModelID();
+	void SetDefaultAction(eActionType type);
+	void RenderUISprite();
+	void SetUISpriteComponentByShapeID(const int& shapeid);
+	const Nuclear::NuclearLocation& GetUILocation();
+	void SetUILocation(const Nuclear::NuclearLocation& loc);
+	void SetUIDirection(const Nuclear::NuclearDirection& dir);
+	void SetUIDirection(const Nuclear::NuclearLocation& target);
+	void SetUIRotationSpeed(float speed);	
+	void SetUIScale(const float& scale);
+	void SetUIAlpha(unsigned char alpha);
+
+	void SetSpriteComponent(eSpriteComponentType type,int baseid);
+
+	void ResetSpriteComponent();					
+	void ClearSpriteComponent();					
+	void RemoveSpriteComponent();
+	void SetDyePartIndex(int part,int index);
+
+	void PlayAction(eActionType actionType);
+	void PlayAction(eActionType actionType,float freq =1.0);
+	std::wstring GetActionName(eActionType type);
+	std::wstring GetComponentActionName(eActionType type);
+
+	void SetRandomAction(bool b);
+	Nuclear::IEffect* PlayUISpriteEffect(const std::wstring &effectname);
+	Nuclear::IEffect* PlayUISpriteEffect(const std::wstring &effectname, int times = 1);
+	Nuclear::IEffect* PlayUISpriteEffect(const std::wstring &effectname, int times = 1, unsigned int flag = Nuclear::XPSPREFFFLAG_ASYNC | Nuclear::XPSPREFFFLAG_NO_SOUND);
+	Nuclear::IEffect* SetEngineSpriteDurativeEffect(const std::wstring &effect_name);
+	Nuclear::IEffect* SetEngineSpriteDurativeEffect(const std::wstring &effect_name,bool underSprite=false);
+	Nuclear::IEffect* SetEngineSpriteDurativeEffect(const std::wstring &effect_name,bool underSprite=false, unsigned int flag=Nuclear::XPSPREFFFLAG_ASYNC|Nuclear::XPSPREFFFLAG_NO_SOUND);
+	void RemoveEngineSpriteDurativeEffect(Nuclear::IEffect*pEffect);
+	int GetCurActDuration();	
+
+	void RefreshSpriteComponent(const ComponentInfoMap& components);//刷新component，用于队伍界面更换时
+};

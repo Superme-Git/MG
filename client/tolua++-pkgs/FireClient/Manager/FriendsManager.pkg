@@ -1,0 +1,144 @@
+
+struct stChatRecordUnit
+{
+	int64_t roleid;
+	std::wstring name;
+	int school;
+	int isOnline;
+	int friendLevel;
+	int rolelevel;
+	std::wstring time;
+	std::wstring chatContent;
+	int shape;
+	int camp;
+	short relation;
+	int64_t factionID;
+	std::wstring factionName;
+	std::wstring voiceUUID;
+	int voiceTime;
+	stChatRecordUnit();
+};
+
+struct stContactRole
+{
+	int64_t roleID;
+	std::wstring name;
+	int friendLevel;
+	int rolelevel;
+	int isOnline;
+	int school;
+	int shape;
+	int camp;
+	short relation;
+	int64_t factionID;
+	std::wstring factionName;
+
+	stContactRole();
+
+	stContactRole(int64_t nRoleID, std::wstring strName, int nRoleLevel, int nFriendLevel,
+		int nIsOnline, int nSchool, int nShape, int nCamp, short relation,
+		int64_t nFactionID, std::wstring strFactionName);
+
+	int GetChatRecordNum()const;
+	const stChatRecordUnit& GetChatRecordByIndex(int idx)const;
+
+};
+class FriendsManager
+{
+	void AddContact(int64_t roleID, std::wstring name, int nRoleLevel, int friendLevel,
+		int isOnline, int school, int shape, int camp, short relation,
+		int64_t nFactionID, std::wstring strFactionName);
+
+	void AddContact(const stContactRole& role);
+	void DelContact(int64_t roleID);
+
+	const stContactRole& GetContactRole(int64_t roleID);
+	const stContactRole& GetContactRoleByName(const std::wstring& strName);
+	stContactRole& GetRole(int64_t roleID);
+	bool isMyContactRole(int64_t roleID);
+	void RefreshContactRoleInf(int64_t roleID, std::wstring name, int nRoleLevel, int friendLevel,
+		int isOnline, int school, int shape, int camp, short relation,
+		int64_t nFactionID, std::wstring strFactionName);
+
+	void AddFriend(int64_t roleID);
+	int  GetFriendlyDegrees(int64_t roleID);
+	bool isMyFriend(int64_t roleID);
+	void DelFriend(int64_t roleID);
+	void RequestAddFriend(int64_t roleID);
+	void RequestDelFriend(int64_t roleID);
+
+	void AddLastChat(int64_t roleID, bool isSave = true);
+	void ChangeRoleOnlineState(int64_t roleID, int isOnline, bool bShowNotify = true);
+	void ChangeFriendLevel(int64_t roleID, int friendLevel);
+	void ChangeRoleLevel(int64_t roleID, int roleLevel);
+
+
+	bool isInLastChatList(int64_t roleID);
+	void RequestBreakFriendRelation(int64_t roleID);
+	void RefreshFriendList();
+	void RefreshLastContactList();
+
+	std::wstring GetContactRoleIcon(int64_t roleID);
+
+	bool PopChatMsg();
+	void PopRoleMsg(int64_t roleID);
+	void AddChatRecord(int64_t senderID, int64_t contactRoleId, const std::wstring& name, const std::wstring& time, const std::wstring content, const std::wstring voiceUUID=L"", int64_t voiceTime = 0);
+	void ClearChatRecord(int64_t roleID);
+
+	bool HasNotShowMsg();
+
+	void SetChatRoleID(int64_t roleID, const std::wstring& name, bool isResetInput = true);
+	void RequestSetChatRoleID(int64_t roleID);
+
+	bool isFriendOnline(int64_t roleID);
+
+	void ClearAllLastChatRecord();
+	void RefreshLastChatRecord(int64_t roleID, const std::wstring& strRecord);
+	bool GetLastChatRecord(int64_t roleID, std::wstring& strRecord);
+	void RemoveLastChatRecord(int64_t roleID);
+	int  GetCurFriendNum();
+
+	int64_t GetFriendRoleIDByIdx(int idx);
+	int64_t GetRecentChatRoleIDByIdx(int idx);
+	int GetRecentChatListNum();
+	bool RoleHasNotReadMsg(int64_t roleID);
+	int64_t GetLastMsgRoleID();
+	int64_t GetWantToChatRoleID();
+	void RefreshFriendBtnNotify();
+
+
+	int GetRoleNotReadMsgNum(int64_t roleID);
+	int GetNotReadMsgNum();
+
+	void SendRequestUpdateRoleInfo(int64_t roleID);
+	void SetContactRole(int64_t roleID, const std::wstring& roleName, int level = -1, int camp = 0, bool bOpenContactRoleDlg = true, short relation = 0);
+
+	int64_t GetWantToContactRoleID();
+
+	void Init();
+	void Cleanup();
+	const std::vector<stContactRole>& GetAllContactRole();
+	const std::vector<int64_t>& GetLastContactRoleList();
+	void PushChatMsg(int64_t roleID, const std::wstring& roleName, int online, int level,
+		int friendLevel, int school, int shape, int camp, short relation,
+		int64_t factionID, std::wstring factionName,
+		const std::wstring& strContent, const std::wstring& strTime = L"", const std::wstring voiceUuid = L"", int64_t time = 0);
+
+	void GetFriendChatRecord(int64_t roleID, int recordID, std::wstring& content);
+	int GetRoleLastChatRecordID(int64_t roleID);
+	void SetMaxFriendsNum(int maxnum);
+	int  GetMaxFriendsNum();
+	bool HasGivenRoleIDFriend(int roleID);
+	void SortFriendList();
+	bool PopSystemMsg();
+	void updateFriendState(int64_t roleID, short relation);
+	void AddLoadChatRecordRole(int64_t roleID);
+	void LoadLastContactList();
+	void FullLoadChatRecordRole();
+	void SendRequestAllStrangerRoleInfo();
+	void CallListenRoleInfoFunc(int64_t roleID);
+	
+	void updateChatRecord(int64_t roleID, std::wstring stringchatUid, std::wstring chatContent);
+};
+
+inline FriendsManager* gGetFriendsManager();

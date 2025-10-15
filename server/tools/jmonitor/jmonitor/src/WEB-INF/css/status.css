@@ -1,0 +1,18 @@
+.status {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 24px;
+	
+	margin: 0px;
+	background: #eee;
+	border: solid 1px lightgray;
+	
+	opacity: .70;
+	filter: alpha(opacity="70");
+	z-index: 200;
+	
+	overflow: hidden;
+	overflow-y: auto; 
+}

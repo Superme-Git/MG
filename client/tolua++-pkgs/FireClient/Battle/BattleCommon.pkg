@@ -1,0 +1,221 @@
+
+#define OneSideMaxNum 14	//战斗一方最多14个单位
+//友方编号从1-14
+#define FriendMinID 1
+#define FriendMaxID 14
+//地方编号从15-28
+#define EnemyMinID 15
+#define EnemyMaxID 28
+
+#define WatchMinID	31	//十个观战位
+#define WatchMaxID	40
+
+#define BATTLE_GRID	25
+
+#define AUTO_ROUND_NUM 29	//自动回合数30
+
+#define AI_PLAYACTION_DELAY 400	//AI的演示时间
+
+enum eBattlerType
+{
+	eBattlerCharacter	= 1,	//角色
+	eBattlerPet			= 2,	//宠物
+	eBattlerNaKaMa		= 3,	//伙伴（玩家自带助战）
+	eBattlerMonster		= 4,	//暗雷野怪
+	eBattlerNPC			= 5,	//战斗npc（24000以上）
+	eBattlerNaKaMaSys	= 6,	//系统安排的助战
+	eBattlerMax,
+};
+
+enum eOperateBattlerType
+{
+	eOperateBattler_Char,
+	eOperateBattler_Pet,
+	eOperateBattlerMax
+};
+
+enum eBattleState
+{
+	eBattleState_Null = 0,
+	eBattleState_Begin,
+	eBattleState_AIBeforeOperate,
+	eBattleState_OperateChar,
+	eBattleState_OperatePet,
+	eBattleState_Wait,
+	eBattleState_Demo,
+	eBattleState_DemoOperate,
+	eBattleState_BeforeBattleEnd,
+	eBattleStateMax
+};
+
+enum eBattleOperate
+{
+	eOperate_Null		= 0,
+	eOperate_Attack		= 1,	
+	eOperate_Skill		= 2,	
+	eOperate_Item		= 3,	
+	eOperate_Defence	= 4,	
+	eOperate_Protect	= 5,	
+	eOperate_Summon		= 6,	
+	eOperate_Recall		= 7,	
+	eOperate_Catch		= 8,	
+	eOperate_Runaway	= 9,	
+	eOperate_Rest		= 10,	
+	eOperate_Special	= 11,	
+	eOperate_SummonInstant		= 12,
+	eOperate_EscapeInstant		= 13,
+	eOperate_Failure			= 14,
+	eOperate_AIBattleEnd		= 15,
+	eOperate_EnvironmentDemo	= 16,
+	eOperate_EnvironmentChange	= 17,
+	eOperate_RoundEndDemo		= 18,
+};
+
+enum eBattleResult
+{
+	eBattleResult_Null,
+	eBattleResult_HPChange	= 1<<0,	
+	eBattleResult_MPChange	= 1<<1,	
+	eBattleResult_SPChange	= 1<<2,	
+	eBattleResult_ULHPChange = 1<<3,
+	eBattleResult_Rest		= 1<<4,	
+	eBattleResult_Hit		= 1<<5,	
+	eBattleResult_Critic	= 1<<6,	
+	eBattleResult_Defence	= 1<<7,	
+	eBattleResult_Parry		= 1<<8,	
+	eBattleResult_Dodge		= 1<<9,	
+	eBattleResult_Runaway	= 1<<10,
+	eBattleResult_Seized	= 1<<11,
+	eBattleResult_Summonback = 1<<12,
+	eBattleResult_Death		= 1<<13,
+	eBattleResult_FlyOut	= 1<<14,
+	eBattleResult_Ghost		= 1<<15,
+	eBattleResult_Relive	= 1<<16,
+	eBattleResult_Summon	= 1<<17,
+	eBattleResult_NotDefence = 1<<18,
+	eBattleResult_Absorb	= 1<<19,
+	eBattleResult_DestroyMP	= 1<<20,
+	eBattleResult_GodBless	= 1<<21,
+	eBattleResult_EPChange	= 1<< 23,//连击点
+	eBattleResultMax,
+};
+
+enum eOperateState
+{
+	eOperateState_Null,
+	eOperateState_Prepare,
+	eOperateState_Wait,
+	eOperateState_FallLine,
+	eOperateStateMax
+};
+
+struct sBattleOperateCommand
+{
+	int TargetID;
+	eBattleOperate BattleOperate;
+	int OperatorID;
+	sBattleOperateCommand();
+	void Reset();
+};
+
+struct sBattleNpcData
+{
+	int NpcBaseID;
+	std::wstring name;
+};
+
+struct sBattlerData
+{
+	int iBattleID;
+	std::wstring strName;
+	std::wstring strTitle;
+	eBattlerType BattlerType;
+	char bGM;
+	int school;
+	int subtype; 
+	int64_t BattlerDataID;
+	int UpLimitHp;
+	int MaxHp;
+	int Hp;
+	int64_t iShapeID;
+	int level;
+    int             colorInx;
+	eOperateState OperateState;
+	sBattlerData();
+};
+
+struct sBattleBuffResult
+{
+	int battleid;
+	int buffid;
+	int buffdata;
+	sBattleBuffResult();
+	sBattleBuffResult(int battle,int id,int data);
+};
+
+struct sBattleDemoAttack
+{
+	int AttackerID;
+	int HPConsume;
+	int MPConsume;
+	int SPConsume;
+	eBattleOperate BattleOperate;
+	int OperatorID;
+	int msgid;
+	sBattleDemoAttack();
+};
+
+struct sBattleDemoResult
+{
+	int ResultType;
+	int FlagType;
+	int	TargetID;
+	int	HPChange;
+	int	MPChange;
+	int MaxHPChange;		//当前血上限变化
+	int SPChange;			//当前怒气值变化
+	int	eTargetResult;		//被击者效果
+	int	ReturnHurtEffect;	//受击方造成的反伤值，如果为0则代表没有反伤
+	int	AttackBackEffect;	//受击方造成的反击值，如果为0则代表没有反击
+	int	StealHPEffect;		//攻击方产生的吸血值，如果为0则代表没有吸血
+	int	StealMPEffect;		//攻击方产生的吸蓝值，如果为0则代表没有吸蓝
+	int	eAttackerResult;	//攻击者效果
+	int	ProtecterID;
+	int	ProtectHPChange;
+	int	eProtecterResult;	//保护者效果
+	int	AssisterID;			//合击者ID
+	int ProtectMaxHPChange;	//保护者血上限变化
+	int ReturnHurtMaxHP;	//受击方被反伤致死后的血上限变化
+	std::list<sBattleBuffResult>		BuffResultList;
+	bool bgeneresult;		//生成结果
+	int hitnum;				//打击次数
+	int EveryHitHP;			//每次打击的伤害
+	int EveryProtectHitHP;	//保护者每次被打击伤害
+	eActionType eUseAction;	//使用动作
+	int	HPChangeGodBless;	//神佑血量变化
+	int	EPChange;			// 受击者效果点变化，为正是加效果点，为负是扣效果点
+	int ShapeChange;		// 模型改变
+	sBattleDemoResult();
+};
+
+struct sBattleAIAction
+{
+	int DemoIndex;	
+	int	ExecuteTime;
+	int BattlerID;
+	int AIActionID;	
+	sBattleAIAction();
+};
+
+struct sBattleDemoScript 
+{
+	sBattleDemoAttack	stMagicCasting;
+	stNewDemoResultArr	listResults;
+	BattlerData			listBattler;
+	std::map<int,int>	RoleAttribute;	//人物属性
+	std::map<int,int>	PetAttribute;	//宠物属性
+};
+
+
+inline void GetBattlerIndexAndSide(int battleid,int& index,bool& bFriend);
+

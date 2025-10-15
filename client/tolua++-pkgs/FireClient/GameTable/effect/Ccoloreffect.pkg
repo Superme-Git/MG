@@ -1,0 +1,24 @@
+namespace GameTable
+{
+    namespace effect
+    {
+        class Ccoloreffect
+        {
+            public:
+            int id;
+            int red;
+            int yellow;
+            int blue;
+            int green;
+        };
+        class CcoloreffectTable
+        {
+            public:
+        Ccoloreffect& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CcoloreffectTable&  GetCcoloreffectTableInstance();
+    }
+}

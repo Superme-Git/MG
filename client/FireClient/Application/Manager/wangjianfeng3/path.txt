@@ -1,0 +1,4 @@
+MTG-16327 - 【BUG】【招募】招募粘贴按钮功能无效【0.0.207PC版本】
+提交人：王剑峰 审核人:刘庚
+
+E:\mt3\client\FireClient\Application\Manager

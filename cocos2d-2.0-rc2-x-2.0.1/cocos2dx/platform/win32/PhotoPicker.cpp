@@ -1,0 +1,21 @@
+//////////////////////////////////////////////////////////////////////////
+// File:		PhotoPicker.cpp
+// Author:	Ñî´ºÀ×
+// Date:		2016/04/25
+//////////////////////////////////////////////////////////////////////////
+
+#include "../PhotoPicker.h"
+
+NS_CC_BEGIN
+
+bool PhotoPicker::openCamera()
+{
+	return false;
+}
+
+bool PhotoPicker::openAlbum()
+{
+	return false;
+}
+
+NS_CC_END

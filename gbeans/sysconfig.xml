@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="SysConfig">
+
+		<bean name="CTongPingSetting" from="t同屏显示人数机型适配表" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> 
+			  <variable name="morevalue" fromCol="多"  type="int" /> 
+			  <variable name="lessvalue" fromCol="一般"  type="int" /> 
+		</bean>
+		
+		<bean name="CTuiSongSetting" from="推送提醒配置表" genxml="client" gencode="mtlua">
+			 <variable name="id" type="int" fromCol="ID" /> 
+			 <variable name="name" fromCol="活动名称"  type="string" /> 
+			 <variable name="day" fromCol="周期"  type="string" />
+			 <variable name="time" fromCol="时间"  type="string" />
+			 <variable name="pcount" fromCol="人数"  type="string" />
+		</bean>
+		
+		<bean name="CFPSSetting" from="h画面刷新频率机型适配表" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> 
+			  <variable name="morevalue" fromCol="高"  type="int" /> 
+			  <variable name="lessvalue" fromCol="一般"  type="int" /> 
+		</bean>
+
+    <bean name="CStepLoadTexSetting" from="m每帧单步加载纹理" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="编号" />
+      <variable name="stepmovie" fromCol="是否作用剧情"  type="bool" />
+      <variable name="stepalways" fromCol="是否作用全程"  type="bool" />
+    </bean>
+
+    <bean name="CPCountFPSSetting" from="t同屏人数自适应配置" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> 
+			  <variable name="minfps" fromCol="帧率min"  type="int" /> 
+			  <variable name="maxfps" fromCol="帧率max"  type="int" /> 
+			  <variable name="playercount" fromCol="对应人数"  type="int" /> 
+		</bean>
+
+		<bean name="CBattleCommand" from="BattleCommand" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="commandstring" type="string" fromCol="commandstring" />
+		</bean>
+		
+		<bean name="Resolution" from="f分辨率配置" genxml="client" gencode="mtlua">			 
+			 <variable name="id" type="int" fromCol="id"/> 
+			 <variable name="number"  type="int"  fromCol="编号"/>
+			 <variable name="longa"   type="int"   fromCol="长"/>
+			 <variable name="wide"   type="int"   fromCol="宽"/>
+			 <variable name="description" type="string"   fromCol="描述"/>
+			 <variable name="positionsByresolution" type="vector" value="string" fromCol="点位1,点位2,点位3,点位4,点位5,点位6,点位7,点位8,点位9,点位10,点位11,点位12,点位13,点位14,点位15,点位16,点位17,点位18,点位19,点位20,点位21,点位22,点位23,点位24,点位25,点位26,点位27,点位28"/> 自己改变量名吧
+			 <variable name="positionsBywatch" type="vector" value="string" fromCol="观战点位1,观战点位2,观战点位3,观战点位4,观战点位5,观战点位6,观战点位7,观战点位8,观战点位9,观战点位10"/> 
+			 <variable name="positionsByme" type="string"   fromCol="己方中心点位"/>
+			 <variable name="positionsBytarget" type="string"   fromCol="敌方中心点位"/>
+		</bean>
+		
+		<bean name="CGameconfig" from="x系统设置配置表" genxml="client" priority="1">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="key" type="string" fromCol="变量"/>
+			<variable name="wndname" type="string" fromCol="控件名"/>
+			<variable name="leixingtype" type="int" fromCol="类型"/>			
+			<variable name="value" type="int" fromCol="默认值"/>
+		</bean>
+		
+		<bean name="CGameconfigReset" from="x系统设置重置表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="iosvalue" type="string" fromCol="ios默认值"/>
+			<variable name="andvalue" type="int" fromCol="安卓默认值"/>
+		</bean>
+		
+		<bean name="SSysconfig" from="x系统设置配置表" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="defval" type="int" fromCol="默认值"/>
+		</bean>
+	<bean name="SHotdeployClass" from="f服务器热加载配置Proc" genxml="server">
+			  <variable name="id" type="int" fromCol="id" /> 
+			  <variable name="oldClassName" type="string"   fromCol="oldclass"/>	
+			  <variable name="newClassName" type="string"   fromCol="newclass"/>			  
+	</bean>
+	<bean name="Cgengxingonggao" from="g更新公告" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="content" type="string" fromCol="内容"/>
+			<variable name="gengxinshijian" type="string" fromCol="更新时间"/>
+			<variable name="banbenhao" type="int" fromCol="版本号"/>
+	</bean>
+	
+	</namespace>

@@ -1,0 +1,24 @@
+namespace GameTable
+{
+    namespace chat
+    {
+        class Cbiaoqing
+        {
+            public:
+            int id;
+            int imagenum;
+            double time;
+            std::wstring tips;
+            std::wstring key;
+        };
+        class CbiaoqingTable
+        {
+            public:
+        Cbiaoqing& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CbiaoqingTable&  GetCbiaoqingTableInstance();
+    }
+}

@@ -1,0 +1,81 @@
+
+-----------------------------------------------------------------------------------------------------
+打版本时，编译完成后，将“MT_G\client\android\common\obj\local\armeabi-v7a\libgame.so”复制出来并保存好，这个是用来解析dump文件用的
+-----------------------------------------------------------------------------------------------------
+
+
+目录说明：
+D:\dump\files			-- dump文件
+D:\dump\so				-- so文件
+D:\dump\sym				-- sym文件
+D:\dump\tools			-- 工具
+-----------------------------------------------------------------------------------------------------
+注：如果是从手机中获取dump文件，则从对应的手机目录获取
+adb pull /sdcard/android/data/com.locojoy.mini.mt3.common/cache/ D:\dump\files
+-----------------------------------------------------------------------------------------------------
+
+解析dump：
+
+一、预备：新建dumptest目录
+adb shell
+cd /sdcard/data
+rm -rf dumptest
+mkdir dumptest
+
+二、复制工具到手机本地临时目录
+adb push D:\dump\tools\dump_syms /data/local/tmp
+adb push D:\dump\tools\minidump_stackwalk /data/local/tmp
+-----------------------------------------------------------------------------------------------------
+注，如果是本机打的包，则可以直接从对应目录复制
+adb push D:\MT_G\dependencies\google-breakpad\bin\target-local\bin\dump_syms /data/local/tmp
+adb push D:\MT_G\dependencies\google-breakpad\bin\target-local\bin\minidump_stackwalk /data/local/tmp
+-----------------------------------------------------------------------------------------------------
+
+三、复制so文件到手机新建的目录
+adb push D:\dump\so\libgame.so /sdcard/data/dumptest
+-----------------------------------------------------------------------------------------------------
+注，如果是本机打的包，则可以直接从对应目录复制
+adb push D:\MT_G\client\android\common\obj\local\armeabi-v7a\libgame.so /sdcard/data/dumptest
+-----------------------------------------------------------------------------------------------------
+
+四、生成符号文件“libgame.so.sym”
+adb shell
+cd /sdcard/data/dumptest
+chmod 0777 /data/local/tmp/dump_syms
+/data/local/tmp/dump_syms libgame.so > libgame.so.sym
+
+五、从手机中取出符号文件
+adb pull /sdcard/data/dumptest/libgame.so.sym D:\dump\sym
+
+六、从符号文件中第一行读取识别码，并在手机中建对应的目录，然后将符号文件移动到新建目录
+mkdir -p ./symbols/libgame.so/5A4E03DB9BFE51EF25E3B3B769E44DBD0
+mv libgame.so.sym ./symbols/libgame.so/5A4E03DB9BFE51EF25E3B3B769E44DBD0
+
+七、复制dump文件到手机新建的目录
+adb push D:\dump\files /sdcard/data/dumptest
+
+八、解析dump文件
+chmod 0777 /data/local/tmp/minidump_stackwalk
+/data/local/tmp/minidump_stackwalk 2ba96b50-79e2-ef02-2057e8b4-677016db.dmp ./symbols > 2ba96b50-79e2-ef02-2057e8b4-677016db.txt
+/data/local/tmp/minidump_stackwalk 5d6b41e8-e9b2-ee14-1fe3f5d3-1de0f2ea.dmp ./symbols > 5d6b41e8-e9b2-ee14-1fe3f5d3-1de0f2ea.txt
+/data/local/tmp/minidump_stackwalk 67cdf595-757e-6a3d-71f1beac-21116388.dmp ./symbols > 67cdf595-757e-6a3d-71f1beac-21116388.txt
+/data/local/tmp/minidump_stackwalk 589ef293-37b8-176c-52e62d14-10d952ce.dmp ./symbols > 589ef293-37b8-176c-52e62d14-10d952ce.txt
+
+九、从手机中取出解析后的txt文件
+adb pull /sdcard/data/dumptest D:\dump\files
+
+
+
+*********************************************************************************
+
+cygwin编译libgame.so
+cd /cygdrive/d/MT_G/client/android/common/jni
+/cygdrive/d/android-ndk-r9c/ndk-build NDK_DEBUG=0 -j4
+
+rd /s /q D:\MT_G\client\android\common\obj\local\armeabi-v7a
+d:
+cd D:\MT_G\client\android\common
+D:\android-ndk-r9c\ndk-build.cmd NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=.\jni\Android.mk NDK_APP_APPLICATION_MK=.\jni\Application.mk NDK_DEBUG=0 -j4
+
+
+D:\android-ndk-r9c\ndk-build.cmd NDK_PROJECT_PATH=D:\MT_G\client\android\common APP_BUILD_SCRIPT=D:\MT_G\client\android\common\jni\Android.mk NDK_APP_APPLICATION_MK=D:\MT_G\client\android\common\jni\Application.mk NDK_DEBUG=0 -j4

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--技能 定义，协议 从14000开始-->
+<namespace name="skill">
+	<bean name="SkillInfo">
+		<variable name="id" type="int" />    技能id
+		<variable name="level" type="int" /> 级别
+	</bean>
+	<!-- 辅助技能 -->
+	<bean name="AssistSkill">
+		<variable name="id" type="int" />辅助技能ID
+		<variable name="level" type="int"/>级别
+		<variable name="exp" type="int" />熟练度
+	</bean>
+	<!-- 装备上的技能 -->
+	<bean name="EquipSkill">
+		<variable name="skill" type="int" /> 特技id
+		<variable name="effect" type="int"/> 特效id
+	</bean>
+	<bean name="SkillBarInfo">
+		<variable name="id" type="int" /> 
+    <variable name="key" type="int" /> 
+    <variable name="bartype" type="byte" /> 
+	</bean>
+	
+	<!--职业心法-->
+	<protocol  name="SSkillError" type="14004" maxsize="65535" prior="1" tolua = "3">		服务器返回 Error信息
+		<variable name="skillError" type="int"/> 参考SkillError的bean定义
+	</protocol>
+	
+	<protocol  name="CUpdaetAssistSkillLevel" type="14006" maxsize="65535" prior="1" tolua="3"> 客户端：指定辅助技能升一级
+		<variable name="npckey" type="long" />
+		<variable name="id" type="int" />
+	</protocol>
+	<protocol  name="SUpdateAssistSkill" type="14007" maxsize="65535" prior="1" tolua="3"> 服务器：更新某个辅助技能
+		<variable name="assistSkill" type="AssistSkill" />
+	</protocol>
+	
+	<protocol  name="SSendAssistSkillMaxLevels" type="14008" maxsize="65535" prior="1" tolua="3"> 服务器：发送角色公会的辅助技能等级上限
+		<variable name="npckey" type="long" />
+		<variable name="maxlevels" type="map" key="int" value="int" /> key=辅助技能ID value=技能等级上限
+	</protocol>
+	
+	<protocol  name="SSendSpecialSkills" type="14011" maxsize="65535" prior="1" tolua="3"> 
+		<!--<variable name="specialSkills" type="map" key="int" value="EquipSkill" /> 特技，key=equip type，value=equip skill-->
+        <variable name="skills" type="vector" value="int" />特技
+        <variable name="effects" type="vector" value="int" />特效
+</protocol>
+	
+	<protocol name="CUpdateInborn" type="14013" maxsize="65535" prior="1" tolua="3">客户端：
+		<variable name="id" type="int" />
+		<variable name="flag" type="byte" /> 0默认方式  1=一键
+	</protocol>
+	
+	<protocol name="SUpdateInborn" type="14014" maxsize="65535" prior="1" tolua="3">服务器：升级到XX级
+		<variable name="flag" type="byte" /> 0默认方式  1=一键
+		<variable name="inborns" type="map" key="int" value="int" /> key = ID，value=等级。里面没有的为0级
+	</protocol>
+	
+	<protocol name="SSendInborns" type="14015" maxsize="65535" prior="1" tolua="3">服务器：刷新所有等级
+		<variable name="inborns" type="map" key="int" value="int" /> key = ID，value=等级。里面没有的为0级
+	</protocol>
+	
+	<protocol name="CUseSceneSkill" type="14020" maxsize="65535" prior="1">在场景使用技能
+			<variable name="skillId" type="int" />技能ID
+		 	<variable name="aimtype" type="int"/>技能使用目标类型 对自己角色使用==1，对自己战斗宠物使用==2，对正常队友角色使用==3
+		 	<variable name="aimId" type="long" />技能使用目标ID，为队友角色ID
+	</protocol>	
+	
+	<protocol  name="CPractiseSkill" type="14028" maxsize="65535" prior="1" tolua="3"> 客户端：修炼指定技能
+		<variable name="npckey" type="long" />
+		<variable name="skillId" type="int" />
+		<variable name="kind" type="byte" validator="value=[0,1]"/>   0=修炼  1=试练
+	</protocol>
+	
+	<protocol name="SUpdateExtSkill" type="14057" maxsize="65535" prior="1" tolua="3">服务器：扩展技能更新
+		<variable name="extskilllists" type="map" key="int" value="int" /> key = 技能ID，value=技能等级
+	</protocol>
+	
+	<namespace name="particleskill"> 修炼技能 by changhao
+		<bean name="ParticleSkill">
+			<variable name="id" type="int"/>		修炼技能id by changhao
+			<variable name="level" type="int"/>		等级 by changhao
+			<variable name="maxlevel" type="int"/>  最大等级 by changhao
+			<variable name="exp" type="int"/>		当前经验 by changhao
+			<variable name="effects" type="map" key="int" value="float" /> 属性效果 by changhao
+			<variable name="nexteffect" type="map" key="int" value="float"/> 下一级属性效果 by changhao
+		</bean>
+	
+		<protocol name="CRequestParticleSkillList" type="14071" maxsize="65535" prior="1" tolua="3"> 请求已经学习的修炼技能链表 by changhao
+			
+		</protocol>
+		
+		<protocol name="SRequestParticleSkillList" type="14072" maxsize="65536" prior="1" tolua="3"> 返回已经学习的所有修炼技能 by changhao
+			<variable name="skilllist" type="list" value="ParticleSkill"/> 
+			<variable name="curcontribution" type="int"/> 当前帮贡 by changhao
+			<variable name="factionlevel" type="int"/> 公会等级 by changhao
+		</protocol>
+		
+		<protocol name="CRequestLearnParticleSkill" type="14073" maxsize="65536" prior="1" tolua="3"> 请求学习修炼技能每次增加一级 by changhao
+			<variable name="id" type="int"/> 技能ID by changhao
+			<variable name="times" type="int"/> 学习次数 by changhao
+			<variable name="itemid" type="int"/> 使用的道具 by changhao
+		</protocol>
+		
+		<protocol name="SUpdateLearnParticleSkill" type="14074" maxsize="65536" prior="1" tolua="3"> 如果修炼技能等级有变化会更新 by changhao
+			<variable name="skill" type="ParticleSkill" />
+		</protocol>		
+	
+	</namespace>
+	
+	<namespace name="liveskill"> 生活技能 by changhao
+	
+		<bean name="LiveSkill">  
+			<variable name="id" type="int"/>		生活技能id by changhao
+			<variable name="level" type="int"/>		等级 by changhao
+		</bean>
+
+		<protocol name="CRequestLiveSkillList" type="14081" maxsize="65535" prior="1" tolua="3"> 请求已经学习的生活技能链表 by changhao
+		</protocol>
+	
+		<protocol name="SRequestLiveSkillList" type="14082" maxsize="65536" prior="1" tolua="3"> 返回已经学习的所有生活技能 by changhao
+			<variable name="skilllist" type="list" value="LiveSkill"/> 
+		</protocol>
+	
+		<protocol name="CRequestLearnLiveSkill" type="14083" maxsize="65536" prior="1" tolua="3"> 请求学习生活技能每次增加一级 by changhao
+			<variable name="id" type="int"/>
+		</protocol>
+	
+		<protocol name="SUpdateLearnLiveSkill" type="14084" maxsize="65536" prior="1" tolua="3"> 如果技能等级有变化会更新 by changhao
+			<variable name="skill" type="LiveSkill" />
+		</protocol>
+		
+		<protocol name="CLiveSkillMakeStuff" type="14085" maxsize="65536" prior="1" tolua="3"> 制作锻造，裁缝，炼金 符 by changhao
+			<variable name="itemid" type="int"/> 物品的ID by changhao
+			<variable name="itemnum" type="int"/> 物品数量 by changhao
+		</protocol>
+		
+		<protocol name="SLiveSkillMakeStuff" type="14086" maxsize="65536" prior="1" tolua="3"> 制作药品返回 by changhao
+			<variable name="ret" type="int" /> 返回结果0是制作成功1是制作失败了 by changhao
+		</protocol>
+		
+		<protocol name="CLiveSkillMakeDrug" type="14087" maxsize="65536" prior="1" tolua="3"> 制作药品 by changhao
+			<variable name="makingslist" type="list" value="int"/> 材料链 by changhao
+		</protocol>
+		
+		<protocol name="SLiveSkillMakeDrug" type="14088" maxsize="65536" prior="1" tolua="3"> 制作药品返回 by changhao
+			<variable name="itemid" type="int"/> 如果成功返回道具ID 否则0
+			<variable name="ret" type="int" /> 返回结果0是制作成功1是制作失败了 by changhao
+		</protocol>
+		
+		<protocol name="CLiveSkillMakeFood" type="14089" maxsize="65536" prior="1" tolua="3"> 制作食物 by changhao
+		
+		</protocol>
+		
+		<protocol name="SLiveSkillMakeFood" type="14090" maxsize="65536" prior="1" tolua="3"> 制作药品返回 by changhao
+			<variable name="itemid" type="int"/> 如果成功返回道具ID 否则0
+			<variable name="ret" type="int" /> 返回结果0是制作成功1是制作失败了 by changhao
+		</protocol>
+		
+		<protocol name="CLiveSkillMakeFriendGift" type="14091" maxsize="65536" prior="1" tolua="3"> 制作同心结 by changhao
+		
+		</protocol>
+		
+		<protocol name="SLiveSkillMakeFriendGift" type="14092" maxsize="65536" prior="1" tolua="3"> 返回 by changhao
+			<variable name="itemid" type="int"/>
+		</protocol>
+		
+		<protocol name="CLiveSkillMakeEnhancement" type="14093" maxsize="65536" prior="1" tolua="3"> 制作附魔道具 by changhao
+		
+		</protocol>
+		
+		<protocol name="SLiveSkillMakeEnhancement" type="14094" maxsize="65536" prior="1" tolua="3"> 返回 by changhao
+		
+		</protocol>
+
+		<protocol name="CLiveSkillMakeFarm" type="14095" maxsize="65536" prior="1" tolua="3"> 打工赚钱 by changhao
+		
+		</protocol>
+		
+		<protocol name="SLiveSkillMakeFarm" type="14096" maxsize="65536" prior="1" tolua="3"> 打工赚钱返回 by changhao
+			<variable name="addgold" type="int"/>
+		</protocol>
+		
+		<protocol name="CRequestAttr" type="14098" maxsize="65536" prior="1" tolua="3"> 请求某些属性 by changhao
+			<variable name="attrid" type="list" value="int"/>
+		</protocol>
+		
+	
+	
+	</namespace>
+	
+</namespace>

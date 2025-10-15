@@ -1,0 +1,25 @@
+
+namespace core
+{
+	enum LoggingLevel
+	{
+		Errors,
+		Warnings,
+		Standard,
+		Informative,
+		Insane
+	};
+
+	class Logger
+	{
+		void setLoggingLevel(LoggingLevel level);
+		LoggingLevel getLoggingLevel();
+		void logLuaEvent( LoggingLevel level, std::wstring message);
+		static void flurryEvent(std::wstring s,bool once = false);
+		
+		int AddPassLevel(int PassLevel, std::wstring PassLevelCaption);
+		void logLuaEventInt(int level, std::wstring message);
+		
+	};
+	Logger* GetCoreLogger();
+}

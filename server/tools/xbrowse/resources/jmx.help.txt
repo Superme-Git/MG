@@ -1,0 +1,37 @@
+help			显示帮助信息
+------------------------------------------------------------------------------
+connect			连接到MBean server
+	参数：ip port [username] [password]
+	ip 			- MBean server所在主机的ip地址，点分十进制
+	port 		- MBean server监听的端口
+	username	- 授权用户名
+	passowrd	- 授权密码
+------------------------------------------------------------------------------
+show			显示MBean server上的信息，根据参数的不同，显示信息也不同
+	参数：connectors | mbeans | objectname
+	connectors 	- 显示本客户端建立的所有连接
+	mbeans		- 显示当前连接上所有可用的MBeans
+	objectname	- 显示某个具体MBean的详细信息，其中objectname是MBean的object name
+------------------------------------------------------------------------------
+use				设置当前连接
+	参数：connector name
+------------------------------------------------------------------------------
+exit			退出客户端
+------------------------------------------------------------------------------
+invoke			调用MBean的操作
+	参数：objectname index args
+	objectname	- 待调用MBean的object name
+	index		- 待调用操作在MBean中的索引，通过show objectname可获得该索引
+	args		- 待调用操作所需的参数，这些参数以逗号分隔连接成一个字符串
+------------------------------------------------------------------------------
+get				获取MBean的属性值
+	参数：objectname index
+	objectname 	- 待调用MBean的object name
+	index		- 待获取值属性在MBean中的索引，通过show objectname可获得该索引
+------------------------------------------------------------------------------
+set				设置MBean的属性值
+	参数：objectname index value
+	objectname 	- 待调用MBean的object name
+	index		- 待获取值属性在MBean中的索引，通过show objectname可获得该索引
+	value		- 待设置的新值				
+		

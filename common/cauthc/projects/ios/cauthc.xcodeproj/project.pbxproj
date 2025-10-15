@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2DAB3AEC1AFB1988009E29EC /* activeio.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DAB3AEB1AFB1988009E29EC /* activeio.h */; };
+		2DD621671B00556C00C006BD /* AddictionControl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE216283231003798DD /* AddictionControl.hpp */; };
+		4ABC495B162830FA003798DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABC495A162830FA003798DD /* Foundation.framework */; };
+		4ABC4AD016283225003798DD /* aliasing.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC316283225003798DD /* aliasing.h */; };
+		4ABC4AD116283225003798DD /* authc.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC416283225003798DD /* authc.hpp */; };
+		4ABC4AD216283225003798DD /* boo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC516283225003798DD /* boo.h */; };
+		4ABC4AD316283225003798DD /* byteorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC616283225003798DD /* byteorder.h */; };
+		4ABC4AD416283225003798DD /* cauthc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC716283225003798DD /* cauthc.h */; };
+		4ABC4AD516283225003798DD /* depinc.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC816283225003798DD /* depinc.h */; };
+		4ABC4AD616283225003798DD /* marshal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AC916283225003798DD /* marshal.h */; };
+		4ABC4AD716283225003798DD /* netsession.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4ACA16283225003798DD /* netsession.h */; };
+		4ABC4AD816283225003798DD /* octets.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4ACB16283225003798DD /* octets.h */; };
+		4ABC4AD916283225003798DD /* protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4ACC16283225003798DD /* protocol.h */; };
+		4ABC4ADA16283225003798DD /* security.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4ACD16283225003798DD /* security.h */; };
+		4ABC4ADB16283225003798DD /* streamcompress.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4ACE16283225003798DD /* streamcompress.h */; };
+		4ABC4ADC16283225003798DD /* sysconf.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4ACF16283225003798DD /* sysconf.hpp */; };
+		4ABC4B5216283231003798DD /* authc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4AE016283231003798DD /* authc.cpp */; };
+		4ABC4B5416283231003798DD /* AnnounceForbidInfo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE316283231003798DD /* AnnounceForbidInfo.hpp */; };
+		4ABC4B5516283231003798DD /* Challenge.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE416283231003798DD /* Challenge.hpp */; };
+		4ABC4B5616283231003798DD /* CouponExchangeRep.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE516283231003798DD /* CouponExchangeRep.hpp */; };
+		4ABC4B5716283231003798DD /* CouponExchangeReq.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE616283231003798DD /* CouponExchangeReq.hpp */; };
+		4ABC4B5816283231003798DD /* ErrorInfo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE716283231003798DD /* ErrorInfo.hpp */; };
+		4ABC4B5916283231003798DD /* GetUserCouponRep.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE816283231003798DD /* GetUserCouponRep.hpp */; };
+		4ABC4B5A16283231003798DD /* GetUserCouponReq.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AE916283231003798DD /* GetUserCouponReq.hpp */; };
+		4ABC4B5B16283231003798DD /* InstantAddCashRep.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AEA16283231003798DD /* InstantAddCashRep.hpp */; };
+		4ABC4B5C16283231003798DD /* InstantAddCashReq.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AEB16283231003798DD /* InstantAddCashReq.hpp */; };
+		4ABC4B5D16283231003798DD /* KeepAlive.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AEC16283231003798DD /* KeepAlive.hpp */; };
+		4ABC4B5E16283231003798DD /* KeyExchange.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AED16283231003798DD /* KeyExchange.hpp */; };
+		4ABC4B5F16283231003798DD /* MatrixChallenge.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AEE16283231003798DD /* MatrixChallenge.hpp */; };
+		4ABC4B6016283231003798DD /* MatrixResponse.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AEF16283231003798DD /* MatrixResponse.hpp */; };
+		4ABC4B6116283231003798DD /* OnlineAnnounce.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF016283231003798DD /* OnlineAnnounce.hpp */; };
+		4ABC4B6216283231003798DD /* PortForward.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF116283231003798DD /* PortForward.hpp */; };
+		4ABC4B6316283231003798DD /* Response.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF216283231003798DD /* Response.hpp */; };
+		4ABC4B6416283231003798DD /* SSOGetTicketRep.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF316283231003798DD /* SSOGetTicketRep.hpp */; };
+		4ABC4B6516283231003798DD /* SSOGetTicketReq.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF416283231003798DD /* SSOGetTicketReq.hpp */; };
+		4ABC4B6616283231003798DD /* ioengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4AF516283231003798DD /* ioengine.cpp */; };
+		4ABC4B6716283231003798DD /* ioengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF616283231003798DD /* ioengine.h */; };
+		4ABC4B6816283231003798DD /* loginbase.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF716283231003798DD /* loginbase.h */; };
+		4ABC4B6916283231003798DD /* netio.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4AF816283231003798DD /* netio.h */; };
+		4ABC4B6A16283231003798DD /* netsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4AF916283231003798DD /* netsession.cpp */; };
+		4ABC4B7B16283231003798DD /* pollio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B1316283231003798DD /* pollio.cpp */; };
+		4ABC4B7C16283231003798DD /* pollio.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B1416283231003798DD /* pollio.h */; };
+		4ABC4B7D16283231003798DD /* protocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B1516283231003798DD /* protocol.cpp */; };
+		4ABC4B7E16283231003798DD /* protocols.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B1616283231003798DD /* protocols.hpp */; };
+		4ABC4BAA16283231003798DD /* rpcgen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4416283231003798DD /* rpcgen.cpp */; };
+		4ABC4BAB16283231003798DD /* rpcgen.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B4516283231003798DD /* rpcgen.hpp */; };
+		4ABC4BAC16283231003798DD /* byteorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4716283231003798DD /* byteorder.cpp */; };
+		4ABC4BAD16283231003798DD /* byteorder_i386.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B4816283231003798DD /* byteorder_i386.h */; };
+		4ABC4BAE16283231003798DD /* byteorder_x86_64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B4916283231003798DD /* byteorder_x86_64.h */; };
+		4ABC4BAF16283231003798DD /* marshal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4A16283231003798DD /* marshal.cpp */; };
+		4ABC4BB016283231003798DD /* octets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4B16283231003798DD /* octets.cpp */; };
+		4ABC4BB116283231003798DD /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B4C16283231003798DD /* platform.h */; };
+		4ABC4BB216283231003798DD /* security.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4D16283231003798DD /* security.cpp */; };
+		4ABC4BB316283231003798DD /* streamcompress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4E16283231003798DD /* streamcompress.cpp */; };
+		4ABC4BB416283231003798DD /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4B4F16283231003798DD /* timer.cpp */; };
+		4ABC4BB516283231003798DD /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4B5016283231003798DD /* timer.h */; };
+		4ABC4BB8162832BA003798DD /* cauthc-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 4ABC4BB7162832BA003798DD /* cauthc-Prefix.pch */; };
+		762E7E141BF496B700F17FA7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762E7E131BF496B700F17FA7 /* SystemConfiguration.framework */; };
+		76C56E951C7F51D800612100 /* FNet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76C56E931C7F51D800612100 /* FNet.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2DAB3AEB1AFB1988009E29EC /* activeio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activeio.h; sourceTree = "<group>"; };
+		4ABC4957162830FA003798DD /* libcauthc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcauthc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ABC495A162830FA003798DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4ABC4AC316283225003798DD /* aliasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aliasing.h; sourceTree = "<group>"; };
+		4ABC4AC416283225003798DD /* authc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = authc.hpp; sourceTree = "<group>"; };
+		4ABC4AC516283225003798DD /* boo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boo.h; sourceTree = "<group>"; };
+		4ABC4AC616283225003798DD /* byteorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = byteorder.h; sourceTree = "<group>"; };
+		4ABC4AC716283225003798DD /* cauthc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cauthc.h; sourceTree = "<group>"; };
+		4ABC4AC816283225003798DD /* depinc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = depinc.h; sourceTree = "<group>"; };
+		4ABC4AC916283225003798DD /* marshal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = marshal.h; sourceTree = "<group>"; };
+		4ABC4ACA16283225003798DD /* netsession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netsession.h; sourceTree = "<group>"; };
+		4ABC4ACB16283225003798DD /* octets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = octets.h; sourceTree = "<group>"; };
+		4ABC4ACC16283225003798DD /* protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocol.h; sourceTree = "<group>"; };
+		4ABC4ACD16283225003798DD /* security.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = security.h; sourceTree = "<group>"; };
+		4ABC4ACE16283225003798DD /* streamcompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = streamcompress.h; sourceTree = "<group>"; };
+		4ABC4ACF16283225003798DD /* sysconf.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sysconf.hpp; sourceTree = "<group>"; };
+		4ABC4AE016283231003798DD /* authc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = authc.cpp; sourceTree = "<group>"; };
+		4ABC4AE216283231003798DD /* AddictionControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AddictionControl.hpp; sourceTree = "<group>"; };
+		4ABC4AE316283231003798DD /* AnnounceForbidInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnnounceForbidInfo.hpp; sourceTree = "<group>"; };
+		4ABC4AE416283231003798DD /* Challenge.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Challenge.hpp; sourceTree = "<group>"; };
+		4ABC4AE516283231003798DD /* CouponExchangeRep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CouponExchangeRep.hpp; sourceTree = "<group>"; };
+		4ABC4AE616283231003798DD /* CouponExchangeReq.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CouponExchangeReq.hpp; sourceTree = "<group>"; };
+		4ABC4AE716283231003798DD /* ErrorInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ErrorInfo.hpp; sourceTree = "<group>"; };
+		4ABC4AE816283231003798DD /* GetUserCouponRep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GetUserCouponRep.hpp; sourceTree = "<group>"; };
+		4ABC4AE916283231003798DD /* GetUserCouponReq.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GetUserCouponReq.hpp; sourceTree = "<group>"; };
+		4ABC4AEA16283231003798DD /* InstantAddCashRep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InstantAddCashRep.hpp; sourceTree = "<group>"; };
+		4ABC4AEB16283231003798DD /* InstantAddCashReq.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InstantAddCashReq.hpp; sourceTree = "<group>"; };
+		4ABC4AEC16283231003798DD /* KeepAlive.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeepAlive.hpp; sourceTree = "<group>"; };
+		4ABC4AED16283231003798DD /* KeyExchange.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyExchange.hpp; sourceTree = "<group>"; };
+		4ABC4AEE16283231003798DD /* MatrixChallenge.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatrixChallenge.hpp; sourceTree = "<group>"; };
+		4ABC4AEF16283231003798DD /* MatrixResponse.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatrixResponse.hpp; sourceTree = "<group>"; };
+		4ABC4AF016283231003798DD /* OnlineAnnounce.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OnlineAnnounce.hpp; sourceTree = "<group>"; };
+		4ABC4AF116283231003798DD /* PortForward.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PortForward.hpp; sourceTree = "<group>"; };
+		4ABC4AF216283231003798DD /* Response.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Response.hpp; sourceTree = "<group>"; };
+		4ABC4AF316283231003798DD /* SSOGetTicketRep.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SSOGetTicketRep.hpp; sourceTree = "<group>"; };
+		4ABC4AF416283231003798DD /* SSOGetTicketReq.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SSOGetTicketReq.hpp; sourceTree = "<group>"; };
+		4ABC4AF516283231003798DD /* ioengine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ioengine.cpp; sourceTree = "<group>"; };
+		4ABC4AF616283231003798DD /* ioengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioengine.h; sourceTree = "<group>"; };
+		4ABC4AF716283231003798DD /* loginbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginbase.h; sourceTree = "<group>"; };
+		4ABC4AF816283231003798DD /* netio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netio.h; sourceTree = "<group>"; };
+		4ABC4AF916283231003798DD /* netsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = netsession.cpp; sourceTree = "<group>"; };
+		4ABC4B1316283231003798DD /* pollio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pollio.cpp; sourceTree = "<group>"; };
+		4ABC4B1416283231003798DD /* pollio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pollio.h; sourceTree = "<group>"; };
+		4ABC4B1516283231003798DD /* protocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = protocol.cpp; sourceTree = "<group>"; };
+		4ABC4B1616283231003798DD /* protocols.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = protocols.hpp; sourceTree = "<group>"; };
+		4ABC4B4416283231003798DD /* rpcgen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rpcgen.cpp; sourceTree = "<group>"; };
+		4ABC4B4516283231003798DD /* rpcgen.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rpcgen.hpp; sourceTree = "<group>"; };
+		4ABC4B4716283231003798DD /* byteorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = byteorder.cpp; sourceTree = "<group>"; };
+		4ABC4B4816283231003798DD /* byteorder_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = byteorder_i386.h; sourceTree = "<group>"; };
+		4ABC4B4916283231003798DD /* byteorder_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = byteorder_x86_64.h; sourceTree = "<group>"; };
+		4ABC4B4A16283231003798DD /* marshal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = marshal.cpp; sourceTree = "<group>"; };
+		4ABC4B4B16283231003798DD /* octets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = octets.cpp; sourceTree = "<group>"; };
+		4ABC4B4C16283231003798DD /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
+		4ABC4B4D16283231003798DD /* security.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = security.cpp; sourceTree = "<group>"; };
+		4ABC4B4E16283231003798DD /* streamcompress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = streamcompress.cpp; sourceTree = "<group>"; };
+		4ABC4B4F16283231003798DD /* timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer.cpp; sourceTree = "<group>"; };
+		4ABC4B5016283231003798DD /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		4ABC4BB7162832BA003798DD /* cauthc-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "cauthc-Prefix.pch"; path = "cauthc/cauthc-Prefix.pch"; sourceTree = "<group>"; };
+		762E7E131BF496B700F17FA7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		76C56E931C7F51D800612100 /* FNet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FNet.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4ABC4954162830FA003798DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				762E7E141BF496B700F17FA7 /* SystemConfiguration.framework in Frameworks */,
+				4ABC495B162830FA003798DD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4ABC494C162830FA003798DD = {
+			isa = PBXGroup;
+			children = (
+				76C56E791C7F4CCE00612100 /* net */,
+				4ABC4AC216283225003798DD /* include */,
+				4ABC4ADE16283231003798DD /* authc */,
+				4ABC4959162830FA003798DD /* Frameworks */,
+				4ABC4958162830FA003798DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4ABC4958162830FA003798DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC4957162830FA003798DD /* libcauthc.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4ABC4959162830FA003798DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				762E7E131BF496B700F17FA7 /* SystemConfiguration.framework */,
+				4ABC495A162830FA003798DD /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4ABC4AC216283225003798DD /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC4AC316283225003798DD /* aliasing.h */,
+				4ABC4AC416283225003798DD /* authc.hpp */,
+				4ABC4AC516283225003798DD /* boo.h */,
+				4ABC4AC616283225003798DD /* byteorder.h */,
+				4ABC4AC716283225003798DD /* cauthc.h */,
+				4ABC4AC816283225003798DD /* depinc.h */,
+				4ABC4AC916283225003798DD /* marshal.h */,
+				4ABC4ACA16283225003798DD /* netsession.h */,
+				4ABC4ACB16283225003798DD /* octets.h */,
+				4ABC4ACC16283225003798DD /* protocol.h */,
+				4ABC4ACD16283225003798DD /* security.h */,
+				4ABC4ACE16283225003798DD /* streamcompress.h */,
+				4ABC4ACF16283225003798DD /* sysconf.hpp */,
+			);
+			name = include;
+			path = ../../include;
+			sourceTree = "<group>";
+		};
+		4ABC4ADE16283231003798DD /* authc */ = {
+			isa = PBXGroup;
+			children = (
+				2DAB3AEB1AFB1988009E29EC /* activeio.h */,
+				4ABC4BB6162832AF003798DD /* Supporting Files */,
+				4ABC4AE016283231003798DD /* authc.cpp */,
+				4ABC4AE116283231003798DD /* gnet */,
+				4ABC4AF516283231003798DD /* ioengine.cpp */,
+				4ABC4AF616283231003798DD /* ioengine.h */,
+				4ABC4AF716283231003798DD /* loginbase.h */,
+				4ABC4AF816283231003798DD /* netio.h */,
+				4ABC4AF916283231003798DD /* netsession.cpp */,
+				4ABC4B1316283231003798DD /* pollio.cpp */,
+				4ABC4B1416283231003798DD /* pollio.h */,
+				4ABC4B1516283231003798DD /* protocol.cpp */,
+				4ABC4B1616283231003798DD /* protocols.hpp */,
+				4ABC4B4416283231003798DD /* rpcgen.cpp */,
+				4ABC4B4516283231003798DD /* rpcgen.hpp */,
+				4ABC4B4616283231003798DD /* share */,
+				4ABC4B4F16283231003798DD /* timer.cpp */,
+				4ABC4B5016283231003798DD /* timer.h */,
+			);
+			name = authc;
+			path = ../../authc;
+			sourceTree = "<group>";
+		};
+		4ABC4AE116283231003798DD /* gnet */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC4AE216283231003798DD /* AddictionControl.hpp */,
+				4ABC4AE316283231003798DD /* AnnounceForbidInfo.hpp */,
+				4ABC4AE416283231003798DD /* Challenge.hpp */,
+				4ABC4AE516283231003798DD /* CouponExchangeRep.hpp */,
+				4ABC4AE616283231003798DD /* CouponExchangeReq.hpp */,
+				4ABC4AE716283231003798DD /* ErrorInfo.hpp */,
+				4ABC4AE816283231003798DD /* GetUserCouponRep.hpp */,
+				4ABC4AE916283231003798DD /* GetUserCouponReq.hpp */,
+				4ABC4AEA16283231003798DD /* InstantAddCashRep.hpp */,
+				4ABC4AEB16283231003798DD /* InstantAddCashReq.hpp */,
+				4ABC4AEC16283231003798DD /* KeepAlive.hpp */,
+				4ABC4AED16283231003798DD /* KeyExchange.hpp */,
+				4ABC4AEE16283231003798DD /* MatrixChallenge.hpp */,
+				4ABC4AEF16283231003798DD /* MatrixResponse.hpp */,
+				4ABC4AF016283231003798DD /* OnlineAnnounce.hpp */,
+				4ABC4AF116283231003798DD /* PortForward.hpp */,
+				4ABC4AF216283231003798DD /* Response.hpp */,
+				4ABC4AF316283231003798DD /* SSOGetTicketRep.hpp */,
+				4ABC4AF416283231003798DD /* SSOGetTicketReq.hpp */,
+			);
+			path = gnet;
+			sourceTree = "<group>";
+		};
+		4ABC4B4616283231003798DD /* share */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC4B4716283231003798DD /* byteorder.cpp */,
+				4ABC4B4816283231003798DD /* byteorder_i386.h */,
+				4ABC4B4916283231003798DD /* byteorder_x86_64.h */,
+				4ABC4B4A16283231003798DD /* marshal.cpp */,
+				4ABC4B4B16283231003798DD /* octets.cpp */,
+				4ABC4B4C16283231003798DD /* platform.h */,
+				4ABC4B4D16283231003798DD /* security.cpp */,
+				4ABC4B4E16283231003798DD /* streamcompress.cpp */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
+		4ABC4BB6162832AF003798DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ABC4BB7162832BA003798DD /* cauthc-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = ../projects/ios;
+			sourceTree = "<group>";
+		};
+		76C56E791C7F4CCE00612100 /* net */ = {
+			isa = PBXGroup;
+			children = (
+				76C56E931C7F51D800612100 /* FNet.cpp */,
+			);
+			name = net;
+			path = ../../net;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4ABC4955162830FA003798DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ABC4AD016283225003798DD /* aliasing.h in Headers */,
+				4ABC4AD116283225003798DD /* authc.hpp in Headers */,
+				2DD621671B00556C00C006BD /* AddictionControl.hpp in Headers */,
+				4ABC4AD216283225003798DD /* boo.h in Headers */,
+				4ABC4AD316283225003798DD /* byteorder.h in Headers */,
+				4ABC4AD416283225003798DD /* cauthc.h in Headers */,
+				4ABC4AD516283225003798DD /* depinc.h in Headers */,
+				4ABC4AD616283225003798DD /* marshal.h in Headers */,
+				4ABC4AD716283225003798DD /* netsession.h in Headers */,
+				4ABC4AD816283225003798DD /* octets.h in Headers */,
+				4ABC4AD916283225003798DD /* protocol.h in Headers */,
+				4ABC4ADA16283225003798DD /* security.h in Headers */,
+				4ABC4ADB16283225003798DD /* streamcompress.h in Headers */,
+				2DAB3AEC1AFB1988009E29EC /* activeio.h in Headers */,
+				4ABC4ADC16283225003798DD /* sysconf.hpp in Headers */,
+				4ABC4B5416283231003798DD /* AnnounceForbidInfo.hpp in Headers */,
+				4ABC4B5516283231003798DD /* Challenge.hpp in Headers */,
+				4ABC4B5616283231003798DD /* CouponExchangeRep.hpp in Headers */,
+				4ABC4B5716283231003798DD /* CouponExchangeReq.hpp in Headers */,
+				4ABC4B5816283231003798DD /* ErrorInfo.hpp in Headers */,
+				4ABC4B5916283231003798DD /* GetUserCouponRep.hpp in Headers */,
+				4ABC4B5A16283231003798DD /* GetUserCouponReq.hpp in Headers */,
+				4ABC4B5B16283231003798DD /* InstantAddCashRep.hpp in Headers */,
+				4ABC4B5C16283231003798DD /* InstantAddCashReq.hpp in Headers */,
+				4ABC4B5D16283231003798DD /* KeepAlive.hpp in Headers */,
+				4ABC4B5E16283231003798DD /* KeyExchange.hpp in Headers */,
+				4ABC4B5F16283231003798DD /* MatrixChallenge.hpp in Headers */,
+				4ABC4B6016283231003798DD /* MatrixResponse.hpp in Headers */,
+				4ABC4B6116283231003798DD /* OnlineAnnounce.hpp in Headers */,
+				4ABC4B6216283231003798DD /* PortForward.hpp in Headers */,
+				4ABC4B6316283231003798DD /* Response.hpp in Headers */,
+				4ABC4B6416283231003798DD /* SSOGetTicketRep.hpp in Headers */,
+				4ABC4B6516283231003798DD /* SSOGetTicketReq.hpp in Headers */,
+				4ABC4B6716283231003798DD /* ioengine.h in Headers */,
+				4ABC4B6816283231003798DD /* loginbase.h in Headers */,
+				4ABC4B6916283231003798DD /* netio.h in Headers */,
+				4ABC4B7C16283231003798DD /* pollio.h in Headers */,
+				4ABC4B7E16283231003798DD /* protocols.hpp in Headers */,
+				4ABC4BAB16283231003798DD /* rpcgen.hpp in Headers */,
+				4ABC4BAD16283231003798DD /* byteorder_i386.h in Headers */,
+				4ABC4BAE16283231003798DD /* byteorder_x86_64.h in Headers */,
+				4ABC4BB116283231003798DD /* platform.h in Headers */,
+				4ABC4BB516283231003798DD /* timer.h in Headers */,
+				4ABC4BB8162832BA003798DD /* cauthc-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4ABC4956162830FA003798DD /* cauthc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ABC4964162830FA003798DD /* Build configuration list for PBXNativeTarget "cauthc" */;
+			buildPhases = (
+				4ABC4953162830FA003798DD /* Sources */,
+				4ABC4954162830FA003798DD /* Frameworks */,
+				4ABC4955162830FA003798DD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cauthc;
+			productName = cauthc;
+			productReference = 4ABC4957162830FA003798DD /* libcauthc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4ABC494E162830FA003798DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 4ABC4951162830FA003798DD /* Build configuration list for PBXProject "cauthc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4ABC494C162830FA003798DD;
+			productRefGroup = 4ABC4958162830FA003798DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4ABC4956162830FA003798DD /* cauthc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4ABC4953162830FA003798DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76C56E951C7F51D800612100 /* FNet.cpp in Sources */,
+				4ABC4B5216283231003798DD /* authc.cpp in Sources */,
+				4ABC4B6616283231003798DD /* ioengine.cpp in Sources */,
+				4ABC4B6A16283231003798DD /* netsession.cpp in Sources */,
+				4ABC4B7B16283231003798DD /* pollio.cpp in Sources */,
+				4ABC4B7D16283231003798DD /* protocol.cpp in Sources */,
+				4ABC4BAA16283231003798DD /* rpcgen.cpp in Sources */,
+				4ABC4BAC16283231003798DD /* byteorder.cpp in Sources */,
+				4ABC4BAF16283231003798DD /* marshal.cpp in Sources */,
+				4ABC4BB016283231003798DD /* octets.cpp in Sources */,
+				4ABC4BB216283231003798DD /* security.cpp in Sources */,
+				4ABC4BB316283231003798DD /* streamcompress.cpp in Sources */,
+				4ABC4BB416283231003798DD /* timer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4ABC4962162830FA003798DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 琛 刘 (6S7R8WNG26)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-mstackrealign",
+					"$(OTHER_CFLAGS)",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4ABC4963162830FA003798DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 琛 刘 (6S7R8WNG26)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-mstackrealign",
+					"$(OTHER_CFLAGS)",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4ABC4965162830FA003798DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/cauthc.dst;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cauthc/cauthc-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_REENTRANT_,
+					OS_IOS,
+					"DEBUG=1",
+					"$(inherited)",
+					_LOCOJOY_SDK_,
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					_REENTRANT_,
+					OS_IOS,
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					../../authc,
+					../../authc/os/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4ABC4966162830FA003798DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/cauthc.dst;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "cauthc/cauthc-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OS_IOS,
+					_REENTRANT_,
+					NDEBUG,
+					_LOCOJOY_SDK_,
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					../../authc,
+					../../authc/os/ios,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4ABC4951162830FA003798DD /* Build configuration list for PBXProject "cauthc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ABC4962162830FA003798DD /* Debug */,
+				4ABC4963162830FA003798DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ABC4964162830FA003798DD /* Build configuration list for PBXNativeTarget "cauthc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ABC4965162830FA003798DD /* Debug */,
+				4ABC4966162830FA003798DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4ABC494E162830FA003798DD /* Project object */;
+}

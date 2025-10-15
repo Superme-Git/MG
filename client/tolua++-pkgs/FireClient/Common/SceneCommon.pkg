@@ -1,0 +1,408 @@
+
+enum eMoveMask
+{
+	eMoveMaskNull	= 0x00,
+	eMoveMaskNormal = 0x01,	//普通行走阻挡
+	eMoveMaskFly	= 0x02,	//飞行阻挡
+	eMoveMaskHigh	= 0x08,	//二层阻挡点
+	eMoveMaskMax
+};
+
+enum eBattleInfo
+{
+	eOutBattle = 0,
+	eInBattle = 1,
+	eWatchBattle = 2,
+};
+
+//npc任务状态
+enum eNpcMissionState
+{
+	eNpcMissionNoQuest = 0,			//没有任务
+	eNpcMissionDisplay = 1,           //隐藏npc有任务，显示 
+	eNpcMissionInCompleteQuest = 2,   //有任务，未完成
+	eNpcMissionBattle = 3,			//战斗npc
+	eNpcMissionCompleteQuest = 4,		//有可交任务
+	eNpcMissionNewQuest = 5,		    //有可接任务
+	eNpcMissionMainQuest = 6,			//有主线任务				
+};
+
+//任务状态
+enum eMissionServerIconState
+{
+	eMissionIconNull = 0,		//没有任务
+	eMissionIconAcceptalbe = 1,	//可接任务
+	eMissionIconNoComplete = 2,	//接取任务，未完成
+	eMissionIconComplete = 3,	//可交任务状态
+};
+
+enum eCharacterState
+{
+	eCharacterStateNull,
+	eCharacterStateInBattle = 1,	//战斗状态
+	eCharacterStateWatchBattle = 2,	//观战状态
+	eCharacterStatePlayCG = 8,	//动画播放状态
+	eCharacterStateFB_ATTACK1 = 16384,//15:工会战高级攻城
+	eCharacterStateFB_ATTACK2 = 32768,//16:工会战中级攻城
+	eCharacterStateFB_ATTACK3 = 65536,//17:工会战初级攻城
+	eCharacterStateFB_REPAIR1 = 131072,//18:工会战高级修理
+	eCharacterStateFB_REPAIR2 = 262144,//19:工会战中级修理
+	eCharacterStateFB_REPAIR3 = 524288,//20:工会战初级修理
+	eCharacterStateGM = 2097152,//22:GM状态
+	eCharacterStateMax
+};
+
+enum eNpcState
+{
+	eNpcStateNull,
+	eNpcStateInBattle = 1,	//战斗状态
+	eNpcStateMax
+};
+
+enum eSceneObjType
+{
+	eSceneObjItem,
+	eSceneObjNpc,		//服务器通知加载的npc
+	eSceneObjCharacter,
+	eSceneObjPuppy,		//场景随机动物
+	eSceneObjPet, 
+	eSceneObjFollowNpc,	//跟随npc
+	eSceneObjMovie,		//场景动画中的npc
+	eSceneObjTaskShowNpc,//任务加载npc
+	eSceneObjClientNpc,	//客户端场景NPC
+	eSceneObjBattler,
+	eSceneObjBattleIllusion,//战斗中的一些幻想，惨象
+	eSceneObjBoat,
+	eSceneObjMax,
+};
+
+enum eNpcType
+{
+	eNpcTypeNone = 0,
+	eNpcTypeImportant,		//重要
+	eNpcTypeTranslate,      //传送
+	eNpcTypeTrade,			//商业
+	eNpcTypeNormal,			//普通
+	eNpcTypeFossick,		//采集类npc
+	eNpcTypeCreeps,			//明雷
+	eNpcTypeTalkMonster,    //可以说话的怪物,如强盗宝图生成之强盗
+	eNpcMaze = 9,           //迷宫传送点
+	eNpcFollow = 10,        //跟随npc类型
+	eNpcAcpTask = 11,       //身上有可接任务
+	eNpcUndeadScene = 13,	//不死军团玩法里场景中需要跪的 npc
+	eNpcUndeadSceneItem = 14,//不死军团玩法里的宝箱
+	eNpcNoTurn = 15,		//不会转向的npc
+	eNpcInFuBen = 16,		//副本里的npc
+	eNpcItemBox = 18,		//宝箱NPC,18号，和景物NPC的类别区分开
+	eNpcClickToTrigger = 19,//点击npc触发
+	eNpcInCompleteTask = 20,//身上有未完成的任务
+	eNpcFinishTask = 21,    //身上有可交任务
+	eNpcDisPlayInTask = 22, //隐藏类npc
+	eNpcTaskShow=26,		//任务显示npc
+	eNpcTypeMax,
+	eNpcFuyuanBox = 29,		//福源宝箱 和npc区别开不执行转向
+};
+
+//char[0]为0x0F，则代表拥有0,1,2,3,4个状态
+enum eState
+{
+	eStateNull = -1,
+	eStateBattle		= 0,
+	eStateBusiness		= 1,
+	eStateTeamLeader	= 2,
+	eStateSelling		= 3,
+	eStateMax
+};
+
+//0 stand1 1 runleft 2 runright 3 在马上
+enum eActionType
+{
+	eActionNull			= 0,
+	eActionStand		= 1,	//普通站立
+	eActionStandRandom	= 2,	//站立随机动作
+	eActionBattleStand	= 3,	//战斗警戒
+	eActionRun			= 5,	//跑步，不存在左腿还是右腿先跑
+	eActionBattleRun	= 6,	//战斗中跑
+	eActionOnHit1		= 7,	//受击1
+	eActionAttack		= 8,	//攻击
+	eActionMagic1		= 9,	//施法1	现在有三个
+	eActionRunaway		= 10,	//逃跑
+	eActionDefence		= 11,	//防御;
+	eActionDodge		= 12,	//闪避
+	eActionDying		= 13,	//倒地
+	eActionDeath		= 14,	//死亡
+	eActionRoll			= 15,	//击飞
+	eActionDeathStill	= 16,   // 静止倒地
+
+	//使用3D之后扩展的动作
+	eActionBattleJump	= 27,	 //战斗中跳跃 用于跳斩
+	eActionBattleStandReady	= 30,//战斗警戒状态
+	eActionAttack2		= 42,	 //攻击2
+	eActionMax
+};
+
+//宠物颜色值
+enum ePetColour
+{
+	eBattleNpc = -1,//战斗中对方npc砖红色
+	eColourNull = 0,
+	eWhitePet,		//白色 1
+	eGreenPet,		//绿色 2
+	eBluePet,		//蓝色 3
+	ePurplePet,		//紫色 4
+	eOrangePet,		//橙色 5
+	eGoldPet,		//金色 6
+	ePinkPet,		//粉色 7
+	eRedPet,		//红色 8
+	eMaxColor,
+};
+
+struct stTeamContract
+{
+	int			time;
+	int			money;
+	std::map<int64_t, std::wstring> contractMember;
+	std::map<int64_t, int64_t>	   contractVote;
+	stTeamContract();
+
+	std::map<int64_t, int> CountTicket();
+};
+
+struct stMovieSceneNpcData
+{
+	int64_t			id;
+	std::wstring	name;
+	int             title;
+	int             model;
+	int             colorTemplate;
+	Nuclear::NuclearDirection   dir;
+	std::wstring  chengwei;
+	DWORD chengweiColor;
+
+	stMovieSceneNpcData(int64_t _id = 0, const std::wstring& _name = L"", int _title = 0, int _model = 0, Nuclear::NuclearDirection _dir = Nuclear::XPDIR_BOTTOMLEFT, int _colorTemplate = 1,
+		const std::wstring& _chengwei = L"", DWORD _cwColor = 0xFFFFFFFF);
+};
+
+//玩家信息数据结构
+struct stCharacterInfo
+{
+	int64_t			id;
+	std::wstring	name;
+	eSchoolType		school;
+	int				level;
+	std::wstring	title;
+	std::wstring	faction;
+};
+
+struct stMapPetData
+{
+	int64_t roleid;		//主人id
+	int showpetid;		//宠物的基本id，用于寻找外形
+	ePetColour showpetcolour;		//宠物的颜色
+	std::wstring showpetname; // 名字
+	char	level;
+	char    showskilleffect;// 气质类技能的特效ID[1,128]
+
+	stMapPetData();
+	int GetShapeID();
+};
+
+//角色换装信息
+struct stCharacterChangeEquipData
+{
+	int colorTemplate;	//颜色模板
+	int weaponID;		//武器造型ID
+	int hatID;			//头饰ID
+	unsigned char weaponColor;
+
+	stCharacterChangeEquipData();
+};
+
+//玩家主角数据结构
+struct stMainCharacterData
+{
+	int64_t roleid;				// ID
+	std::wstring	strName;	// 名字
+	int race;
+	int shape;
+	int	school;
+	int camp;
+	std::wstring	schoolName;
+	std::wstring	schoolSkill;
+	eSexType	sex;			// 性别
+	std::map<int, int>	roleattribution;//主角属性
+	int	TitleID;		// 称谓iD
+
+	std::map<int, float> roleattrFloat;		//玩家属性浮点值， 用于加点
+
+	std::map<int, int>	mapRoleScore;			//记录各种分数
+
+	int64_t exp;		// 经验
+	int64_t nexp;		// 升级 需要经验
+
+	int fightpet;		// 当前战斗宠物
+	int showpet;		// 当前展示宠物
+	int servantid;
+	int64_t masterid;
+	int footprint;
+	int automovepathid;//巡游路径ID
+
+	//--------------------------------------------------------------------- 加点相关
+	int pointSchemeID;				//当前加点方案
+	int pointSchemeChangeTimes;		//方案切换次数
+	std::map<int, int > pointScheme;//潜能， 即方案分配的 剩余 点数
+
+	int cons;			//体质
+	int iq;				//魔力
+	int str;			//力量
+	int endu;			//耐力
+	int agi;			//敏捷
+
+	std::vector<int> cons_save;			//已分配体质
+	std::vector<int> iq_save;			//已分配魔力
+	std::vector<int> str_save;			//已分配力量
+	std::vector<int> endu_save;			//耐力
+	std::vector<int> agi_save;			//敏捷
+
+	int totalScore;
+	int equipScore;
+	int manyPetScore;
+	int petScore;
+	int levelScore;
+	int xiulianScore;
+	int roleScore;
+	int skillScore;
+
+	stCharacterChangeEquipData EquipData;
+
+	int GetValue(int key) const;
+
+	float GetFloatValue(int key) const;
+	void setFloatValue(int key, float data);
+	int GetScoreValue(int key) const;
+	stMainCharacterData();
+};
+
+//npc基本表
+struct stNpcBaseData
+{
+	int				BaseID;
+	std::wstring	strNpcModel;	//Npc造型
+	eNpcType		npcType;		//Npc类型
+	std::wstring	strName;		//Npc名字
+	std::wstring	strTitle;		//Npc称谓
+	std::wstring	strChitchat;	//Npc闲话
+};
+
+struct stNPCConfig
+{
+	int id;
+	double bodytype;
+	int npctype;
+	int modelID;
+	std::wstring name;
+	std::wstring foottitle;
+	std::wstring headtitle;
+	std::wstring title;
+	int area1colour;
+	int area2colour;
+	int mapid;
+	int xPos;
+	int yPos;
+	int hide;
+	int ndir;
+	int nstate;
+};
+
+//npc数据结构
+struct stNpcData
+{
+	int64_t					NpcID;
+	int						NpcBaseID;
+	Nuclear::NuclearLocation		ptPos;		//坐标
+	Nuclear::NuclearLocation		destPos;	//移动目标点
+	int						moveSpeed;	//移动速度	
+	Nuclear::NuclearDirection	dir;
+	std::wstring			strName;
+	int						ShapeID;
+	eNpcMissionState		dQuestState;
+	bool					bHighlevel;
+	
+public:
+	stNpcData();
+};
+
+//怪物装备造型信息
+struct stNpcEquipData
+{
+	int Area1Color;  //变色区域1颜色
+	int Area2Color;  //变色区域2颜色
+	                                                                                                                                                                                                 
+	stNpcEquipData();
+};
+
+//人物数据结构
+struct stCharacterData
+{
+	int64_t					dwID;
+	std::wstring			strName;
+	int						TitleID;
+	std::wstring			strTitle;
+	int						face;
+	eSexType					eSex;
+	eSchoolType				eSchool;
+	Nuclear::NuclearLocation		ptPos;		//坐标
+	Nuclear::NuclearDirection	dir;
+	Nuclear::NuclearLocation		ptTargetPos;//坐标
+	int						level;
+	int64_t					teamID;
+	int						teamindex;
+	int						teamstate;
+	int						showpetlevel;
+	int						shape;//造型
+    int                     camp;       //阵营
+    short                   relation;   //关系
+    int                     gongde; 
+    int                     honour;     //荣誉
+	int						equipEffect; // 套装特效
+	int						actuallyshape;
+	int						characterstate;		//角色状态，按位算的，见状态枚举值列表
+	int						weaponbaseid;	//装备武器的baseID，没有武器填0
+	bool					bhighlevel;		//是否在高层，其实有这个字段，这个是在服务器发协议的时候用
+	BYTE					actiondefault;	//基本动作，0为stand，1为dance，2为rest
+    int                     footprint;
+	int						automovepathid;//巡游路径ID
+	int						automovepathid2;//路线ID
+	int						automovepathid3;//路点ID
+	stCharacterData();
+};
+
+inline DWORD GetPetNameColor(int baseid);
+
+inline DWORD GetPetColour(const int& colour);
+
+inline DWORD GetPetNameShadowColor(int colour);
+
+inline DWORD GetPetNameMouseOverColor(int colour);
+
+inline DWORD GetPetNameMouseOverShadowColor(int colour);
+
+inline std::wstring GetColorStr(const int& color);
+
+inline const float GetPetFloatScale(int petscale);
+
+inline int GetPantColorSchemesByColorid(int colorid);
+
+inline int GetBodyColorSchemesByColorid(int colorid);
+
+inline int GetHairColorSchemesByColorid(int colorid);
+
+inline DWORD GetNpcColorByColorID(const std::wstring& strModelName, int colorID);
+
+inline DWORD GetABGRColorByStringNew(const std::wstring& colorText);
+
+inline DWORD GetARGBColorByStringNew(const std::wstring& colorText);
+
+inline DWORD GetColorByString(const std::wstring& colorText);
+
+inline std::wstring gGetActionName(eActionType type,int aid = 0,bool riding=false);

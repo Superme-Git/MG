@@ -1,0 +1,1 @@
+call ant genapp_tolua

@@ -1,0 +1,2 @@
+Main-Class: com.locojoy.sdk.SdkServer
+Class-path: libs/json.jar libs/monkeyking.jar libs/rt.jar libs/jio.jar libs/commons-pool2-2.4.2.jar libs/jedis-2.8.0.jar libs/log4j-1.2.15.jar

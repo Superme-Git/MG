@@ -1,0 +1,79 @@
+
+<project name="jauthc" default="dist">
+	
+<property name="build" value="classes/"/>
+
+<property name="tools.path" value="../"/>
+<property name="common.path" value="../../server/common"/>
+<property name="tools.bin" value="${tools.path}/bin"/>
+<property name="gnet.dir" value="${common.path}"/>
+	
+<property name="gen.dir" value="general"/>
+<property name="jauthc.xml" value="gnet.authc.xml" />
+<property name="gnet.xml" value="gnet.xml" />
+
+	
+<target name="init">
+	<mkdir dir="${build}" />
+	<copy file="${gnet.dir}/${gnet.xml}" todir="./"/>
+	<copy file="${gnet.dir}/${jauthc.xml}" todir="./"/>
+	<copy file="${gnet.dir}/gnet.openau.xml" todir="./"/>
+</target>
+	
+	
+<target name="rpcgen" depends="init">	
+	<mkdir dir="${gen.dir}"/>
+	<java jar="${tools.bin}/rpcgen.jar" fork="true" failonerror="true">
+	    <arg line=" -java ${jauthc.xml}"/>
+	</java>
+</target>	
+	
+<target name="compile">
+	<mkdir dir="${build}/beans" />
+	<mkdir dir="${build}/src" />
+	
+	<path id="classpath">
+		<pathelement path="${tools.bin}/jio.jar"/>
+		<pathelement path="${tools.bin}/monkeyking.jar"/>
+		<pathelement path="${build}/beans"/>
+		<pathelement path="${build}/src"/>
+	</path>
+	
+	<javac destdir="${build}/beans/"
+		encoding="GBK" classpathref="classpath"
+		debug="true" debuglevel="lines,source"
+		fork="true" memoryMaximumSize="512m"
+	>
+		<src path="authc/beans/"/>
+	</javac>
+	
+	<javac destdir="${build}/src/"
+			encoding="GBK" classpathref="classpath"
+			debug="true" debuglevel="lines,source"
+			fork="true" memoryMaximumSize="512m"
+			>
+		<src path="authc/src/"/>
+	</javac>
+	
+</target>
+	
+<target name="clean">
+	<delete dir="${build}" />
+</target>
+
+<target name="dist" depends="clean, init, rpcgen, compile">
+	<mkdir dir="${build}/authc/authc"/>
+	<copy file="authc/authc.xio.xml" todir="${build}/authc/authc"/>
+	<jar jarfile="jauthc.jar">
+		<fileset dir="${build}/src"/>
+		<fileset dir="${build}/beans"/>
+		<fileset dir="${build}/authc"/>
+	</jar>
+	
+</target>
+
+<target name="install" depends="dist">
+	<copy file="jauthc.jar" todir="${tools.bin}"/>
+</target>
+
+</project>

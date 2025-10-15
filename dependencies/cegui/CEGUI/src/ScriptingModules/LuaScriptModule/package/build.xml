@@ -1,0 +1,11 @@
+
+<project name="LuaCegui" default="lua_cegui" basedir=".">
+	<target name="lua_cegui">
+    	<exec executable="cmd">
+    		<arg value="/c"/>
+    		<arg value="luacegui.bat"/>
+    		<arg value-"-p"/>
+			</exec>
+		</target>
+
+</project>

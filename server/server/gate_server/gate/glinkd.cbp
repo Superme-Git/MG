@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="glinkd" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<MakeCommands>
+			<Build command="$make -f $makefile" />
+			<CompileFile command="$make -f $makefile $file" />
+			<Clean command="$make -f $makefile clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="$make -q -f $makefile" />
+			<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+		</MakeCommands>
+		<Build>
+			<Target title="Debug">
+				<Option output="glinkd" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="glinkd.conf" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<MakeCommands>
+					<Build command="$make -f $makefile" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile" />
+					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+			<Target title="Release">
+				<Option output="glinkd" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="glinkd.conf" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<MakeCommands>
+					<Build command="$make -f $makefile" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile" />
+					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="DeliveryClient.cpp" />
+		<Unit filename="DeliveryClient.hpp" />
+		<Unit filename="LinkBrokenCache.hpp" />
+		<Unit filename="LinkServer.cpp" />
+		<Unit filename="LinkServer.hpp" />
+		<Unit filename="LinkSession.hpp" />
+		<Unit filename="Makefile" />
+		<Unit filename="ProviderMap.hpp" />
+		<Unit filename="ProviderServer.cpp" />
+		<Unit filename="ProviderServer.hpp" />
+		<Unit filename="checktimer.cpp" />
+		<Unit filename="checktimer.hpp" />
+		<Unit filename="glinkd.conf" />
+		<Unit filename="glinkd.cpp" />
+		<Unit filename="gnet/AddictionControl.hpp" />
+		<Unit filename="gnet/AddictionControlRep.hpp" />
+		<Unit filename="gnet/AnnounceForbidInfo.hpp" />
+		<Unit filename="gnet/AnnounceServerAttribute.hpp" />
+		<Unit filename="gnet/CertVerify.hpp" />
+		<Unit filename="gnet/Challenge.hpp" />
+		<Unit filename="gnet/CouponExchangeRep.hpp" />
+		<Unit filename="gnet/CouponExchangeReq.hpp" />
+		<Unit filename="gnet/DeliverAnnounceToLink.hpp" />
+		<Unit filename="gnet/ErrorInfo.hpp" />
+		<Unit filename="gnet/ErrorInfoRep.hpp" />
+		<Unit filename="gnet/ForceLoginRep.hpp" />
+		<Unit filename="gnet/ForceLoginReq.hpp" />
+		<Unit filename="gnet/GetUserCouponRep.hpp" />
+		<Unit filename="gnet/GetUserCouponReq.hpp" />
+		<Unit filename="gnet/InstantAddCashRep.hpp" />
+		<Unit filename="gnet/InstantAddCashReq.hpp" />
+		<Unit filename="gnet/KeepAlive.hpp" />
+		<Unit filename="gnet/KeyExchange.hpp" />
+		<Unit filename="gnet/KickoutUser.hpp" />
+		<Unit filename="gnet/MatrixChallenge.hpp" />
+		<Unit filename="gnet/MatrixPasswdRep.hpp" />
+		<Unit filename="gnet/MatrixPasswdReq.hpp" />
+		<Unit filename="gnet/MatrixResponse.hpp" />
+		<Unit filename="gnet/MatrixResponseRep.hpp" />
+		<Unit filename="gnet/MatrixResponseReq.hpp" />
+		<Unit filename="gnet/OnlineAnnounce.hpp" />
+		<Unit filename="gnet/PortForward.hpp" />
+		<Unit filename="gnet/Response.hpp" />
+		<Unit filename="gnet/SSOGetTicketRep.hpp" />
+		<Unit filename="gnet/SSOGetTicketReq.hpp" />
+		<Unit filename="gnet/StatusAnnounce.hpp" />
+		<Unit filename="gnet/UserLoginRep.hpp" />
+		<Unit filename="gnet/UserLoginReq.hpp" />
+		<Unit filename="gnet/link/AnnounceLinkId.hpp" />
+		<Unit filename="gnet/link/Bind.hpp" />
+		<Unit filename="gnet/link/Broadcast.hpp" />
+		<Unit filename="gnet/link/Dispatch.hpp" />
+		<Unit filename="gnet/link/Kick.hpp" />
+		<Unit filename="gnet/link/LinkBroken.hpp" />
+		<Unit filename="gnet/link/LinkServerControl.hpp" />
+		<Unit filename="gnet/link/Send.hpp" />
+		<Unit filename="gnet/link/SetLogin.hpp" />
+		<Unit filename="gnet/link/UnBind.hpp" />
+		<Unit filename="openau/DataBetweenAuAnyAndClient.hpp" />
+		<Unit filename="openau/ServerIDResponse.hpp" />
+		<Unit filename="pf.cpp" />
+		<Unit filename="pf.hpp" />
+		<Unit filename="pfp.hpp" />
+		<Unit filename="protocols.hpp" />
+		<Unit filename="rpcgen.cpp" />
+		<Unit filename="rpcgen.hpp" />
+		<Unit filename="rpcgen/gnet/AddictionControl.inc" />
+		<Unit filename="rpcgen/gnet/AddictionControlRep.inc" />
+		<Unit filename="rpcgen/gnet/AnnounceForbidInfo.inc" />
+		<Unit filename="rpcgen/gnet/AnnounceServerAttribute.inc" />
+		<Unit filename="rpcgen/gnet/CertVerify.inc" />
+		<Unit filename="rpcgen/gnet/Challenge.inc" />
+		<Unit filename="rpcgen/gnet/CouponExchangeRep.inc" />
+		<Unit filename="rpcgen/gnet/CouponExchangeReq.inc" />
+		<Unit filename="rpcgen/gnet/DeliverAnnounceToLink.inc" />
+		<Unit filename="rpcgen/gnet/ErrorInfo.inc" />
+		<Unit filename="rpcgen/gnet/ErrorInfoRep.inc" />
+		<Unit filename="rpcgen/gnet/ForceLoginRep.inc" />
+		<Unit filename="rpcgen/gnet/ForceLoginReq.inc" />
+		<Unit filename="rpcgen/gnet/GPair.hpp" />
+		<Unit filename="rpcgen/gnet/GetUserCouponRep.inc" />
+		<Unit filename="rpcgen/gnet/GetUserCouponReq.inc" />
+		<Unit filename="rpcgen/gnet/InstantAddCashRep.inc" />
+		<Unit filename="rpcgen/gnet/InstantAddCashReq.inc" />
+		<Unit filename="rpcgen/gnet/KeepAlive.inc" />
+		<Unit filename="rpcgen/gnet/KeyExchange.inc" />
+		<Unit filename="rpcgen/gnet/KickoutUser.inc" />
+		<Unit filename="rpcgen/gnet/MatrixChallenge.inc" />
+		<Unit filename="rpcgen/gnet/MatrixPasswdArg.hpp" />
+		<Unit filename="rpcgen/gnet/MatrixPasswdRep.inc" />
+		<Unit filename="rpcgen/gnet/MatrixPasswdReq.inc" />
+		<Unit filename="rpcgen/gnet/MatrixResponse.inc" />
+		<Unit filename="rpcgen/gnet/MatrixResponseRep.inc" />
+		<Unit filename="rpcgen/gnet/MatrixResponseReq.inc" />
+		<Unit filename="rpcgen/gnet/OnlineAnnounce.inc" />
+		<Unit filename="rpcgen/gnet/PortForward.inc" />
+		<Unit filename="rpcgen/gnet/Response.inc" />
+		<Unit filename="rpcgen/gnet/RoleForbid.hpp" />
+		<Unit filename="rpcgen/gnet/SSOGetTicketRep.inc" />
+		<Unit filename="rpcgen/gnet/SSOGetTicketReq.inc" />
+		<Unit filename="rpcgen/gnet/SSOUser.hpp" />
+		<Unit filename="rpcgen/gnet/ServerAttr.hpp" />
+		<Unit filename="rpcgen/gnet/StatusAnnounce.inc" />
+		<Unit filename="rpcgen/gnet/UserLoginArg.hpp" />
+		<Unit filename="rpcgen/gnet/UserLoginRep.inc" />
+		<Unit filename="rpcgen/gnet/UserLoginReq.inc" />
+		<Unit filename="rpcgen/gnet/UserLoginRes.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_AddictionControlRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_AddictionControl_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_AnnounceForbidInfo_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_AnnounceServerAttribute_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_CertVerify_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_Challenge_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_CouponExchangeRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_CouponExchangeReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_DeliverAnnounceToLink_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_ErrorInfoRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_ErrorInfo_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_ForceLoginRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_ForceLoginReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_GetUserCouponRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_GetUserCouponReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_InstantAddCashRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_InstantAddCashReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_KeepAlive_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_KeyExchange_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_KickoutUser_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_MatrixChallenge_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_MatrixPasswdRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_MatrixPasswdReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_MatrixResponseRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_MatrixResponseReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_MatrixResponse_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_OnlineAnnounce_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_PortForward_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_Response_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_SSOGetTicketRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_SSOGetTicketReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_StatusAnnounce_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_UserLoginRep_.hpp" />
+		<Unit filename="rpcgen/gnet/_depends_UserLoginReq_.hpp" />
+		<Unit filename="rpcgen/gnet/_protocols_.hpp" />
+		<Unit filename="rpcgen/gnet/link/AnnounceLinkId.inc" />
+		<Unit filename="rpcgen/gnet/link/Bind.inc" />
+		<Unit filename="rpcgen/gnet/link/Broadcast.inc" />
+		<Unit filename="rpcgen/gnet/link/Dispatch.inc" />
+		<Unit filename="rpcgen/gnet/link/Kick.inc" />
+		<Unit filename="rpcgen/gnet/link/LinkBroken.inc" />
+		<Unit filename="rpcgen/gnet/link/LinkServerControl.inc" />
+		<Unit filename="rpcgen/gnet/link/Send.inc" />
+		<Unit filename="rpcgen/gnet/link/SetLogin.inc" />
+		<Unit filename="rpcgen/gnet/link/UnBind.inc" />
+		<Unit filename="rpcgen/gnet/link/_depends_AnnounceLinkId_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_Bind_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_Broadcast_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_Dispatch_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_Kick_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_LinkBroken_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_LinkServerControl_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_Send_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_SetLogin_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_depends_UnBind_.hpp" />
+		<Unit filename="rpcgen/gnet/link/_protocols_.hpp" />
+		<Unit filename="rpcgen/openau/DataBetweenAuAnyAndClient.inc" />
+		<Unit filename="rpcgen/openau/ServerIDResponse.inc" />
+		<Unit filename="rpcgen/openau/_depends_DataBetweenAuAnyAndClient_.hpp" />
+		<Unit filename="rpcgen/openau/_depends_ServerIDResponse_.hpp" />
+		<Unit filename="rpcgen/openau/_protocols_.hpp" />
+		<Unit filename="speedlimit.h" />
+		<Unit filename="stat.cpp" />
+		<Unit filename="stat.hpp" />
+		<Extensions>
+			<code_completion>
+				<search_path add="/root/workspace/svnfold/enginetools/snail/gnet/glinkd" />
+				<search_path add="/root/workspace/svnfold/enginetools/share/io" />
+				<search_path add="/root/workspace/svnfold/enginetools/snail/gnet" />
+				<search_path add="/root/workspace/svnfold/enginetools/share" />
+				<search_path add="/root/workspace/svnfold/enginetools/snail" />
+			</code_completion>
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

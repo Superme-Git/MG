@@ -1,0 +1,418 @@
+
+---------------------------------------------------------
+
+
+设计思路
+
+
+玩家等级变化时, 游戏服务器主动推送并修改我们的角色信息表, 暂定为空间的角色表(role)
+推送信息为等级,充值金额
+
+
+---------------------------------------------------------
+
+
+接口1,获取某服务器某角色信息
+
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/get_role?serverid=1101011002&roleid=795626
+
+参数
+serverid 服务器id
+roleid 角色id
+
+返回值
+{
+
+    "errno": "",
+    "message": "",
+    "data": {
+        "roleid": "160515054",	//角色id
+        "name": "驰骋",	//角色名
+        "avatar": "1",		//角色职业
+        "level": "68",		//角色等级	
+        "recharge": "0.00",	//角色总充值
+        "serverkey": "1101011002",//服务器
+        "servername": "S2泰坦秩序",//服务器名称
+        "serverid": "1101011002",
+        "code": "1101011002",//招募码
+        "desc": "",		//招募宣言
+        "enlist_count": "0",	//总招募人数
+	"is_enlist": "0",	//是否被招募
+        "enlist_code": "",	//若为被招募,招募人招募码
+        "enlist_time": "0"	//若为被招募, 招募时间
+    }
+
+}
+
+返回值, 错误的情况
+{
+
+    "errno": "role_notexist",
+    "message": "招募人不存在",
+    "data": null
+}
+
+
+接口2,更新角色招募宣言
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/update_role?serverid=1101011002&roleid=795626&desc=招募新小伙伴,送10000G!!!
+
+
+参数
+serverid 服务器id
+roleid 角色id
+desc 招募宣言
+
+
+返回值, 同接口1
+
+返回值, 错误的情况
+{
+
+    "errno": "role_notexist",
+    "message": "招募人不存在",
+    "data": null
+}
+
+
+接口3.校验招募码是存在, 不校验被招募人
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/check_code?code=7956261002
+
+参数
+code 招募码
+
+返回值, 正确的情况
+{
+
+    "errno": "",
+    "message": "",
+    "data": true
+
+}
+
+返回值, 错误的情况
+{
+
+    "errno": "role_notexist",
+    "message": "招募人不存在",
+    "data": null
+}
+
+
+
+接口4.校验招募码, 同时校验被招募人
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/check?code=7956261002&new_serverid=1101011002&new_roleid=795626
+
+
+参数
+code 招募码
+new_serverid 被招募人服务器id
+new_roleid 被招募人角色id
+
+返回值, 正确的情况
+{
+
+    "errno": "",
+    "message": "",
+    "data": true
+
+}
+
+返回值, 错误的情况
+{
+
+    "errno": "role_notexist",
+    "message": "招募人不存在",
+    "data": null
+}
+{
+
+    "errno": "role1_notexist",
+    "message": "被招募人不存在",
+    "data": null
+}
+{
+
+    "errno": "level_lessthan30",
+    "message": "推荐人等级<30级",
+    "data": null
+
+}
+{
+
+    "errno": "level_greaterthan30",
+    "message": "被推荐人等级>=30级",
+    "data": null
+
+}
+{
+
+    "errno": "has_enlisted",
+    "message": "被推荐人已经填写过推荐码",
+    "data": null
+
+}
+
+
+接口5.招募人提交招募码
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/submit_code?code=7956261002&new_serverid=1101011002&new_roleid=795626
+
+
+参数和返回值完全同接口4
+
+
+接口6,获取招募人招募人数,和已领取的次数奖励
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/get_times_prize?serverid=1101011002&roleid=795626&level=60
+
+
+返回值, 正确的情况
+{
+
+    "errno": "",
+    "message": "",
+    "data": [ 
+	"total" : 30,
+	"times_item" : "1,3"
+    ]
+
+}
+
+返回值, 错误的情况
+{
+    "errno": "role_notexist",
+    "message": "角色不存在",
+    "data": null
+}
+
+
+接口7.领取招募次数奖励
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/set_times_prize?serverid=1101011002&roleid=795626&times=2&level=60
+
+
+参数
+serverid 被招募人服务器id
+roleid 被招募人角色id
+times 招募次数
+
+返回值, 正确的情况
+{
+
+    "errno": "",
+    "message": "",
+    "data": true
+
+}
+
+返回值, 错误的情况
+{
+    "errno": "role_notexist",
+    "message": "角色不存在",
+    "data": null
+}
+{
+    "errno": "times_error",
+    "message": "不符合次数要求",
+    "data": null
+}
+{
+
+    "errno": "has_fetched",
+    "message": "已经领取奖励",
+    "data": null
+}
+
+接口8.招募人获取被招募人列表
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/get_enlist_list?serverid=1101011002&roleid=795626&prize_total=10
+
+
+参数
+serverid 被招募人服务器id
+roleid 被招募人角色id
+level 达到多少级
+prize_total 我的奖励总数， 大于此数，将不显示
+
+返回值
+{
+
+    "errno": "",
+    "message": "",
+    "data": [ 
+    ["roleid": "795626",
+	    "name": "驰骋",
+	    "avatar": "1",
+	    "level": "68",
+	    "recharge": "0.00",
+	    "serverkey": "1101011002",
+	    "servername": "S2泰坦秩序",
+	    "serverid": "1101011002",
+	    "code": "7956261002",
+	    "desc": "招募新小伙伴,送10000G!!!",
+	    "enlist_count": "0",
+	    "effective_count": "0",
+	    "is_enlist": "0",
+	    "enlist_code": "",
+	    "enlist_time": "0",
+	    
+    ]
+    ]
+
+}
+
+
+
+接口9.获取某被招募人的奖励进度状态
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/get_prize_list?serverid=1101011002&roleid=795626&new_serverid=123&new_roleid=123&level=60
+
+
+参数
+serverid 被招募人服务器id
+roleid 被招募人角色id
+new_serverid 被招募人服务器id
+new_roleid 被招募人角色id
+level 达到多少级
+
+
+返回值
+{
+
+    "errno": "",
+    "message": "",
+    "data": [ 
+    [
+	    "serverid":"1101011002",
+	    "roleid": "795626",
+	    "new_serverid": "123",
+	    "roleid": "123",
+	    "prize_type": "0",	//奖励类型,0等级,1充值
+	    "amount": "30",	//等级或充值的数值
+    ],
+        [
+		"serverid":"1101011002",
+		"roleid": "795626",
+		"new_serverid": "123",
+		"roleid": "123",
+		"prize_type": "1",	//奖励类型,0等级,1充值
+		"amount": "30",	//等级或充值的数值
+	]
+    ]
+
+}
+
+
+接口10.领取等级或充值的进度奖励
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/set_prize_status?serverid=1101011002&roleid=795626&new_serverid=123&new_roleid=123&prize_type=0&amount=1
+
+
+
+参数
+serverid 被招募人服务器id
+roleid 被招募人角色id
+new_serverid 被招募人服务器id
+new_roleid 被招募人角色id
+prize_type 奖励类型0等级1充值
+amount 等级或充值的数值
+
+返回值, 正确的情况
+{
+
+    "errno": "",
+    "message": "",
+    "data": true
+
+}
+
+返回值, 错误的情况
+
+{
+
+    "errno": "role_notexist",
+    "message": "招募人不存在",
+    "data": null
+}
+{
+
+    "errno": "role1_notexist",
+    "message": "被招募人不存在",
+    "data": null
+}
+{
+    "errno": "hasnot_enlist",
+    "message": "不存在招募关系",
+    "data": null
+}
+{
+    "errno": "level_lessthan30",
+    "message": "招募人等级不到30",
+    "data": null
+}
+{
+    "errno": "level_error",//
+    "message": "被招募人等级不符合要求",
+    "data": null
+}
+{
+    "errno": "recharge_error",
+    "message": "被招募人充值不符合要求",
+    "data": null
+}
+{
+    "errno": "prize_type_error",//
+    "message": "奖励类型错误,必须是0或1",
+    "data": null
+}
+{
+    "errno": "has_fetched",
+    "message": "已经领取奖励",
+    "data": null
+}
+
+
+
+-------------------------------------------------------------------
+
+
+http://mt3.pengyouquan001.locojoy.com:8810/role/get_by_zhaomu?serverkey=1101011006&roleid=160515054
+
+
+
+http://mt3.pengyouquan001.locojoy.com:8830/enlist/get_role?serverid=1201011501&roleid=160515054
+
+
+
+GRANT USAGE ON *.* TO 'mt3_jl_write'@'%' IDENTIFIED BY PASSWORD '*925FD9A3EB1FE87D37A0C7CBB8874FE7B372B666'
+GRANT SELECT, INSERT, UPDATE, DELETE ON `mt3_jingling`.* TO 'mt3_jl_write'@'%'  
+
+
+
+CREATE USER 'mt3_zhaomu'@'%' IDENTIFIED BY 'MnjWW45p';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `mt3_zhaomu`.* TO 'mt3_zhaomu'@'%';
+
+ALTER TABLE `prize_record_1` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_2` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_3` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_4` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_5` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_6` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_7` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+ALTER TABLE `prize_record_8` ADD INDEX `srsr` (`serverid`,`roleid`,`new_serverid`,`new_roleid`);
+
+
+
+
+ALTER TABLE `enlist_1` ADD INDEX `sr` (`serverid`,`roleid`);
+ALTER TABLE `enlist_2` ADD INDEX `sr` (`serverid`,`roleid`);
+ALTER TABLE `enlist_3` ADD INDEX `sr` (`serverid`,`roleid`);
+ALTER TABLE `enlist_4` ADD INDEX `sr` (`serverid`,`roleid`);
+
+
+
+
+alter table role add `recharge` decimal(11,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '充值';
+
+
+

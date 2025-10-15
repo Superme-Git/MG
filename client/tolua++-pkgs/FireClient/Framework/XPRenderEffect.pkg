@@ -1,0 +1,20 @@
+
+namespace CEGUI 
+{
+	class RenderEffect;
+}
+class XPRenderEffect:public CEGUI::RenderEffect
+{
+public: 
+	XPRenderEffect();
+	virtual ~XPRenderEffect();
+
+	void setType(int type);
+	void setClip(bool clip);
+	virtual void setScissor(int x, int y, int w, int h);
+	virtual bool update(const float elapsed, CEGUI::RenderingWindow& window);
+	virtual bool realiseGeometry(CEGUI::RenderingWindow& window, CEGUI::GeometryBuffer& geometry);
+	virtual void performPostRenderFunctions();
+	virtual void performPreRenderFunctions(const int pass);
+	virtual int getPassCount() const;
+};

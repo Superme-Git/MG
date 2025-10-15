@@ -1,0 +1,18 @@
+﻿<Window x:Class="CheckExcel.SelectXlsDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SelectXlsDlg" Height="566" Width="879"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Label Content="请输入过滤串" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="281"/>
+        <ListBox x:Name="mSrcList" HorizontalAlignment="Left" Height="401" Margin="10,94,0,0" VerticalAlignment="Top" Width="419" MouseDoubleClick="mSrcList_MouseDoubleClick"/>
+        <Label Content="目的生成列表" HorizontalAlignment="Left" Height="23" Margin="442,10,0,0" VerticalAlignment="Top" Width="281"/>
+        <ListBox x:Name="mDstList" HorizontalAlignment="Left" Height="461" Margin="442,33,0,0" VerticalAlignment="Top" Width="419" MouseDoubleClick="mDstList_MouseDoubleClick"/>
+        <Button Content="确定" HorizontalAlignment="Left" Height="26" Margin="668,499,0,0" VerticalAlignment="Top" Width="94" Click="Button_ClickOk"/>
+        <Button Content="取消" HorizontalAlignment="Left" Height="26" Margin="767,499,0,0" VerticalAlignment="Top" Width="94" Click="Button_ClickCancel"/>
+        <TextBox x:Name="mInputBox" HorizontalAlignment="Left" Height="23" Margin="10,37,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="419" TextChanged="mInputBox_TextChanged"/>
+        <Label Content="源xls列表" HorizontalAlignment="Left" Height="24" Margin="10,65,0,0" VerticalAlignment="Top" Width="203"/>
+        <Label Content="双击移动到目的生成列表" HorizontalAlignment="Left" Height="24" Margin="11,501,0,0" VerticalAlignment="Top" Width="372"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,6 @@
+/Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeFiles/ALL_BUILD.dir
+/Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeFiles/ZERO_CHECK.dir
+/Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeFiles/pcre.dir
+/Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeFiles/pcregrep.dir
+/Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeFiles/pcreposix.dir
+/Users/magicstudio/Public/3rd/pcre-8.31/prj/CMakeFiles/pcretest.dir

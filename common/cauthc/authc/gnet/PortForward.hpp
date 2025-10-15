@@ -1,0 +1,17 @@
+
+#pragma once
+
+#include "rpcgen/gnet/_depends_PortForward_.hpp"
+
+namespace gnet { 
+
+class PortForward : public aio::Protocol
+{
+public:
+	#include "rpcgen/gnet/PortForward.inc"
+
+	virtual void Process(Manager *, Manager::Session::ID ) { /* protocol handle */ }
+
+};
+
+} 

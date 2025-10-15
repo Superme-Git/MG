@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="cegui">
+      <UniqueIdentifier>{7d5016de-81d5-48ba-8ad6-bc7ed9cc7d52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src">
+      <UniqueIdentifier>{54efb98d-e43c-48f6-b5d8-0b43d09d8681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\ScriptingModules">
+      <UniqueIdentifier>{6124d1d5-df6f-460c-8694-58bf3257ca5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\ScriptingModules\LuaScriptModule">
+      <UniqueIdentifier>{7fcef106-9f2c-491f-8550-d2c58a01ea1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\ScriptingModules\LuaScriptModule\support">
+      <UniqueIdentifier>{08470087-3458-4b0f-8d8e-3d7c639282c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin">
+      <UniqueIdentifier>{62f3d66a-d302-4aac-8079-ef9bae063799}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin\tolua.c">
+      <Filter>cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin\toluabind.c">
+      <Filter>cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin\toluabind.h">
+      <Filter>cegui\src\ScriptingModules\LuaScriptModule\support\tolua++bin</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,541 @@
+
+== 返回值错误号说明 ==
+system_error 系统错误
+params_error 参数错误
+serverkey_fail 区服KEY错误
+server_notexist 区服不存在
+role_notexist 角色不存在
+status_notexist 动态不存在
+upload_notallow_ext 上传图片失败, 不允许的图片类型
+uploadsound_notallow_ext 上传语音失败, 不允许的语音类型
+bbs_addpopularity_repeat 今天已经踩过了
+
+
+
+
+
+----------------------------------------------
+----------------------------------------------
+1.角色模块
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 获取角色资料
+  * 接口地址: /role/show
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id   ||
+
+#调用实例
+http://192.168.41.5:8803/role/show?serverkey=1101961001&roleid=1
+http://59.151.112.45:8821/role/show?serverkey=1101961001&roleid=1
+
+#结果实例
+{"errno":"","message":"","data":{"roleid":"1","name":"\u6708\u4eae","avatar":"0","level":"0","msg_count":"0","signature":"","popularity_count":"0","gift_count":"0","sound_url":"","avatar_url":"","avatar_verify":"0"}}
+
+#返回结果描述
+roleid 角色id
+name 角色名
+avatar 角色头像,系统头像
+level 等级
+msg_count 新消息数
+signature 签名
+popularity_count 人气数
+gift_count 礼物数
+sound_url 语音地址
+avatar_url 头像,自定义头像
+avatar_verify 审核状态
+
+
+== 接口说明 ==
+  * 接口名称: 更新签名
+  * 接口地址: /role/update_signature 
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id   ||
+|| signature | string | true | 签名内容 ||
+
+
+#调用实例
+http://192.168.41.5:8803/role/update_signature?serverkey=s1&roleid=1&signature=哈哈哈哈<alert></alert>'afafa"fffff
+
+
+#结果实例
+{"errno":"","message":"","data":true}
+
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 更新头像
+  * 接口地址: /role/upload_avatar 
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id   ||
+|| img_type | string | true | 图片类型, 包括:gif|jpg|jpeg|png ||
+|| img_data | string | true | 图片二进制流 ||
+
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 更新声音
+  * 接口地址: /role/upload_sound 
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id   ||
+|| sound_type | string | true | 声音类型, 包括:mp3 ||
+|| sound_data | string | true | 声音二进制流 ||
+
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 获取未读消息数
+  * 接口地址: /role/get_unread 
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id   ||
+
+
+
+#调用实例
+http://192.168.41.5:8803/role/get_unread?serverkey=s1&roleid=1
+
+
+#结果实例
+{"errno":"","message":"","data":"0"}
+
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 清空未读消息数
+  * 接口地址: /role/clean_unread 
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id   ||
+
+
+#调用实例
+http://192.168.41.5:8803/role/clean_unread?serverkey=s1&roleid=1
+
+
+#结果实例
+{"errno":"","message":"","data":true}
+
+
+
+----------------------------------------------
+----------------------------------------------
+2.动态模块
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 发布动态
+  * 接口地址: /status/update
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+|| content | string | true | 内容 ||
+|| img_type | string | true | 图片类型, 包括:gif|jpg|jpeg|png ||
+|| img_data | string | true | 图片二进制流 ||
+
+#调用实例
+
+http://42.62.47.222:8821/status/update?serverkey=s1&roleid=1&content=<E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102" d='201;' a='alert("333")';></E>'
+
+
+http://59.151.112.45:8821/status/update?serverkey=1101961001&roleid=70631&content=<E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E><E e="102"></E>
+
+
+
+
+
+#结果实例
+{"errno":"","message":"","data":{"status_id":"31","roleid":"1","status":"0","create_time":"1459856336","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]}}
+
+
+#参数说明
+status_id 动态id
+roleid 角色id
+content 内容
+img_url 图片
+comment_count 评论数
+favorite_count 点赞数
+name 发布者名字
+avatar 发布者头像
+level 等级
+favorites 点赞列表
+comments 评论列表
+
+
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 显示单个动态
+  * 接口地址: /status/show
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| status_id | int | true | 动态id ||
+
+
+#调用实例
+http://192.168.41.5:8803/status/show?serverkey=s1&status_id=1
+
+
+#结果实例
+{"errno":"","message":"","data":{"status_id":"31","roleid":"1","status":"0","create_time":"1459856336","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]}}
+
+#结果实例
+{"errno":"","message":"","data":{"status_id":"1","roleid":"111","status":"0","create_time":"1459256225","content":"afafdfadf","img_url":"","comment_count":"0","favorite_count":"0","name":null,"avatar":null,"level":null,"favorites":[],"comments":[]}}
+
+
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 显示我的朋友圈动态列表
+  * 接口地址: /status/home_timeline
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+|| status_id | int | true | 动态id, 第一页传0,第二页及以后传上一页的最后一条的status_id ||
+
+
+#调用实例
+http://192.168.41.5:8803/status/home_timeline?serverkey=s1&roleid=1&status_id=0
+
+
+#结果实例
+{"errno":"","message":"","data":{"status_id":"31","roleid":"1","status":"0","create_time":"1459856336","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]}}
+
+#结果实例
+{"errno":"","message":"","data":[{"status_id":"31","roleid":"1","status":"0","create_time":"1459856336","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","favorites":[],"comments":[]},{"status_id":"30","roleid":"1","status":"0","create_time":"1459856248","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","favorites":[],"comments":[]},{"status_id":"29","roleid":"1","status":"0","create_time":"1459856222","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","favorites":[],"comments":[]},{"status_id":"28","roleid":"1","status":"0","create_time":"1459853477","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","favorites":[],"comments":[]}]}
+
+
+
+
+
+----------------------------------------------
+----------------------------------------------
+
+== 接口说明 ==
+  * 接口名称: 显示我的动态列表
+  * 接口地址: /status/user_timeline
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+|| page | int | true | 页面,从1开始 ||
+
+#调用实例
+http://192.168.41.5:8803/status/user_timeline?serverkey=s1&roleid=1&page=1
+
+
+#结果实例
+{"errno":"","message":"","data":[{"status_id":"31","roleid":"1","status":"0","create_time":"1459856336","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]},{"status_id":"30","roleid":"1","status":"0","create_time":"1459856248","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]},{"status_id":"29","roleid":"1","status":"0","create_time":"1459856222","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]},{"status_id":"28","roleid":"1","status":"0","create_time":"1459853477","content":"\u5927\u53d1\u53d1\u7684","img_url":"","comment_count":"0","favorite_count":"0","name":"\u6708\u4eae","avatar":"0","level":"0","favorites":[],"comments":[]}]}
+
+
+
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 点赞, 第二次取消点赞
+  * 接口地址: /status/update_favorite
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+|| status_id | int | true | 动态id||
+
+
+#调用实例
+http://192.168.41.5:8803/status/update_favorite?serverkey=s1&roleid=1&status_id=31
+
+#结果实例
+{"errno":"","message":"","data":true}
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 添加评论
+  * 接口地址: /status/create_comment
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+|| status_id | int | true | 动态id||
+|| content | string | true | 内容||
+|| reply_id | int | flase | 回复的评论id||
+
+
+#调用实例
+http://192.168.41.5:8803/status/create_comment?serverkey=s1&roleid=1&status_id=31&content=先发发大发&reply_id=0
+
+#结果实例
+{"errno":"","message":"","data":{"status_comment_id":"3","status_id":"31","roleid":"1","content":"\u5148\u53d1\u53d1\u5927\u53d1","status":"0","reply_id":"0","reply_roleid":"0","create_time":"1459860858","name":"\u6708\u4eae","avatar":"0","level":"0","reply_name":"","reply_avatar":"","reply_level":0}}
+
+#字段说明
+status_comment_id 评论id
+status_id 动态id
+roleid 角色id
+content 评论内容
+reply_id 回复评论id
+reply_roleid 回复角色id
+create_time 创建时间
+name 评论者名字
+avatar 评论者头像
+level 评论者等级
+reply_name 被回复人id
+reply_avatar 被回复人头像
+reply_level 被回复人等级
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 删除评论
+  * 接口地址: /status/destroy_comment
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+|| comment_id | int | true | 评论id||
+
+
+#调用实例
+http://192.168.41.5:8803/status/destroy_comment?serverkey=s1&roleid=1&comment_id=3
+
+#结果实例
+{"errno":"","message":"","data":true}
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 获取朋友圈新动态数
+  * 接口地址: /status/get_unread_count
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+
+
+#调用实例
+http://192.168.41.5:8803/status/get_unread_count?serverkey=s1&roleid=1
+
+#结果实例
+{"errno":"","message":"","data":0}
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 获取朋友圈新动态列表
+  * 接口地址: /status/fetch_unread_list
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 角色id ||
+
+#调用实例
+http://192.168.41.5:8803/status/fetch_unread_list?serverkey=s1&roleid=1
+
+#结果实例
+{"errno":"","message":"","data":[]}
+
+----------------------------------------------
+----------------------------------------------
+3.留言
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 发布新留言
+  * 接口地址: /bbs/create
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 当前角色 ||
+|| to_roleid | int | true | 目标角色 ||
+|| content | int | true | 留言内容 ||
+|| reply_id | int | true | 回复id ||
+|| gift_id | int | true | 礼物类型,1玫瑰花,2金兰花,3同心结 ||
+|| is_popularity | int | true | 是否踩一下 ||
+
+#调用实例
+http://192.168.41.5:8803/bbs/create?serverkey=s1&roleid=1&to_roleid=2&content=发发的发&reply_id=0&gift_id=0&is_popularity=0
+
+#结果实例
+{"errno":"","message":"","data":{"bbs_id":"2","roleid":"1","to_roleid":"2","status":"0","gift_id":"0","reply_id":"0","reply_roleid":"0","create_time":"1459862276","content":"\u53d1\u53d1\u7684\u53d1","name":"\u6708\u4eae","avatar":"0","level":"0","reply_name":"","reply_avatar":"","reply_level":0}}
+
+#字段说明
+bbs_id 留言id
+roleid 角色id
+to_roleid 被回复者角色id
+gift_id 礼物类型,0表无礼物,1玫瑰花,2金兰花,3同心结
+reply_id 回复的留言id
+reply_roleid 被回复的评论角色id
+content 留言内容
+name 留言者名字
+avatar 留言者头像
+level 留言者等级
+reply_name 被回复人id
+reply_avatar 被回复人头像
+reply_level 被回复人等级
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 删除留言
+  * 接口地址: /bbs/destroy
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 当前角色 ||
+|| bbs_id | int | true | 留言id ||
+
+#调用实例
+http://192.168.41.5:8803/bbs/destroy?serverkey=s1&roleid=1&bbs_id=2
+
+#结果实例
+{"errno":"","message":"","data":true}
+
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 留言列表
+  * 接口地址: /bbs/bbs_timeline
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 当前角色 ||
+|| page | int | true | 页面, 从1开始 ||
+
+
+#调用实例
+http://192.168.41.5:8803/bbs/bbs_timeline?serverkey=s1&roleid=1&page=1
+
+#结果实例
+{"errno":"","message":"","data":[{"bbs_id":"5","roleid":"1","to_roleid":"1","status":"0","gift_id":"0","reply_id":"0","reply_roleid":"0","create_time":"1459862401","content":"\u53d1\u53d1\u7684\u53d1","name":"\u6708\u4eae","avatar":"0","level":"0"}]}
+
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 增加人气记录列表
+  * 接口地址: /bbs/add_popularity
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 当前角色 ||
+|| to_roleid | int | true | 目标角色 ||
+|| is_get | int | true | 是否获得回馈,0非,1是 ||
+
+
+#调用实例
+http://192.168.41.5:8803/bbs/add_popularity?serverkey=s1&roleid=1&to_roleid=1
+
+#结果实例
+{"errno":"","message":"","data":true}
+
+#再次踩的返回值
+{"errno":"bbs_addpopularity_repeat","message":"bbs_addpopularity_repeat","data":null}
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 人气列表
+  * 接口地址: /bbs/popularity_timeline
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 当前角色 ||
+|| page | int | true | 页面, 从1开始 ||
+
+#调用实例
+http://192.168.41.5:8803/bbs/popularity_timeline?serverkey=s1&roleid=1&to_roleid=1
+
+#结果实例
+{"errno":"","message":"","data":[{"bbs_popularity_id":"1","roleid":"1","to_roleid":"1","status":"0","create_time":"1459862489","name":"\u6708\u4eae","avatar":"0","level":"0"}]}
+
+----------------------------------------------
+----------------------------------------------
+
+
+== 接口说明 ==
+  * 接口名称: 送礼物记录列表
+  * 接口地址: /bbs/gift_timeline
+
+== 接口参数 ==
+|| **名称** | **类型** |**必须**| **说明** ||
+|| serverkey | int/string | true | 区服 ||
+|| roleid | int | true | 当前角色 ||
+|| page | int | true | 页面, 从1开始 ||
+
+
+#调用实例
+http://192.168.41.5:8803/bbs/gift_timeline?serverkey=s1&roleid=1&to_roleid=1
+
+#结果实例
+{"errno":"","message":"","data":[]}
+
+
+
+
+

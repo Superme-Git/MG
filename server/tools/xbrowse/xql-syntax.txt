@@ -1,0 +1,41 @@
+XQL查询语句的结构如下：
+select from TABLE_NAME 	[where CONDITION]
+						[order by FIELD [asc | desc]]
+						[limit START_POSITION, COUNT];
+						
+XQL查询语句由必选部分和可选部分组成，其中必选部分为基本的查询语句，可选部分由条件、排序和部分结果提取组成。
+
+必选部分为select from TABLE_NAME，其中表名是xdb.xml中定义的数据库表（即非内存表）。
+
+条件语句where CONDITION，其中CONDITION是对结果进行过滤的条件，CONDITION可以是一个简单的条件语句，也可以
+是由两个或两个以上的简单条件语句通过逻辑运算符&&或||连接所得的组合条件语句。一个简单的条件语句即一条简单
+的关系运算语句，目前仅支持简单数据类型变量和简单数据类型常量之间进行关系运算操作。
+
+排序语句order by FIELD [asc | desc]，其中FIELD表示KEY或者VALUE中的某个子孙字段。排序分为降序排序和升序排序。
+asc表示按FIELD进行升序排序，desc表示按FIELD进行降序排序。如果省略asc和desc，则默认为asc。
+
+limit语句limit START_POSITION, COUNT，其中START_POSITION表示结果起始点，COUNT表示从该点开始所要提取的结果
+条数。
+
+查询语句例子：
+select from rankinglist where value.rolltime=12345678 && value.totalranking[0].inrankingtime=1234567;
+-----------------------------------------------------------------------------------------------------------
+XQL更新语句的结构如下：
+update TABLE_NAME set ASSIGN_LIST [where CONDITION]
+
+XQL更新语句由必选部分和可选部分组成，其中必选部分为基本的更新语句，可选部分则由条件组成
+
+必选部分为update TABLE_NAME set ASSIGN_LIST，其中ASSIGN_LIST由一个或多个赋值语句组成，多个赋值语句使用逗号
+隔开。
+
+更新语句例子：
+update rankinglist set value.rolltime=12345678, value.totalranking[0].inrankingtime=1234567 where key==8345;
+-----------------------------------------------------------------------------------------------------------
+XQL删除语句的结构如下：
+delete from TABLE_NAME [where CONDITION]
+
+XQL删除语句由必选部分和可选部分组成，其中必选部分为基本的删除语句，可选部分则由条件组成
+
+删除语句例子：
+delete from rankinglist where key == 8345;
+-----------------------------------------------------------------------------------------------------------

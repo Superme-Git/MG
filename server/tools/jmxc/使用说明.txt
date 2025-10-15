@@ -1,0 +1,14 @@
+jmxc工具，主要用来执行gm命令工具，对应的命令在runjmxc.bat中
+1.执行命令格式如下
+java -jar jmxc.jar "" "" "192.168.32.44" "1098" "GetMaxOnlineNum"
+
+说明：java -jar jmxc.jar 是执行对应的java程序，后面带的参数依次为  用户名 密码 ip 端口 执行的命令
+这里的用户名密码和端口是指jmx的
+
+对应的gm命令示例如下：
+1.添加等级
+java -jar jmxc.jar "" "" "192.168.32.44" "1098" "gm" "userId=9845" "roleId=4097" "addlevel#100"
+
+2.添加金币
+java -jar jmxc.jar "" "" "192.168.32.44" "1098" "gm" "userId=9845" "roleId=4097" "addgold#100"
+ 

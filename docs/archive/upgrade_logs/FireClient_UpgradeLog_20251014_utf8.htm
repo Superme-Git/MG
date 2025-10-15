@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+ <html xmlns:msxsl="urn:schemas-microsoft-com:xslt"><head><meta content="en-us" http-equiv="Content-Language" /><meta content="text/html; charset=utf-16" http-equiv="Content-Type" /><title _locID="ConversionReport0">
+          迁移报告
+        </title><style> 
+                    /* Body style, for the entire document */
+                    body
+                    {
+                        background: #F3F3F4;
+                        color: #1E1E1F;
+                        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    /* Header1 style, used for the main title */
+                    h1
+                    {
+                        padding: 10px 0px 10px 10px;
+                        font-size: 21pt;
+                        background-color: #E2E2E2;
+                        border-bottom: 1px #C1C1C2 solid; 
+                        color: #201F20;
+                        margin: 0;
+                        font-weight: normal;
+                    }
+
+                    /* Header2 style, used for "Overview" and other sections */
+                    h2
+                    {
+                        font-size: 18pt;
+                        font-weight: normal;
+                        padding: 15px 0 5px 0;
+                        margin: 0;
+                    }
+
+                    /* Header3 style, used for sub-sections, such as project name */
+                    h3
+                    {
+                        font-weight: normal;
+                        font-size: 15pt;
+                        margin: 0;
+                        padding: 15px 0 5px 0;
+                        background-color: transparent;
+                    }
+
+                    /* Color all hyperlinks one color */
+                    a
+                    {
+                        color: #1382CE;
+                    }
+
+                    /* Table styles */ 
+                    table
+                    {
+                        border-spacing: 0 0;
+                        border-collapse: collapse;
+                        font-size: 10pt;
+                    }
+
+                    table th
+                    {
+                        background: #E7E7E8;
+                        text-align: left;
+                        text-decoration: none;
+                        font-weight: normal;
+                        padding: 3px 6px 3px 6px;
+                    }
+
+                    table td
+                    {
+                        vertical-align: top;
+                        padding: 3px 6px 5px 5px;
+                        margin: 0px;
+                        border: 1px solid #E7E7E8;
+                        background: #F7F7F8;
+                    }
+
+                    /* Local link is a style for hyperlinks that link to file:/// content, there are lots so color them as 'normal' text until the user mouse overs */
+                    .localLink
+                    {
+                        color: #1E1E1F;
+                        background: #EEEEED;
+                        text-decoration: none;
+                    }
+
+                    .localLink:hover
+                    {
+                        color: #1382CE;
+                        background: #FFFF99;
+                        text-decoration: none;
+                    }
+
+                    /* Center text, used in the over views cells that contain message level counts */ 
+                    .textCentered
+                    {
+                        text-align: center;
+                    }
+
+                    /* The message cells in message tables should take up all avaliable space */
+                    .messageCell
+                    {
+                        width: 100%;
+                    }
+
+                    /* Padding around the content after the h1 */ 
+                    #content 
+                    {
+	                    padding: 0px 12px 12px 12px; 
+                    }
+
+                    /* The overview table expands to width, with a max width of 97% */ 
+                    #overview table
+                    {
+                        width: auto;
+                        max-width: 75%; 
+                    }
+
+                    /* The messages tables are always 97% width */
+                    #messages table
+                    {
+                        width: 97%;
+                    }
+
+                    /* All Icons */
+                    .IconSuccessEncoded, .IconInfoEncoded, .IconWarningEncoded, .IconErrorEncoded
+                    {
+                        min-width:18px;
+                        min-height:18px; 
+                        background-repeat:no-repeat;
+                        background-position:center;
+                    }
+
+                    /* Success icon encoded */
+                    .IconSuccessEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconSuccess#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABOElEQVR4XqVTIWvDQBh9HVWBwWzEYGow19KpQiBqrqKiYqpVkf0BcTX9ASdr2jBZMRFRe1CYysjcYDAoTIS5wCB6eXAXsjt2YezBme/73vfeF156MFBV1QLAHEBotCSAxPO8HVo4axGv6pfnn/k2lnEYPARoP9bY4wxnoUAHUIV8/bS+OLwf4MLsZobl7bIEMKzdnLSDR5GJTjKxf92Ds+SAJ/Dm2tqAjd8wuZ4gizKk92mzhBxy6WDOggvRKAKxed78cEIuF4THj6NT3T/3UXwVSN9SaChOyAV/ULfRhwHeScWVXIEw1C2YDqiklTvV9QIZXAZQoBIVqexUVxzJBQnDYbuAU11xEp1EpnBgBcmdxpc6iUOdxGk8jkvDSVeUp81HZKaZbW4Vd0LdZ9/MHmc4qzj49+/8DReTp9S7vY7uAAAAAElFTkSuQmCC);
+                    }
+
+                    /* Information icon encoded */
+                    .IconInfoEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconInformation#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABBElEQVR4Xs2TsYrCQBCG1wVFo3DXWHkHNvZJIdem8AXiA5i8xRXWFvcWiVibF7BIKxamtwmolY2FxsNrnF9GiVkSCGnuh2GL2e9nZvm3IlKK49ihw6YyU62AytM0zU0ClQTYpcNfHv50d3MRi/31hR50asLpNcRXuxoSYJFRxAZPeP29Or3Po1+RJ5iM9eaRMAMmkhv+JDwr8G70ea+kMB3uggEosfNj7BwpJmDAYgI7C/6YblGZJmBhYKYfTF1BFTOmFCX1PwwChKSomAlg4CEcRcWMJ5FtxHPYrReCwYCVDFg//dYRjcwcqFG2no/IH8OgRjgz33g/dWf0cAd3mRGlv/MNZL1xS4xD8eEAAAAASUVORK5CYII=);
+                    }
+
+                    /* Warning icon encoded */
+                    .IconWarningEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconWarning#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAx0lEQVR4XpWSMQ7CMAxFf4xAyBMLCxMrO8dhaBcuwdCJS3RJBw7SA/QGTCxdWJgiQYWKXJWKIXHIlyw5lqr34tQgEOdcBsCOx5yZK3hCCKdYXneQkh4pEfqzLfu+wVDSyyzFoJjfz9NB+pAF+eizx2Vruts0k15mPgvS6GYvpVtQhB61IB/dk6AF6fS4Ben0uIX5odtFe8Q/eW1KvFeH4e8khT6+gm5B+t3juyDt7n0jpe+CANTd+oTUjN/U3yVaABnSUjFz/gFq44JaVSCXeQAAAABJRU5ErkJggg==);
+                    }
+
+                    /* Error icon encoded */
+                    .IconErrorEncoded
+                    {
+                        /* Note: Do not delete the comment below. It is used to verify the correctness of the encoded image resource below before the product is released */
+                        /* [---XsltValidateInternal-Base64EncodedImage:IconError#Begin#background-image: url(data:image/png;base64,#Separator#);#End#] */
+                        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABP0lEQVR4XqWTvUoDQRSFr4NBWRAD+gA+gMXmDWJlFbC3iCBY2Qm2YmttKyhYaaFtGiPY2CWFD2BjEwiugkv8XecbcmHmEgTJgUs2371ndmY4OyNGZVluedD21TStW19nWZadKrDGFV+915tONdhsVU/LkhSMHjPMqi/sYAx6b3s79Y/Lc/lLc9u7kh0cFR40/G4e3ZhflYf7wVxbzUNZKX8/ORZm8cAdZ/66v8tpYFy67lLJIpYziwev48JGHsRyi3UdVnNgsfDg5fzpZTXz6rt4rhC/0TO9ZBbvrBh9PvRluLGWvPXnpYCFnpWTKWUXiM/Mm6n4TiYGqKvBMefn/0SmwcLriOe8D4fKnlnvBBYLD15NIinMNUjIXFjMNY19n8RGEmUSRkj+HWUeAKy6cNGR2npLrGD0mFEzfOrP+Rf4+xT8EskwMAAAAABJRU5ErkJggg==);
+                    }
+                 </style><script type="text/javascript" language="javascript"> 
+          
+            // Startup 
+            // Hook up the the loaded event for the document/window, to linkify the document content
+            var startupFunction = function() { linkifyElement("messages"); };
+            
+            if(window.attachEvent)
+            {
+              window.attachEvent('onload', startupFunction);
+            }
+            else if (window.addEventListener) 
+            {
+              window.addEventListener('load', startupFunction, false);
+            }
+            else 
+            {
+              document.addEventListener('load', startupFunction, false);
+            } 
+            
+            // Toggles the visibility of table rows with the specified name 
+            function toggleTableRowsByName(name)
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  if(!!currentName && currentName.indexOf(name) == 0)
+                  {
+                      var isVisible = allRows[i].style.display == ''; 
+                      isVisible ? allRows[i].style.display = 'none' : allRows[i].style.display = '';
+                  }
+               }
+            }
+            
+            function scrollToFirstVisibleRow(name) 
+            {
+               var allRows = document.getElementsByTagName('tr');
+               for (i=0; i < allRows.length; i++)
+               {
+                  var currentName = allRows[i].getAttribute('name');
+                  var isVisible = allRows[i].style.display == ''; 
+                  if(!!currentName && currentName.indexOf(name) == 0 && isVisible)
+                  {
+                     allRows[i].scrollIntoView(true); 
+                     return true; 
+                  }
+               }
+               
+               return false;
+            }
+            
+            // Linkifies the specified text content, replaces candidate links with html links 
+            function linkify(text)
+            {
+                 if(!text || 0 === text.length)
+                 {
+                     return text; 
+                 }
+
+                 // Find http, https and ftp links and replace them with hyper links 
+                 var urlLink = /(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.]+(:[a-zA-Z0-9]*)?\/?([a-zA-Z0-9\-\._\?\,\/\\\+&%\$#\=~;\{\}])*/gi;
+                 
+                 return text.replace(urlLink, '<a href="$&">$&</a>') ;
+            }
+            
+            // Linkifies the specified element by ID
+            function linkifyElement(id)
+            {
+                var element = document.getElementById(id);
+                if(!!element)
+                {
+                  element.innerHTML = linkify(element.innerHTML); 
+                }
+            }
+            
+            function ToggleMessageVisibility(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              toggleTableRowsByName("MessageRowClass" + projectName);
+              toggleTableRowsByName('MessageRowHeaderShow' + projectName);
+              toggleTableRowsByName('MessageRowHeaderHide' + projectName); 
+            }
+            
+            function ScrollToFirstVisibleMessage(projectName)
+            {
+              if(!projectName || 0 === projectName.length)
+              {
+                return; 
+              }
+              
+              // First try the 'Show messages' row
+              if(!scrollToFirstVisibleRow('MessageRowHeaderShow' + projectName))
+              {
+                // Failed to find a visible row for 'Show messages', try an actual message row 
+                scrollToFirstVisibleRow('MessageRowClass' + projectName); 
+              }
+            }
+           </script></head><body><h1 _locID="ConversionReport">
+          迁移报告 - </h1><div id="content"><h2 _locID="OverviewTitle">概述</h2><div id="overview"><table><tr><th></th><th _locID="ProjectTableHeader">项目</th><th _locID="PathTableHeader">路径</th><th _locID="ErrorsTableHeader">错误</th><th _locID="WarningsTableHeader">警告</th><th _locID="MessagesTableHeader">消息</th></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#cauthc">cauthc</a></strong></td><td>..\..\common\cauthc\projects\windows\cauthc.win32.vcxproj</td><td class="textCentered"><a href="#cauthcError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#cegui">cegui</a></strong></td><td>cegui</td><td class="textCentered"><a href="#ceguiError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#engine">engine</a></strong></td><td>engine</td><td class="textCentered"><a href="#engineError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#esUtil">esUtil</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\samples\gles2_book\Common\esUtil.vcxproj</td><td class="textCentered"><a href="#esUtilError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#FireClient">FireClient</a></strong></td><td>..\MT3Win32App\FireClient.win32.vcxproj</td><td class="textCentered"><a href="#FireClientError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libBox2D">libBox2D</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\Box2D\proj.win32\Box2D.win32.vcxproj</td><td class="textCentered"><a href="#libBox2DError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libchipmunk">libchipmunk</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\chipmunk\proj.win32\chipmunk.win32.vcxproj</td><td class="textCentered"><a href="#libchipmunkError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libcocos2d">libcocos2d</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\proj.win32\cocos2d-win32.vcxproj</td><td class="textCentered"><a href="#libcocos2dError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#liblua">liblua</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\lua\proj.win32\liblua.vcxproj</td><td class="textCentered"><a href="#libluaError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libogg">libogg</a></strong></td><td>..\..\dependencies\libogg-1.3.2\win32\VS2010\libogg_static.vcxproj</td><td class="textCentered"><a href="#liboggError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libspeex">libspeex</a></strong></td><td>..\..\dependencies\speex-1.2rc2\win32\VS2008\libspeex\libspeex.vcxproj</td><td class="textCentered"><a href="#libspeexError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libSpine">libSpine</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\libSpine\libSpine.vcxproj</td><td class="textCentered"><a href="#libSpineError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#libvorbis">libvorbis</a></strong></td><td>..\..\dependencies\libvorbis-1.3.5\win32\VS2010\libvorbis\libvorbis_static.vcxproj</td><td class="textCentered"><a href="#libvorbisError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#ljfm">ljfm</a></strong></td><td>..\..\common\ljfm\ljfm.win32.vcxproj</td><td class="textCentered"><a href="#ljfmError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#lua">lua</a></strong></td><td>..\..\common\lua\lua.win32.vcxproj</td><td class="textCentered"><a href="#luaError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#MT3">MT3</a></strong></td><td>..\MT3Win32App\mt3.win32.vcxproj</td><td class="textCentered"><a href="#MT3Error">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#pcre">pcre</a></strong></td><td>..\..\dependencies\pcre-8.31\pcre-8.31.win32.vcxproj</td><td class="textCentered"><a href="#pcreError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#platform">platform</a></strong></td><td>..\..\common\platform\platform.win32.vcxproj</td><td class="textCentered"><a href="#platformError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#preprocessor">preprocessor</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\src\compiler\preprocessor\preprocessor.vcxproj</td><td class="textCentered"><a href="#preprocessorError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#SILLY">SILLY</a></strong></td><td>..\..\dependencies\SILLY-0.1.0\SILLY-0.1.0.win32.vcxproj</td><td class="textCentered"><a href="#SILLYError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#translator_common">translator_common</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\src\compiler\translator_common.vcxproj</td><td class="textCentered"><a href="#translator_commonError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconErrorEncoded" /><td><strong><a href="#translator_hlsl">translator_hlsl</a></strong></td><td>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\src\compiler\translator_hlsl.vcxproj</td><td class="textCentered"><a href="#translator_hlslError">1</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#angelproject">angelproject</a></strong></td><td>angelproject</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#cocos2dx">cocos2dx</a></strong></td><td>cocos2dx</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#common">common</a></strong></td><td>common</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#">0</a></td></tr><tr><td class="IconSuccessEncoded" /><td><strong><a href="#Solution"><span _locID="OverviewSolutionSpan">解决方案</span></a></strong></td><td>FireClient.sln</td><td class="textCentered"><a>0</a></td><td class="textCentered"><a>0</a></td><td class="textCentered"><a href="#" onclick="ScrollToFirstVisibleMessage('Solution'); return false;">1</a></td></tr></table></div><h2 _locID="SolutionAndProjectsTitle">解决方案和项目</h2><div id="messages"><a name="cauthc" /><h3>cauthc</h3><table><tr id="cauthcHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasscauthc"><td class="IconErrorEncoded"><a name="cauthcError" /></td><td class="messageCell"><strong>..\..\common\cauthc\projects\windows\cauthc.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="cegui" /><h3>cegui</h3><table><tr id="ceguiHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasscegui"><td class="IconErrorEncoded"><a name="ceguiError" /></td><td class="messageCell"><strong>..\..\dependencies\cegui\project\win32\cegui.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="engine" /><h3>engine</h3><table><tr id="engineHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassengine"><td class="IconErrorEncoded"><a name="engineError" /></td><td class="messageCell"><strong>..\..\engine\engine.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="esUtil" /><h3>esUtil</h3><table><tr id="esUtilHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassesUtil"><td class="IconErrorEncoded"><a name="esUtilError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\samples\gles2_book\Common\esUtil.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="FireClient" /><h3>FireClient</h3><table><tr id="FireClientHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassFireClient"><td class="IconErrorEncoded"><a name="FireClientError" /></td><td class="messageCell"><strong>..\MT3Win32App\FireClient.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libBox2D" /><h3>libBox2D</h3><table><tr id="libBox2DHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibBox2D"><td class="IconErrorEncoded"><a name="libBox2DError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\Box2D\proj.win32\Box2D.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libchipmunk" /><h3>libchipmunk</h3><table><tr id="libchipmunkHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibchipmunk"><td class="IconErrorEncoded"><a name="libchipmunkError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\chipmunk\proj.win32\chipmunk.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libcocos2d" /><h3>libcocos2d</h3><table><tr id="libcocos2dHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibcocos2d"><td class="IconErrorEncoded"><a name="libcocos2dError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\proj.win32\cocos2d-win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="liblua" /><h3>liblua</h3><table><tr id="libluaHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassliblua"><td class="IconErrorEncoded"><a name="libluaError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\lua\proj.win32\liblua.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libogg" /><h3>libogg</h3><table><tr id="liboggHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibogg"><td class="IconErrorEncoded"><a name="liboggError" /></td><td class="messageCell"><strong>..\..\dependencies\libogg-1.3.2\win32\VS2010\libogg_static.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libspeex" /><h3>libspeex</h3><table><tr id="libspeexHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibspeex"><td class="IconErrorEncoded"><a name="libspeexError" /></td><td class="messageCell"><strong>..\..\dependencies\speex-1.2rc2\win32\VS2008\libspeex\libspeex.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libSpine" /><h3>libSpine</h3><table><tr id="libSpineHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibSpine"><td class="IconErrorEncoded"><a name="libSpineError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\libSpine\libSpine.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="libvorbis" /><h3>libvorbis</h3><table><tr id="libvorbisHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslibvorbis"><td class="IconErrorEncoded"><a name="libvorbisError" /></td><td class="messageCell"><strong>..\..\dependencies\libvorbis-1.3.5\win32\VS2010\libvorbis\libvorbis_static.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="ljfm" /><h3>ljfm</h3><table><tr id="ljfmHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassljfm"><td class="IconErrorEncoded"><a name="ljfmError" /></td><td class="messageCell"><strong>..\..\common\ljfm\ljfm.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="lua" /><h3>lua</h3><table><tr id="luaHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasslua"><td class="IconErrorEncoded"><a name="luaError" /></td><td class="messageCell"><strong>..\..\common\lua\lua.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="MT3" /><h3>MT3</h3><table><tr id="MT3HeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassMT3"><td class="IconErrorEncoded"><a name="MT3Error" /></td><td class="messageCell"><strong>..\MT3Win32App\mt3.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="pcre" /><h3>pcre</h3><table><tr id="pcreHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasspcre"><td class="IconErrorEncoded"><a name="pcreError" /></td><td class="messageCell"><strong>..\..\dependencies\pcre-8.31\pcre-8.31.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="platform" /><h3>platform</h3><table><tr id="platformHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassplatform"><td class="IconErrorEncoded"><a name="platformError" /></td><td class="messageCell"><strong>..\..\common\platform\platform.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="preprocessor" /><h3>preprocessor</h3><table><tr id="preprocessorHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasspreprocessor"><td class="IconErrorEncoded"><a name="preprocessorError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\src\compiler\preprocessor\preprocessor.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="SILLY" /><h3>SILLY</h3><table><tr id="SILLYHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClassSILLY"><td class="IconErrorEncoded"><a name="SILLYError" /></td><td class="messageCell"><strong>..\..\dependencies\SILLY-0.1.0\SILLY-0.1.0.win32.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="translator_common" /><h3>translator_common</h3><table><tr id="translator_commonHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasstranslator_common"><td class="IconErrorEncoded"><a name="translator_commonError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\src\compiler\translator_common.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="translator_hlsl" /><h3>translator_hlsl</h3><table><tr id="translator_hlslHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="ErrorRowClasstranslator_hlsl"><td class="IconErrorEncoded"><a name="translator_hlslError" /></td><td class="messageCell"><strong>..\..\cocos2d-2.0-rc2-x-2.0.1\cocos2dx\platform\third_party\winrt\angleproject\src\compiler\translator_hlsl.vcxproj:
+        </strong><span>找不到此项目类型所基于的应用程序。有关更多信息，请尝试此链接: http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</span></td></tr></table><a name="angelproject" /><h3>angelproject</h3><table><tr id="angelprojectHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr><td class="IconInfoEncoded" /><td class="messageCell" _locID="NoMessagesRow">angelproject 未记录任何消息。
+                  </td></tr></table><a name="cocos2dx" /><h3>cocos2dx</h3><table><tr id="cocos2dxHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr><td class="IconInfoEncoded" /><td class="messageCell" _locID="NoMessagesRow">cocos2dx 未记录任何消息。
+                  </td></tr></table><a name="common" /><h3>common</h3><table><tr id="commonHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr><td class="IconInfoEncoded" /><td class="messageCell" _locID="NoMessagesRow">common 未记录任何消息。
+                  </td></tr></table><a name="Solution" /><h3 _locID="ProjectDisplayNameHeader">解决方案</h3><table><tr id="SolutionHeaderRow"><th></th><th class="messageCell" _locID="MessageTableHeader">消息</th></tr><tr name="MessageRowHeaderShowSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="ShowAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          显示 1 其他消息
+        </a></td></tr><tr name="MessageRowClassSolution" style="display: none"><td class="IconInfoEncoded"><a name="SolutionMessage" /></td><td class="messageCell"><strong>FireClient.sln:
+        </strong><span>解决方案文件不需要迁移。</span></td></tr><tr style="display: none" name="MessageRowHeaderHideSolution"><td class="IconInfoEncoded" /><td class="messageCell"><a _locID="HideAdditionalMessages" href="#" name="SolutionMessage" onclick="ToggleMessageVisibility('Solution'); return false;">
+          隐藏 1 其他消息
+        </a></td></tr></table></div></div></body></html>

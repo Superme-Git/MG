@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议从23900-23930 -->
+<namespace name="hook">
+	
+	<bean name="HookDataUpdateEnum">
+		<enum name="HOOKDATA_CANGETDPOINT" value="0" /> 
+		<enum name="HOOKDATA_GETDPOINT" value="1" /> 
+		<enum name="HOOKDATA_ISAUTOBATTLE" value="2" /> 
+		<enum name="HOOKDATA_CHAROPTYPE" value="3" />
+		<enum name="HOOKDATA_CHAROPID" value="4" />
+		<enum name="HOOKDATA_PETOPTYPE" value="5" />
+		<enum name="HOOKDATA_PETOPID" value="6" />
+		<enum name="HOOKDATA_OFFLINEEXP" value="7" />
+	</bean>
+	
+	<bean name="HookGetDpointResEnum">
+		<enum name="GETDPOINTSUCC" value="0" />  领取成功
+		<enum name="GETDPOINTLIMIT" value="1" /> 到达领取上限，失败
+		<enum name="GETDPOINTFAIL" value="2" /> 其他失败原因
+	</bean>
+	
+	<bean name="HookFreeDpointResEnum">
+		<enum name="FREEDPOINTSUCC" value="0" />  领取成功
+		<enum name="FREEDPOINTFAIL" value="1" /> 领取失败
+	</bean>
+	
+	<bean name="HookMsg2ClientEnum">
+		<enum name="GETDPOINTSUCC" value="150151" />  领取成功
+		<enum name="GETDPOINTLIMIT" value="150152" /> 领取上限
+		<enum name="FREEDPOINTSUCC" value="150153" /> 冻结成功
+		<enum name="OFFLINEEXP" value="150156" /> 离线经验
+	</bean>
+	
+	<bean name="HookData"> 挂机数据
+		<variable name="cangetdpoint" type="short"/> 可领取双倍点数
+		<variable name="getdpoint" type="short"/>已领取双倍点数
+		<variable name="isautobattle" type="byte"/>是否自动战斗
+		<variable name="charoptype" type="short"/>人物操作类型
+		<variable name="charopid" type="int"/>人物操作id
+		<variable name="petoptype" type="short"/>宠物操作类型
+		<variable name="petopid" type="int"/>宠物操作类型
+		<variable name="offlineexp" type="long"/>离线经验
+	</bean>
+	
+	<bean name="HookBattleData"> 挂机战斗相关数据
+		<variable name="isautobattle" type="byte"/>是否自动战斗
+		<variable name="charoptype" type="short"/>人物操作类型
+		<variable name="charopid" type="int"/>人物操作id
+		<variable name="petoptype" type="short"/>宠物操作类型
+		<variable name="petopid" type="int"/>宠物操作类型
+	</bean>
+	
+	<bean name="HookExpData"> 挂机数据
+		<variable name="cangetdpoint" type="short"/> 可领取双倍点数
+		<variable name="getdpoint" type="short"/>已领取双倍点数
+		<variable name="offlineexp" type="long"/>离线经验
+	</bean>
+
+	<protocol name="SRefreshRoleHookData" type="23901" maxsize="65535"  prior="1" tolua="3" >  服务器刷新挂机数据
+		<variable name="RoleHookData" type="fire.pb.hook.HookData"/> 
+	</protocol>
+		
+    <protocol name="CSetAutoBattle" type="23902" maxsize="65535" prior="101" tolua="1">                      
+		<variable name="isautobattle" type="byte"/> 设置是否自动战斗
+	</protocol>
+
+    <protocol name="CSetCharOpt" type="23903" maxsize="65535" prior="101" tolua="3">                      
+		<variable name="charoptype" type="short"/> 设置人物操作类型
+		<variable name="charopid" type="int"/> 设置人物操作id
+	</protocol>
+	
+    <protocol name="CSetPetOpt" type="23904" maxsize="65535" prior="101" tolua="3">                      
+		<variable name="petoptype" type="short"/> 设置宠物操作类型
+		<variable name="petopid" type="int"/> 设置宠物操作id
+	</protocol>
+	
+    <protocol name="CGetDPoint" type="23905" maxsize="65535" prior="101" tolua="3">     	获取双倍点数                 
+	</protocol>
+	
+    <protocol name="CFreezeDPoint" type="23906" maxsize="65535" prior="101" tolua="3">    	冻结双倍点数
+	</protocol>
+	
+	<protocol name="SRefreshRoleHookBattleData" type="23907" maxsize="65535"  prior="1" tolua="3" >  服务器刷新挂机战斗相关数据
+		<variable name="RoleHookBattleData" type="fire.pb.hook.HookBattleData"/> 
+	</protocol>
+	
+	<protocol name="SRefreshRoleHookExpData" type="23908" maxsize="65535"  prior="1" tolua="3" >  服务器刷新挂机经验相关数据
+		<variable name="RoleHookExpData" type="fire.pb.hook.HookExpData"/> 
+	</protocol>
+	
+	<protocol name="CSetRoleFightAI" type="23909" maxsize="128"  prior="101" tolua="3" >  设置人物战斗ai
+		<variable name="fightaiids" type="vector" value="int"/>
+	</protocol>
+	<protocol name="CGetRoleFightAI" type="23910" maxsize="128"  prior="101" tolua="3" >  获取人物战斗ai
+	</protocol>
+	<protocol name="SFlushRoleFightAI" type="23911" maxsize="128"  prior="101" tolua="3" >  刷新人物战斗ai
+		<variable name="fightaiids" type="vector" value="int"/>
+	</protocol>
+	
+	<protocol name="CClientLockScreen" type="23912" maxsize="10"  prior="1" tolua="3" >  机器锁屏通知服务器
+		<variable name="lock" type="byte"/> 
+	</protocol>
+	
+    <protocol name="CBuyDPoint" type="23913" maxsize="65535" prior="101" tolua="3">     	购买双倍点数                 
+	</protocol>
+
+</namespace>

@@ -1,0 +1,40 @@
+
+enum eMapWalkerType
+{
+	eMapWalkerType_Normal,		//普通的寻路至某点
+	eMapWalkerType_JumpPoint,	//寻路至跳转点
+	eMapWalkerType_VisiteNpc,	//寻路至npc
+	eMapWalkerType_OpenPack,	//寻路至目的点自动打开包裹栏
+	eMapWalkerType_ReturnTeam,	//自动归队寻路
+};
+
+class MapWalker
+{
+	MapWalker();
+
+	void SetTarget(int x,int y,int mapId,int npcid,int chefu=0,bool returnteam=false,bool blinkfindpath=false,int64_t npckey=0);
+	
+	void CrossGoTo();
+
+	//避免寻路到跳转点
+	bool CheckTarget(const int& x, const int &y, const int& mapid);
+
+	void RunPacing();
+	bool CanGoTo(const int& mapid);
+	void ClearGoTo(bool bfinishgoto = false, bool clearTreasureInfo = false);
+	bool GetAStarState();
+	void SetAStarState(bool bOn);
+
+	int	 GetTargetMapID();
+	eMapWalkerType GetMapWalkerType();
+
+	bool IsThroughChefu();
+	bool IsThroughLinanTrans();
+	bool IsThroughFamilyManager();
+
+	Nuclear::NuclearLocation GetTargetPos();
+
+	Nuclear::NuclearLocation GetCurrentMapTarget();
+
+	int  GetFactionTargetMapID();
+};

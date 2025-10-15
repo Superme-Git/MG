@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="title">
+	 <protocol name="GNotifyTitle" type="12001" maxsize="65535" prior="1">  <!---->
+		<variable name="roleid" type="long"/>
+		<variable name="title" type="fire.msp.showtitleinfo"/>
+	 </protocol>
+</namespace>	

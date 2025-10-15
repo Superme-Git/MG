@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="message">	
+				
+		<bean name="CMessageTip" from="客户端提示信息表/客户端提示" genxml="client" priority="1">
+			<variable name="id" fromCol="ID" type="int" />
+			<variable name="type" fromCol="提示对话框类型" type="String" />
+			<variable name="msg" fromCol="提示内容" type="String" />
+		</bean>	
+		
+		
+		<bean name="SStringRes" from="客户端提示信息表/程序内字符串-服务器" genxml="server" priority="1">
+			<variable name="id" fromCol="ID" type="int" />
+			<variable name="msg" fromCol="字符串" type="string" />
+		</bean>	
+		
+		<bean name="CStringRes" from="客户端提示信息表/程序内字符串" genxml="client" priority="1" gencode="mtlua">
+			<variable name="id" fromCol="ID" type="int" />
+			<variable name="msg" fromCol="字符串" type="string" />
+		</bean>	
+		
+
+		
+
+		
+	</namespace>

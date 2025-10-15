@@ -1,0 +1,10 @@
+"编号","等级","功能","图标icon","跳转编号","描述","功能开启序号"
+"1","0","升级","set:mainui image:main_active","2","参加活动提升等级",
+"2","0","技能","set:mainui image:main_skill","1","人物技能升级","4"
+"3","14","助战","set:mainui image:main_helper","3","解锁，搭配阵容","6"
+"4","10","队伍","set:fightui image:team","4","组队再来挑战","0"
+"5","0","宠物","set:fightui image:pet_claw","5","洗练，合宠，打书","1"
+"6","31","装备强化","set:mainui image:main_streng1","6","打造，合成","11"
+"7","33","装备镶嵌","set:mainui image:main_streng1","7","宝石镶嵌，替换","12"
+"8","45","修炼","set:siwangtixing image:zhuanjing","8","提升修炼等级","17"
+"9","40","宝石合成","set:mainui image:main_streng1","9","合成更高级宝石","18"

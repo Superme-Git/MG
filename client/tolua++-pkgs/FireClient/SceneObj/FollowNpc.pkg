@@ -1,0 +1,19 @@
+class FollowNpc : public Npc
+{
+public:
+	FollowNpc();
+	virtual ~FollowNpc();
+
+public:
+	bool Init(int nTableId, int index, const int& basedata);
+	virtual	bool SetAttribute(stNpcData* pData);
+
+	virtual void Run(int now,int delta);
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+	virtual bool PlayAction(eActionType actionType, float freq);
+	virtual void StopMove();
+
+	int GetFollowNumber();
+	void SetFollowTarget(FollowNpc* pNpc);
+	void RunFollow();
+};

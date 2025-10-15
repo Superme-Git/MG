@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ogg_dynamic", "ogg_dynamic.vcxproj", "{392B1105-3060-4D45-93CB-B009FB3B657D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ogg_static", "ogg_static.vcxproj", "{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{392B1105-3060-4D45-93CB-B009FB3B657D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{392B1105-3060-4D45-93CB-B009FB3B657D}.Debug|Win32.Build.0 = Debug|Win32
+		{392B1105-3060-4D45-93CB-B009FB3B657D}.Release|Win32.ActiveCfg = Release|Win32
+		{392B1105-3060-4D45-93CB-B009FB3B657D}.Release|Win32.Build.0 = Release|Win32
+		{392B1105-3060-4D45-93CB-B009FB3B657D}.Template|Win32.ActiveCfg = Release|Win32
+		{392B1105-3060-4D45-93CB-B009FB3B657D}.Template|Win32.Build.0 = Release|Win32
+		{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}.Debug|Win32.Build.0 = Debug|Win32
+		{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}.Release|Win32.ActiveCfg = Release|Win32
+		{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}.Release|Win32.Build.0 = Release|Win32
+		{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}.Template|Win32.ActiveCfg = Template|Win32
+		{BFEE7AC9-F47F-47D1-B28A-769FC948F94B}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

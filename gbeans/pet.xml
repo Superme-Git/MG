@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="pet">
+		<bean name="PetColumnConfig" from="c宠物相关/c宠物格子数量表" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="initsize" type="int" fromCol="初始容量" />
+			<variable name="tablename" fromCol="服务器名字"  type="String" /> 数据库表名
+			<variable name="maxsize" type="int" fromCol="最大容量" />
+		</bean>
+
+		<bean name="SkillRate">
+			<variable name="skillid" type="int" fromCol="技能1,技能2,技能3,技能4,技能5" />
+			<variable name="rate" type="int" fromCol="出现几率1,出现几率2,出现几率3,出现几率4,出现几率5" />
+		</bean>
+
+		<bean name="PetAttr" from="c宠物相关/c宠物基本数据" genxml="server">
+			<variable name="id" type="int" fromCol="编号" /> id
+			<variable name="name" type="string" fromCol="名称" />
+			<variable name="colour" type="string" fromCol="名称颜色" />
+			<variable name="quality" type="int" fromCol="宠物品质" />
+			<variable name="unusualid" type="int" fromCol="是否稀有" />
+			<variable name="uselevel" type="int" fromCol="参战等级"/>
+			<variable name="takelevel" type="int" fromCol="携带等级" />
+			<variable name="initlevel" type="int" fromCol="初始等级" />
+			<variable name="kind" type="int" fromCol="类型" />
+			<variable name="life" type="int" fromCol="初始寿命" />
+			<variable name="shape" type="int" fromCol="造型id" />
+			<variable name="SellPetIcon" type="int" fromCol="售卖图标ID" />
+			<variable name="attackaptmin" type="int" fromCol="攻资最小值" />
+			<variable name="attackaptmax" type="int" fromCol="攻资最大值" />	
+			<variable name="defendaptmin" type="int" fromCol="防资最小值" />
+			<variable name="defendaptmax" type="int" fromCol="防资最大值" />		
+			<variable name="phyforceaptmin" type="int" fromCol="体资最小值" />	
+			<variable name="phyforceaptmax" type="int" fromCol="体资最大值" />	
+			<variable name="magicaptmin" type="int" fromCol="法资最小值" />	
+			<variable name="magicaptmax" type="int" fromCol="法资最大值" />	
+			<variable name="speedaptmin" type="int" fromCol="速资最小值" />
+			<variable name="speedaptmax" type="int" fromCol="速资最大值" />			
+			<variable name="attackaptconst" type="int" fromCol="攻资固定值" />
+			<variable name="defendaptconst" type="int" fromCol="防资固定值" />
+			<variable name="phyforceaptconst" type="int" fromCol="体资固定值" />
+			<variable name="magicaptconst" type="int" fromCol="法资固定值" />
+			<variable name="speedaptconst" type="int" fromCol="速资固定值" />
+			<variable name="healgrow" type="double" fromCol="治疗强度成长" />
+			<variable name="ctrlhitgrow" type="double" fromCol="控制命中成长" />
+			<variable name="ctrlresistgrow" type="double" fromCol="控制抗性成长" />
+			<variable name="growrate" type="vector" value="int" fromCol="成长率1,成长率2,成长率3,成长率4,成长率5,成长率6,成长率7" />
+			<variable name="growrateconst" type="int" fromCol="固定成长率" />
+			<variable name="addpoint" type="vector" value="int" fromCol="推荐体质,推荐智力,推荐力量,推荐耐力,推荐敏捷" />
+			<variable name="skills" type="vector" value="SkillRate" />
+			<variable name="initPoint" type="int" fromCol="初始属性点" />
+			<variable name="initPointAssignType" type="int" fromCol="初始属性分配类型" />
+			<variable name="washitemid" type="int" fromCol="洗宠消耗材料ID" />
+			<variable name="washitemnum" type="int" fromCol="洗宠消耗材料数量" />
+			<variable name="washnewpetid" type="string" fromCol="洗练后ID" /> 洗练后的新宠ID
+			<variable name="certificationcost" type="int" fromCol="技能认证花费银币" />
+			<variable name="cancelcertificationcost" type="int" fromCol="取消认证花费银币" />
+			<variable name="extAi" type="int" fromCol="辅助AI" />
+			<variable name="treasureScore" type="int" fromCol="珍品评分" />
+            <variable name="treasureskillnums" type="int" fromCol="珍品需要技能数" />
+			<variable name="sellPrice" type="int" fromCol="宠物回收价格" />
+			<variable name="washcount" type="int" fromCol="多少次变成满技能" />
+			<variable name="colorselect" type="string" fromCol="染色方案选择" />
+			<variable name="marketfreezetime" type="int" fromCol="摆摊冻结时间" />
+			<variable name="isbindskill1" type="int" fromCol="技能1是否绑定" />
+			<variable name="isbindskill2" type="int" fromCol="技能2是否绑定" />
+			<variable name="isbindskill3" type="int" fromCol="技能3是否绑定" />
+			<variable name="isbindskill4" type="int" fromCol="技能4是否绑定" />
+			<variable name="isbindskill5" type="int" fromCol="技能5是否绑定" />
+			<variable name="recovercost" type="int" fromCol="珍品找回消耗" />
+		</bean>
+
+		<bean name="CPetAttr" from="c宠物相关/c宠物基本数据" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号" />
+			<variable name="name" type="string" fromCol="名称" />
+			<variable name="colour" type="string" fromCol="名称颜色" />
+			<variable name="quality" type="int" fromCol="宠物品质" />
+			<variable name="unusualid" type="int" fromCol="是否稀有" />
+			<variable name="modelid" type="int" fromCol="造型id" />
+			<variable name="whethershow" type="int" fromCol="图鉴是否显示" />
+			<variable name="kind" type="int" fromCol="类型" />
+			<variable name="uselevel" type="int" fromCol="参战等级" />
+			<variable name="takelevel" type="int" fromCol="携带等级" />
+			<variable name="area1colour" fromCol="area1colour"  type="int"     />
+			<variable name="area2colour" fromCol="area2colour"  type="int"     />
+			<variable name="life" type="int" fromCol="初始寿命" />
+			<variable name="attackaptmin" type="int" fromCol="攻资最小值" />
+			<variable name="attackaptmax" type="int" fromCol="攻资最大值" />	
+			<variable name="defendaptmin" type="int" fromCol="防资最小值" />
+			<variable name="defendaptmax" type="int" fromCol="防资最大值" />		
+			<variable name="phyforceaptmin" type="int" fromCol="体资最小值" />	
+			<variable name="phyforceaptmax" type="int" fromCol="体资最大值" />	
+			<variable name="magicaptmin" type="int" fromCol="法资最小值" />	
+			<variable name="magicaptmax" type="int" fromCol="法资最大值" />	
+			<variable name="speedaptmin" type="int" fromCol="速资最小值" />
+			<variable name="speedaptmax" type="int" fromCol="速资最大值" />
+			<variable name="growrate" type="vector" value="int" fromCol="成长率1,成长率2,成长率3,成长率4,成长率5,成长率6,成长率7" />
+			<variable name="addpoint" type="vector" value="int" fromCol="推荐体质,推荐智力,推荐力量,推荐耐力,推荐敏捷" />
+			<variable name="skillid" type="vector" value="int" fromCol="技能1,技能2,技能3,技能4,技能5" />
+			<variable name="skillrate" type="vector" value="int" fromCol="出现几率1,出现几率2,出现几率3,出现几率4,出现几率5" />
+			<variable name="washitemid" type="int" fromCol="洗宠消耗材料ID" />
+			<variable name="washitemnum" type="int" fromCol="洗宠消耗材料数量" />
+			<variable name="washnewpetid" type="string" fromCol="洗练后ID" /> 洗练后的新宠ID
+			<variable name="certificationcost" type="int" fromCol="技能认证花费银币" />
+			<variable name="cancelcertificationcost" type="int" fromCol="取消认证花费银币" />
+			<variable name="thewildid" type="int" fromCol="对应野生ID" />
+			<variable name="thebabyid" type="int" fromCol="对应宝宝ID" />
+			<variable name="thebianyiid" type="int" fromCol="对应变异ID" />
+			<variable name="bornmapid" type="int" fromCol="可出现场景地图ID" />
+			<variable name="bornmapdes" type="string" fromCol="出现场景描述" />
+			<variable name="treasureScore" type="int" fromCol="珍品评分" />
+			<variable name="nshoptype" type="int" fromCol="售卖商店类型" />
+			<variable name="nshopnpcid" type="int" fromCol="售卖NPCID" />
+		    <variable name="treasureskillnums" type="int" fromCol="珍品需要技能数" />
+			<variable name="nskillnumfull" type="int" fromCol="多少次变成满技能" />
+			<variable name="dyelist" type="string" fromCol="染色方案选择" />
+			<variable name="marketfreezetime" type="int" fromCol="摆摊冻结时间" />
+			<variable name="isbindskill" type="vector" value="int" fromCol="技能1是否绑定,技能2是否绑定,技能3是否绑定,技能4是否绑定,技能5是否绑定" />
+			<variable name="pointcardisshow" type="int" fromCol="点卡服图鉴是否显示" />
+			<variable name="pointcardbornmapid" type="int" fromCol="点卡服可出现场景地图ID" />
+			<variable name="pointcardbornmapdes" type="string" fromCol="点卡服出现场景描述" />
+		</bean>
+
+		<bean name="PetAttrModData" from="c宠物相关/c宠物一级属性转换表" genxml="server">
+			<variable name="id" type="int" fromCol="属性ID" /> 二级属性ID
+			<variable name="consfactor" type="double" fromCol="体质" />
+			<variable name="iqfactor" type="double" fromCol="智力" />
+			<variable name="strfactor" type="double" fromCol="力量" />
+			<variable name="endufactor" type="double" fromCol="耐力" />
+			<variable name="agifactor" type="double" fromCol="敏捷" />
+		</bean>
+
+		<bean name="CPetAttrModData" from="c宠物相关/c宠物一级属性转换表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="属性ID" /> 二级属性ID
+			<variable name="consfactor" type="double" fromCol="体质" />
+			<variable name="iqfactor" type="double" fromCol="智力" />
+			<variable name="strfactor" type="double" fromCol="力量" />
+			<variable name="endufactor" type="double" fromCol="耐力" />
+			<variable name="agifactor" type="double" fromCol="敏捷" />
+		</bean>
+
+		<bean name="PetNextExp" from="c宠物相关/c宠物升级经验表" genxml="server">
+			<variable name="id" type="int" fromCol="当前等级" />
+			<variable name="exp" type="int" fromCol="下级经验" />
+		</bean>
+
+		<bean name="CPetNextExp" from="c宠物相关/c宠物升级经验表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="当前等级" />
+			<variable name="exp" type="int" fromCol="下级经验" />
+		</bean>
+
+		<bean name="PetResetPointConfig" from="c宠物相关/c宠物属性重置消耗" genxml="server">
+			<variable name="id" type="int" fromCol="次数" /> 重置次数
+			<variable name="cost" type="int" fromCol="消耗" />
+		</bean>
+
+		<bean name="CPetResetPointConfig" from="c宠物相关/c宠物属性重置消耗" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="次数" /> 重置次数
+			<variable name="cost" type="int" fromCol="消耗" />
+		</bean>
+
+		<bean name="PetSynthesizeSkillRateConfig" from="c宠物相关/c宠物合成技能几率表" genxml="server">
+			<variable name="id" type="int" fromCol="技能库数量" /> 技能数量
+			<variable name="value" type="int" fromCol="继承权重" />
+		</bean>
+
+		<bean name="PetLearnSkillRateConfig" from="c宠物相关/c宠物打书几率表" genxml="server">
+			<variable name="id" type="int" fromCol="当前技能数" /> 当前技能数量
+			<variable name="rate" type="double" fromCol="增加技能概率" />
+		</bean>
+
+		<bean name="CPetFeedItemList" from="c宠物相关/c宠物培养显示表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="排序" />
+			<variable name="itemid" type="int" fromCol="道具ID" />
+		</bean>
+
+		<bean name="SPetDepotPrice" from="c宠物相关/c宠物仓库扩充价格" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="num" type="int" fromCol="已有宠物仓库数量"/>
+			<variable name="nextneedmoney" type="int" fromCol="扩充所需银币数"/>
+		</bean>
+
+		<bean name="CPetDepotPrice" from="c宠物相关/c宠物仓库扩充价格" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="num" type="int" fromCol="已有宠物仓库数量"/>
+			<variable name="nextneedmoney" type="int" fromCol="扩充所需银币数"/>
+		</bean>
+
+		<bean name="CPetFeedItemAttr" from="d道具表/d道具表-复合/c宠物物品表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号" />
+			<variable name="addpetexp" type="int" fromCol="增加宠物经验" />
+			<variable name="addpetlife" type="int" fromCol="增加宠物寿命" />
+		</bean>
+
+		<bean name="CPetFeedItemAttr_PointCard" from="D点卡服表格/DMT3道具表-复合/DMT3宠物物品表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号" />
+			<variable name="addpetexp" type="int" fromCol="增加宠物经验" />
+			<variable name="addpetlife" type="int" fromCol="增加宠物寿命" />
+		</bean>
+
+
+		<bean name="CFoodItemAttr" from="d道具表/d道具表-复合/s食品表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="addpetlife" type="string" fromCol="增加宠物寿命"/>
+		</bean>
+
+		<bean name="CFoodItemAttr_PointCard" from="D点卡服表格/DMT3道具表-复合/DMT3食品表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号"/>2016/6/27 星期一
+			<variable name="addpetlife" type="string" fromCol="增加宠物寿命"/>
+		</bean>
+		
+		<bean name="SShenShouInc" from="c宠物相关/c宠物灵兽提升" genxml="server">
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="petid" type="int" fromCol="宠物id"/>
+			<variable name="inccount" type="int" fromCol="提升次数"/>
+			<variable name="attinc" type="int" fromCol="成长提升"/>
+			<variable name="atkinc" type="int" fromCol="攻击资质提升"/>
+			<variable name="definc" type="int" fromCol="防御资质提升"/>
+			<variable name="hpinc" type="int" fromCol="体力资质提升"/>
+			<variable name="mpinc" type="int" fromCol="法力资质提升"/>
+			<variable name="spdinc" type="int" fromCol="速度资质提升"/>
+			<variable name="inclv" type="int" fromCol="提升等级"/>
+		</bean>
+		
+		<bean name="CShenShouInc" from="c宠物相关/c宠物灵兽提升" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="petid" type="int" fromCol="宠物id"/>
+			<variable name="inccount" type="int" fromCol="提升次数"/>
+			<variable name="attinc" type="int" fromCol="成长提升"/>
+			<variable name="atkinc" type="int" fromCol="攻击资质提升"/>
+			<variable name="definc" type="int" fromCol="防御资质提升"/>
+			<variable name="hpinc" type="int" fromCol="体力资质提升"/>
+			<variable name="mpinc" type="int" fromCol="法力资质提升"/>
+			<variable name="spdinc" type="int" fromCol="速度资质提升"/>
+			<variable name="inclv" type="int" fromCol="提升等级"/>
+		</bean>
+	</namespace>

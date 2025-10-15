@@ -1,0 +1,4 @@
+class RichEditboxEmotionComponent : public RichEditboxComponent
+{
+	
+};

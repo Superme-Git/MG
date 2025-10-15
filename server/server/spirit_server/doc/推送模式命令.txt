@@ -1,0 +1,37 @@
+
+
+UPZGZX7PQW_FRD-W
+
+
+
+//推送php代码
+rsync -zvaP --port 40212 --delete /APP/user00/webroot/ rsync@192.168.34.45::webroot --log-file=/var/log/rsync.log
+rsync -zvaP --port 40212 --delete /APP/user00/webroot/ rsync@192.168.34.46::webroot --log-file=/var/log/rsync.log
+
+
+
+
+//推送xunsearch索引文件, 标题
+rsync -zvaP --port 40212 --delete /APP/user00/xunsearch/data/mt3_jingling/db/ rsync@192.168.34.45::xunserarchdata  --log-file=/var/log/rsync.log
+rsync -zvaP --port 40212 --delete /APP/user00/xunsearch/data/mt3_jingling/db/ rsync@192.168.34.46::xunserarchdata  --log-file=/var/log/rsync.log
+
+//推送xunsearch索引文件, keyword
+rsync -zvaP --port 40212 --delete /APP/user00/xunsearch/data/mt3_jingling_keyword/db/ rsync@192.168.34.46::xunserarchdata_keyword  --log-file=/var/log/rsync.log
+rsync -zvaP --port 40212 --delete /APP/user00/xunsearch/data/mt3_jingling_keyword/db/ rsync@192.168.34.45::xunserarchdata_keyword  --log-file=/var/log/rsync.log
+
+//推送xunsearch配置文件
+rsync -zvaP --port 40212 --delete /APP/user00/xunsearch/sdk/ rsync@192.168.34.45::xunserarchsdk  --log-file=/var/log/rsync.log
+rsync -zvaP --port 40212 --delete /APP/user00/xunsearch/sdk/ rsync@192.168.34.46::xunserarchsdk  --log-file=/var/log/rsync.log
+
+
+
+
+
+
+/APP/user00/xunsearch/data
+改成
+/APP/user00/xunsearch/data/mt3_jingling/db
+/APP/user00/xunsearch/data/mt3_jingling_keyword/db
+
+
+

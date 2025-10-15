@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <server gsip="172.20.54.11" gsjmxport1="29023" gsjmxport2="31623"
+        link="qinyoutiyanfu.link.mhsd.locojoylink.com"
+        linkport="28993-29000" name="测试大区-亲友体验服" port1="27001"
+        port2="31623" server="127.0.0.1" zoneid="2600"/>
+</data>

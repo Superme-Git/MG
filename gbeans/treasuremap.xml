@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="treasuremap"> 
+		<bean name="CAwardResultConfig" from="k开奖配置文件/k开奖结果配置" genxml="client" gencode="mtlua"> 
+			  <variable name="id" type="int" fromCol="ID" /> 
+			  <variable name="propertyId" type="int" fromCol="道具id" />
+			  <variable name="result" fromCol="开奖结果" type="string" /> 
+		</bean>
+		<bean name="CAwardResultConfigPay" from="D点卡服表格/k开奖配置文件/k开奖结果配置" genxml="client" gencode="mtlua"> 
+			  <variable name="id" type="int" fromCol="ID" /> 
+			  <variable name="propertyId" type="int" fromCol="道具id" />
+			  <variable name="result" fromCol="开奖结果" type="string" /> 
+		</bean>	
+		<bean name="CAwardConfig" from="k开奖配置文件/k开奖奖励表" genxml="client" gencode="mtlua"> 
+			  <variable name="id" type="int" fromCol="编号" />
+			  <variable name="money" fromCol="银币奖励" type="string" />
+			  <variable name="awardGroupId" fromCol="奖励ID" type="int" />
+			  <variable name="awardId" fromCol="道具"  type="string"  />
+			  <variable name="noticeAwardId" fromCol="公告物品id" type="string" /> 
+			  <variable name="noticeId" fromCol="公告提示编号" type="int" /> 
+			  <variable name="propertyNoticeId" fromCol="获得道具自己系统提示" type="int" /> 
+			  <variable name="silverNoticeId" fromCol="获得银币自己系统提示" type="int" /> 		  
+		</bean>
+		<bean name="CAwardConfigPay" from="D点卡服表格/k开奖配置文件/k开奖奖励表" genxml="client" gencode="mtlua"> 
+			  <variable name="id" type="int" fromCol="编号" />
+			  <variable name="money" fromCol="银币奖励" type="string" />
+			  <variable name="awardGroupId" fromCol="奖励ID" type="int" />
+			  <variable name="awardId" fromCol="道具"  type="string"  />
+			  <variable name="noticeAwardId" fromCol="公告物品id" type="string" /> 
+			  <variable name="noticeId" fromCol="公告提示编号" type="int" /> 
+			  <variable name="propertyNoticeId" fromCol="获得道具自己系统提示" type="int" /> 
+			  <variable name="silverNoticeId" fromCol="获得银币自己系统提示" type="int" /> 		  
+		</bean>
+		<bean name="CEventConfig" from="k开奖配置文件/k开奖事件表" genxml="client" gencode="mtlua"> 
+			  <variable name="id" type="int" fromCol="事件ID" /> 
+			  <variable name="name" fromCol="名称" type="string" />
+			  <variable name="iconId" fromCol="图标" type="int" />
+			  <variable name="type" fromCol="类型" type="int" />
+			  <variable name="enermyId" fromCol="事件刷怪组ID" type="int" />
+			  <variable name="battleId" fromCol="战斗ID" type="int" />
+			  <variable name="battleAward" fromCol="战斗奖励" type="string" />
+			  <variable name="skillId" fromCol="技能ID" type="int" />
+			  <variable name="personalNoticeId" fromCol="自己系统提示" type="int" />
+			  <variable name="noticeId" fromCol="全服通告提示" type="int" />
+		</bean>	
+		<bean name="CEventConfigPay" from="D点卡服表格/k开奖配置文件/k开奖事件表" genxml="client" gencode="mtlua"> 
+			  <variable name="id" type="int" fromCol="事件ID" /> 
+			  <variable name="name" fromCol="名称" type="string" />
+			  <variable name="iconId" fromCol="图标" type="int" />
+			  <variable name="type" fromCol="类型" type="int" />
+			  <variable name="enermyId" fromCol="事件刷怪组ID" type="int" />
+			  <variable name="battleId" fromCol="战斗ID" type="int" />
+			  <variable name="battleAward" fromCol="战斗奖励" type="string" />
+			  <variable name="skillId" fromCol="技能ID" type="int" />
+			  <variable name="personalNoticeId" fromCol="自己系统提示" type="int" />
+			  <variable name="noticeId" fromCol="全服通告提示" type="int" />
+		</bean>			
+	</namespace>

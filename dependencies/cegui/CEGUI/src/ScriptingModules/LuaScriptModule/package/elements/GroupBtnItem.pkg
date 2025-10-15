@@ -1,0 +1,45 @@
+class GroupBtnItem 
+{
+public:
+	void addItem(CEGUI::GroupBtnItem* item);
+	GroupBtnItem* addItem(const String& text, unsigned int item_id = 0,colour boardcol = CEGUI::colour(0xFF5F4100), void* item_data = 0);
+    CEGUI::ColourRect getTextColours(void) const;
+    void setFont(const CEGUI::String& font_name);
+	void setTextColours(const CEGUI::ColourRect& cols);
+    void setTextColours(colour top_left_colour, colour top_right_colour, colour bottom_left_colour, colour bottom_right_colour);
+    void setTextColours(colour col);
+	void setBoardColor(CEGUI::colour boardColor);
+	void setHoverColours(const CEGUI::ColourRect& cols);
+
+    const string& getText() const;
+    const string& getTextVisual() const;
+    const string& getTooltipText(void) const;
+ 
+	void seNormalImage(const CEGUI::String& imageset, const CEGUI::String& image);
+	void setSelectionImage(const CEGUI::String& imageset, const CEGUI::String& image);
+	void setOpenImage(const CEGUI::String& imageset, const CEGUI::String& image);
+	void setHoverImage(const CEGUI::String& imageset, const CEGUI::String& image);
+	unsigned int getItemCount(void) const;
+	unsigned int getID(void) const;
+
+    bool isSelected(void) const;
+    bool isDisabled(void) const;
+
+    CEGUI::ColourRect getSelectionColours(void) const;
+
+	CEGUI::GroupBtnItem *getTreeItemFromIndex(unsigned int itemIndex);
+	void RemoveChildrenItems();
+	void removeItem(const GroupBtnItem* item);
+	void setText(const String& text);
+	void setTooltipText(const CEGUI::String& text);
+	bool getIsOpen(void);
+	void toggleIsOpen(void);
+
+	void setSelected(bool setting);
+    void setDisabled(bool setting);
+
+	void setOrnamentImage(const Image* image);
+	void setOrnamentImage(const String& imageset, const String& image);
+	void setOrnamentPosition(float x, float y);
+	Size getItemSize() const;
+};

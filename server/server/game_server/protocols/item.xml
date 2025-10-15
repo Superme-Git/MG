@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="item">
+	
+	<bean name="BagTypes">
+		<enum name="EMPTY" value="0"/>
+		<enum name="BAG" value="1" /> 背包
+		<enum name="DEPOT" value="2" />	仓库
+		<enum name="EQUIP" value="3" />	装备背包		
+		<enum name="TEMP" value="4" />	临时背包
+        <enum name="QUEST" value="5" />	任务背包
+		<enum name="MARKET" value="6" /> 拍卖背包
+		<enum name="BLACKMARKET" value="7" /> 黑市背包
+    </bean>
+	
+	<bean name="EquipItemType">
+		ARMS	= 0, //武器
+		ADORN	= 2, //项链
+		LORICAE = 3, //衣服
+		WAISTBAND= 4, //腰带
+		BOOT	= 5, //靴子
+		TIRE	= 6, //帽子
+		<enum name="ARMS" value="0"/> //武器        
+        <enum name="ADORN" value="2"/> //项链
+        <enum name="LORICAE" value="3"/> //衣服
+        <enum name="WAISTBAND" value="4"/> //腰带
+        <enum name="BOOT" value="5"/> //靴子
+        <enum name="TIRE" value="6"/> //帽子
+		<enum name="ROLE_COLOR1" value="50"/>染色1
+		<enum name="ROLE_COLOR2" value="51"/>染色2
+        <enum name="EQUIP_EFFECT" value="60"/>装备特效
+    </bean>		
+		
+	<!-- 使用物品 -->
+	<bean name="IDType">
+		<enum name="ROLE" value="0" />人物
+		<enum name="PET" value="1" />宠物
+		<enum name="ITEM" value="2"/>物品
+	</bean>  
+	
+	<protocol name="SItemNumChange" type="1002" maxsize="128"  prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable name="curnum" type="int" validator="value=[1,)" />
+	</protocol>
+	
+	
+	<protocol name="SItemPosChange" type="1009" maxsize="128"  prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable name="pos" type="int" validator="value=[0,)" />
+	</protocol>
+
+	<protocol name="SDelItem" type="1003" maxsize="128"  prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="itemKey" type="int" validator="value=[1,)" />
+	</protocol>
+
+	<protocol name="SAddItem" type="1004" maxsize="65535" prior="1" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="data" type="vector" value="fire.pb.Item" />
+	</protocol>	
+	
+	<!-- 服务器通知客户端刷新道具的flag -->
+	<protocol name="SRefreshItemFlag" type="1005" maxsize="128" prior="1" tolua="3">     
+	    <variable name="itemkey" type="int"/> 道具key
+	    <variable name="flag" type="int"/> 道具flag
+	    <variable name="packid" type="int"/> pack的类型
+	</protocol>
+	
+	<protocol name="SRefreshItemTimeout" type="1006" maxsize="128" prior="1" tolua="3">
+		<variable name="packid" type="int" validator="value=(0,)"/>
+		<variable name="itemkey" type="int" validator="value=(0,)" />
+		<variable name="timeout" type="long" />
+	</protocol>
+	
+	<!-- 物品失效 -->
+	<protocol name="CItemLoseEffect" type="1007" maxsize="128" prior="1" tolua="3">
+		<variable name="packid" type="int" validator="value=(0,)"/>
+		<variable name="itemkey" type="int" validator="value=(0,)"/>
+	</protocol>
+	
+	<protocol name="CGetPackInfo" type="1010" maxsize="128"  prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="npcid" type="long"  />
+	</protocol>
+	
+	<protocol name="SGetPackInfo" type="1011" maxsize="65535"  prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="baginfo" type="fire.pb.Bag" />
+	</protocol>
+	
+	<protocol name="CListPack" type="1012" maxsize="128"  prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="npcid" type="long"  />
+	</protocol>
+    
+	<protocol name="CPutOnEquip" type="1013" maxsize="128"  prior="101" tolua="3">
+		<variable name="packkey" type="int" validator="value=[1,)" />
+		<variable name="dstPos" type="int" validator="value=[0,)" />
+	</protocol>
+	
+	<protocol name="CTakeOffEquip" type="1014" maxsize="128"  prior="101" tolua="3">
+		<variable name="equipkey" type="int" validator="value=[1,)" />
+		<variable name="posinpack" type="int" validator="value=[-1,)" />
+	</protocol>
+    
+	<protocol name="CTransItem" type="1015" maxsize="1024" prior="101" tolua="3">
+		<variable name="srcpackid" type="int" validator="value=[1,)" />
+		<variable name="srckey" type="int" validator="value=[1,)" />
+		<variable name="number" type="int" validator="value=[-1,)" />
+		<variable name="dstpackid" type="int" validator="value=[1,)" />
+		<variable name="dstpos" type="int" validator="value=[-1,)" />
+		<variable name="page" type="int" />
+		<variable default="-1" name="npcid" type="long" />
+	</protocol>
+    
+	<protocol name="CDropItem" type="1017" maxsize="128" prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable default="-1" name="npcid" type="int" />
+	</protocol>
+	
+	<protocol name="SRefreshCurrency" type="1018" maxsize="65535" prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,10]" />
+        <variable name="currency" type="map" key="byte" value="long"/>
+	</protocol>
+	
+	<protocol name="CGetItemTips" type="1021" maxsize="128" prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+	</protocol>	
+	
+	<protocol name="SGetItemTips" type="1022" maxsize="65535" prior="101"  tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable name="tips" type="octets" />
+	</protocol>
+	
+	<protocol name="CAppendItem" type="1023" maxsize="128" prior="101" tolua="3">
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable name="idtype" type="int" />
+		<variable name="id" type="long" validator="value=[0,)" />
+	</protocol>
+    
+	<protocol name="SRefreshPackSize" type="1027" maxsize="128" prior="101" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+		<variable name="cap" type="int" validator="value=[1,)" />
+	</protocol>	
+     
+	<protocol name="CCleanTempPack" type="1040" maxsize="16" prior="1" tolua="3">
+	</protocol>
+	 
+	<protocol name="SCleanTempPack" type="1041" maxsize="16" prior="1" tolua="3">
+	</protocol>
+	 
+	<bean name="EquipNaiJiu">
+	    <variable name="keyinpack" type="int"/>
+	    <variable name="endure" type="int"/>
+	</bean>
+    
+	<protocol name="SRefreshNaiJiu" type="1042" maxsize="1024" prior="1" tolua="3">
+	    <variable name="packid" type="int" validator="value=[1,)"/>
+	    <variable name="data" type="vector" value="fire.pb.item.EquipNaiJiu"/>
+	</protocol>
+    
+	<protocol name="CXiuLiEquipItem" type="1043" maxsize="128" prior="1" tolua="3">		
+		<variable name="repairtype" type="int" validator="value=[0,3]"/>
+		<variable name="packid" type="int" validator="value=[1,)"/>
+		<variable name="keyinpack" type="int" validator="value=[1,)"/> keyinpack
+	</protocol>	
+	
+	<protocol name="SRefreshMaxNaiJiu" type="1044" maxsize="128" prior="1" tolua="3">
+	 		<variable name="packid" type="int" validator="value=[1,)"/>
+	 		<variable name="keyinpack" type="int"/>
+	 		<variable name="maxendure" type="int" validator="value=[0,)"/>
+	 </protocol>
+    
+	 <protocol name="SXiuLiFailTimes" type="1045" maxsize="128" prior="1" tolua="3">
+	 		<variable name="packid" type="int" validator="value=[1,)"/>
+	 		<variable name="keyinpack" type="int"/>
+	 		<variable name="failtimes" type="int" validator="value=[0,)"/>
+	 </protocol>
+	
+	 <protocol name="CGetRoleEquip" type="1046" maxsize="128" prior="1" tolua="3">
+			<variable name="roleid" type="long" validator="value=[1,)" />
+			<variable name="sendmsg" type="byte"/>
+	 </protocol>
+    
+	 <protocol name="SGetRoleEquip" type="1047" maxsize="65535" prior="1" tolua="3">
+			
+			<variable name="rolename" type="string" />
+			
+			<variable name="totalscore" type="int" />
+			<variable name="equipinfo" type="fire.pb.Bag" />
+			<variable name="tips" type="map" key="int" value="octets" />
+			<variable name="components" type="map" key="byte" value="int"/>
+			<variable name="profession" type="int" /> 职业 by changhao
+			<variable name="rolelevel" type="int"/> 玩家等级 by changhao
+            <variable name="roleid" type="long" validator="value=[1,)" />
+         <variable name="shape" type="int" />
+			
+	 </protocol>	
+	 
+	 <protocol name="CGetRolePetInfo" type="1050" maxsize="128" prior="1" tolua="3">
+			<variable name="roleid" type="long"/>
+	 </protocol>
+    
+	 <protocol name="SItemSign" type="1054" maxsize="128" prior="1" tolua="3">     
+		   <variable name="keyinpack" type="int"/>
+		   <variable name="sign" type="int"/>
+		   <variable name="packid" type="int"/>
+	 </protocol>
+    
+	 <protocol  name="CAttachGem" type="1061" maxsize="128" prior="1" tolua="3">
+		  <variable name="keyinpack" type="int" validator="value=[1,)" />
+		  <variable name="packid" type="byte" />
+		  <variable name="gemkey" type="int" validator="value=[1,)" />
+	 </protocol>
+    
+	 <protocol  name="SHeChengRet" type="1056" maxsize="16" prior="1" tolua="3">	 	    
+			<variable name="ret" type="int"/>
+	 </protocol>
+    		
+	<bean name="Pos">  
+		<variable name="x" type="int"/>
+		<variable name="y" type="int"/>
+	</bean>
+	 
+	<protocol name="SAllEquipScore" type="1073" maxsize="16" prior="1" tolua = "3">
+		<variable name="score" type="int" />
+	</protocol>
+	
+	<protocol name="CGetTimeAward" type="1074" maxsize="16" prior="1" tolua="3">
+		<variable name="awardid" type="int" />
+	</protocol>
+	
+	<protocol name="SGetTimeAward" type="1075" maxsize="128" prior="1" tolua="3">
+		<variable name="awardid" type="int"/>
+		<variable name="waittime" type="long"/>
+	</protocol>
+	
+	<protocol name="CGetEquipTips" type="1220" maxsize="128" prior="101" tolua="3">
+		<variable name="packid" type="int"/>
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable name="key2inpack" type="int" validator="value=[0,)"/>
+	</protocol>
+    
+	<protocol name="SGetEquipTips" type="1221" maxsize="65535" prior="101" tolua="3">
+			<variable name="packid" type="int"/>
+	 		<variable name="keyinpack" type="int" validator="value=(0,)"/>
+			<variable name="key2inpack" type="int" validator="value=[0,)"/>
+	 		<variable name="tips" type="octets" />
+	</protocol>
+    
+	<protocol name="CReqAllNaiJiu" type="1222" maxsize="16" prior="1" tolua="3">
+	 		<variable name="packid" type="int" validator="value=[1,)"/>
+	</protocol>
+	
+	<protocol name="COpenItemBag" type="1223" maxsize="16" prior="1" tolua="3"> 打开道具背包 by changhao
+	</protocol>
+
+	<bean name="ItemAddInfo">
+		<variable name="itemid" type="int" validator="value=(0,)"/>
+		<variable name="itemnum" type="int" validator="value=(0,)"/>
+	</bean>
+	<protocol name="SItemAdded" type="1226" maxsize="256" prior="1" tolua="3">
+	 	<variable name="items" type="vector" value="ItemAddInfo" />
+	</protocol>		
+			
+	<protocol  name="CHeChengItem" type="1257" maxsize="128" prior="1" tolua="3">
+		<variable name="money" type="byte"/>
+		<variable name="isall" type="byte"/>
+		<variable name="hammer" type="byte"/>
+		<variable name="keyinpack" type="int"/>
+	</protocol>
+	<protocol  name="SHeChengItem" type="1258" maxsize="128" prior="1" tolua="3">
+		<variable name="itemnum" type="int" validator="value=[0,)"/>
+		<variable name="getitemid" type="int" validator="value=[0,)"/>
+	</protocol>
+		
+    
+	<bean name="MailInfo"> 邮件信息
+		<variable name="kind" type="byte"/> 类型 0=定时邮件 1=GM邮件
+		<variable name="id" type="long"/> id kind=0:服务ID kind=1:key
+		<variable name="readflag" type="byte"/> 读取标记 0=未读 1=已读
+		<variable name="time" type="string"/> 邮件时间
+		<variable name="title" type="string"/> 邮件标题
+		<variable name="contentid" type="int"/> 邮件内容id kind=0
+		<variable name="content" type="string"/> 邮件内容 kind=1
+		<variable name="awardid" type="int"/> 奖励ID kind=0
+		<variable name="items" type="map" key="int" value="int"/> 奖励列表 kind=1
+		<variable name="awardexp" type="long"/>经验
+		<variable name="awardfushi" type="long"/>符石
+		<variable name="awardgold" type="long"/>金币
+		<variable name="awardmoney" type="long"/>银币
+		<variable name="awardvipexp" type="long"/>vip经验
+		<variable name="npcid" type="int"/> NPCID>0时,可以找NPC领取奖励 kind=0
+	</bean>
+	<protocol name="SMailList" type="1268" maxsize="65535" prior="1" tolua="3"> 通知客户端邮件列表
+		<variable name="mailList" type="vector" value="MailInfo"/> 邮件列表
+	</protocol>
+
+	<protocol name="CMailRead" type="1269" maxsize="65535" prior="1" tolua="3"> 客户端申请设置邮件已读
+		<variable name="kind" type="byte"/> 类型 0=定时邮件 1=GM邮件
+		<variable name="id" type="long"/> id
+	</protocol>
+
+	<protocol name="CMailGetAward" type="1272" maxsize="65535" prior="1" tolua="3"> 客户端申请获取邮件奖励
+		<variable name="kind" type="byte"/> 类型 0=定时邮件 1=GM邮件
+		<variable name="id" type="long"/> id
+	</protocol>
+
+	<protocol name="SMailInfo" type="1273" maxsize="65535" prior="1" tolua="3"> 通知客户端刷新邮件
+		<variable name="mail" type="MailInfo"/> 邮件信息
+	</protocol>
+
+	<protocol name="SMailState" type="1274" maxsize="65535" prior="1" tolua="3"> 通知客户端刷新邮件状态
+		<variable name="kind" type="byte"/> 类型 0=定时邮件 1=GM邮件
+		<variable name="id" type="long"/> id
+		<variable name="statetype" type="byte"/> 状态类型 0=读取状态 1=领取状态
+		<variable name="statevalue" type="byte"/> 状态值 0=否 1=是
+	</protocol>
+
+	<protocol  name="CDelGem" type="1270" maxsize="10" prior="1" tolua="3">
+		<variable name="keyinpack" type="int" validator="value=[1,)" />
+		<variable name="isequip" type="byte" />
+		<variable name="gempos" type="int" validator="value=[0,)" />
+	 </protocol>
+    
+	 <protocol name="CGetRoleInfo" type="1277" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)" />
+	 </protocol>
+    
+	 <protocol name="SGetRoleInfo" type="1278" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)" />
+		<variable name="rolename" type="string" />
+		<variable name="shape" type="int" />
+		<variable name="school" type="int" />
+		<variable name="level" type="int" />
+		<variable name="equipscore" type="int" />
+		<variable name="packinfo" type="fire.pb.Bag" />
+		<variable name="tips" type="map" key="int" value="octets" />
+	 </protocol>
+	 <protocol name="SNoticeRoleGetInfo" type="1279" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[1,)" />
+		<variable name="rolename" type="string" />
+	 </protocol>
+    
+	<protocol name="SMulDayLogin" type="1299" maxsize="256" prior="1" tolua="3">
+		<variable name="logindays" type="int"/> 						累计登录天数
+		<variable name="rewardmap" type="map" key="int" value="long"/>	七日登录礼包奖励数据(1.key-奖励配置ID 2.val-领取时间(0-未领取))
+	</protocol>
+	
+	<protocol  name="CGetMulDayLoginGift" type="1300" maxsize="16" prior="1" tolua="3">
+	 	<variable name="rewardid" type="byte"/> 七日登录礼包ID
+	</protocol>	
+	
+	<protocol name="CExtPackSize" type="1305" maxsize="16" prior="1" tolua="3">
+        <variable name="packid" type="int" validator="value=[1,)" />
+    </protocol>
+	
+	<protocol name="COpenPack" type="1306" maxsize="16" prior="1" tolua="3">
+		<variable name="packid" type="int" validator="value=[1,)" />
+	</protocol>
+	<protocol name="SOpenPack" type="1307" maxsize="16" prior="1" tolua="3">
+	</protocol>		
+	
+	<protocol name="CBuyPackMoney" type="1314" maxsize="8" prior="1" tolua="3">
+    </protocol>
+    
+	<protocol name="SBuyPackMoney" type="1315" maxsize="16" prior="1" tolua="3" >
+		<variable name="money" type="int" />
+	</protocol>
+	
+	<protocol name="SFreshRepairData" type="1324" maxsize="16"  prior="101" tolua="3"> 刷新修理物品界面数据
+	</protocol>	
+
+	<!--客户端申请替换宝石-->
+	<protocol  name="CReplaceGemFromEquip" type="1327" maxsize="128" prior="1" tolua="3">
+		<variable name="equipItemkey" type="int" validator="value=[1,)" /> 装备的keyinpack
+		<variable name="equipBag" type="byte" />		为0为背包栏，为1为装备栏
+		<variable name="gemIndex" type="int" validator="value=[0,)" /> 宝石槽索引
+		<variable name="gemItemkey" type="int" validator="value=[1,)" /> 宝石的keyinpack,成功后扣除指定的这颗宝石
+	</protocol>
+
+	<!-- 一键把物品从临时背包移动到背包 -->
+	<protocol name="COneKeyMoveTempToBag" maxsize="65535" prior="101" type="1328" tolua="3">
+		<variable name="srckey" type="int" validator="value=[1,)" />     物品key,-1表示所有物品
+		<variable name="number" type="int" validator="value=[-1,)" />    数量,-1表示全部    
+		<variable name="dstpos" type="int" validator="value=[-1,)" />    目标位置,-1,自动选择
+		<variable default="-1" name="npcid" type="long" />
+	</protocol>
+  
+	<protocol name="SRepairResult" type="1329" maxsize="16" prior="1" tolua="3"> 修理结果
+		<variable name="ret" type="int"/>			0为失败，1为成功
+	</protocol>
+    
+    <protocol name="CListDepot" type="1330" maxsize="16"  prior="101" tolua="3">
+        <variable name="pageid" type="int" validator="value=[1,)" /> 仓库的页数
+    </protocol>
+	
+
+	
+	<protocol  name="SUseEnhancementItem" type="1332" maxsize="16" prior="1" tolua="3">
+        <variable name="equippos" type="int" /> 装备的位置 by changhao
+	</protocol>
+
+    <protocol  name="SReplaceGem" type="1333" maxsize="16" prior="1" tolua="3"> 宝石替换
+        <variable name="srckey" type="int"/> 在背包栏里源装备的key
+        <variable name="deskey" type="int"/> 在装备栏里目标装备的key
+    </protocol>
+
+    <protocol  name="CReplaceGem" type="1334" maxsize="16" prior="1" tolua="3">  宝石替换
+        <variable name="ret" type="int"/> 0 表示不替换;1 表示替换
+        <variable name="srckey" type="int"/> 在背包栏里源装备的key
+        <variable name="deskey" type="int"/> 在装备栏里目标装备的key
+    </protocol>
+
+    <!-- 摆摊Tip请求 -->
+    <protocol  name="COtherItemTips" type="1335" maxsize="1024" prior="1" tolua="3">  摆摊物品Tip请求
+        <variable name="roleid" type="long"/> 目标玩家的id
+        <variable name="packid" type="int" validator="value=[1,)" />
+        <variable name="keyinpack" type="int" validator="value=[1,)" />
+    </protocol>
+
+    <!-- 摆摊Tip返回 -->
+    <protocol  name="SOtherItemTips" type="1336" maxsize="1024" prior="1" tolua="3"> 摆摊物品Tip返回
+        <variable name="roleid" type="long"/> 目标玩家的id
+        <variable name="packid" type="int" validator="value=[1,)" />
+        <variable name="keyinpack" type="int" validator="value=[1,)" />
+        <variable name="tips" type="octets" />
+    </protocol>   
+
+    <protocol name="CGetDepotInfo" type="1337" maxsize="128"  prior="101" tolua="3">
+		<variable name="pageid" type="int"/> 从1开始
+	</protocol>
+	
+	<protocol name="SGetDepotInfo" type="1338" maxsize="65535"  prior="101" tolua="3">
+		<variable name="pageid" type="int"/> 从1开始
+		<variable name="baginfo" type="fire.pb.Bag" />
+	</protocol>
+
+	<!-- 修改仓库名称 -->
+    <protocol  name="CModifyDepotName" type="1339" maxsize="1024" prior="1" tolua="3">
+        <variable name="depotIndex" type="int" validator="value=[1,)" />
+        <variable name="depotName" type="string" />
+    </protocol>   
+
+    <protocol name="SModifyDepotName" type="1340" maxsize="128"  prior="101" tolua="3"> 修改仓库名称返回
+		<variable name="errcode" type="int" />
+		<variable name="depotIndex" type="int" validator="value=[1,)" />
+        <variable name="depotName" type="string" />
+	</protocol>
+	
+    <protocol name="SRideUpdate" type="1351" maxsize="128"  prior="101" tolua="3"> 骑乘变化 by changhao
+		<variable name="itemkey" type="int" /> //包里道具key by changhao		
+		<variable name="itemid" type="int" /> //道具id by changhao
+		<variable name="rideid" type="int" /> 坐骑id by changhao
+	</protocol>	
+	
+	<!-- 合成宝石 -->
+	<bean name="ComposeGemInfoBean">
+	    <variable name="itemIdOrGoodId" type="int"/> 如果是背包里的,就是itemId,如果是商店里的,就是goodid
+	    <variable name="num" type="int"/> 数量
+	</bean>
+	
+	<protocol name="CComposeGem" type="1352" maxsize="128"  prior="1" tolua="3"> 合成宝石
+		<variable name="bUseRongHeJi" type="byte"/> 是否使用融合剂 0:不使用 1:使用
+		<variable name="targetGemItemId" type="int"/> 合成宝石的ID
+		<variable name="bagGems" type="vector" value="fire.pb.item.ComposeGemInfoBean"/> 使用的背包宝石
+		<variable name="shopGems" type="vector" value="fire.pb.item.ComposeGemInfoBean"/> 使用的商店宝石
+	</protocol>
+
+	<!-- 道具找回 1361-1670 -->
+	<!-- 道具找回信息 -->
+	<bean name="ItemRecoverInfoBean">
+		<variable name="itemId" type="int"/> 道具id
+		<variable name="uniqId" type="long"/> 唯一id
+		<variable name="remainTime" type="int"/> 剩余时间(单位:秒数)
+		<variable name="cost" type="int"/> 找回消耗金币
+	</bean>
+	<!-- 客户端请求道具找回列表 -->
+	<protocol name="CItemRecoverList" type="1361" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	<!-- 服务器返回道具找回列表 -->
+	<protocol name="SItemRecoverList" type="1362" maxsize="65535" prior="1" tolua="3">
+		<variable name="items" type="list" value="ItemRecoverInfoBean"/> 道具列表
+	</protocol>
+
+	<!-- 客户端请求道具找回 -->
+	<protocol name="CItemRecover" type="1363" maxsize="65535" prior="1" tolua="3">
+		<variable name="uniqId" type="long"/> 唯一id
+	</protocol>
+	<!-- 服务器返回道具找回结果 -->
+	<protocol name="SItemRecover" type="1364" maxsize="65535" prior="1" tolua="3">
+		<variable name="itemId" type="int"/> 道具id
+		<variable name="uniqId" type="long"/> 唯一id
+	</protocol>
+
+	<!-- 客户端请求查看一个找回道具的信息 -->
+	<protocol name="CRecoverItemInfo" type="1365" maxsize="65535" prior="1" tolua="3">
+		<variable name="uniqId" type="long"/> 唯一id
+	</protocol>
+	<!-- 服务器返回一个找回道具的信息 -->
+	<protocol name="SRecoverItemInfo" type="1366" maxsize="65535" prior="1" tolua="3">
+		<variable name="uniqId" type="long"/> 唯一id
+		<variable name="tips" type="octets"/>
+	</protocol>
+	<!-- 道具找回 1361-1670 -->
+
+</namespace>

@@ -1,0 +1,13 @@
+Index: GameScene.cpp
+===================================================================
+--- GameScene.cpp	(revision 53424)
++++ GameScene.cpp	(working copy)
+@@ -1302,7 +1302,7 @@
+ 
+ 			int64_t sculptid = GetTableNumberFromLua("map.cworldmapconfig", m_MapInfoId, "sculptid");
+ 			if (sculptid == 0){
+-				m_bJumpMapForAutoBattle = false;
++				//m_bJumpMapForAutoBattle = false;
+ 				GetMainCharacter()->StopPacingMove();
+ 			}
+ 			AttachCameraTo(GetMainCharacter()->GetSprite());

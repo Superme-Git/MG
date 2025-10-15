@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lapi.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lauxlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lbaselib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lcode.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldblib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldebug.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldo.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldump.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lfunc.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lgc.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\linit.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\liolib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\llex.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lmathlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lmem.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\loadlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lobject.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lopcodes.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\loslib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lparser.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstate.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstring.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstrlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltable.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltablib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltm.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lua.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lundump.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lvm.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lzio.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\print.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_event.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_is.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_map.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_push.cpp" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_to.c" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lapi.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lauxlib.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lcode.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldebug.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldo.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lfunc.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lgc.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\llex.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\llimits.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lmem.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lobject.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lopcodes.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lparser.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstate.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstring.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltable.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltm.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lua.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\luaconf.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lualib.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lundump.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lvm.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lzio.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua++.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_event.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+</Project>

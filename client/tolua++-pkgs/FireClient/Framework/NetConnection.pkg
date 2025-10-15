@@ -1,0 +1,54 @@
+namespace FireNet
+{
+	enum { enumSECURITY_RANDOM = 0, enumSECURITY_NULL = 1, enumSECURITY_ARCFOUR = 2, MD5HASH = 3, enumSECURITY_HMAC_MD5HASH = 4, enumSECURITY_COMPRESSARCFOUR = 5, enumSECURITY_DECOMPRESSARCFOURSE = 6, enumSECURITY_SHA1HASH = 7 };
+}
+
+namespace Game
+{
+    class NetConnection
+    {
+	public:
+        NetConnection(std::string user, std::string passwd, std::string host,std::string port, bool isKick, int version, const std::wstring& serverName, const std::wstring& areaName);
+        virtual ~NetConnection();
+
+
+		//分发协议
+		virtual void DispatchProtocol(aio::Manager * manager, FireNet::NetSessionID mSID, aio::Protocol * p);
+		//分发LUA协议
+		virtual void DispatchLuaProtocol(aio::Manager * manager, FireNet::NetSessionID mSID, aio::LuaProtocol * p);
+		virtual void luasend(const FireNet::Octets & luaprotocol);
+		virtual void send(const aio::Protocol & protocol);
+		virtual void OnAnnounceForbidInfo(char type, int time, int createtime, const void* reason, const size_t reasonsize);
+		virtual void OnAutoSuccess(unsigned int userid, int zoneid, int aid, int algorithm);
+		virtual void OnAutoFailed(int netOperator, int e, const std::string & detail);
+
+		//断开连接
+		void close();
+		virtual void OnGetUserCouponRep(int retcode, int userid, int remain_coupon, int today_exchange_coupon, int today_remain_exchange_coupon, int reserved1, int reserved2);
+		virtual void OnCouponExchangeRep(int retcode, int userid, int remain_coupon, int today_exchange_coupon, int today_remain_exchange_coupon, int reserved1, int reserved2);
+
+		// 设置压缩和解压类型
+		void setSecurityType(unsigned int compressType, unsigned int deCompressType);
+
+		//手机令牌，输入6位电子码
+		virtual void onAuthPhoneToken();
+		bool getAddiction(FireNet::Addiction & ac);
+
+		bool IsCanEnterWorld();
+		void OnNetworkConnected();
+
+		virtual void OnRecvPing(int tickcount,int serverping);
+		virtual void OnSendPing(int tickcount);
+    
+		void SetStatOpenFlag(bool flag);
+		bool GetStatOpenFlag();
+    
+		int GetKey();
+    
+		void InstantAddCash(const std::string & cardnum, const std::string & cardpasswd);
+
+		//充值单点登录
+		void ReqForSSOTicket(int ssoid);
+		virtual void OnSSOGetTicketRep(int, FireNet::CUserInfo, std::string, std::string, std::string);
+    };
+}

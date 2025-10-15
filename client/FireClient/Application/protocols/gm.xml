@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 5001 开始　-->
+<namespace name="gm">
+	<protocol  name="CSendCommand" type="5001" maxsize="65535" prior="1" tolua="3">
+		<variable name="cmd" type="string"/> 
+	</protocol>
+	
+	<!-- GM  请求角色ID检测-->
+	<protocol name="CGMCheckRoleID" type="5002" maxsize="65535" prior="1" tolua = "3">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+	</protocol>
+	
+	<!-- GM 检测的角色ID正确时，服务器回复 GM 角色ID检测的请求， 角色ID不正确，服务器只发送提示消息 -->
+	<protocol name="SGMCheckRoleID" type="5003" maxsize="65535" prior="1" tolua = "3">
+		<variable name="roleinfo" type="fire.pb.move.RoleSimpleInfo" />
+	</protocol>
+	
+	<!-- 客户端请求，是不是GM帐号 -->
+	<protocol  name="CCheckGM" type="5004" maxsize="65535" prior="1" tolua = "3">
+	</protocol>
+	<!-- GM帐号才回消息 -->
+	<protocol  name="SCheckGM" type="5005" maxsize="65535" prior="1" tolua = "3">
+	</protocol>
+	
+	
+</namespace>

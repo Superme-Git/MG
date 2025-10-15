@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="gbk"?>
+<xmerge libpath="." srcDir="srcdb" destDir="destdb" resultDir="resultdb">
+<!--  <table name="activeusertable" type="known_key_conflict" class="mylogic.ActiveusertableMergeImpl"/>
+  <table name="cofcdata" type="known_key_conflict" class="mylogic.CofcdataMergeImpl"/>
+ 没有明确配置的表格全部看作是 unknown_key_conflict -->
+	<!--<table name="etable" type="known_key_conflict" class="mylogic.UserMergeImplementReturnTrue"/>
+	<table name="ntable" type="known_key_conflict" class="mylogic.UserMergeImplementReturnFalse"/>-->
+	
+	<!-- 测试相关，匆删 -->
+	<!--<table name="table_short_set" type="known_key_conflict" class="src.UsrIMergerTableShortSet"/>-->
+	<!-- 没有明确配置的表格全部看作是 unknown_key_conflict -->
+	
+
+	<!--<table name="user2" type="" class="mymerge.UserMergeImplement2"/>
+	<table name="activeusertable" type="known_key_conflict" class="mylogic.UserMergeImplement"/>
+	<table name="table_int_int" type="known_key_conflict" class="xmerge.UserMergeImplement"/>
+	<table name="table_long_map" type="known_key_conflict" class="xmerge.UserMergeImplement"/>
+	<table name="table_string_string" type="known_key_conflict" class="xmerge.UserMergeImplement"/>
+	<table name="table_int_xbean" type="known_key_conflict" class="xmerge.UserMergeImplement"/>
+	
+	<table name="user4" type="" class="mymerge.UserMergeImplement4"/>
+	<table name="user5" type="known_key_conflict" class="mymerge.UserMergeImplement5"/>
+	<table name="user6" type="" class="mymerge.UserMergeImplement6"/>
+	<table name="user7" type="known_key_conflict" class="mymerge.UserMergeImplement7"/>
+	<table name="user8" type="" class="mymerge.UserMergeImplement8"/>
+	<table name="user9" type="known_key_conflict" class="mymerge.UserMergeImplement9"/>-->
+	
+	<!-- 
+	<allocator name="fint" class="mylogic.LongAllocator"/>
+	-->
+</xmerge>
+

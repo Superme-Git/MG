@@ -1,0 +1,15 @@
+/***********************************************************************
+	ProgressBarTwoValue
+***********************************************************************/
+class ProgressBarTwoValue : public Window
+{
+	float	getProgress(void) const;
+	float	getReverseProgress(void) const;
+	float	getStep(void) const;
+
+	void	setProgress(float progress);
+	void	setReverseProgress(float reverseprogress);
+	void	setStepSize(float step_val);
+	void	step(void);
+	void	adjustProgress(float delta);
+};

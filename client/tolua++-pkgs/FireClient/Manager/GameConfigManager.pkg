@@ -1,0 +1,33 @@
+class GameConfigManager
+{
+public:
+	static void sSetPlayBackMusicBootState(bool flag);
+	static bool sGetPlayBackMusicBootState();
+	static bool sIsPlayBackMusicBoot();
+
+	void sdkStopMusic();
+
+	bool isPlayEffect();
+	bool isPlayBackMusic();
+
+	void SaveConfig();
+	void SetConfigValue(std::wstring& key, int value);
+	int GetConfigValue(const std::wstring& key);
+
+	void SetFromDefaultConfig();
+	void ApplyConfig();
+
+	bool GetStepLoadTextureInMovie() const;
+	void SetStepLoadTextureInMovie(bool b);
+	bool GetStepLoadTextureAlways() const;
+	void SetStepLoadTextureAlways(bool b);
+
+	const std::map<std::wstring, int>& GetMapConfig();
+	
+	bool GetStepLoadTextureInMovie() const;
+	void SetStepLoadTextureInMovie(bool b);
+	bool GetStepLoadTextureAlways() const;
+	void SetStepLoadTextureAlways(bool b);
+};
+
+inline GameConfigManager* gGetGameConfigManager();

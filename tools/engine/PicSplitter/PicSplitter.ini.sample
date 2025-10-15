@@ -1,0 +1,15 @@
+;本程序代码在/repos/whf/Nuclear/PicSplitter
+;输入设定
+[INPUT]
+;文件名
+filename=雷达地图_2012.12.31.png
+
+;输出设定
+[OUTPUT]
+;输出文件名，第一个%d替换行号，第二个%d替换列号，包括扩展名
+filenameformat=output-%d-%d.dds
+;输出图片大小
+width=512
+height=256
+;输出文件格式，可以是DXT1~5 JPG BMP PNG TGA
+format=dxt1

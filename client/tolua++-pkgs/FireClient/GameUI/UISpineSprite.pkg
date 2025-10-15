@@ -1,0 +1,21 @@
+$#include "UISpineSprite.h"
+
+class UISpineSprite
+{
+	UISpineSprite(const std::wstring& modelName);
+	virtual ~UISpineSprite();
+
+	void PlayAction(eActionType actionType);
+	void SetDefaultAction(eActionType actionType);
+
+	void RenderUISprite();
+
+	std::wstring GetModelName();
+	int GetCurActDuration();
+
+	virtual void SetUILocation(const Nuclear::NuclearLocation& loc);
+	virtual void SetUIScale(const float scale);
+	virtual void SetUIAlpha(unsigned char alpha);
+
+	void SetSpineModel(const std::wstring &modelname, bool async);
+};

@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="effect">
+      <UniqueIdentifier>{866cc3ef-72b8-4cc5-82b2-3bf7dfd3ef17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{16e68593-5b24-45f6-be2a-52cd80378745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{a78f197a-917a-402a-bb2c-2ef325e31748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{8960c276-7423-4bbe-b01c-989919cb48a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="renderer">
+      <UniqueIdentifier>{f5b5a16e-6727-4a73-9037-e8a52c124a3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprite">
+      <UniqueIdentifier>{46fc14a0-13db-49d5-95ad-1437ee7cbee1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="world">
+      <UniqueIdentifier>{130b7d9e-6df9-4184-a818-2acfc9942fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="particlesystem">
+      <UniqueIdentifier>{bfd0ade7-684b-4082-980b-856c74d9e2d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\nedmalloc">
+      <UniqueIdentifier>{4ad87f06-873c-43b4-b9a7-7280960cc8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="astar">
+      <UniqueIdentifier>{c04e4d72-547a-4c25-838a-6df575e6ce7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="soundarea">
+      <UniqueIdentifier>{654c39a9-46f3-4bee-8f05-78b7be7cd4ba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="common\nedmalloc\nunedmalloc.cpp">
+      <Filter>common\nedmalloc</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuexecutor.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nupobject.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nurecttopologylist.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nutimer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuutil.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuxbuffer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuxlock.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuxmarshal.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuxpmaths.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nueffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nueffectclip.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nueffectmanager.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nufonteffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nugeffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nulisteffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nuparticleeffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nusebind.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nuxapbatch.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nuxapeffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuanimanager.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nucamera.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nucamerasmoother.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nucocos2d_type.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nucocos2d_wraper.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuconfigmanager.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuengine.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuenv.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuguobj.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nurendertargetcache.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nusystemresourcemanager.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="map\numapobjs.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupbackground.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupdistortionobject.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupground.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupimg.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nuplinkedobject.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupmap.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupmask.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nuppathmap.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupstepsoundmap.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nuptimeeffect.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nuptransobjs.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nuptriggerobjs.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="map\nupwaterarea.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nucommonfuncs.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nugeneralparticlesystem.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nuparticlemanager.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nuparticlesystem.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nupslgroupobject.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nupslpathobject.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nupsparamobject.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nupsvertexsobject.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="particlesystem\nuspecialparticlesystem.cpp">
+      <Filter>particlesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nucocos2d_render.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nufontmanager.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nufonttexture.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nufxcode.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nurenderer.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nustatemanager.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\nutextblock.cpp">
+      <Filter>renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite\nucomponentsprite.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite\numovablespriteimp.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite\nupspritemaze.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite\nusprite.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite\nuspritemanager.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nudistortbase.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nuentitativeobj.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nuimmovableobj.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nulkotree.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nulkotreenodelist.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\numap.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nuregionmap.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="world\nuworld.cpp">
+      <Filter>world</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuenginetimer.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite\nuspinesprite.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nuspineeffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="effect\nulightingeffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nufileiomanager.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\nuljfmutil.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuAccelerateUpdater.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\nuspinemanager.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="soundarea\stepsoundtype.cpp">
+      <Filter>soundarea</Filter>
+    </ClCompile>
+    <ClCompile Include="soundarea\xpenvsoundarea.cpp">
+      <Filter>soundarea</Filter>
+    </ClCompile>
+    <ClCompile Include="soundarea\xpenvsoundcirclearea.cpp">
+      <Filter>soundarea</Filter>
+    </ClCompile>
+    <ClCompile Include="soundarea\xpenvsoundpolygonarea.cpp">
+      <Filter>soundarea</Filter>
+    </ClCompile>
+    <ClCompile Include="soundarea\xpsoundarea.cpp">
+      <Filter>soundarea</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\nedmalloc\numalloc.c.h">
+      <Filter>common\nedmalloc</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nedmalloc\nunedmalloc.h">
+      <Filter>common\nedmalloc</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuexecutor.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nufreqcountable.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nugeom.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuifileio.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nulog.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nupobject.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuport.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nurecttopologylist.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nutimer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuutil.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuworldlogiccoord.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuxbuffer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuxlock.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuxmarshal.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuxpmaths.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuxptypes.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuxref.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nueffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nueffectclip.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nueffectkeytable.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nueffectmanager.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nufonteffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nugeffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nukeyframe.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nulisteffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nuparticleeffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nusebind.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nuxapbatch.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nuxapeffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuanimanager.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nucamera.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nucamerasmoother.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nucocos2d_type.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nucocos2d_wraper.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuconfigmanager.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuengine.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuenginebase.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuenv.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuguobj.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuiadapter.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nurenderable.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nurendertargetcache.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nusystemresourcemanager.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuwindow.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="map\numapobjs.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupbackground.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupdistortionobject.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupground.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupimg.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nuplinkedobject.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupmap.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupmask.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nuppathmap.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupstepsoundmap.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nuptimeeffect.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nuptransobjs.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nuptriggerobjs.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map\nupwaterarea.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nucommonfuncs.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nugeneralparticlesystem.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuiparticlemanager.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuiparticlesyscommon.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuparticle.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuparticlearray.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuparticlemanager.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuparticlesyscommon.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuparticlesystem.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nupslgroupobject.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nupslpathobject.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nupsparamobject.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nupsvertexsobject.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="particlesystem\nuspecialparticlesystem.h">
+      <Filter>particlesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nucocos2d_render.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nufontmanager.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nufonttexture.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nufxcode.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nuibaserenderer.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nuifontmanager.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nurenderer.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nustatemanager.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\nutextblock.h">
+      <Filter>renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\nucomponentsprite.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\numovablespriteimp.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\nupspritemaze.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\nurenderablesprite.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\nusprite.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\nuspritemanager.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nudistort.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nudistortbase.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nuentitativeobj.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nuimmovableobj.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nulkotree.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nulkotreenodelist.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\numap.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nupicresrc.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nuregionmap.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="world\nuworld.h">
+      <Filter>world</Filter>
+    </ClInclude>
+    <ClInclude Include="nuiapp.h" />
+    <ClInclude Include="nuieffect.h" />
+    <ClInclude Include="nuiengine.h" />
+    <ClInclude Include="nuientitativetitlemanager.h" />
+    <ClInclude Include="nuienv.h" />
+    <ClInclude Include="nuiimmovableobj.h" />
+    <ClInclude Include="nuiquery.h" />
+    <ClInclude Include="nuiselectableobj.h" />
+    <ClInclude Include="nuisprite.h" />
+    <ClInclude Include="nuiworld.h" />
+    <ClInclude Include="astar\nualocation.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuamaze.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuapath.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuapathio.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuasingleton.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuastar.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuastarImplement.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="astar\nuatimer.hpp">
+      <Filter>astar</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuenginetimer.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite\nuspinesprite.h">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nuspineeffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="effect\nulightingeffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nufileiomanager.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\nuljfmutil.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuAccelerateUpdater.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\nuspinemanager.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="soundarea\stepsoundtype.h">
+      <Filter>soundarea</Filter>
+    </ClInclude>
+    <ClInclude Include="soundarea\xpenvsoundarea.h">
+      <Filter>soundarea</Filter>
+    </ClInclude>
+    <ClInclude Include="soundarea\xpenvsoundcirclearea.h">
+      <Filter>soundarea</Filter>
+    </ClInclude>
+    <ClInclude Include="soundarea\xpenvsoundpolygonarea.h">
+      <Filter>soundarea</Filter>
+    </ClInclude>
+    <ClInclude Include="soundarea\xpsoundarea.h">
+      <Filter>soundarea</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="engine\nuengine-Prefix.pch">
+      <Filter>engine</Filter>
+    </None>
+  </ItemGroup>
+</Project>

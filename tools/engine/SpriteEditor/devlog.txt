@@ -1,0 +1,15 @@
+
+
+2009-08-10 
+ani方向模式修改备忘
+
+模式            名称            方向与资源对应码        美术提供图片文件名首位数字
+XPANIDM_8USE1   不区分方向      0 0 0 0 0 0 0 0         0
+XPANIDM_8       八方向          0 1 2 3 4 5 6 7         0 1 2 3 4 5 6 7
+XPANIDM_4       四方向          x 1 x 3 x 5 x 7         0 1 2 3
+XPANIDM_3       三方向          x x x 3 4 5 x x         0 1 2
+XPANIDM_8FROM5  五变八方向      0 1 2 3 4 t t t         0 1 2 3 4
+XPANIDM_8FROM1  一变八方向      t t 2 t t t t t         0
+
+x表示不画
+t表示变换得来

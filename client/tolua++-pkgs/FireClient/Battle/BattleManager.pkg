@@ -1,0 +1,288 @@
+class BattleManager
+{
+public:
+	bool m_bFirstShowQuickButton;
+	bool m_bLastRound;
+
+public:
+	void SetFirstShowQuickButton(bool st);
+	bool GetFirstShowQuickButton();
+
+public:
+	bool PickBattler(Battler* pBattler);
+	bool PickArea(int battlerID);
+	void CheckPickBattler();
+	void CheckPickArea();
+
+	int	 GetBattleType();
+    void SetBattleType(int battletype);
+    int64_t	 GetBattleKey();
+    void SetBattleKey(int64_t battlekey);
+	bool IsEscapeForbiddenBattle();
+
+	void SetFriendFormation(const int& i);
+	void SetEnemyFormation(const int& i);
+
+	int	 GetFriendFormation();
+	int  GetEnemyFormation();
+    
+    void SetFriendFormationLvl(const int& i);
+	void SetEnemyFormationLvl(const int& i);
+    
+    int GetFriendFormationLvl();
+    int GetEnemyFormationLvl();
+    
+public:
+	CBroadcastEvent<NoParam>	EventBeginBattle;
+	CBroadcastEvent<NoParam>	EventEndBattle;
+
+	CEvent<int>					EventBattlerBuffChange;
+
+public:
+    void RefreshAllSpriteNameTexture();
+	void ReleaseAllSpriteNameTexture();
+	void ReloadAllSpriteNameTexture();
+	
+	void AddTempWatcherData(sBattlerData& data);
+	void ClearTempWatcherData();
+
+	void AddTempBattlerData(sBattlerData& data);
+	void ClearTempBattlerData();
+	BattlerList&	GetBattlerList();
+	AreaBlockList&	GetAreaBlockList();
+	Battler*		GetMouseOverObjects();
+	void			ClearMouseOverObjects();
+	void SetSummonID(int id);
+	void OnUpdateSpriteAction(Nuclear::ISprite * sprite, Nuclear::XPUSA_TYPE type);
+	void BeginBattleScene(int battletype, int roundnum, int battleid, int groundid, int musicid, bool bIsWatch);
+	void EndBattleScene();
+	void BeginWatchScene(int leftcount,int battletype,int roundnum,int groundid,int musicid, int64_t battlekey);		
+	bool IsOnBattleWatch();
+	
+	void BeginReplayScene(int leftcount, int battletype, int roundnum, int groundid, int musicid, int64_t battlekey);		//进入观战
+	bool isOnBattleReplay();//是否正在观战
+
+	void InitAreaBlock();
+
+	void ClearBattler();
+	void ClearBattleData();
+	void ClearAreaBlock();
+	void ClearIllusionAll();
+
+	bool AddBattler(sBattlerData* pData);
+	void AddNotAddFighterList();
+	bool RemoveBattler(int iBattleID);
+
+	int	GetMainBattleCharID();
+	int	GetMainBattlePetID();
+	int	GetFirstEnemyID();
+	int GetFirstFriendID();
+
+	int	GetDefaultTargetID(eBattleOperate operatetype);
+	Battler*	GetMainBattleChar();
+	Battler*	GetMainBattlePet();
+
+	void		ClearMainBattleChar();
+	void		ClearMainBattlePet();
+	Battler*	FindBattlerByID(int iBattleID);
+	Battler*	FindBattlerCharacterByRoleID(int64_t roleID);
+
+	void SendBattleCommand(int TargetID,eBattleOperate eOperate,bool usingdefault = false);
+	void SendAutoCommand(bool autosend = true);//非玩家操作时发的消息，自动，或者是读秒倒计时到了的时候
+
+	std::wstring GetCurrentAutoOperateCommand();	
+	std::wstring GetAutoCommandDescribe(eOperateBattlerType e);
+
+	int GetAutoCommandOperateType(int RoleType);
+	int GetAutoCommandOperateID(int RoleType);
+
+	void SetAutoCommandOperateType(int RoleType, int Value);
+	void SetAutoCommandOperateID(int RoleType, int Value);
+
+	bool	IsEnemy(int BattleID);
+	bool	IsFriend(int BattleID);
+	bool	IsMySelf(int BattleID);
+
+	//战斗里状态相关
+	void SetBattleState(eBattleState state);
+	eBattleState GetBattleState();
+
+	bool IsInBattle();
+    bool IsInBattleOperate();
+	bool IsInBattleDemoOperate();
+	bool IsInBattleDemo();
+	bool IsMainCharOperate();
+	bool IsInBattleWait();
+	bool IsMainPetOperate();
+
+	Battler* FindBattlerBySprite(Nuclear::ISprite * sprite);
+	bool OnWindowsMessage( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+	bool UpdateMouseOverBattler(const Nuclear::NuclearLocation& aLocation);
+
+	int GetOperateMainBatterID();
+	eOperateBattlerType GetOperateMainBatterType();
+
+	bool CanSaveToDefaultOperate(eBattleOperate e,int targetid);
+	void CancelCursorForbid();
+
+	stRoleItem& GetCurSelectedItem();
+	void SetCurSelectedItem(stRoleItem& item);
+	int	 GetCurSelectedSkillID() const;
+	void SetCurSelectedSkillID(int skillid);
+
+	void SetDefaultSkillID(int SkillID);
+	int  GetDefaultSkillID();
+	int  GetCharacterDefaultSkillID();
+	void ClearCharacterDefaultSkillID();
+	void ClearPetDefaultSkillID();
+	void CloseAllBattleDialog();
+	void CloseCharacterOperateDlg();
+	void ClosePetOperateDlg();
+	void CloseOtherOperateDlg();	
+
+	void SetBattlerOperateStateNull();	
+
+	void SetShowBattlerDemo(bool state);
+	void RefreshBattlerDemo();
+	void SetDelayDemoShow(int delayTm);
+	
+	void BeginBattleOperate(eOperateBattlerType eMainBattler);
+	void FinishBattleOperate(eOperateBattlerType eMainBattler);
+	void FinishBattleOperate();
+
+	void ClearAllFlag();
+public:
+	Nuclear::NuclearLocation GetWatcherLocation(int iBattleID);				
+	Nuclear::NuclearLocation GetBattleLocation(int iBattleID);				
+	Nuclear::NuclearLocation GetBattleUILocation(int iBattleID);					
+	Nuclear::NuclearLocation BattleGridToPixelGrid(Nuclear::NuclearLocation ptGrid);
+	Nuclear::NuclearLocation PixelGridToBattleGrid(Nuclear::NuclearLocation ptPixel);
+
+	Nuclear::NuclearLocation GetBattleCenter();	
+
+	void Run(int now, int delta);
+	void BattleOperateRun(int now, int delta);
+
+	void DrawUnderUI(int now);
+	void Draw(int now);
+
+	void ResetOperateTime(int time = 30);
+
+    int GetPetAutoSkillID();
+    void SetPetAutoSkillID(int skillID);
+
+	void ResetPetAutoOperateCommand();
+
+	void SetMainRoleAttributeRoundEnd(std::map<int,int> attrchange);
+	void SetMainPetAttributeRoundEnd(std::map<int,int> attrchange);
+	void SetFighterHPRoundEnd(std::map<int, int> hpmap);
+
+	void SetDealBeforeBattleEnd(int iDealBeforeBattleEnd);
+	int GetDealBeforeBattleEnd();
+
+	int DealAIActionMap(BeforeOperateAI aiaction);
+	void DealAIActionBeforeBattleEnd(BeforeOperateAI aiaction);	
+
+	void PlayAIEffect(std::wstring effectpath,Battler* pExecutor);
+
+	int	 DealAIBeforeDemoExecute();					
+	int  DealAIAfterDemoExecute();					
+
+	void AddAIActionScript(sBattleAIAction* pAIAction);
+
+	void ProcessRoundEndScript(std::vector<sBattleDemoResult>& list);
+
+	void ClearRoundAIAction();
+
+public:
+    bool m_bIsAutoBattle;
+	bool m_bIsAutoBattleQuick;
+    
+	void SetMaxAutoRound(int maxnum);
+
+	void BeginAutoOperate();
+	void EndAutoOperate();
+	bool IsAutoOperate();
+
+	int SCBattleIDChange(int& id);
+	void SetBattleIDChange(bool b);
+
+	bool HandleRefusePK(const CEGUI::EventArgs& e);
+	bool HandleAcceptPK(const CEGUI::EventArgs& e);
+
+	void RemoveExitReplayBtn();
+	int BeginBattleReplay(std::wstring FileName);
+	int BeginPlayBattleReplay(std::wstring FileName);
+	int LoadBattleReplay(std::wstring FileName, fire::pb::battle::SSendBattleStart& SSBS, fire::pb::battle::SSendAddFighters& SSAF, std::vector<fire::pb::battle::SSendRoundScript>& RoundArr);
+	int SSendBattleStart_Process(fire::pb::battle::SSendBattleStart& SSBS);
+	int SSendAddFighters_Process(fire::pb::battle::SSendAddFighters& SSAF);
+	int SSendRoundScript_Process(fire::pb::battle::SSendRoundScript& SSRS);
+
+	bool	IsInWatchModel();
+	bool	IsInPVPBattle();
+	bool	IsInReplayModel();//当前是否在回放状态
+
+	void	UpdateItemRemove(int itemthisid);
+	void	RequestLeaveBattle();
+	void	RequestLeaveBattleReplay();//向服务器请求离开战斗(回放情况下用)
+
+	//战斗场景里的一些无关npc
+	BattleIllusion* AddBattleIllusion(sBattlerData data,float scale = 1.0f);
+	BattleIllusion* AddBattleIllusion(int shapeid,float scale = 1.0f);
+	BattleIllusion* FindBattleIllusionBySprite(Nuclear::ISprite * sprite);
+
+	bool OnBeforeRender(int now);
+
+	void SetSummonDemoPetKey(int key);
+	int	 GetSummonDemoPetKey();
+
+	int GetSummonCount();
+	void SetSummonCount(int Value);
+
+	void SetRecallDemoPet(bool b);
+	bool GetRecallDemoPet();
+
+	int GetUseItemCount(int Index);
+	void SetUseItemCount(int Index, int Value);
+
+	int GetRunawayConfirmCount(int PlayerOrPet);
+	void SetRunawayConfirmCount(int PlayerOrPet, int Value);
+
+	int GetRoundCount();
+	void AddRoundCount();
+
+	int GetBattleGroundID();
+	int GetBattleID();
+	void ChangeBattleGround(const int& groundid);
+	void ResetBattleGround(bool changedisplaymode = false);		
+
+	void PlayBattleSound(int musicid = 0);
+	void PlayAISpeak(std::wstring soundpath,Battler* pExecutor);
+
+	void SetAlreadyPackTips();
+	bool GetAlreadyPackTips();
+
+	Nuclear::NuclearFRectt GetBattlerRect(int battlerId);
+	CEGUI::Window* GetBattlerWindow(int battlerId);
+
+	bool HaveAlreadyUseSummonNpcItem();
+	void SetAlreadyUseItemList(std::map<int, int> list);
+	void AddAlreadyUseItemList(int itembaseid);
+	void RefreshTwoItem();
+
+	void ClearAlreadyUseItemList();
+	void InsertAlreadyUseItemList(int nKey, int nValue);
+
+	void SetEffectComponentNum(int num);
+
+	void SetBattleDemoSpeedUp(float rate);
+
+	void ResetBattlerDefaultAction();
+	void ResetBattlerHpBar();
+
+public:
+	int m_lastBattleId;
+	int GetLastBattleId();
+};
+
+inline BattleManager* GetBattleManager();

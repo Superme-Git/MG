@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 消息协议号从 7001 开始 -->
+<namespace name="battle">
+
+	<bean name="OperationType">
+		<enum name="ACTION_ATTACK" value="1"/>		攻击
+		<enum name="ACTION_SKILL" value="2"/>		使用技能
+		<enum name="ACTION_USEITEM" value="3"/>		使用物品
+		<enum name="ACTION_DEFEND" value="4"/>		防御
+		<enum name="ACTION_PROTECT" value="5"/>		保护
+		<enum name="ACTION_SUMMON" value="6"/>		召唤宠物
+		<enum name="ACTION_WITHDRAW" value="7"/>	召还宠物		
+		<enum name="ACTION_CATHCH" value="8"/>		捕捉
+		<enum name="ACTION_ESCAPE" value="9"/>		逃跑
+		<enum name="ACTION_REST" value="10"/>		休息
+		<enum name="ACTION_SPECIAL_SKILL" value="11"/>	特殊技能
+		<enum name="ACTION_SUMMON_INSTANT" value="12"/> 瞬时召唤
+		<enum name="ACTION_ESCAPE_INSTANT" value="13"/> 瞬时逃跑
+		<enum name="ACTION_FAILURE" value="14"/>		操作失败
+		<enum name="ACTION_BATTLE_END" value="15"/>		战斗结束,只有AI怪的AI指令有这个Action
+		<enum name="ACTION_ENVIRONMENTDEMO" value="16"/>	不带施法者的Demo，attackID填0
+		<enum name="ACTION_ENVIRONMENTCHANGE" value="17"/>	战场环境改变 operateid填战场环境id
+		<enum name="ACTION_ROUNDENDDEMO" value="18"/>	回合末结算demo
+		<enum name="ACTION_UNIQUE_SKILL" value="19"/>	绝技
+		<enum name="ACTION_FAILURE_NO_WONDER" value="20"/>		操作失败_不带叹号的！
+	</bean>
+
+	<bean name="ResultType">
+		<enum name="RESULT_HPCHANGE"			value="1"/>1:目标HP变化
+		<enum name="RESULT_MPCHANGE"			value="2"/>2:目标MP变化
+		<enum name="RESULT_SPCHANGE"			value="4"/>3:目标SP变化
+		<enum name="RESULT_ULHPCHANGE"			value="8"/>4:当前血上限（伤）变化
+		<enum name="RESULT_REST"				value="16"/>5:休息
+		<enum name="RESULT_HURT"				value="32"/>6:目标受伤
+		<enum name="RESULT_CRITIC"				value="64"/>7:目标被暴击
+		<enum name="RESULT_DEFENCE"				value="128"/>8:目标防御
+		<enum name="RESULT_PARRY"				value="256"/>9:目标招架（类似躲闪，只有普通攻击会触发招架）
+		<enum name="RESULT_DODGE"				value="512"/>10:目标闪避
+		<enum name="RESULT_RUNAWAY"				value="1024"/>11:目标逃跑
+		<enum name="RESULT_SEIZE"				value="2048"/>12:目标被捕捉
+		<enum name="RESULT_SUMMONBACK"			value="4096"/>13:目标被召回
+		<enum name="RESULT_DEATH"				value="8192"/>14:目标死亡，倒在原地
+		<enum name="RESULT_KICKOUT"				value="16384"/> 15:目标被击飞（没有鬼魂技能的怪和宠物死亡时）
+		<enum name="RESULT_GHOST"				value="32768"/> 16:目标进入鬼魂状态（有鬼魂技能的怪和宠物死亡时）
+		<enum name="RESULT_RELIVE"				value="65536"/>	17:复活
+		<enum name="RESULT_SUMMONPET"			value="131072"/>18:目标招唤宠物
+		<enum name="RESULT_IGNORE_PHYDIC_EFEN"	value="262144"/>19:忽略防御
+		<enum name="RESULT_ABORBE"				value="524288"/>20:吸收
+		<enum name="RESULT_FIRE_MANA"			value="1048576"/>21:烧蓝
+		<enum name="RESULT_GODBLESS"			value="2097152"/>22:神佑
+		<enum name="RESULT_EPCHANGE"			value="4194304"/>23:目标EP变化
+		<enum name="RESULT_DEAD_FULL_RELIVE"	value="8388608"/>24:满血复活
+		<enum name="RESULT_SHAPECHAGE"			value="16777216"/>25:模型改变
+	</bean>
+
+	<bean name="BattlerType"> 战斗者类型
+		<enum name="BATTLER_CHARACTER" value="1"/>	人物
+		<enum name="BATTLER_PET" value="2"/>		宠物
+		<enum name="BATTLER_MONSTER" value="3"/>	怪物
+	</bean>
+
+	<bean name="BattleType"> 战斗类型
+		<enum name="BATTLE_PVE" value="10"/>			打怪 ,所有pve %10都是0
+		<enum name="BATTLE_HIDEAREA" value="1100"/> 	暗雷区战斗
+		<enum name="BATTLE_SHOWAREA" value="1200"/> 	明雷区战斗
+		<enum name="BATTLE_BOSS" value="30"/>    		pve中的boss战,进战斗的时候需要给一条提示(141614)
+		<enum name="BATTLE_LINE" value="40"/>   		副本战斗
+		<enum name="BATTLE_CLANBOSS" value="50"/>		公会boss
+		<enum name="BATTLE_SHOUXI" value="60"/>			capital apprentice
+		<enum name="BATTLE_PVP" value="11"/>			切磋,所有pvp %10都是1
+		<enum name="BATTLE_LIVEDIE" value="21"/>				生死战
+		<enum name="BATTLE_DUEL_SINGLE" value="31"/>	单人决斗
+		<enum name="BATTLE_DUEL_TEAM" value="41"/>		组队决斗
+		<enum name="BATTLE_BINGFENG_WAR" value="100" />	冰封王座战斗
+        <enum name="BATTLE_INST_BATTLE" value="110" />	公会副本战斗
+		<enum name="BATTLE_CLAN_FIGHT" value="201"/>	公会战 by changhao
+    </bean>
+
+	<bean name="BattleAimRelation"> 目标对于一个战斗者的类型（或者说目标与战斗者的关系）
+		<enum name="SELF" value ="1" /> 战斗中自己（可以是人、宠、怪、NPC）
+		<enum name="SELF_PET" value="2" /> 自己的宠物
+		<enum name="FRIEND_ROLE" value ="4" /> 友方角色
+		<enum name="FRIEND_PET" value ="8" /> 友方的宠物
+		<enum name="FRIEND_NPC" value ="16" /> 友方NPC
+		<enum name="ENERMY_ROLE" value ="32" /> 敌人角色
+		<enum name="ENERMY_PET" value ="64" /> 敌人宠物
+		<enum name="ENERMY_NPC" value ="128" /> 敌人NPC
+		<enum name="ENERMY_MONSTER" value ="256" /> 敌人怪物
+		<enum name="COUPLE" value ="512" /> 夫妻
+		<enum name="BROTHERS" value ="1024" /> 结交
+    <enum name="MASTER_STUDENT" value ="2048" /> 师徒
+		<enum name="FRIEND_MONSTER" value ="4096" /> 友方怪物
+	</bean>
+
+	<bean name="Operation">
+		<variable name="operationType" type="int"/> 操作类型	 参考OperationType中的值
+		<variable name="aim" type="int"/> 作用目标
+		<variable name="operationID" type= "int"/>操作的值（使用物品时表示物品ID，招唤宠物时为宠物）
+	</bean>
+
+	<bean name="DemoExecute">
+		<variable name="attackerID" type="int"/>	攻击发起者id
+		<variable name="hpconsume" type="int"/>		攻击者耗血，始终为正好了
+		<variable name="mpconsume" type= "int"/>	攻击者耗蓝，始终为正好了
+		<variable name="spconsume" type= "int"/>	攻击者耗怒，始终为正好了
+		<variable name="operationType" type="int"/>	操作类型 参考OperationType中的值		如果是操作失败 ACTION_FAILURE
+		<variable name="operationID" type= "int"/>	操作的值（使用物品时示物品ID，招唤宠物时为宠物）
+		<variable name="msgID" type= "int"/>		当不为0时，为动作时的提示ID
+		<variable name="demobuffs" type="list" value="DemoBuff" />
+	</bean>
+
+	<bean name="DemoResult">
+		<variable name="resultType" type="int"/>	结果类型 0普通 1反击 2连击 3追击 4溅射 5战斗结束 6破隐形
+		<variable name="targetID" type="int"/>		受击者id
+		<variable name="flagtype" type="int"/>		服务器提供客户端标示
+		<variable name="hpchange" type="int"/>		受击者血量变化，为正是加血，为负是扣血
+		<variable name="mpchange" type= "int"/>		受击者魔法变化，为正是加蓝，为负是扣蓝
+		<variable name="spchange" type= "int"/>		受击者怒气变化，为正是加怒气，为负是扣怒气
+		<variable name="epchange" type= "int"/>		受击者效果点变化，为正是加效果点，为负是扣效果点
+		<variable name="shapechange" type= "int"/>	模型改变 0为默认其他为新设置的。
+		<variable name="uplimithpchange" type="int"/> 受击者当前血上限变化，为正是加，为负是减
+		<variable name="targetResult" type="int"/>	受击者结果类型，ResultType型枚举值叠加
+		<variable name="returnhurt" type="int"/>	受击方造成的反伤值，如果为0则代表没有反伤
+		<variable name="attackback" type="int"/>	受击方造成的反击值，如果为0则代表没有反击
+		<variable name="stealhp" type= "int"/>		攻击方产生的吸血值，如果为0则代表没有吸血
+		<variable name="attackerResult" type="int"/>攻击者结果类型，ResultType型枚举值叠加
+		<variable name="attackerulhpchange" type="int"/>	攻击者血上限变化
+		<variable name="protecterID" type="int"/>	保护者ID
+		<variable name="protecterhpchange" type="int"/>	保护者血量变化，为正是加血，为负是扣血（显然是为负的）
+		<variable name="protecterulhpchange" type="int"/>	保护者血上限变化
+		<variable name="protecterResult" type="int"/>	保护者结果类型，ResultType型枚举值叠加
+		<variable name="assisterID" type="int"/>	合击者ID
+		<variable name="stealmp" type= "int"/> 攻击方产生的吸蓝值，如果为0则代表没有吸蓝
+		<variable name="godblesshp" type= "int"/> 神佑血量变化
+		<variable name="demobuffs" type="list" value="DemoBuff" />	每一个demo的buff变化
+		<variable name="demoattrs" type="list" value="DemoAttr" />	每一个demo的属性最终值
+	</bean>
+
+	<bean name="SubResultItem">
+		<variable name="subskillid" type="int"/>
+		<variable name="subskillstarttime" type="int"/>
+		<variable name="resultlist" type="list" value="DemoResult"/>
+	</bean>
+
+	<bean name="ResultItem">
+		<variable name="execute" type="DemoExecute"/>
+		<variable name="subresultlist" type="list" value="SubResultItem"/>
+		<variable name="newfighter" type="list" value="FighterInfo"/>
+		<variable name="roleChangedAttrs" type="map" key="int" value="float"/> 战斗脚本接收者，此动作后属性的变化（战斗中属性实时变化）
+		<variable name="petChangedAttrs" type="map" key="int" value="float"/> 战斗脚本接收者的宠物，此动作后属性的变化
+	</bean>
+
+	<bean name="DemoBuff">
+		<variable name="fighterid" type="int"/>
+		<variable name="buffid" type="int"/>
+		<variable name="round" type="int"/> -1为删除该buff，0为没有回合数的buff，>0为回合数
+	</bean>
+
+	<bean name="DemoAttr">
+		<variable name="fighterid" type="int"/>
+		<variable name="attrid" type="int"/> 属性id
+		<variable name="value" type="int"/> 最终值
+	</bean>
+
+	<bean name="NewDemoResult">
+		<variable name="resultType" type="int"/>	结果类型 0普通 1反击 2连击 3追击 4溅射 5战斗结束 6破隐形
+		<variable name="targetID" type="int"/>		目标id，必须有
+		<variable name="flagtype" type="int"/>		服务器提供客户端标示
+		<variable name="demobuffs" type="list" value="DemoBuff" />	每一个demo的buff变化
+		<variable name="demoattrs" type="list" value="DemoAttr" />	每一个demo的属性最终值
+		<variable name="datas" type="map" key="int" value="int" />	存储数据，key参考以下值，如datas中某key值没有则value默认为0
+		<enum name="HP_CHANGE" value ="1" />				受击者血量变化，为正是加血，为负是扣血
+		<enum name="MP_CHANGE" value ="2" />				受击者魔法变化，为正是加蓝，为负是扣蓝
+		<enum name="SP_CHANGE" value ="3" />				受击者怒气变化，为正是加怒气，为负是扣怒气
+		<enum name="UL_HP_CHANGE" value ="4" />				受击者当前血上限变化，为正是加，为负是减
+		<enum name="TARGET_RESULT" value ="5" />			受击者结果类型，ResultType型枚举值叠加
+		<enum name="RETURN_HURT" value ="6"/>				受击方造成的反伤值，如果为0则代表没有反伤
+		<enum name="ATTACK_BACK" value ="7"/>				受击方造成的反击值，如果为0则代表没有反击
+		<enum name="STEAL_HP" value ="8"/>					攻击方产生的吸血值，如果为0则代表没有吸血
+		<enum name="ATTACKER_RESULT" value ="9"/>			攻击者结果类型，ResultType型枚举值叠加
+		<enum name="PROTECTER_ID" value ="10"/>				保护者ID
+		<enum name="PROTECTER_HP_CHANGE" value ="11"/>		保护者血量变化，为正是加血，为负是扣血（显然是为负的）
+		<enum name="PROTECTER_RESULT" value ="12"/>			保护者结果类型，ResultType型枚举值叠加
+		<enum name="ASSISTER_ID" value ="13"/>				合击者ID
+		<enum name="STEAL_MP" value ="14"/>					攻击方产生的吸蓝值，如果为0则代表没有吸蓝
+		<enum name="RETURN_HURT_DEATH" value ="15"/>		攻击者因为被反伤或反击致死而产生的伤的变化
+		<enum name="PROTECTER_MAXHP_CHANGE" value ="16"/>	保护者因为保护致死而产生的伤的变化
+		<enum name="MESSAGE_ID" value ="17"/>				行动时弹的提示ID
+		<enum name="HP_GODBLESS" value ="18"/>				神佑血量变化
+		<enum name="EP_CHANGE" value ="19" />				受击者效果点变化，为正是加效果点，为负是扣效果点
+		<enum name="SHAPE_CHANGE" value ="20" />				模型改变
+	</bean>
+
+	<bean name="NewSubResultItem">
+		<variable name="subskillid" type="int"/>
+		<variable name="subskillstarttime" type="int"/>
+		<variable name="resultlist" type="list" value="NewDemoResult"/>
+	</bean>
+
+	<bean name="NewResultItem">
+		<variable name="execute" type="DemoExecute"/>
+		<variable name="subresultlist" type="list" value="NewSubResultItem"/>
+		<variable name="newfighter" type="list" value="FighterInfo"/>
+		<variable name="roleChangedAttrs" type="map" key="int" value="float"/> 战斗脚本接收者，此动作后属性的变化（战斗中属性实时变化）
+		<variable name="petChangedAttrs" type="map" key="int" value="float"/> 战斗脚本接收者的宠物，此动作后属性的变化
+	</bean>
+
+	<bean name="FighterInfo">
+		<variable name="fighterType" type="int"/>	战斗单元类型
+		<variable name="dataID" type="long"/>		战斗单元的标记 人物为人物的roleid 宠物和怪物则为表中的baseID
+		<variable name="fighterName" type="string"/>战斗单元名称
+		<variable name="title" type="string"/>		战斗单元称谓
+		<variable name="titleId" type="int"/>		战斗单元称谓ID
+		<variable name="awakeState" type="int"/>	觉醒状态 00000 5个bit位，从低位到高位分别标识95至99状态，0-未觉醒，1-觉醒（具体值是int数值）
+		<variable name="index" type="int"/>			战斗单元在战斗中的相对位置
+		<variable name="bGM" type="byte"/>          是否是GM,0:否 1：是
+		<variable name="maxhp" type="int"/>			最大血量
+		<variable name="uplimithp" type="int"/>		血量上限
+		<variable name="hp" type="int"/>			当前血量
+		<variable name="ep" type="int"/>			当前效果点
+		<variable name="shape" type="int"/>			造型	造型为short值
+		<variable name="subtype" type="int" />		子类型，宠物为资质，怪物为宝宝野宠等
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+		<variable name="buffs" type="map" key="int" value="int" />添加的战斗者拥有的在战斗内显示的buff，value为回合数（为0则没有回合限制）
+		<variable name="footLogoId" type="int"/>足印id
+		<variable name="petkeys" type="list" value="int"/> 	已经出战的宠物
+	</bean>
+
+	<bean name="BattleEnviroment"> 战场环境
+		<enum name="DAY" value="1001"/>		昼
+		<enum name="NIGHT" value="1002"/>	夜
+		<enum name="WARM" value="1003"/>	暖
+		<enum name="COLD" value="1004"/>	寒
+		<enum name="ORCHID" value="1005"/>	兰
+		<enum name="THUNDER" value="1006"/>	雷
+	</bean>
+
+	<protocol  name="SSendBattleStart" type="7001" maxsize="65535" prior="1"> 服务器向客户端发送战斗信息
+		<variable name="enemyside" type="int"/>
+		<variable name="friendsformation" type="int"/> 己方的光环
+		<variable name="enemyformation" type="int"/> 敌人的光环
+		<variable name="friendsformationLevel" type="int"/> 己方的光环
+		<variable name="enemyformationLevel" type="int"/> 敌人的光环
+		<variable name="battleConfigId" type="int"/> 战斗配置ID，默认为-1，即不是通过战斗配置来生成的战斗
+		<variable name="battletype" type="int"/>	枚举值见BattleType
+		<variable name="roundnum" type="int"/>		回合数，默认是0
+		<variable name="background" type="byte"/>	战斗底图id
+		<variable name="backmusic" type="byte"/>	战斗背景音乐id
+	</protocol>
+
+	<protocol  name="SSendAddFighters" type="7002" maxsize="65535" prior="1"> 服务器向客户端发送战斗信息
+		<variable name="fighterList" type="list" value="FighterInfo"/>
+	</protocol>	
+
+	<protocol  name="SSendRoundStart" type="7003" maxsize="65535" prior="1"> 服务器向客户端发送 开始回合操作选择
+		<variable name="time" type="int"/> 回合可操作的时间，单位为秒，默认为30
+		<variable name="environment" type="int"/> 战场环境，参考BattleEnviroment
+		<variable name="aiactions" type="map" key="int" value="int" /> 	回合读秒前需要播放的AIAction key=fighter id; value=aiaction id;
+	</protocol>	
+
+	<protocol  name="CSendAction" type="7004" maxsize="65535" prior="1"> 客户端向服务器发送操作选择消息
+		<variable name="action" type="Operation"/>							操作
+		<variable name="isrole" type="byte"/>								角色操作=1，宠物操作=0
+		<variable name="autooperate" type="byte"/>							为1代表是自动，默认为0
+	</protocol>
+
+	<protocol name="CSendRoundPlayEnd" type="7006" maxsize="65535" prior="1"> 客户端向服务器发送 剧本播放结束消息
+		<variable name="actiontime" type="list" value="int"/> 	每个动作的时间，不包括动作间填充时间0.2秒
+	</protocol>
+
+	<protocol name="SSendBattleEnd" type="7007" maxsize="65535" prior="1"> 服务器向客户端发送结束战斗消息
+		<variable name="aiactions" type="map" key="int" value="int" /> 	战斗结束前需要播放的AIAction key=fighter id; value=aiaction id;
+	</protocol>
+
+	<protocol  name="CSendWatchBattle" type="7011" maxsize="65535" prior="1" tolua="3"> 请求观战
+		<variable name="roleid" type="long"/>				要观战的战斗角色id	
+	</protocol>
+
+	<protocol  name="SSendWatchBattleStart" type="7012" maxsize="65535" prior="1" tolua="3"> 服务器向客户端发送观战开始信息
+		<variable name="enemyside" type="int"/>
+		<variable name="leftcount" type="int"/>如果战斗者正在操作状态，则leftcount代表操作倒计时时间，如果为0代表处于战斗演示状态
+		<variable name="battletype" type="int"/>枚举值见BattleType
+		<variable name="roundnum" type="int"/>		//回合数，默认是0
+		<variable name="friendsformation" type="int"/> 己方的光环
+		<variable name="enemyformation" type="int"/> 敌人的光环
+		<variable name="friendsformationLevel" type="int"/> 己方的光环
+		<variable name="enemyformationLevel" type="int"/> 敌人的光环
+		<variable name="background" type="byte"/>	战斗底图id
+		<variable name="backmusic" type="byte"/>	战斗背景音乐id
+		<variable name="battlekey" type="long"/>	观战的战斗id
+	</protocol>
+
+	<protocol  name="CEndWatchBattle" type="7013" maxsize="65535" prior="1"> 请求退出观战
+	</protocol>
+
+	<protocol  name="SRemoveWatcher" type="7016" maxsize="65535" prior="1"> 	退出观战的fighter
+		<variable name="fighterIndex" type="int"/>
+	</protocol>
+
+	<!-- AI protocol-->
+	<bean name="AIOperation"> AIOperation
+		<variable name="actionSeq" type="int"/> 在一回合的脚本中，第几个ResultItem
+		<variable name="actionMoment" type="int" /> -1:攻击者行动前；0：攻击者行动后;1-28：对应ID的战斗者死亡时
+		<variable name="actionFighterId" type="int" /> 做动作的战斗者
+		<variable name="actionId" type="int" />需要做的AIAction ID
+	</bean>
+
+	<protocol  name="SSendBattlerOperateState" type="7018" maxsize="65535" prior="1" tolua="3"> 	发送人物操作状态（准备中，请等待，掉线）
+		<variable name="battleid" type="int" />											回合操作开始时，所有人状态为准备中，服务器不用发
+		<variable name="state" type="int" />											1为准备中，2为操作完毕（请等待状态）3为代表掉线
+	</protocol>																			人物操作结束时，服务器返回请等待状态，掉线时返回掉线状态
+	<!-- AI protocol end-->
+
+	<!-- battle conduct protocol-->
+	<protocol  name="SSendRoleInitAttrs" type="7023" maxsize="65535" prior="1" tolua="3"> 服务器发给客户端，进战斗时主角的二级属性
+		<variable name="roleInitAttrs" type="map" key="int" value="float"/>	进战斗时主角的二级属性
+	</protocol>
+
+	<protocol  name="SSendPetInitAttrs" type="7024" maxsize="65535" prior="1" tolua="3"> 服务器发给客户端，进战斗时主角宠物的二级属性
+		<variable name="petInitAttrs" type="map" key="int" value="float"/> 	进战斗时主角宠物的二级属性
+	</protocol>
+	<!-- battle conduct protocol end-->
+
+	<protocol  name="SSendRoundScript" type="7025" maxsize="65535" prior="1"> 服务器向客户端发送剧本
+		<variable name="playItem" type="list" value="NewResultItem"/>
+		<variable name="aiactions" type="list" value="AIOperation" /> 随战斗脚本播放的客户端AI动作
+		<variable name="roleChangedAttrs" type="map" key="int" value="float"/>	回合结束时主角属性的变化（战斗中属性实时变化）
+		<variable name="petChangedAttrs" type="map" key="int" value="float"/> 	回合结束时主角宠物属性的变化
+		<variable name="fighterfinallyhps" type="map" key="int" value="int"/>	回合结束时战斗者血量的最终值
+		<variable name="fighterfinallymps" type="map" key="int" value="int"/> 	回合结束时战斗者兰量的最终值
+	</protocol>
+
+	<protocol  name="SSendAlreadyUseItem" type="7026" maxsize="65535" prior="1" tolua="3"> 服务器向客户端发送已经使用过的道具列表，baseid
+		<variable name="itemlist" type="map" key="int" value="int" />				使用过的道具的baseidlist
+	</protocol>
+
+	<protocol  name="SSynchroBossHp" type="7027" maxsize="65535" prior="1" tolua="3"> 服务器向客户端发送公会boss血量
+		<variable name="bossMonsterID" type="int"/> boss怪物id
+		<variable name="flag" type="byte"/> 0:开始 1:更新
+		<variable name="maxhp" type="long"/> 
+		<variable name="hp" type="long"/>
+        <variable name="rolename" type="string"/> 角色名称
+        <variable name="changehp" type="long"/> 造成的伤害
+	</protocol>
+
+	<protocol  name="SSendRoundPlayEnd" type="7030" maxsize="65535" prior="1" tolua="3"> 服务器广播给战斗内所有人，某个角色已经播放动画完毕了
+		<variable name="fighterId" type="int"/> 角色的fighterId
+	</protocol>
+
+	<protocol  name="CSendInvitePlayPK" type="7132" maxsize="65535" prior="1" tolua="3"> 邀请某角色进行PK
+		<variable name="guestRoleid" type="long"/> 被邀请角色ID
+	</protocol>	
+
+	<protocol  name="SDeadLess20" type="7131" maxsize="1024" prior="1" tolua = "3"> 20级之前死了发送这个消息
+		<variable name="eventtype" type="int"/> 类型：0为死亡：1为逃跑
+	</protocol>
+
+	<namespace name="newhand">
+		<protocol  name="CReqNewHandBattle" type="7152" maxsize="128" prior="1"> 客户端请求新手战斗
+			<enum name="BASE_BATTLEID" value ="8401" /> 起始战斗ID
+		</protocol>
+	</namespace>
+
+	<namespace name="pvp1">
+		<bean name="PvP1RoleSingleScore"> 一个角色的积分信息
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="score" type= "int"/>	积分
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="winnum" type="byte"/> 本场胜利次数
+		</bean>
+
+		<bean name="PvP1RoleSingleScoreMid"> 一个角色的积分信息
+		    <variable name="index" type="short"/>	排名
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="score" type= "int"/>	积分
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="winnum" type="byte"/> 本场胜利次数
+		</bean>
+
+		<bean name="PvP1RoleSingleWin"> 一个角色的连胜信息
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="combonum" type= "int"/>	连胜次数
+		</bean>
+
+		<bean name="PvP1RoleSingleMatch"> 一个角色的匹配信息
+			<variable name="roleId" type="long"/> 角色ID
+			<variable name="level" type="short"/> 角色等级
+			<variable name="shape" type="int"/> 造型
+			<variable name="school" type="int"/> 职业
+		</bean>
+
+		<protocol  name="CPvP1MyInfo" type="7101" maxsize="65535" prior="1" tolua="3"> 客户端请求自己的信息
+		</protocol>
+		<protocol  name="SPvP1MyInfo" type="7102" maxsize="65535" prior="1" tolua="3"> 服务器发送自己的信息
+			<variable name="firstwin" type="byte"/> 首胜。0：不可领取，1：可领取，2：已领取
+			<variable name="tenfight" type="byte"/> 十战。0：不可领取，1：可领取，2：已领取
+			<variable name="tencombowin" type="byte"/> 十连胜。0：不可领取，1：可领取，2：已领取
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="score" type="int"/> 本赛季积分
+			<variable name="winnum" type="byte"/> 本场胜利次数
+			<variable name="combowinnum" type="short"/> 本场连胜
+			<variable name="formation" type="byte"/> 当前光环
+			<variable name="ready" type="byte"/> 1：准备中，0：未准备
+			<variable name="jieci" type="int"/> 届次
+			<variable name="changci" type="int"/> 场次
+		</protocol>
+
+		<protocol  name="CPvP1RankingList" type="7103" maxsize="1024" prior="1" tolua="3"> 客户端请求排行榜
+		</protocol>
+		<protocol  name="SPvP1RankingList" type="7104" maxsize="65535" prior="1" tolua="3"> 服务器发送排行榜
+			<variable name="roleScores" type="list" value="PvP1RoleSingleScore"/> 一页积分榜的玩家信息
+			<variable name="roleScores3" type="list" value="PvP1RoleSingleScoreMid"/> 我的前一名,我,我的后一名3名玩家信息
+			<variable name="roleWins" type="list" value="PvP1RoleSingleWin"/> 连胜榜
+		</protocol>
+
+		<protocol  name="CPvP1ReadyFight" type="7106" maxsize="1024" prior="1" tolua="3"> 客户端请求准备完毕
+			<variable name="ready" type="byte"/> 1:准备，0：取消准备
+		</protocol>
+		<protocol  name="SPvP1ReadyFight" type="7107" maxsize="1024" prior="1" tolua="3"> 服务器发送准备状态
+			<variable name="ready" type="byte"/> 1:准备，0：取消准备
+		</protocol>
+
+		<protocol  name="SPvP1BattleInfo" type="7108" maxsize="65535" prior="1" tolua="3"> 服务器发送场内战斗信息
+			<variable name="ismine" type="byte"/> 1:属于我的战况，0：别人的战况
+			<variable name="msgId" type="int"/>
+			<variable name="parameters" type="list" value="octets"/>
+		</protocol>
+
+		<protocol  name="CPvP1OpenBox" type="7109" maxsize="1024" prior="1" tolua="3"> 客户端请求打开箱子
+			<variable name="boxtype" type="byte"/> 1:首胜，2：十战，3：十连胜
+		</protocol>
+
+		<protocol name="SPvP1MatchResult" type="7110" maxsize="65535" prior="1" tolua="3"> 通知客户端匹配结果
+			<variable name="target" type="PvP1RoleSingleMatch"/> 目标
+		</protocol>
+
+		<protocol  name="SPvP1OpenBoxState" type="7112" maxsize="1024" prior="1" tolua="3"> 服务器发送箱子状态
+			<variable name="boxtype" type="byte"/> 1:首胜，2：十战，3：十连胜
+			<variable name="state" type="byte"/> 0：不可领取，1：可领取，2：已领取
+		</protocol>
+
+	</namespace>
+
+	<!-- 3v3竞技场 协议号从7201-7230 -->
+	<namespace name="pvp3">
+		<bean name="PvP3RoleSingleScore"> 一个角色的积分信息
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="score" type= "int"/>	积分
+		</bean>
+
+		<bean name="PvP3RoleSingleScoreMid"> 一个角色的积分信息
+			<variable name="index" type="short"/>	排名
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="score" type= "int"/>	积分
+		</bean>
+
+		<bean name="PvP3RoleSingleMatch"> 一个角色的匹配信息
+			<variable name="roleId" type="long"/> 角色ID
+			<variable name="level" type="short"/> 角色等级
+			<variable name="shape" type="int"/> 造型
+			<variable name="school" type="int"/> 职业
+		</bean>
+
+		<protocol name="CPvP3MyInfo" type="7201" maxsize="65535" prior="1" tolua="3"> 客户端请求自己的信息
+		</protocol>
+		<protocol name="SPvP3MyInfo" type="7202" maxsize="65535" prior="1" tolua="3"> 服务器发送自己的信息
+			<variable name="firstwin" type="byte"/> 首胜。0：不可领取，1：可领取，2：已领取
+			<variable name="tenfight" type="byte"/> 十战。0：不可领取，1：可领取，2：已领取
+			<variable name="eightwin" type="byte"/> 五胜。0：不可领取，1：可领取，2：已领取
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="winnum" type="byte"/> 本场胜利次数
+			<variable name="combowinnum" type="short"/> 本场连胜
+			<variable name="score" type="int"/> 积分
+			<variable name="ready" type="byte"/> 1：准备中，0：未准备
+		</protocol>
+
+		<protocol name="CPvP3RankingList" type="7203" maxsize="1024" prior="1" tolua="3"> 客户端请求排行榜
+			<variable name="history" type="byte"/> 0：当前排行，1：历史排行
+		</protocol>
+		<protocol name="SPvP3RankingList" type="7204" maxsize="65535" prior="1" tolua="3"> 服务器发送排行榜
+			<variable name="history" type="byte"/> 0：当前排行，1：历史排行
+			<variable name="roleScores" type="list" value="PvP3RoleSingleScore"/> 积分榜
+			<variable name="myScore" type="list" value="PvP3RoleSingleScoreMid"/> 我自己的排名信息
+		</protocol>
+
+		<protocol name="CPvP3ReadyFight" type="7211" maxsize="1024" prior="1" tolua="3"> 客户端请求准备完毕
+			<variable name="ready" type="byte"/> 1:准备，0：取消准备
+		</protocol>
+		<protocol name="SPvP3ReadyFight" type="7212" maxsize="1024" prior="1" tolua="3"> 服务器发送准备状态
+			<variable name="ready" type="byte"/> 1:准备，0：取消准备
+		</protocol>
+		<protocol name="SPvP3MatchResult" type="7213" maxsize="65535" prior="1" tolua="3"> 通知客户端匹配结果
+			<variable name="targets" type="list" value="PvP3RoleSingleMatch"/> 目标
+		</protocol>
+
+		<protocol name="SPvP3BattleInfo" type="7214" maxsize="65535" prior="1" tolua="3"> 服务器发送场内战斗信息
+			<variable name="ismine" type="byte"/> 1:属于我的战况，0：别人的战况
+			<variable name="msgId" type="int"/>
+			<variable name="parameters" type="list" value="octets"/>
+		</protocol>
+
+		<protocol name="CPvP3OpenBox" type="7221" maxsize="1024" prior="1" tolua="3"> 客户端请求打开箱子
+			<variable name="boxtype" type="byte"/> 1:首胜，2：十战，3：五胜
+		</protocol>
+		<protocol name="SPvP3OpenBoxState" type="7222" maxsize="1024" prior="1" tolua="3"> 服务器发送箱子状态
+			<variable name="boxtype" type="byte"/> 1:首胜，2：十战，3：五胜
+			<variable name="state" type="byte"/> 0：不可领取，1：可领取，2：已领取
+		</protocol>
+
+	</namespace>
+	<!-- 3v3竞技场 协议号从7201-7230 -->
+
+	<!-- 5v5竞技场 协议号从7231-7250 -->
+	<namespace name="pvp5">
+		<bean name="PvP5RoleSingleScore"> 一个角色的积分信息
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="score" type= "int"/>	积分
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="winnum" type="byte"/> 本场胜利次数
+		</bean>
+
+		<bean name="PvP5RoleSingleScoreMid"> 一个角色的积分信息
+			<variable name="listId" type="byte"/>	所在列表(1 or 2)
+			<variable name="index" type="short"/>	排名
+			<variable name="roleId" type="long"/>	角色ID
+			<variable name="rolename" type="string"/> 角色名称
+			<variable name="score" type= "int"/>	积分
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="winnum" type="byte"/> 本场胜利次数
+		</bean>
+
+		<protocol name="CPvP5MyInfo" type="7231" maxsize="65535" prior="1" tolua="3"> 客户端请求自己的信息
+		</protocol>
+		<protocol name="SPvP5MyInfo" type="7232" maxsize="65535" prior="1" tolua="3"> 服务器发送自己的信息
+			<variable name="firstwin" type="byte"/> 首胜。0：不可领取，1：可领取，2：已领取
+			<variable name="fivefight" type="byte"/> 五战。0：不可领取，1：可领取，2：已领取
+			<variable name="battlenum" type="byte"/> 本场已经战斗的次数
+			<variable name="winnum" type="byte"/> 本场胜利次数
+			<variable name="combowinnum" type="byte"/> 本场连胜
+			<variable name="score" type="int"/> 积分
+			<variable name="camp" type="byte"/> 所属阵营(0 or 1)
+			<variable name="waitstarttime" type="long"/> 等待的起始时间点(单位:秒, -1:不在等待中)
+		</protocol>
+
+		<protocol name="CPvP5RankingList" type="7233" maxsize="1024" prior="1" tolua="3"> 客户端请求排行榜
+		</protocol>
+		<protocol name="SPvP5RankingList" type="7234" maxsize="65535" prior="1" tolua="3"> 服务器发送排行榜
+			<variable name="roleScores1" type="list" value="PvP5RoleSingleScore"/> 积分榜1
+			<variable name="roleScores2" type="list" value="PvP5RoleSingleScore"/> 积分榜2
+			<variable name="myScore" type="PvP5RoleSingleScoreMid"/> 我自己的排名信息
+		</protocol>
+
+		<protocol name="SPvP5ReadyFight" type="7236" maxsize="65535" prior="1" tolua="3"> 服务器发送准备状态
+		</protocol>
+		<protocol name="SPvP5MatchResult" type="7237" maxsize="65535" prior="1" tolua="3"> 通知客户端匹配结果
+		</protocol>
+
+		<protocol name="SPvP5BattleInfo" type="7238" maxsize="65535" prior="1" tolua="3"> 服务器发送场内战斗信息
+			<variable name="ismine" type="byte"/> 1:属于我的战况，0：别人的战况
+			<variable name="msgId" type="int"/>
+			<variable name="parameters" type="list" value="octets"/>
+		</protocol>
+
+		<protocol name="CPvP5OpenBox" type="7240" maxsize="1024" prior="1" tolua="3"> 客户端请求打开箱子
+			<variable name="boxtype" type="byte"/> 1:首胜，2：五战
+		</protocol>
+		<protocol name="SPvP5OpenBoxState" type="7241" maxsize="1024" prior="1" tolua="3"> 服务器发送箱子状态
+			<variable name="boxtype" type="byte"/> 1:首胜，2：五战
+			<variable name="state" type="byte"/> 0：不可领取，1：可领取，2：已领取
+		</protocol>
+
+	</namespace>
+	<!-- 5v5竞技场 协议号从7231-7250 -->
+
+	<!-- 切磋协议start 协议号从7251-7300 -->
+	<bean name="QCmodelType">
+		<enum name="ONE_FIGHT" value="1"/>		单人对手界面
+		<enum name="TEAM_FIGHT" value="2"/>		组队对手界面
+		<enum name="WATCH_FIGHT" value="3"/>		观战界面
+	</bean>
+
+	<bean name="QCRoleInfoDes">
+		<variable name="roleid" type="long"/> 角色Id
+		<variable name="rolename" type="string"/> 角色名
+		<variable name="shape" type="int"/> 角色造型
+		<variable name="level" type="int"/> 角色等级
+		<variable name="school" type="int"/> 职业
+		<variable name="teamnum" type="int"/> 队伍当前人数
+		<variable name="teamnummax" type="int"/> 队伍最大人数
+	</bean>
+
+	<bean name="QCRoleInfoWatchDes">
+		<variable name="role1" type="QCRoleInfoDes"/> 对手1
+		<variable name="role2" type="QCRoleInfoDes"/> 对手1
+	</bean>
+
+	<protocol name="CPlayPKFightView" type="7251" maxsize="65535" prior="1" tolua="3">寻找对手界面
+		<variable name="modeltype" type="int" /> 模块类型
+		<variable name="school" type="int" /> 删选的职业 -1表示全职业
+		<variable name="levelindex" type="int" /> 删选的角色等级区间 0表示全选
+	</protocol>
+	<protocol name="SPlayPKFightView" type="7252" maxsize="65535" prior="1" tolua="3">返回对手界面
+		<variable name="modeltype" type="int" /> 模块类型
+		<variable name="school" type="int" /> 删选的职业 -1表示全职业
+		<variable name="levelindex" type="int" /> 删选的角色等级区间 0表示全选
+		<variable name="rolelist" type="vector" value="QCRoleInfoDes"/>
+		<variable name="rolewatchlist" type="vector" value="QCRoleInfoWatchDes"/> 观战对手信息
+	</protocol>
+
+	<protocol name="CInvitationPlayPK" type="7255" maxsize="65535" prior="1" tolua="3">  发送切磋邀请
+		<variable name="objectid" type="long" /> 
+	</protocol>
+	<protocol name="SInvitationPlayPK" type="7256" maxsize="65535" prior="1" tolua="3">
+		<variable name="sourceid" type="long" />  发起邀请人的id
+		<variable name="rolename" type="string" />  玩家名称
+		<variable name="rolelevel" type="int" />等级
+		<variable name="teamnum" type="int" />当前队伍人数
+	</protocol>
+
+	<protocol name="CInvitationPlayPKResult" type="7257" maxsize="65535" prior="1" tolua="3">  是拒绝还是接受切磋
+		<variable name="sourceid" type="long" />   发起邀请人的id
+		<variable name="acceptresult" type="int" /> 0拒绝  1接受
+	</protocol>
+	<protocol name="SInvitationPlayPKResult" type="7258" maxsize="65535" prior="1" tolua="3">  是拒绝还是接受切磋
+	</protocol>
+	<!-- 切磋协议end 协议号从7251-7300 -->
+
+	<!-- 战斗录像协议begin 协议号从7301-7400 -->
+	<protocol name="CReqCameraUrl" type="7301" maxsize="65535" prior="1" tolua="3">  请求录像url
+		<variable name="battleid" type="long" />   战斗信息表id
+	</protocol>
+	<protocol name="SSendCameraUrl" type="7302" maxsize="65535" prior="1">  返回录像url
+		<variable name="battleid" type="long" />   战斗信息表id
+		<variable name="isHave" type="byte" />   0无, 1有
+		<variable name="sizebeforezip" type="int" />	压缩前长度
+		<variable name="sizeafterzip" type="long" />	压缩后长度		
+		<variable name="battleCameraUrl" type="string" /> 0拒绝  1接受
+	</protocol>
+	<protocol name="CReqRePlay" type="7303" maxsize="65535" prior="1">  请求播放录像
+		<variable name="battleCameraUrl" type="string" /> 
+	</protocol>
+	<protocol name="SReqRePlay" type="7304" maxsize="65535" prior="1">  请求播放录像返回
+		<variable name="candoit" type="byte" />   0无, 1有
+		<variable name="battleCameraUrl" type="string" /> 
+	</protocol>
+	<protocol name="CStopRePlay" type="7305" maxsize="65535" prior="1">  停止播放
+	</protocol>
+	
+	<!-- 战斗录像协议begin 协议号从7301-7400 -->
+	
+		<!-- 生死战协议start 协议号从7401-7450 -->
+	<namespace name="livedie">
+		<bean name="LDmodelType">
+			<enum name="DAY_FIGHT" value="1"/>		本日生死战排行
+			<enum name="WEEK_FIGHT" value="2"/>		本周生死战排行
+			<enum name="HIS_FIGHT" value="3"/>	历史生死战排行
+			<enum name="SELF_FIGHT" value="4"/>	自己
+		</bean>
+		
+		<bean name="LDRoleInfoDes">
+			<variable name="roleid" type="long"/> 角色Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="shape" type="int"/> 角色造型
+			<variable name="level" type="int"/> 角色等级
+			<variable name="school" type="int"/> 职业
+			<variable name="teamnum" type="int"/> 队伍当前人数
+			<variable name="teamnummax" type="int"/> 队伍最大人数
+		</bean>
+		
+		<bean name="LDTeamRoleInfoDes">
+			<variable name="roleid" type="long"/> 角色Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="shape" type="int"/> 角色造型
+			<variable name="level" type="int"/> 角色等级
+			<variable name="school" type="int"/> 职业
+		</bean>
+		
+		<bean name="LDRoleInfoWatchDes">
+			<variable name="role1" type="LDRoleInfoDes"/> 对手1
+			<variable name="role2" type="LDRoleInfoDes"/> 对手1
+		</bean>
+
+		<bean name="LDVideoRoleInfoDes">
+			<variable name="role1" type="LDRoleInfoDes"/> 对手1
+			<variable name="role2" type="LDRoleInfoDes"/> 对手1
+			<variable name="teamlist1" type="vector" value="LDTeamRoleInfoDes"/>//如果是组队，队员详情
+			<variable name="teamlist2" type="vector" value="LDTeamRoleInfoDes"/>//如果是组队，队员详情
+			<variable name="battleresult" type="int" /> 1胜利  -1失败  0平局
+			<variable name="rosenum" type="int" />点赞次数
+			<variable name="roseflag" type="int" />是否可以点赞 0可以  1不可
+			<variable name="videoid" type="string" />录像id
+		</bean>
+		
+		<protocol name="CInvitationLiveDieBattle" type="7401" maxsize="65535" prior="1" tolua="3">  下战书
+			<variable name="idorname" type="string" /> 
+			<variable name="selecttype" type="int" /> 0单人   1组队
+		</protocol>
+		
+		<protocol name="SInvitationLiveDieBattle" type="7402" maxsize="65535" prior="1" tolua="3">  返回下战书
+			<variable name="objectid" type="long" /> 
+			<variable name="objectname" type="string" /> 
+			<variable name="selecttype" type="int" /> 0单人   1组队
+			<variable name="costmoney" type="int" /> 
+		</protocol>
+		
+		<protocol name="CInvitationLiveDieBattleOK" type="7403" maxsize="65535" prior="1" tolua="3">  确定是否下战书
+			<variable name="objectid" type="long" />    目标玩家id
+			<variable name="selecttype" type="int" /> 0单人   1组队
+		</protocol>
+		
+		<protocol name="SInvitationLiveDieBattleOK" type="7404" maxsize="65535" prior="1" tolua="3">  返回是否接受下战书结果
+			<variable name="sourceid" type="long" /> 
+			<variable name="sourcename" type="string" /> 
+			<variable name="selecttype" type="int" /> 0单人   1组队
+		</protocol>
+		
+		<protocol name="CAcceptInvitationLiveDieBattle" type="7405" maxsize="65535" prior="1" tolua="3">  确定是否接受战书
+			<variable name="sourceid" type="long" />    目标玩家id
+			<variable name="acceptresult" type="int" /> 0拒绝  1接受
+		</protocol>
+		
+		<protocol name="SAcceptInvitationLiveDieBattle" type="7406" maxsize="65535" prior="1" tolua="3">  确定是否接受战书
+		</protocol>
+		
+		
+		<protocol name="CAcceptLiveDieBattle" type="7407" maxsize="65535" prior="1" tolua="3">  npc处应战开战
+		</protocol>
+		
+		<protocol name="CLiveDieBattleWatchView" type="7408" maxsize="65535" prior="1" tolua="3">  请求生死战观战界面
+		</protocol>
+		
+		<protocol name="SLiveDieBattleWatchView" type="7409" maxsize="65535" prior="1" tolua="3">  返回请求生死战观战界面
+			<variable name="rolewatchlist" type="vector" value="LDRoleInfoWatchDes"/> 观战对手信息
+		</protocol>
+		
+		<protocol name="CLiveDieBattleRankView" type="7410" maxsize="65535" prior="1" tolua="3">  请求生死战排行界面
+			<variable name="modeltype" type="int" /> 类型
+		</protocol>
+		
+		<protocol name="SLiveDieBattleRankView" type="7411" maxsize="65535" prior="1" tolua="3">  返回请求生死战排行界面
+			<variable name="modeltype" type="int" /> 类型
+			<variable name="rolefightlist" type="vector" value="LDVideoRoleInfoDes"/> 对手信息
+		</protocol>
+		
+		<protocol name="CLiveDieBattleGiveRose" type="7412" maxsize="65535" prior="1" tolua="3">  点赞
+			<variable name="vedioid" type="string" />录像id
+		</protocol>
+		
+		<protocol name="SLiveDieBattleGiveRose" type="7413" maxsize="65535" prior="1" tolua="3">  点赞
+			<variable name="vedioid" type="string" />录像id
+			<variable name="rosenum" type="int" />次数
+			<variable name="roseflag" type="int" />是否可以点赞 0可以  1不可
+		</protocol>
+		
+		<protocol name="CLiveDieBattleWatchVideo" type="7414" maxsize="65535" prior="1" tolua="3">  观看录像
+			<variable name="vedioid" type="string" />录像id
+		</protocol>
+		
+		<protocol name="CLiveDieBattleWatchFight" type="7415" maxsize="65535" prior="1" tolua="3">  观看战斗
+			<variable name="battleid" type="long" />战斗id
+		</protocol>
+		
+		<protocol name="CAcceptLiveDieBattleFirst" type="7416" maxsize="65535" prior="1" tolua="3">  玩家来应战(第一个确认按钮)
+		</protocol>
+		
+		<protocol name="SAcceptLiveDieBattleFirst" type="7417" maxsize="65535" prior="1" tolua="3">  返回玩家来应战(第一个确认按钮)
+			<variable name="hostroleid" type="long" />  0表示没有发战书的人，大于0表示有发战书的人
+			<variable name="hostrolename" type="string" />名称
+		</protocol>
+
+		
+	</namespace>
+	<!-- 生死战协议end 协议号从7401-7450 -->
+	<!-- 战斗指挥being 协议号从7451-7500 -->
+	<namespace name="battleflag">
+		<protocol name="CReqBattleFlag" type="7451" maxsize="10" prior="1" tolua="3">  
+		</protocol>
+		
+		<protocol name="SSendBattleFlag" type="7452" maxsize="65535" prior="1" tolua="3">  
+			<variable name="friendflags" type="list" value="string"/> 友方标志
+			<variable name="enemyflags" type="list" value="string"/> 敌方标志
+		</protocol>
+		
+		<protocol name="CModifyBattleFlag" type="7453" maxsize="65535" prior="1" tolua="3">  
+			<variable name="opttype" type="byte" />   0 add, 1 delete, 2 modify
+			<variable name="index" type="byte" />   0-9 友方, 10-19敌方
+			<variable name="flag" type="string" />
+		</protocol>
+
+		<protocol name="SModifyBattleFlag" type="7454" maxsize="65535" prior="1" tolua="3">  
+			<variable name="opttype" type="byte" />   0 add, 1 delete, 2 modify
+			<variable name="index" type="byte" />   0-9 友方, 10-19敌方
+			<variable name="flag" type="string" />
+		</protocol>
+
+		<protocol name="CSetCommander" type="7455" maxsize="65535" prior="1" tolua="3">  
+			<variable name="opttype" type="byte" />   0 set, 1 reset
+			<variable name="roleid" type="long" /> 
+		</protocol>
+
+		<protocol name="SSetCommander" type="7456" maxsize="65535" prior="1" tolua="3">  
+			<variable name="roleid" type="long" /> 
+		</protocol>
+
+		<protocol name="CSetBattleFlag" type="7457" maxsize="65535" prior="1" tolua="3">  
+			<variable name="opttype" type="byte" />   0 add, 1 delete, 2 modify 3 clearall
+			<variable name="index" type="byte" />   fighterid
+			<variable name="flag" type="string" />
+		</protocol>
+
+		<protocol name="SSetBattleFlag" type="7458" maxsize="65535" prior="1" tolua="3">  
+			<variable name="opttype" type="byte" />   0 add, 1 delete, 2 modify
+			<variable name="index" type="byte" />   fighterid
+			<variable name="flag" type="string" />
+		</protocol>
+	</namespace>
+	<!-- 战斗指挥end 协议号从7451-7500 -->
+
+
+</namespace>

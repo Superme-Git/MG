@@ -1,0 +1,22 @@
+// PanelQiYuanItem
+class PanelQiYuanItem : public PanelItem
+{
+public:
+	//是否达成成就
+	int  getWishState();
+	void SetFinishState( int wishstate);
+
+	void SetAwardStr(const string& awardstr) ;
+	void SetTips(const string& tips) ;
+
+    void draw(GeometryBuffer* buffer, const Rect& targetRect, float alpha, const Rect* clipper);
+};
+
+class RichEditboxBreakLineComponent : public RichEditboxComponent 
+{
+public:
+	String GenerateParseText();
+
+	bool isOnlySpace();
+	int GetCharCount();
+};

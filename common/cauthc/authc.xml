@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="gnet" shareHome="../../../share" pvids="">
+
+	<import file="gnet.xml"/>
+
+	<state name="Client">
+		<protocol ref="gnet.ErrorInfo"/>
+		<protocol ref="gnet.KeepAlive"/>
+		<protocol ref="gnet.Challenge"/>
+		<protocol ref="gnet.Response"/>
+		<protocol ref="gnet.KeyExchange"/>
+		<protocol ref="gnet.OnlineAnnounce"/>
+		<protocol ref="gnet.AddictionControl"/>
+		<protocol ref="gnet.AnnounceForbidInfo"/>
+		<protocol ref="gnet.InstantAddCashReq"/>
+		<protocol ref="gnet.InstantAddCashRep"/>
+		<protocol ref="gnet.GetUserCouponReq"/>
+		<protocol ref="gnet.GetUserCouponRep"/>
+		<protocol ref="gnet.CouponExchangeReq"/>
+		<protocol ref="gnet.CouponExchangeRep"/>
+		<protocol ref="gnet.PortForward"/>
+		<protocol ref="gnet.SSOGetTicketReq"/>
+		<protocol ref="gnet.SSOGetTicketRep"/>
+		<protocol ref="gnet.DataBetweenAuAnyAndClient"/>
+		<bean ref="gnet.GPair"/>
+		<bean ref="gnet.RoleForbid"/>
+		<bean ref="gnet.SSOUser"/>>
+	</state>
+
+	<service name="authc">
+		<manager name="LinkClient" type="client" initstate="Client" port="10000"/>
+	</service>
+</application>

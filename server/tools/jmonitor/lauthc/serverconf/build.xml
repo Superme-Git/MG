@@ -1,0 +1,23 @@
+﻿<project name="serverconf" default="compile">
+
+	<target name="init"> 
+	    <mkdir dir="bin"/>
+	    <mkdir dir="dist"/>
+	</target> 
+
+	<target name="compile" depends="init">
+		<javac includeAntRuntime="false"  includeJavaRuntime="false" encoding="GBK"  destdir="bin" fork="true" memorymaximumsize="500M">
+			<src path="src"/>
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile">
+		<jar jarfile="dist/serverconf.jar" basedir="bin" manifest="src/MANIFEST.MF"/>
+		<copy file="dist/serverconf.jar" todir="../../bin/jmonitor/dist" />
+	</target>
+
+	<target name="clean">
+		<delete dir="bin"/>
+	</target>
+</project>
+

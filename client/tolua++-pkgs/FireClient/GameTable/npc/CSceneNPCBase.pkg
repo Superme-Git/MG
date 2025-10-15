@@ -1,0 +1,31 @@
+namespace GameTable
+{
+    namespace npc
+    {
+        class CSceneNPCBase
+        {
+            public:
+            int id;
+            int shapeid;
+            std::wstring name;
+            int type;
+            std::wstring npcappear;
+            std::wstring npcdisappear;
+            int scale;
+            int area1colour;
+            std::vector<int> chatidlist;
+            int mask;
+            int transparent;
+        };
+        class CSceneNPCBaseTable
+        {
+            public:
+        CSceneNPCBase& getRecorder(int id);
+        const CSceneNPCBase& getRecorderByName(const std::wstring& name);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CSceneNPCBaseTable&  GetCSceneNPCBaseTableInstance();
+    }
+}

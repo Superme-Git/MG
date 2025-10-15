@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<results>
+    <error file="rpcgen/gnet/PortForward.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;PortForward::command&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/PortForward.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;PortForward::portsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/PortForward.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;PortForward::code&apos; is not initialized in the constructor." />
+    <error file="speedlimit.h" line="51" id="uninitMemberVar" severity="style" msg="Member variable &apos;SpeedLimit::HIGH&apos; is not initialized in the constructor." />
+    <error file="speedlimit.h" line="51" id="uninitMemberVar" severity="style" msg="Member variable &apos;SpeedLimit::WINDOW&apos; is not initialized in the constructor." />
+    <error file="LinkServer.hpp" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForbidIpValue::forbid_end_time&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/Challenge.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;Challenge::version&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/StatusAnnounce.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;StatusAnnounce::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/StatusAnnounce.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;StatusAnnounce::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/StatusAnnounce.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;StatusAnnounce::status&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ErrorInfo.inc" line="18" id="uninitMemberVar" severity="style" msg="Member variable &apos;ErrorInfo::errcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Dispatch.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;Dispatch::linksid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Dispatch.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;Dispatch::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Dispatch.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;Dispatch::ptype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Send.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;Send::ptype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/LinkBroken.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;LinkBroken::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/LinkBroken.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;LinkBroken::linksid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/LinkBroken.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;LinkBroken::reason&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Broadcast.inc" line="20" id="uninitMemberVar" severity="style" msg="Member variable &apos;Broadcast::ptype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Broadcast.inc" line="20" id="uninitMemberVar" severity="style" msg="Member variable &apos;Broadcast::time&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/SetLogin.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;SetLogin::linksid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/SetLogin.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;SetLogin::login&apos; is not initialized in the constructor." />
+    <error file="LinkServer.cpp" line="130" id="unusedScopedObject" severity="error" msg="Instance of &apos;Send&apos; object is destroyed immediately." />
+    <error file="LinkServer.cpp" line="336" id="postfixOperator" severity="style" msg="Prefix ++/-- operators should be preferred for non-primitive types. Pre-increment/decrement can be more efficient than post-increment/decrement. Post-increment/decrement usually involves keeping a copy of the previous value around and adds a little extra code." />
+    <error file="rpcgen/gnet/link/AnnounceLinkId.inc" line="17" id="uninitMemberVar" severity="style" msg="Member variable &apos;AnnounceLinkId::linkid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControl.inc" line="24" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControl::zoneid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControl.inc" line="24" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControl::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControl.inc" line="24" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControl::rate&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControl.inc" line="24" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControl::msg&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControlRep.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControlRep::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControlRep.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControlRep::zoneid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControlRep.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControlRep::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControlRep.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControlRep::rate&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AddictionControlRep.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;AddictionControlRep::msg&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AnnounceForbidInfo.inc" line="20" id="uninitMemberVar" severity="style" msg="Member variable &apos;AnnounceForbidInfo::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/AnnounceForbidInfo.inc" line="20" id="uninitMemberVar" severity="style" msg="Member variable &apos;AnnounceForbidInfo::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CertVerify.inc" line="18" id="uninitMemberVar" severity="style" msg="Member variable &apos;CertVerify::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::retcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::remain_coupon&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::today_exchange_coupon&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::today_remain_exchange_coupon&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::reserved1&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeRep::reserved2&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeReq.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeReq::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeReq.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeReq::coupon_number&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeReq.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeReq::cash_number&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeReq.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeReq::reserved1&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/CouponExchangeReq.inc" line="25" id="uninitMemberVar" severity="style" msg="Member variable &apos;CouponExchangeReq::reserved2&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/DeliverAnnounceToLink.inc" line="17" id="uninitMemberVar" severity="style" msg="Member variable &apos;DeliverAnnounceToLink::forbid_ip&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ErrorInfoRep.inc" line="20" id="uninitMemberVar" severity="style" msg="Member variable &apos;ErrorInfoRep::errcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ErrorInfoRep.inc" line="20" id="uninitMemberVar" severity="style" msg="Member variable &apos;ErrorInfoRep::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginRep::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginRep::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginRep::deny_flag&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginRep::reserved&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginReq.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginReq::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginReq.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginReq::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/ForceLoginReq.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;ForceLoginReq::reserved&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::retcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::remain_coupon&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::today_exchange_coupon&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::today_remain_exchange_coupon&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::reserved1&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponRep.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponRep::reserved2&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/GetUserCouponReq.inc" line="17" id="uninitMemberVar" severity="style" msg="Member variable &apos;GetUserCouponReq::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashRep::retcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashRep::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashRep::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashRep.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashRep::reserved&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashReq.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashReq::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashReq.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashReq::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/InstantAddCashReq.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;InstantAddCashReq::reserved&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/KeepAlive.inc" line="17" id="uninitMemberVar" severity="style" msg="Member variable &apos;KeepAlive::code&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/KeyExchange.inc" line="18" id="uninitMemberVar" severity="style" msg="Member variable &apos;KeyExchange::blkickuser&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/KickoutUser.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;KickoutUser::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/KickoutUser.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;KickoutUser::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/KickoutUser.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;KickoutUser::cause&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixChallenge.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixChallenge::algorithm&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixChallenge.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixChallenge::nonce&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdRep.inc" line="28" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdRep::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdRep.inc" line="28" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdRep::retcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdRep.inc" line="28" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdRep::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdRep.inc" line="28" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdRep::blmatrixchallenge&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdRep.inc" line="28" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdRep::algorithm&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdRep.inc" line="28" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdRep::nonce&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixPasswdReq.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixPasswdReq::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixResponseReq.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixResponseReq::response&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixResponseReq.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixResponseReq::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixResponse.inc" line="17" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixResponse::response&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixResponseRep.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixResponseRep::blkeyexchange&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/MatrixResponseRep.inc" line="19" id="uninitMemberVar" severity="style" msg="Member variable &apos;MatrixResponseRep::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/openau/ServerIDResponse.inc" line="18" id="uninitMemberVar" severity="style" msg="Member variable &apos;ServerIDResponse::plattype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/OnlineAnnounce.inc" line="27" id="uninitMemberVar" severity="style" msg="Member variable &apos;OnlineAnnounce::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/OnlineAnnounce.inc" line="27" id="uninitMemberVar" severity="style" msg="Member variable &apos;OnlineAnnounce::localsid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/OnlineAnnounce.inc" line="27" id="uninitMemberVar" severity="style" msg="Member variable &apos;OnlineAnnounce::remain_time&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/OnlineAnnounce.inc" line="27" id="uninitMemberVar" severity="style" msg="Member variable &apos;OnlineAnnounce::zoneid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/OnlineAnnounce.inc" line="27" id="uninitMemberVar" severity="style" msg="Member variable &apos;OnlineAnnounce::aid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/OnlineAnnounce.inc" line="27" id="uninitMemberVar" severity="style" msg="Member variable &apos;OnlineAnnounce::algorithm&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/Response.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;Response::logintype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/Response.inc" line="23" id="uninitMemberVar" severity="style" msg="Member variable &apos;Response::reserved1&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/SSOGetTicketRep.inc" line="21" id="uninitMemberVar" severity="style" msg="Member variable &apos;SSOGetTicketRep::retcode&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/SSOGetTicketReq.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;SSOGetTicketReq::loginip&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/SSOGetTicketReq.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;SSOGetTicketReq::toaid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/SSOGetTicketReq.inc" line="26" id="uninitMemberVar" severity="style" msg="Member variable &apos;SSOGetTicketReq::tozoneid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Bind.inc" line="18" id="uninitMemberVar" severity="style" msg="Member variable &apos;Bind::pvid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Kick.inc" line="30" id="uninitMemberVar" severity="style" msg="Member variable &apos;Kick::linksid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Kick.inc" line="30" id="uninitMemberVar" severity="style" msg="Member variable &apos;Kick::action&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/Kick.inc" line="30" id="uninitMemberVar" severity="style" msg="Member variable &apos;Kick::error&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/LinkServerControl.inc" line="22" id="uninitMemberVar" severity="style" msg="Member variable &apos;LinkServerControl::ptype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/gnet/link/UnBind.inc" line="18" id="uninitMemberVar" severity="style" msg="Member variable &apos;UnBind::pvid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/openau/DataBetweenAuAnyAndClient.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;DataBetweenAuAnyAndClient::userid&apos; is not initialized in the constructor." />
+    <error file="rpcgen/openau/DataBetweenAuAnyAndClient.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;DataBetweenAuAnyAndClient::qtype&apos; is not initialized in the constructor." />
+    <error file="rpcgen/openau/DataBetweenAuAnyAndClient.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;DataBetweenAuAnyAndClient::flag&apos; is not initialized in the constructor." />
+    <error file="rpcgen/openau/DataBetweenAuAnyAndClient.inc" line="29" id="uninitMemberVar" severity="style" msg="Member variable &apos;DataBetweenAuAnyAndClient::reserved&apos; is not initialized in the constructor." />
+    <error file="stat.cpp" line="21" id="postfixOperator" severity="style" msg="Prefix ++/-- operators should be preferred for non-primitive types. Pre-increment/decrement can be more efficient than post-increment/decrement. Post-increment/decrement usually involves keeping a copy of the previous value around and adds a little extra code." />
+    <error file="stat.cpp" line="30" id="postfixOperator" severity="style" msg="Prefix ++/-- operators should be preferred for non-primitive types. Pre-increment/decrement can be more efficient than post-increment/decrement. Post-increment/decrement usually involves keeping a copy of the previous value around and adds a little extra code." />
+    <error file="stat.cpp" line="39" id="postfixOperator" severity="style" msg="Prefix ++/-- operators should be preferred for non-primitive types. Pre-increment/decrement can be more efficient than post-increment/decrement. Post-increment/decrement usually involves keeping a copy of the previous value around and adds a little extra code." />
+    <error file="LinkServer.cpp" line="160" id="unusedFunction" severity="style" msg="The function &apos;CheckUnknownProtocol&apos; is never used." />
+    <error file="LinkServer.cpp" line="181" id="unusedFunction" severity="style" msg="The function &apos;DispatchUnknownProtocol&apos; is never used." />
+    <error file="pf.cpp" line="315" id="unusedFunction" severity="style" msg="The function &apos;NoMoreData&apos; is never used." />
+    <error file="pf.cpp" line="353" id="unusedFunction" severity="style" msg="The function &apos;OnAbort&apos; is never used." />
+    <error file="DeliveryClient.cpp" line="56" id="unusedFunction" severity="style" msg="The function &apos;OnAbortSession&apos; is never used." />
+    <error file="DeliveryClient.cpp" line="22" id="unusedFunction" severity="style" msg="The function &apos;OnAddSession&apos; is never used." />
+    <error file="DeliveryClient.hpp" line="22" id="unusedFunction" severity="style" msg="The function &apos;OnCheckAccumulate&apos; is never used." />
+    <error file="DeliveryClient.cpp" line="65" id="unusedFunction" severity="style" msg="The function &apos;OnCheckAddress&apos; is never used." />
+    <error file="pf.cpp" line="367" id="unusedFunction" severity="style" msg="The function &apos;OnClose&apos; is never used." />
+    <error file="pf.cpp" line="307" id="unusedFunction" severity="style" msg="The function &apos;OnRecv&apos; is never used." />
+    <error file="pf.cpp" line="324" id="unusedFunction" severity="style" msg="The function &apos;OnSend&apos; is never used." />
+    <error file="LinkServer.cpp" line="53" id="unusedFunction" severity="style" msg="The function &apos;OnSetTransport&apos; is never used." />
+    <error file="LinkServer.cpp" line="177" id="unusedFunction" severity="style" msg="The function &apos;Process&apos; is never used." />
+    <error file="speedlimit.h" line="83" id="unusedFunction" severity="style" msg="The function &apos;ask&apos; is never used." />
+    <error file="ProviderMap.hpp" line="52" id="unusedFunction" severity="style" msg="The function &apos;collectSessionId&apos; is never used." />
+    <error file="LinkBrokenCache.hpp" line="61" id="unusedFunction" severity="style" msg="The function &apos;delBrokenInfo&apos; is never used." />
+    <error file="pf.cpp" line="131" id="unusedFunction" severity="style" msg="The function &apos;dump&apos; is never used." />
+    <error file="DeliveryClient.hpp" line="42" id="unusedFunction" severity="style" msg="The function &apos;isConnected&apos; is never used." />
+    <error file="LinkServer.cpp" line="175" id="unusedFunction" severity="style" msg="The function &apos;marshal&apos; is never used." />
+    <error file="LinkSession.hpp" line="51" id="unusedFunction" severity="style" msg="The function &apos;setLogintime&apos; is never used." />
+    <error file="LinkServer.cpp" line="176" id="unusedFunction" severity="style" msg="The function &apos;unmarshal&apos; is never used." />
+    <error id="missingInclude" severity="style" msg="Cppcheck cannot find all the include files. Cppcheck can check the code without the include files found. But the results will probably be more accurate if all the include files are found. Please check your project&apos;s include directories and add all of them as include directories for Cppcheck. To see what files Cppcheck cannot find use --check-config." />
+</results>

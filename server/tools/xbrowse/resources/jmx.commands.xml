@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<command name="connect" class="com.pwrd.jmx.command.JmxConnectCommand"/>
+	<command name="show" class="com.pwrd.jmx.command.JmxShowCommand"/>
+	<command name="use" class="com.pwrd.jmx.command.JmxUseCommand"/>
+	<command name="invoke" class="com.pwrd.jmx.command.JmxInvokeCommand"/>
+	<command name="get" class="com.pwrd.jmx.command.JmxGetCommand"/>
+	<command name="set" class="com.pwrd.jmx.command.JmxSetCommand"/>
+</commands>

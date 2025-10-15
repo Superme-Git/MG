@@ -1,0 +1,26 @@
+namespace Nuclear
+{
+	class Renderable : public GUObject
+	{
+	public:
+		virtual bool RenderMid(Canvas* canvas, bool realRender) = 0;
+		virtual bool Render(Canvas* canvas, bool realRender) = 0;
+		virtual void RenderBeforeMid(bool realRender);
+		virtual void RenderSpriteOnly(bool realRender);
+		virtual ~Renderable();
+	};
+
+	struct DrawElement
+	{
+		Renderable *m_pr;
+		NuclearRect m_pos;
+		DrawElement(Renderable *pr, NuclearRect pos); 
+	};
+	
+	class Canvas
+	{
+	public:
+		void Draw(Renderable* pr, NuclearRect pos);
+		void Clear();
+	};
+}

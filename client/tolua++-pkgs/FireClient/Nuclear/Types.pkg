@@ -1,0 +1,222 @@
+
+struct POINT
+{
+	long x,y;
+};
+
+struct RECT
+{
+	long left,top,right,bottom;
+};
+
+
+namespace Nuclear
+{
+	enum NuclearDirection
+	{
+		XPDIR_TOP = 0,
+		XPDIR_TOPRIGHT,
+		XPDIR_RIGHT,
+		XPDIR_BOTTOMRIGHT,
+		XPDIR_BOTTOM,
+		XPDIR_BOTTOMLEFT,
+		XPDIR_LEFT,
+		XPDIR_TOPLEFT,
+	};
+	enum 
+	{
+		XPDIR_COUNT = XPDIR_TOPLEFT + 1
+	};
+	
+	enum NuclearScreenMode
+	{
+		XPSM_WINDOW = 0,
+		XPSM_FADE_FULL_SCREEN,
+		XPSM_REAL_FULL_SCREEN,
+	};
+	
+	struct NuclearDisplayMode
+	{
+		int width;
+		int height;
+		int bitperpix;
+		NuclearScreenMode screenMode;
+		NuclearDisplayMode();
+		NuclearDisplayMode(int w, int h, int bpp = 32, NuclearScreenMode sm = XPSM_WINDOW);
+	};
+	
+	struct NuclearFRectt
+	{
+		float left;
+		float top;
+		float right;
+		float bottom;
+		NuclearFRectt(float l = 0.f, float t = 0.f, float r = 0.f, float b = 0.f);
+		NuclearFRectt(const NuclearFPoint &ltpoint, float width, float height);
+		NuclearFRectt(const NuclearFPoint & lt, float size);
+		NuclearFRectt(const NuclearFPoint & lt, const NuclearFPoint & rb);
+		NuclearFRectt& Assign(float l, float t, float r, float b);
+		float Width() const;
+		float Height() const;
+		bool PtInRect(const NuclearFPoint &pt) const;
+	};
+
+	struct NuclearFPoint
+	{
+		float x;
+		float y;
+		NuclearFPoint(float _x = 0.f, float _y = 0.f);
+		NuclearFPoint(const POINT& p);
+
+		NuclearFPoint operator+(const NuclearFPoint &fp);
+		NuclearFPoint operator-(const NuclearFPoint &fp);
+		NuclearFPoint operator * ( float k) const;
+		NuclearFPoint operator / ( float k) const;
+		float Dis2(const NuclearFPoint &cp) const;
+		bool isInPolygon(const std::vector<NuclearFPoint>& polygon) const;
+		bool isInTriangle(NuclearFPoint p0, NuclearFPoint p1, NuclearFPoint p2) const;
+	};
+
+	typedef NuclearFPoint NuclearVector2;
+
+	struct NuclearPoint : public POINT
+	{
+		NuclearPoint(int _x=0, int _y=0);
+		NuclearPoint(const POINT &pt);
+		NuclearPoint(const NuclearFPoint &pt);
+
+		NuclearPoint operator-(const NuclearPoint &cp) const;
+		NuclearPoint operator+(const NuclearPoint &cp) const;
+
+		int Dis2(const NuclearPoint &cp) const;
+		NuclearFPoint ToFPOINT() const;
+	};
+
+	typedef NuclearPoint NuclearLocation;
+
+	inline float distance(const NuclearFPoint & from, const NuclearFPoint & to);
+	float distance(Nuclear::NuclearLocation & from, Nuclear::NuclearLocation & to);
+
+	enum Nuclear_EffectAssureResResult
+	{
+		XPEARR_RESREADY = 0,
+		XPEARR_LOADING,
+		XPEARR_LOAD_ERROR,
+	};
+
+	enum Nuclear_EffectScaleType
+	{
+		XPEST_NOSCALE = 0,
+		XPEST_ONLY_SCALE_POS,
+		XPEST_ALLSCALE,
+	};
+
+	enum XPEffectState
+	{
+		XPES_PLAYING,
+		XPES_PAUSE,
+		XPES_STOP,
+		XPES_EMPTY,
+	};
+
+	struct NuclearRect : public RECT
+	{
+		NuclearRect(int l=0, int t=0, int r=0, int b=0);
+		NuclearRect(const NuclearPoint &ltpoint, int width, int height);
+		NuclearRect(const RECT &r);
+		NuclearRect Widen(int d);
+		NuclearRect Union(const NuclearRect &rhs); 
+
+		NuclearPoint GetPos(); 
+		NuclearPoint Center(); 
+		NuclearFRectt ToFRECT();
+		bool PtInRect(const NuclearPoint &pt);
+		bool IsCross(const NuclearRect& rhs, NuclearRect &res) ;
+		bool Cut(const NuclearRect& vrect, NuclearRect &drect, NuclearFRectt& srect) ;
+	};
+
+	struct NuclearVector4
+	{
+		float x;
+		float y;
+		float z;
+		float w;
+		NuclearVector4 (float _x=0.0, float _y=0.0, float _z=0.0, float _w=0.0);
+	};
+
+	union NuclearColor
+	{
+		DWORD data;
+		NuclearColor();
+		NuclearColor(DWORD color); 
+		NuclearColor(const NuclearVector4 &v) ;
+		NuclearColor(unsigned char _a, unsigned char _r, unsigned char _g, unsigned char _b);
+		void Reset(const NuclearVector4 &v);
+		NuclearVector4 ToXPVECTOR4() ;
+		void Reset(unsigned char _b, unsigned char _g, unsigned char _r, unsigned char _a);
+	};
+	
+	enum NuclearPlayMode
+	{
+		XPPM_LOOP,
+		XPPM_LOOPNUM,
+		XPPM_TIME,
+	};
+	typedef int PictureHandle;
+	typedef int TextBlockHandle;
+	
+	class IFontManager
+	{
+		IFontManager();
+		virtual ~IFontManager();
+		virtual bool AddFontType(int fontType, wchar_t* fontFile, int fontSize, wchar_t* defFontFile, int defFontSize, int defFontType) = 0;
+		virtual void Release() = 0;
+
+		virtual TextBlockHandle CreateTextBlock( int fontType, wchar_t* szText) = 0;
+		virtual TextBlockHandle CreateTextBlock( int fontType, int maxTextWidth) = 0;
+		virtual ITextBlock* GetTextBlock( TextBlockHandle htb) = 0;
+		virtual void ReleaseTextBlock( TextBlockHandle tb) = 0;
+
+		virtual int GetCharWidth( const TCHAR ch, int fontType) = 0;
+		virtual int GetStringWidth( wchar_t* szText, int fontType) = 0;
+		virtual int GetFontTypeHeight( int fontType) = 0;
+		virtual int GetFontTypeUnderlinePosition( int fontType) = 0;
+		virtual int GetFontTypeUnderlineThickness( int fontType) = 0;
+
+
+		virtual TextBlockHandle NewTextex( std::wstring text, int fonttype, DWORD color, DWORD gradualcolor, DWORD bkColor = 0x00000000, bool bUnderline = false) = 0;
+		virtual bool DrawText( TextBlockHandle htb, float x1, float y1, const NuclearFRectt* srcrect) = 0;
+		IFontManager(const IFontManager&);
+	};
+
+	class ITextBlock
+	{
+		ITextBlock();
+		virtual ~ITextBlock();
+		virtual bool SetText( wchar_t* text) = 0; // 如超出分配纹理的长度，则截断文字
+		virtual wchar_t* GetText() = 0;
+		virtual int	 GetFontType() = 0;
+		virtual DWORD GetFontColor() = 0;
+		virtual DWORD GetGradualColor() = 0;
+		virtual DWORD GetBkColor() = 0;
+
+		virtual bool SetFontColor( DWORD fontColor) = 0;
+		virtual bool SetFontColor( DWORD fontColor, DWORD gradualColor) = 0;
+		virtual bool SetBkColor( DWORD bkColor) = 0;
+
+		virtual int	GetTextWidth() = 0;
+		virtual int GetTextHeight() = 0;
+
+		virtual void CancelFontEffect() = 0;
+
+		virtual void SetShadowColor( DWORD shadowColor) = 0;
+		virtual DWORD GetShadowColor() = 0;
+
+		virtual void SetStrokeColor( DWORD strokeColor) = 0;
+		virtual DWORD GetStrokeColor() = 0;
+
+		virtual bool SetUnderline( bool bUnderline) = 0;
+		virtual bool IsUnderline() = 0;
+	};
+	
+}

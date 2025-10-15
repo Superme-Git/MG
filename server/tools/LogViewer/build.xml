@@ -1,0 +1,73 @@
+<project name="logviewer" default="pack">
+	<!-- 配置环境变量 -->
+	<property name="src.dir" value="src" />
+	<property name="bin.dir" value="bin" />
+	<property name="lib.dir" value="lib" />
+	<property name="res.dir" value="res" />
+	<property name="tmp.dir" value="tmp" />
+	
+	<!-- 打包设置 -->
+	<property name="jar.dir" value="." />
+	<property name="jar.name" value="LogViewer.jar" />
+	<property name="mainclass.name" value="com.mammoth.logger.gui.LogShell" />
+	<property name="class.path" value="${lib.dir}/org.eclipse.swt_3.103.2.v20150203-1313.jar ${lib.dir}/org.eclipse.core.commands_3.2.0.jar ${lib.dir}/org.eclipse.core.runtime_3.1.0.v20051027.jar ${lib.dir}/org.eclipse.jface_3.2.0.jar ${lib.dir}/org.eclipse.swt.win32.win32.x86_64_3.103.2.v20150203-1351.jar"/>
+	
+	<!-- 清理 -->
+	<target name="clean">
+		<delete file="${zip.file}" />
+		<delete dir="${bin.dir}" />
+		<delete file="${jar.name}" />
+	</target>
+	
+	<!-- 编译预处理 -->
+	<target name="init">
+		<delete dir="${bin.dir}"/>
+		<mkdir dir="${bin.dir}"/>
+	</target>
+	
+	<!-- 编译 -->
+	<target name="compile">
+		<!-- 编译 -->
+		<javac srcdir="${src.dir}"
+			   destdir="${bin.dir}">
+			<classpath>
+				<!-- 库文件处理 -->
+				<path id="classpath">
+				   <fileset dir="${lib.dir}">
+				    <include name="**/*.jar"/>
+				   </fileset>
+				</path>
+			</classpath>
+		</javac>
+		<!-- 复制文件 -->
+		<copy todir="${bin.dir}">
+			<fileset dir="${src.dir}" excludes="**/*.java"/>
+		</copy>
+	</target>
+	
+	
+	<!-- 打包 -->
+	<target name="package">
+		<!-- 记录时间戳 -->
+		<tstamp>
+		    <format property="-timestamp" pattern="yyyy年MM月dd HH:mm:ss"/>
+		</tstamp>
+		<echo>build time = ${-timestamp}</echo>
+		<jar destfile="${jar.name}">
+			<fileset dir="${bin.dir}" />
+			<!-- 生成文件 -->
+			<manifest>
+			   <attribute name="Main-Class" value="${mainclass.name}"/>
+			   <attribute name="Class-path" value="${class.path}"/>
+			   <attribute name="tstamp" value="${-timestamp}"/>
+			   
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run">
+		<java jar="${jar.name}" maxmemory="256M" fork="true"> </java>
+	</target>
+	<target name="pack" depends="clean,init,compile,package"/>
+	
+</project>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="timer">
+        <bean name="ScheculedActivity">
+            <variable name="id" fromCol="序号" type="int" />
+            <variable name="activityid" fromCol="活动ID" type="int" />
+            <variable name="zoneid" fromCol="服务器id" type="string" />
+            <variable name="startTime" fromCol="开启时间" type="string" />
+            <variable name="endTime" fromCol="结束时间" type="string" />
+            <variable name="remind" fromCol="是否提醒" type="int" />
+            <variable name="latetime" fromCol="活动实际推迟时间" type="int" />
+            <variable name="advanceremind" fromCol="提前提醒时间" type="int" />
+            <variable name="weekrepeat" fromCol="周循环活动" type="int" />
+        </bean>
+        
+		<bean name="SScheculedActivity" from="d定时活动配置表" genxml="server" baseclass="ScheculedActivity">
+            
+        </bean>
+
+        <bean name="SScheculedActivityDianKa" from="D点卡服表格/d定时活动配置表for点卡服" genxml="server" baseclass="ScheculedActivity">
+
+        </bean>
+		
+		<bean name="CScheculedActivity" from="d定时活动配置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="序号" type="int" />
+			<variable name="strserverid" fromCol="服务器id" type="string" />
+			<variable name="startTime" fromCol="开启时间" type="string" />
+			<variable name="endTime" fromCol="结束时间" type="string" />
+			<variable name="startTime2" fromCol="开启时间2" type="string" />
+			<variable name="activityid" fromCol="活动ID" type="int" />
+			<variable name="weekrepeat" fromCol="周循环活动" type="int" />			
+		</bean>
+		<bean name="CScheculedActivitypay" from="D点卡服表格/d定时活动配置表for点卡服" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="序号" type="int" />
+			<variable name="startTime" fromCol="开启时间" type="string" />
+			<variable name="endTime" fromCol="结束时间" type="string" />
+			<variable name="startTime2" fromCol="开启时间2" type="string" />
+			<variable name="activityid" fromCol="活动ID" type="int" />
+			<variable name="weekrepeat" fromCol="周循环活动" type="int" />			
+		</bean>
+		
+		<bean name="CcheculedActivity" from="d定时活动配置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="开始时间显示" type="int" />
+			<variable name="startTime" fromCol="开启时间2" type="string" />
+		</bean>
+		
+		
+		
+		
+	</namespace>

@@ -1,0 +1,51 @@
+﻿<project name="codertest" default="all">
+
+	<property name="build" value="build" />
+	<property name="dist" value="../dist" />
+	<property name="lib" value="../lib" />
+	<property name="deplibs" value="${dist}/counter.jar" />
+	<property name="jarfile" value="${dist}/${ant.project.name}.jar" />
+
+	<target name="init">
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="genmxbean">
+		<java jar="${dist}/beancoder.jar" fork="true">
+			<arg line="mxbeans.xml beans" />
+		</java>
+	</target>
+
+	<target name="compile" depends="init,genmxbean">
+		<path id="classpath">
+			<filelist dir="." files="${deplibs}" />
+			<filelist dir="../../bin" files="xdb.jar" />
+		</path>
+		<javac includeAntRuntime="false" includeJavaRuntime="false" encoding="GBK" classpathref="classpath" destdir="${build}" fork="true" memorymaximumsize="500M" debug="true" debuglevel="lines,source">
+			<src path="src" />
+			<src path="beans" />
+		</javac>
+	</target>
+
+	<target name="dist" depends="compile">
+		<jar jarfile="${jarfile}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="Main" />
+				<attribute name="Class-Path" value="counter.jar" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="all" depends="dist,clean" />
+
+	<target name="run">
+		<java fork="true" jar="${jarfile}">
+		</java>
+	</target>
+	
+</project>
+

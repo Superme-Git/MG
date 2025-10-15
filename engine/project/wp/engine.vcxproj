@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{20fff8f5-1a2c-478d-a2ab-eda2f9180b5f}</ProjectGuid>
+    <RootNamespace>engine</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\lib\$(Configuration)\Win32</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\lib\$(Configuratio)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <OutDir>..\lib\$(Configuration)\ARM\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <OutDir>..\lib\$(Configuration)\ARM\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;XPP_WIN;UNICODE;WP8;_WP8;GL_GLEXT_PROTOTYPES;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/wp8;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/winrt;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//kazmath/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//kazmath/include/GL;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/zlib;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libpng;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/freetype/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libjpeg;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libtiff;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libwebp;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/winrt/angleproject/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/winrt/angleproject/samples/gles2_book/Common;../common/platform;../common/pfs/pfs;common;engine</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;XPP_WIN;UNICODE;WP8;_WP8;GL_GLEXT_PROTOTYPES;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;DEBUG;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/wp8;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//kazmath/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//kazmath/include/GL;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/zlib;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libpng;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/freetype/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libjpeg;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libtiff;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libwebp;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/winrt/angleproject/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../../common/platform;../../../common/pfs/pfs;../../common;../../engine</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;NDEBUG;XPP_WIN;UNICODE;WP8;_WP8;GL_GLEXT_PROTOTYPES;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/wp8;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/winrt;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//kazmath/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//kazmath/include/GL;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/zlib;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libpng;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/freetype/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libjpeg;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libtiff;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/wp8/libwebp;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/winrt/angleproject/include;../../../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx//platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../../common/platform;../../../common/pfs/pfs;../../common;../../engine</AdditionalIncludeDirectories>
+      <CompileAsWinRT>true</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\astar\alocation.hpp" />
+    <ClInclude Include="..\..\astar\amaze.hpp" />
+    <ClInclude Include="..\..\astar\apath.hpp" />
+    <ClInclude Include="..\..\astar\apathio.hpp" />
+    <ClInclude Include="..\..\astar\asingleton.hpp" />
+    <ClInclude Include="..\..\astar\astar.hpp" />
+    <ClInclude Include="..\..\astar\astarImplement.hpp" />
+    <ClInclude Include="..\..\astar\atimer.hpp" />
+    <ClInclude Include="..\..\common\executor.h" />
+    <ClInclude Include="..\..\common\fileiomanager.h" />
+    <ClInclude Include="..\..\common\freqcountable.h" />
+    <ClInclude Include="..\..\common\geom.h" />
+    <ClInclude Include="..\..\common\ifileio.h" />
+    <ClInclude Include="..\..\common\log.h" />
+    <ClInclude Include="..\..\common\mapconst.h" />
+    <ClInclude Include="..\..\common\nedmalloc\malloc.c.h" />
+    <ClInclude Include="..\..\common\nedmalloc\nedmalloc.h" />
+    <ClInclude Include="..\..\common\pfsutil.h" />
+    <ClInclude Include="..\..\common\pobject.h" />
+    <ClInclude Include="..\..\common\port.h" />
+    <ClInclude Include="..\..\common\recttopologylist.h" />
+    <ClInclude Include="..\..\common\stdafx.h" />
+    <ClInclude Include="..\..\common\timer.h" />
+    <ClInclude Include="..\..\common\util.h" />
+    <ClInclude Include="..\..\common\worldlogiccoord.h" />
+    <ClInclude Include="..\..\common\xbuffer.h" />
+    <ClInclude Include="..\..\common\xlock.h" />
+    <ClInclude Include="..\..\common\xmarshal.h" />
+    <ClInclude Include="..\..\common\xml.h" />
+    <ClInclude Include="..\..\common\xpmaths.h" />
+    <ClInclude Include="..\..\common\xptimeuselog.h" />
+    <ClInclude Include="..\..\common\xptypes.h" />
+    <ClInclude Include="..\..\common\xref.h" />
+    <ClInclude Include="..\..\effect\effect.h" />
+    <ClInclude Include="..\..\effect\effectclip.h" />
+    <ClInclude Include="..\..\effect\effectkeytable.h" />
+    <ClInclude Include="..\..\effect\effectmanager.h" />
+    <ClInclude Include="..\..\effect\fonteffect.h" />
+    <ClInclude Include="..\..\effect\geffect.h" />
+    <ClInclude Include="..\..\effect\keyframe.h" />
+    <ClInclude Include="..\..\effect\listeffect.h" />
+    <ClInclude Include="..\..\effect\particleeffect.h" />
+    <ClInclude Include="..\..\effect\sebind.h" />
+    <ClInclude Include="..\..\effect\xapbatch.h" />
+    <ClInclude Include="..\..\effect\xapeffect.h" />
+    <ClInclude Include="..\..\engine\animanager.h" />
+    <ClInclude Include="..\..\engine\camera.h" />
+    <ClInclude Include="..\..\engine\camerasmoother.h" />
+    <ClInclude Include="..\..\engine\cocos2d_type.h" />
+    <ClInclude Include="..\..\engine\cocos2d_wraper.h" />
+    <ClInclude Include="..\..\engine\configmanager.h" />
+    <ClInclude Include="..\..\engine\engine.h" />
+    <ClInclude Include="..\..\engine\enginebase.h" />
+    <ClInclude Include="..\..\engine\env.h" />
+    <ClInclude Include="..\..\engine\guobj.h" />
+    <ClInclude Include="..\..\engine\iadapter.h" />
+    <ClInclude Include="..\..\engine\malloc.c.h" />
+    <ClInclude Include="..\..\engine\query.h" />
+    <ClInclude Include="..\..\engine\renderable.h" />
+    <ClInclude Include="..\..\engine\rendertargetcache.h" />
+    <ClInclude Include="..\..\engine\systemresourcemanager.h" />
+    <ClInclude Include="..\..\engine\enginetimer.h" />
+    <ClInclude Include="..\..\engine\titlemanager.h" />
+    <ClInclude Include="..\..\engine\toolstitlemanager.h" />
+    <ClInclude Include="..\..\engine\window.h" />
+    <ClInclude Include="..\..\iapp.h" />
+    <ClInclude Include="..\..\ieffect.h" />
+    <ClInclude Include="..\..\iengine.h" />
+    <ClInclude Include="..\..\ientitativetitlemanager.h" />
+    <ClInclude Include="..\..\ienv.h" />
+    <ClInclude Include="..\..\iimmovableobj.h" />
+    <ClInclude Include="..\..\iquery.h" />
+    <ClInclude Include="..\..\iselectableobj.h" />
+    <ClInclude Include="..\..\isprite.h" />
+    <ClInclude Include="..\..\iworld.h" />
+    <ClInclude Include="..\..\map\mapobjs.h" />
+    <ClInclude Include="..\..\map\pbackground.h" />
+    <ClInclude Include="..\..\map\pdistortionobject.h" />
+    <ClInclude Include="..\..\map\pground.h" />
+    <ClInclude Include="..\..\map\pimg.h" />
+    <ClInclude Include="..\..\map\plinkedobject.h" />
+    <ClInclude Include="..\..\map\pmap.h" />
+    <ClInclude Include="..\..\map\pmask.h" />
+    <ClInclude Include="..\..\map\ppathmap.h" />
+    <ClInclude Include="..\..\map\pstepsoundmap.h" />
+    <ClInclude Include="..\..\map\ptimeeffect.h" />
+    <ClInclude Include="..\..\map\ptransobjs.h" />
+    <ClInclude Include="..\..\map\ptriggerobjs.h" />
+    <ClInclude Include="..\..\map\pwaterarea.h" />
+    <ClInclude Include="..\..\particlesystem\commonfuncs.h" />
+    <ClInclude Include="..\..\particlesystem\generalparticlesystem.h" />
+    <ClInclude Include="..\..\particlesystem\iparticlemanager.h" />
+    <ClInclude Include="..\..\particlesystem\iparticlesyscommon.h" />
+    <ClInclude Include="..\..\particlesystem\particle.h" />
+    <ClInclude Include="..\..\particlesystem\particlearray.h" />
+    <ClInclude Include="..\..\particlesystem\particlemanager.h" />
+    <ClInclude Include="..\..\particlesystem\particlesyscommon.h" />
+    <ClInclude Include="..\..\particlesystem\particlesystem.h" />
+    <ClInclude Include="..\..\particlesystem\pslgroupobject.h" />
+    <ClInclude Include="..\..\particlesystem\pslpathobject.h" />
+    <ClInclude Include="..\..\particlesystem\psparamobject.h" />
+    <ClInclude Include="..\..\particlesystem\psvertexsobject.h" />
+    <ClInclude Include="..\..\particlesystem\specialparticlesystem.h" />
+    <ClInclude Include="..\..\pch.h" />
+    <ClInclude Include="..\..\renderer\cocos2d_render.h" />
+    <ClInclude Include="..\..\renderer\fontmanager.h" />
+    <ClInclude Include="..\..\renderer\fonttexture.h" />
+    <ClInclude Include="..\..\renderer\fxcode.h" />
+    <ClInclude Include="..\..\renderer\ibaserenderer.h" />
+    <ClInclude Include="..\..\renderer\ifontmanager.h" />
+    <ClInclude Include="..\..\renderer\igetd3ddevice9.h" />
+    <ClInclude Include="..\..\renderer\renderer.h" />
+    <ClInclude Include="..\..\renderer\statemanager.h" />
+    <ClInclude Include="..\..\renderer\textblock.h" />
+    <ClInclude Include="..\..\sprite\componentsprite.h" />
+    <ClInclude Include="..\..\sprite\movablespriteimp.h" />
+    <ClInclude Include="..\..\sprite\pspritemaze.h" />
+    <ClInclude Include="..\..\sprite\renderablesprite.h" />
+    <ClInclude Include="..\..\sprite\sprite.h" />
+    <ClInclude Include="..\..\sprite\spritemanager.h" />
+    <ClInclude Include="..\..\targetver.h" />
+    <ClInclude Include="..\..\world\distort.h" />
+    <ClInclude Include="..\..\world\distortbase.h" />
+    <ClInclude Include="..\..\world\entitativeobj.h" />
+    <ClInclude Include="..\..\world\immovableobj.h" />
+    <ClInclude Include="..\..\world\lkotree.h" />
+    <ClInclude Include="..\..\world\lkotreenodelist.h" />
+    <ClInclude Include="..\..\world\map.h" />
+    <ClInclude Include="..\..\world\picresrc.h" />
+    <ClInclude Include="..\..\world\regionmap.h" />
+    <ClInclude Include="..\..\world\world.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\common\executor.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\fileiomanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\nedmalloc\nedmalloc.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\pfsutil.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\pobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\recttopologylist.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\timer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\util.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\xbuffer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\xlock.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\xmarshal.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\xpmaths.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\common\xptimeuselog.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\effect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\effectclip.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\effectmanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\fonteffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\geffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\listeffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\particleeffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\sebind.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\xapbatch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\effect\xapeffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\animanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\camera.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\camerasmoother.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\cocos2d_type.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\cocos2d_wraper.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\configmanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\engine.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\env.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\guobj.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\query.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\rendertargetcache.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\systemresourcemanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\enginetimer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\engine\toolstitlemanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\mapobjs.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pbackground.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pdistortionobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pground.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pimg.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\plinkedobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pmap.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pmask.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\ppathmap.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pstepsoundmap.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\ptimeeffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\ptransobjs.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\ptriggerobjs.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\map\pwaterarea.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\commonfuncs.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\generalparticlesystem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\particlemanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\particlesystem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\pslgroupobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\pslpathobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\psparamobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\psvertexsobject.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\particlesystem\specialparticlesystem.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\cocos2d_render.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\fontmanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\fonttexture.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\fxcode.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\renderer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\statemanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\renderer\textblock.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\sprite\componentsprite.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\sprite\movablespriteimp.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\sprite\pspritemaze.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\sprite\sprite.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\sprite\spritemanager.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\distortbase.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\entitativeobj.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\immovableobj.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\lkotree.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\lkotreenodelist.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\map.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\regionmap.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\world\world.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Windows">
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
+    <Reference Include="platform.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\common\platform\platform.vcxproj">
+      <Project>{fbd71d78-a645-49e6-b97b-b51e447ab136}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

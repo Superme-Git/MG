@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><XioConf name="authc">
+	<Manager class="xio.LoginManager" name="LinkClient">
+		<Connector inputBufferSize="16384" outputBufferSize="16384" receiveBufferSize="16384" remoteIp="127.0.0.1" remotePort="10000" sendBufferSize="16384" tcpNoDelay="false"/>
+		<Coder comment="DO NOT EDIT CODER!">
+			<Protocol class="gnet.AddictionControl" maxSize="512"/>
+			<Protocol class="gnet.AnnounceForbidInfo" maxSize="384"/>
+			<Protocol class="gnet.Challenge" maxSize="65535"/>
+			<Protocol class="gnet.CouponExchangeRep" maxSize="128"/>
+			<Protocol class="gnet.CouponExchangeReq" maxSize="64"/>
+			<Protocol class="gnet.ErrorInfo" maxSize="256"/>
+			<Protocol class="gnet.ForceLoginRep" maxSize="64"/>
+			<Protocol class="gnet.ForceLoginReq" maxSize="64"/>
+			<Protocol class="gnet.GetUserCouponRep" maxSize="128"/>
+			<Protocol class="gnet.GetUserCouponReq" maxSize="32"/>
+			<Protocol class="gnet.InstantAddCashRep" maxSize="64"/>
+			<Protocol class="gnet.InstantAddCashReq" maxSize="128"/>
+			<Protocol class="gnet.KeepAlive" maxSize="16"/>
+			<Protocol class="gnet.KeyExchange" maxSize="32"/>
+			<Protocol class="gnet.MatrixChallenge" maxSize="64"/>
+			<Protocol class="gnet.MatrixResponse" maxSize="64"/>
+			<Protocol class="gnet.OnlineAnnounce" maxSize="64"/>
+			<Protocol class="gnet.PortForward" maxSize="65536"/>
+			<Protocol class="gnet.Response" maxSize="65536"/>
+			<Protocol class="gnet.SSOGetTicketRep" maxSize="2048"/>
+			<Protocol class="gnet.SSOGetTicketReq" maxSize="2048"/>
+			<Protocol class="openau.DataBetweenAuAnyAndClient" maxSize="1048576"/>
+			<Protocol class="openau.ServerIDResponse" maxSize="512"/>
+		</Coder>
+	</Manager>
+</XioConf>

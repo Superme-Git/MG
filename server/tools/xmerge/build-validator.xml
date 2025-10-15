@@ -1,0 +1,54 @@
+<project name="validator" default="dist">
+
+<property name="src" value="src/validator"/>
+<property name="dist" value="test/"/>
+<property name="test" value="test/"/>
+<property name="build" value="classes/xmerge/validator"/>
+<property name="bin" value="../bin"/>
+<property name="lib" value="../bin"/>
+	
+<target name="init" depends="clean">
+	<mkdir dir="${build}" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/xdb.jar"/>
+		<pathelement path="${bin}/xmerge.jar"/>
+		<pathelement path="./mylogic.jar"/>
+	</path>
+
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+<target name="clean">
+	<delete dir="${build}" />
+</target>
+
+<target name="dist" depends="compile">
+	<path id="compile.classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/xdb.jar"/>
+		<pathelement path="${bin}/xmerge.jar"/>
+		<pathelement path="${bin}/mylogic.jar"/>
+	</path>
+	<manifestclasspath property="jar.classpath" jarfile="validator.jar">
+	      <classpath refid="compile.classpath"/>
+	</manifestclasspath>
+	<jar jarfile="validator.jar" basedir="${build}">
+		<manifest>
+			<attribute name="Main-Class" value="validator.Main" />
+	    	<attribute name="Class-Path" value="${jar.classpath}" />
+		</manifest>
+	</jar>
+</target>
+
+<target name="install" depends="dist">
+	<copy file="validator.jar" todir="${dist}"/>
+	<copy file="validator.jar" todir="${bin}"/>
+</target>
+	
+</project>

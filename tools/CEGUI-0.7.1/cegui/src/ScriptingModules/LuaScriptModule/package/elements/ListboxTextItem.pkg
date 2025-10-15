@@ -1,0 +1,46 @@
+/***********************************************************************
+	ListboxTextItem
+
+	The constructor is not exportet, instead a helper function is
+	available (CEGUI.createListboxTextItem).
+
+	I decided to do it like this to avoid any possible memory issues
+	with allocating from Lua.
+***********************************************************************/
+enum ListBoxTextItemHorFormat  
+{
+	eListBoxTextItemHorFormat_Left,    
+	eListBoxTextItemHorFormat_Center, 
+	eListBoxTextItemHorFormat_Right   
+};
+
+class ListboxTextItem : public ListboxItem
+{
+public:
+	ListboxTextItem(const string& s);
+	~ListboxTextItem();
+	Font* getFont() const;
+	ColourRect getTextColours() const;
+    int64_t getConnectID() ;
+	void setConnectID(int64_t connectid);
+
+	void setFont(string font_name);
+	void setFont(Font* font);
+
+	void setTextColours(colour top_left_colour, colour top_right_colour, colour bottom_left_colour, colour bottom_right_colour);
+	void setTextColours(const ColourRect& cols);
+	void setTextColours(colour col);
+
+	void setText(const string& text);
+	void SetTextHorFormat(CEGUI::ListBoxTextItemHorFormat HorFormat);
+	void setOwnerWindow(const CEGUI::Window* owner,bool ownerIsMultiCloumn=false);
+
+	Size getPixelSize(void) const;
+	bool isTextItem();
+	
+    float getTopHeight() const;
+    float getBottomHeight() const;
+
+	void setStaticImage(const string& name);
+	void setStaticImageWidthAndHeight(float w, float h);
+};

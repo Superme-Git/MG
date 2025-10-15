@@ -1,0 +1,43 @@
+Index: Framework/GameScene.cpp
+===================================================================
+--- Framework/GameScene.cpp	(revision 50575)
++++ Framework/GameScene.cpp	(working copy)
+@@ -1291,6 +1291,16 @@
+ 		{
+ 			//初始化主角位置，包括当前地图层数
+ 			GetMainCharacter()->InitPosition(ptLocation,highlevel);
++			if (GetMainCharacter()->GetMoveState() == eMove_Pacing)
++			{
++				m_bJumpMapForAutoBattle = true;
++			}
++
++			int64_t sculptid = GetTableNumberFromLua("map.cworldmapconfig", m_MapInfoId, "sculptid");
++			if (sculptid == 0){
++				m_bJumpMapForAutoBattle = false;
++				GetMainCharacter()->StopPacingMove();
++			}
+ 			AttachCameraTo(GetMainCharacter()->GetSprite());
+ 
+ 			GetMainCharacter()->SetVisible(true);
+Index: SceneObj/MainCharacter.cpp
+===================================================================
+--- SceneObj/MainCharacter.cpp	(revision 50575)
++++ SceneObj/MainCharacter.cpp	(working copy)
+@@ -785,7 +785,7 @@
+ 	Nuclear::GetEngine()->GetWorld()->GetMapSize(mapmiddle);
+ 	SetDirection(mapmiddle.x - GetLocation().x, mapmiddle.y - GetLocation().y);
+ 
+-	StopPacingMove();
++	//StopPacingMove();
+ }
+ void MainCharacter::StopPacingMove()
+ {
+@@ -2261,7 +2261,7 @@
+ 	GetSprite()->SetFlyOffsetYCur(0);
+ 	GetSprite()->SetFlyOffsetYTgt(0);
+ 	StopMove();
+-	SetMoveState(eMove_Normal);
++	//SetMoveState(eMove_Normal);
+ 	SetSpriteComponent(eSprite_Horse, StringCover::WStrToNum<int>(m_RideNameLast));
+ 	m_AutoMovePathPointIndex = 0;
+ 	m_AutoMovePathPointArr.clear();

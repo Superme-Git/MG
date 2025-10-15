@@ -1,0 +1,13 @@
+
+namespace Game
+{
+	class ProtocolLuaFunManager
+	{
+		void RegisterProtocolScriptHandler(unsigned int type, LUA_FUNCTION handler);
+		void UnRegisterProtocolScriptHandler(unsigned int type);
+
+		void RegisterLuaProtocolHandler(LUA_FUNCTION handler);  
+	};
+
+	ProtocolLuaFunManager* gGetProtocolLuaFunManager();
+}

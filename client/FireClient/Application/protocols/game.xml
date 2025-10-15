@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 23931-23960　-->
+<namespace name="game">
+	<!-- 货币类型 -->
+	<bean name="MoneyType" tolua="3">
+		<enum name="MoneyType_None" value="0" /> 无效类型
+		<enum name="MoneyType_SilverCoin" value="1" /> 银币
+		<enum name="MoneyType_GoldCoin" value="2" /> 金币
+        <enum name="MoneyType_HearthStone" value="3" /> 符石
+		<enum name="MoneyType_ProfContribute" value="4" /> 职业贡献
+		<enum name="MoneyType_RongYu" value="5" /> 荣誉值
+        <enum name="MoneyType_FactionContribute" value="6" /> 公会贡献
+		<enum name="MoneyType_ShengWang" value="7" /> 声望
+		<enum name="MoneyType_FestivalPoint" value="8" /> 节日积分
+		<enum name="MoneyType_GoodTeacherVal" value="9" /> 良师值
+        <enum name="MoneyType_RoleExp" value="10" /> 角色经验
+        <enum name="MoneyType_Activity" value="11" /> 活跃度
+        <enum name="MoneyType_Energy" value="12" /> 活力
+        <enum name="MoneyType_EreditPoint" value="13" /> 信用点
+		<enum name="MoneyType_Item" value="99" /> 道具
+        <enum name="MoneyType_Num" value="15" /> 类型数量
+	</bean>
+
+    <protocol name="CBeginSchoolWheel" type="23931" maxsize="64" prior="1" tolua="3">
+    </protocol>
+
+    <protocol name="SBeginSchoolWheel" type="23932" maxsize="1024" prior="1" tolua="3">
+        <variable name="wheelindex" type="int" /> z职业转盘表.xlsx 里的物品列编号
+    </protocol>
+
+    <protocol name="CEndSchoolWheel" type="23933" maxsize="64" prior="1" tolua="3">
+    </protocol>
+
+    <!--血月商人-->
+    <protocol name="CBeginXueYueWheel" type="23934" maxsize="64" prior="1" tolua="3">
+        <variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+        <variable name="boxtype" type="int" />
+    </protocol>
+
+    <protocol name="SBeginXueYueWheel" type="23935" maxsize="64" prior="1" tolua="3">
+        <variable name="wheelindex" type="int" />
+    </protocol>
+    <protocol name="CEndXueYueWheel" type="23936" maxsize="64" prior="1" tolua="3">
+    </protocol>
+
+    <protocol name="CUseXueYueKey" type="23937" maxsize="64" prior="1" tolua="3">
+        <variable name="npckid" type="int" /> npcid
+    </protocol>
+
+    <protocol name="SUseXueYueKey" type="23938" maxsize="1024" prior="1" tolua="3">
+        <variable name="npckid" type="int" /> npcid
+        <variable name="npckey" type="long" validator="value=[0,)" /> npckey为npc的唯一ID
+        <variable name="mapid" type="int" />
+        <variable name="xpos" type="int" />
+        <variable name="ypos" type="int" />
+    </protocol>
+    <!--血月商人 end-->
+    <!--举报-->
+    <protocol name="SRoleAccusation" type="23939" maxsize="64" prior="1" tolua="3">
+		<variable name="isbereported" type="byte"/> 1为被举报 0为撤销举报
+    </protocol>
+	
+	<!--举报时候客户端给服务器发消息,用于扣费-->
+	<protocol name="CRoleAccusationCheck" type="23940" maxsize="64" prior="1" tolua="3">
+    </protocol>
+	
+	<protocol name="SRoleAccusationCheck" type="23941" maxsize="64" prior="1" tolua="3">
+		<variable name="errorcode" type="int" /> 错误码 0:成功
+    </protocol>
+    <!--举报 end-->
+	
+	<!--推送Token日志-->
+	<protocol name="CLogPushToken" type="23942" maxsize="64" prior="1" tolua="3">
+		<variable name="token" type="int" /> 客户端发来的token
+    </protocol>
+	<!--推送Token日志 end-->
+
+	<!--踢掉长时间不操作的玩家-->
+	<protocol name="CNoOperationKick" type="23943" maxsize="64" prior="1" tolua="3">
+    </protocol>
+	
+	<protocol name="CClientTime" type="23944" maxsize="64" prior="1" tolua="3">
+		<variable name="time" type="long" />
+    </protocol>
+	<!--踢掉长时间不操作的玩家-->
+</namespace>

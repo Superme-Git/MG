@@ -1,0 +1,195 @@
+<project name="FireClient-xToLua" default="FireClient-x-bindings" basedir=".">
+  <description>
+    Utilises tolua++ to create the lua bindings to expose cocos2d-x functionality to lua
+  </description>
+  <property name="FireClient_tolua.sh" location="FireClient_tolua++.sh"/>
+
+  <target name="LuaFireClient_Replace">
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[tolua_usertype(tolua_S,"LUA_FUNCTION");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[ Mtolua_typeid(tolua_S,typeid(LUA_FUNCTION), "LUA_FUNCTION");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA["LUA_FUNCTION",0,&tolua_err]]></replacetoken>
+      <replacevalue><![CDATA[&tolua_err]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION handler = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int handler = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[tolua_usertype(tolua_S,"LUAOBJ_REF");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[ Mtolua_typeid(tolua_S,typeid(LUAOBJ_REF), "LUAOBJ_REF");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA["LUAOBJ_REF",0,&tolua_err]]></replacetoken>
+      <replacevalue><![CDATA[&tolua_err]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION okfunc = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int okfunc = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION cancelfunc = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int cancelfunc = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[LUAOBJ_REF okselfIndex = *((LUAOBJ_REF*)  tolua_ref_luaobj(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int okselfIndex = (tolua_ref_luaobj(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClient.cpp">
+      <replacetoken><![CDATA[LUAOBJ_REF cancelselfIndex = *((LUAOBJ_REF*)  tolua_ref_luaobj(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int cancelselfIndex = (tolua_ref_luaobj(tolua_S,]]></replacevalue>
+    </replace>
+  </target>
+  <target name="LuaFireClientWin32_Replace">
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[tolua_usertype(tolua_S,"LUA_FUNCTION");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[ Mtolua_typeid(tolua_S,typeid(LUA_FUNCTION), "LUA_FUNCTION");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA["LUA_FUNCTION",0,&tolua_err]]></replacetoken>
+      <replacevalue><![CDATA[&tolua_err]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION handler = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int handler = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[tolua_usertype(tolua_S,"LUAOBJ_REF");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[ Mtolua_typeid(tolua_S,typeid(LUAOBJ_REF), "LUAOBJ_REF");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA["LUAOBJ_REF",0,&tolua_err]]></replacetoken>
+      <replacevalue><![CDATA[&tolua_err]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION okfunc = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int okfunc = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION cancelfunc = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int cancelfunc = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[LUAOBJ_REF okselfIndex = *((LUAOBJ_REF*)  tolua_ref_luaobj(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int okselfIndex = (tolua_ref_luaobj(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWin32.cpp">
+      <replacetoken><![CDATA[LUAOBJ_REF cancelselfIndex = *((LUAOBJ_REF*)  tolua_ref_luaobj(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int cancelselfIndex = (tolua_ref_luaobj(tolua_S,]]></replacevalue>
+    </replace>
+  </target>
+  <target name="LuaFireClientWp8_Replace">
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[tolua_usertype(tolua_S,"LUA_FUNCTION");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[ Mtolua_typeid(tolua_S,typeid(LUA_FUNCTION), "LUA_FUNCTION");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA["LUA_FUNCTION",0,&tolua_err]]></replacetoken>
+      <replacevalue><![CDATA[&tolua_err]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION handler = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int handler = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[tolua_usertype(tolua_S,"LUAOBJ_REF");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[ Mtolua_typeid(tolua_S,typeid(LUAOBJ_REF), "LUAOBJ_REF");]]></replacetoken>
+      <replacevalue><![CDATA[]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA["LUAOBJ_REF",0,&tolua_err]]></replacetoken>
+      <replacevalue><![CDATA[&tolua_err]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION okfunc = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int okfunc = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[LUA_FUNCTION cancelfunc = *((LUA_FUNCTION*)  tolua_ref_function(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int cancelfunc = (tolua_ref_function(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[LUAOBJ_REF okselfIndex = *((LUAOBJ_REF*)  tolua_ref_luaobj(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int okselfIndex = (tolua_ref_luaobj(tolua_S,]]></replacevalue>
+    </replace>
+    <replace file="../FireClient/Application/Framework/LuaFireClientWp8.cpp">
+      <replacetoken><![CDATA[LUAOBJ_REF cancelselfIndex = *((LUAOBJ_REF*)  tolua_ref_luaobj(tolua_S,]]></replacetoken>
+      <replacevalue><![CDATA[int cancelselfIndex = (tolua_ref_luaobj(tolua_S,]]></replacevalue>
+    </replace>
+  </target>
+
+  <target name="FireClient-x-bindings">
+    <echo message="Calling tolua++" />
+    <exec executable="${FireClient_tolua.sh}">
+    </exec>
+    <echo message="Patching resultant lua bindings" />
+
+    <ant target="LuaFireClient_Replace" />
+  </target>
+  <target name="create-lua-bindings" />
+
+  <property name="FireClientnobeans_proto_tolua++.sh" location="FireClientnobeans_proto_tolua++.sh"/>
+  <target name="nobp">
+    <echo message="Calling tolua++" />
+    <exec executable="${FireClientnobeans_proto_tolua++.sh}">
+    </exec>
+    <echo message="Patching resultant lua bindings" />
+
+    <ant target="LuaFireClient_Replace" />
+  </target>
+
+  <target name="protocols_tolua++">
+    <ant dir="../FireClient/Application" target="genpkgforproto" />
+    <mkdir dir="FireClient/ProtoDef"></mkdir>
+    <copy todir="FireClient/ProtoDef">
+      <fileset dir="../FireClient/Application/ProtoPkg">
+        <include name="**/*.pkg"/>
+        <include name="**/*.lua"/>
+      </fileset>
+    </copy>
+    <move file="FireClient/ProtoDef/protocolhandlermanager.lua"
+      todir="../resource/res/script/manager/" overwrite="true">
+    </move>
+  </target>
+
+  <target name="genapp_tolua" depends="protocols_tolua++">
+    <condition property="tolua++bin" value="tolua++WP8.exe" else="tolua++.exe">
+      <os family="windows"/>
+    </condition>
+    <ant dir="FireClient" target="genwin32app_tolua++" />
+    <ant target="LuaFireClientWin32_Replace" />
+  </target>
+
+  <target name="genapp_tolua_cygwin" depends="protocols_tolua++">
+    <condition property="tolua++bin" value="tolua++WP8.exe" else="tolua++.exe">
+      <os family="windows"/>
+    </condition>
+    <ant dir="FireClient" target="genapp_tolua++" />
+    <ant target="LuaFireClientWp8_Replace" />
+  </target>
+</project>

@@ -1,0 +1,14 @@
+include文件夹里面的头文件是你们需要Include的，不过你们也可以直接从Nuclear里面include。
+createparticlemanager.h   >> Nuclear\DX8ParticleSystem\DX8ParticleSystemLib\
+ifileiomanforparticle.h   >> Nuclear\engine\common
+iparticlemanager.h        >> Nuclear\engine\renderer
+iparticlesyscommon.h      >> Nuclear\engine\renderer
+istatemanager.h           >> Nuclear\engine\renderer
+xbuffer.h                 >> Nuclear\engine\common
+xptypes.h                 >> Nuclear\engine\common
+
+现在可以通过运行include文件夹里面的ansy.bat文件来自动同步
+
+主要例子代码都在D3D8Util.cpp里面，需要自己实现一个IFileIOManager接口，如果觉得例子里面那个也成也可以从例子里面的那个扩充。
+可以实现一个IStateManager接口并且传进粒子系统里面，在例子里面传了个NULL，如果非NULL，在粒子系统里面设置Device状态的时候会调用它的SetState()方法，参数为RS_PSBLEND
+

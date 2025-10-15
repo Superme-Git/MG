@@ -1,0 +1,23 @@
+namespace GameTable
+{
+    namespace skill
+    {
+        class CSkillTypeConfig
+        {
+            public:
+            int id;
+            int skilltype;
+            std::wstring skillname;
+            int showskillname;
+        };
+        class CSkillTypeConfigTable
+        {
+            public:
+        CSkillTypeConfig& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CSkillTypeConfigTable&  GetCSkillTypeConfigTableInstance();
+    }
+}

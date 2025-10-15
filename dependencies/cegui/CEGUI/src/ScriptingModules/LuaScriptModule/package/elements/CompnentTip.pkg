@@ -1,0 +1,55 @@
+
+class CompnentTip : public Window
+{
+public:		
+	/*************************************************************************
+	Constants
+	*************************************************************************/
+		static const string WidgetTypeName;                 //!< Window factory name
+		static const string EventNamespace;                 //!< Namespace for global events
+		/*************************************************************************
+		Construction and Destruction
+		*************************************************************************/
+		/*!
+		\brief
+		Constructor for MessageTip objects
+		*/
+		CompnentTip(const string& type, const string& name);
+
+
+		/*!
+		\brief
+		Destructor for MessageTip objects
+		*/
+		virtual ~CompnentTip(void);
+
+		void      SetTipsText(const string& tip);
+		
+		Size	  getTextSize() const;
+
+		virtual Size getTextSize_impl() const;
+		
+		void	  SetTargetCompnent(const RichEditboxComponent* pCompnent,bool bInChatOutWin = false);
+		/*!
+		\brief
+		Causes the tooltip to position itself appropriately.
+
+		\return
+		Nothing.
+		*/
+		void positionSelf(void);
+
+		/*!
+		\brief
+		Causes the tooltip to resize itself appropriately.
+
+		\return
+		Nothing.
+		*/
+		void sizeSelf(void);
+
+	public:
+		CompnentTip(const string& type);
+		virtual Window* clone(Window* wnd);
+		virtual bool onRenameTemplatePrefix(const string& sPrefix);
+};

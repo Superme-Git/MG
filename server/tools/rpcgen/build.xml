@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<project name="rpcgen" default="dist">
+
+<property name="src" value="src/"/>
+<property name="build" value="classes/"/>
+<property name="lib" value="lib/"/>
+<property name="snailbin" value="../bin"/>
+<property name="game_server" value="../../server/game_server/"/>
+
+<target name="init">
+	<mkdir dir="${build}" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+	<fileset dir="${lib}">
+		<include name="**/*.jar"/>
+	</fileset>		
+	</path>
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+	
+<target name="clean">
+	<delete dir="${build}" />
+	<delete dir="${dist}" />
+</target>
+
+<target name="dist" depends="compile">
+	<jar jarfile="rpcgen.jar" basedir="${build}" manifest="${src}/MANIFEST.MF"/>
+</target>
+
+<target name="install" depends="clean, dist">
+	<copy file="rpcgen.jar" todir="${snailbin}"/>
+	<copy file="rpcgen.jar" todir="${game_server}"/>
+</target>
+
+</project>

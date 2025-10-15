@@ -1,0 +1,15 @@
+
+namespace StringCover
+{
+	int randBetween(int a, int b);
+	std::wstring int64_tToPrecisionTime(int64_t time);
+	inline FireNet::Octets StringToOctect(const char *str,const int length);
+	inline std::wstring OctectToWString(const FireNet::Octets& oct); 
+	tm getTimeStruct(long time);
+	inline std::string intToString(int val);
+	inline std::string floatToString(float val);
+	inline std::wstring Replace(const std::wstring& orignStr, const std::wstring& oldStr, const std::wstring& newStr);
+	inline int split_string(const std::wstring &inputstr, const std::vector<std::wstring>& delimiters, std::vector<std::wstring> &substrs);
+    inline std::wstring intTowstring(int num);
+	inline int strcmpByPinyin(const std::wstring& str1, const std::wstring& str2);
+}

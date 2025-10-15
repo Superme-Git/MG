@@ -1,0 +1,19 @@
+	class RichEditboxTipsLinkComponent:public RichEditboxLinkTextComponent 
+	{
+		String GenerateParseText();
+		void SetObjectType(int type);
+		int GetObjectType();
+		void SetObjectKey(const String& key);
+		String GetObjectKey();
+		bool onMouseButtonDown(MouseEventArgs& e);
+		void SetShopID(int64_t _shopID);
+		int64_t  GetShopID();
+		void SetCounterID( int _counterID );
+		int  GetCounterID();
+		int64_t GetRoleID();
+		void SetRoleID(int64_t _roleID);
+		int GetBind();
+		void SetBind(int _bind);
+		int64_t GetLoseEffectTime();
+		void SetLoseEffectTime(int64_t _loseeffecttime);
+	};

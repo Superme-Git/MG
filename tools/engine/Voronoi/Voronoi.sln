@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Voronoi", "Voronoi\Voronoi.vcproj", "{A0D1DC90-D043-4244-938A-D093F880C8ED}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoroTest", "VoroTest\VoroTest.vcproj", "{1573CE1C-2039-4B53-AAD2-BAB95340E8DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0D1DC90-D043-4244-938A-D093F880C8ED}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A0D1DC90-D043-4244-938A-D093F880C8ED}.Debug|Win32.Build.0 = Debug|Win32
+		{A0D1DC90-D043-4244-938A-D093F880C8ED}.Release|Win32.ActiveCfg = Release|Win32
+		{A0D1DC90-D043-4244-938A-D093F880C8ED}.Release|Win32.Build.0 = Release|Win32
+		{1573CE1C-2039-4B53-AAD2-BAB95340E8DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1573CE1C-2039-4B53-AAD2-BAB95340E8DE}.Debug|Win32.Build.0 = Debug|Win32
+		{1573CE1C-2039-4B53-AAD2-BAB95340E8DE}.Release|Win32.ActiveCfg = Release|Win32
+		{1573CE1C-2039-4B53-AAD2-BAB95340E8DE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

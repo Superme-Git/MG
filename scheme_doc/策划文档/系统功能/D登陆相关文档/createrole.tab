@@ -1,0 +1,8 @@
+角色id	角色名	可选职业	性别	种族	阵营	原画图	模型	播放动作
+ID	role	profession	sex	race	camp	image_big	model	action
+1	牛头男	1|2	1	1	1			
+2	牛头女	1|2	2	1	1			
+3	精灵男	3|4	1	2	2			
+4	精灵女	3|4	2	2	2			
+5	亡灵男	5|6	1	3	1			
+6	亡灵女	5|6	2	3	1			

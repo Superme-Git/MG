@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 12001  -->
+<namespace name="title">
+	<!--称谓操作错误代号 -->
+	<bean name="TitleError">
+		<enum name="Title_Err_Unknown" value="-1" /> 
+		<enum name="Title_Err_Unexist" value="-2" /> 系统中不存在这个称谓
+		<enum name="Title_Err_Full" value="-3" />
+		<enum name="Title_Err_Nuowned" value="-4" /> 用户没有这个称谓
+	</bean>
+	<!--称谓 详细信息 -->
+	<bean name="TitleInfo">
+		<variable name="titleid" type="int" validator="value=[0,)"/>
+		<variable name="name" type="string" />
+		<variable name="availtime" type="long" validator="value=[-1,)"/> 
+	</bean>
+	
+	<!--服务器通知客户端添加一个称谓-->
+	<protocol name="SAddTitle" type="12001" maxsize="65535" prior="1" tolua="3">
+		<variable name="info" type="TitleInfo" />
+	</protocol>
+	
+	<!--服务器通知客户端删除一个称谓 -->
+	<protocol name="SRemoveTitle" type="12002" maxsize="65535" prior="1" tolua="3">
+		<variable name="titleid" type="int" validator="value=[0,)" />
+	</protocol>
+	
+	<!--客户端请求佩戴称谓  -->
+	<protocol name="COnTitle" type="12003" maxsize="65535" prior="1" tolua="3">
+		<variable name="titleid" type="int" validator="value=[0,)" /> 
+	</protocol>
+	
+	<!--服务器通知客户端佩戴称谓   同时发送周围的玩家-->
+	<protocol name="SOnTitle" type="12004" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[0,)" /> 角色id 
+		<variable name="titleid" type="int" validator="value=[0,)" /> 称谓id
+		<variable name="titlename" type="string" /> 称谓名
+	</protocol>
+	
+	<!--客户端请求卸下称谓-->
+	<protocol name="COffTitle" type="12005" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<!--服务器通知客户端卸下称谓 -->
+	<protocol name="SOffTitle" type="12006" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=[0,)" /> 卸下称谓的角色
+	</protocol>
+	
+	<!-- -->
+	<protocol name="STitleErr" type="12007" maxsize="65535" prior="1" tolua = "3">
+		<variable name="titleerr" type="int" /> 
+	</protocol>
+</namespace>

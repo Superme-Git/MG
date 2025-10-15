@@ -1,0 +1,2 @@
+python refureshTable.py
+pause

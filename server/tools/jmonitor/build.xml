@@ -1,0 +1,19 @@
+﻿<project name="jmonitor" default="all">
+
+	<target name="all">
+		<ant dir="beancoder" target="all" />
+		<ant dir="counter" target="all" />
+		<ant dir="codertest" target="all" />
+		
+		<ant dir="jmonitor" target="all" />
+	</target>
+	
+	<target name="runtest">
+		<ant dir="codertest" target="run" />
+	</target>
+	
+	<target name="runmonitor">
+		<ant dir="jmonitor" target="run" />
+	</target>
+
+</project>

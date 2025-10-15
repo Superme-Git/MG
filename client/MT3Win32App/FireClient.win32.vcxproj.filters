@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\FireClient\Application\Framework\DeviceInfo.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\GameApplication.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\GameOperateState.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\GameScene.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\ITickTimer.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaMessageTask.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaTickerRegister.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaXPRenderEffect.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\MessageTask.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\MovieSection.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\ResolutionAdapter.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\RoleItem.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\SceneEffect.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\GameUI\Dialog.cpp">
+      <Filter>Application\GameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\ChineseCode.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\IniManager.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\stdafx.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\3rdplatform\ChannelManager.cpp">
+      <Filter>Application\Framework\3rdplatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\Utils2.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\base64.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\Voice.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\WebSocket.cpp">
+      <Filter>Web</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpClient.cpp">
+      <Filter>Web</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaFireClientWin32.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\platform\win\WavRecorder.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\DeviceData.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\CallLuaUtil.cpp">
+      <Filter>Application\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\GameTable\TableDataManager.cpp">
+      <Filter>Application\GameTable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\ProtoDef\rpcgen.cpp">
+      <Filter>Application\ProtoDef</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\ArtTextManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\ConfigManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\EmotionManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\GameStateManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\GameUIManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\IconManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\LoginManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\MainRoleDataManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\MessageManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\NewRoleGuideManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\ProtocolLuaFunManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\RoleItemManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\SceneMovieManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\TaskOnOffEffectManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\VoiceManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\XPRenderEffect.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\NetConnection.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\ConnectGetServerInfo.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\FriendVisitor.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaEngineWin32.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\MapWalker.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleIllusion.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleMagicControl.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_AI.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Protocol.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Render.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Watch.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManagerDemo.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManagerOperate.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\Battler.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleScriptPlayer.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\Skill.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\SkillBuilder.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\Character.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\ComponentsObject.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\DroptItem.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\FollowNpc.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\FossickNpc.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\MainCharacter.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\MovieSceneNpc.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\Npc.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\Pet.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\SceneNpc.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\SceneObj\SceneObject.cpp">
+      <Filter>Application\SceneObj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\GameUI\CEGUIIMEDelegate.cpp">
+      <Filter>Application\GameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\GameUI\UISpineSprite.cpp">
+      <Filter>Application\GameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\GameUI\UISprite.cpp">
+      <Filter>Application\GameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Replay.cpp">
+      <Filter>Application\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\DownloadManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\BattleReplayManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\oggenc.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\platform.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\audio.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\encode.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\lyrics.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\resample.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\oggenc\skeleton.cpp">
+      <Filter>Application\oggenc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\MusicSoundVolumeMixer.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Amr\amr_dec.cpp">
+      <Filter>Application\Amr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Amr\amr_enc.cpp">
+      <Filter>Application\Amr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Amr\sp_dec.cpp">
+      <Filter>Application\Amr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Amr\sp_enc.cpp">
+      <Filter>Application\Amr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\GameCenter_nonIos.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\GameCenter_crossPlatform.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Manager\SpaceManager.cpp">
+      <Filter>Application\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LocationDetector_crossPlatform.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LocationDetector_win32.cpp">
+      <Filter>Application\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\gWebBrowser.cpp">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\MyWebBrowser.cpp">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\OleContainer.cpp">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\WinSDK.cpp">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\platform\win\SoundCapturer\SoundCapturer.cpp">
+      <Filter>Application\Utils\SoundCapturer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\platform\win\SoundCapturer\WaveFile.cpp">
+      <Filter>Application\Utils\SoundCapturer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\FireClient\Application\Event.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Common\BuffCommon.h">
+      <Filter>Application\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Common\GameCommon.h">
+      <Filter>Application\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Common\SceneCommon.h">
+      <Filter>Application\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\DeviceInfo.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\GameApplication.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\GameOperateState.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\GameScene.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\ITickObject.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\ITickTimer.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\LuaMessageTask.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\LuaTickerRegister.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\LuaXPRenderEffect.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\MapWalker.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\MessageTask.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\MovieSection.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\NetConnection.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\notify.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\ResolutionAdapter.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\RoleItem.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\SceneEffect.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\CheckDistanceTimer.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\Dialog.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\LuaEffectNotify.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\SingletonDialog.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\ChineseCode.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\IniManager.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\stdafx.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\3rdplatform\ChannelManager.h">
+      <Filter>Application\Framework\3rdplatform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\Utils2.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\LuaFireClient.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\base64.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\Voice.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpClient.h">
+      <Filter>Web</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpRequest.h">
+      <Filter>Web</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpResponse.h">
+      <Filter>Web</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\WebSocket.h">
+      <Filter>Web</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\FriendVisitor.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\WavRecorder.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\ConnectGetServerInfo.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Utils\CallLuaUtil.h">
+      <Filter>Application\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameTable\TableDataManager.h">
+      <Filter>Application\GameTable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\ArtTextManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\ConfigManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\EmotionManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\GameStateManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\GameUIManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\IconManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\LoginManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\MainRoleDataManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\MessageManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\NewRoleGuideManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\ProtocolLuaFunManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\RoleItemManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\SceneMovieManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\TaskOnOffEffectManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\VoiceManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Common\RoleSkillCommon.h">
+      <Filter>Application\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Common\MessageCommon.h">
+      <Filter>Application\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\XPRenderEffect.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Common\UICommonHeader.h">
+      <Filter>Application\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\BattleCommon.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\BattleIllusion.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\BattleMagicControl.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\BattleManager.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\Battler.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\BattleScriptPlayer.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\Skill.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Battle\SkillBuilder.h">
+      <Filter>Application\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\Character.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\ComponentsObject.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\DroptItem.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\FollowNpc.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\FossickNpc.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\MainCharacter.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\MovieSceneNpc.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\Npc.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\Pet.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\SceneNpc.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\SceneObj\SceneObject.h">
+      <Filter>Application\SceneObj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\CEGUIIMEDelegate.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\UISpineSprite.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\GameUI\UISprite.h">
+      <Filter>Application\GameUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\DownloadManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\BattleReplayManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\audio.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\encode.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\lyrics.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\resample.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\skeleton.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\platform.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\oggenc\oggenc.h">
+      <Filter>Application\oggenc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\MusicSoundVolumeMixer.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\amr_dec.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\amr_enc.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\amr_rom.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\rom_dec.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\rom_enc.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\sp_dec.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\sp_enc.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Amr\typedef.h">
+      <Filter>Application\Amr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\GameCenter.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Manager\SpaceManager.h">
+      <Filter>Application\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\LocationDetector.h">
+      <Filter>Application\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\gWebBrowser.h">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\MyWebBrowser.h">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\OleContainer.h">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\WinSDK.h">
+      <Filter>Application\Framework\WinWebBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\platform\win\SoundCapturer\SoundCapturer.h">
+      <Filter>Application\Utils\SoundCapturer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FireClient\Application\platform\win\SoundCapturer\WaveFile.h">
+      <Filter>Application\Utils\SoundCapturer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{cbacfe4b-4040-4a75-804c-ef09c8c6a591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Common">
+      <UniqueIdentifier>{cdecbb57-44a4-4a68-aa58-86df41b36ec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Framework">
+      <UniqueIdentifier>{1df78268-0bbe-4350-aef0-ece7eb846bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\GameUI">
+      <UniqueIdentifier>{258b5b7b-e64d-4ec6-b1b1-2d6b78ee4b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\protocols">
+      <UniqueIdentifier>{93607279-f93b-4689-be6a-02a5db9ed71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Utils">
+      <UniqueIdentifier>{623d6c4c-e1f1-4f1d-9662-39fe189465c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Framework\3rdplatform">
+      <UniqueIdentifier>{d6a0d676-afa9-49f0-a4fe-808080f26ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Web">
+      <UniqueIdentifier>{aed10b28-9d12-4444-83c8-162be8a0b68e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\GameTable">
+      <UniqueIdentifier>{6a80e270-b546-499e-ae7a-0f595361d570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\ProtoDef">
+      <UniqueIdentifier>{29991fc9-c9b1-487c-882a-15e0142ee227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Manager">
+      <UniqueIdentifier>{2436e3ec-99cd-41b4-9973-60a879d1e9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Battle">
+      <UniqueIdentifier>{01505e0c-4a1e-4bb2-a366-1b0dfdac3cc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\SceneObj">
+      <UniqueIdentifier>{3ac1477a-63c0-4f7b-8211-159147a86422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\oggenc">
+      <UniqueIdentifier>{99716a73-f1eb-4834-8c7e-d494aca9122a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Amr">
+      <UniqueIdentifier>{984b50bb-da31-4861-9649-c2cd2f0711e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Framework\WinWebBrowser">
+      <UniqueIdentifier>{5c030f23-8ea0-4619-b04f-b33ec12a199c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Utils\SoundCapturer">
+      <UniqueIdentifier>{b3df2830-2c09-4279-9571-3a2509cae24e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\FireClient\Application\protocols\ReadMe.txt">
+      <Filter>Application\protocols</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

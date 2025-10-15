@@ -1,0 +1,28 @@
+class ScenePet : public ComponentsObject
+{
+public:
+	ScenePet();
+	virtual ~ScenePet();
+
+	virtual	bool SetAttribute(const stMapPetData& data);
+
+	virtual void StopMove();
+	virtual void Run(int now,int delta);
+	void	RunRandom();
+	void	RunFollow(bool forcemove = false);
+	void	RandomTalk();
+	int		GetBaseID();
+	virtual void UpdateAction(Nuclear::XPUSA_TYPE type);
+
+	const stMapPetData& GetConstPetData();
+
+	stMapPetData&	GetPetData();
+	void ChangeName(std::wstring name);
+	virtual std::wstring GetName();
+
+	virtual bool CanBeAttack();
+
+	void SetArea1Color(int color);
+	void SetArea2Color(int color);
+
+};

@@ -1,0 +1,25 @@
+﻿<Window x:Class="QuestInput.InsertGoto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InsertGoto" Height="300" Width="300">
+    <Grid>
+        <Label Content="输入显示的文字（颜色是主界面所选颜色）" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" Width="251"/>
+        <TextBox x:Name="IG_tbShowText" HorizontalAlignment="Left" Height="23" Margin="10,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251"/>
+
+        <Label Content="输入mapID" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="IG_tbMapID" HorizontalAlignment="Left" Height="23" Margin="90,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82" 
+                 RenderTransformOrigin="1.523,-0.14"/>
+
+        <Label Content="输入X坐标" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="IG_tbPosX" HorizontalAlignment="Left" Height="23" Margin="90,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82"/>
+
+        <Label Content="输入Y坐标" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" Width="66" RenderTransformOrigin="-0.15,0.533"/>
+        <TextBox x:Name="IG_tbPosY" HorizontalAlignment="Left" Height="23" Margin="90,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82"/>
+
+        <Label Content="输入npcID" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="IG_tbNPCID" HorizontalAlignment="Left" Height="23" Margin="90,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82"/>
+        
+        <Button Content="确定" HorizontalAlignment="Left" Margin="97,233,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="handleIGQDClick"/>
+
+    </Grid>
+</Window>

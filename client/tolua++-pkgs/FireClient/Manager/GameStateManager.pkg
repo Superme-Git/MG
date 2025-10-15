@@ -1,0 +1,22 @@
+
+enum eGameState
+{
+	eGameStateNull = 0,
+	eGameStateLogin,
+	eGameStateRunning,
+	eGameStateBattleDemo,
+	eGameStateEditBattleAni,
+	eGameStateMax
+};
+
+class GameStateManager : public CSingleton<GameStateManager>
+{
+	void setGameState(eGameState state);
+	eGameState getGameState();
+	bool isGameState(eGameState state);
+};
+
+GameStateManager* gGetStateManager()
+{
+	return GameStateManager::GetInstance();
+}

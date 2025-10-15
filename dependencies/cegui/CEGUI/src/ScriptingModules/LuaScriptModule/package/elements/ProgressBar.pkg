@@ -1,0 +1,22 @@
+/***********************************************************************
+	ProgressBar
+***********************************************************************/
+class ProgressBar : public Window
+{
+	enum ProgressBarType
+	{
+		RedBar = 0,
+		GreenBar = 1,
+		BuleBar = 2,
+		YellowBar = 3,
+		ColorfulBar = 4
+	};
+	float getProgress() const;
+	float getStep() const;
+
+	void setProgress(float progress);
+	void setStepSize(float step);
+	void step();
+	void adjustProgress(float delta);
+	void setBarType(ProgressBarType type);
+};

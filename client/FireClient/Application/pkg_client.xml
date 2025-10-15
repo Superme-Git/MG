@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<application name="fire" shareHome="cauthc/authc/share" pvids="12" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<!--import file="gnet.xml"/-->
+	<!--import file="gacdc.xml"/-->
+	<xi:include href="protocols/pb.xml" />
+	<state name="Client">
+		<!--provider ref="gacd.gacdc"/-->	
+		<provider ref="pb"/>
+	</state>
+
+	<service name="ProtoPkg">
+		<manager name="LinkClient" type="client" initstate="Client" port="29000"/>
+	</service>
+</application>

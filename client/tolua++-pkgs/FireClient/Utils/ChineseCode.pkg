@@ -1,0 +1,6 @@
+
+class ChineseCode
+{
+public:
+    static const char* getConvertCode(const char* code);
+};

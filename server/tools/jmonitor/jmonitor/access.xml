@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accessmanager>
+    <access role="manager"/>
+    <access role="viewer">
+        <forbid methods="POST" path="chart"/>
+        <forbid methods="DELETE" path="chart/.*"/>
+        <forbid methods="POST" path="chartchain"/>
+        <forbid methods="DELETE" path="chartchain/.*"/>
+        <forbid methods="POST" path="localize"/>
+        <forbid methods="DELETE" path="localize/.*"/>
+        <forbid methods="POST" path="server"/>
+        <forbid methods="DELETE" path="server/.*"/>
+        <forbid methods="POST" path="table"/>
+        <forbid methods="DELETE" path="table/.*"/>
+        <forbid methods="POST" path="access"/>
+        <forbid methods="DELETE" path="access/.*"/>
+        <forbid methods="GET" path="cfg/.*"/>
+    </access>
+    <role name="manager">
+        <user name="chengxiaosan"/>
+        <user name="xuhui"/>
+        <user name="zengpan"/>
+        <user name="fenghongxia"/>
+    </role>
+    <role name="viewer">
+        <user name="wulinxu"/>
+        <user name="xucong"/>
+        <user name="chenlei100802"/>
+    </role>
+</accessmanager>

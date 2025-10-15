@@ -1,0 +1,13 @@
+/***********************************************************************
+	GroupBox
+***********************************************************************/
+class GroupBox : public Window
+{
+public:
+	bool drawAroundWidget(string name);
+	bool drawAroundWidget(const CEGUI::Window * wnd);
+
+	virtual bool testClassName_impl(const string& class_name) const;
+
+	Window * getContentPane() const;
+};

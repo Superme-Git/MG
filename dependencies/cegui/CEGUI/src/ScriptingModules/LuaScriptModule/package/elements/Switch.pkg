@@ -1,0 +1,19 @@
+/***********************************************************************
+	Switch
+***********************************************************************/
+enum SwitchStatus
+{
+	ON,
+	OFF
+};
+
+class Switch : public ButtonBase
+{
+	String getStatusString() const;
+	SwitchStatus getStatus() const;
+	
+	void setStatus(const string& status);
+	void setStatus(SwitchStatus status, bool ani = false);
+	void setLookStatus(SwitchStatus status, bool ani = false);
+	void allowSwitchWhenClick(bool isAllow);
+};

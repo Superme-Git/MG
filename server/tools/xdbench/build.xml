@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<project name="xdbench" default="compile">
+
+<property name="src" value="src"/>
+<property name="build" value="classes"/>
+<property name="bin" value="../bin"/>
+
+<target name="init">
+	<mkdir dir="${build}" />
+	<mkdir dir="xdb" />
+	<mkdir dir="xbackup" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+		<pathelement location="${bin}/jio.jar"/>
+		<pathelement location="${bin}/xdb.jar"/>
+	</path>
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+	
+<target name="clean">
+	<delete dir="${build}" />
+	<delete dir="xdb" />
+	<delete dir="xbackup" />
+</target>
+
+</project>

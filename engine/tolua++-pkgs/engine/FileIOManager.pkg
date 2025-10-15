@@ -1,0 +1,84 @@
+namespace Nuclear
+{
+	class ExecThread
+	{
+		class Task
+		{
+		public:
+			int GetPriority();
+			virtual ~Task() ;
+			virtual void Execute() = 0;
+			virtual void UnexecuteAndDestroy() = 0;
+			virtual void ExecuteEndAndDestroy() = 0;
+		};
+
+		class SimpleTask : public Task
+		{
+		public:
+			void ExecuteEndAndDestroy();
+			void UnexecuteAndDestroy();
+			virtual void Execute() = 0;
+			virtual void Destroy() = 0;
+		};
+
+		class CallbackTask : public Task
+		{
+		public:
+			void Cancel();
+			void ExecuteEndAndDestroy();
+			void UnexecuteAndDestroy();
+			virtual void Execute() = 0;
+			virtual void Callback() = 0;
+		};
+		ExecThread();
+		virtual ~ExecThread() ;
+		bool Init();
+		bool Destroy();
+		bool AddTask(Task *pTask);
+
+	};	
+
+	class INuclearFileIO
+	{
+	public:
+		virtual ~INuclearFileIO();
+		virtual bool GetFileImage(const std::wstring &filename, NuclearBuffer &data, bool lookupSegmPakPath = true) = 0;
+	};
+
+	class NuclearFileIOManager :  public INuclearFileIO
+	{
+	public:
+		class AsyncReadTask 
+		{
+		public:
+			NuclearFileIOManager* GetFileIOManager();
+			std::wstring GetFileName() ;
+			NuclearBuffer& GetData();
+			bool Submit();
+			bool Discard();
+			bool IsDiscarded();
+			virtual void OnReady() = 0;
+			virtual void OnDiscard() = 0;
+			virtual void Execute();
+			virtual void Callback();
+		};
+		NuclearFileIOManager();
+		virtual ~NuclearFileIOManager();
+		bool Init(bool bWritableDefault, bool bApplictionInBuild);
+		bool Destroy();
+		void OnUpdate(int64 v);
+		const std::wstring &GetCurrentDirectory(); 
+		bool AddTask(Nuclear::ExecThread::Task *pTask);
+		bool AsyncReadFile(AsyncReadTask *pTask);
+		void OnAsyncReadFileNotify(AsyncReadTask* pTask);
+		int GetFileIOTaskCount(); 
+		int GetFileIOTaskBytes(); 
+		size_t GetQueueOfIOTaskSize();
+		void SetUpdateTimePerFrame(int time);
+		int GetUpdateTimePerFrame();
+		void OnTimer(int iPeriod);
+		void OnReady(int iTime, int iSize);
+		float GetAverageReadSpeed();
+	};
+
+}

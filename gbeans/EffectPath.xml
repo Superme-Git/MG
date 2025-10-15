@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="EffectPath"> 
+	
+	<bean name="CEffectPath" from="t特效路径表" genxml="client">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="Name" type="string" fromCol="特效名"   />  特效名
+			  <variable name="Patn" type="string" fromCol="特效路径"   />  特效路径
+	</bean>
+		
+	<bean name="CEffectPathNoneDrama" from="t特效路径表_非剧情" genxml="client" priority="1">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="Path" type="string" fromCol="特效路径"   />  特效路径
+	</bean>
+		
+	</namespace>	

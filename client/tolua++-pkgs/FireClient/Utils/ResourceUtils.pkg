@@ -1,0 +1,19 @@
+
+namespace MHSD_UTILS
+{
+	const std::wstring& GETSTRING(int id);
+	const std::wstring& GetEffectPath(int id);
+	const std::wstring& GetTipsMsg(int id);
+	const std::wstring& GetRootDir();				
+	const std::wstring& GetDocDir();
+	const std::wstring& GetRunDir();
+
+	bool ExistFile(const std::wstring& strFileName);
+	bool ExistDir(const std::wstring& strDir);
+	std::wstring CreateDir(const std::wstring& strDir);
+
+	bool RemoveFile(const std::wstring& strFileName);
+	bool RemoveDir(const std::wstring& strDir);
+
+    void flurryEvent(std::wstring s , bool once = false);
+}//namepace MHSD_UTILS

@@ -1,0 +1,34 @@
+
+
+
+namespace fire { 
+namespace pb { 
+namespace move { 
+
+class NpcBasic : public FireNet::Marshal
+{
+public:
+	int64_t npckey; // npckey :npc的唯一ID
+	int id; // npcid: npc的基本ID
+	std::wstring name;
+	fire::pb::move::Pos pos;
+	char posz;
+	fire::pb::move::Pos destpos; // 运动中的NPC的目的点
+	int speed; // 移动NPC速度
+	int dir;
+	int shape; // npc 造型
+	int scenestate; // npc 状态
+	std::map<char, int> components; // 角色换装信息key值参考SpriteComponents的枚举
+
+	NpcBasic() ;
+
+	NpcBasic(int64_t _npckey_, int _id_, const std::wstring & _name_, const fire::pb::move::Pos & _pos_, char _posz_, const fire::pb::move::Pos & _destpos_, int _speed_, int _dir_, int _shape_, int _scenestate_, const std::map<char, int> & _components_);
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+};
+
+} 
+} 
+} 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="gnet" shareHome="../../../share" pvids="">
+
+	<import file="../../gnet/gnet.xml"/>
+	<import file="demo.gsd.xml"/>
+
+	<state name="Client">
+		<protocol ref="gnet.ErrorInfo"/>
+		<protocol ref="gnet.KeepAlive"/>
+		<protocol ref="gnet.Challenge"/>
+		<protocol ref="gnet.Response"/>
+		<protocol ref="gnet.KeyExchange"/>
+		<protocol ref="gnet.OnlineAnnounce"/>
+		<provider ref="demo.gs"/>
+		<protocol ref="demo.DepTest"/>
+		<protocol ref="demo.DepTest2"/>
+	</state>
+
+	<service name="authc">
+		<manager name="LinkClient" type="client" initstate="Client" port="10000"/>
+	</service>
+</application>

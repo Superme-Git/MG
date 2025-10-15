@@ -1,0 +1,10 @@
+$#include "EngineLuaNeed.h"
+$#include "ClientLuaNeed.h"
+
+$pfile "Nuclear/Types.pkg"
+$pfile "typewp8.pkg"
+$pfile "GameTable/TableDataManager.pkg"
+$pfile "ProtocolModule.pkg"
+$pfile "FrameworkModule.pkg"
+$pfile "BattleModule.pkg"
+$pfile "GameUIModule.pkg"

@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<xdb
+xgenOutput="../xdbench/src"
+trace="fatal" traceTo=":out:file" corePoolSize="5"
+dbhome="xdb" logpages="4096" backupDir="xbackup"
+flushFatalTime="1000" flushPeriod="5000" checkpointPeriod="60000"
+backupIncPeriod="600000" backupFullPeriod="3600000"
+angelPeriod="5000"
+>
+	<ProcedureConf executionTime="300" retryTimes="3" retryDelay="100"/>
+	<xbean name="Team">
+		<variable name="name" type="string"/>
+		<variable name="members" type="vector" value="int"/>
+		<variable name="templeave" type="set" value="int"/>
+		<variable name="grid" type="int"/>
+	</xbean>
+	<table name="team" key="long" value="Team" persistence="MEMORY"
+		cacheCapacity="0" cachehigh="128" cachelow="64"/>
+
+	<xbean name="Basic">
+		<enum name="FEMALE" value="1"/>
+		<enum name="MALE"   value="0"/>
+
+		<enum name="MENPAI_00" vname="无门无派" value="0"/>
+		<enum name="MENPAI_01" vname="金山寺"   value="11"/>
+		<enum name="MENPAI_02" vname="六扇门"   value="12"/>
+		<enum name="MENPAI_03" vname="昆仑山"   value="13"/>
+		<enum name="MENPAI_04" vname="百花谷"  value="14"/>
+		<enum name="MENPAI_05" vname="双仙岭"  value="21"/>
+		<enum name="MENPAI_06" vname="清风洞"  value="22"/>
+		<enum name="MENPAI_07" vname="地府"    value="23"/>
+		<enum name="MENPAI_08" vname="凤凰寨"  value="24"/>
+		<enum name="MENPAI_09" vname="白鹤洞"  value="31"/>
+		<enum name="MENPAI_10" vname="紫竹林"  value="32"/>
+		<enum name="MENPAI_11" vname="蓬莱阁"  value="33"/>
+		<enum name="MENPAI_12" vname="云霄涧"  value="34"/>
+
+		<variable name="name"       type="string"/>
+		<variable name="race"       type="int"/>
+		<variable name="sex"        type="int"/>
+
+		<variable name="modelid"    type="int"/> 模型
+		<variable name="toufa_yanse" type="int"/> 头发颜色
+		<variable name="yifu_yanse"  type="int"/> 衣服颜色
+		<variable name="teshu_yanse" type="int"/> 特殊颜色-翅膀或者披风
+
+		<!--
+		<variable name="toufa" type="int"/> 头发
+		<variable name="yifu"  type="int"/> 衣服
+		<variable name="teshu" type="int"/> 特殊
+		-->
+
+		<variable name="createtime" type="int"/>
+	</xbean>
+	
+	<table name="basic" key="int" value="Basic"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	// 帐号包含的角色列表。
+	<xbean name="Idlist">
+		<variable name="idlist"  type="set" value="int"/>
+		<variable name="fushi" type="int"/>
+	</xbean>
+
+	<table name="user" key="int" value="Idlist"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	// 角色名字到角色id的映射。用来检测名字重复。
+	<table name="uniqname" key="string" value="int"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<!-- gdeliverd  wdb -->
+	<xbean name="Location">
+		<variable name="mapid" type="int"/>
+		<variable name="x"     type="int"/>
+		<variable name="y" 	   type="int"/>
+		<variable name="z"     type="int"/>
+	</xbean>
+
+	<xbean name="Role">
+		<variable name="roleid"   type="int"/>
+		<variable name="basic"    type="Basic"/>
+		<variable name="location" type="Location"/>
+
+		<!-- equip -->
+		<variable name="wuqiid"     type="int"/>
+		<variable name="wuqipinzhi" type="int"/>
+		<variable name="fabaoid"    type="int"/>
+		<variable name="fabaolevel" type="int"/>
+
+		<variable name="menpai" type="int"/>
+		<variable name="level" type="int"/>
+	</xbean>
+
+	<xbean name="Rlist">
+		<variable name="roles" type="list" value="Role"/>
+	</xbean>
+
+	<xbean name="IDs">
+		<variable name="ids" type="list" value="int"/>
+	</xbean>
+
+	<xbean name="ID2Name">
+		<variable name="id2name" type="map" key="int" value="string"/>
+	</xbean>
+
+	//资质
+	<xbean name="Aptitude">
+		<variable name="attack"  type="int"/> 攻击资质：影响战斗属性中的攻击与命中
+		<variable name="defence" type="int"/> 防御资质：影响战斗属性中的防御
+		<variable name="hp"      type="int"/> 体力资质：影响战斗属性的生命属性
+		<variable name="mp"      type="int"/>  灵力资质：影响战斗属性中的灵力属性
+		<variable name="speed"   type="int"/> 敏捷资质：影响战斗属性中的速度与闪避
+	</xbean>
+
+	<xbean name="BasicProperties">
+		<variable name="strength"     type="int"/> 力量
+		<variable name="dexterity"    type="int"/> 敏捷
+		<variable name="health"       type="int"/> 体质
+		<variable name="spiritualism" type="int"/> 灵性
+		<variable name="resistance"   type="int"/> 耐力
+	</xbean>
+	
+
+	<!-- 宠物的所有属性和数据被放在物品的extra里面，不单独保存 -->
+	<xbean name="Pet">
+		<variable name="name"  type="string"/>  名字		
+		<variable name="id"	type="int"/> 类型id
+		<variable name="sex"	type="int"/> 性别
+
+		<variable name="experience" type="int"/> 经验
+
+		<variable name="point"      type="int"/> 未分配点数		
+		<variable name="basic_attr" type="BasicProperties" />基础属性		
+		<variable name="zz" type="Aptitude" /> 资质
+
+		<variable name="hp"        type="int"/> 当前生命值
+		<variable name="mp"        type="int"/> 当前法力
+
+		<variable name="growth" type="int"/> 宠物成长：对所有属性的加成能力高低
+		<variable name="five" type="int"/> 五行属性
+        <variable name="life" type="int"/> 寿命
+		<variable name="familiarity" type="int"/> 忠诚度
+		<variable name="savey" type="int"/> 悟性
+		//   装备和技能
+		<variable name="equip" type="int"/>  宠物装备：宠物的额外能力获得。
+		<variable name="skill" type="vector" value="int"/>  宠物技能：宠物所掌握的技能。
+		
+	</xbean>
+	<!--移动相关信息-->
+	<xbean name="MoveInfo">
+		<variable name="location"      type="Location"/>
+		<variable name="transitem"     type="int"/> 交通工具id
+		<variable name="translefttime" type="int"/> 交通工具剩余使用的时间
+		<variable name="status"        type="int"/> 当前的移动状态，飞行，骑乘，行走等等
+	</xbean>
+	<xbean name="Properties">
+		// 等级属性
+		<variable name="level"      type="int"/> 等级
+		<variable name="experience" type="int"/> 经验
+		<variable name="vitality"   type="int"/> 活力
+		<variable name="point"      type="int"/> 未分配点数
+
+		// 基础属性
+		<variable name="strength"     type="int"/> 力量
+		<variable name="dexterity"    type="int"/> 敏捷
+		<variable name="health"       type="int"/> 体质
+		<variable name="spiritualism" type="int"/> 灵性
+		<variable name="resistance"   type="int"/> 耐力
+
+		<variable name="hpmaxbase"  type="int"/> 基础最大生命
+		<variable name="mpmaxbase"  type="int"/> 基础最大法力
+
+		<variable name="hpmaxnow"  type="int"/> 当前最大生命值
+		<variable name="hp"        type="int"/> 当前生命值
+		<variable name="mp"        type="int"/> 法力
+
+		<variable name="reserved1" type="int"/> 物理暴击率
+		<variable name="reserved2" type="int"/> 法术暴击率
+		
+		<variable name="skillexp"   type="int"/> 技能经验
+		<variable name="wincounter" type="int"/> 连续胜利场数
+
+		// 移动相关信息
+		<variable name="moveinfo"  type="MoveInfo"/>
+
+		// 社会相关
+		<variable name="familyid"   type="int"/> 所属
+		<variable name="factionid"  type="int"/> 所属公会
+		<variable name="materoleid" type="int"/> 配偶
+
+		<variable name="version" type="int"/>   数据版本号
+		<variable name="potential" type="int"/> 潜能
+
+		<variable name="options"   type="int"/>
+		<variable name="menpai"    type="int"/>
+
+		<variable name="petfight"  type="int"/>
+		<variable name="petshow"   type="int"/> 显示在场景中的宠物
+
+		<variable name="menpaiscore" type="int"/>贡献度
+		<variable name="paobiaoscore" type="int"/>跑镖任务积分
+		<variable name="zhuoguiscore" type="int"/> 捉鬼任务积分
+		<variable name="huodongscore" type="int"/> 活动积分
+
+		<variable name="team_grid"  type="int"/>
+		<variable name="meet_monster_prob_reduce" type="int"/>
+
+		<enum name="INIT_FIGHT_PROPS" value="0x00000001"/>
+
+		<variable name="initflags" type="int"/>
+		<variable name="logout_time" type="long"/> 上次登退时间
+	</xbean>
+
+	<table name="properties" key="int" value="Properties"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<xbean name="Skills">
+		<variable name="skills" type="map" key="int" value="int"/>
+	</xbean>
+
+	<table name="skills" key="int" value="Skills"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<xbean name="ProduceSkill"> 
+		<variable name="level" type="int" /> 技能的等级
+		<variable name="exp" type="int" /> 技能的经验
+	</xbean>
+	<xbean name="Produce">
+		<variable name="skills" type="map" key="int" value="ProduceSkill"/> 技能列表。key是生产技能的id,value是生产技能的属性		
+		<variable name="peifang" type="set" value="int" /> 配方列表。value是配方的id
+	</xbean>
+	
+
+	<table name="produce" key="int" value="Produce"
+		cacheCapacity="100000" cachehigh="128" cachelow="64"/>
+
+	// 角色物品管理，包括包裹，仓库，装备
+	<xbean name="Item">
+		物品简单属性。物品生成的时候初始化好。由策划决定。
+		<enum name="BIND"   value="0x00000001"/> 不可交易给玩家
+		<enum name="NODROP"  value="0x00000002"/> 不可丢弃摧毁
+		<enum name="NOSELL" value="0x00000004"/> 不可出售给NPC
+
+		变化的属性。动态变化的属性。在处理过程中设定。
+		<enum name="BINDING"  value="0x80000000"/> 绑定
+
+		<enum name="TYPE_EQUIP"   value="1"/> 装备
+		<enum name="TYPE_PROP"    value="2"/> 道具
+		<enum name="TYPE_PEIFANG" value="3"/> 配方
+		<enum name="TYPE_PET"     value="4"/> 宠物，放在宠物栏里面。
+		<enum name="TYPE_FLYITEM"     value="5"/> 飞行旗
+
+		<variable name="type"      type="int"/> 类型 (装备、道具、宠物、etc)
+		<variable name="id"        type="int"/> 编号
+		<variable name="flags"     type="int"/> 标志，叠加的时候，flags 也 OR 叠加。
+		<variable name="price"     type="int"/> 价格
+		<variable name="maxnumber" type="int" default="1"/> 最大堆叠数目
+		<variable name="extra"     type="string"/>  扩展动态属性，
+	</xbean>
+
+	<xbean name="BagItem">
+		<variable name="item"      type="Item"/>
+		<variable name="position"  type="int"/>
+		<variable name="number"    type="int"/>
+	</xbean>
+
+	<xbean name="Bag">
+		<variable name="version"  type="int"/>
+		<variable name="money"    type="int"/>
+		<variable name="passwd"   type="string"/>
+		<variable name="capacity" type="int"/>
+		<variable name="nextid"   type="int"/>
+		<variable name="items"    type="map" key="int" value="BagItem"/>
+	</xbean>
+
+	<!-- 任务相关数据开始 -->
+	<xbean name="NodeStatus">
+		<variable name="graphid" type="int"/>
+		<variable name="nodeid" type="int"/>
+		<variable name="taskid" type="int"/><!-- -1 transitionNode, >=0 tasknode -->
+		<!--transition node status-->
+		<variable name="weight" type="int" default="0"/>
+		<variable name="nodeIDSet" type="set" value="int"/><!--tasknode can accept-->
+		<variable name="taskIDMap" type="map" key="int" value="int"/><!--key node,value task-->
+		<variable name="randTaskSel" type="map" key="int" value="TaskBinary"/><!--key node,value object and monster selection-->
+		<!--task node status-->
+		<variable name="remain_time" type="long" default="0"/>
+		<variable name="reach_place" type="int" default="0"/>
+		<variable name="npc_alive" type="NPCInstance"/>
+		<!--TaskTernary in object_collection: first item type,second item id,third item number-->
+		<variable name="object_collection" type="vector" value="TaskTernary"/>
+		<variable name="npc_kill" type="vector" value="TaskTernary"/>
+		<variable name="npc_instance_kill" type="NPCInstance"/>
+		<variable name="npc_talk" type="set" value="int"/>
+		<variable name="blComplete" type="int" default="0"/>
+		<variable name="blFail" type="int" default="0"/>
+		<variable name="tinygames" type="map" key="int" value="int"/>key gameid,value num
+		<variable name="selection" type="TaskBinary"/><!--TaskBinary first object selection,second monster selection-->
+		<variable name="rewardchosen" type="int"/>
+		<variable name="accepttime" type="long"/>
+		<variable name="fightnum" type="int"/>
+
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+		<variable name="reserved3" type="int"/>
+		<variable name="reserved4" type="int"/>
+		<variable name="reserved5" type="long"/>
+		<variable name="reserved6" type="long"/>
+	</xbean>
+
+	<xbean name="TaskGraphStatus">
+		<variable name="m_activeNodeStatus" type="map" key="int" value="NodeStatus"/>
+        <variable name="m_nodeid2looptimes" type="map" key="int" value="int"/>
+
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+		<variable name="reserved3" type="int"/>
+		<variable name="reserved4" type="int"/>
+		<variable name="reserved5" type="long"/>
+		<variable name="reserved6" type="long"/>
+	</xbean>
+	<xbean name="PlayerTaskData">
+		<variable name="m_mapGraphID2TaskStatus" type="map" key="int" value="TaskGraphStatus"/>
+		<variable name="m_ringLevel" type="int"/>
+		<variable name="m_ringSequence" type="int" default="0"/>
+        <variable name="m_graphtimestamp" type="map" key="int" value="long"/><!--key:graphid,value:last time done-->
+        <variable name="m_graphcounter" type="map" key="int" value="int"/><!--key:graphid,value:times done today-->
+		<variable name="m_timerestricttask" type="map" key="int" value="int"/>
+		<variable name="m_mapStoreTask" type="map" key="int" value="StoreTask"/>
+		<variable name="m_mapTaskAccumNum" type="map" key="int" value="int"/>key-taskid,value-accum num
+
+        <variable name="reserved1" type="int"/>
+        <variable name="reserved2" type="int"/>
+        <variable name="reserved3" type="int"/>
+        <variable name="reserved4" type="int"/>
+        <variable name="reserved5" type="long"/>
+        <variable name="reserved6" type="long"/>
+	</xbean>
+	<xbean name="StoreTask">
+		<variable name="m_storetask" type="map" key="int" value="TaskBinary"/>
+	</xbean>
+	<xbean name="TaskBinary">
+		<variable name="first" type="int"/>
+		<variable name="second" type="int"/>
+	</xbean>
+	<xbean name="TaskTernary">
+		<variable name="first" type="int"/>
+		<variable name="second" type="int"/>
+		<variable name="third" type="int"/>
+	</xbean>
+	<xbean name="NPCInstance">
+		<variable name="mapid" 	type="int"/>
+		<variable name="x"		type="int"/>
+		<variable name="y"		type="int"/>
+		<variable name="z"		type="int"/>
+		<variable name="id"		type="int"/>
+		<variable name="instanceid"	type="int"/>
+		<variable name="name"	type="string"/>
+		<variable name="num"	type="int"/>
+	</xbean>
+	<!-- 任务相关数据结束 -->
+
+	<!--结婚相关数据-->
+	<xbean name="Spouse">
+		<variable name="id" type="int"/>
+		<variable name="husband_id" type="int"/>
+		<variable name="wife_id" type="int"/>
+		<variable name="stage" type="int"/> 阶段：订婚还是结婚
+		<variable name="yuanfen" type="int"/> 姻缘指数，仅在订婚阶段可以修改
+		<variable name="wedding_date" type="long"/>结婚日期，0表示婚期未定
+		<variable name="last_select_date" type="long"/>上次选择的结婚吉日,以后的吉日从这次之后挑选,0表示从未挑选过
+	</xbean>
+	<xbean name="SpouseDetail">
+		<variable name="spouse_base"    type="Spouse"/>
+		<variable name="husband_name"   type="string"/>
+		<variable name="husband_logout" type="long"/>
+		<variable name="wife_name"      type="string"/>
+		<variable name="wife_logout"    type="long"/>
+	</xbean>
+	<xbean name="SpouseList">
+		<variable name="spouses" type="list" value="SpouseDetail"/>
+	</xbean>
+	<xbean name="SpouseIdList">
+		<variable name="ids" type="list" value="int"/>
+	</xbean>
+
+	<table name="spouse"   key="int" value="Spouse"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<!--称谓相关数据开始-->
+	<xbean name="Title">
+		<variable name="roleid" type="int"/>
+		<variable name="equip_titleid" type="int"/><!-- -1表示没有装备任何称号-->
+		<variable name="title_set" type="set" value="int"/>
+	</xbean>
+
+	<!--称谓相关数据结束-->
+
+	宠物栏
+	<table name="pets"  key="int" value="Bag"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+	包裹
+	<table name="bag"   key="int" value="Bag"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+	仓库
+	<table name="depot" key="int" value="Bag"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+	装备
+	<table name="equip" key="int" value="Bag"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<table name="task" key="int" value="PlayerTaskData"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<xbean name="CreateArg">
+		<variable name="userid"    type="int"/>
+		<variable name="roleid"    type="int"/>
+		<variable name="basic"     type="Basic"/>
+		<variable name="location"  type="Location"/>
+		<variable name="props"  type="Properties"/>
+		<variable name="pets"   type="Bag"/>
+		<variable name="bag"    type="Bag"/>
+		<variable name="depot"  type="Bag"/>
+		<variable name="equip"  type="Bag"/>
+		<variable name="task"   type="PlayerTaskData"/>
+		<variable name="skills" type="Skills"/>
+		<variable name="produce" type="Produce"/>
+		<variable name="title" type="Title"/>
+	</xbean>
+
+	<xbean name="FriendInfo">
+		<variable name="close"          type="int"/>好感度
+		<variable name="additionInfo"   type="string"/>备注信息
+		<!--
+		<variable name="groupid"        type="int"/>分组id 1,分组一;2,分组二
+		-->
+	</xbean>
+
+	<xbean name="Friends">
+		<variable name="friendMap"          type="map"  key="int" value="FriendInfo"/>好友
+		<variable name="forbiddenMap"       type="map"  key="int" value="string"/>黑名单
+		<!--
+		<variable name="groupName1"         type="string"/>正式好友组1名称
+		<variable name="groupName2"         type="string"/>正式好友组2名称
+		-->
+	</xbean>
+
+	<table name="friends" key="int" value="Friends"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<xbean name="MemberInfo">
+		<variable name="contribution" type="int"/>
+		<variable name="nickname"     type="string"/>
+		<variable name="privilege"    type="int"/>
+		<variable name="status"       type="int"/>
+	</xbean>
+
+	<xbean name="Family">
+		<variable name="id" 		type="int"/>id
+		<variable name="level" 		type="int"/>等级
+		<variable name="contribution"   type="int"/>建设度
+		<variable name="leaderid"       type="int"/>帮主
+		<variable name="viceLeader"     type="list" value="int"/>副帮主(2)
+		<variable name="directors"      type="list" value="int"/>堂主(4)
+		<variable name="creatorId"      type="int"/>创始人
+		<variable name="name"       type="string"/>名称
+		<variable name="aim"        type="string"/>宗旨
+		<variable name="pub"        type="string"/>公告
+		<variable name="memebers"   type="map" key="int" value="MemberInfo"/>
+		<variable name="status"     type="int" />//是否建立 0,否 1是
+		<variable name="create_time"    type="long" />
+		<variable name="well_known"     type="int" />
+		<variable name="enemy_id"     type="int" />//公会敌人id
+		<variable name="money_record" type="list" value="MoneyRecord"/>
+		<variable name="money"        type="int"/>
+		<variable name="exchange_radio"        type="int"/>
+	</xbean>
+
+	<xbean name="MoneyRecord">
+		<variable name="id"    type="int"/>
+		<variable name="count" type="int"/>
+		<variable name="time"  type="long"/>
+	</xbean>
+
+	<xbean name="FamilyRoleInfo">
+		<variable name="id"   type="int" />
+		<variable name="name" type="string" />
+		<variable name="offline" type="long" />
+		<variable name="level" type="int" />
+		<variable name="menpai" type="int" />
+	</xbean>
+
+	<xbean name="FamilyList">
+		<variable name="familys" type="list" value="Family"/>
+		<variable name="familyRoles" type="map" key="int" value="FamilyRoleInfo"/>
+	</xbean>
+
+	<table name="family"  key="long" value="Family" autoIncrement="true"
+		cacheCapacity="1000" cachehigh="128" cachelow="64"/>
+
+	<!--结拜-->
+	<xbean name="SwornBrother">
+		<variable name="id"			type="int"/>结拜编号
+		<variable name="brothersid" type="list" value="int"/>结拜人
+		<variable name="yiqi" type="int"/>义气值
+		<variable name="havetitle"  type="int"/>是否领取过称谓
+		<variable name="title_prefix" type="string"/>称谓前缀
+		<variable name="title_middle" type="string"/>称谓中缀
+		<variable name="title_suffix" type="string"/>称谓后缀
+		<variable name="reward" type="map" key="int" value="int"/>key结拜人，value是否领取过相应等级的奖励
+	</xbean>
+
+	<xbean name="BrotherInfo">
+		<variable name="brother" type="SwornBrother"/>
+		<variable name="brothername" type="map" key="int" value="string"/>姓名
+		<variable name="brotherlevel" type="map" key="int" value="int"/>等级
+	</xbean>
+
+	<xbean name="SwornBrotherList">
+		<variable name="brothers" type="list" value="BrotherInfo"/>
+	</xbean>
+	<xbean name="SwornBrotherIdList">
+		<variable name="ids" type="list" value="int"/>
+	</xbean>
+
+	<table name="swornbrother" key="int" value="SwornBrother"
+		cacheCapacity="20480" cachehigh="128" cachelow="64"/>
+
+	<UniqNameConf localId="0">
+		<XioConf name="xdb.util.UniqName">
+			<Manager name="Client" keepSize="1" maxSize="1">
+				<Coder>
+						<Rpc class="xdb.util.UniqName$Allocate"/>
+						<Rpc class="xdb.util.UniqName$Confirm"/>
+						<Rpc class="xdb.util.UniqName$Release"/>
+				</Coder>
+				<Connector remoteIp="127.0.0.1" remotePort="22200"
+					sendBufferSize="131072" receiveBufferSize="131072" tcpNoDelay="false"
+					inputBufferSize="131072" outputBufferSize="131072"/>
+			</Manager>
+		</XioConf>
+	</UniqNameConf>
+</xdb>

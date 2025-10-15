@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="platform">
+      <UniqueIdentifier>{1c0375c3-86a0-4d00-9070-3bd41cc05569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{1d3d8f52-db49-4799-acd4-eadb68a10d16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{41212413-b57a-4dde-b93f-9dc6d93788f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="platform\platform_types.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="platform\thread.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="platform\ksemaphore.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="platform\usememory.cpp">
+      <Filter>platform</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\StringUtil.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="log\CoreLog.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Encoder.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\FileUtil.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\StringCover.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\stringbuilder.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Utils.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="platform\mutex.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\platform.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\platform_file.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\platform_types.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\thread.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\ksemaphore.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="platform\usememory.h">
+      <Filter>platform</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\StringUtil.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="log\CoreLog.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp" />
+    <ClInclude Include="utils\Encoder.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\FileUtil.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\StringCover.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\stringbuilder.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Utils.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="platform\share-Prefix.pch">
+      <Filter>platform</Filter>
+    </None>
+  </ItemGroup>
+</Project>

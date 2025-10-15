@@ -1,0 +1,228 @@
+namespace Nuclear
+{
+
+	enum XPLOADMAP_EFFECT
+	{
+		XPLOADMAP_NOEFFECT,
+	};
+
+	struct XPLoadmapParam
+	{
+		NuclearLocation objLoc;
+		virtual XPLOADMAP_EFFECT GetType();
+	};
+
+	class ShakeScreenController
+	{
+	public:
+		virtual NuclearPoint GetShakeScreenAdjust(int now, int delta) = 0;
+	};
+	inline Nuclear_EffectLayer transformWarLayer2NewLayer(Nuclear_EffectLayer oldWarLayer);
+
+	class IWorld
+	{
+	public:
+		virtual ~IWorld() ;
+		bool LoadMap( const std::wstring& mapname, const std::wstring &mazename, const XPLoadmapParam* param);
+		virtual bool LoadMap( const std::wstring& mapname, const std::wstring &mazename, const XPLoadmapParam* param, bool async) = 0;	
+		virtual bool UnloadMap() = 0;
+
+		virtual bool GetMapSize(NuclearPoint &size) const = 0;
+		virtual void SetShakeScreenController(ShakeScreenController *pController) = 0;
+		virtual ShakeScreenController* GetShakeScreenController() const = 0;
+		virtual void SetScale(float scale) = 0;
+		virtual float GetScale () const = 0;
+		virtual bool SetMapMaze(const void* mazeBuffer, size_t size) = 0;
+		virtual bool SetMazeMask(const unsigned char* pData, const NuclearRect &rect) = 0;
+		virtual unsigned int GetMazeMask(int x, int y) = 0;
+		virtual void SetMazeColors(const Nuclear::XPMazeColors &colors) = 0;
+		virtual const Nuclear::XPMazeColors& GetMazeColors() const = 0;
+		virtual void SetMaskBoxColor(const NuclearColor &color = 0xffffffff) = 0;
+		virtual const NuclearColor& GetMaskBoxColor() const = 0;
+		virtual void SetWorldMode(eNuclearWorldMode m) = 0;
+		virtual eNuclearWorldMode GetWorldMode() const = 0;
+		virtual WarBackgroundHandle LoadWarBackgound( const std::wstring &name ) = 0;
+		virtual void FreeWarBackgroundHandle (WarBackgroundHandle handle) = 0;
+		bool SetWarBackground(WarBackgroundHandle handle) = 0;
+		virtual bool SetWarBackground(WarBackgroundHandle handle, NuclearWarBackgroundType type) = 0;
+		virtual void FreeAllWarBackground() = 0;
+		virtual void SetWarBackgroundEdge(float fEdge) = 0;
+		virtual float GetWarBackgroundEdge() const = 0;
+		virtual int GetSortTick() const = 0;
+		virtual ISprite* NewSprite(Nuclear::NuclearSpriteLayer layer, const std::wstring &modelname) = 0;
+		virtual bool AttachSprite(ISprite *pHostSprite, ISprite *pClientSprite, const std::wstring &hostSocket, const std::wstring &clientSocket, const NuclearVector3 &relpos, unsigned int sign) = 0;
+        bool AttachSprite(Nuclear::ISprite *pHostSprite, Nuclear::ISprite *pClientSprite, const std::wstring &hostSocket, const std::wstring &clientSocket, unsigned int sign);
+		virtual bool DetachSprite(Nuclear::NuclearSpriteLayer layer, ISprite *pHostSprite, ISprite *pClientSprite) = 0;
+		virtual void DeleteSprite(Nuclear::ISprite* sprite) = 0;
+		virtual void DeleteAllSprite(Nuclear::NuclearSpriteLayer layer, bool keepAttached = false) = 0;
+		virtual void MoveSpriteLayer(Nuclear::ISprite *pSprite, Nuclear::NuclearSpriteLayer fromlayer, Nuclear::NuclearSpriteLayer tolayer) = 0;
+		ISprite* NewSprite(const std::wstring &modelname);
+		bool DetachSprite(ISprite *pHostSprite, ISprite *pClientSprite);
+		void DeleteAllSprite(bool keepAttached = false);
+
+		ISprite* NewWarSprite(const std::wstring &modelname);
+		bool AttachWarSprite(ISprite *pHostSprite, ISprite *pClientSprite, const std::wstring &hostSocket, const std::wstring &clientSocket, unsigned int sign);
+		bool DetachWarSprite(ISprite *pHostSprite, ISprite *pClientSprite){return DetachSprite(XPSL_BATTLE, pHostSprite, pClientSprite);}
+		void DeleteWarSprite(ISprite* sprite);
+		void DeleteAllWarSprite();
+
+		virtual void GetSpriteShadowParam(float &shearX, float &scalingY) const = 0;
+		virtual void SetSpriteShadowParam(const float &shearX, const float &scalingY) = 0;
+
+		virtual IImmovableObj* NewImmovableObj(const std::wstring &objname, int layer, NuclearColor color, float freq=1.0f) = 0;
+		virtual void DeleteImmovableObj(IImmovableObj* immobj) = 0;
+		virtual void DeleteAllImmovableObj() = 0;
+		virtual bool SelectObjs(const NuclearLocation &loc, std::vector<ISelectableObj*> &ettobjs) = 0;
+
+		virtual IEffect* SetLinkedEffect(const std::wstring &name, Nuclear_EffectLayer layer, const NuclearPoint &pt1, const NuclearPoint &pt2, float time, bool async) = 0;
+		virtual IEffect* SetEffect(const std::wstring &name, Nuclear_EffectLayer layer, int x, int y, bool async) = 0;
+		virtual IEffect* SetContinueEffect(const std::wstring &headEffect, const std::wstring &midEffect, const std::wstring &endEffect, int continueTime, Nuclear_EffectLayer layer, int x, int y, bool async) = 0;
+		virtual void RemoveEffect(IEffect* pEffect) = 0;
+		virtual void RemoveEffectEx(IEffect* pEffect) = 0;
+		virtual IEffect* PlayEffect(const std::wstring &name, Nuclear_EffectLayer layer, int x, int y, int times, bool async, unsigned char soundtype) = 0;
+		IEffect* SetWarEffect(const std::wstring &name, Nuclear_EffectLayer layer, int x, int y, bool async);
+		IEffect* SetWarContinueEffect(const std::wstring &headEffect, const std::wstring &midEffect, const std::wstring &endEffect, int continueTime, Nuclear_EffectLayer layer, int x, int y, bool async);
+		void RemoveWarEffect(IEffect* pEffect);
+
+		virtual void AttachCameraTo(ISprite* sprite) = 0;
+		virtual const NuclearRect& GetViewport() const = 0;
+		virtual void SetViewport(const NuclearLocation &loc, bool syncRsrc) = 0;
+		virtual void SetViewportLT(int left, int top) = 0;
+
+		virtual void SetGameTime(float time) = 0;
+		virtual float GetTempGameTime() const = 0;
+		virtual void SetGameTimeCycle(int time) = 0;
+		virtual bool SetCameraUpdateType(NuclearCameraUpdateType type) = 0;
+		virtual bool SetCameraUpdateType(NuclearCameraUpdateType type, void* pParams) = 0;
+		virtual NuclearCameraUpdateType GetCameraUpdateType() const = 0;
+		virtual bool PrefetchMapRes(const std::wstring &mapname, const std::wstring &mazename, const NuclearPoint &center, bool autoSwitch) = 0;
+		virtual void CancelPrefetch() = 0;
+	};
+	class World : public IWorld
+	{
+	public:
+		World(Engine *pEngine, int viewwidth, int viewheight);
+		virtual ~World();
+
+		void OnChangeBGSoundMode(NuclearBGSoundMode mode);
+		void ResetBGSound();
+		const std::wstring& GetMapName(); 
+		bool GetWaterDepth(const NuclearLocation& pt, unsigned int &nDepth) const;
+		virtual bool LoadMap( const std::wstring& mapname, const std::wstring &mazename, const XPLoadmapParam* param, bool async);
+		virtual bool UnloadMap();
+		bool IsMapLoaded() ; 
+		bool IsMapFull() const;
+		virtual bool GetMapSize(NuclearPoint &size) const;
+		virtual bool SetMapMaze(const void* mazeBuffer, size_t size);
+		virtual bool SetMazeMask(const unsigned char* pData, const NuclearRect &rect);
+		virtual unsigned int GetMazeMask(int x, int y);
+
+		//virtual void SetMazeColors(const XPMazeColors &colors);
+		//virtual const XPMazeColors& GetMazeColors() const;
+		virtual void SetMaskBoxColor(const NuclearColor &color = 0xffffffff);
+		virtual const NuclearColor& GetMaskBoxColor() const;
+
+		virtual void GetSpriteShadowParam(float &shearX, float &scalingY) ; 
+		virtual int GetSortTick(); 
+		int GetAllSpriteCount() const;
+		void GetAllSpriteDetail(std::map<std::wstring, int> &detail) const;
+		int GetAllEffectCount() const;
+		void GetAllEffectDetail(std::map<std::wstring, int> &detail) const;
+
+		void EnableRenderDuringLoading(bool b);
+		bool IsRenderDuringLoading(); 
+		virtual void SetSpriteShadowParam(const float &shearX, const float &scalingY);
+		virtual void SetScale(float scale);
+		virtual float GetScale ();
+
+		void PushSpriteTopEffect(Effect *pEffect);
+		void PushSpriteBottomEffect(Effect *pEffect);
+
+		virtual void SetWorldMode(eNuclearWorldMode m);
+		virtual eNuclearWorldMode GetWorldMode(); 
+		virtual WarBackgroundHandle LoadWarBackgound( const std::wstring &name );
+		virtual void FreeWarBackgroundHandle (WarBackgroundHandle handle);
+		virtual bool SetWarBackground(WarBackgroundHandle handle, NuclearWarBackgroundType type);
+		virtual void FreeAllWarBackground();
+		virtual void SetWarBackgroundEdge(float fEdge);
+		virtual float GetWarBackgroundEdge(); 
+
+		virtual Nuclear::ISprite* NewSprite(Nuclear::NuclearSpriteLayer layer, const std::wstring &modelname);
+		virtual bool AttachSprite(Nuclear::ISprite *pHostSprite, Nuclear::ISprite *pClientSprite, const std::wstring &hostSocket, const std::wstring &clientSocket, const NuclearVector3 &relpos, unsigned int sign);
+		virtual bool DetachSprite(Nuclear::NuclearSpriteLayer layer, Nuclear::ISprite *pHostSprite, Nuclear::ISprite *pClientSprite);
+		virtual void DeleteSprite(Nuclear::ISprite* sprite);
+		virtual void DeleteAllSprite(Nuclear::NuclearSpriteLayer layer, bool keepAttached = false);
+		virtual void MoveSpriteLayer(Nuclear::ISprite *pSprite, Nuclear::NuclearSpriteLayer fromlayer, Nuclear::NuclearSpriteLayer tolayer);
+
+		virtual IImmovableObj* NewImmovableObj(const std::wstring &objname, int layer, NuclearColor color, float freq=1);
+		virtual void DeleteImmovableObj(IImmovableObj* immobj);
+		virtual void DeleteAllImmovableObj();
+
+		virtual bool SelectObjs(const NuclearLocation &loc, std::vector<ISelectableObj*> &ettobjs);
+
+		virtual IEffect* SetLinkedEffect(const std::wstring &name, Nuclear_EffectLayer layer, const NuclearPoint &pt1, const NuclearPoint &pt2, float time, bool async);
+		virtual IEffect* SetEffect(const std::wstring &name, Nuclear_EffectLayer layer, int x, int y, bool async);
+		virtual IEffect* SetContinueEffect(const std::wstring &headEffect, const std::wstring &midEffect, const std::wstring &endEffect, int continueTime, Nuclear_EffectLayer layer, int x, int y, bool async);
+		virtual void RemoveEffect(IEffect* pEffect);
+		virtual void RemoveEffectEx(IEffect* pEffect);
+		virtual IEffect* PlayEffect(const std::wstring &name, Nuclear_EffectLayer layer, int x, int y, int times, bool async, unsigned char soundtype);
+		Effect* PlayOnceEffect(const std::wstring &name, Nuclear_EffectLayer layer, int x, int y, int times, bool async, unsigned char soundtype);
+
+		bool CheckMapGUID(unsigned int mapguid) const;
+		void pauseSceneEffects();
+		void resumeSceneEffects();
+		virtual void showSceneEffects(bool bshow);
+		bool isShowSceneEffects();
+
+		virtual void AttachCameraTo(Nuclear::ISprite* sprite);
+		virtual void SetViewport(const NuclearLocation &loc, bool syncRsrc);
+		virtual void SetViewportLT(int left, int top);
+		virtual bool PrefetchMapRes(const std::wstring &mapname, const std::wstring &mazename, const NuclearPoint &center, bool autoSwitch);
+		virtual void CancelPrefetch();
+		void OnRendererRestore();
+		void FreeAllPicReses();
+
+		bool NotifyLoadmapProgress(int pro);
+		void NotifyALoadItemFin(unsigned char beginPro, unsigned char endPro);
+		void AddTotalLoadingCount();
+
+		bool Init();
+		void SetViewSize(int width, int height);
+		virtual const NuclearRect& GetViewport() const;
+
+		void OnTimer(int iPeriod);
+		void UpdateBeforeRender(int delta);
+		void SortMid();
+		void Render(int now, bool UseCavas, bool realRender);
+		void RenderCaptureWorld();
+		void RenderStaticLayer(int layer, int drawTick, bool realRender);
+		void RenderSortedLayer(int layer, Canvas *pCanvas, bool realRender);
+		void RenderSortedLayerWithoutAlpha(int layer, Canvas *pCanvas, bool realRender);
+		void RenderSortedLayerElementWithoutSprite(int layer, Canvas *pCanvas, bool realRender);
+		void RenderSortedLayerAlphaSpriteWithoutElement(int layer, Canvas *pCanvas, bool realRender);
+		void RenderSortedLayerNonAlphaSpriteWithAlphaElement(int layer, Canvas *pCanvas, bool realRender);
+		void RenderMovingBackground();//ÒÆ¶¯±³¾°
+		void RenderRenderTargetCache();
+		void SetNightEffect(bool bIsInBattle);
+
+		void OnTick(unsigned int now, unsigned int delta, unsigned int realDelta);
+		void UpdateSpriteAction(DWORD delta);
+		void RenderMaze();
+		void RenderMaskBox();
+
+		virtual void SetGameTime(float time);
+		virtual void SetGameTimeCycle(int time);
+		int GetGameTime() const;
+		virtual float GetTempGameTime();
+		virtual bool SetCameraUpdateType(NuclearCameraUpdateType type, void* pParams = NULL);
+		virtual NuclearCameraUpdateType GetCameraUpdateType();
+
+		virtual void SetShakeScreenController(ShakeScreenController *pController);
+		virtual ShakeScreenController* GetShakeScreenController() const;
+		void  SetCurveMoveHeight(float height);
+		float GetCurveMoveHeight() const;
+
+	};
+
+
+}

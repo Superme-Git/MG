@@ -1,0 +1,250 @@
+namespace Nuclear
+{
+	struct EngineParameter
+	{
+		wchar_t* szWindowTitle;
+		wchar_t* szClassName;
+		NuclearDisplayMode dmode;
+		bool bAsyncRead;
+		bool bApplictionInBuild;
+		bool bHasMaximizbox;
+		bool bSizeBox;	
+		bool bEnableMipMap;
+		DWORD dwRenderFlags;
+		NuclearMultiSampleType multiSampleType;	
+		int nAppInitStepCount;
+		EngineParameter();
+	};
+	
+	class IEngine
+	{
+	public:
+		virtual ~IEngine();
+		virtual int GetScreenWidth() = 0;
+		virtual int GetScreenHeight() = 0;
+		virtual void SetEngineLayer(cocos2d::CCLayer* aPLayer) = 0;
+		virtual cocos2d::CCLayer* GetEngineLayer() = 0;
+		virtual bool SetInfoLogPath(const std::wstring &fn) = 0;
+		virtual bool SetErrorLogPath(const std::wstring &fn) = 0;
+		virtual bool SetSegmpakLogPath(const std::wstring &fn) = 0;
+		virtual bool Run(const EngineParameter &ep) = 0;
+		virtual bool Exit() = 0;
+		virtual void OnIdle();
+		virtual void SetGameTimeSpeedScale(float fScale) = 0;
+		virtual float GetGameTimeSpeedScale() const = 0;
+		virtual void PutTask(INuclearRunnable *task) = 0; 
+		virtual bool ScheduleTimer(INuclearTimer * timer, int period) = 0;
+		virtual bool CancelTimer(INuclearTimer * timer) = 0;
+		virtual IWorld* GetWorld() = 0;
+		virtual IEnv* GetEnv() = 0;			
+		virtual Nuclear::IApp* GetApp() = 0;
+		virtual Renderer* GetRenderer(  ) = 0;
+		virtual INuclearFileIO* GetFileIO() = 0;
+
+		virtual EngineSpriteHandle CreateEngineSprite(const std::wstring &modelname, bool async, bool isUISprite=false);
+		virtual bool SetEngineSpriteModel(EngineSpriteHandle handle, const std::wstring &modelname, bool async) = 0;
+		virtual void ReleaseEngineSprite(EngineSpriteHandle handle) = 0;
+		virtual void RendererEngineSprite(EngineSpriteHandle handle) = 0;
+		virtual void SetEngineSpriteLoc(EngineSpriteHandle handle, const NuclearLocation& loc) = 0;
+		virtual void SetEngineSpriteDirection(EngineSpriteHandle handle, NuclearDirection dir) = 0;
+		virtual void SetEngineSpriteDirection(EngineSpriteHandle handle, const NuclearPoint &target) = 0;
+		virtual void SetEngineSpriteDefaultAction(EngineSpriteHandle handle, const std::wstring &actname) = 0;
+		virtual void SetEngineSpriteAction(EngineSpriteHandle handle, const std::wstring &actname) = 0;
+		virtual void SetEngineSpriteComponent(EngineSpriteHandle handle, int scid, const std::wstring& resource, Nuclear::NuclearColor color) = 0;
+		virtual void EnableEngineSpriteShadow(EngineSpriteHandle handle, bool b) = 0;
+		virtual void SetEngineSpriteScale(EngineSpriteHandle handle, float scale) = 0;
+		virtual void SetEngineSpriteAlpha(EngineSpriteHandle handle, unsigned char alpha) = 0;
+		virtual bool GetEngineSpriteActionTimeByName(EngineSpriteHandle handle, const std::wstring& action_name, float &time) = 0;	// yeqing 2015-11-07
+
+		virtual IEffect* SetEngineSpriteDurativeEffect(EngineSpriteHandle handle, const std::wstring &effect_name, const NuclearPoint& relpos, unsigned int flag) = 0;
+		virtual IEffect* PlayEngineSpriteEffect(EngineSpriteHandle handle, const std::wstring &effect_name, int dx, int dy, int times, unsigned int flag, unsigned char soundtype) = 0;
+		virtual void RemoveEngineSpriteDurativeEffect(EngineSpriteHandle handle, IEffect* pEffect) = 0;
+		virtual int GetEngineSpriteBubbleItemOffset(EngineSpriteHandle handle) const = 0;
+
+		virtual void EnableParticle(bool flag) = 0;
+
+		virtual IEffect* CreateEffect(const std::wstring &effectname, bool async = true) = 0;
+		virtual void DrawEffect(IEffect* pEffect) = 0;
+		virtual void ReleaseEffect(IEffect* pEffect) = 0;
+
+		virtual void HoldEffect(const std::wstring &name) = 0;
+		virtual void ReleaseEffect(const std::wstring &name) = 0;
+
+		virtual PictureHandle CaptureWorld() = 0;
+		virtual void SetCleanColor(NuclearColor color) = 0;
+		virtual NuclearWindowState GetWindowState() const = 0;
+		virtual void GCNow() = 0;
+		virtual void setGCCooldown(int time) = 0;
+
+		virtual void  ResetFPSCounter() = 0;
+		virtual float GetFPS() const = 0;
+		virtual float GetLatestFPS() const = 0;
+
+		virtual int GetLogicWidth() = 0;
+		virtual int GetLogicHeight() = 0;
+
+		virtual int GetWidth() const = 0;
+		virtual int GetHeight() const = 0;
+
+		virtual unsigned int GetTimeCount() = 0;
+
+		virtual float GetCurMemSize() = 0;//获得当前进程所使用的内存量
+		virtual float GeCurAvailableMemSize() = 0;//获得当前进程可用的内存量
+
+		virtual void SetStepLoadTexture(bool b) = 0;
+		virtual bool GetStepLoadTexture() const = 0;
+
+		virtual void  SetLimitFireThreadSecond(int limitFireThreadCount) = 0;
+		virtual int   GetLimitFireThreadSecond() = 0;
+	};
+	IEngine* GetEngine();
+	
+	class EngineBase
+	{
+	public:
+		virtual SpriteManager* GetSpriteManager() = 0;
+		virtual AniManager* GetAniManager() = 0;
+		virtual World* GetXPWorld();
+		virtual float GetWorldScale() const ;
+		virtual EffectManager* GetEffectManager() = 0;
+		virtual Renderer* GetRenderer() = 0;
+		virtual PictureHandle GetSpritePictureHandle() const;
+		virtual ConfigManager* GetConfigManager()= 0;
+		virtual NuclearRect GetViewport() const = 0;
+		virtual int GetTick() const = 0;
+		virtual void Render(bool controlFPS);
+		virtual int GetGameTime();
+		virtual bool IsDaytime() const ;
+		virtual bool GetWaterDepth(const NuclearLocation& pt, unsigned int &nDepth) const;
+		virtual Nuclear::IApp* GetApp() = 0;
+		virtual bool IsAsyncRead() const ;
+		virtual bool ScheduleTimer(INuclearTimer * timer, int period) ;
+		virtual bool CancelTimer(INuclearTimer * timer);
+	};
+	
+	class Engine : public IEngine
+	{
+	public:
+    	int GetScreenWidth();
+    	int GetScreenHeight();
+		int GetLogicWidth();
+		int GetLogicHeight();
+    	void Draw();
+		static Engine& GetInstance();
+		virtual bool SetInfoLogPath(const std::wstring &fn);
+		virtual bool SetErrorLogPath(const std::wstring &fn);
+		virtual bool SetSegmpakLogPath(const std::wstring &fn);
+		const std::wstring &GetCurrentDirectory();
+		virtual IEnv* GetEnv();
+		virtual bool Exit();
+		virtual void SetGameTimeSpeedScale(float fScale); 
+		virtual float GetGameTimeSpeedScale(); 
+    	void Render(bool controlFPS);
+		bool IsMultiSampleTypeEnable(); 
+		virtual void PutTask(INuclearRunnable *task);
+		virtual bool ScheduleTimer(INuclearTimer * timer, int period);
+		virtual bool CancelTimer(INuclearTimer * timer);
+		virtual void OnIdle();
+
+		void SetSystemLevel(NuclearComputerConfigType l);
+		virtual INuclearFileIO* GetFileIO();
+		virtual Nuclear::IApp* GetApp();
+		virtual IWorld* GetWorld(); 
+		virtual const IWorld* GetWorld();
+		virtual World* GetXPWorld() ;
+		virtual float GetWorldScale();
+		virtual Renderer* GetRenderer( );
+		virtual ConfigManager* GetConfigManager() ;
+		virtual const SpriteManager* GetSpriteManager(); 
+		virtual const AniManager* GetAniManager();
+		virtual SystemResourceManager* GetSystemResourceManager(); 
+		virtual PictureHandle GetSpritePictureHandle(); 
+		virtual PictureHandle GetAlphaSpritePictureHandle();
+		virtual NuclearFileIOManager* GetFileIOManager();
+		virtual SpriteManager* GetSpriteManager();
+		virtual AniManager* GetAniManager();
+		virtual EffectManager* GetEffectManager();
+		virtual astar::PathFinder * GetPathFinder();
+		virtual int GetTick();
+		virtual bool IsAsyncRead();
+		virtual bool GetWaterDepth(const NuclearLocation& pt, unsigned int &nDepth); 
+		virtual void EnableParticle(bool flag);
+		virtual NuclearRect GetViewport();
+		virtual void GetSpriteShadowParam(float &shearX, float &scalingY); 
+		virtual NuclearWindowState GetWindowState();
+		void SetTaskExecuteTime(NuclearWindowState type, int time);
+		int GetTaskExecuteTime(NuclearWindowState type);
+		void SetIOUpdateExecuteTime(int time);
+		int GetIOUpdateExecuteTime();
+		virtual int GetAllSpriteCount() const;
+		virtual size_t GetTaskListCount();
+		virtual size_t GetQueueOfIOTaskSize();
+		void SetAniPicGCTime(int t);
+		int GetAniPicGCTime() const;
+		void SetAniXapGCTime(int t);
+		int GetAniXapGCTime() const;
+		void OnRendererRestore();
+		void RunUserTask();
+		void OnTimer(int iPeriod);
+		virtual int GetGameTime();
+		bool IsEnableWade();
+		void SetEnableWade(bool b);
+
+		void WindowToClient( Nuclear::NuclearPoint& point);
+
+		virtual EngineSpriteHandle CreateEngineSprite(const std::wstring &modelname, bool async, bool isUISprite=false);
+		virtual bool SetEngineSpriteModel(EngineSpriteHandle handle, const std::wstring &modelname, bool async);
+		virtual void ReleaseEngineSprite(EngineSpriteHandle handle);
+		virtual void RendererEngineSprite(EngineSpriteHandle handle);
+		virtual void SetEngineSpriteLoc(EngineSpriteHandle handle, const NuclearLocation& loc);
+		virtual void SetEngineSpriteDirection(EngineSpriteHandle handle, NuclearDirection dir);
+		virtual void SetEngineSpriteDirection(EngineSpriteHandle handle, const NuclearPoint &target);
+		virtual void SetEngineSpriteDefaultAction(EngineSpriteHandle handle, const std::wstring &actname);
+		virtual void SetEngineSpriteAction(EngineSpriteHandle handle, const std::wstring &actname);
+		virtual void EnableEngineSpriteShadow(EngineSpriteHandle handle, bool b);
+		virtual void SetEngineSpriteScale(EngineSpriteHandle handle, float scale);
+		virtual void SetEngineSpriteAlpha(EngineSpriteHandle handle, unsigned char alpha);
+		virtual bool GetEngineSpriteActionTimeByName(EngineSpriteHandle handle, const std::wstring& action_name, float &time);	// yeqing 2015-11-07
+		virtual IEffect* SetEngineSpriteDurativeEffect(EngineSpriteHandle handle, const std::wstring &effect_name, const NuclearPoint& relpos, unsigned int flag);
+		virtual IEffect* PlayEngineSpriteEffect(EngineSpriteHandle handle, const std::wstring &effect_name, int dx, int dy, int times, unsigned int flag, unsigned char soundtype);
+		virtual void RemoveEngineSpriteDurativeEffect(EngineSpriteHandle handle, IEffect* pEffect);
+		virtual int GetEngineSpriteBubbleItemOffset(EngineSpriteHandle handle) const;
+
+		virtual IEffect* CreateEffect(const std::wstring &effectname, bool async = true);
+		virtual void DrawEffect(IEffect* pEffect);
+		virtual void ReleaseEffect(IEffect* pEffect);
+		virtual void HoldEffect(const std::wstring &name);
+		virtual void ReleaseEffect(const std::wstring &name);
+		virtual PictureHandle CaptureWorld();//截图
+		virtual void SetCleanColor(NuclearColor color);
+		virtual NuclearColor GetCleanColor();
+		virtual void GCNow();
+		virtual void setGCCooldown(int time);
+
+		virtual void SetSmoothDeltaLimit(unsigned int uiSmoothDeltaLimit);
+		virtual unsigned int GetSmoothDeltaLimit();
+		virtual void SetEngineSpriteAlpha(EngineSpriteHandle handle, unsigned char alpha);
+
+		virtual void SetSmoothDeltaCount(unsigned int uiSmoothDeltaCount);
+		virtual unsigned int GetSmoothDeltaCount();
+	
+		virtual int GetLogicWidth();
+		virtual int GetLogicHeight();
+
+		virtual int GetWidth() const;
+		virtual int GetHeight() const;
+
+		virtual unsigned int GetTimeCount();
+
+		virtual float GetCurMemSize();//获得当前进程所使用的内存量
+		virtual float GeCurAvailableMemSize();//获得当前进程可用的内存量
+		virtual unsigned int GetCurDeltaTime() const;
+
+		virtual void SetStepLoadTexture(bool b);
+		virtual bool GetStepLoadTexture() const;
+
+		virtual void  SetLimitFireThreadSecond(int limitFireThreadCount);
+		virtual int   GetLimitFireThreadSecond();
+	};
+
+}

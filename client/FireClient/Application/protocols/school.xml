@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从24001开始-->
+<namespace name="school">
+	<bean name="ShouxiInfo">  首席-弟子信息
+		<variable name="maxhp" type="int"/> 
+		<variable name="maxmp" type="int"/>
+		<variable name="hitRate" type="int"/> 
+		<variable name="attack" type="int"/> 攻击
+		<variable name="defend" type="int"/> 
+		<variable name="magicattack" type="int"/>  法术攻击
+		<variable name="magicdef" type="int"/>  法术防御
+		<variable name="speed" type="int"/> 
+		<variable name="dodge" type="int"/> 躲闪
+	</bean>
+	<bean name="CandidateInfo"> 候选人信息
+		<variable name="roleid" type="long"/>
+		<variable name="rolename" type="string"/> 
+		<variable name="tickets" type="int"/>
+		<variable name="words" type="string"/>竞选词
+		<variable name="shape" type="int"/> 外形,如果为0的话表示用npc默认的造型就可以了 by changhao
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装 by changhao
+	</bean>
+	
+	<bean name="ShouXiLimit"> 关于职业首席的限制条件
+		<enum name="CHALLENGE_LEVEL_LIMIT" value="40" /> 挑战首席的等级限制
+		<enum name="SCHOOL_CONTRIBUTE_LIMIT" value="500" /> 挑战首席需要的职业贡献度
+		<enum name="MONEY_LIMIT" value="10000" /> 挑战首席需要的金钱
+		<enum name="VOTE_LEVEL_LIMIT" value="30" /> 投票需要的等级
+		<enum name="TILI_LIMIT" value="100" /> 投票需要的体力值
+		<enum name="REFRESH_TIMES_LIMIT" value="5" /> 投票需要的体力值
+	</bean>
+	
+	<bean name="ShouXiMsgID"> 关于职业首席的提示信息id
+		<enum name="ChallengeLevelNotEnough" value="140245" /> 挑战首席-弟子是很危险的，40级以后再来挑战吧！”
+		<enum name="SchoolContriNotEnough" value="140246" /> 你的职业贡献度不足500点，无法发起挑战！
+		<enum name="InTeam" value="140247" /> 请离开队伍再来参加挑战吧！
+		<enum name="MoneyNotEnough" value="140248" /> 你身上的金钱好像不足10000两啊！
+		<enum name="ChallengeSuccess" value="140249" /> 挑战成功，你可以参与职业首席-弟子竞选了！
+		<enum name="ChallengeLost" value="140250" /> 挑战失败，希望你下次再接再厉!
+        <enum name="NotSuccess" value="140251" /> 您还未成功挑战首席-弟子，不能参加竞选。
+		<enum name="AlreadyCandidate" value="140252" /> 您已成功竞选！
+		<enum name="VoteLevelNotEnough" value="140253" /> 等级≥30级的玩家方可参与投票哦！
+		<enum name="TiLiNotEnough" value="140254" /> 您的体力不足100点，不能投票！
+		<enum name="AlreadyVote" value="140255" /> 您本周内已经投过票，不能再投了！
+		<enum name="GiveShouXiTitle" value="140256" /> 恭喜你获得了首席-弟子称号。
+		<enum name="CancelShouXiTitle" value="140257" /> 很抱歉，你已不再是首席-弟子。
+		<enum name="RefreshAbilityToMuch" value="140258" /> 休息一下，明天再来吧！
+		<enum name="ChallengeAffirm" value="140259" /> 挑战首席-弟子需要花费10000两金钱，是否确认挑战？
+		<enum name="Cantvote" value="140260" /> 现在不是投票时间哦。
+		<enum name="CantChallenge" value="140261" /> 现在不是挑战时间哦。
+	</bean>
+	
+	<protocol name="SSendShouxiInfo" type="24001" maxsize="65535" prior="1" tolua = "3"> 发送首席信息
+		<variable name="shouxi" type="ShouxiInfo"/>
+		<variable name="shouxikey" type="long"/> 	
+	</protocol>	
+	
+	<protocol name="SSendCandidates" type="24002" maxsize="65535" prior="1" tolua = "3"> 发送首席候选人列表
+		<variable name="alreadyVote" type="int"/>  1表示已经投票过,0表示本周还没投票
+		<variable name="candidateList" type="vector" value="CandidateInfo"/>
+		<variable name="shouxikey" type="long"/>
+	</protocol>
+
+	<protocol name="SVoteCandidate" type="24008" maxsize="65535" prior="1" tolua = "3"> 发送首席候选人列表
+		<variable name="alreadyVote" type="int"/>  1表示已经投票过,0表示本周还没投票
+		<variable name="candidateList" type="vector" value="CandidateInfo"/>
+		<variable name="shouxikey" type="long"/>		
+	</protocol>
+
+	<protocol name="SMyElector" type="24011" maxsize="65535" prior="1" tolua = "3"> 发送首席候选人列表
+		<variable name="electorwords" type="string"/> 	
+	</protocol>
+
+	<protocol name="CSendElectorWords" type="24003" maxsize="65535" prior="1" tolua = "3">客户端向服务器发送竞选词	
+		<variable name="electorwords" type="string"/> 
+	</protocol>
+
+	<protocol name="CVoteCandidate" type="24004" maxsize="65535" prior="1" tolua = "3">客户端返回给服务器投票对象
+		<variable name="candidateid" type="long"/> 
+		<variable name="shouxikey" type="long"/>	
+	</protocol>
+	<protocol name="SCanElect" type="24005" maxsize="65535" prior="1" tolua = "3">服务器发给客户端可以打开竞选框的消息
+		<variable name="shouxikey" type="long"/>
+	</protocol>
+	<protocol name="SShouxiShape" type="24006" maxsize="65535" prior="1" tolua="3">服务器发给客户端首席-弟子的外形
+		<variable name="shouxikey" type="long"/> 首席-弟子的baseid
+		<variable name="name" type="string"/> 首席名字
+		<variable name="shape" type="int"/> 外形,如果为0的话表示用npc默认的造型就可以了
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+		<variable name="titleId" type="int"/> 称号id
+	</protocol>
+	<protocol name="CShouxiShape" type="24007" maxsize="65535" prior="1" tolua="3">客户端请求首席-弟子的外形
+		<variable name="shouxikey" type="long"/> 首席-弟子的baseid
+	</protocol>
+
+	<!-- 转职 协议号从 24051-24060 -->
+	<namespace name="change">
+		<protocol name="COldSchoolList" type="24051" maxsize="65535" prior="1" tolua="3"> 客户端请求旧的职业列表
+		</protocol>
+
+		<protocol name="SOldSchoolList" type="24052" maxsize="65535" prior="1" tolua="3"> 服务器返回旧的职业列表
+			<variable name="oldShapeList" type="vector" value="int" /> 旧造型列表
+			<variable name="oldSchoolList" type="vector" value="int" /> 旧职业列表
+		</protocol>
+
+		<protocol name="CChangeSchool" type="24053" maxsize="65535" prior="1" tolua="3"> 客户端申请转职
+			<variable name="newShape" type="int"/> 新造型
+			<variable name="newSchool" type="int"/> 新职业
+		</protocol>
+
+		<protocol name="CChangeSchoolExtInfo" type="24055" maxsize="65535" prior="1" tolua="3"> 客户端请求转职后,剩余转换武器、宝石的次数
+		</protocol>
+
+		<protocol name="SChangeSchoolExtInfo" type="24056" maxsize="65535" prior="1" tolua="3"> 服务器返回转职后,剩余转换武器、宝石的次数
+			<variable name="remainChangeWeaponCount" type="int"/> 剩余转换武器的次数
+			<variable name="remainChangeGemCount" type="int"/> 剩余转换宝石的次数
+		</protocol>
+
+		<protocol name="CChangeWeapon" type="24057" maxsize="65535" prior="1" tolua="3"> 客户端申请转换武器(转职后开放)
+			<variable name="srcWeaponKey" type="int"/> 旧武器的Key
+			<variable name="newWeaponTypeId" type="int"/> 新武器ItemId
+		</protocol>
+
+		<protocol name="SChangeWeapon" type="24058" maxsize="65535" prior="1" tolua="3"> 服务器返回转换武器成功(转职后开放)
+		</protocol>
+
+		<protocol name="CChangeGem" type="24059" maxsize="65535" prior="1" tolua="3"> 客户端申请转换宝石(转职后开放)
+			<variable name="gemKey" type="int"/> 要转换宝石的itemKey
+			<variable name="newGemItemId" type="int"/> 要转换宝石的itemId
+		</protocol>
+
+		<protocol name="SChangeGem" type="24060" maxsize="65535" prior="1" tolua="3"> 服务器返回转换宝石成功(转职后开放)
+		</protocol>
+	</namespace>
+	<!-- 转职 协议号从 24051-24060 -->
+
+</namespace>

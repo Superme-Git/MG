@@ -1,0 +1,288 @@
+<project name="xtransform" default="default">
+	
+<!--Test Setting-->
+	
+<property name="testparam" value="table_int_xbean 10000 table_cbean_cxbean 10000 table_cbean_cxbeanint 10000 table_long_map 10000 table_autokey 10000 table_short_set 10000" />	
+	
+<!-- Setting -->	
+<property name="xbean.jar" value="xbean.jar"/>	
+<property name="xml" value="test.xml"/>
+<property name="oldxml" value="oldtest.xml"/>
+<property name="srcdb" value="src_db"/>
+<property name="destdb" value="dest_db"/>
+	
+<!-- libpath: .dll or .so , xdb.jar , jio.jar -->
+<property name="libpath" value="../../bin"/>
+	
+<property name="xgenoutput" value="transform.xgen.tmp"/>
+
+<property name="old.xbean" value="transform.old.xbean.tmp"/>
+<property name="new.xbean" value="transform.new.xbean.tmp"/>
+	
+<property name="build" value="transform.class.tmp"/>
+
+
+<target name="clean">
+		<delete dir="${build}"/>
+		<delete dir="${xgenoutput}"/>
+</target>
+	
+<target name="init" depends="clean">
+	<mkdir dir="${build}" />
+	<mkdir dir="${xgenoutput}" />
+	<mkdir dir="${destdb}" />
+
+</target>
+	
+<!-- 生成不对称的marshal, unmarshal代码 -->
+<target name="xgen.transform">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${xbean.jar}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+	</path>	
+	<java  classname="xgen.Main" fork="true" classpathref="myclasspath" failonerror="true">
+		<arg line="-output ${xgenoutput} -transform ${xml} -srcdb ${srcdb} -destdb ${destdb} -nowarn"/>
+	</java>
+</target>
+	
+<!-- 编译生成的不对称的marshal, unmarshal代码 -->	
+<target name="compile.transform" depends="init,xgen.transform">
+
+	<path id="classpath">
+		<pathelement path="${libpath}/jio.jar"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+	</path>
+
+	<javac encoding="GBK" srcdir="${xgenoutput}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+
+<!-- 进行倒库,src_db已经有新的数据库了 -->
+<target name="dotransform" depends="compile.transform">
+	<path id="myclasspath">
+			<pathelement path="${java.class.path}"/>
+			<pathelement path="${libpath}/xdb.jar"/>
+			<pathelement path="${libpath}/jio.jar"/>
+			<pathelement path="${build}"/>
+	</path>	
+	<java  classname="Main" fork="true" classpathref="myclasspath" failonerror="true">
+		<jvmarg line="-Xss4m -Xms512m -Xmx512m"/>
+		<arg line="${libpath}"/>
+	</java>
+</target>
+	
+<!-- 用于测试参数的正确性 -->
+<target name="test.dotransform.param" depends="compile.transform">
+	<path id="myclasspath">
+			<pathelement path="${java.class.path}"/>
+			<pathelement path="${libpath}/xdb.jar"/>
+			<pathelement path="${libpath}/jio.jar"/>
+			<pathelement path="${build}"/>
+	</path>	
+	<java  classname="Main" fork="true" classpathref="myclasspath" failonerror="true">
+		<jvmarg line="-Xss4m -Xms512m -Xmx512m"/>
+		<arg line="${libpath} -srcdb ${srcdb} -destdb ${destdb}"/>
+	</java>
+</target>	
+	
+<!-- 生成新的xbean -->
+<target name="clean.new">
+		<delete dir="${build}"/>
+		<delete dir="${new.xbean}"/>
+</target>
+		
+<target name="init.new" depends="clean.new">
+	<mkdir dir="${build}" />
+	<mkdir dir="${new.xbean}" />
+	<mkdir dir="${destdb}" />
+</target>	
+	
+<target name="xgen.xbean.new" depends="init.new">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+	</path>
+	<java  classname="xgen.Main" fork="true" classpathref="myclasspath" failonerror="true">
+		<arg line="${xml} -output ${new.xbean}"/>
+	</java>
+</target>
+	
+<!-- 编译新的xbean -->
+<target name="compile.xbean.new" depends="xgen.xbean.new">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+	</path>
+	<javac encoding="GBK" srcdir="${new.xbean}" destdir="${build}"
+		classpathref="myclasspath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+<!-- 生成新的xbean -->	
+<target name="dist.xbean.new" depends="compile.xbean.new">
+	<jar jarfile="${xbean.jar}.new" basedir="${build}"/>
+</target>
+
+<target name="default" depends="dotransform"></target>
+	
+<!-- 自动化测试 -->
+
+	
+<property name="test.tmp" value="test.tmp"/>
+
+<!-- 生成旧的xbean -->
+<target name="clean.old">
+	<delete dir="${build}"/>
+	<delete dir="${old.xbean}"/>
+</target>
+		
+<target name="init.old" depends="clean.old">
+	<mkdir dir="${build}" />
+	<mkdir dir="${old.xbean}" />
+	<mkdir dir="${destdb}" />
+	<mkdir dir="xdb" />
+	<mkdir dir="xbackup" />
+</target>	
+		
+<target name="xgen.xbean.old" depends="init.old">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+	</path>
+	<java  classname="xgen.Main" fork="true" classpathref="myclasspath" failonerror="true">
+		<arg line="${oldxml} -output ${old.xbean}"/>
+	</java>
+</target>
+		
+<!-- 编译旧的xbean -->
+<target name="compile.xbean.old" depends="xgen.xbean.old">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+	</path>
+	<javac encoding="GBK" srcdir="${old.xbean}" destdir="${build}"
+		classpathref="myclasspath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+
+<!-- 生成旧的xbean -->	
+<target name="dist.xbean.old" depends="compile.xbean.old">
+	<jar jarfile="${xbean.jar}" basedir="${build}"/>
+</target>	
+	
+	
+<target name="compile.test.creat">
+	<delete dir="${test.tmp}"/>
+	<mkdir dir="${test.tmp}"/>
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+		<pathelement path="${xbean.jar}"/>
+		<pathelement path="${test.tmp}"/>
+	</path>
+	<javac encoding="GBK" srcdir="test" destdir="${test.tmp}"
+		classpathref="myclasspath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecSked" />
+		<exclude name="TestVerify.java"/>
+		<exclude name="TestXtransformVerify.java"/>
+	</javac>
+</target>
+
+<target name="test.creat" depends="compile.test.creat">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+		<pathelement path="${xbean.jar}"/>
+		<pathelement path="${test.tmp}"/>
+	</path>
+	<java  classname="TestCreat" fork="true" classpathref="myclasspath" failonerror="true">
+		<jvmarg line="-Xss4m -Xms512m -Xmx512m -ea"/>
+		<arg line="${testparam}  ${libpath}"/>
+	</java>
+</target>
+	
+<target name="compile.test.verify">
+	<delete dir="${test.tmp}"/>
+	<mkdir dir="${test.tmp}"/>
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+		<pathelement path="${xbean.jar}.new"/>
+		<pathelement path="${test.tmp}"/>
+	</path>
+	<javac encoding="GBK" srcdir="test" destdir="${test.tmp}"
+		classpathref="myclasspath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecSked" />
+		<exclude name="TestCreat.java"/>
+		<exclude name="TestXtransformCreat.java"/>
+	</javac>
+</target>
+
+<target name="test.verify" depends="compile.test.verify">
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+		<pathelement path="${xbean.jar}.new"/>
+		<pathelement path="${test.tmp}"/>
+	</path>
+	<java  classname="TestVerify" fork="true" classpathref="myclasspath" failonerror="true">
+		<jvmarg line="-Xss4m -Xms512m -Xmx512m -ea"/>
+		<arg line="${testparam} ${libpath}"/>
+	</java>
+</target>
+
+<!--测试transformCheck参数-->
+
+
+
+<target name="test.transformCheck">
+	<mkdir dir="src" />
+	<path id="myclasspath">
+		<pathelement path="${java.class.path}"/>
+		<pathelement path="${xbean.jar}"/>
+		<pathelement path="${libpath}/xdb.jar"/>
+		<pathelement path="${libpath}/jio.jar"/>
+	</path>	
+	<java  classname="xgen.Main" fork="true" classpathref="myclasspath" failonerror="false" resultproperty="resultNoNeed">
+		<arg line="-transformCheck ${oldxml}"/>
+	</java>
+	
+	<fail message="test.transformCheck fail!!!!"> 
+		<condition>
+			<not>
+				<equals arg1="${resultNoNeed}" arg2="101"/>		
+			</not>
+		</condition>
+	</fail>
+	
+	<java  classname="xgen.Main" fork="true" classpathref="myclasspath" failonerror="false" resultproperty="resultNeed">
+		<arg line="-transformCheck ${xml}"/>
+	</java>	
+	
+	<fail message="test.transformCheck fail!!!!">
+		<condition>
+			<not>
+				<equals arg1="${resultNeed}" arg2="100"/>		
+			</not>
+		</condition>
+	</fail>
+	
+
+</target>
+	
+<target name="test" depends="dist.xbean.old, test.creat, test.dotransform.param, dotransform, dist.xbean.new, test.verify, test.transformCheck "></target>
+	
+</project>

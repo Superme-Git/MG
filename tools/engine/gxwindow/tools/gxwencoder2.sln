@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gxwencodertest2", "gxwencodertest2\gxwencodertest2.vcproj", "{CFE7A4AC-429E-4EEF-BF03-664D43D91F51}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gxwencoder2", "gxwencoder2\gxwencoder2.vcproj", "{1504E9C9-00D9-4000-9725-909754E575D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFE7A4AC-429E-4EEF-BF03-664D43D91F51}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CFE7A4AC-429E-4EEF-BF03-664D43D91F51}.Debug|Win32.Build.0 = Debug|Win32
+		{CFE7A4AC-429E-4EEF-BF03-664D43D91F51}.Release|Win32.ActiveCfg = Release|Win32
+		{CFE7A4AC-429E-4EEF-BF03-664D43D91F51}.Release|Win32.Build.0 = Release|Win32
+		{1504E9C9-00D9-4000-9725-909754E575D2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1504E9C9-00D9-4000-9725-909754E575D2}.Debug|Win32.Build.0 = Debug|Win32
+		{1504E9C9-00D9-4000-9725-909754E575D2}.Release|Win32.ActiveCfg = Release|Win32
+		{1504E9C9-00D9-4000-9725-909754E575D2}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

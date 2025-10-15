@@ -1,0 +1,70 @@
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+Debug*/
+Release*/
+
+# C++/C
+*.exe
+*.dll
+*.lib
+*.pdb
+*.map
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Android
+/client/android/**/build/
+/client/android/**/local.properties
+/.gradle/
+/.idea/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.metadata/
+*.launch
+*.classpath
+*.project
+
+# JetBrains
+out/
+*.log
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Misc
+*.swp
+*.tmp
+*.bak
+Thumbs.db
+desktop.ini
+
+# Packed resources and binary assets
+/tools/**/bin/
+/tools/**/build/
+
+# Exclude local config files
+.env
+local.properties

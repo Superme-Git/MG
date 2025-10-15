@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provider name="pb" pvid="12" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<protocol  name="BeanImport" type="0" maxsize="32" prior="1">  
+		<variable name="b1" type="fire.pb.item.BagTypes"/>
+		<variable name="b4" type="fire.pb.KickErrConst"/>	
+		<variable name="b8" type="fire.pb.DataInit" />
+		<variable name="b9" type="fire.pb.SysConfigType" />
+		<variable name="b10" type="fire.pb.pet.PetTypeEnum" />
+		<variable name="b11" type="fire.pb.pet.PetColumnTypes" />
+		<variable name="b14" type="fire.pb.battle.OperationType" />
+		<variable name="b15" type="fire.pb.battle.ResultType"/>
+		<variable name="b16" type="fire.pb.battle.BattlerType"/>
+		<variable name="b17" type="fire.pb.team.TeamMemberState" />
+		<variable name="b18" type="fire.pb.npc.NpcServices" />
+		<variable name="b20" type="fire.pb.team.TeamError" />
+		<variable name="b21" type="fire.pb.title.TitleInfo" />
+		<variable name="b22" type="fire.pb.title.TitleError" />
+		<variable name="b23" type="fire.pb.npc.NpcHealType" />
+		<variable name="b27" type="fire.pb.attr.AttrType" />
+		<variable name="b28" type="fire.pb.attr.EffectType" />
+		<variable name="b29" type="fire.pb.item.IDType" />
+		<variable name="b31" type="fire.pb.move.PickItemTypes" />
+		<variable name="b33" type="fire.pb.pet.PetChatLimit" />
+		<variable name="b43" type="fire.pb.ErrorCodes" />
+		<variable name="b49" type="fire.pb.npc.MultiExpError" />
+		<variable name="b54" type="fire.pb.npc.BattleToNpcError"/>
+		<variable name="b55" type="fire.pb.circletask.SpecialQuestType" />
+		<variable name="b56" type="fire.pb.circletask.SpecialQuestNpcMsg" />
+		<variable name="b58" type="fire.pb.circletask.SpecialQuestID" />
+		<variable name="b61" type="fire.pb.npc.SubmitType" />
+		<variable name="b63" type="fire.pb.battle.BattleAimRelation" />
+		<variable name="b64" type="fire.pb.npc.NpcBuyType" />
+		<variable name="b65" type="fire.pb.school.ShouXiLimit" />
+		<variable name="b66" type="fire.pb.school.ShouXiMsgID" />
+		<variable name="b72" type="fire.pb.attr.FightAttrType" />
+		<variable name="b73" type="fire.pb.skill.SkillInfo" />
+		<variable name="b74" type="fire.pb.npc.ImpExamType" />
+		<variable name="b75" type="fire.pb.mission.AllowTeam"/>
+		<variable name="b76" type="fire.pb.talk.ChatMsgId"/>
+		<variable name="b87" type="fire.pb.battle.BattleType"/>
+		<variable name="b89" type="fire.pb.npc.TransmitTypes"/>
+		<variable name="b90" type="fire.pb.master.RelationType"/>
+		<variable name="b91" type="fire.pb.master.OnLineState"/>
+		<variable name="b92" type="fire.pb.master.DataConfig"/>
+		<variable name="b97" type="fire.pb.master.InitiativeType"/>
+		<variable name="b101" type="fire.pb.mission.FairylandStatus"/>	
+		<variable name="b102" type="fire.pb.KeyCounterIndex"/>
+		<variable name="b105" type="fire.pb.pet.PetColour"/>
+		<variable name="b106" type="fire.pb.BeginnerTipType"/>
+		<variable name="b109" type="fire.pb.mission.ReadTimeType"/>	
+		<variable name="b111" type="fire.pb.move.SceneState"/>
+		<variable name="b112" type="fire.pb.move.DynamicSceneType"/>
+		<variable name="b113" type="fire.pb.RoleState"/>
+		<variable name="b114" type="fire.pb.battle.BattleEnviroment"/>
+		<variable name="b116" type="fire.pb.LogPriority"/>
+		<variable name="b120" type="fire.pb.ranklist.LevelRankData"/>
+		<variable name="b135" type="fire.pb.team.TeamState"/>
+		<variable name="b148" type="fire.pb.ranklist.PetGradeRankData" />
+		<variable name="b151" type="fire.pb.move.SpriteComponents"/>
+		<variable name="b152" type="fire.pb.item.EquipItemType"/>
+		<variable name="b156" type="fire.pb.AU2GameType"/>
+		<variable name="b168" type="fire.pb.Pet"/>
+		<variable name="b169" type="fire.pb.Petskill"/>
+		<variable name="b170" type="fire.pb.clan.ClanPositionType" />
+		<variable name="b174" type="fire.pb.clan.ClanDMapInfo"/>
+		<variable name="b176" type="fire.pb.clan.ClanSkill"/>
+		<variable name="b181" type="fire.pb.clan.ClanInfo"/>
+		<variable name="b191" type="fire.pb.circletask.CircTaskClass" />
+		<variable name="b192" type="fire.pb.shop.ShopBuyType" />
+		<variable name="b193" type="fire.pb.hook.HookDataUpdateEnum" />
+		<variable name="b194" type="fire.pb.hook.HookGetDpointResEnum" />
+		<variable name="b195" type="fire.pb.hook.HookMsg2ClientEnum" />
+		<variable name="b196" type="fire.pb.hook.HookFreeDpointResEnum" />
+		<variable name="b197" type="fire.pb.activity.ActivityType" />
+		<variable name="b198" type="fire.pb.circletask.CircTaskGotoType" />
+		<variable name="b199" type="fire.pb.game.MoneyType" />
+		<variable name="b200" type="fire.pb.npc.NpcServiceMappingTypes" />
+		<variable name="b201" type="fire.pb.shop.MarketType" />
+		<variable name="b202" type="fire.pb.attr.ScoreType" />
+		<variable name="b203" type="fire.pb.shop.GoodsType" />
+		<variable name="b204" type="fire.pb.clan.FireReasonType" />
+		<variable name="b205" type="fire.pb.attr.RoleCurrency" />
+		<variable name="b206" type="fire.pb.battle.QCmodelType" />
+		<variable name="b207" type="fire.pb.npc.ImpExamAssistType" />
+		<variable name="b208" type="fire.pb.skill.AssistSkill" />
+		<variable name="b209" type="fire.pb.skill.EquipSkill" />
+		<variable name="b210" type="fire.pb.battle.ResultItem" />
+		<variable name="b211" type="fire.pb.battle.livedie.LDmodelType" />
+		<variable name="b212" type="fire.pb.fushi.redpack.RedPackType" />
+		<variable name="b213" type="fire.pb.fushi.redpack.RedPackState" />
+		<variable name="b214" type="fire.pb.move.PickUpItem" />
+		<variable name="b215" type="fire.pb.RoleInfo" />
+		<variable name="b216" type="fire.pb.talk.FunModelType" />
+		<variable name="b217" type="fire.pb.FunOpenCloseType" />
+		
+    </protocol>
+
+	<protocol  name="LuaBeanImport" type="85" maxsize="32" prior="1" tolua="1">  
+		<variable name="b1" type="fire.pb.item.BagTypes"/>	
+		<variable name="b4" type="fire.pb.circletask.ActiveQuestData"/>
+		<variable name="b8" type="fire.pb.DataInit" />
+		<variable name="b68" type="fire.pb.talk.TipsMsgType" />
+		<variable name="b10" type="fire.pb.pet.PetTypeEnum" />
+		<variable name="b152" type="fire.pb.item.EquipItemType"/>
+		<variable name="b28" type="fire.pb.attr.EffectType" />
+		<variable name="b27" type="fire.pb.attr.AttrType" />
+		<variable name="b168" type="fire.pb.Pet"/>
+		<variable name="b29" type="fire.pb.item.IDType" />
+		<variable name="b18" type="fire.pb.npc.NpcServices" />
+		<variable name="b169" type="fire.pb.Petskill"/>
+		<variable name="b55" type="fire.pb.circletask.SpecialQuestType" />
+		<variable name="b58" type="fire.pb.circletask.SpecialQuestID" />
+		<variable name="b191" type="fire.pb.circletask.CircTaskClass" />
+		<variable name="b192" type="fire.pb.shop.ShopBuyType" />
+		<variable name="b199" type="fire.pb.game.MoneyType" />
+		<variable name="b300" type="fire.pb.attr.RoleCurrency" />
+		<variable name="b208" type="fire.pb.skill.AssistSkill" />
+		<variable name="b209" type="fire.pb.skill.EquipSkill" />
+		<variable name="b211" type="fire.pb.Item" />
+		<variable name="b215" type="fire.pb.RoleInfo" />
+		<variable name="b100" type="fire.pb.move.RoleBasic" />
+		<variable name="b101" type="fire.pb.move.NpcBasic" />
+		<variable name="b216" type="fire.pb.talk.FunModelType" />
+	</protocol>
+	
+	<protocol  name="LuaBeanImport3" type="86" maxsize="32" prior="1" tolua="3">  
+		<variable name="b1" type="fire.pb.ranklist.LevelRankData"/>
+		<variable name="b2" type="fire.pb.ranklist.PetGradeRankData"/>
+        <variable name="b122" type="fire.pb.ranklist.RankType"/>
+		<variable name="b5" type="fire.pb.ranklist.FactionRankRecord"/>
+		<variable name="b6" type="fire.pb.ranklist.RoleZongheRankRecord"/>
+		<variable name="b7" type="fire.pb.ranklist.RoleProfessionRankRecord"/>
+		<variable name="b8" type="fire.pb.ranklist.PvP5RankData"/>
+		<variable name="b42" type="fire.pb.RoleSex" />
+		<variable name="b999" type="fire.pb.skill.AssistSkill"/>
+		<variable name="b39" type="fire.pb.ranklist.BingFengRankData"/>
+		<variable name="b43" type="fire.pb.ErrorCodes" />
+		<variable name="b50" type="fire.pb.ranklist.FactionRankRecordEx"/>
+		<variable name="b51" type="fire.pb.ranklist.FactionRaidRankRecord"/>
+		<variable name="b52" type="fire.pb.mission.MissionExeTypes"/>
+		<variable name="b57" type="fire.pb.circletask.SpecialQuestState" />
+		<variable name="b59" type="fire.pb.mission.MissionFinTypes"/>
+		<variable name="b9" type="fire.pb.SysConfigType"/>
+		<variable name="b77" type="fire.pb.mission.NpcExecuteTaskTypes" />
+		<variable name="b109" type="fire.pb.mission.ReadTimeType"/>
+		<variable name="b93" type="fire.pb.circletask.RefreshDataType"/>		
+		<variable name="b89" type="fire.pb.npc.TransmitTypes"/>
+		<variable name="b3" type="fire.pb.talk.ChannelType" />
+		<variable name="b53" type="fire.pb.mission.MissionStatus"/>
+		<variable name="b102" type="fire.pb.move.RoleBasicOctets" />
+		<variable name="b128" type="fire.pb.move.TeamInfoOctets"/>
+		<variable name="b127" type="fire.pb.move.ShowPetOctets"/>
+		<variable name="b217" type="fire.pb.FunOpenCloseType" />
+		<variable name="b13" type="fire.pb.pet.PetError" />
+		<variable name="b192" type="fire.pb.shop.ShopBuyType" />
+		<variable name="b199" type="fire.pb.game.MoneyType" />
+		<variable name="b201" type="fire.pb.ranklist.RedPackRankRecord" />
+		<variable name="b202" type="fire.pb.ranklist.FlowerRankRecord" />
+		<variable name="b203" type="fire.pb.ranklist.ClanFightRaceRank" />
+		<variable name="b204" type="fire.pb.ranklist.ClanFightHistroyRank" />
+		<variable name="b205" type="fire.pb.item.ComposeGemInfoBean" />
+	</protocol>
+	
+	<bean name="AU2GameType">
+		<enum name="INVITE_FRIEND" value="1" /> 游戏内发邮件邀请好友回归
+		<enum name="RECOMMEND_FRIEND" value="2" /> 推荐好友
+		<enum name="PRESEND_CARD" value="3" /> 礼品卡
+		<enum name="QUICK_PAY" value="4" /> 快捷支付
+		<enum name="VIP_INFO" value="5" /> VIP信息获取
+		<enum name="QUICK_PAY_REQUEST" value="6" /> 快捷支付请求
+	</bean>
+	
+	<!-- 一些个别的初始数值 -->
+	<bean name="DataInit">
+		<enum name="ROLE_LEVEL_MAX" value="155" />   角色最大等级
+		<enum name="ROLE_UP_POINT" value="5" />      角色升级获得潜能数
+		<enum name="PET_UP_POINT" value="5" /> 		 宠物升级获得潜能数
+		<enum name="ROLE_UP_PHY" value="5" /> 		 每升一级增加5点体力
+		<enum name="ROLE_UP_ENERGY" value="5" /> 	 每升一级增加5点活力
+		<enum name="PET_INIT_LOY" value="80" />      宠物初始忠诚度
+		<enum name="PET_MAX_LOY" value="100" />      宠物最大忠诚度。
+		<enum name="PET_MAX_LIFE" value="20000" />   宠物最大寿命
+		<enum name="PET_FIGHT_LIFE_LIMIT" value="50" />  宠物参战的最低寿命限制
+		<enum name="FULL_PETLOY_LEVEL" value="30" />  满宠物忠诚度的宠物等级上限
+		<enum name="ROLE_PET_LEVEL_SPACE" value="6" /> 人物宠物的等级差最大为6级。
+		<enum name="ROLE_PET_LEVEL_SPACE_OFEXPITEM" value="10" /> 使用经验道具时,人物宠物的等级差最大为10级
+		<enum name="BASENUM" value="1000" />         角色属性计算配置值的基数
+		<enum name="PET_LEVEL_MAX" value="160" />	 宠物最大等级
+		<enum name="PET_USELEVEL_SPACE" value="10" /> 宠物参战时与人的最大等级差
+		<!--<enum name="PET_UPLEVEL_4POINT" value="80" /> 4点潜能的资质上限-->
+		<!--<enum name="PET_UPLEVEL_5POINT" value="110" /> 5点潜能的资质上限-->
+		<enum name="AUTO_UPGRADE_LEVEL" value="20" />  人物自动升级的等级上限
+		<enum name="WILD_PET_MAXGENGU" value="40" />
+		<enum name="WILD_PET_MINGENGU" value="1" />
+		<!--<enum name="PET_SKILL_NUM_MAX" value="12" /> 宠物技能个数上限-->
+		<enum name="PET_UP_LEVEL_ADD_POINT" value="5" /> 宠物每升一级，给的潜能点数
+		<enum name="HAIR_COLOR_SCHEMES_NUM" value="4" /> 头发配色方案数量
+		<enum name="BODY_COLOR_SCHEMES_NUM" value="4" /> 衣服配色方案数量
+		<enum name="TURNON_REFINE_NEED_ONLINE_TIME" value="200" /> 开启装备重铸需要的累积时间数
+		<enum name="TURNON_REFINE_NEED_FRIEND_LEVEL" value="1000" /> 开启装备重铸需要的友好度
+		<enum name="TURNON_REFINE_NEED_ANTIQUE_NUM" value="1" /> 开启装备重铸需要的古董数
+		<enum name="COMMEN_ROLE_ADDPOINT" value="100" /> 人物可以手动加点的等级对应配置的ID
+        <enum name="EQUIP_CAN_REPAIR" value="157" /> 装备耐久度为80%时才可以修理
+    </bean>
+	
+	<bean name="LogPriority">
+		<enum name="LOG_FORMAT" value="15" /> 玩家行为标准的日志，如：账号登陆，充值，任务相关。
+		<enum name="LOG_STAT" value="16" /> 每5分钟记录邮件次数，金钱修改量，物品修改量等。
+		<enum name="LOG_GM" value="17" /> 记录GM操作的log
+		<enum name="LOG_MONEY" value="18" /> 记录金钱的产生及消耗数量原因。
+		<enum name="LOG_CHAR2" value="19" /> 聊天记录，记录采用BASE64编码记录。
+		<enum name="LOG_COUNTER" value="20" /> 每5分钟记录邮件次数，金钱修改量，物品修改量等。
+		<enum name="LOG_XINGCHENG" value="21" /> 玩家详细行为日志，如：移动，打怪，组队，拾取等。
+		<enum name="LOG_TRADE" value="22" /> 每日商城消耗记录。
+		<enum name="LOG_FUSHI" value="23" /> 累计记录玩家充值，买，卖，消耗符石数量。
+	</bean>
+	
+	<bean name="RoleSex">
+		<enum name="MALE" value="1" /> 男
+		<enum name="FEMALE" value="2" /> 女
+	</bean>
+	
+	<bean name="RoleState">
+		<enum name="OFFLINE" value="0"/> 离线
+		<enum name="NONAL" value="1"/> 正常
+		<enum name="LEAVE" value="2" /> 离开
+		<enum name="BUSY" value="3" /> 忙碌
+	</bean>
+	
+	<bean name="KickErrConst">
+		<enum name="ERR_GM_KICKOUT" value="2049"/>	被GM踢下线
+		<enum name="ERR_SERVER_SHUTDOWN" value="2050"/>	服务器关闭
+		<enum name="ERR_GACD_PUNISH" value="2051"/>	反外挂答题没有通过
+		<enum name="ERR_RUN_TOO_FAST" value="2052"/>	走路太快被踢
+		<enum name="ERR_GACD_WAIGUA" value="2053"/>	使用外挂
+		<enum name="ERR_XUNBAO_SELLROLE" value="2054"/> 找宝网寄售角色
+		<enum name="ERR_FORBID_USER" value="2055"/> 账号被单服封禁
+		<enum name="ERR_GACD_KICKOUT" value="2056"/> gacd发-1踢玩家下线
+	</bean>
+	
+	<bean name="SysConfigType">
+		<enum name="Music"				value="1" />				音乐
+		<enum name="Volume" 			value="2" />				音量
+		<enum name="SoundSpecEffect"	value="3" />				音效
+		<enum name="SceneEffect"		value="4" />				场景特效
+		<enum name="MaxScreenShowNum"	value="5" />				设置同屏最大显示人数
+		<enum name="ScreenRefresh" 		value="6" />				画面刷新频率
+		<enum name="AutoVoiceGang"		value="7" />				自动语音--公会频道
+		<enum name="AutoVoiceWorld"		value="8" />				自动语音--世界频道
+		<enum name="AutoVoiceTeam"		value="9" />				自动语音--组队频道
+		<enum name="AutoVoiceSchool"	value="10" />				自动语音--职业频道
+		<enum name="RefuseFriend"		value="11" />				拒绝好友邀请
+		<enum name="WorldChannel"		value="12" />				世界频道
+		<enum name="GangChannel"		value="13" />				公会频道
+		<enum name="SchoolChannel"		value="14" />				职业频道
+		<enum name="CurrentChannel"		value="15" />				当前频道
+		<enum name="TeamChannel"		value="16" />				组队频道
+		<enum name="PVPNotify"		    value="17" />				PVPNotify
+		<enum name="friendchatencrypt" 	value="18" />				好友聊天记录加密
+		<enum name="friendmessage" 	    value="19" />				只接受好友消息
+		<enum name="rolePointAdd" 		value="20" />				rolePointAdd
+		<enum name="petPointAdd" 		value="21" />				petPointAdd
+		<enum name="skillPointAdd" 		value="22" />				skillPointAdd
+		<enum name="huoyueduAdd" 		value="23" />				huoyueduAdd
+		<enum name="zhenfaAdd" 			value="24" />				zhenfaAdd
+		<enum name="skillopen" 			value="25" />				技能开放
+		<enum name="factionopen" 		value="26" />				公会开放
+		<enum name="petopen" 			value="27" />				宠物开放
+		<enum name="patopen" 			value="28" />				助战开放
+		<enum name="zuduichannel" 		value="29" />				组队频道
+		<enum name="guajiopen" 			value="30" />				挂机开放
+		<enum name="zhiyinopen" 		value="31" />				指引开放
+		<enum name="huodongopen" 		value="32" />				活动开放
+		<enum name="refuseqiecuo" 		value="33" />				切磋
+		<enum name="ts_julonghuwei" 	value="34" />				推送巨龙护卫
+		<enum name="ts_julongjuntuan" 	value="35" />				推送巨龙军团	
+		<enum name="ts_guanjunshilian" 	value="36" />				推送冠军试炼	
+		<enum name="ts_renwentansuo" 	value="37" />				推送人文探索	
+		<enum name="ts_1v1" 	 		value="38" />				推送1v1
+		<enum name="ts_gonghuifuben" 	value="39" />				推送工会副本
+		<enum name="ts_3v3" 			value="40" />				推送3v3
+		<enum name="ts_zhihuishilian" 	value="41" />				推送智慧试炼
+		<enum name="refuseclan" 		value="42" />				拒绝公会邀请
+		<enum name="refuseotherseeequip" value="43" />				拒绝别人查看装备 by changhao
+		<enum name="screenrecord" 		value="44" />				录屏功能
+        <enum name="equipendure" 		value="45" />				装备耐久
+		<enum name="ts_gonghuizhan" 	value="46" />				工会战
+		<enum name="rolldianshezhi" 	value="47" />				ROLL点设置
+		<enum name="framesimplify" 		value="48" />				界面简化
+</bean>
+	<!-- 错误代码，oyjx-->
+	<bean name="ErrorCodes">
+		<enum name="NoError" value="0"/> 没有错误
+		<!-- 从NPC购买物品 -->
+		<enum name="AddItemToBagException" value="1"/>往背包添加物品出错
+		<enum name="NotEnoughMoney" value="2"/> 金钱不足
+		<!-- 装备错误 -->
+		<enum name="EquipPosNotSuit" value="3"/>装备位置不符合
+		<enum name="EquipLevelNotSuit" value="4"/>装备等级不符合
+		<enum name="EquipSexNotSuit" value="5"/>装备性别不符合
+	</bean>	
+			
+	<!-- 所有需要增长的key又不想用xdb自增长的 -->
+	<bean name="KeyCounterIndex">
+		<enum name="FACTION_KEY" value="1000" />   公会
+		<enum name="FAMILY_KEY" value="2000" />    
+		<enum name="ITEM_KEY" value="3000"/> 物品
+	</bean>
+	
+	<!-- 客户端发给服务器，请求已有角色列表 -->
+	<protocol  name="CRoleList" type="1" maxsize="32" prior="1" tolua="1"/> 
+	
+	<bean name="RoleInfo">
+		<variable name="roleid" type="long" validator="value=[1,)"/>		ID
+		<variable name="rolename" type="string"/>	名称
+		<variable name="school" type="int" />       人物职业
+		<variable name="shape" type="int" />        角色id
+   	<variable name="level" type="int" validator="value=[1,)"/>			等级
+   	<!--variable name="model" type="fire.pb.move.PlayerModel"/--> 角色模型
+   	<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+	<variable name="rolecreatetime" type="long" />  角色创建时间
+	</bean>
+	
+	<!-- 服务器发给客户端，已有角色信息列表 -->
+	<protocol  name="SRoleList" type="2" maxsize="4096" prior="1" tolua="3">
+		<variable name="prevLoginRoleid" type="long"/>
+		<variable name="prevRoleInBattle" type="byte"/> 1 = 在战斗托管中；0 = 不在游戏中
+		<variable name="roles" type="list" value="RoleInfo"/>		
+		<variable name="gacdon" type="int" /> gacd是否开启,1为开启,0为关闭
+	</protocol>
+	
+	<protocol  name="CCreateRole" type="3" maxsize="65535" prior="1" tolua="3"> 
+		<enum name="NAMELEN_MAX" value="14" />	名字的最大长度	
+        <enum name="NAMELEN_MIN" value="4" />   名字的最短长度
+		<variable name="name" type="string"/> 	名称
+		<variable name="school" type="int" />   职业
+		<variable name="shape" type="int"/>		角色id
+		<variable name="code" type="string"/>	招募码
+	</protocol>
+	
+	<protocol  name="SCreateRole" type="4" maxsize="65535" prior="1" tolua = "3"> 
+		<enum name="CREATE_OK" value="1"/>  成功		     
+		<enum name="CREATE_ERROR" value="2"/>    失败 
+		<enum name="CREATE_INVALID" value="3"/> 名称不合法 		
+		<enum name="CREATE_DUPLICATED" value="4"/>重名 		
+		<enum name="CREATE_OVERCOUNT" value="5"/> 创建的新角色数量过多
+		<enum name="CREATE_OVERLEN" value="6"/> 角色名过长
+		<enum name="CREATE_SHORTLEN" value="7" /> 角色名过短
+		
+		<variable name="newInfo" type="RoleInfo"/>	创建后的角色信息
+
+	</protocol>
+	
+	
+	<protocol  name="SCreateRoleError" type="8" maxsize="65535" prior="1" tolua="3"> 
+		<enum name="CREATE_OK" value="1"/>  成功		     
+		<enum name="CREATE_ERROR" value="2"/>    失败 
+		<enum name="CREATE_INVALID" value="3"/> 名称不合法 		
+		<enum name="CREATE_DUPLICATED" value="4"/>重名 		
+		<enum name="CREATE_OVERCOUNT" value="5"/> 创建的新角色数量过多
+		<enum name="CREATE_OVERLEN" value="6"/> 角色名过长
+		<enum name="CREATE_SHORTLEN" value="7" /> 角色名过短
+		<enum name="CREATE_CREATE_GM_FORBID" value="8" /> GM禁止
+		<variable name="err" type="int"/>		创建结果
+	</protocol>
+	
+	<bean name="Item">
+		<enum name="BIND" value="0x00000001"/> 不可交易给玩家，不可卖店 		     
+		<enum name="FUSHI" value="0x0000002"/> 用符石购买而来  
+		<enum name="ONSTALL" value="0x0000004"/> 摆摊出售中  
+		<enum name="ONCOFCSELL" value="0x0000008"/> 在商会中上架
+		<enum name="CANNOTONSTALL" value="0x10"/> 不能卖店
+		<enum name="LOCK" value="0x0000020"/> 锁定  
+		<enum name="TIMEOUT" value="0x0000040"/> 时效物品
+		<variable name="id" type="int" validator="value=[1,)"/> 编号 
+		<variable name="flags" type="int"/> 标志，叠加的时候，flags 也 OR 叠加。	
+		<variable name="key" type="int" validator="value=[1,)"/> 背包属性，key
+		<variable name="position" type="int" validator="value=[0,)"/> 背包属性，位置
+		<variable name="number" type="int" validator="value=[1,)"/>背包属性，数量 		
+		<variable name="timeout" type="long"/> 到期时间。如果为0，代表没有时间限制
+		<variable name="isnew" type="int" validator="value=[0,1]"/> 1为新物品,0为旧物品
+		<variable name="loseeffecttime" type="long"/> 失效时间
+        <variable name="markettime" type="long"/> 摆摊道具冻结时间
+    </bean>
+	<bean name="Bag">
+        <variable name="currency" type="map" key="byte" value="long"/> key 货币类型,参见MoneyType
+        <variable name="capacity" type="int" validator="value=[0,)"/>
+		<variable name="items" type="vector" value="Item"/>		
+	</bean>
+	
+	<bean name="Pet">
+		<variable name="id" type="int" validator="value=[1,)"/>             宠物ID
+		<variable name="key" type="int" />           key
+		<variable name="name" type="string"/>	     名称
+		<variable name="level" type="int"/>          等级
+		<variable name="useLevel" type="int"/>       参战等级
+		<variable name="xuemai" type="int" /> 	     宠物当前资质浓度值
+		<variable name="gengu" type="int" />         root-bone
+		<variable name="colour" type="int" />		 颜色值
+		<variable name="hp" type="int"/>             当前生命
+		<variable name="maxhp" type="int" />         最大生命
+		<variable name="mp" type="int"/>             当前法力
+		<variable name="maxmp" type="int" />         最大法力
+		<variable name="attack" type="int"/>         攻击
+		<variable name="defend" type="int"/>         防御
+		<variable name="speed" type="int"/>          速度
+		<variable name="magicattack" type="int"/>     法术攻击
+		<variable name="magicdef" type="int"/>        法术防御
+		<variable name="scale" type="byte"/>		1,2,3,4分别代表4个size
+		<variable name="initbfp" type="BasicFightProperties"/>    初始的基础战斗属性
+		<variable name="bfp" type="BasicFightProperties"/>    基础战斗属性
+		<variable name="point" type="short"/>          潜能。未分配点数
+		<variable name="autoaddcons" type="byte" validator="value=[0,)"/>  加点方案-升级自动加体质
+		<variable name="autoaddiq" type="byte" validator="value=[0,)"/>    加点方案-升级自动加智力
+		<variable name="autoaddstr" type="byte" validator="value=[0,)"/>   加点方案-升级自动加力量
+		<variable name="autoaddendu" type="byte" validator="value=[0,)"/>  加点方案-升级自动加耐力
+		<variable name="autoaddagi" type="byte" validator="value=[0,)"/>   加点方案-升级自动加敏捷
+		<variable name="pointresetcount" type="short"/>    宠物加点的重置次数
+		<variable name="exp" type="long"/>            当前经验
+		<variable name="nexp" type="long" />          升级需要经验
+		<variable name="attackapt" type="int" />     攻击资质
+		<variable name="defendapt" type="int" />     防御资质
+		<variable name="phyforceapt" type="int" />   体力资质
+		<variable name="magicapt" type="int" />      法力资质
+		<variable name="speedapt" type="int" />      速度资质
+		<variable name="dodgeapt" type="int" />      躲闪资质
+		<variable name="growrate" type="float" />    成长率
+		<variable name="life" type="int" />          寿命
+		<variable name="kind" type="int"/>           宠物类型 野生、宝宝
+		<variable name="skills" type="list" value="Petskill" />      宠物技能
+		<variable name="skillexpires" type="map" key="int" value="long" /> 有时限的宠物技能的到期时间。key=技能id，value=到期时间
+		<variable name="flag" type="byte"/>        宠物标志 1= 锁定，2 = 绑定
+		<variable name="timeout" type="long"/>       如果是时间锁，到期时间（毫秒）
+		<variable name="ownerid" type="long"/>       主人id
+		<variable name="ownername" type="string"/>   主人名
+		<variable name="rank" type="int" />          排行榜排名
+		<variable name="starId" type="short" /> 当前星星等级Id
+		<variable name="practiseTimes" type="short" /> 当前剩余的训练次数
+		<variable name="zizhi" type="map" key="int" value="int"/>训练后得到的未分配的资质
+		<variable name="changeGengu" type="int" />训练后得到的root-bone变化值
+		<variable name="skill_grids" type="int" />宠物技能格子数
+		<variable name="aptaddcount" type="byte" /> 资质培养次数
+		<variable name="growrateaddcount" type="byte" /> 成长率培养次数
+		<variable name="washcount" type="short" /> 洗练次数
+		<variable name="petscore" type="int" />宠物评分
+		<variable name="petbasescore" type="int" />宠物一级属性评分
+		<variable name="petdye1" type="int" />宠物染色部位1
+		<variable name="petdye2" type="int" />宠物染色部位2
+		<variable name="shenshouinccount" type="int" />神兽养成次数
+		<variable name="marketfreezeexpire" type="long" /> 摆摊冻结截止时间,默认0不冻结
+		<enum name="FLAG_LOCK" value= "1"/>
+		<enum name="FLAG_BIND" value= "2"/>
+	</bean>
+	
+	
+	<bean name="Petskill">
+         <variable name="skillId" type="int"/>
+         <variable name="skillexp" type="int"/>
+		 <variable name="skillType" type="byte"/> 0=先天技能  1=通过打书学习的技能
+		 <variable name="certification" type="byte"/> 0=未认证 1=认证
+     </bean>
+	
+	<!-- 基础战斗属性 -->
+	<bean name="BasicFightProperties">
+		<variable name="cons" type="short"/>		体质
+		<variable name="iq" type="short"/>		智力
+		<variable name="str" type="short"/>		力量
+		<variable name="endu" type="short"/>		耐力
+		<variable name="agi" type="short"/>		敏捷
+  </bean>
+
+  <!-- 角色基础战斗属性 -->
+  <bean name="RoleBasicFightProperties">
+    <variable name="cons" type="short"/>		体质
+    <variable name="iq" type="short"/>		智力
+    <variable name="str" type="short"/>		力量
+    <variable name="endu" type="short"/>		耐力
+    <variable name="agi" type="short"/>		敏捷
+
+    <variable name="cons_save" type="map" key="int" value="int"/> 已分配体质
+    <variable name="iq_save" type="map" key="int" value="int"/> 已分配智力
+    <variable name="str_save" type="map" key="int" value="int"/> 已分配力量
+    <variable name="endu_save" type="map" key="int" value="int"/> 已分配耐力
+    <variable name="agi_save" type="map" key="int" value="int"/> 已分配敏捷
+  </bean>
+	
+	<!-- mydata -->
+	<bean name="RoleDetail">
+		<variable name="roleid" type="long" validator="value=[1,)"/>	 ID	
+		<variable name="rolename" type="string"/>名称
+		<variable name="level" type="int" validator="value=[1,)"/>		等级
+		<variable name="school" type="int"/>	职业
+		<variable name="shape" type="int" />    角色:玩家所属的系统角色的id
+		<variable name="title" type="int" validator="value=[-1,)" />    当前称谓
+		<variable name="lastlogin" type="long" /> 上次登录时间
+		<variable name="hp" type="int"/>		气血
+		<variable name="uplimithp" type="int"/>	当前气血上限
+		<variable name="maxhp" type="int"/>		最大气血
+		<variable name="mp" type="int"/>		法力
+        <variable name="magicattack" type="int"/>     法术攻击
+		<variable name="maxmp" type="int"/>		最大法力
+        <variable name="magicdef" type="int"/>        法术防御
+		<variable name="sp" type="int"/>		怒气
+        <variable name="seal" type="int" />   加强封印
+		<variable name="maxsp" type="int"/>		最大怒气
+		<variable name="hit" type="int"/>		命中
+		<variable name="damage" type="int" />   伤害
+        <variable name="heal_critc_level" type="int" /> 疗暴等级
+		<variable name="defend" type="int" />   防御
+        <variable name="phy_critc_level" type="int" /> 外功暴击等级
+		<variable name="speed" type="int"/>		速度
+        <variable name="magic_critc_level" type="int" /> 内功暴击等级
+		<variable name="dodge" type="int" />    躲避
+        <variable name="anti_phy_critc_level" type="int" /> 外功抗性等级
+		<variable name="medical" type="int"/>         治疗强度
+		<variable name="unseal" type="int" /> 封印抗性
+		<variable name="anti_critc_level" type="int" /> 暴击抗性等级
+		<variable name="phy_critc_pct" type="float" /> 外功暴击程度
+		<variable name="magic_critc_pct" type="float" /> 内功暴击程度
+		<variable name="heal_critc_pct" type="float" /> 疗暴程度
+		<variable name="anti_magic_critc_level" type="int" /> 内功抗性等级
+		<variable name="energy" type="int" />   活力
+		<variable name="enlimit" type="int" />  活力上限
+		<variable name="bfp" type="RoleBasicFightProperties" /> 
+		<variable name="point" type="map" key="int" value="int"/>		潜能
+		<variable name="pointscheme" type="int"/> 当前加点方案
+		<variable name="schemechanges" type="int"/> 方案切换次数
+		<variable name="schoolvalue" type="int" />	职业贡献值
+		<variable name="reputation" type="int" />	声望值
+		<variable name="exp" type="long"/>			经验
+		<variable name="nexp" type="long" />		升级 需要经验
+		<variable name="showpet" type="int" />		当前展示的宠物
+		<variable name="petmaxnum" type="int" />	可携带的最大宠物数量
+		<variable name="pets" type="vector" value="Pet"/>
+		<variable name="sysconfigmap" type="map" key="int" value="int" />
+        <variable name="lineconfigmap" type="map" key="int" value="int" />
+		<variable name="titles" type="map" key="int" value="fire.pb.title.TitleInfo" /> 称谓信息
+		<variable name="learnedFormsMap" type="map" key="int" value="FormBean"/>
+		<variable name="components" type="map" key="byte" value="int"/>	角色装备信息 0脱下
+		<!-- 活跃度 -->		
+		<variable name="activeness" type="int"/>	活跃度值
+        <variable name="factionvalue" type="int" />	公会贡献度
+		<variable name="masterid" type="long"/>
+		<variable name="isprotected" type="byte"/> 是否处于财产保护状态，1 = 是 ； 0 = 否
+		<variable name="wrongpwdtimes" type="byte"/> 24小时内输错密码的次数
+        <variable name="petIndex" type="int"/>		当前战斗宠物
+		<variable name="kongzhijiacheng" type="int" /> 控制加成
+		<variable name="kongzhimianyi" type="int" /> 控制免疫
+		<variable name="zhiliaojiashen" type="int" />  治疗加深
+		<variable name="wulidikang" type="int" />  物理抵抗
+		<variable name="fashudikang" type="int" />  法术抵抗
+		<variable name="fashuchuantou" type="int" />  法术穿透
+		<variable name="wulichuantou" type="int" />  物理穿透
+        <variable name="bagInfo" type="map" key="int" value="Bag"/>key是bagid,value是背包的详细信息
+		<variable name="rolecreatetime" type="long" />  角色创建时间
+		<variable name="depotNameInfo" type="map" key="int" value="string"/> key是depotid,value是depot名(如果是默认的就不存了)
+</bean>
+	
+	<bean name="FormBean">
+		<variable name="activeTimes" type="int"/>	 
+		<variable name="level" type="int" validator="value=[0,)"/>等级
+		<variable name="exp" type="int" validator="value=[0,)"/> 经验 by changhao
+	</bean>
+	
+	<protocol  name="CEnterWorld" type="5" maxsize="65535" prior="1" tolua="1">
+		<variable name="roleid" type="long" validator="value=[1,)"/>
+		<variable name="rolesnum" type="int"  /> 同屏能看见的人数
+	</protocol>
+	
+	<protocol  name="SEnterWorld" type="6" maxsize="65535" prior="1" tolua="3">
+		<variable name="mydata" type="RoleDetail"/>
+	</protocol>
+	
+	 <protocol maxsize="65535" name="SGameTime" prior="101" type="7" tolua="3"> 
+			<variable name="servertime" type="long" /> 广播服务器时间
+     </protocol>
+	 
+	
+	 <!-- 客户端请求属性加点 -->
+	 <protocol name="CAddPointToAttr" type="12" maxsize="65535" prior="1" tolua="3">
+			<variable name="cons" type="int" validator="value=[0,)"/>  体质
+			<variable name="iq" type="int" validator="value=[0,)" />	 智力
+			<variable name="str" type="int" validator="value=[0,)" />   力量
+			<variable name="agi" type="int" validator="value=[0,)" />   敏捷
+			<variable name="endu" type="int" validator="value=[0,)"/>  耐力
+	 </protocol>   
+
+	 	 
+	 <!-- 通知客户端刷新人物经验 -->
+	 <protocol name="SRefreshUserExp" type="13" maxsize="65535" prior="1" tolua="3">
+			<variable name="curexp" type="long" />               当前经验
+	 </protocol>
+	 
+	 <!-- 通知客户端刷新血量 -->
+	 <protocol name="SRefreshHp" type="14" maxsize="65535" prior="1" tolua="3">
+			<variable name="hp" type="int" />
+	 </protocol>
+	 
+	<!-- 客户端请求修改系统设置 -->
+	<protocol name="CResetSysConfig" type="15" maxsize="65535" prior="1" tolua="3">
+		<variable name="sysconfigmap" type="map" key="int" value="int" validator="key=[0,);value=[0,)" /> 客户端当前修改的系统设置
+	</protocol>
+	<!-- 服务器发送客户端最新的系统设置-->
+	<protocol name="SResetSysConfig" type="16" maxsize="65535" prior="1" tolua="3">
+		<variable name="sysconfigmap" type="map" key="int" value="int" validator="key=[0,);value=[0,)" /> 客户端请求修改的系统设置，返回.
+	</protocol>
+	
+	<!-- 客户端自动更改同屏显示人数-->
+	<protocol  name="CSetMaxScreenShowNum" type="63" maxsize="65535" prior="1" tolua="3">
+		<variable name="maxscreenshownum" type="short"/> 
+	</protocol>
+	
+	<!-- 客户端请求修改系统设置 -->
+	<protocol name="CGetSysConfig" type="94" maxsize="65535" prior="1" tolua="3">
+		<variable name="sysconfigmap" type="map" key="int" value="int" /> 
+	</protocol>
+	<!-- 服务器发送客户端最新的系统设置-->
+	<protocol name="SGetSysConfig" type="95" maxsize="65535" prior="1" tolua="3">
+		<variable name="sysconfigmap" type="map" key="int" value="int" />
+	</protocol>
+	 
+	 <!-- 客户端下线 -->
+	 <protocol name="CRoleOffline" type="17" maxsize="65535" prior="1" tolua = "3" />
+		
+	  
+	 <!-- 通知客户端刷新储备金-->
+	 <protocol name="SRefSmoney" type="18" maxsize="65535" prior="1" tolua="3">
+		<variable name="smoney" type="long" validator="value=[0,)" />
+	 </protocol>
+	 
+	 <protocol name="SError" type="19" maxsize="65535" prior="1" tolua="3">
+	 	<variable name="error" type="int" />
+	 </protocol>
+	 
+	 <!-- 客户端请求其他玩家的某个属性信息-->
+	 <protocol name="CReqRoleProp" type="21" maxsize="65535" prior="1" tolua = "3">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+		<variable name="proptype" type="int" validator="value=(0,)" />
+	</protocol>
+	 
+	 <!-- 返回玩家请求的属性对应的属性值-->
+	 <protocol name="SRetRoleProp" type="22" maxsize="65535" prior="1" tolua = "3">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+		<variable name="datas" type="map" key="int" value="float" /> 属性值对
+	 </protocol>
+	 
+	 	 <!-- 返回玩家请求的属性对应的属性值-->
+	 <protocol name="SStartPlayCG" type="23" maxsize="65535" prior="1" tolua="3"> 服务器发给客户端,客户端收到消息后开始播放动画
+		<variable name="id" type="int" validator="value=(0,)" /> 动画的id
+	 </protocol>
+	 <protocol name="CEndPlayCG" type="24" maxsize="65535" prior="1"> 客户端发给服务器,动画播放完毕或者玩家跳过了动画,也发这个消息
+		<variable name="id" type="int" validator="value=(0,)" /> 动画的id
+	 </protocol>
+	 
+	 <!-- 新手引导项 -->
+	 <bean name="BeginnerTipType">
+	 	<enum name="StudyExtendSkill" value="0"/> 学习杂学技能
+	 	<enum name="GotoSchool" value="1"/> 回职业
+	 	<enum name="ReleaseApprenticeInfo" value="2"/> 发布徒弟信息
+	 	<enum name="ReleaseMasterInfo" value="3"/> 发布师傅信息
+	 	<enum name="UseShilizhengming" value="4"/> 使用实力证明
+	 	<!-- x新手引导/箭头效果 
+		 	点击它查看战斗技能
+			点击它就可以升级了
+			点击它帮你分配属性点
+			点击带下划线的名字就能自动寻路找到他
+			点击它使用技能
+			点击它查看小地图
+		-->
+	 	<enum name="BattleSkill" value="30001"/>
+	 	<enum name="LevelUp" value="30002"/>
+	 	<enum name="AllocateProperty" value="30003"/>
+	 	<enum name="AutoFindPath" value="30004"/>
+	 	<enum name="UseSkill" value="30005"/>
+	 	<enum name="MiniMap" value="30006"/>
+	 </bean>
+	 <protocol name="CBeginnerTip" type="25" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="tipid" type="int"/> id为BeginnerTipType
+	 </protocol>
+	 <protocol name="SBeginnerTip" type="26" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="tipid" type="int"/> id为BeginnerTipType
+		<variable name="tipvalue" type="int" validator="value=[0,1]" /> 0为未显示,1为已显示
+	 </protocol>
+	 <protocol name="CBeginnerTipShowed" type="27" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="tipid" type="int"/> id为BeginnerTipType
+	 </protocol>
+	 
+	 	
+	
+	<protocol name="SShowedBeginnerTips" type="29" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="tipid" type="set" value="int"/> 已经显示过的tip id
+	 	<variable name="pilotType" type="int"/> 适配引导类型
+	 </protocol>
+	
+	<!-- 客户端请求其他玩家的组队情况-->
+	 <protocol name="CReqRoleTeamState" type="32" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+	</protocol>
+	 
+	 <!-- 返回玩家请求的其他玩家的组队情况-->
+	 <protocol name="SAnswerRoleTeamState" type="33" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" validator="value=(0,)" />
+		<variable name="level" type="int" /> 等级
+		<variable name="teamstate" type="int" /> 是否有队伍，0表示没有队伍，1表示有队伍
+	 </protocol>
+    
+	<!-- mydata -->
+	<bean name="ProgressBarValue">
+		<variable name="curvalue" type="int" validator="value=[0,)"/>	 ID	
+		<variable name="maxvalue" type="int" validator="value=[0,)"/>名称
+	</bean>
+	
+	
+	<protocol name="CRequestName" type="42" maxsize="65535" prior="1" tolua="3">
+		<variable name="sex" type="short"/> 
+	</protocol>
+	
+	<protocol name="SGiveName" type="43" maxsize="65535" prior="1" tolua="3">
+		<variable name="rolename" type="string"/>
+	</protocol>
+	
+	<!-- 创建角色重名时，服务器回给客户端推荐名字  -->
+	<protocol name="SRecommendsNames" type="44" maxsize="65535" prior="1" tolua="3">
+		<variable name="recommendNames" type="vector" value="octets"/>
+	</protocol>
+	
+	<!-- 客户端请求返回角色选择界面  -->
+	<protocol name="CReturnRoleList" type="45" maxsize="32" prior="1" tolua = "3"/> 
+
+	<!-- 服务器发给客户端，允许返回角色选择界面，并发送已有角色信息列表，同SRoleList -->
+	<protocol  name="SReturnRoleList" type="46" maxsize="4096" prior="1" tolua = "3">
+		<variable name="prevLoginRoleid" type="long"/>
+		<variable name="prevRoleInBattle" type="byte"/> 1 = 在战斗托管中；0 = 不在游戏中
+		<variable name="roles" type="list" value="RoleInfo"/>		
+		<variable name="gacdon" type="int" /> gacd是否开启,1为开启,0为关闭
+	</protocol>
+	
+	<!-- 客户端，人物选择界面："退出游戏"，"返回登录界面"，"返回服务器选择"；在排队中："取消排队" -->
+	<protocol name="CUserOffline" type="47" maxsize="65535" prior="1" tolua="3"/>
+	
+	<!-- 服务器：发送排队信息 -->
+	<protocol name="SSendQueueInfo" type="48" maxsize="65535" prior="1" tolua="3">
+		<variable name="order" type="int"/> 排位 ，等于0时为在0位次，等于-1时表示排队人数已满
+		<variable name="queuelength" type="int"/> 队列总长度
+		<variable name="minutes" type="int"/> 剩余时间
+	</protocol>
+	
+	<!-- 服务器：通知客户端下线 -->
+	 <protocol name="SRoleOffline" type="49" maxsize="65535" prior="1" tolua = "3"/>
+	 
+	 <!-- 客户端请求返回登录界面  -->
+	<protocol name="CReturnToLogin" type="50" maxsize="32" prior="1" tolua="3"/> 
+	
+	 <!-- 服务器：通知客户端返回登录界面  -->
+	<protocol name="SReturnLogin" type="51" maxsize="32" prior="1" tolua="3" > 
+		<variable name="reason" type="int"/>
+		<variable name="ext" type="long"/> 扩展 by changhao
+	</protocol>
+
+	<!-- 服务器：发送缓慢进入排队信息 -->
+	<protocol name="SSendSlowQueueInfo" type="52" maxsize="65535" prior="1" tolua="3">
+		<variable name="order" type="int"/> 排位
+		<variable name="queuelength" type="int"/> 总排队人数
+		<variable name="second" type="int"/> 剩余时间(秒)
+	</protocol>
+
+	<!-- 客户端使用千里寻踪蝶请求玩家坐标  -->
+	<protocol name="CRequestRolePos" type="55" maxsize="1024" prior="1" tolua = "3">
+		<variable name="roleid" type="long"/> 玩家id
+		<variable name="rolename" type="string"/> 玩家名
+		<variable name="searchtype" type="byte"/> 查找类型
+		<enum name="BYNAME" value="1"/> 按名字查找
+		<enum name="BYID" value="2"/> 按id查找
+	</protocol>	
+	 
+	 <protocol name="SFirstDayExitGame" type="57" maxsize="65535" prior="1" tolua = "3">
+	 	<variable name="firstdayleftsecond" type="int"/> 今天还剩多少秒
+	 </protocol>
+	 
+	 <!-- ping值单元-->
+	 <bean name="PingStatEntry">  
+		<variable name="_max" type="short"/> 
+		<variable name="_min" type="short"/> 
+		<variable name="_avg" type="short"/> 
+	</bean>
+	
+	<!-- 客户端通告服务器10分钟内ping值 1分钟一个PingStatEntry-->
+	 <protocol name="CPingStat" type="58" maxsize="65535" prior="1">
+		<variable name="beginstamp" type="long"/> 开始时间戳
+		<variable name="pingstats" type="PingStatEntry"/> 10分钟内统计数据
+		<variable name="losspercent" type="short"/> 丢包率（losspercent%100）
+	 </protocol>
+	 
+	
+	
+	<!-- 客户端进入场景完毕-->
+	<protocol  name="CAfterEnterWorld" type="61" maxsize="65535" prior="1">
+	</protocol>
+
+	<protocol name="SGACDKickoutMsg" type="69" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="reason" type="string"/>
+		<variable name="endtime" type="long"/>
+	</protocol>
+	<protocol name="SSendServerMultiExp" type="70" maxsize="8" prior="1" tolua="3"> 发送服务器多倍信息
+		<variable name="addValue" type="int"/> 0为没有多倍，1-3为多1到3倍（即2-4倍）
+	</protocol>
+	
+	
+	<protocol name="SSendLoginIp" type="72" maxsize="1024" prior="1" tolua = "3"> 发送登录IP信息
+		<variable name="loginip" type="int"/>
+		<variable name="lastip" type="int"/>
+		<variable name="lasttime" type="long"/>
+	</protocol>
+	
+	<protocol name="SRequestUsedNameData" type="73" maxsize="65535" prior="1" tolua="3">使用改名道具的时候发送这个协议获取曾用名
+		<variable name="usedNames" type="list" value="string"/>  曾用名
+		<variable name="itemkey" type="int"/>  使用的改名符itemkey
+	</protocol>
+	
+	<protocol name="CModifyRoleName" type="74" maxsize="65535" prior="1" tolua="3"> 客户端请求更改名字
+		<variable name="newName" type="string"/>
+		<variable name="itemkey" type="int"/>  使用的改名符itemkey
+	</protocol>
+	
+	<protocol name="SModifyRoleName" type="75" maxsize="65535" prior="1" tolua="3"> 客户端请求更改名字
+		<variable name="roleid" type="long" validator="value=(0,)" />
+		<variable name="newName" type="string"/>
+	</protocol>
+	
+	<protocol name="CReqRoleInfo" type="76" maxsize="64" prior="1" tolua="3"> 请求人物信息界面（主要是 几个积分以及大红大蓝的剩余量）
+        <variable name="reqkey" type="int"/> 请求类型 1表示请求人物信息界面;2 表示战斗结束
+    </protocol>
+	
+	<protocol name="SRspRoleInfo" type="77" maxsize="65535" prior="1" tolua="3">人物信息界面回复
+		<variable name="hpMpStore" type="map" key="int" value="long"/>	
+		<variable name="wenCaiValue" type="int"/> 值
+		<variable name="wuxun" type="int"/> 功力值
+    <variable name="gongde" type="int"/> 公德值
+		<variable name="honour" type="long"/> 荣誉值
+        <variable name="reqkey" type="int"/> 请求类型 1表示请求人物信息界面;2 表示战斗结束
+    </protocol>
+	
+	<protocol name="CSendSn" type="78" maxsize="64" prior="1" tolua="3"> 客户端发送激活码给服务器
+		<variable name="snStr" type="string"/> 
+	</protocol>
+	
+	<protocol name="SUserNeedActive" type="79" maxsize="65535" prior="1" tolua="3"> 如果玩家需要激活,服务器发这个协议给客户端
+		<variable name="retCode" type="byte"/> 0需要激活, 1激活码输入错误 2激活码已被使用
+	</protocol>
+	
+	<protocol name="CReqChargeMoney" type="80" maxsize="64" prior="1" tolua = "3"> 客户端发送充值请求给服务器
+		<variable name="num" type="int"/> 充值数目,不同平台单位可能不一样.对于91来说,是元
+		<variable name="orderSnPlatform" type="string"/> 平台的唯一字符串序列号
+	</protocol>
+	
+	
+
+	<bean name="UserInfoUnit"> 
+		<variable name="key" type="string" />
+		<variable name="value" type="string" />
+	</bean>
+	<protocol name="CNotifyDeviceInfo" type="82" maxsize="65535" prior="1"> 
+		<variable name="info" type="vector" value="UserInfoUnit"/> 
+	</protocol>
+	
+	<protocol name="SNotifyDeviceInfo" type="83" maxsize="65535" prior="1" tolua="3">
+		<variable name="ip" type="string"/>
+	</protocol>
+
+	<protocol name="SNotifyShieldState" type="84" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="state" type="byte" /> 0, shield 1, not shield
+	</protocol>	
+	
+	<protocol name="SGACDKickoutMsg1" type="87" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="msg" type="string"/>
+	</protocol>
+	<protocol name="CReqOldName" type="88" maxsize="65535" prior="1" tolua="3"> 请求角色曾用名
+		<variable name="roleId" type="long"/>角色id
+	</protocol>
+
+    <protocol name="SServerLevel" type="89" maxsize="128" prior="1" tolua="3">
+        <variable name="slevel" type="int"/> 服务器等级
+        <variable name="newleveldays" type="int"/> 开启新等级的剩余天数
+    </protocol>
+	
+	<protocol name="STeamVote" type="92" maxsize="65535" prior="1" tolua="3">
+		<variable name="flag" type="int"/> 2=pvp地图提醒
+		<variable name="parms" type="list" value="string"/> 
+	</protocol>
+	<protocol name="CTeamVoteAgree" type="93" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="result" type="byte" /> 0=同意 1= 拒绝
+	</protocol>
+ 
+	
+	<!--跨服相关的协议 end-->
+	<!--下发serverID的协议 start-->
+	<protocol name="SServerIDResponse" type="97" maxsize="65535" prior="1" tolua="3">
+		<variable name="serverid" type="int" />
+	</protocol>
+	<!--跨服相关的协议 end-->
+
+	<!-- 客户端请求切换加点方案 -->
+	<protocol name="CChangePointScheme" type="98" maxsize="65535" prior="1" tolua="3">
+		<variable name="schemeid" type="int"/>
+	</protocol>
+	
+	<protocol name="SAddPointAttrData" type="99" maxsize="65535" prior="1" tolua="3">
+		<variable name="max_hp" type="float"/>  生命
+		<variable name="max_mp" type="float" />	 魔法
+		<variable name="attack" type="float" />   物攻
+		<variable name="defend" type="float"  />   物防
+		<variable name="magic_attack" type="float" />  法攻
+		<variable name="magic_def" type="float" />  法防
+		<variable name="speed" type="float" />  速度
+	</protocol>   
+	
+	<!-- 客户端请求援助统计面板 -->
+	<protocol name="CReqHelpCountView" type="100" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	<protocol name="SReqHelpCountView" type="101" maxsize="65535" prior="1" tolua="3">
+		<variable name="expvalue" type="long"/>
+		<variable name="expvaluemax" type="long"/>
+		<variable name="shengwangvalue" type="int"/>
+		<variable name="shengwangvaluemax" type="int"/>
+		<variable name="factionvalue" type="int"/>
+		<variable name="factionvaluemax" type="int"/>
+		<variable name="helpgiveitemnum" type="int"/> 援助物品次数
+		<variable name="helpgiveitemnummax" type="int"/> 援助物品次数最大值
+		<variable name="helpitemnum" type="int"/> 求助物品次数
+		<variable name="helpitemnummax" type="int"/> 求助物品次数最大值
+	</protocol>
+	
+	<!-- 角色染色相关命令 -->
+	<bean name="RoleColorType">		角色染色方案
+		<variable name="colorpos1" type="int"/> 		部位1
+		<variable name="colorpos2" type="int"/> 	部位2
+	</bean>
+	
+	<protocol name="CReqColorRoomView" type="102" maxsize="65535" prior="1" tolua="3"> 请求人物染色衣橱信息
+	</protocol>
+	<protocol name="SReqColorRoomView" type="103" maxsize="65535" prior="1" tolua="3"> 返回人物染色衣橱信息
+		<variable name="nummax" type="int"/> 最大空间
+		<variable name="rolecolortypelist" type="list" value="RoleColorType"/> 染色方案列表
+	</protocol>
+	<protocol name="CReqDelColor" type="104" maxsize="65535" prior="1" tolua="3">  删除衣柜配色方案
+		<variable name="removeindex" type="int"/> 删除索引
+	</protocol>
+	<protocol name="CReqUseColor" type="106" maxsize="65535" prior="1" tolua="3">  使用染色
+		<variable name="rolecolorinfo" type="RoleColorType"/> 染色信息
+	</protocol>
+	<protocol name="SReqUseColor" type="107" maxsize="65535" prior="1" tolua="3">  返回使用染色成功
+		<variable name="rolecolorinfo" type="RoleColorType"/> 染色信息
+	</protocol>
+	
+	<protocol name="CReqUsePetColor" type="113" maxsize="65535" prior="1" tolua="3"> 对宠物染色
+		<variable name="petkey" type="int"/> 		宠物ID
+		<variable name="colorpos1" type="int"/> 		部位1
+		<variable name="colorpos2" type="int"/> 		部位2
+	</protocol>
+	<protocol name="SReqUsePetColor" type="112" maxsize="65535" prior="1" tolua="3"> 返回宠物染色
+		<variable name="petkey" type="int"/> 		宠物ID
+		<variable name="colorpos1" type="int"/> 		部位1
+		<variable name="colorpos2" type="int"/> 		部位2
+	</protocol>
+
+    <protocol name="CReqPointSchemeTime" type="109" maxsize="65535" prior="1" tolua="3"> 请求人物切换加点方案次数
+    </protocol>
+
+    <protocol name="SReqPointSchemeTime" type="110" maxsize="65535" prior="1" tolua="3"> 返回人物切换加点方案次数
+        <variable name="schemetimes" type="int"/> 切换加点方案次数
+    </protocol>	
+	
+	<protocol name="CSetPilotType" type="111" maxsize="10" prior="1" tolua = "3"> 设置适配引导类型
+	 	<variable name="pilotType" type="int"/> 适配引导类型  0新手 1老手
+	</protocol>
+	
+	<bean name="FunOpenClose"> 
+		<variable name="key" type="int" />
+		<variable name="state" type="int" />  0功能开启    1功能关闭
+	</bean>
+	
+	<bean name="FunOpenCloseType">
+		<enum name="FUN_REDPACK" value="1" />   红包
+		<enum name="FUN_JHM" value="2" />   激活码
+		<enum name="FUN_CHECKPOINT" value="3" />   点卡交易所
+		<enum name="FUN_MONTHCARD" value="4" />  月卡
+		<enum name="FUN_BLACKMARKET" value="5" />  黑市
+	</bean>	
+	
+	<protocol name="SSetFunOpenClose" type="114" maxsize="65535" prior="1" tolua = "3"> 设置功能开关
+	 	<variable name="info" type="vector" value="FunOpenClose"/> 
+	</protocol>
+	
+	<protocol name="CSendHelpSW" type="115" maxsize="65535" prior="1" tolua = "3"> 援助声望当前值
+	</protocol>
+	
+	<protocol name="SSendHelpSW" type="116" maxsize="65535" prior="1" tolua = "3"> 援助声望当前值
+	 	<variable name="helpsw" type="int" /> 
+	</protocol>
+	
+	<protocol maxsize="65535" name="CGameTime" prior="101" type="117" tolua="3">  取服务器时间 by changhao
+    </protocol>
+	
+	<protocol maxsize="65535" name="CKick" prior="101" type="118" tolua="3">  踢人 by changhao
+    </protocol>
+    
+    <protocol name="CSetLineConfig" type="119" maxsize="256" prior="1" tolua="3">
+		<variable name="configmap" type="map" key="int" value="int" /> 
+	</protocol>
+	
+	<protocol name="SSetLineConfig" type="120" maxsize="256" prior="1" tolua="3">
+		<variable name="configmap" type="map" key="int" value="int" />
+	</protocol>
+	<!-- 手机绑定 -->
+	<protocol name="CGetCheckCode" type="121" maxsize="256" prior="1" tolua="3"> 得到验证码
+		<variable name="tel" type="long" />
+	</protocol>
+	<protocol name="SCheckCodeFinishTime" type="128" maxsize="256" prior="1" tolua="3"> 验证码倒计时完成时间点
+		<variable name="finishTimePoint" type="long" />
+	</protocol>
+	<protocol name="CBindTel" type="122" maxsize="256" prior="1" tolua="3"> 确认关联手机
+		<variable name="tel" type="long" />
+		<variable name="code" type="string" />
+	</protocol>
+	<protocol name="SBindTel" type="123" maxsize="256" prior="1" tolua="3"> 确认关联手机返回状态1成功0失败
+		<variable name="status" type="byte" />
+		<variable name="bindTelTime" type="long" />
+	</protocol>
+	<protocol name="CUnBindTel" type="124" maxsize="256" prior="1" tolua="3"> 解除关联手机
+		<variable name="tel" type="long" />
+		<variable name="code" type="string" />
+	</protocol>
+	<protocol name="SUnBindTel" type="125" maxsize="256" prior="1" tolua="3"> 解除关联手机返回状态1成功0失败
+		<variable name="status" type="byte" />
+	</protocol>
+	<protocol name="CGetBindTel" type="126" maxsize="256" prior="1" tolua="3"> 得到关联手机信息
+	</protocol>
+	<protocol name="SGetBindTel" type="127" maxsize="256" prior="1" tolua="3"> 返回关联手机信息
+		<variable name="tel" type="long" />
+		<variable name="createDate" type="long" />
+		<variable name="isFistLoginOfDay" type="byte" />
+		<variable name="isGetBindTelAward" type="byte" />
+		<variable name="isBindTelAgain" type="byte" />
+		<variable name="bindTelTime" type="long" />
+	</protocol>
+	<protocol name="CGetBindTelAward" type="129" maxsize="256" prior="1" tolua="3"> 领取绑定手机奖励
+	</protocol>
+	<protocol name="SGetBindTelAward" type="130" maxsize="256" prior="1" tolua="3"> 返回绑定手机奖励状态
+		<variable name="status" type="byte" />
+	</protocol>
+	<protocol name="SBindTelAgain" type="131" maxsize="256" prior="1" tolua="3"> 重新绑定手机
+	</protocol>
+	<!-- 道具安全锁 -->
+	<protocol name="CSetPassword" type="132" maxsize="256" prior="1" tolua="3"> 设置密码
+	    <variable name="initPd" type="string"/>  初始密码
+		<variable name="repeatPd" type="string"/>  重复密码
+	</protocol>
+	<protocol name="SSetPassword" type="133" maxsize="256" prior="1" tolua="3"> 返回成功与否
+		<variable name="status" type="byte" /> 1 成功 0失败
+	</protocol>
+	<protocol name="CResetPassword" type="134" maxsize="256" prior="1" tolua="3"> 重新设置密码
+	    <variable name="initPd" type="string"/>  初始密码
+		<variable name="newtPd" type="string"/>  新密码
+		<variable name="repeatPd" type="string"/> 重复密码
+	</protocol>
+	<protocol name="SResetPassword" type="135" maxsize="256" prior="1" tolua="3"> 返回成功与否
+		<variable name="status" type="byte" /> 1 成功 0失败
+	</protocol>
+	<protocol name="CDelPassword" type="136" maxsize="256" prior="1" tolua="3"> 解除安全锁
+	    <variable name="initPd" type="string"/>  初始密码
+		<variable name="repeatPd" type="string"/>  重复密码
+	</protocol>
+	<protocol name="SDelPassword" type="137" maxsize="256" prior="1" tolua="3"> 返回成功与否
+		<variable name="status" type="byte" /> 1 成功 0失败
+	</protocol>
+	<protocol name="CForceDelPassword" type="140" maxsize="256" prior="1" tolua="3"> 强制解除安全锁
+	    <variable name="code" type="string"/>验证码
+	</protocol>
+	<protocol name="SForceDelPassword" type="141" maxsize="256" prior="1" tolua="3"> 解除时间点
+	    <variable name="startTimePoint" type="long" />
+		<variable name="finishTimePoint" type="long" />
+	</protocol>
+	<protocol name="CCancelForceDelPassword" type="142" maxsize="256" prior="1" tolua="3"> 取消强制解除安全锁
+	</protocol>
+	<protocol name="SCancelForceDelPassword" type="143" maxsize="256" prior="1" tolua="3"> 返回成功与否
+		<variable name="status" type="byte" /> 1 成功 0失败
+	</protocol>
+	<protocol name="COpenGoodLocks" type="144" maxsize="256" prior="1" tolua="3"> 开启安全锁状态
+	</protocol>
+	<protocol name="SOpenGoodLocks" type="145" maxsize="256" prior="1" tolua="3"> 返回成功与否
+		<variable name="status" type="byte" /> 1 成功 0失败
+	</protocol>
+	<protocol name="CCloseGoodLocks" type="146" maxsize="256" prior="1" tolua="3"> 关闭安全锁状态
+	    <variable name="password" type="string"/>密码
+		<variable name="closeType" type="byte"/>关闭类型
+	</protocol>
+	<protocol name="SCloseGoodLocks" type="147" maxsize="256" prior="1" tolua="3"> 返回成功与否
+		<variable name="status" type="byte" />
+		<variable name="closeType" type="byte" />
+	</protocol>
+	
+	<protocol name="CGetGoodLocksInfo" type="148" maxsize="256" prior="1" tolua="3"> 得到道具安全锁信息
+	</protocol>
+	<protocol name="SGetGoodLocksInfo" type="149" maxsize="256" prior="1" tolua="3"> 道具安全锁信息
+		<variable name="password" type="string" />安全锁密码
+		<variable name="forceDelPdTime" type="long" /> 强制删除密码时间
+		<variable name="forceDelEndTime" type="long" />强制删除密码结束时间
+		<variable name="isFistLoginOfDay" type="byte" />是否第一次登陆
+		<variable name="errorTimes" type="byte" />密码输入错误次数
+		<variable name="lockEndTime" type="long" />锁定结束时间点
+		<variable name="isOpenSafeLock" type="byte" />是否开启了道具安全锁
+	</protocol>
+	<protocol name="CGoodUnLock" type="150" maxsize="256" prior="1" tolua="3"> 道具输入密码解锁
+	    <variable name="password" type="string" />安全锁密码
+	</protocol>
+	<protocol name="SGoodUnLock" type="151" maxsize="256" prior="1" tolua="3"> 道具输入密码解锁状态
+	    <variable name="status" type="byte" />
+	</protocol>
+	<protocol name="CForceUnlockTimeExpire" type="154" maxsize="256" prior="1" tolua="3"> 通知强制解锁到期
+	</protocol>
+	<protocol name="SForceUnlockTimeExpire" type="155" maxsize="256" prior="1" tolua="3"> 强制解锁到期状态
+	    <variable name="status" type="byte" /> 1 成功 0失败时间还未到
+	</protocol>
+	
+	<protocol name="SChangeGoodLockState" type="156" maxsize="256" prior="1" tolua="3"> 改变道具锁的状态
+	</protocol>
+	
+	<!-- 发送短信验证 -->
+	<protocol name="CReceiveCheckCode" type="138" maxsize="256" prior="1" tolua="3"> 得到验证码
+	    <variable name="checkCodeType" type="byte"/> 2 道具安全锁 3藏宝阁
+	</protocol>
+	<protocol name="SCheckCodeFinishTimePoint" type="139" maxsize="256" prior="1" tolua="3"> 验证码倒计时完成时间点
+	    <variable name="checkCodeType" type="byte"/> 2 道具安全锁 3藏宝阁
+		<variable name="finishTimePoint" type="long" />
+	</protocol>
+	
+	<!-- 藏宝阁上架短信验证 -->
+	<protocol name="CSendCBGCheckCode" type="152" maxsize="256" prior="1" tolua="3"> 藏宝阁发送验证码
+	    <variable name="code" type="string"/>验证码
+	</protocol>
+	<protocol name="SCBGUpCheckCode" type="153" maxsize="256" prior="1" tolua="3"> 藏宝阁上架验证
+	    <variable name="status" type="byte" /> 1 成功 0失败
+	</protocol>
+	
+	
+	 
+	<xi:include href="item.xml" /> <!-- 协议号从 1001 开始 -->
+	<xi:include href="pet.xml" /> <!-- 协议号从 2001 开始 -->
+	<!--<xi:include href="trade.xml" />  协议号从 3001 开始 -->
+	<xi:include href="move.xml" /> <!-- 协议号从 4001 开始 -->
+	<xi:include href="gm.xml" /> <!-- 协议号从 5001 开始 -->	
+	<xi:include href="talk.xml" /> <!-- 协议号从 6001 开始 -->	
+	<xi:include href="battle.xml" /> <!-- 协议号从 7001 开始 -->
+	<xi:include href="team.xml" /> <!-- 协议号从 8001 开始 -->
+	<xi:include href="npc.xml" /> <!--协议号从9001开始-->
+	<xi:include href="buff.xml" /> <!-- 协议号从 10001 开始 -->		
+	<!--<xi:include href="effect.xml" /> 删除这个协议文件，空闲出11001 - 12000的协议号-->	
+	<xi:include href="title.xml" /> <!-- 协议号 从 12001开始  预留100个 -->
+	<xi:include href="attr.xml" /> <!--属性ID定义 角色属性变更通知客户端的协议 从13000开始-->
+	<xi:include href="skill.xml" /> <!--技能 定义，协议 从14000开始-->
+	<!--<xi:include href="cofc.xml" />  商会相关协议定义，协议号从 15000开始 -->
+	<xi:include href="product.xml" /> <!-- 装备打造相关协议定义，协议号从 17001开始 -->
+	<xi:include href="instancezone.xml" /> <!--副本玩法，协议号从 18101 到 18300 -->
+	
+	<xi:include href="mission.xml" /> <!-- 任务相关协议定义，协议号从 19001开始 -->
+	<xi:include href="friends.xml" /> <!-- 好友系统协议定义，协议号从 20001开始 -->
+	<xi:include href="circletask.xml" /> <!-- 特殊任务（职业，天尊，三界宠物等玩法任务），协议号从21000 -->
+	<xi:include href="clan.xml" /> <!-- 公会，协议号从22000 -->
+	<xi:include href="school.xml" /> <!-- 职业，协议号从24000 -->
+	<xi:include href="fushi.xml" /> <!-- 结交任务，协议号从26000 -->
+	<xi:include href="ranklist.xml"/> <!--排行榜,协议号从23800至23850开始-->
+	<xi:include href="master.xml"/> <!-- 师徒系统,协议号从30000开始-->
+	<xi:include href="triggers.xml"/> <!--触发相关协议,协议号从31500-31999-->
+	<xi:include href="huoban.xml"/><!--伙伴相关协议,协议号从32400-32500-->
+	<xi:include href="lock.xml"/> <!--安全锁相关协议,协议号从32501-32520-->
+    <xi:include href="pingbi.xml"/> <!--屏蔽系统相关协议,协议号从32711-32720-->
+	<xi:include href="activity.xml"/> <!--活动相关协议,协议号从32531-32631,32751-32755,24100-24300-->
+	
+	<xi:include href="shop.xml"/> <!--所有商店相关24200-24300-->
+	<xi:include href="hook.xml"/> <!--所有挂机相关23900-23930-->
+	<xi:include href="game.xml"/> <!--所有game相关23931-23960-->
+	<xi:include href="cross.xml"/> <!-- 跨服相关协议 -->
+</provider>	

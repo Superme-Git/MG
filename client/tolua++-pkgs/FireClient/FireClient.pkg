@@ -1,0 +1,13 @@
+$#include "EngineLuaNeed.h"
+$#include "ClientLuaNeed.h"
+
+$pfile "Nuclear/Types.pkg"
+$pfile "type.pkg"
+$pfile "GameTable/TableDataManager.pkg"
+$pfile "ProtocolModule.pkg"
+$pfile "FrameworkModule.pkg"
+$pfile "GameUIModule.pkg"
+$pfile "ManagerModule.pkg"
+$pfile "BattleModule.pkg"
+$pfile "CommonModule.pkg"
+$pfile "SceneObjModule.pkg"

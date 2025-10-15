@@ -1,0 +1,93 @@
+enum eSchoolType
+{
+	eSchoolNull = 0,
+	eSchoolZhanShi= 11,
+	eSchoolShengQiShi= 12,
+	eSchoolLieRen= 13,
+	eSchoolDeLuYi= 14,
+	eSchoolFaShi= 15,
+	eSchoolMuShi= 16,
+	eSchoolSaMan= 17,
+	eSchoolDaoZei= 18,
+	eSchoolShuShi= 19,
+	eSchoolMax,
+};
+
+enum eGameState
+{
+	eGameStateNull = 0,
+	eGameStateLogin,			//登陆状态
+	eGameStateRunning,			//进入游戏
+	eGameStateBattleDemo,		//观看战斗录像
+	eGameStateEditBattleAni,	//战斗动画编辑
+	eGameStateMax
+};
+
+enum eSexType
+{
+	eSexMale = 1,
+	eSexFemale,
+};
+
+//一键分享的平台
+enum eShareSDK
+{
+	eShareSDK_SinaWeibo,			// 新浪微博
+	eShareSDK_TencentWeibo,			// 腾讯微博
+	eShareSDK_Douban,				// 豆瓣
+	eShareSDK_QZone,				// QQ空间
+	eShareSDK_Renren,				// 人人网
+	eShareSDK_KaiXin,				// 开心网
+	eShareSDK_Facebook,				// Facebook
+	eShareSDK_Twitter,				// Twitter
+	eShareSDK_Evernote,				// 印象笔记
+	eShareSDK_FourSquare,			// FourSquare
+	eShareSDK_GooglePlus,			// Google+
+	eShareSDK_Instagram,			// Instagram
+	eShareSDK_LinkedIn,				// 领英
+	eShareSDK_Tumblr,				// Tumblr
+	eShareSDK_Email,				// 邮件
+	eShareSDK_ShortMessage,			// 信息
+	eShareSDK_Wechat,				// 微信好友
+	eShareSDK_WechatMoments,		// 微信朋友圈
+	eShareSDK_QQ,					// QQ好友
+	eShareSDK_Instapaper,			// Instapaper
+	eShareSDK_Pocket,				// Pocket
+	eShareSDK_YouDao,				// 有道云笔记
+	eShareSDK_Pinterest,			// Pinterest
+	eShareSDK_Flickr,				// Flickr
+	eShareSDK_Dropbox,				// Dropbox
+	eShareSDK_VKontakte,			// VK
+	eShareSDK_WechatFavorite,		// 微信收藏
+	eShareSDK_Yixin,				// 易信好友
+	eShareSDK_YixinMoments,			// 易信朋友圈
+	eShareSDK_Mingdao,				// 明道
+	eShareSDK_Line,					// Line
+	eShareSDK_WhatsApp,				// WhatsApp
+	eShareSDK_KakaoTalk,			// KakaoTalk
+	eShareSDK_KakaoStory,			// KakaoStory
+	eShareSDK_FacebookMessenger,	// FacebookMessenger
+	eShareSDK_Bluetooth,			// 蓝牙
+	eShareSDK_Alipay,				// 支付宝好友
+};
+
+//一键分享的类型
+enum eShareType
+{
+	eShareType_Text,				// 分享纯文字
+	eShareType_Picture,				// 分享图片
+	eShareType_WebUrl,				// 分享链接
+};
+
+
+//队伍状态
+enum eTeamMemberState
+{
+	eTeamMemberNULL = 0,		//无
+	eTeamMemberNormal = 1,		//正常队伍状态
+	eTeamMemberAbsent = 2,		//暂离状态
+	eTeamMemberReturn = 3,		//归队状态
+	eTeamMemberFallline = 4,		//掉线
+	eTeamMemberMax,
+};
+

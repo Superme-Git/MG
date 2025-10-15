@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="rpcalls.xsl"?>
+
+<application namespace="GNET" project="2d">
+	<!--for glinkd.glinkserver-->
+	<protocol debug="0" name="Challenge" maxsize="32" prior="101" type="1">
+		<variable name="nonce" type="Octets" attr="ref" />
+		<variable name="version" type="unsigned int"/>
+	</protocol>
+
+	<protocol debug="0" name="Response" maxsize="64" prior="101" type="3">
+		<variable name="identity" type="Octets" attr="ref" />
+		<variable name="response" type="Octets" attr="ref" />
+	</protocol>
+
+	<!-- need to do
+	<protocol debug="0" name="StatusAnnounce" maxsize="32" prior="1" type="6">
+		<variable name="userid" type="int" />
+		<variable name="localsid" type="unsigned int" />
+		<variable name="status" type="unsigned char" />
+	</protocol>
+	-->
+	
+
+	<protocol debug="0" name="KeepAlive" maxsize="16" prior="0" type="90">
+		<variable name="code" type="char"/>
+	</protocol>
+	 <rpcdata name="MatrixPasswdArg">
+                <variable name="account" type="Octets" attr="ref" default="Octets(0)"/>
+                <variable name="challenge" type="Octets" attr="ref" default="Octets(0)"/>
+                <variable name="loginip" type="int" default="0"/>
+        </rpcdata>
+        <rpcdata name="MatrixPasswdRes">
+                <variable name="retcode" type="int" default="-1"/>
+                <variable name="userid" type="int" default="-1"/>
+                <variable name="algorithm" type="int" default="0"/>
+                <variable name="response" type="Octets" attr="ref" default="Octets(0)"/>
+                <variable name="matrix" type="Octets" attr="ref" default="Octets(0)"/>
+        </rpcdata>
+        <rpc debug="0" name="MatrixPasswd" type="550" argument="MatrixPasswdArg" result="MatrixPasswdRes" maxsize="512" prior="101" 
+timeout="30"/>  
+	<protocol debug="0" name="DomainLogin" type="700" maxsize="128" prior="1">
+		<variable name="nonce" type="Octets" />
+		<variable name="localsid" type="unsigned int" />
+	</protocol>
+	<protocol debug="0" name="MatrixChallenge" maxsize="64" prior="101" type="551">
+                <variable name="algorithm" type="int"/>
+                <variable name="nonce" type="unsigned int" default="0" />
+        </protocol>
+	
+        <protocol debug="0" name="MatrixResponse" maxsize="64" prior="101" type="552">
+                <variable name="response" type="unsigned int"/>
+        </protocol>
+	<protocol debug="0" name="KeyExchange" maxsize="32" prior="101" type="2">
+		<variable name="nonce" type="Octets" attr="ref" />
+		<variable name="blkickuser" type="char"	default="0"/>
+	</protocol>
+
+	<rpcdata name="UserLoginArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="localsid" type="unsigned int" default="0"/>
+		<variable name="blkickuser" type="char"	default="0"/>
+		<variable name="freecreatime" type="int" default="0"/>
+		<variable name="loginip" type="int" default="0"/>
+	</rpcdata>      
+	<rpcdata name="UserLoginRes">
+		<variable name="retcode" type="char" default="-1"/>
+		<variable name="remain_playtime" type="int" default="0"/>
+		<variable name="func" type="int" default="0"/>
+		<variable name="funcparm" type="int" default="0"/>
+		<variable name="blIsGM" type="char" default="0"/>
+		<variable name="free_time_left" type="int" default="0"/>
+		<variable name="free_time_end" type="int" default="0"/>
+		<variable name="creatime" type="int" default="0"/>
+	</rpcdata>          
+	<rpc debug="0" name="UserLogin" type="15" maxsize="128" prior="101" timeout="40"/>
+	<rpcdata name="UserLogoutArg">
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="localsid" type="int" default="0"/>
+	</rpcdata>
+	<rpcdata name="UserLogoutRes">
+		<variable name="retcode" type="byte" default="-1"/>
+	</rpcdata>
+	<rpc debug="0" name="UserLogout" type="33" argument="UserLogoutArg" result="UserLogoutRes" maxsize="128" prior="3" timeout="10"/>
+
+	<!--create role-->
+	<rpcdata name="PreCreateRoleArg">
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="rolename" type="Octets" attr="ref" default="Octets(0)"/>
+	</rpcdata>
+	<rpcdata name="PreCreateRoleRes">
+		<variable name="retcode" type="int" default="-1"/>
+		<variable name="roleid" type="int" default="-1"/>
+		<variable name="logicuid" type="int" default="-1"/><!--no use-->
+	</rpcdata>
+	<rpc debug="0" name="PreCreateRole" type="3037" argument="PreCreateRoleArg" result="PreCreateRoleRes" table="unamerole" attr="get" key="rolename" value="roleid" retcode="retcode" maxsize="1024" prior="1" timeout="15"/>
+	<rpcdata name="PostCreateRoleArg">
+		<variable name="success" type="char" default="1"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="zoneid" type="int" default="-1"/>
+		<variable name="roleid" type="int" default="-1"/>
+		<variable name="rolename" type="Octets" attr="ref" default="Octets(0)"/>
+	</rpcdata>
+	<rpcdata name="PostCreateRoleRes">
+		<variable name="retcode" type="int" default="-1"/>
+	</rpcdata>
+	<rpc debug="0" name="PostCreateRole" type="3038" argument="PostCreateRoleArg" result="PostCreateRoleRes" table="unamerole" attr="put" key="rolename" value="roleid" retcode="retcode" maxsize="1024" prior="1" timeout="15"/>
+	
+	<protocol debug="0" name="CreateRole" maxsize="8192" prior="101" type="84">
+                <variable name="userid" type="int" />
+                <variable name="localsid" type="unsigned int" />
+                <variable name="roleinfo" type="wdb::role::beans::Basic"/>
+        </protocol>
+
+	<protocol debug="0" name="CreateRole_Re" maxsize="8192" prior="101" type="85">
+                <variable name="result" type="int"/>
+                <variable name="roleid" type="int" default="-1"/>
+                <variable name="localsid" type="unsigned int" default="0"/>
+                <variable name="roleinfo" type="wdb::role::beans::Basic" default="wdb::role::beans::Basic()"/> 
+        </protocol>
+
+	<!--end for create role-->
+	<!--player login -->
+
+	<protocol debug="0" name="PlayerLogin" maxsize="1024" prior="1" type="65">
+		<variable name="roleid" type="int"/>
+		<variable name="lineid" type="int"/>
+		<variable name="provider_link_id" type="int" default="-1"/>
+		<variable name="localsid" type="unsigned int" default="0"/>
+		<variable name="worldtag" type="int" default="0"/>
+		<variable name="auth" type="ByteVector" default="ByteVector()"/>
+		<variable name="usepos" type="int" default="0"/>
+		<variable name="x" type="float" default="0"/>
+		<variable name="y" type="float" default="0"/>
+		<variable name="z" type="float" default="0"/>
+	</protocol>
+
+	<protocol debug="0" name="PlayerLogin_Re" maxsize="64" prior="1" type="66">
+		<variable name="result" type="int"/>
+		<variable name="roleid" type="int"/>
+		<variable name="level" type="unsigned char"/>
+		<variable name="occupation" type="unsigned char"/>
+		<variable name="factionid" type="int"/>
+		<variable name="factiontitle" type="int"/>
+		<variable name="familyid" type="int"/>
+		<variable name="contribution" type="int"/>
+		<variable name="devotion" type="int"/>
+		<variable name="jointime" type="int"/>
+		<variable name="src_provider_id" type="int" default="-1"/>
+		<variable name="localsid" type="unsigned int" default="0"/>
+		<variable name="worldtag" type="int" default="0"/>
+		<variable name="x" type="float" default="0"/>
+		<variable name="y" type="float" default="0"/>
+		<variable name="z" type="float" default="0"/>
+	</protocol>
+
+
+	<protocol debug="0" name="SelectRole" maxsize="32" prior="101" type="70">
+		<variable name="roleid" type="int"/>
+		<variable name="lineid" type="int"/>
+	</protocol>
+
+	<protocol debug="0" name="SelectRole_Re" maxsize="1024" prior="101" type="71">
+		<variable name="result" type="int"/>
+		<variable name="auth" type="ByteVector" default="ByteVector()"/>
+	</protocol>
+	
+	<protocol debug="0" name="EnterWorld" maxsize="16" prior="101" type="72">
+		<variable name="roleid" type="int"/>
+		<variable name="provider_link_id" type="int" default="-1"/>
+		<variable name="localsid" type="unsigned int" default="0"/>
+	</protocol>
+
+	<!--end for player login-->
+	
+	<rpcdata name="LineInfo" attr="vector">
+		<variable name="id" type="int" default="0"/>
+		<variable name="name" type="Octets" default="Octets(0)"/>
+		<variable name="attribute" type="Octets" default="Octets(0)"/>
+	</rpcdata>
+	<protocol name="LineList" maxsize="8192" prior="1" type="37">
+		<variable name="linelist" type="LineInfoVector"/>
+	</protocol>
+
+	<rpcdata name="LinePlayerLimit" attr="vector">
+		<variable name="line_id" type="int" default="0"/>
+		<variable name="cur_num" type="int" default="0"/>
+		<variable name="max_num" type="int" default="1"/>
+	</rpcdata>
+
+	<rpcdata name="GetLinePlayerLimitArg">
+		<variable name="reserved" type="int" default="0"/>
+	</rpcdata>
+
+	<rpcdata name="LinePlayerNumberLimits">
+		<variable name="limits" type="LinePlayerLimitVector"/>
+	</rpcdata>
+
+	<rpcdata name="SetLinePlayerLimitRes">
+		<variable name="retcode" type="char" default="-1"/>
+	</rpcdata>
+
+	<rpc debug="0" name="GetLinePlayerLimit" type="38" argument="GetLinePlayerLimitArg" result="LinePlayerNumberLimits" maxsize="16384" prior="1" timeout="10"/>
+	<protocol debug="0" name="ErrorInfo" maxsize="256" prior="1" type="5">
+		<variable name="errcode" type="unsigned char" />
+		<variable name="info" type="Octets" attr="ref" />
+	</protocol>
+
+	<protocol debug="0" name="RoleList" maxsize="32" prior="101" type="82">
+                <variable name="userid" type="int"/>
+                <variable name="localsid" type="unsigned int"/>
+ 	<!--               <variable name="handle" type="int" />-->
+        </protocol>
+
+	<protocol debug="0" name="RoleList_Re" maxsize="32" prior="101" type="83">
+		<variable name="userid" type="int"/>
+		<variable name="localsid" type="unsigned int"/>
+		<variable name="rlist" type="wdb::role::beans::Rlist"/>
+	</protocol>
+	<!--for glinkd.gproviderserver--> 
+	<protocol debug="0" name="AnnounceProviderID" maxsize="64" prior="101" type="73">
+		<variable name="id" type="int"/>
+		<variable name="attr" type="unsigned int"/>
+		<variable name="lineinfo" type="LineInfo" default="LineInfo()"/>
+	</protocol>
+
+	<!--glinkd.gdeliveryclient-->
+	<protocol debug="0" name="AnnounceServerAttribute" maxsize="16" prior="1" type="132">
+		<variable name="attr" type="unsigned int"/> <!-- server attributes -->
+	</protocol>
+	<!-- ************************ -->
+	<!--  STATES of GLink Server  -->
+	<!-- ************************ -->
+	<state name="GLoginServer" timeout="60">
+		<protocol ref="Response"/>
+		<protocol ref="KeepAlive"/>
+	<!--	<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+	-->
+		<protocol ref="DomainLogin"/>
+	</state>	
+	
+	<state name="GResponseReceive" timeout="60">
+		<protocol ref="KeepAlive"/>
+	<!--	<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+	-->
+	</state>
+
+	<state name="GVerifyMatrix" timeout="180">
+                <protocol ref="MatrixResponse"/>
+                <protocol ref="KeepAlive"/>
+		<!--
+                <protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+		-->
+        </state>
+
+	<state name="GKeyExchgSend" timeout="60">
+		<protocol ref="KeyExchange"/>
+		<protocol ref="KeepAlive"/>
+	<!--
+		<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+	-->
+	</state>	
+	<state name="GKeyExchgSucc" timeout="60">
+		<protocol ref="KeepAlive"/>
+	<!--
+		<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+	-->
+	</state>
+
+	
+	<state name="GRoleList" timeout="60">
+		<protocol ref="KeepAlive"/>
+		<protocol ref="RoleList"/>
+	</state>
+
+	<state name="GRoleListReceive" timeout="60">
+		<protocol ref="KeepAlive"/>
+	</state>
+
+	<state name="GCreateRoleReceive" timeout="60">
+                <protocol ref="KeepAlive"/>
+		<!--
+                <protocol ref="ACReport"/>
+                <protocol ref="ACAnswer"/>
+		-->
+        </state>
+
+	<state name="GSelectRoleServer" timeout="86400">
+                <protocol ref="CreateRole"/>
+                <protocol ref="SelectRole"/>
+		<!--
+                <protocol ref="DeleteRole"/>
+                <protocol ref="UndoDeleteRole"/>
+                <protocol ref="KeepAlive"/>
+                <protocol ref="SetHelpStates"/>
+                <protocol ref="GetHelpStates"/>
+                <protocol ref="ACReport"/>
+                <protocol ref="ACAnswer"/>
+		-->
+        </state>
+	<state name="GSelectRoleReceive" timeout="60">
+		<protocol ref="KeepAlive"/>
+		<!--
+		<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+		-->
+	</state>
+
+	<state name="GReadyGame" timeout="120">
+		<protocol ref="EnterWorld"/>
+		<protocol ref="KeepAlive"/>
+		<!--
+		<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+		<protocol ref="SetHelpStates"/>
+		<protocol ref="GetHelpStates"/>
+		-->
+	</state>	
+
+
+	<!--**************************************-->
+	<!-- STATE OF GProviderLinkServer of Glink-->
+	<!--**************************************-->
+	<state name="GProviderLinkServer" timeout="120">
+		<protocol ref="AnnounceProviderID"/>
+	</state>
+	<state name="Null" timeout="5" />
+	
+	<!--**********************************-->
+	<!-- STATE OF GdeliveryClient of Glink-->
+	<!--**********************************-->
+	<state name="GDeliverClient" timeout="86400">
+		<protocol ref="AnnounceServerAttribute"/>
+                <protocol ref="KickoutUser"/>
+                <protocol ref="OnlineAnnounce"/>
+		<rpc ref="GetLinePlayerLimit"/>
+		<protocol ref="RoleList_Re"/>
+                <protocol ref="CreateRole_Re"/>
+		<!--
+		need to do 
+		<protocol ref="StatusAnnounce" />
+		-->
+		<rpc ref="MatrixPasswd"/>
+		<rpc ref="UserLogin"/>
+		<protocol ref="PlayerLogin_Re"/>
+	</state>
+
+	<service name="glinkd">
+		<manager name="GLink" type="server" initstate="GLoginServer"/>
+		<manager name="GDelivery" type="client" initstate="GDeliverClient" reconnect="1"/>
+		<manager name="GProvider" type="server" initstate="GProviderLinkServer"/>
+
+		<state ref="GLoginServer"/>
+		<state ref="GResponseReceive"/>
+		<state ref="GVerifyMatrix"/>
+		<state ref="GKeyExchgSend"/> 
+		<state ref="GKeyExchgSucc"/>
+		<state ref="GRoleList"/>
+		<state ref="GRoleListReceive"/>
+                <state ref="GCreateRoleReceive" />
+                <state ref="GSelectRoleServer" />
+		<state ref="GSelectRoleReceive" />
+		<state ref="GReadyGame" />
+		<!--
+                <state ref="GDeleteRoleReceive"/>
+                <state ref="GUndoDeleteRoleReceive"/>
+		-->
+		<state ref="GDeliverClient"/>
+		<state ref="GProviderLinkServer"/>
+		<state ref="Null" />
+
+		<protocol ref="ErrorInfo"/>
+		<protocol ref="Challenge"/>
+		<protocol ref="MatrixChallenge"/>
+		<protocol ref="LineList"/>
+		<protocol ref="PlayerLogin"/>
+		<protocol ref="SelectRole_Re"/>
+
+		<rpc ref="MatrixPasswd"/>
+		<rpc ref="GetLinePlayerLimit"/>
+	</service>
+	
+	<!--*******************************************-->
+	<!--**************** gdeliveryd*****************-->
+	<!--*******************************************-->
+	<!--for userlogin-->
+        <protocol debug="0" name="OnlineAnnounce" maxsize="64" prior="101" type="4">
+                <variable name="userid" type="int" />
+                <variable name="localsid" type="unsigned int" />
+                <variable name="remain_time" type="int" default="0"/>
+                <variable name="zoneid" type="int" default="0"/>
+                <variable name="free_time_left" type="int" default="0"/>
+                <variable name="free_time_end" type="int" default="0"/>
+        </protocol>
+
+        <protocol debug="0"  name="KickoutUser" maxsize="32" prior="101" type="10">
+                <variable name="userid" type="int"/>
+                <variable name="localsid" type="unsigned int"/>
+                <variable name="cause" type="unsigned char" default="ERR_KICKOUT"/>
+        </protocol>
+
+	<!--end userlogin-->
+
+	<!-- for gdeliveryd.GAUClient-->
+	<protocol debug="0" name="AnnounceZoneid2" maxsize="32" prior="2" type="523">
+		<variable name="zoneid" type="int"/>
+		<variable name="aid" type="int" />
+		<variable name="blreset" type="char"/>
+	</protocol>
+
+	<!--Notice  this is only for QueryUserForbid_Re.GRoleForbidVector-->
+	<rpcdata name="GRoleForbid" attr="vector">
+		<variable name="type" type="unsigned char" default="0"/>
+		<variable name="time" type="int" default="0"/>
+		<variable name="createtime" type="int" default="0"/>
+		<variable name="reason" type="Octets" attr="ref" default="Octets(0)"/>
+	</rpcdata>
+
+	 <protocol debug="0" name="AnnounceForbidInfo" type="123" maxsize="384" prior="1">
+                <variable name="userid" type="int"/>
+                <variable name="localsid" type="unsigned int"/>
+                <variable name="forbid" type="GRoleForbid" />
+        </protocol>
+
+
+	<protocol debug="0" name="QueryUserForbid_Re" type="509" maxsize="4096" prior="101">
+		<variable name="userid" type="int"/>
+		<variable name="list_type" type="int"/><!--0:forbid list at login,1:reply of forbid-->
+		<variable name="forbid" type="GRoleForbidVector"/>
+	</protocol>
+
+	<protocol debug="0" name="QueryUserPrivilege2" type="524" maxsize="32" prior="2">
+                <variable name="userid" type="int"/>
+                <variable name="zoneid" type="int"/>
+        </protocol>
+
+	<protocol name="ACStatusAnnounce2" type="5034" maxsize="2097152" prior="1">
+		<variable name="status" type="int"/>
+		<variable name="info_list" type="std::vector&lt;ACOnlineStatus2&gt;"/>
+	</protocol>
+	<!--end of GAUClient-->
+
+
+
+	<state name="GDeliverServer" timeout="86400">
+		<protocol ref="RoleList"/>
+		<protocol ref="RoleList_Re"/>
+                <rpc ref="MatrixPasswd"/>
+		<rpc ref="GetLinePlayerLimit"/>
+		<rpc ref="UserLogin" />
+		<protocol ref="CreateRole"/>
+		<protocol ref="PlayerLogin"/>
+		<protocol ref="EnterWorld"/>
+        </state>
+        <state name="GAuthClient" timeout="86400">
+		<protocol ref="QueryUserForbid_Re"/>
+                <rpc ref="UserLogin"/>
+		<protocol ref="KickoutUser" />
+                <rpc ref="MatrixPasswd"/>
+        </state>
+
+        <state name="GProviderDeliveryServer" timeout="120">
+		<protocol ref="AnnounceProviderID"/>
+		<protocol ref="PlayerLogin_Re"/>
+        </state>
+
+        <state name="GameDBClient" timeout="86400">
+        </state>
+
+        <state name="UniqueNameClient" timeout="86400">
+                <rpc ref="PreCreateRole"/>	
+		<rpc ref="PostCreateRole"/>
+        </state>
+
+	<service name="gdeliveryd">
+		<manager name="GDelivery" type="server" initstate="GDeliverServer"/>
+		<manager name="GAuth" type="client" initstate="GAuthClient" reconnect="1"/>
+		<manager name="GProvider" type="server" initstate="GProviderDeliveryServer" />
+		<manager name="GameDB" type="client" initstate="GameDBClient" reconnect="1"/>
+		<manager name="UniqueName" type="client" initstate="UniqueNameClient" reconnect="1"/>
+
+		<state ref="GDeliverServer"/>
+		<state ref="GAuthClient"/>
+		<state ref="GProviderDeliveryServer"/>
+		<state ref="GameDBClient"/>
+		<state ref="UniqueNameClient"/>
+	
+		<protocol ref="OnlineAnnounce"/>	
+		<protocol ref="QueryUserPrivilege2"/>
+		<protocol ref="AnnounceZoneid2"/>
+                <protocol ref="AnnounceForbidInfo"/>
+		<protocol ref="CreateRole_Re"/>
+		<rpc ref="MatrixPasswd" baseclass="ProxyRpc" sendmanager="GAuthClient"/>
+	</service>	
+
+	<!--***********************************************************-->
+	<!--**************** logclient type from 59-62*****************-->
+	<!--***********************************************************-->
+
+
+	<protocol name="StatInfoVital" maxsize="1024" prior="1" type="59">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="hostname" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="servicename" type="std::string" default="std::string()" attr="ref"/>
+	</protocol>
+
+	<protocol name="StatInfo" maxsize="1024" prior="2" type="60">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="hostname" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="servicename" type="std::string" default="std::string()" attr="ref"/>
+	</protocol>
+
+	<protocol name="RemoteLogVital" maxsize="1024" prior="1" type="61">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="hostname" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="servicename" type="std::string" default="std::string()" attr="ref"/>
+	</protocol>
+
+	<protocol name="RemoteLog" maxsize="1024" prior="2" type="62">
+		<variable name="priority" type="int"/>
+		<variable name="msg" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="hostname" type="std::string" default="std::string()" attr="ref"/>
+		<variable name="servicename" type="std::string" default="std::string()" attr="ref"/>
+	</protocol>
+
+	<state name="LogNull" timeout="3600" attr="null">
+	</state>
+
+	<state name="LogNormal" timeout="3600">
+		<protocol ref="StatInfoVital"/>
+		<protocol ref="StatInfo"/>
+		<protocol ref="RemoteLogVital"/>
+		<protocol ref="RemoteLog"/>
+	</state>
+<!--
+	<service name="logservice">
+		<manager name="Logservice" type="server" initstate="LogNormal"/>
+		<manager name="LogserviceTcp" type="server" initstate="LogNormal"/>
+
+		<state ref="LogNormal" />
+
+		<protocol ref="StatInfoVital" />
+		<protocol ref="StatInfo" />
+		<protocol ref="RemoteLogVital" />
+		<protocol ref="RemoteLog" />
+	</service>
+-->
+
+	<service name="logclient">
+		<manager name="Logclient" type="client" initstate="LogNull" reconnect="1"/>
+		<manager name="LogclientTcp" type="client" initstate="LogNull" reconnect="1"/>
+
+		<state ref="LogNull" />
+
+		<protocol ref="StatInfoVital" />
+		<protocol ref="StatInfo" />
+		<protocol ref="RemoteLogVital" />
+		<protocol ref="RemoteLog" />
+	</service>
+	
+	<!--************************************************-->
+	<!--**********gclient*******************************-->
+	<!--************************************************-->
+ 
+	<state name="GLoginClient" timeout="30">
+		<protocol ref="ErrorInfo"/>
+		<protocol ref="Challenge"/>
+		<protocol ref="MatrixChallenge"/>
+		<protocol ref="KeyExchange"/>
+		<protocol ref="LineList"/>
+		<protocol ref="AnnounceForbidInfo"/>
+		<protocol ref="OnlineAnnounce"/>
+		<protocol ref="KeepAlive"/>
+	</state>
+
+	<state name="GSelectRoleClient" timeout="86400">
+		<protocol ref="ErrorInfo"/>
+		<protocol ref="RoleList_Re"/>
+		<protocol ref="CreateRole_Re"/>
+		<!--
+		TODO
+		<protocol ref="DeleteRole_Re"/>
+		<protocol ref="UndoDeleteRole_Re"/>
+		-->
+		<protocol ref="SelectRole_Re"/>
+		<protocol ref="KeepAlive"/>
+		<protocol ref="AnnounceForbidInfo"/>
+	</state>
+
+
+	<service name="gclient">
+		<manager name="GLink" type="client" initstate="GLoginClient"/>
+
+		<state ref="GLoginClient"/>
+		<state ref="GSelectRoleClient"/>
+		<!--
+		TODO
+		<state ref="GDataExchgClient"/>
+		-->
+
+		
+		<protocol ref="Response"/>
+		<protocol ref="MatrixResponse"/>
+		<protocol ref="KeepAlive"/>
+		<protocol ref="RoleList"/>
+		<protocol ref="SelectRole"/>
+		<protocol ref="CreateRole"/>
+		<protocol ref="PlayerLogin_Re"/>
+		<protocol ref="EnterWorld"/>
+		<!-- anti-cheat related protocols -->
+		<!--
+		<protocol ref="ACReport"/>
+		<protocol ref="ACAnswer"/>
+		-->
+
+	</service>
+
+	<protocol debug="0" name="AnnounceZoneid3" type="527" maxsize="64" prior="3">
+		<variable name="zoneid" type="int"/>
+		<variable name="aid" type="int" />
+		<variable name="blreset" type="byte"/>
+		<variable name="ip1" type="int"/>
+		<variable name="ip2" type="int"/>
+		<variable name="ip3" type="int"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="int"/>
+	</protocol>
+
+	<state name="GCompactAUServer" timeout="86400">
+		<rpc ref="MatrixPasswd"/>
+		<rpc ref="UserLogin"/>
+		<rpc ref="UserLogout"/>
+		<protocol ref="AnnounceZoneid3"/>
+	</state>
+
+	<service name="gcompactau">
+		<manager name="GCompactAU" type="server" initstate="GCompactAUServer"/>
+		<state ref="GCompactAUServer"/>
+		<rpc ref="MatrixPasswd"/>
+		<rpc ref="UserLogin"/>
+		<rpc ref="UserLogout"/>
+		<protocol ref="AnnounceZoneid3"/>
+	</service>
+
+</application>

@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lua">
+      <UniqueIdentifier>{6062fd0b-056c-42ea-9b70-b47c57b924d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tolua++">
+      <UniqueIdentifier>{c17978f1-ef60-4e4c-8610-36ec12bee8f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tolua++bin">
+      <UniqueIdentifier>{dbbc6496-8d57-481a-8156-9bca2a2dbdf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tolua++bin\lua">
+      <UniqueIdentifier>{158b3227-f543-4835-bc48-a25d6cd8fbd7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lua\all.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\array.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\basic.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\class.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\clean.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\code.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\compat.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\compat-5.1.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\container.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\custom.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\custom_hide.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\declaration.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\define.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\doit.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\enumerate.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\feature.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\function.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\module.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\namespace.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\operator.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\package.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\typedef.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\variable.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="lua\verbatim.lua">
+      <Filter>lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\all.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\array.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\basic.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\class.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\clean.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\code.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\compat.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\compat-5.1.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\container.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\custom.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\custom_hide.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\declaration.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\define.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\doit.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\enumerate.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\feature.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\function.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\module.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\namespace.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\operator.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\package.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\typedef.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\variable.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+    <None Include="..\..\tolua++bin\lua\verbatim.lua">
+      <Filter>tolua++bin\lua</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lua\lapi.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lauxlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lbaselib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lcode.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ldblib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ldebug.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ldo.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ldump.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lfunc.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lgc.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\linit.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\liolib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\llex.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lmathlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lmem.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\loadlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lobject.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lopcodes.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\loslib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lparser.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lstate.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lstring.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lstrlib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ltable.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ltablib.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\ltm.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lua.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lundump.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lvm.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\lzio.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="lua\print.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="tolua++\tolua_event.c">
+      <Filter>tolua++</Filter>
+    </ClCompile>
+    <ClCompile Include="tolua++\tolua_is.c">
+      <Filter>tolua++</Filter>
+    </ClCompile>
+    <ClCompile Include="tolua++\tolua_map.c">
+      <Filter>tolua++</Filter>
+    </ClCompile>
+    <ClCompile Include="tolua++\tolua_push.c">
+      <Filter>tolua++</Filter>
+    </ClCompile>
+    <ClCompile Include="tolua++\tolua_to.c">
+      <Filter>tolua++</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tolua++bin\tolua.c">
+      <Filter>tolua++bin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tolua++bin\toluabind.c">
+      <Filter>tolua++bin</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lua\lapi.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lauxlib.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lcode.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\ldebug.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\ldo.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lfunc.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lgc.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\llex.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\llimits.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lmem.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lobject.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lopcodes.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lparser.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lstate.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lstring.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\ltable.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\ltm.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lua.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\luaconf.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lualib.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lundump.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lvm.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="lua\lzio.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="tolua++\tolua_event.h">
+      <Filter>tolua++</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\tolua++bin\toluabind.h">
+      <Filter>tolua++bin</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

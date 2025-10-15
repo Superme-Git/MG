@@ -1,0 +1,3 @@
+fileabspath=../upload
+UploadWindow=3600
+UploadWindow_LimitCount=10

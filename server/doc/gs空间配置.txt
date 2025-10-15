@@ -1,0 +1,17 @@
+1 空间php程序部署由平台负责，gs只需根据平台提供ip 数据库配置gs
+2 gs 配置
+  2.1 启动脚本 增加 -usemysql 1 
+  2.2 properties/sys.properties 文件修改如下
+
+#Mysql相关配置(目前个人空间使用)
+sys.mysql.ip=192.168.32.2  #空间的数据库连接ip 端口 用户名 密码  由平台提供
+sys.mysql.port=3306
+sys.mysql.user=root
+sys.mysql.pass=123456
+sys.mysql.dbname=mt3_weibo_1101000001  #数据库名为空时，默认使用mt3_ + weibo +
+_serverid数据库 #mt3_weibo_1101961002 如果平台独立配置
+则需要改成平台配置的名字
+
+#个人空间服务器（php）地址
+#http://192.168.32.2:8803/
+sys.weibo.address=192.168.32.2:8803  #由平台提供

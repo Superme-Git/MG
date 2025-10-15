@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<!--
+xgenOutput        相对xgen的运行目录.xgen现在都在自己的目录下面运行。不会自动创建这个目录。
+
+trace             配置调试级别(debug,info,warn,error)。 输出文件,${dbhome}/trace.log, 
+                  *测试性能的时候，设置 warn 或以上级别。
+corePoolSize      线程池，工作线程数量
+
+dbhome            数据库目录。不会自动创建。
+logpages          数据库日志页面配置
+backupDir         备份目录。不会自动创建。
+
+flushPeriod       刷新脏数据间隔，毫秒
+checkpointPeriod  checkpoint间隔，毫秒
+backupIncPeriod   增量备份间隔，必须小于backupFullPeriod才有增量意义，否则这种备份不会执行。
+backupFullPeriod  全备份间隔，规格化的：nextTime = now / period * period + period;
+
+angelPeriod       死锁检测间隔，毫秒
+-->
+
+<xdb
+xgenOutput="../xtransform/src"
+trace="debug" traceTo=":out" traceRotateHourOfDay="6" traceRotateMinute="30"
+corePoolSize="20"
+dbhome="xdb" logpages="4096" backupDir="xbackup"
+flushFatalTime="100" flushPeriod="100" checkpointPeriod="10000"
+backupIncPeriod="100000" backupFullPeriod="90000"
+angelPeriod="5000"
+>
+	<ProcedureConf executionTime="300" retryTimes="3" retryDelay="100"/>
+	<!--merge测试使用-->
+	<xbean name="e">
+		<variable name="name" type="string" default="" capacity="1024"/> 
+	</xbean>
+	<xbean name="ntype">
+		<variable name="b" type="boolean" default="true"/> boolean test
+		<variable name="s" type="short" default="1"/> short test
+		<variable name="i" type="int" default="1"/> int test
+		<variable name="l" type="long" default="1"/> long test
+		<variable name="text" type="string" default="adcd" capacity="1024"/> text
+		<variable name="array" type="binary" capacity="1024"/>binary
+	</xbean>
+
+	<xbean name="ctype">
+		<variable name="map" type="map" key="long" value="nativetype" capacity="1024"/>map
+		<variable name="treemapb" type="treemap" key="long" value="nativetype" capacity="1024"/>treemap
+		<variable name="mapsb" type="map" key="string" value="nativetype" capacity="1024;key:32"/>map
+		<variable name="treemapsx" type="treemap" key="string" value="nativetype" capacity="1024;key:32"/>treemap
+
+		<variable name="setb" type="set" value="nativetype" capacity="1024"/>set
+		<variable name="listx" type="list" value="nativetype" capacity="1024"/>list
+		<variable name="vectorb" type="vector" value="nativetype" capacity="1024"/>vector
+	</xbean>
+
+	<table name="etable" key="int" value="e" persistence="DB"
+		lock="" cacheCapacity="10240"
+		cachehigh="128" cachelow="64"
+	/>
+
+	<table name="ntable" key="int" value="ntype"
+		lock="" persistence="DB" cacheCapacity="10240"
+		cachehigh="128" cachelow="64"
+	/>
+
+	<table name="ctable" key="int" value="ctype" persistence="DB"
+		lock="" cacheCapacity="10240"
+		cachehigh="128" cachelow="64"
+		/>
+
+	<!--这些是stub表，在测试reference时使用-->
+	<table name="fboolean" key="boolean" value="int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="ffloat"   key="float"   value="int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="fint"     key="int"     value="int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="flong"    key="long"    value="int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="fshort"   key="short"   value="int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="fstring"  key="string"  value="int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	
+	<!--这是包含primitive类型的cbean和递归定义的cbean-->
+	<cbean name="xcompare">
+		<variable default="true" name="b" type="boolean"/> boolean test
+		<variable default="1" name="s" type="short"/> short test
+		<variable default="1" name="i" type="int"/> int test
+		<variable default="1" name="l" type="long"/> long test
+		<variable default="123" name="text" type="string" capacity="32"/> text
+	</cbean>
+	<cbean name="recursivecbean">
+		<variable name="rc" type="xcompare"/>
+	</cbean>
+
+	<!--这是包含primitive类型的xbean，包含了cbean和递归cbean类型-->
+	<xbean name="nativetype">
+		<variable name="b" type="boolean" default="true" foreign="fboolean"/> boolean test
+		<variable name="s" type="short" default="1" foreign="fshort" /> short test
+		<variable name="i" type="int" default="1" foreign="fint"/> int test
+		<variable name="l" type="long" default="1" foreign="flong"/> long test
+		<variable name="f" type="float" foreign="ffloat"/>
+		<variable name="text" type="string" default="adcd" capacity="1024" foreign="fstring"/> text
+		<variable name="array" type="binary" capacity="1024"/>binary
+		<variable name="cbean" type="xcompare"/>
+		<variable name="rc" type="recursivecbean"/>
+	</xbean>
+	<!--这是以primitive类型xbean为value的容器（包含xbean），map的key为cbean（包含了所有基本类型）-->
+	<xbean name="basecontainer">
+		<variable name="map" type="map" key="int" value="nativetype" capacity="1024" foreign="key:fint"/>map
+		<variable name="treemap" type="treemap" key="float" value="nativetype" capacity="1024" foreign="key:ffloat"/>treemap
+		<variable name="set" type="set" value="nativetype" capacity="1024"/>set
+		<variable name="list" type="list" value="nativetype" capacity="1024"/>list
+		<variable name="vector" type="vector" value="nativetype" capacity="1024"/>vector
+		<variable name="xxbean" type="nativetype" />xbean
+		<variable name="lmap" type="map" key="int" value="long" capacity="1024" foreign="key:fint;value:flong"/>map
+		<variable name="slist" type="set" value="string" capacity="1024;value:32" foreign="fstring"/>
+	</xbean>
+	<!--这是容器嵌套的情况，value为xbean，但xbean中还有容器，map的key为嵌套定义的cbean-->
+	<xbean name="containertype">
+		<variable name="map" type="map" key="long" value="basecontainer" capacity="1024" foreign="key:flong"/>map
+		<variable name="treemap" type="treemap" key="string" value="basecontainer" capacity="1024;key:32" foreign="key:fstring"/>treemap
+
+		<variable name="set" type="set" value="basecontainer" capacity="1024"/>set
+		<variable name="list" type="list" value="basecontainer" capacity="1024"/>list
+		<variable name="vector" type="vector" value="basecontainer" capacity="1024"/>vector
+		<variable name="xxbean" type="basecontainer" />xbean
+		<variable name="fmap" type="map" key="int" value="float" capacity="1024" foreign="key:fint;value:ffloat"/>map
+		<variable name="slist" type="set" value="short" capacity="1024" foreign="fshort"/>
+	</xbean>
+	<!--这是使用到的基本类型，包括了可以用来做key的类型构成的nativetype xbean和一个容器类型（包含了容器嵌套）-->
+	<xbean name="baseType">
+		<variable name="primitive" type="nativetype" />
+		<variable name="container" type="containertype" />
+		<variable name="i" type="int" default="1" foreign="fint"/> int test
+	</xbean>
+	<!--这是真正用到的几张表，和上面的stub表相对应，key之间是硬关联关系，value都是baseType-->
+	<table name="bboolean" key="boolean" value="baseType" foreign="key:fboolean" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="bfloat"   key="float"   value="baseType" foreign="key:ffloat" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="bint"     key="int"     value="baseType" foreign="key:fint" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="blong"    key="long"    value="baseType" foreign="key:flong" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="bshort"   key="short"   value="baseType" foreign="key:fshort" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="bstring"  key="string"  value="baseType" foreign="key:fstring" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+
+	<table name="vstring" key="string" value="float" foreign="key:fstring;value:ffloat" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="vfloat"   key="short"   value="int" foreign="key:fshort;value:fint" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="vint"     key="long"     value="long" foreign="key:flong;value:flong" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="vlong"    key="int"    value="short" foreign="key:fint;value:fshort" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<table name="vshort"   key="float"   value="string" foreign="key:ffloat;value:fstring" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	
+	<!--lock name="role"/-->
+	<TableSysConf name="_sys_" cacheCapacity="1" cachehigh="1" cachelow="1"/>
+
+	<UniqNameConf localId="0">
+		<XioConf name="xdb.util.UniqName">
+			<Manager name="Client" maxSize="1">
+				<Coder>
+						<Rpc class="xdb.util.UniqName$Allocate"/>
+						<Rpc class="xdb.util.UniqName$Confirm"/>
+						<Rpc class="xdb.util.UniqName$Release"/>
+				</Coder>
+				<Connector remoteIp="127.0.0.1" remotePort="22200"
+					sendBufferSize="131072" receiveBufferSize="131072" tcpNoDelay="false"
+					inputBufferSize="131072" outputBufferSize="131072"/>
+			</Manager>
+		</XioConf>
+	</UniqNameConf>
+	
+	<!-- The Definition for JUnit Test of cai jiacheng -->
+	<!-- ||||||||||||||||||||||||||||||||||||||||||||| -->
+	<xbean name="yyy">
+		<variable name="a" type="set" value="int" capacity="1024"/>//测试用，不可改变
+		<!-- variable name="b" type="int"/-->
+		<variable name="b" type="int"/>
+		
+		<variable name="c" type="string" capacity="1024"/>
+	</xbean>
+	
+	<xbean name="xxx">
+		<!--variable name="add1" type="set" value="int" capacity="1024"/-->
+		
+		<variable name="c" type="string" capacity="1024"/>
+		
+		<!--variable name="a" type="set" value="int" capacity="1024" /-->
+		<variable name="a" type="set" value="int" capacity="1024" />//测试用，不可改变
+		
+		<variable name="d" type="string" capacity="1024"/>
+	</xbean>
+					
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64" key="int" name="table_int_int" value="int"/>
+		
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64" key="string" name="table_string_string" value="string"/>
+
+	<xbean name="varMap">
+		<variable key="int" name="v" type="map" value="int" capacity="1024"/>//测试用，不可改变
+		<variable key="int" name="v1" type="map" value="int" capacity="1024"/>//测试map->treemap用
+		<variable key="int" name="v2" type="treemap" value="int" capacity="1024"/>//测试treemap->map用
+		<variable name="v3" type="vector" value="int" capacity="1024"/>//测试vector->list用
+		<variable name="v4" type="list" value="int" capacity="1024"/>//测试list->vector用
+		<variable name="v5" type="int" />
+		<variable name="v6" type="long" />
+		<variable name="d" type="string" capacity="1024"/>//测试用，不可改变
+		<variable name="c" type="string" capacity="1024"/>//测试用，不可改变
+		<variable name="v7" type="set" value="long" capacity="1024"/>//测试set->list用
+		<variable name="v8" type="set" value="long" capacity="1024"/>//测试set->vector用
+	</xbean>		
+		
+	<xbean name="varSet">
+		<variable name="v" type="set" value="int" capacity="1024"/>//测试用，不可改变
+	</xbean>
+		
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64" key="short" name="table_short_set" value="varSet"/>
+		
+	<xbean name="delXbean">
+		<variable name="a" type="long"/>
+		<variable name="b" type="delXbeanValue"/>
+	</xbean>	
+	
+	<xbean name="delXbeanValue">
+		<variable name="a" type="long"/>
+	</xbean>
+				
+	<xbean name="NoUseXbeanValue">
+		<variable name="a" type="long"/>
+	</xbean>
+	
+	<xbean name="NoUseXbeanValue1">
+		<variable name="a" type="long"/>
+	</xbean>
+				
+	<xbean name="enumX">
+		<enum name="ex1" value="1" />
+		<enum name="ex2" value="1" />
+	</xbean>
+				
+	<xbean name="varXBean">
+		<variable name="vint" type="int"/>//测试用，不可改变
+		<variable name="vset" type="set" value="int" capacity="1024"/>
+		<variable name="vstring" type="string" capacity="1024"/>
+		<variable key="int" name="vmap" type="map" value="int" capacity="1024"/>
+		<variable name="vxxx" type="xxx" />
+		<variable name="vyyy" type="yyy" />//测试用，不可改变
+		
+		<variable name="bugDelXbean" type="map" key="int" value="delXbean"/>//测试删除xbean的效果
+		<variable name="oldUse" type="NoUseXbeanValue" />//测试去除xbean的效果
+		
+		<variable name="enuLong" type="long" default="enumX.ex1" />
+	</xbean>
+		
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64" key="int" name="table_int_xbean" value="varXBean"/>
+	
+		<table name="table_autokey" key="long" value="string" cacheCapacity="20480"
+		cachehigh="512" cachelow="256" autoIncrement="true"/>
+	
+	<xbean name="newXbean">
+		<variable name="b" type="varXBean"/>
+	</xbean>
+	
+	<xbean name="newAny" any="true">
+		<variable name="b" type="yyy"/>
+	</xbean>
+		
+
+	<table name="table_newxbean" key="long" value="newXbean" cacheCapacity="1024" cachehigh="512"
+		cachelow="256" />
+	
+			<!--foreign for caijiacheng -->	
+	
+	<table name="table_fint_int"     key="int"     value="int" foreign="key:table_int_int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>	
+	<table name="table_fstring_int"     key="string"     value="int" foreign="key:table_string_string" cacheCapacity="10240" cachehigh="128" cachelow="64"/>	
+	
+	<table name="table_ffint_long"     key="int"     value="long" foreign="key:table_fint_int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>	
+	<table name="table_ffstring_float"     key="string"     value="float" foreign="key:table_fstring_int" cacheCapacity="10240" cachehigh="128" cachelow="64"/>			
+			
+	<xbean name="fyyy">
+		<variable name="a" type="set" value="int" capacity="10240" foreign="table_int_int"/>
+		<variable name="b" type="int"/>
+		<variable name="c" type="string" capacity="1024"/>
+	</xbean>
+	
+	<xbean name="fxxx">
+		<variable name="a" type="set" value="int" capacity="10240"/>
+		<variable name="b" type="yyy"/>
+		<variable name="c" type="string" capacity="10240"/>
+	</xbean>
+	
+	<xbean name="fvalue">
+		<variable name="a" type="set" value="int" capacity="10240"/>
+		<variable name="c" type="string" capacity="1024" foreign="table_string_string"/>
+	</xbean>
+	
+	<table name="table_fint_fxxx" key="int"  value="fxxx" cacheCapacity="10240" cachehigh="128" cachelow="64"/>	
+	<table name="table_fint_fvalue" key="int"  value="fvalue" cacheCapacity="10240" cachehigh="128" cachelow="64"/>	
+				
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64" key="long" name="table_long_map" value="varMap"/>
+	
+	
+	<table cacheCapacity="10240" cachehigh="128" cachelow="64" key="string" name="table_string_long" value="long"/>
+	<table name="table_fstring_flong" key="string"  value="long" foreign="key:table_string_long;value:table_long_map" cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+	<!-- Cbean的测试 -->
+	
+	<cbean name="cxxx">
+		<variable name="etype"     type="int"/>
+		<variable name="iid"       type="long"/>
+	</cbean>	
+	
+	<xbean name="cxbean">
+		<variable name="a"     type="int"/> 
+		<variable name="b"     type="cxxx"/> 
+	</xbean>
+	
+	<xbean name="cxbean_int">
+		<variable name="a"     type="int"/> 	
+	</xbean>
+	
+	<table name="table_cbean_cxbean" key="cxxx" value="cxbean" cacheCapacity="10240" cachehigh="128" cachelow="64"/> value的CBean变动
+	<table name="table_cbean_cxbeanint" key="cxxx" value="cxbean_int" cacheCapacity="10240" cachehigh="128" cachelow="64"/> key的CBean变动
+	
+		
+	
+	
+	<!-- ||||||||||||||||||||||||||||||||||||||||||||| -->
+	
+	
+</xdb>

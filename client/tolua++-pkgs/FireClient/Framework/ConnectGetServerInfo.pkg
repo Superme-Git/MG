@@ -1,0 +1,114 @@
+enum enumServerHttpAdress
+{
+	eHttpPatchUrl,
+	eHttpUpdateUrl,
+	eHttpShareUrl,
+	eHttpInfoUrl,
+	eHttpChatUrl,
+	eHttpCommunityUrl,
+	eHttpNoticeUrl,
+	eHttpConfigUrl,
+	eHttpServerInfoUrl,
+	eHttpXunFeiServerUrl,
+	eHttpHorseRunUrl,
+	eHttpJinglingUrl,
+	eHttpKongjianUrl,
+};
+
+struct stServerINFO
+{
+	int areaID;
+	std::wstring serverid;
+	std::wstring serverArea;
+	std::wstring serverName;
+	std::wstring serverIp;
+	std::wstring serverPort;
+	std::wstring serverState;
+	std::wstring serverStandby;
+	std::wstring serverType;
+	std::wstring serverOpenTime;
+	std::wstring serverFlag;
+};
+
+struct stJinglingINFO
+{
+	std::string jl_faqid;
+	std::string jl_categoryid;
+	std::string jl_title;
+	std::string jl_style;
+	std::string jl_sort;
+	std::string jl_status;
+	std::string jl_content;
+};
+
+struct stQuestTitleID
+{
+	std::string qid;
+	std::string qtitle;
+};
+struct stRecruitData
+{
+	int total;
+	std::string times_item;
+};
+struct stRecruitList
+{
+	std::string roleid;
+	std::string name;
+	std::string avatar;
+	std::string level;
+	std::string servername;
+	std::string serverid;
+};
+struct stRecruitOneRoleData
+{
+	std::string serverid;
+	std::string roleid;
+	std::string new_serverid;
+	std::string new_roleid;
+	std::string prize_type;
+	std::string amount;
+};
+class ConnectGetServerInfo
+{
+public:
+	void connetGetServerlist();
+	void connetGetUserInfo();
+	void connetCreateRoleInfo(int serverid, int headid);
+	void connetGetRecruitInfo(char* url, int index);
+	void onGetServerlist(cocos2d::extension::CCHttpClient* client, cocos2d::extension::CCHttpResponse* response);
+	void onGetUserInfo(cocos2d::extension::CCHttpClient* client, cocos2d::extension::CCHttpResponse* response);
+	void onSerUserInfo(cocos2d::extension::CCHttpClient* client, cocos2d::extension::CCHttpResponse* response);
+
+	void setHttpAdressMap(enumServerHttpAdress em, std::string value);
+	std::string getHttpAdressByEnum(enumServerHttpAdress em);
+
+	std::vector<stServerINFO>& getAllServers();
+
+	enumGetServerState getConnectState();
+
+	int getRoleHeadInfoByServerID(int serverID);
+	void setServerRoleInfoMap(int key, int value);
+
+	void setConnectFromLogin(bool isInLogin);
+
+	void clearHeadInfo();
+
+	void doEnterBBS();
+	void doRequestJingLingQuest(int id);
+	
+	void getRedianIds(std::vector<int>& ids);
+	void getTuijianIds(std::vector<int>& ids);
+	void getKefuIds(std::vector<int>& ids);
+	stJinglingINFO getJinglingDataByID(int id);
+	void clearJinglingData();
+	void doRequestSearchData(std::string keyWord);
+	void getSearchResultList(std::string q, std::vector<stQuestTitleID>& ids);
+	
+	stRecruitData getRecruitData();
+	std::vector<stRecruitList> getRecruitList();
+	std::vector<stRecruitOneRoleData> getRecruitOneRole();
+};
+
+inline ConnectGetServerInfo* GetServerInfo();
+inline void destroyServerInfo();

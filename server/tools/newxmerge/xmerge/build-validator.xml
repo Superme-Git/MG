@@ -1,0 +1,51 @@
+<project name="validator" default="install">
+
+<property name="src" value="src/validator"/>
+<property name="build" value="classes/validator"/>
+<property name="bin" value="lib"/>
+<property name="output" value="xdbmerge"/>
+	
+<target name="init" depends="clean">
+	<mkdir dir="${build}" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/monkeyking.jar"/>
+		<pathelement path="${output}/xmerge.jar"/>
+		<pathelement path="${output}/mylogic.jar"/>
+	</path>
+
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+<target name="clean">
+	<delete dir="${build}" />
+</target>
+
+<target name="dist" depends="compile">
+	<path id="compile.classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/monkeyking.jar"/>
+		<pathelement path="${output}/xmerge.jar"/>
+		<pathelement path="${output}/mylogic.jar"/>
+	</path>
+	<manifestclasspath property="jar.classpath" jarfile="validator.jar">
+	      <classpath refid="compile.classpath"/>
+	</manifestclasspath>
+	<jar jarfile="validator.jar" basedir="${build}">
+		<manifest>
+			<attribute name="Main-Class" value="validator.Main" />
+	    <attribute name="Class-Path" value="${jar.classpath}" />
+		</manifest>
+	</jar>
+</target>
+
+<target name="install" depends="dist">
+	<copy file="validator.jar" todir="${output}"/>
+</target>
+	
+</project>

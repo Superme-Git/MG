@@ -1,0 +1,15 @@
+class DroptItem : public SceneObject
+{
+public:
+	DroptItem();
+	virtual ~DroptItem();
+
+	virtual int64_t GetID();
+	int GetBaseID();
+
+	virtual std::wstring GetName();
+
+	virtual bool CanPickedUp();
+	
+	virtual bool OnSetCursor();
+};

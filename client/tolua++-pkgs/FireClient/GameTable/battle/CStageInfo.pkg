@@ -1,0 +1,47 @@
+namespace GameTable
+{
+    namespace battle
+    {
+        class CStageInfo
+        {
+            public:
+            int id;
+            int stagenum;
+            int stagetype;
+            int executetype;
+            int delay;
+            int actiontype;
+            int actionlimittime;
+            int movetype;
+            int syncprotect;
+            int targetx;
+            int targety;
+            int phantomid;
+            int phantomalpha;
+            int movetime;
+            int effecttype;
+            int postype;
+            int hastrail;
+            int youfangxiang;
+            std::wstring effectname;
+            int effectlayer;
+            std::wstring effectsound;
+            int resulttype;
+            int resultlimittime;
+            int resultonhittime;
+            int teleporttype;
+            int teletime;
+            int blurtime;
+            int teleportlimittime;
+        };
+        class CStageInfoTable
+        {
+            public:
+        CStageInfo& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CStageInfoTable&  GetCStageInfoTableInstance();
+    }
+}

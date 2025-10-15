@@ -1,0 +1,345 @@
+客户端资源打包工具使用说明
+
+打包工具主程序:LJFilePack.exe
+打包工具配置文件:LJFilePackOption.xml
+
+在命令行下可以执行以下命令:
+
+打包:LJFilePack.exe version:0 update:0 channel:0 extend:0 io:0 filter:0 pack:0 compress:0 code:0
+
+这些参数分别对应了配置文件中的相应节点,冒号后面的数字对应了此节点下的子节点的名称
+version:0
+update:0
+channel:0
+extend:0
+io:0
+filter:0
+pack:0
+compress:0
+code:0
+
+---------------------------------------------------------------------------------------------------------
+Version节点:版本信息相关
+例:
+<Version Count="1">
+		<0 Description="IOS">
+			<VersionInfo VersionCaption="0.0.1" VersionCaptionBase="0.0.1" VersionCaptionMinimum="0.0.1" VersionDonotCheck="1"/>
+		</0>
+</Version>
+
+节点:
+	名称:
+		Version:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+		子节点:
+			名称:
+				VersionInfo:固定
+			属性:
+				VersionCaption:当前版本号(生成更新包时也是最新版本号)
+				VersionCaptionBase:基础版本号(一般为当前安装包自带的版本号)
+				VersionCaptionMinimum:升级到当前版本所需要的最低版本号(客户端大于或等于此版本号时都会进行更新,只有小于此版本号时才会弹出网站或商店链接下载地址)
+---------------------------------------------------------------------------------------------------------
+Update节点:(不再使用)
+例:
+<Update Count="1">
+		<0 Description="IOS_Test">
+			<URLInfo AppURL="11http://store.apple.com/123/456/789/0" Count="1">
+				<0 Network="lan" System="ios" URL="11http://42.62.98.140:8090/ios/"/>
+			</URLInfo>
+		</0>
+</Update>
+
+节点:
+	名称:
+		Update:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+		子节点:
+			名称:
+				URLInfo:固定
+			属性:
+				AppURL:版本太旧需要打开的网站或商店链接(不再使用,从服务器列表中读取)
+				Count:子节点个数
+			子节点:
+				名称:
+					0:数字索引(不再使用)
+				属性:
+					Network:网络类型(不再使用)
+					System:系统类型(不再使用)
+					URL:更新包下载地址(不再使用,从服务器列表中读取)
+---------------------------------------------------------------------------------------------------------
+Channel节点:(不再使用)
+例:
+	<Channel Count="2">
+		<0 Description="IOS_Locojoy">
+			<ChannelInfo Channel="0" ChannelCaption="IOS_Locojoy"/>
+		</0>
+		<1 Description="Android_Locojoy">
+			<ChannelInfo Channel="0" ChannelCaption="Android_Locojoy"/>
+		</1>
+	</Channel>
+---------------------------------------------------------------------------------------------------------
+Extend节点:扩展数据,程序用
+例:
+	<Extend Count="2">
+		<0 Description="IOS">
+			<ExtendInfo Test1="1" Test2="0.0.1" Test3="abc"/>
+		</0>
+		<1 Description="Android">
+			<ExtendInfo Test1="2" Test2="0.0.2" Test3="xyz"/>
+		</1>
+	</Extend>
+
+节点:
+	名称:
+		Extend:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+		子节点:
+			名称:
+				ExtendInfo:固定
+			属性:
+				Key和Value都是自定义的,程序中可以读取到
+---------------------------------------------------------------------------------------------------------
+IO节点:打包时使用的扫描目录,输出目录,输出包类型
+例:
+	<IO Count="4">
+		<0 Description="Some texts" FindPath="../res/" OutputPath="../../res_ios/res/" OutputType="Pack"/>
+		<1 Description="Some texts" FindPath="../res/" OutputPath="../../res_ios/Update/" OutputType="File"/>
+		<2 Description="Some texts" FindPath="../res/" OutputPath="../../res_android/res/" OutputType="File"/>
+		<3 Description="Some texts" FindPath="../res/" OutputPath="../../res_android/Update/" OutputType="File"/>
+	</IO>
+
+节点:
+	名称:
+		IO:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+			FindPath:要扫描的目录
+			OutputPath:生成的资源包输出的目录
+			OutputType:Pack模式将多个文件合到一个件中,目前只在IOS平台安装包使用,File模式单独压缩每一个文件
+---------------------------------------------------------------------------------------------------------
+Filter节点:扫描文件的过滤设置
+例:
+	<Filter Count="1">
+		<0 Description="Some texts">
+			<FilterDirName>0</FilterDirName>
+			<FilterDirNameFull 0="config/autoconfig">1</FilterDirNameFull>
+			<FilterFileName>0</FilterFileName>
+			<FilterFileNameFull 0="ver.ini" >1</FilterFileNameFull>
+			<FilterFileType 0="db" 1="ilk" 2="pdb" 3="exe">4</FilterFileType>
+		</0>
+	</Filter>
+
+节点:
+	名称:
+		Filter:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+		子节点:
+			名称:
+				FilterDirName:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,过滤掉的单目录名称,比如目录名为A,则任何一级目录中的子目录叫A的都会被过滤掉
+			名称:
+				FilterDirNameFull:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,过滤掉的多级目录名称,这个目录是从IO节点中FindPath属性设置路径下面开始比较
+			名称:
+				FilterFileName:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,过滤掉的单文件名称,比如文件名为A.txt,则任何一级目录中的文件叫A.txt的都会被过滤掉
+			名称:
+				FilterFileNameFull:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,过滤掉的多级目录+文件名称,这个目录是从IO节点中FindPath属性设置路径下面开始比较
+			名称:
+				FilterFileType:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,过滤掉的文件类型,比如文件类型为exe,则任何一级目录中的exe文件都会被过滤掉
+---------------------------------------------------------------------------------------------------------
+Pack节点:(只在IO节点中OutputType属性设置为Pack时使用)
+例:
+	<Pack Count="1">
+		<0 Description="Some texts" MaxSize="52428800">
+			<UnPackFileName>0</UnPackFileName>
+			<UnPackFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml" 3="image/share/share.png">4</UnPackFileNameFull>
+			<UnPackFileType 0="ogg" 1="mp3" 2="mp4" 3="ini">4</UnPackFileType>
+		</0>
+	</Pack>
+
+节点:
+	名称:
+		Pack:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+			MaxSize:单资源包的最大值
+		子节点:
+			名称:
+				UnPackFileName:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不打进包的单文件名称,比如文件名为A.txt,则任何一级目录中的文件叫A.txt的都不会打进包中
+			名称:
+				UnPackFileNameFull:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不打进包的多级目录+文件名称,这个目录是从IO节点中FindPath属性设置路径下面开始比较
+			名称:
+				UnPackFileType:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不打进包的文件类型,比如文件类型为ogg,则任何一级目录中的ogg文件都不会打进包中
+---------------------------------------------------------------------------------------------------------
+Compress节点:资源文件的压缩相关设置
+例:
+	<Compress Count="1">
+		<0 Description="Some texts">
+			<UnCompressFileName>0</UnCompressFileName>
+			<UnCompressFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml" 3="cfg/android_notify.xml" 4="image/share/share.png">5</UnCompressFileNameFull>
+			<UnCompressFileType 0="ogg" 1="mp3" 2="mp4" 3="ini" 4="png">5</UnCompressFileType>
+		</0>
+	</Compress>
+
+节点:
+	名称:
+		Compress:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+		子节点:
+			名称:
+				UnCompressFileName:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不压缩的单文件名称,比如文件名为A.txt,则任何一级目录中的文件叫A.txt的都不会被压缩
+			名称:
+				UnCompressFileNameFull:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不压缩的多级目录+文件名称,这个目录是从IO节点中FindPath属性设置路径下面开始比较
+			名称:
+				UnCompressFileType:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不压缩的文件类型,比如文件类型为ogg,则任何一级目录中的ogg文件都不会被压缩
+---------------------------------------------------------------------------------------------------------
+Code节点:资源文件的加密相关设置
+例:
+	<Code Count="1">
+		<0 Description="Some texts">
+			<UnCodeFileName>0</UnCodeFileName>
+			<UnCodeFileNameFull 0="cfg/mount_android.xml" 1="cfg/mount_ios.xml" 2="cfg/mount_win.xml" 3="cfg/android_notify.xml" 4="image/share/share.png">5</UnCodeFileNameFull>
+			<UnCodeFileType 0="ogg" 1="mp3" 2="mp4" 3="ini">4</UnCodeFileType>
+		</0>
+	</Code>
+
+节点:
+	名称:
+		Code:固定
+	属性:
+		Count:子节点个数
+	子节点:
+		名称:
+			0:对应外部命令传进来的参数
+		属性:
+			Description:注释
+		子节点:
+			名称:
+				UnCodeFileName:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不加密的单文件名称,比如文件名为A.txt,则任何一级目录中的文件叫A.txt的都不会被加密
+			名称:
+				UnCodeFileNameFull:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不压缩的多级目录+文件名称,这个目录是从IO节点中FindPath属性设置路径下面开始比较
+			名称:
+				UnCodeFileType:固定
+			值:
+			  属性个数
+			属性:
+				0:对应节点值中设置的数量,不加密的文件类型,比如文件类型为ogg,则任何一级目录中的ogg文件都不会被加密
+---------------------------------------------------------------------------------------------------------
+=========================================================================================================
+打包工具除了打包之外还可以单独执行一些命令:
+
+获得一串字符串的CRC32码:LJFilePack.exe getstrcrc32
+获得多节格式版本号对应的数字码LJFilePack.exe getversionnum
+获得版本号数字码对应的多节格式版本号LJFilePack.exe getversioncaption
+
+解密:LJFilePack.exe decode:要处理的文件名
+解压缩:LJFilePack.exe unzip:要处理的文件名
+解密并且解压缩:LJFilePack.exe decodeunzip:要处理的文件名
+
+解压整个资源包到一个同名的新目录LJFilePack.exe unpack:要处理的文件名(*.ljpi或*.ljzip)
+
+版本文件从二进制格式转成XML格式LJFilePack.exe verljvi2xml:要处理的文件名
+版本文件从XML格式转成二进制格式LJFilePack.exe verxml2ljvi:要处理的文件名
+
+文件列表文件从二进制格式转成XML格式LJFilePack.exe ljzip2xml:要处理的文件名
+文件列表文件从XML格式转成二进制格式LJFilePack.exe ljpi2xml:要处理的文件名
+
+生成最小集合的更新包:LJFilePack.exe makeupdatepackall:要处理的文件名(此文件名是一个文本文档.文档里面第一行是输出的绝对路径(末尾有/),从第二行开始是各版本更新包所在的绝对路径(末尾有/))
+例如:
+c:/resNew/
+c:/res0/
+c:/res1/
+c:/res2/
+
+上面文件中从第二行开始的每一版的更新包路径都要按照版本的顺序排列,
+路径下面需要有fl.ljpi,ver.ljvi,fl.ljzip这些文件,以及所有资源文件(也可以尝试只放用此工具比较出来的若干文件)

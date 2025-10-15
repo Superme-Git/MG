@@ -1,0 +1,22 @@
+namespace Nuclear
+{
+	class EffectManager
+	{
+	public:
+		EffectManager(EngineBase *pEB);
+		~EffectManager();
+		Effect* CreateEffect(std::wstring name, bool cycle, bool bPreLoad = false);
+		ParticleEffect* CreateLinkedEffect(std::wstring name, const NuclearPoint &pt1, const NuclearPoint &pt2, float time);
+		Effect* CreateListEffect(const std::wstring& begin, const std::wstring& midcyc, const std::wstring& end, int durTime, bool cycle, bool async, bool removesound);
+		void OnTick();
+		void RemoveEffect(IEffect* pEffect);
+	};
+class IParticleManager
+
+
+{	
+public:
+	virtual ~IParticleManager() ;
+};
+
+}

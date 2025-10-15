@@ -1,0 +1,206 @@
+/***********************************************************************
+	RichEditbox
+***********************************************************************/
+enum eTextAcceptMode  
+{ 
+	eTextAcceptMode_Enter,
+	eTextAcceptMode_CtrlEnter,  
+	eTextAcceptMode_OnlyEnter,  
+
+	eTextAcceptMode_None
+};
+
+class RichEditbox : public Window
+{
+	struct CaratPos {
+		unsigned int d_ComponentIndex;
+		unsigned int d_ComponentOffset;
+		bool operator==(const CaratPos& pos) const;
+		bool operator<(const CaratPos& pos) const;
+		void Reset();
+	};
+	
+	bool hasInputFocus(void) const;
+	bool isReadOnly(void) const;
+	CaratPos getCaratPos(void) const;
+	CaratPos getSelectionStartPos(void) const;
+	CaratPos getSelectionEndPos(void) const;
+	
+	unsigned int getSelectionLength(void);
+	unsigned int getMaxTextLength(void) const;
+
+	bool isWordWrapped(void) const;
+	bool isVertScrollbarAlwaysShown(void) const;
+	CEGUI::Scrollbar* getHorzScrollbar() const;
+	size_t  getLineNumberFromPos(CaratPos pos) const;
+	void initialiseComponents(bool bClone);
+	void setCaratPos(CaratPos carat_pos);
+	void setCaratPos(size_t index,size_t offset);
+	void setSelection(CaratPos start_pos, CaratPos end_pos);
+	void ensureCaratIsVisible(void);
+	void setWordWrapping(bool setting);
+	void setShowVertScrollbar(bool setting);
+	void setSelectionBrushImage(const Image* image);
+	const Image* getSelectionBrushImage() const;
+	CEGUI::Size    GetLineSize(size_t index);
+	CEGUI::Point  GetCaratDrawPos();
+	const ColourRect& GetColourRect() ;
+	String GetColourString();
+	void SetColourRect(ColourRect Color);
+	void SetColourRect(colour color) ;
+
+	eTextAcceptMode GetTextAcceptMode() ;
+	void SetTextAcceptMode(eTextAcceptMode mode) ;
+	static const string EventTextAccepted;
+
+	const string GetParseText() ;
+	
+	string GetPureText();
+
+	void ResetTextColour(ColourRect color);
+
+	string GenerateParseText(bool bIsGenerateRoot=true);
+
+	void Clear();
+
+	void SetSrollBarLockTime(float time);
+	void SetScrollBarLockEnable(bool bEnable);
+	void OnThumbLockEnd();
+
+	bool handle_horscrollVisChange(const EventArgs& args);
+	void Refresh();
+	void AppendBreak();
+	void AppendParseText(const String& ParseText,bool bCheckShied=false);
+	void AppendText(const String& Text,const ColourRect& colours=ColourRect(colour(0xffffffff)),bool bBorder=false,const colour& borderColour=colour(0xFF000000));
+	RichEditboxLinkTextComponent* AppendLinkText(const String& Text,const ColourRect& colours=ColourRect(colour(0xffffff00)));
+	CEGUI::RichEditboxGoToComponent* AppendGoToText(const string& Text,const ColourRect& colours=ColourRect(colour(0xff00ff00)));
+
+	CEGUI::RichEditboxLinkTextComponent* InsertLinkTextInCarat(const string& Text,const ColourRect& colours=ColourRect(colour(0xffffff00)));
+	void InsertTextInCarat(const string& Text,const ColourRect& colours=ColourRect(colour(0xffffffff)));
+	void InsertImageInCarat(const Image* pImage);
+	CEGUI::RichEditboxEmotionComponent* InserEmotionInCarat(int emotionID);
+	CEGUI::RichEditboxGoToComponent* InsertGoToTextInCarat(const string& Text,const ColourRect& colours=ColourRect(colour(0xff00ff00)));
+
+	CEGUI::RichEditboxImageComponent* AppendImage(const CEGUI::String& strSet,const CEGUI::String& strName);
+	CEGUI::RichEditboxImageComponent* AppendImage(const CEGUI::Image* pImage, const int& useid = 0,const int& num = 0);
+	bool IsEmpty() ;
+	void HandleEnd(); 
+	void HandleTop();
+	CEGUI::Scrollbar* getVertScrollbar() const;
+
+	CEGUI::RichEditboxEmotionComponent* AppendEmotion(int emotionID);
+	CEGUI::RichEditboxTipsLinkComponent* AppendTipsLink(const string& Text,const string& fontName,int64_t roleid,
+		                                          int type,const string& key,int baseid, int shopID, int counterID,int bind,int64_t loseeffecttime);
+	RichEditboxTipsLinkComponent* InsertTipsLinkInCarat(const String& Text,const String& fontName,int64_t roleid,
+		int type,const String& key,int baseid, int64_t shopID, int counterID,int bind=0,int64_t loseeffecttime=0,const CEGUI::colour& nameColor=colour(0xFFFFFF00));
+
+	
+	CEGUI::RichEditboxNameLinkComponent* InsertNameLinkInCarat(int64_t roleID,const string& roleName,int colorType=0);
+	CEGUI::RichEditboxNameLinkComponent* AppendNameLink(int64_t roleID,const string& roleName);
+
+	CEGUI::RichEditboxFamilyRecruitLinkComponent* InsertFamilyRecruitInCarat(int familyID,const string& familyName,
+		int64_t leaderID,const string& leader,int rank,int level,const string& familyAim);
+
+	CEGUI::RichEditboxFamilyRecruitLinkComponent* AppendFamilyRecruit(int familyID,const string& familyName,
+		int64_t leaderID,const string& leader,int rank,int level,const string& familyAim);
+
+	CEGUI::RichEditboxComponent* GetComponentByPos(const Point& pt);
+
+	void SetCaratEnd();
+    void setReadOnly(bool setting);
+    void setMaxTextLength(size_t max_len);
+
+	Size GetExtendSize();
+	void SetLockState(bool bIsLock);
+	bool GetLockState() ;
+	void SetUserLock(bool bUserLock) ;
+	bool IsBackGroundEnable()const;
+    void SetBackGroundEnable(bool enable);
+	void SetTextBottomEdge(float offset) ;
+	float GetTextBottomEdge() ;
+
+	void SetLineSpace(float fSpace)  ;
+	float GetLineSpace() const ;
+	void SetPassMouseClick(bool b)  ;
+	void SetForceHideVerscroll(bool b)  ;
+	void updateSelf(float elapsed);
+
+	void SetComponentHeightOffset(float offset);
+	float GetComponentHeightOffset();
+
+	void ParseTipsLinkInf(std::vector<CEGUI::TipsLinkInf>& vecTipsInf);
+	int GetTipsLinkCount();
+	int GetTipsNameIndex(const string& name);
+	void EraseNumber(string& name);
+	int GetCharCount();
+	int GetLineCount();
+	bool isCaratOnAllTop();
+
+	void DeleteSelectText();
+	
+	string GenerateSelectPureText();
+	static string s_strCopyParseText;
+	void SetEmotionScale(Vector2 scale) ;
+	Vector2 GetEmotionScale() ;
+	bool isOnlySpace();
+	Point GetLineScreenPos(size_t index);
+	size_t GetCpnLineIndex(CEGUI::RichEditboxComponent* pCpn);
+	CEGUI::RichEditboxComponent* GetFirstLinkTextCpn();
+    RichEditboxGoToComponent* GetFirstGotoLinkCpn();
+    void OnFirstGotoLinkClick();
+	Point GetCpnScreenPos(CEGUI::RichEditboxComponent* pCpn);
+	void SetHoriAutoCenter(bool bHoriCenter) ;
+	bool isHoriAutoCenter() ;
+	void SetVertAutoCenter(bool bVertCenter) ;
+	bool isVertAutoCenter() ;
+	float GetDrawYOffset() ;
+	bool isCaratOnEnd();
+	void ParseControlText();
+	void CheckLineCount();
+	void SetMaxLineNumber(size_t number);
+	size_t GetStartDrawLineIndx() ;
+	void SetTextBorder(bool bBorder) ;
+	bool isTextBorder() ;
+	float GetTextYOffset() ;
+	void SetTextYOffset(float offset) ;
+
+	bool isSupportEmotion() ;
+	void SetSupportEmotion(bool bEnbale) ;
+
+	void EnableAutoChangeEmotionSize(bool bEnable) ;
+	int GetEmotionLineNum();
+	Vector2 GetEmotionScaleByLineNum(int emotionLineNum,size_t totalLineNum);
+	void SetAllEmotionScale(Vector2 scale);
+	int GetEmotionNum();
+
+	string ParseTextOutofBound(const string& srcStr, int boundLen);
+	bool isNumber(unsigned int num);
+
+	size_t GetFormatCpnNum() ;
+
+	float GetMaxLineHeight() ;
+
+	void RefreshUpdateCpnList(size_t startIdx,size_t endIdx);
+    
+    virtual void InsertText(const string& strText);
+        
+    void GetAllEmotionID(std::vector<int>& emotionIds);
+        
+    bool isClickSelectLine() ;
+    
+    void EnableClickSelectLine(bool b) ;
+    
+    CEGUI::RichEditboxComponent* GetLinkTextOnPos(const Point& pt);
+    
+    bool isPushedLine(size_t lineIdx);
+    
+    void setTopAfterLoadFont(bool b);
+
+    bool getTopAfterLoadFont() const;
+        
+    string GenerateAllPureText();
+	
+	void setTextLineVertCenter(bool b);
+	bool getTextLineVertCenter();
+};
+

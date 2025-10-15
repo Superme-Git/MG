@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="fushi">
+		
+		<bean name="ChargeConfig">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="serverid" fromCol="服务器id" type="int" />
+			<variable name="roofid" fromCol="渠道id" type="string" />
+			<variable name="sellpricenum" fromCol="价格" type="int" />
+			<variable name="sellnum" fromCol="符石" type="int" />
+			<variable name="sellnummore" fromCol="赠送" type="int" />
+			<variable name="kind" fromCol="商品类型" type="int" />
+			<variable name="name" fromCol="商品名称" type="string" />
+			<variable name="gameshow" fromCol="游戏内显示" type="int" />
+			<variable name="productid" fromCol="商品ID" type="string" />
+			<variable name="productstr" fromCol="结果" type="string" />
+			<variable name="chargecount" fromCol="充值次数" type="int" />
+		</bean>
+		
+		<bean name="SAddCash" from="c充值配置表" genxml="server" baseclass="ChargeConfig">
+		</bean>
+		
+		<bean name="CAddCashlua" from="c充值配置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="sellpricenum" fromCol="价格" type="int" />			
+			<variable name="itemicon" fromCol="道具图标" type="string" />
+			<variable name="kind" fromCol="商品类型" type="int" />
+			<variable name="roofid" fromCol="渠道id" type="string" />
+			<variable name="maxcash" fromCol="是否最大额度" type="int" />
+			<variable name="cashkind" fromCol="货币类型" type="int" />
+			<variable name="unititem" fromCol="单位图标" type="string" />
+			<variable name="foodid" fromCol="商品ID" type="string" />
+			<variable name="dayRes" fromCol="天数资源图" type="string" />
+			<variable name="foodname" fromCol="商品" type="string" />
+			<variable name="credit" fromCol="信用度" type="int" />
+		</bean>	
+		
+		<bean name="SAddCashPCard" from="D点卡服表格/c充值配置表" genxml="server"  baseclass="ChargeConfig">
+		</bean>
+		
+		<bean name="CAddCashPCardlua" from="D点卡服表格/c充值配置表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="sellpricenum" fromCol="价格" type="int" />			
+			<variable name="itemicon" fromCol="道具图标" type="string" />
+			<variable name="kind" fromCol="商品类型" type="int" />
+			<variable name="roofid" fromCol="渠道id" type="string" />
+			<variable name="maxcash" fromCol="是否最大额度" type="int" />
+			<variable name="cashkind" fromCol="货币类型" type="int" />
+			<variable name="unititem" fromCol="单位图标" type="string" />
+			<variable name="foodid" fromCol="商品ID" type="string" />
+			<variable name="dayRes" fromCol="天数资源图" type="string" />
+			<variable name="foodname" fromCol="商品" type="string" />
+			<variable name="credit" fromCol="信用度" type="int" />
+		</bean>	
+		
+
+		<bean name="CChargeReturnProfit" from="c充值返利表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="chargevalue" fromCol="充值符石额度" type="int" />
+			<variable name="rewarditems" type="vector" value="int" fromCol="奖励1,奖励2"/>
+			<variable name="rewardnums" type="vector" value="int" fromCol="奖励1数量,奖励2数量"/>
+			<variable name="text" fromCol="文本提示" type="string"/>
+		</bean>		
+		
+
+		<bean name="SChargeReturnProfit" from="c充值返利表" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="chargevalue" fromCol="充值符石额度" type="int" />
+			<variable name="rewarditems" type="vector" value="int" fromCol="奖励1,奖励2"/>
+			<variable name="rewarditemnums" type="vector" value="int" fromCol="奖励1数量,奖励2数量"/>
+		</bean>
+
+
+    <bean name="CRewardSystemBtnShow" from="J奖励系统表" genxml="client" gencode="mtlua">
+      <variable name="id" fromCol="系统ID" type="int" />
+      <variable name="systemname" fromCol="系统名称" type="string" />
+      <variable name="bshoweffect" fromCol="提醒特效" type="int"/>  0, 不显示特效， 1， 有奖励时提醒
+      <variable name="btnimage" fromCol="图片" type="string" />
+    </bean>
+	
+	<bean name="CVipInfo" from="VIP" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="VIP等级" type="int"/>
+		<variable name="exp" fromCol="所需经验" type="int"/>
+		<variable name="itemids" type="vector" value="int" fromCol="道具奖励1,道具奖励2,道具奖励3,道具奖励4,道具奖励5"/>
+		<variable name="itemcounts" type="vector" value="int" fromCol="道具奖励1数量,道具奖励2数量,道具奖励3数量,道具奖励4数量,道具奖励5数量"/>
+		<variable name="type1" fromCol="特权1说明" type="string"/>
+		<variable name="type2" fromCol="特权2说明" type="string"/>
+		<variable name="type3" fromCol="特权3说明" type="string"/>
+		<variable name="limitnumber1" fromCol="周打折限购数量" type="int"/>
+		<variable name="limitnumber2" fromCol="商会每日限购数量" type="int"/>
+		<variable name="petextracount" fromCol="c宠物栏数量" type="int"/>
+		<variable name="giftBagNum" fromCol="背包格数" type="int"/>
+		<variable name="bagextracount" fromCol="c背包格数" type="int"/>
+		<variable name="dpotextracount" fromCol="c仓库格数" type="int"/>
+	</bean>
+	
+	<bean name="SVipInfoConfig" from="VIP" genxml="server">
+		<variable name="id" fromCol="VIP等级" type="int"/>
+		<variable name="exp" fromCol="所需经验" type="int"/>
+		<variable name="itemids" type="vector" value="int" fromCol="道具奖励1,道具奖励2,道具奖励3,道具奖励4,道具奖励5"/>
+		<variable name="itemcounts" type="vector" value="int" fromCol="道具奖励1数量,道具奖励2数量,道具奖励3数量,道具奖励4数量,道具奖励5数量"/>
+		<variable name="viprights" type="vector" value="int"  fromCol="助战数量,仓库格数,背包格数,周打折限购数量,盈福经验转化率,商会每日限购数量,宠物栏数量,补签次数"/>
+        <variable name="bagsize" type="int" fromCol="c背包格数"/>
+        <variable name="depotsize" type="int" fromCol="c仓库格数"/>
+    </bean>
+	
+	<bean name="CRedPackConfig" from="H红包配置表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="id" type="int"/>
+		<variable name="name" fromCol="策划备注" type="string"/>
+		<variable name="fushimin" fromCol="最小数量" type="int"/>
+		<variable name="fishimax" fromCol="最大数量" type="int"/>
+		<variable name="daysendmax" fromCol="每日发红包个数上限" type="int"/>
+		<variable name="dayreceivemax" fromCol="每日收红包个数上限" type="int"/>
+		<variable name="dayfushisendmax" fromCol="每日发红包符石上限" type="int"/>
+		<variable name="packmin" fromCol="最小红包拆包数" type="int"/>
+		<variable name="packmax" fromCol="最大红包拆包数" type="int"/>
+		<variable name="level" fromCol="最小等级" type="int"/>
+	</bean>
+	
+	<bean name="SRedPackConfig" from="H红包配置表" genxml="server">
+		<variable name="id" fromCol="id" type="int"/>
+		<variable name="fushimin" fromCol="最小数量" type="int"/>
+		<variable name="fishimax" fromCol="最大数量" type="int"/>
+		<variable name="daysendmax" fromCol="每日发红包个数上限" type="int"/>
+		<variable name="dayreceivemax" fromCol="每日收红包个数上限" type="int"/>
+		<variable name="dayfushisendmax" fromCol="每日发红包符石上限" type="int"/>
+		<variable name="packmin" fromCol="最小红包拆包数" type="int"/>
+		<variable name="packmax" fromCol="最大红包拆包数" type="int"/>
+		<variable name="level" fromCol="最小等级" type="int"/>
+	</bean>
+	<bean name="CBankConfig" from="D点卡服表格/钱庄配置表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID序号" type="int"/>
+		<variable name="buynummin" fromCol="求购符石数量MIN" type="int"/>
+		<variable name="buynummax" fromCol="求购符石数量MAX" type="int"/>
+		<variable name="buyunitmin" fromCol="求购符石单价MIN" type="int"/>
+		<variable name="buyunitmax" fromCol="求购符石单价MAX" type="int"/>
+		<variable name="buyfee" fromCol="交易手续费" type="double"/>
+		<variable name="sellnummin" fromCol="寄卖符石数量MIN" type="int"/>
+		<variable name="sellnummax" fromCol="寄卖符石数量MAX" type="int"/>
+		<variable name="sellunitmin" fromCol="寄卖符石单价MIN" type="int"/>
+		<variable name="sellunitmax" fromCol="寄卖符石单价MAX" type="int"/>
+		<variable name="cellfee" fromCol="预计交易税" type="double"/>
+	</bean>	
+	<bean name="SSpotCardConfig" from="D点卡服表格/钱庄配置表" genxml="server">
+		<variable name="id" fromCol="ID序号" type="int"/>
+		<variable name="buynummin" fromCol="求购符石数量MIN" type="int"/>
+		<variable name="buynummax" fromCol="求购符石数量MAX" type="int"/>
+		<variable name="buypricemin" fromCol="求购符石单价MIN" type="int"/>
+		<variable name="buypricemax" fromCol="求购符石单价MAX" type="int"/>
+		<variable name="sellnummin" fromCol="寄卖符石数量MIN" type="int"/>
+		<variable name="sellnummax" fromCol="寄卖符石数量MAX" type="int"/>
+		<variable name="sellpricemin" fromCol="寄卖符石单价MIN" type="int"/>
+		<variable name="sellpricemax" fromCol="寄卖符石单价MAX" type="int"/>
+		<variable name="tradingmoney" fromCol="交易手续费" type="double"/>
+		<variable name="tradingshui" fromCol="预计交易税" type="double"/>
+		<variable name="livetime" fromCol="寄卖时间" type="int"/>
+	</bean>	
+	
+	<bean name="SCommonDayPay" from="D点卡服表格/t通用点卡服配置表" genxml="server">
+		<variable name="id" fromCol="id" type="int"/>
+		<variable name="serverdata" fromCol="服务器参数" type="int"/>
+	</bean>	
+	
+	<bean name="CCommonDayPay" from="D点卡服表格/t通用点卡服配置表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="id" type="int"/>
+		<variable name="value" fromCol="客户端参数" type="string" />
+	</bean>	
+	
+	<bean name="SCreditPoint" from="x信用值配表" genxml="server">
+		<variable name="id" fromCol="事件ID" type="int"/>
+		<variable name="eventvalue" fromCol="比例" type="double"/>
+	</bean>	
+	<bean name="CMonthCardConfig" from="月卡奖励表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="奖励名称" type="string" />
+		<variable name="rewardid" fromCol="奖励ID" type="int" />
+		<variable name="itemid" fromCol="道具ID" type="int" />
+		<variable name="itemnum" fromCol="道具数量" type="int" />
+		<variable name="type" fromCol="奖励类型" type="int" />
+	</bean>	
+	<bean name="CFreeDisRewardConfig" from="自由分配礼包配置表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="礼包名称" type="string" />
+		<variable name="itemids" type="vector" value="int" fromCol="道具1,道具2,道具3,道具4,道具5,道具6"/>
+		<variable name="num" fromCol="道具总数量" type="int" />
+	</bean>	
+	<bean name="CMonthCardConfigPay" from="D点卡服表格/DMT3月卡奖励表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="奖励名称" type="string" />
+		<variable name="rewardid" fromCol="奖励ID" type="int" />
+		<variable name="itemid" fromCol="道具ID" type="int" />
+		<variable name="itemnum" fromCol="道具数量" type="int" />
+		<variable name="type" fromCol="奖励类型" type="int" />
+	</bean>	
+	<bean name="CFreeDisRewardConfigPay" from="D点卡服表格/DMT3自由分配礼包配置表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="礼包名称" type="string" />
+		<variable name="itemids" type="vector" value="int" fromCol="道具1,道具2,道具3,道具4,道具5,道具6"/>
+		<variable name="num" fromCol="道具总数量" type="int" />
+	</bean>			
+	
+	
+	<bean name="SMonthCardConfig" from="月卡奖励表" genxml="server">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="奖励名称" type="string" />
+		<variable name="rewardid" fromCol="奖励ID" type="int" />
+		<variable name="itemid" fromCol="道具ID" type="int" />
+		<variable name="itemnum" fromCol="道具数量" type="int" />
+		<variable name="type" fromCol="奖励类型" type="int" />
+	</bean>	
+	
+	<bean name="SMonthCardConfigDayPay" from="D点卡服表格/DMT3月卡奖励表" genxml="server">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="奖励名称" type="string" />
+		<variable name="rewardid" fromCol="奖励ID" type="int" />
+		<variable name="itemid" fromCol="道具ID" type="int" />
+		<variable name="itemnum" fromCol="道具数量" type="int" />
+		<variable name="type" fromCol="奖励类型" type="int" />
+	</bean>		
+	
+	<bean name="SFreeDisRewardConfig" from="自由分配礼包配置表" genxml="server">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="礼包名称" type="string" />
+		<variable name="itemids" type="vector" value="int" fromCol="道具1,道具2,道具3,道具4,道具5,道具6"/>
+		<variable name="num" fromCol="道具总数量" type="int" />
+	</bean>
+
+	<bean name="SFreeDisRewardConfigDayPay" from="D点卡服表格/DMT3自由分配礼包配置表" genxml="server">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" fromCol="礼包名称" type="string" />
+		<variable name="itemids" type="vector" value="int" fromCol="道具1,道具2,道具3,道具4,道具5,道具6"/>
+		<variable name="num" fromCol="道具总数量" type="int" />
+	</bean>
+	
+	<bean name="CQQGiftConfig" from="f福利奖励/QQ奖励表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="itemids" type="vector" value="int" fromCol="奖励1道具,奖励2道具,奖励3道具,奖励4道具,奖励5道具"/>
+		<variable name="itemidnums" type="vector" value="int" fromCol="奖励1数量,奖励2数量,奖励3数量,奖励4数量,奖励5数量"/>
+	</bean>	
+	
+	<bean name="CQQGiftConfigPay" from="D点卡服表格/DMT3QQ奖励表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="itemids" type="vector" value="int" fromCol="奖励1道具,奖励2道具,奖励3道具,奖励4道具,奖励5道具"/>
+		<variable name="itemidnums" type="vector" value="int" fromCol="奖励1数量,奖励2数量,奖励3数量,奖励4数量,奖励5数量"/>
+	</bean>		
+	<bean name="CHolidayGiftConfig" from="f福利奖励/节日奖励表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" type="string" fromCol="节日名称"/>
+		<variable name="day" type="string" fromCol="日期"/>
+		<variable name="daytext" type="string" fromCol="日期描述"/>
+		<variable name="itemid1" type="int" fromCol="道具1ID"/>
+		<variable name="itemnum1" type="int" fromCol="道具1数量"/>
+		<variable name="itemid2" type="int" fromCol="道具2ID"/>
+		<variable name="itemnum2" type="int" fromCol="道具2数量"/>
+		<variable name="itemid3" type="int" fromCol="道具3ID"/>
+		<variable name="itemnum3" type="int" fromCol="道具3数量"/>
+		<variable name="text" type="string" fromCol="描述"/>
+	</bean>
+	<bean name="CHolidayGiftConfigPay" from="D点卡服表格/DMT3节日奖励表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="ID" type="int"/>
+		<variable name="name" type="string" fromCol="节日名称"/>
+		<variable name="day" type="string" fromCol="日期"/>
+		<variable name="daytext" type="string" fromCol="日期描述"/>
+		<variable name="itemid1" type="int" fromCol="道具1ID"/>
+		<variable name="itemnum1" type="int" fromCol="道具1数量"/>
+		<variable name="itemid2" type="int" fromCol="道具2ID"/>
+		<variable name="itemnum2" type="int" fromCol="道具2数量"/>
+		<variable name="itemid3" type="int" fromCol="道具3ID"/>
+		<variable name="itemnum3" type="int" fromCol="道具3数量"/>
+		<variable name="text" type="string" fromCol="描述"/>
+	</bean>	
+	<bean name="CHolidayType" from="f福利奖励/节日活动类型表" genxml="client" gencode="mtlua">
+		<variable name="id" fromCol="id" type="int"/>
+		<variable name="name" type="string" fromCol="节日名称"/>
+		<variable name="starttime" type="string" fromCol="开启时间"/>
+		<variable name="endtime" type="string" fromCol="结束时间"/>
+		<variable name="type" type="int" fromCol="类型"/>
+	</bean>	
+  </namespace>

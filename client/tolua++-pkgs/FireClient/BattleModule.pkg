@@ -1,0 +1,7 @@
+$pfile "Battle/BattleCommon.pkg"
+$pfile "Battle/Battler.pkg"
+$pfile "Battle/BattleIllusion.pkg"
+$pfile "Battle/BattleMagicControl.pkg"
+$pfile "Battle/BattleScriptPlayer.pkg"
+$pfile "Battle/BattleManager.pkg"
+$pfile "Battle/Skill.pkg"

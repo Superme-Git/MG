@@ -1,0 +1,18 @@
+/***********************************************************************
+	AnimateText
+***********************************************************************/
+class AnimateText : public Window
+{
+public:
+	void ShowAllText();
+	void Reset();
+	void SetTextSpeed(int speed);
+	const String& GetDrawText();
+	float GetTextEndTime();
+	const RenderedString& getRenderedString() const;
+	bool isTextEnd();
+	void setText(string text);
+	void setText(string text, unsigned int  defcolour = 0);
+	void setText(string text, unsigned int  defcolour = 0,bool triggerEvent = true);
+
+};

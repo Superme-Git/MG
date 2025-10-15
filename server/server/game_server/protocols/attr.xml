@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<namespace name="attr">
+
+	<!-- 与客户端通信用到的属性ID -->
+	<!--不要擅自在此加名称与ID，如果要加一个新的属性和ID，先与策划商量，以免冲突-->
+	<bean name="AttrType">  
+		<enum name="CONS" value="10"/>				体质
+		<enum name="IQ" value="20"/>				智力
+		<enum name="STR" value="30"/>				力量
+		<enum name="ENDU" value="40"/>				耐力
+		<enum name="AGI" value="50"/>				敏捷
+		<enum name="MAX_HP" value="60"/>			最大生命上限
+		<enum name="UP_LIMITED_HP" value="70"/>		当前生命上限（小于等于最大生命上限）
+		<enum name="HP" value="80"/>				当前生命
+		<enum name="SPIRIT" value="90"/>			灵力
+		<enum name="MAX_MP" value="90"/>			最大法力
+		<enum name="MP" value="100"/>				当前法力
+		<enum name="MAX_SP" value="110"/>			最大怒气
+		<enum name="SP" value="120"/>				怒气
+		<enum name="ATTACK" value="130"/>			攻击
+		<enum name="DEFEND" value="140"/>			防御
+		<enum name="MAGIC_ATTACK" value="150"/>		法术攻击力
+		<enum name="MAGIC_DEF" value="160"/>		法术防御力
+		<enum name="MEDICAL" value="170"/>			治疗强度
+		<enum name="SEAL" value="180"/>				控制命中
+		<enum name="UNSEAL" value="190"/>			控制抗性
+		<enum name="SPEED" value="200"/>			速度
+		<enum name="HIT_RATE" value="210"/>			命中值
+		<enum name="DODGE_RATE" value="220"/>		躲避值
+		<enum name="PHY_CRIT_PCT" value="250" /> 	物理暴击程度（初始为200%,即2倍普通伤害）
+		<enum name="MAGIC_CRIT_PCT" value="280" /> 	魔法暴击程度（初始为200%）
+		<enum name="PHY_CRITC_LEVEL" value="230" /> 物理暴击等级	
+		<enum name="ANTI_PHY_CRITC_LEVEL" value="240" /> 物理抗性等级
+		<enum name="MAGIC_CRITC_LEVEL" value="260" /> 魔法暴击等级
+		<enum name="ANTI_MAGIC_CRITC_LEVEL" value="270" /> 魔法抗性等级
+		<enum name="HEAL_CRIT_LEVEL" value="290" /> 治疗暴击等级
+		<enum name="HEAL_CRIT_PCT" value="300" /> 	治疗暴击程度
+		<enum name="PHFORCE" value="450" />			当前体力
+		<enum name="EXP" value="470" /> 			经验
+		<enum name="NEXP" value="480" /> 			升级经验
+		<enum name="RENQI" value="610" />			人气值
+		<enum name="SCHOOLFUND" value="850" />   	职业贡献度
+		<enum name="WULI_CHUANTOU" value="950" />  物理穿透 
+		<enum name="WULI_DIKANG" value="960" />  物理抵抗 
+		<enum name="FASHU_CHUANTOU" value="970" />  法术穿透 
+		<enum name="FASHU_DIKANG" value="980" />  法术抵抗 
+		<enum name="ZHILIAO_JIASHEN" value="990" />  治疗加深 
+		<enum name="EFFECT_POINT" value="1010" />  技能效果点
+		<enum name="TEMP_SP" value="1020" />  临时怒气
+		<enum name="MASTER_REPUTATION" value="1080"/> 师徒声望
+		<enum name="PET_XUEMAI_MAX" value="1150" /> 宠物资质上限
+		<enum name="PET_LOW_SKILL" value="1170" /> 宠物低级技能数
+		<enum name="PET_HIGH_SKILL" value="1180" /> 宠物高级技能数
+		<enum name="PET_SUPER_SKILL" value="1190" /> 宠物超级技能数
+		<enum name="LEVEL" value="1230" /> 			等级
+		<enum name="PET_LIFE" value="1360" />		宠物寿命
+		<enum name="ACTIVESTAR" value="1380" /> 	活跃度幸运星
+		<enum name="POINT" value="1400" /> 			潜能	
+		<enum name="QILIZHI" value="1410" /> 		气力值
+		<enum name="QILIZHI_LIMIT" value="1420" /> 	气力值上限
+		<enum name="PET_XUE_MAI_LEVEL" value="1430" /> 	资质星级
+		<!--enum name="PET_LOYALTY" value="510" /-->     宠物忠诚度
+		<enum name="PET_FIGHT_LEVEL" value="1430" />宠物出战等级
+		<enum name="PET_ATTACK_APT" value="1440" /> 宠物攻击资质
+		<enum name="PET_DEFEND_APT" value="1450" /> 宠物防御资质
+		<enum name="PET_PHYFORCE_APT" value="1460" />宠物体力资质
+		<enum name="PET_MAGIC_APT" value="1470" /> 	宠物法力资质
+		<enum name="PET_SPEED_APT" value="1480" />  宠物速度资质
+		<enum name="PET_DODGE_APT" value="1490" />  宠物躲闪资质
+		<enum name="PET_GROW_RATE" value="1500" />  宠物成长率
+		<enum name="ENLIMIT" value="1520" /> 		活力上限
+		<enum name="PFLIMIT" value="1530" />		体力上限
+		<enum name="PET_SCALE" value="1810" /> 		宠物大小 1-4
+		<enum name="ACTIVENESS" value="1820" /> 	活跃度值
+		<enum name="ANTI_CRIT_LEVEL" value="2090" />暴击抗性等级		
+		<enum name="KONGZHI_JIACHENG" value="2130" /> 控制加成
+		<enum name="KONGZHI_MIANYI" value="2140" /> 控制免疫
+	
+		<enum name="ENERGY" value="3010" />			当前活力
+		
+	</bean>
+	
+	<bean name="FightAttrType">
+		<!-- 战斗一级二级三级属性 ID，只有这里有的属性ID，EffectRole才会去计算并保存 -->
+		<enum name="CONS" value="10"/>			体质
+		<enum name="IQ" value="20"/>				智力
+		<enum name="STR" value="30"/>				力量
+		<enum name="ENDU" value="40"/>			耐力
+		<enum name="AGI" value="50"/>				敏捷
+		<enum name="MAX_HP" value="60"/>			最大生命
+		<enum name="MAX_MP" value="90"/>			最大法力
+		<enum name="MAX_SP" value="110"/>			最大怒气
+		<enum name="ATTACK" value="130"/>		攻击
+		<enum name="DEFEND" value="140"/>		防御
+		<enum name="MAGIC_ATTACK" value="150" />   法术攻击力
+		<enum name="MAGIC_DEF" value="160" />      法术防御力
+		<enum name="MEDICAL" value="170"/>      治疗强度
+		<enum name="SEAL" value="180" /> 		控制命中
+		<enum name="UNSEAL" value="190"/>			封系抵抗率
+		<enum name="SPEED" value="200"/>			速度
+		<enum name="HIT_RATE" value="210"/>		命中值
+		<enum name="DODGE_RATE" value="220"/>	躲避值
+		<!-- 战斗相关的隐藏属性 -->
+		<enum name="PHY_CRITC_LEVEL" value="230" /> 物理暴击等级
+		<enum name="ANTI_PHY_CRITC_LEVEL" value="240" /> 抗物理暴击等级
+		<enum name="PHYSIC_CRIT_PCT" value="250" /> 物理暴击程度（初始为200%,即2倍普通伤害）
+		<enum name="MAGIC_CRITC_LEVEL" value="260" /> 魔法暴击等级
+		<enum name="ANTI_MAGIC_CRITC_LEVEL" value="270" /> 抗魔法暴击等级
+		<enum name="MAGIC_CRIT_PCT" value="280" /> 魔法暴击程度（初始为200%）
+		<enum name="HEAL_RATE" value="290" /> 治疗暴击率
+		<enum name="HEAL_DEGREE" value="300" /> 治疗暴击程度
+		<enum name="IGNORE_PHYSIC_DEFEND_RATE" value="310"  /> 忽视物理防御几率
+		<enum name="IGNORE_PHYSIC_DEFEND_PCT" value="320"  /> 忽视物理防御系数
+		<enum name="IGNORE_MAGIC_DEFEND_RATE" value="330"  /> 忽视法术防御几率
+		<enum name="IGNORE_MAGIC_DEFEND_PCT" value="340"  /> 忽视法术防御系数
+		<enum name="STEAL_HP_RATE" value="350" /> 吸血几率
+		<enum name="STEAL_HP_PCT" value="360" /> 吸血系数（吸血占造成伤害的百分比，默认0%)
+		<enum name="FIRE_MP_RATE" value="370" /> 打蓝几率
+		<enum name="FIRE_MP_PCT" value="380" /> 打蓝系数	
+		<enum name="POISON_RATE" value="390" /> 普通攻击使对方中毒几率（默认0%)
+		<enum name="PIOSON_DAMGE_HP" value="400" /> 毒掉血系数
+		<enum name="PIOSON_DAMGE_MP" value="410" /> 毒掉蓝系数
+		<enum name="PIOSON_DAMGE_ROUND" value="420" /> 毒回合数
+		<enum name="DIE_FORBID_RATE" value="430" />	死亡禁锢几率
+		<enum name="DIE_FORBID_ROUND" value="440" />	死亡禁锢回合数
+		<enum name="PHYSIC_COMBO_ATTACK_RATE" value="450"  /> 物理连击几率
+		<enum name="PHYSIC_COMBO_ATTACK_PCT" value="460"  /> 物理连击伤害系数
+		<enum name="PHYSIC_COMBO_ATTACK_COUNT" value="470"  /> 物理连击次数上限（原连击次数改成连击次数上限）
+		<enum name="MAGIC_COMBO_ATTACK_RATE" value="480"  /> 法术连击几率
+		<enum name="MAGIC_COMBO_ATTACK_PCT" value="490"  /> 法术连击伤害系数
+		<enum name="MAGIC_COMBO_ATTACK_COUNT" value="500"  /> 法术连击刺伤上限	
+		<enum name="EXTRA_ATTACK_RATE" value="510" /> 追击率
+		<enum name="EXTRA_ATTACK_PCT" value="520" /> 追击伤害系数
+		<enum name="EXTRA_ATTACK_COUNT" value="530" /> 追击次数		
+		<enum name="DIFFUSE_ATTACK_RATE" value="540"  /> 溅射几率
+		<enum name="DIFFUSE_ATTACK_PCT" value="550"  /> 溅射伤害系数
+		<enum name="DIFFUSE_ATTACK_COUNT" value="560"  /> 溅射数量
+		<enum name="PARRY_RATE" value="570" /> 招架几率（默认0%)
+		<enum name="PARRY_PCT" value="580" /> 格挡减伤系数
+		<enum name="RETURN_HURT_RATE" value="590" /> 反震率
+		<enum name="RETURN_HURT_PCT" value="600" /> 反震程度（反震伤害占造成伤害的百分比，默认30%)
+		<enum name="ATTACK_BACK_RATE" value="610" /> 反击率
+		<enum name="ATTACK_BACK_PCT" value="620" /> 反击程度（正常反击伤害的百分比，默认100%）
+		<enum name="GOD_BLESS_RATE" value="630" /> 神佑几率（原复活几率无用改为神佑几率）
+		<enum name="GOD_BLESS_PCT" value="640" /> 神佑复活血量系数		
+		<enum name="ABSORB_FIRE_ODDS" value="650" /> 火系法术吸收率
+		<enum name="ABSORB_WATER_ODDS" value="660" /> 水系法术吸收率
+		<enum name="ABSORB_EARTH_ODDS" value="670" /> 土系法术吸收率
+		<enum name="ABSORB_THUNDER_ODDS" value="680" /> 雷系法术吸收率
+		<enum name="ABSORB_OTHER_ODDS" value="690" /> 预留系法术吸收率		
+		<enum name="ABSORB_FIRE_PCT" value="700" /> 火系法术吸收系数
+		<enum name="ABSORB_WATER_PCT" value="710" /> 水系法术吸收系数
+		<enum name="ABSORB_EARTH_PCT" value="720" /> 土系法术吸收系数
+		<enum name="ABSORB_THUNDER_PCT" value="730" /> 雷系法术吸收系数
+		<enum name="ABSORB_OTHER_PCT" value="740" /> 预留系法术吸收系数		
+		<enum name="PHYSIC_DAMGE_RATE" value="750" /> 	物理伤害效果修正		
+		<enum name="ANTI_PHYSIC_DAMGE_RATE" value="760" /> 	受物理伤害效果修正
+		<enum name="MAGIC_DAMGE_RATE" value="770" /> 	法术伤害效果修正
+		<enum name="ANTI_MAGIC_DAMGE_RATE" value="780" /> 	受法术伤害效果修正
+		<enum name="HEAL_EFFECT_RATE" value="790" /> 	治疗效果修正
+		<enum name="ANTI_HEAL_EFFECT_RATE" value="800" /> 	被治疗效果修正
+		<enum name="SEAL_LEVEL" value="810" /> 封印命中等级
+		<enum name="ANTI_SEAL_LEVEL" value="820" /> 封印抗性等级
+		<enum name="PHYSIC_CRIT_RATE" value="830" /> 物理暴击几率修正
+		<enum name="ANTI_PHYSIC_CRIT_RATE" value="840" /> 被物理暴击几率修正
+		<enum name="MAGIC_CRIT_RATE" value="850" /> 法术暴击几率修正
+		<enum name="ANTI_MAGIC_CRIT_RATE" value="860" /> 被法术暴击几率修正
+		<enum name="HEAL_CRIT_LEVEL" value="870" /> 治疗暴击几率修正
+		<enum name="ANTI_HEAL_CRIT_LEVEL" value="880" /> 被治疗暴击几率修正
+		<enum name="ANTI_POISON_RATE" value="890" />	攻击和被攻击时中毒几率修正
+		<enum name="ANTI_DIE_FORBID_RATE" value="900" />	被死亡禁锢几率修正
+		<enum name="ANTI_PARRY_RATE" value="910" />	攻击时被格挡几率修正
+		<enum name="ANTI_RETURN_HURT_RATE" value="920" />	攻击时被反震几率修正
+		<enum name="ANTI_ATTACK_BACK_RATE" value="930" />	攻击时被反击几率修正（原反击次数）
+		<enum name="ANTI_GOD_BLESS_RATE" value="940" />	攻击时被神佑几率修正
+		<enum name="PHYSIC_DAMGE_PIERCE_RATE" value="950" />		物理穿透
+		<enum name="ANTI_PHYSIC_DAMGE_PIERCE_RATE" value="960" /> 	物理抵抗
+		<enum name="MAGIC_DAMGE_PIERCE_RATE" value="970" />			法术穿透
+		<enum name="ANTI_MAGIC_DAMGE_PIERCE_RATE" value="980" />	法术抵抗
+		<enum name="HEAL_DEEP_RATE" value="990" />		治疗加深
+		<enum name="ANTI_HEAL_DEEP_RATE" value="1000" />		被治疗加深
+		<enum name="EFFECT_POINT" value="1010" />  技能效果点
+		<enum name="TEMP_SP" value="1020" /> 临时怒气
+		<enum name="ENLIMIT" value="1520" /> 		活力上限
+		<enum name="PFLIMIT" value="1530" />			体力上限
+		<enum name="AMEND_HIDDEN_WEAPON_PASSIVE" value="1540" /> 飞镖被动伤害修正
+		<!-- 物理暴击/魔法暴击/反击/反震 4个二级属性还额外对应着4个等级属性，4个抗性属性，4个等级基准值 -->
+		<enum name="ATTACK_BACK_LEVEL" value="1750" /> 反击等级
+		<enum name="RETURN_HURT_LEVEL" value="1760" /> 物理反震等级
+		<enum name="ANTI_ATTACK_BACK_LEVEL" value="1770" /> 抗反击等级
+		<enum name="ANTI_RETURN_HURT_LEVEL" value="1780" /> 抗物理反震等级
+		<enum name="MAGIC_HIT" value="1840" /> 法术命中值			
+		
+		<!--怒气特技-->
+		<enum name="HEALEDREVISE" value="800" />特技重数
+		<!--抗暴等级-->
+		<enum name="ANTI_CRITC_LEVEL" value="2090" />抗暴等级
+
+		<enum name="KONGZHI_JIACHENG" value="2130" /> 控制加成
+		<enum name="KONGZHI_MIANYI" value="2140" /> 控制免疫
+		<enum name="PHYSIC_FLOAT_VALUE" value="2150" /> 物理波动
+		<enum name="MAGIC_FLOAT_VALUE" value="2160" /> 法术波动
+		<enum name="HEAL_FLOAT_VALUE" value="2170" /> 治疗波动
+		<enum name="DEEP_HEAL_CRITC_LEVEL" value="2180" /> 被治疗暴击
+		<enum name="SHAPE_ID" value="3000" /> 模型id
+
+	</bean>
+		
+	<bean name="EffectType">
+		<enum name="CONS_ABL" value="11"/>	
+		<enum name="CONS_PCT" value="12"/>
+		<enum name="IQ_ABL" value="21"/>
+		<enum name="IQ_PCT" value="22"/>
+		<enum name="STR_ABL" value="31"/>
+		<enum name="STR_PCT" value="32"/>
+		<enum name="ENDU_ABL" value="41"/>
+		<enum name="ENDU_PCT" value="42"/>
+		<enum name="AGI_ABL" value="51"/>
+		<enum name="AGI_PCT" value="52"/>
+		<enum name="MAX_HP_ABL" value="61"/>
+		<enum name="MAX_HP_PCT" value="62"/>
+		<enum name="UP_LIMITED_HP_ABL" value="71"/>
+		<enum name="UP_LIMITED_HP_PCT" value="72"/>
+		<enum name="HP_ABL" value="81"/>
+		<enum name="HP_PCT" value="82"/>
+		<enum name="MAX_MP_ABL" value="91"/>
+		<enum name="MAX_MP_PCT" value="92"/>
+		<enum name="MP_ABL" value="101"/>
+		<enum name="MP_PCT" value="102"/>
+		<enum name="MAX_SP_ABL" value="111"/>
+		<enum name="MAX_SP_PCT" value="112"/>
+		<enum name="SP_ABL" value="121"/>			怒气
+		<enum name="SP_PCT" value="122"/>			怒气
+		<enum name="DAMAGE_ABL" value="131"/>
+		<enum name="DAMAGE_PCT" value="132"/>
+		<enum name="DEFEND_ABL" value="141"/>
+		<enum name="DEFEND_PCT" value="142"/>
+		<enum name="MAGIC_ATTACK_ABL" value="151" />   法术攻击力
+		<enum name="MAGIC_ATTACK_PCT" value="152" />   法术攻击力
+		<enum name="MAGIC_DEF_ABL" value="161" />   法术防御力
+		<enum name="MAGIC_DEF_PCT" value="162" />   法术防御力
+		<enum name="MEDICAL_ABL" value="171" />     治疗强度
+		<enum name="SEAL_ABL" value="181" /> 控制命中
+		<enum name="UNSEAL_ABL" value="191"/> 封系抵抗
+		<enum name="UNSEAL_PCT" value="192"/> 封系抵抗
+		<enum name="SPEED_ABL" value="201"/>
+		<enum name="SPEED_PCT" value="202"/>
+		<enum name="HIT_RATE_ABL" value="211"/>
+		<enum name="HIT_RATE_PCT" value="212"/>
+		<enum name="DODGE_RATE_ABL" value="221"/>
+		<enum name="DODGE_RATE_PCT" value="222"/>
+		<enum name="PHY_CRITC_LEVEL_ABL" value="231" /> 物理暴击等级
+		<enum name="PHY_CRITC_LEVEL_PCT" value="232" />
+		<enum name="ANTI_PHY_CRITC_LEVEL_ABL" value="241" /> 抗物理暴击等级
+		<enum name="PHYSIC_CRIT_PCT_ABL" value="251" /> 物理暴击加成（初始为200%,即2倍普通伤害）
+		<enum name="PHYSIC_CRIT_PCT_PCT" value="252" /> 物理暴击加成（初始为200%,即2倍普通伤害）
+		<enum name="MAGIC_CRITC_LEVEL_ABL" value="261" /> 魔法暴击等级
+		<enum name="MAGIC_CRITC_LEVEL_PCT" value="262" />
+		<enum name="ANTI_MAGIC_CRITC_LEVEL_ABL" value="271" /> 抗魔法暴击等级
+		<enum name="MAGIC_CRIT_PCT_ABL" value="281" /> 魔法暴击程度
+		<enum name="MAGIC_CRIT_PCT_PCT" value="282" />
+		<enum name="STEAL_HP_PCT_ABL" value="361" /> 吸血比例（吸血占造成伤害的百分比，默认0%)
+		<enum name="STEAL_HP_PCT_PCT" value="362" /> 吸血比例（吸血占造成伤害的百分比，默认0%)
+		<enum name="STEAL_MP_PCT_ABL" value="381" /> 吸蓝比例（吸蓝占造成mp伤害的百分比，默认0%)
+		<enum name="POISON_RATE_ABL" value="391" /> 使对方中毒几率（默认0%)
+		<enum name="POISON_RATE_PCT" value="392" /> 使对方中毒几率（默认0%)
+		<enum name="COMBO_ATTACK_RATE_ABL" value="451" /> 连击几率
+		<enum name="COMBO_ATTACK_RATE_PCT" value="452" /> 连击几率
+		<enum name="COMBO_ATTACK_PCT_ABL" value="461"  /> 连击伤害系数		
+		<enum name="COMBO_ATTACK_PCT_PCT" value="462"  /> 		
+		<enum name="COMBO_ATTACK_COUNT_ABL" value="471"  /> 连击次数
+		<enum name="COMBO_ATTACK_COUNT_PCT" value="472"  /> 连击次数
+		<enum name="MAGIC_COMBO_ATTACK_RATE_ABL" value="481"  /> 法术连击几率
+		<enum name="MAGIC_COMBO_ATTACK_RATE_PCT" value="482"  />
+		<enum name="MAGIC_COMBO_ATTACK_PCT_ABL" value="491"  /> 法术连击伤害系数		
+		<enum name="MAGIC_COMBO_ATTACK_PCT_PCT" value="492"  /> 		
+		<enum name="MAGIC_COMBO_ATTACK_COUNT_ABL" value="501"  /> 法术连击次数
+		<enum name="MAGIC_COMBO_ATTACK_COUNT_PCT" value="502"  /> 法术连击次数
+		<enum name="EXTRA_ATTACK_RATE_ABL" value="511" /> 追击几率
+		<enum name="EXTRA_ATTACK_RATE_PCT" value="512" /> 追击几率
+		<enum name="EXTRA_ATTACK_DEGREE_ABL" value="521" /> 追击伤害占正常伤害的比率
+		<enum name="EXTRA_ATTACK_DEGREE_PCT" value="522" /> 追击伤害占正常伤害的比率
+		<enum name="EXTRA_ATTACK_COUNT_ABL" value="531" /> 追击次数
+		<enum name="EXTRA_ATTACK_COUNT_PCT" value="532" /> 追击次数
+		<enum name="PARRY_RATE_ABL" value="571" /> 招架几率（默认0%)
+		<enum name="PARRY_RATE_PCT" value="572" /> 招架几率（默认0%)
+		<enum name="RETURN_HURT_RATE_ABL" value="591" /> 反震几率
+		<enum name="RETURN_HURT_RATE_PCT" value="592" /> 反震几率
+		<enum name="RETURN_HURT_PCT_ABL" value="601" /> 反震程度（反震伤害占造成伤害的百分比，默认30%)
+		<enum name="RETURN_HURT_PCT_PCT" value="602" /> 反震程度（反震伤害占造成伤害的百分比，默认30%)
+		<enum name="RETURN_ATTACK_RATE_ABL" value="611" /> 反击几率
+		<enum name="RETURN_ATTACK_RATE_PCT" value="612" /> 反击几率
+		<enum name="RETURN_ATTACK_PCT_ABL" value="621" /> 反击程度（正常反击伤害的百分比，默认100%）
+		<enum name="RETURN_ATTACK_PCT_PCT" value="622" /> 反击程度（正常反击伤害的百分比，默认100%）
+		<enum name="ABSORB_FIRE_ODDS_ABL" value="651" /> 火系法术吸收率
+		<enum name="ABSORB_WATER_ODDS_ABL" value="661" /> 水系法术吸收率
+		<enum name="ABSORB_EARTH_ODDS_ABL" value="671" /> 土系法术吸收率
+		<enum name="ABSORB_THUNDER_ODDS_ABL" value="681" /> 雷系法术吸收率
+		<enum name="ABSORB_OTHER_ODDS_ABL" value="691" /> 预留系法术吸收率
+		<enum name="SEAL_LEVEL_ABL" value="811" /> 封印命中等级
+		<enum name="ANTI_SEAL_LEVEL_ABL" value="821" /> 封印抗性等级
+		<enum name="PHYSIC_CRIT_RATE_ABL" value="831" /> 物理暴击几率
+		<enum name="PHYSIC_CRIT_RATE_PCT" value="832" /> 物理暴击几率
+		<enum name="MAGIC_CRIT_RATE_ABL" value="851" /> 法术暴击几率（初始为0%）
+		<enum name="MAGIC_CRIT_RATE_PCT" value="852" /> 法术暴击几率（初始为0%）
+		<enum name="ATTACK_BACK_COUNT_ABL" value="931" /> 反击次数
+		<enum name="EFFECT_POINT_ABL" value="1011" />  技能效果点
+		<enum name="TEMP_SP_ABL" value="1021" /> 临时怒气
+
+		<enum name="AMEND_HIDDEN_WEAPON_ACTIVE_ABL" value="1220" /> 飞镖主动伤害修正
+        <enum name="PET_LIFE_ABL" value="1361" />  宠物寿命
+		<!--enum name="PET_LOYALTY_ABL" value="511" /--> 宠物忠诚
+		<enum name="PET_ATTACK_APT_ABL" value="1441" />  宠物攻击资质
+		<enum name="PET_DEFEND_APT_ABL" value="1451" />  宠物防御资质
+		<enum name="PET_PHYFORCE_APT_ABL" value="1461" />宠物体力资质
+		<enum name="PET_MAGIC_APT_ABL" value="1471" /> 	宠物法力资质
+		<enum name="PET_SPEED_APT_ABL" value="1481" />   宠物速度资质
+		<enum name="PET_DODGE_APT_ABL" value="1491" />   宠物躲闪资质
+		<enum name="ENLIMIT_ABL" value="1521" /> 		活力上限
+		<enum name="PFLIMIT_ABL" value="1531" />			体力上限
+		
+		<!--用于设置下一个回合行动的效果ID-->
+		<enum name="OPERATOR" value="1581" />
+		<enum name="AIM" value="1591" />
+		<enum name="OPERATE_TYPE" value="1171" />
+		<enum name="OPERATE_ID" value="1181" />
+		
+		<enum name="ATTACK_BACK_LEVEL_ABL" value="1751" /> 反击等级
+		<enum name="RETURN_HURT_LEVEL_ABL" value="1761" /> 物理反震等级
+		<enum name="ANTI_ATTACK_BACK_LEVEL_ABL" value="1771" /> 抗反击等级
+		<enum name="ANTI_RETURN_HURT_LEVEL_ABL" value="1781" /> 抗物理反震等级
+		
+		<enum name="QILIZHI_ABL" value="1201" /> 	气力值
+		
+		<enum name="KONGZHI_JIACHENG" value="2131" /> 控制加成
+		<enum name="KONGZHI_MIANYI" value="2141" /> 控制免疫
+		<enum name="SHAPE_ID" value="3001" /> 模型id
+	</bean>
+	
+	<bean name="ScoreType">
+		<enum name="ROLE_LEVEL_SCORE" value="1" /> 角色等级能力
+		<enum name="EQUIP_LEVEL_SCORE" value="2" /> 装备一级属性
+		<enum name="EQUIP_EFFCT" value="3" /> 装备特效
+		<enum name="EQUIP_SKILL" value="4" /> 装备特技
+		<enum name="EQUIP_GEM" value="5" /> 每个宝石
+		<enum name="SCHOOL_SKILL" value="6" /> 职业技能
+		<enum name="GUILD_SKILL" value="7" /> 公会技能
+		<enum name="GUILD_SHAVE" value="8" /> 公会修炼
+		<enum name="PET_LEVEL_SCORE" value="9" /> 宠物一级属性
+		<enum name="PET_LOW_SKILL" value="10" /> 宠物低级技能
+		<enum name="PET_HIGH_SKILL" value="11" /> 宠物高级技能
+		<enum name="PET_GROWING" value="12" /> 宠物成长
+	</bean>
+
+    <bean name="RoleCurrency">
+        <enum name="GUILD_DKP" value="1" /> 公会DKP
+        <enum name="GUILD_DED" value="2" /> 公会贡献
+        <enum name="TEACHER_SCORE" value="3" /> 师徒值
+        <enum name="ACTIVE_SCORE" value="4" /> 活动积分
+        <enum name="HONOR_SCORE" value="5" /> 荣誉值
+        <enum name="POP_SCORE" value="6" /> 声望值
+        <enum name="FRIEND_SCORE" value="7" /> 好友积分
+        <enum name="PROF_CONTR" value="9" /> 职业贡献
+        <enum name="EREDITPOINT_SCORE" value="10" /> 信用点
+    </bean>
+
+  <!-- 角色基础战斗属性 -->
+  <bean name="RoleBasicFightProperties">
+    <variable name="cons" type="short"/>		体质
+    <variable name="iq" type="short"/>		智力
+    <variable name="str" type="short"/>		力量
+    <variable name="endu" type="short"/>		耐力
+    <variable name="agi" type="short"/>		敏捷
+
+    <variable name="cons_save" type="map" key="int" value="int"/> 已分配体质
+    <variable name="iq_save" type="map" key="int" value="int"/> 已分配智力
+    <variable name="str_save" type="map" key="int" value="int"/> 已分配力量
+    <variable name="endu_save" type="map" key="int" value="int"/> 已分配耐力
+    <variable name="agi_save" type="map" key="int" value="int"/> 已分配敏捷
+  </bean>
+	
+	<!-- 刷新人物属性的消息-->
+	<protocol name="SRefreshRoleData" type="13000" maxsize="65535" prior="1" tolua="3">
+		<variable name="datas" type="map" key="int" value="float" validator="key=(0,)"/> 变量值ID，变量值
+	</protocol>
+	
+	<!-- 刷新宠物属性的消息-->
+	<protocol name="SRefreshPetData" type="13001" maxsize="65535" prior="1" tolua="3">
+		<variable name="columnid" type="int" validator="value=[1,)" /> 宠物栏ID，具体定义参见 protocol/pet.xml中的PetColumnTypes
+		<variable name="petkey" type="int" validator="value=[1,)" /> 宠物的唯一key
+		<variable name="datas" type="map" key="int" value="float" validator="key=(0,)" /> 变量值ID，变量值
+	</protocol>	
+
+  <!-- 刷新人物加点后的加点面板数值 -->
+  <protocol name="SRefreshPointType" type="13003" maxsize="65535" prior="1" tolua="3">
+    <variable name="bfp" type="RoleBasicFightProperties" />
+    <variable name="point" type="map" key="int" value="int"/>		潜能
+    <variable name="pointscheme" type="int"/> 当前加点方案
+    <variable name="schemechanges" type="int"/> 方案切换次数
+  </protocol>
+    
+    <!-- 刷新人物评分的消息-->
+    <protocol name="SRefreshRoleScore" type="13004" maxsize="65535" prior="1" tolua="3">
+        <enum name="TOTAL_SCORE" value="1" /> 综合评分
+        <enum name="EQUIP_SCORE" value="2" /> 装备评分
+        <enum name="MANY_PET_SCORE" value="3" /> 多宠物评分
+        <enum name="PET_SCORE" value="4" /> 单宠物评分
+        <enum name="LEVEL_SCORE" value="5" /> 等级评分
+        <enum name="XIULIAN_SCORE" value="6" /> 修炼评分
+        <enum name="ROLE_SCORE" value="7" /> 人物评分
+        <enum name="SKILL_SCORE" value="8" /> 技能评分
+        <variable name="datas" type="map" key="int" value="int" validator="key=(0,)"/> 变量值ID，变量值
+    </protocol>
+
+    <!-- 刷新人物通货的消息-->
+    <protocol name="SRefreshRoleCurrency" type="13005" maxsize="65535" prior="1" tolua="3">
+        <variable name="datas" type="map" key="int" value="long" validator="key=(0,)"/> 变量值ID，变量值
+    </protocol>
+	
+	<!--客户端申请角色盈福经验-->
+    <protocol name="CApplyYingFuExprience" type="13006" maxsize="65535" prior="1" tolua = "3">
+    </protocol>
+	
+	<!--服务器回复角色盈福经验-->
+    <protocol name="SApplyYingFuExprience" type="13007" maxsize="65535" prior="1" tolua = "3">
+        <variable name="exprience" type="long" /> 盈福经验
+    </protocol>
+</namespace>

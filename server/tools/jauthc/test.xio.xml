@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><XioConf name="authc">
+	<Manager class="xio.LoginManager" name="LinkClient">
+		<Connector inputBufferSize="16384" outputBufferSize="16384" receiveBufferSize="16384" remoteIp="127.0.0.1" remotePort="10000" sendBufferSize="16384" tcpNoDelay="false"/>
+		<Coder comment="DO NOT EDIT CODER!">
+		</Coder>
+	</Manager>
+</XioConf>

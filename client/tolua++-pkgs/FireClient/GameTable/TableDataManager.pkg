@@ -1,0 +1,38 @@
+$#include "TableDataManager.h"
+$pfile "GameTable/battle/CStageInfo.pkg"
+$pfile "GameTable/battle/CStageInfo2.pkg"
+$pfile "GameTable/battle/CSkillInfo.pkg"
+$pfile "GameTable/battle/CBattleAIConfig.pkg"
+$pfile "GameTable/buff/CBuffConfig.pkg"
+$pfile "GameTable/chat/Cbiaoqing.pkg"
+$pfile "GameTable/chat/Cquickchat.pkg"
+$pfile "GameTable/common/CCommon.pkg"
+$pfile "GameTable/effect/CEffectConfig.pkg"
+$pfile "GameTable/effect/Ccoloreffect.pkg"
+$pfile "GameTable/effect/CUseItemEffect.pkg"
+$pfile "GameTable/EffectPath/CEffectPath.pkg"
+$pfile "GameTable/EffectPath/CEffectPathNoneDrama.pkg"
+$pfile "GameTable/gm/Cbattlelist.pkg"
+$pfile "GameTable/instance/CParnterNpcConfig.pkg"
+$pfile "GameTable/item/CEquipEffect.pkg"
+$pfile "GameTable/mission/CMainMissionInfo.pkg"
+$pfile "GameTable/message/CMessageTip.pkg"
+$pfile "GameTable/move/CAutoMovePath.pkg"
+$pfile "GameTable/move/CAutoMovePathPoint.pkg"
+$pfile "GameTable/npc/CMonsterConfig.pkg"
+$pfile "GameTable/npc/CSceneNPCConfig.pkg"
+$pfile "GameTable/npc/CSceneNPCBase.pkg"
+$pfile "GameTable/skill/CSkillTypeConfig.pkg"
+$pfile "GameTable/SysConfig/CGameconfig.pkg"
+class TableDataManager 
+{ 
+public: 
+  TableDataManager(){}; 
+  ~TableDataManager(){}; 
+  static TableDataManager& instance(); 
+void releaseAllTable(); 
+void CheckCorrectTableName(std::wstring& strFileNamePath); 
+std::wstring GetCorrectTableName(); 
+void SetCorrectTableName(std::wstring& strFileNamePath); 
+void InsertTable(std::wstring& strFileNamePath, TableBase* pTable); 
+}; 

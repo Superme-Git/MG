@@ -1,0 +1,35 @@
+
+$[
+FireClient = {}
+
+function FireClient.toCEnterWorld(p)
+	return tolua.cast(p, "fire::pb::CEnterWorld" )
+end
+
+
+function FireClient.toCRoleList(p)
+	return tolua.cast(p, "fire::pb::CRoleList" )
+end
+
+
+function FireClient.toLuaBeanImport(p)
+	return tolua.cast(p, "fire::pb::LuaBeanImport" )
+end
+
+
+function FireClient.toCSetAutoBattle(p)
+	return tolua.cast(p, "fire::pb::hook::CSetAutoBattle" )
+end
+
+
+function FireClient.toCReqGoto(p)
+	return tolua.cast(p, "fire::pb::mission::CReqGoto" )
+end
+
+FireClient.Protocol = {}
+FireClient.Protocol.toCEnterWorld = FireClient.toCEnterWorld
+FireClient.Protocol.toCRoleList = FireClient.toCRoleList
+FireClient.Protocol.toLuaBeanImport = FireClient.toLuaBeanImport
+FireClient.Protocol.toCSetAutoBattle = FireClient.toCSetAutoBattle
+FireClient.Protocol.toCReqGoto = FireClient.toCReqGoto
+$]

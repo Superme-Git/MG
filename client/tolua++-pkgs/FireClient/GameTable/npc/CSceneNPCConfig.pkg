@@ -1,0 +1,35 @@
+namespace GameTable
+{
+    namespace npc
+    {
+        class CSceneNPCConfig
+        {
+            public:
+            int id;
+            int baseid;
+            int mapid;
+            int posx;
+            int posy;
+            int dir;
+            int talkinterval;
+            std::wstring talkintervalsays;
+            int talkdistance;
+            std::wstring talkdistancesays;
+            int talkcharnum;
+            std::wstring talkcharnumsays;
+            int pacing;
+            int movespeed;
+            int mask;
+            int transparent;
+        };
+        class CSceneNPCConfigTable
+        {
+            public:
+        CSceneNPCConfig& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CSceneNPCConfigTable&  GetCSceneNPCConfigTableInstance();
+    }
+}

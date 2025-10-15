@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 协议号从 10001 开始 -->
+<namespace name="buff">
+	<bean name="Buff">
+		<variable name="time" type="long" /> 剩余的时间
+		<variable name="count" type="int" /> 剩余的回合数/次数
+		<variable name="tipArgs" type="list" value="octets" /> 显示Buff Tip的参数
+	</bean>	
+	
+	<!-- buff改变结果更新协议 -->
+	<protocol maxsize="65535" name="SBuffChangeResult" prior="101" type="10010" tolua="3">
+		<variable name="agentType" type="int" />
+		<variable name="id" type="long" />
+		<variable name="petid" type="int" />
+		<variable name="addedbuffs" type="map" key="int" value="Buff" /> 添加的buff, key=buff type id,更新buff时也用此部分
+		<variable name="deletedBuffs" type="list" value="int"/> 删除的buff id
+	</protocol>		
+</namespace>

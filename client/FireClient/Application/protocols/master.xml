@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从30000开始-->
+<namespace name="master">
+<!-- -->
+	<bean name="Master">
+		<variable name="roleid" type="long" /> 师傅的roleid
+		<variable name="nickname" type="string"/> 师傅的名字
+		<variable name="level" type="int"/> 师傅等级
+		<variable name="school" type="int"/> 职业id
+		<variable name="shape" type="int"/> 师父造型
+		<variable name="rank" type="int"/> 师父级别，根据声望得到
+		<variable name="declaration" type="string"/> 宣言
+	</bean>
+	
+	<bean name="Prentice">
+		<variable name="roleid" type="long" /> 徒弟的roleid
+		<variable name="nickname" type="string"/> 徒弟的名字
+		<variable name="level" type="int"/> 徒弟等级
+		<variable name="school" type="int"/> 徒弟职业id
+	</bean>
+	
+	<protocol name="SRegMaster" type="30001" maxsize="65535" prior="1" tolua = "3">
+		<enum name="FAIL" value="0"/>
+		<enum name="SUCCESS" value="1"/>
+		<variable name="result" type="int" validator="value=[0,)"/> 
+	</protocol>	
+	<protocol name="SReadyRegMaster" type="30002" maxsize="65535" prior="1" tolua = "3"> 返回一页师傅列表
+		<variable name="masters" type="vector" value="fire.pb.master.Master"/>
+	</protocol>
+	
+	<protocol name="CRegMaster" type="30003" maxsize="65535" prior="1" tolua = "3"> 注册为师傅
+		<variable name="declaration" type="string"/> 宣言
+	</protocol>
+	<protocol name="CSearchMaster" type="30005" maxsize="65535" prior="1" tolua = "3"> 查找师傅
+		<variable name="pageid" type="int"/> 页数
+	</protocol>
+	<protocol name="SSearchMaster" type="30006" maxsize="65535" prior="1" tolua = "3"> 查找师傅
+		<variable name="pageid" type="int"/> 页数
+		<variable name="totalpage" type="int"/> 总页数
+		<variable name="masters" type="vector" value="fire.pb.master.Master"/> 师傅
+	</protocol>
+	<protocol name="CRequestAsApprentice" type="30007" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="masterid" type="long"/> 请求师傅的id
+	</protocol>
+	<protocol name="SRequestAsApprentice" type="30008" maxsize="65535" prior="1" tolua = "3"> 是否接受徒弟的确认框
+		<variable name="prenticeid" type="long"/> 徒弟id
+		<variable name="prenticename" type="string"/>  徒弟名称
+		<variable name="school" type="int"/> 职业
+		<variable name="level" type="int"/> 等级
+		<variable name="requestword" type="string"/>  留言
+	</protocol>
+	<protocol name="CPrenticeRequestResult" type="30009" maxsize="65535" prior="1" tolua = "3"> 
+		<enum name="REFUSE" value="0"/>拒绝
+		<enum name="ACCEPT" value="1"/>接受
+		<enum name="OVERTIME" value="2"/>超时
+		<variable name="prenticeid" type="long"/> 徒弟id
+		<variable name="result" type="int" validator="value=[0,3)"/> 结果
+	</protocol>
+	<protocol name="SRequestPrenticeSuccess" type="30010" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="masterid" type="long"/> 师傅的id
+		<variable name="mastername" type="string"/>  师父名称
+		<variable name="bInitiative" type="int"/>  是否是主动请求当徒弟，1为主动请求，0为师父申请收徒，之所以区分，是因为提示信息不一样
+	</protocol>
+	<protocol name="CCanAcceptPrentice" type="30011" maxsize="65535" prior="1" tolua = "3"> 
+	</protocol>
+	<protocol name="SCanAcceptPrentice" type="30012" maxsize="65535" prior="1" tolua = "3"> 
+	</protocol>
+	<protocol name="CConfirmRegMaster" type="30013" maxsize="65535" prior="1" tolua = "3"> 确定登记做师父
+	</protocol>
+	<protocol name="CSearchPrentice" type="30014" maxsize="65535" prior="1" tolua = "3"> 查找徒弟
+		<variable name="pageid" type="int"/> 页数
+	</protocol>
+	<protocol name="SSearchPrentice" type="30015" maxsize="65535" prior="1" tolua = "3"> 寻找徒弟
+		<variable name="pageid" type="int"/> 页数
+		<variable name="totalpage" type="int"/> 总页数
+		<variable name="prentice" type="vector" value="fire.pb.master.Prentice"/> 徒弟
+	</protocol>
+
+	<protocol name="SMasterPrenticeData" type="30016" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="members" type="vector" value="fire.pb.master.MasterPrenticeData"/> 
+	</protocol>
+
+	<protocol name="CDissolveRelation" type="30017" maxsize="65535" prior="1" tolua = "3">
+		<variable name="relation" type="int" validator="value=[0,1]"/> 关系,师傅or徒弟
+		<variable name="playerid" type="long"/> 玩家id
+	</protocol>
+	
+	<protocol name="SDissolveRelation" type="30018" maxsize="65535" prior="1" tolua = "3">
+		<variable name="relation" type="int" validator="value=[0,1]"/> 关系,师傅or徒弟
+		<variable name="initiative" type="int" validator="value=[0,2]"/> 是否主动 0为被动,1为主动,2为自动
+		<variable name="playerid" type="long"/> 玩家id
+	</protocol>
+	<bean name="MasterPrenticeBaseData">
+		<variable name="roleid" type="long"/> roleid
+		<variable name="nickname" type="string"/> 名字
+		<variable name="level" type="int"/>如果是师父，发送徒弟拜师时的等级，如果是徒弟，徒弟当前等级
+	</bean>
+	<protocol name="SPreviousMasters" type="30019" maxsize="65535" prior="1" tolua = "3">
+		<variable name="masters" type="map" key="long" value="fire.pb.master.MasterPrenticeBaseData"/>
+	</protocol>
+	<protocol name="CSelectedMasterAward" type="30020" maxsize="65535" prior="1" tolua = "3">
+		<variable name="awardkey" type="long"/> 玩家id
+		<variable name="npckey" type="long"/> 交互的npc key
+	</protocol>
+	<protocol name="SPrenticeList" type="30021" maxsize="65535" prior="1" tolua = "3">
+		<variable name="prentice" type="vector" value="fire.pb.master.MasterPrenticeBaseData"/>
+		<variable name="itemkey" type="int" /> 物品的bagkey
+	</protocol>
+	<protocol name="CSelectedPrenticePassBook" type="30022" maxsize="65535" prior="1" tolua = "3">
+		<variable name="prenticeid" type="long"/> 徒弟id
+		<variable name="itemkey" type="int" /> 物品的bagkey
+	</protocol>
+	<protocol name="CEvaluateMasterResult" type="30024" maxsize="65535" prior="1" tolua = "3">
+		<variable name="result" type="int"/> 选项id，1、2、3、4中的一项
+	</protocol>
+	<protocol name="SReceiveNewPrentice" type="30025" maxsize="65535" prior="1" tolua = "3">
+		<variable name="prenticeid" type="long"/> 徒弟id
+		<variable name="prenticename" type="string"/> 徒弟名字
+	</protocol>
+	
+	<protocol name="CRequestAsMaster" type="30026" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="prenticeid" type="long"/> 请求徒弟的id
+	</protocol>
+	<protocol name="SRequestAsMaster" type="30027" maxsize="65535" prior="1" tolua = "3"> 是否接受大号请求收徒的确认框
+		<variable name="masterid" type="long"/> 师父id
+		<variable name="prenticename" type="string"/>  师父名称
+		<variable name="school" type="int"/> 职业
+		<variable name="level" type="int"/> 等级
+		<variable name="requestword" type="string"/>  留言
+	</protocol>
+	<protocol name="CMasterRequestResult" type="30028" maxsize="65535" prior="1" tolua = "3"> 
+		<enum name="REFUSE" value="0"/>拒绝
+		<enum name="ACCEPT" value="1"/>接受
+		<enum name="OVERTIME" value="2"/>超时
+		<variable name="masterid" type="long"/> 徒弟id
+		<variable name="result" type="int" validator="value=[0,3)"/> 结果
+	</protocol>
+	<protocol name="SInitPrenticeList" type="30029" maxsize="65535" prior="1" tolua = "3">
+		<variable name="prenticelist" type="vector" value="fire.pb.master.RoleBaseData"/> 
+	</protocol>
+	
+	<protocol name="SCanRequestAsPrentice" type="30030" maxsize="65535" prior="1" tolua = "3">
+		<variable name="roleid" type="long"/> 请求师父的id
+		<variable name="rolename" type="string"/> 请求师父的名字
+	</protocol>
+	<protocol name="CSendRequestWordToMaster" type="30031" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="roleid" type="long"/> 请求师父的id
+		<variable name="requestword" type="string"/>  留言
+	</protocol>
+	<protocol name="SCanRequestAsMaster" type="30032" maxsize="65535" prior="1" tolua = "3">
+		<variable name="roleid" type="long"/> 请求徒弟的id
+		<variable name="rolename" type="string"/> 请求徒弟的名字
+	</protocol>
+	<protocol name="CSendRequestWordToPrentice" type="30033" maxsize="65535" prior="1" tolua = "3"> 
+		<variable name="roleid" type="long"/> 请求徒弟的id
+		<variable name="requestword" type="string"/>  留言
+	</protocol>
+	<protocol name="SCantRequestAsPrentice" type="30034" maxsize="65535" prior="1" tolua = "3">
+		<enum name="Mask_Word" value="0"/> 屏蔽字
+		<variable name="roleid" type="long"/> 请求师父的id
+		<variable name="reason" type="int" validator="value=[0,0]"/> 失败原因
+	</protocol>
+	<protocol name="SCantRequestAsMaster" type="30035" maxsize="65535" prior="1" tolua = "3">
+		<enum name="Mask_Word" value="0"/> 屏蔽字
+		<variable name="roleid" type="long"/> 请求徒弟的id
+		<variable name="reason" type="int" validator="value=[0,0]"/> 失败原因
+	</protocol>
+	<protocol name="CRequestMasterPrenticeList" type="30036" maxsize="8" prior="1" tolua = "3">
+	</protocol>
+	<protocol name="SSendMasterPrenticeList" type="30037" maxsize="16384" prior="1" tolua = "3">
+		<variable name="masterlist" type="vector" value="fire.pb.master.RoleBaseData"/> 
+		<variable name="prenticelist" type="vector" value="fire.pb.master.RoleBaseData"/> 
+	</protocol>
+	<protocol name="SAddPrePrentice" type="30038" maxsize="8" prior="1" tolua = "3">
+		<variable name="roleid" type="long" validator="value=(0,)"/>
+	</protocol>
+	<protocol name="CRequestPrenticeOnLineState" type="30039" maxsize="8" prior="1" tolua = "3">
+		<variable name="roleid" type="long" validator="value=(0,)"/>
+	</protocol>
+	<protocol name="SSendPrenticeOnLineState" type="30040" maxsize="128" prior="1" tolua = "3">
+		<variable name="roleid" type="long" validator="value=(0,)"/>
+		<variable name="rolename" type="string"/> 徒弟的名字
+		<variable name="lastOfflineTime" type="long"/> 上次下线时间
+		<variable name="onlinestate" type="byte"/> 在线状态
+	</protocol>
+	<protocol name="CRequestGiveMasterPrenticeTips" type="30041" maxsize="8" prior="1" tolua = "3">
+	</protocol>
+	
+   <bean name="RoleBaseData">
+		<variable name="roleid" type="long"/> roleid
+		<variable name="nickname" type="string"/> 名字
+	</bean>
+	<bean name="MasterPrenticeData">
+		<variable name="roleid" type="long" /> 徒弟的roleid
+		<variable name="nickname" type="string"/> 徒弟的名字
+		<variable name="level" type="int"/> 徒弟等级
+		<variable name="school" type="int"/> 徒弟职业id
+		<variable name="lastOfflineTime" type="long"/> 上次下线时间
+		<variable name="onlinestate" type="int"/> 在线状态
+	</bean>
+
+	
+	<!--    师徒系统 定义协议  -->
+	<bean name="DataConfig">
+		<enum name="REG_MONEY" value="20000"/> 登记师父扣除的游戏币
+		<enum name="MONEY1" value="10000"/>徒弟3——7天不在线，解除关系后需扣除师父10000游戏币
+		<enum name="MONEY2" value="100000"/>徒弟3天以内不在线，解除关系后需扣除师父100000游戏币
+		<enum name="REN_QI" value="100"/>   徒弟3天以内不在线，解除关系后需扣除师父100人气值
+		<enum name="TAIXUEFUZI_ID" value="10215"/> 太学夫子id 
+		<enum name="EVALUATER_LEVEL1" value="120"/> 师父收益一
+		<enum name="EVALUATER_LEVEL2" value="100"/> 师父收益二 
+		<enum name="EVALUATER_LEVEL3" value="80"/> 师父收益三
+		<enum name="EVALUATER_LEVEL4" value="60"/> 师父收益四
+		<enum name="EVALUATER_LEVEL5" value="40"/> 师父收益五
+	</bean>
+	<bean name="RelationType">
+		<enum name="MASTER" value="0"/>师父
+		<enum name="PRENTICE" value="1"/>徒弟
+	</bean>
+	<bean name="InitiativeType">
+		<enum name="INITIATIVE" value="0"/>主动
+		<enum name="PASSIVE" value="1"/>被动
+		<enum name="AUTO" value="2"/>自动
+	</bean>
+	<bean name="OnLineState">
+		<enum name="NOT_ON_LINE" value="0"/>不在线
+		<enum name="ON_LINE" value="1"/>在线
+	</bean>
+	
+	<!--通知打开师徒评价界面 -->
+	
+	<!-- 师徒系统 定义协议  -->
+	<protocol name="SNotifyMaster" type="30004" maxsize="128" prior="1" tolua="3">
+	      <variable name="flag" type="int" /> 0=无师徒 1=徒弟 2= 师傅
+	</protocol>
+	
+	<protocol name="SEvaluate" type="30042" maxsize="128" prior="1" tolua="3">通知师徒相互评价
+		<variable name="flag" type="int"/> 1=对师傅评价 2=对徒弟的评价
+		<variable name="roleId" type="long"/> 要评价的人
+	</protocol>
+	
+	<protocol name="CEvaluate" type="30043" maxsize="128" prior="1" tolua="3">相互评价
+		<variable name="flag" type="int" /> 1=对师傅评价 2=对徒弟的评价
+		<variable name="roleId" type="long"/> 要评价的人
+		<variable name="result" type="int"/> 评价
+	</protocol>
+	
+	<bean name="PrenticeData">
+		<variable name="roleid" type="long" /> 徒弟的roleid
+		<variable name="roleName" type="string"/> 徒弟的名字
+		<variable name="flag" type="int"/> 这个徒弟是否免费罢免 1=免费 0=收费
+	</bean>
+    <protocol name="SDismissApprentces" type="30044" maxsize="128" prior="1" tolua="3">要罢免的徒弟列表
+         <variable name="prenticelist" type="vector" value="PrenticeData"/> 
+	</protocol>
+	
+	<protocol name="CDismissApprentce" type="30045" maxsize="128" prior="1" tolua="3">罢免徒弟
+         <variable name="roleid" type="long" /> 徒弟的roleid
+	</protocol>
+	
+	<protocol name="SNotifyDismissMaster" type="30046" maxsize="128" prior="1" tolua="3">罢免师傅确认
+         <variable name="masterName" type="string" /> 徒弟的roleid
+	</protocol>
+	
+	<protocol name="CDismissMaster" type="30047" maxsize="128" prior="1" tolua="3">罢免师傅
+	</protocol>
+	
+	<protocol name="CReqApprences" type="30048" maxsize="65535" prior="1" tolua="3">请求师徒连心信息
+	</protocol>
+	
+	<bean name="Achive">
+	   <variable name="currNumber" type="int"/> 当前次数或者进度
+	   <variable name="totalNum" type="int"/> 总量 超过这个就表示玩家已经完成
+	   <variable name="flag" type="int"/> 0=未完成 1=完成 2=已经领奖
+	</bean>
+	<bean name="PBaseInfo">
+		<variable name="roleid" type="long" /> 徒弟的roleid
+		<variable name="roleName" type="string"/> 徒弟的名字
+		<variable name="level" type="int"/> 徒弟等级
+		<variable name="school" type="int"/> 徒弟职业id
+		<variable name="camp" type="int"/> 阵营
+		<variable name="shap" type="int"/>
+	</bean>
+   <bean name="PInfo">
+       <variable name="prentice" type="PBaseInfo"/>徒弟的基本信息
+       <variable name="achiveMap" type="map" key="int" value="Achive"/> 徒弟的成就
+	</bean>
+    <protocol name="SPrenticesList" type="30049" maxsize="65535" prior="1" tolua="3">
+		<variable name="prenticelist" type="vector" value="PInfo"/> 当前的徒弟
+		<variable name="chushiList" type="vector" value="PBaseInfo"/> 出师徒弟列表 做多发50个
+		<variable name="shide" type="long"/> 师德值 
+	</protocol>
+	
+    <protocol name="CTakeAchiveAward" type="30050" maxsize="128" prior="1" tolua="3">领取奖励
+	    <variable name="roleid" type="long" /> 徒弟的roleid
+		<variable name="key" type="int" /> 成就选项奖励key （1~13）
+	</protocol>
+	
+	<protocol name="STakeAchiveFresh" type="30051" maxsize="128" prior="1" tolua="3">领取奖励以后刷新
+	    <variable name="roleid" type="long" /> 徒弟的roleid
+	    <variable name="key" type="int" /> 成就选项奖励key(1~13)
+	    <variable name="flag" type="int"/> 0=未完成 1=完成 2=已经领奖
+	</protocol>
+	
+	<protocol name="SNotifyAppMaster" type="30052" maxsize="128" prior="1" tolua="3">领取奖励以后刷新
+	    <variable name="masterName" type="string" /> 师傅的名字
+	</protocol>
+	
+	<protocol name="CAppMaster" type="30053" maxsize="128" prior="1" tolua="3">领取奖励以后刷新
+	    <variable name="flag" type="int"/> 1=同意 0=拒绝
+	</protocol>
+</namespace>

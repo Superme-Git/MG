@@ -1,0 +1,25 @@
+真实帐号登录流程(不含gs登录)
+    gclient                         glinkd                    gdeliverd
+    | <--- gnet::Challenge  ----    |                         |
+    | ---- gnet::Response  ---->    | -- MatrixPasswdReq ---> |                         auany
+    |                               |                         | --- AuAnyLogin(rpc) ----> |
+    |                               |                         | <-- AuAnyLogin(rpc) ----- | 
+	|                               | <-- MatrixPasswdRep --- |
+    | <-- gnet::KeyExchange     --- |                         |
+    | --- gnet::KeyExchange     --> | --- UserLoginReq -----> | ----UserLogin2(try)-|
+    |                               |                         | <---UserLogin2(try)-|
+    | <-- gnet::OnlineAnnounce  --- | <---OnlineAnnounce----- |
+    |                               | <---UserLoginRep------- |                         
+    |                               |                         |
+    | ---- session close --->       | --- StatusAnnounce----> | 
+    |                               |                         |
+
+目前link向client发送的协议
+  Challenge
+  KeyExchange
+  KeepAlive
+  OnlineAnnounce
+  AddictionControl
+  KickoutUser
+  ErrorInfo
+  协议具体格式见gnet.xml。

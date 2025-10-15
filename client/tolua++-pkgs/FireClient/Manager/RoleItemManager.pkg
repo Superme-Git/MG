@@ -1,0 +1,42 @@
+
+class ItemIDParameter
+{
+	ItemIDParameter(int key, int id, int bagtype);
+};
+
+class RoleItemManager
+{
+public:
+	int64_t  GetPackMoney();
+	int64_t  GetReserveMoney();
+	bool IsBagFull(int badid = fire::pb::item::BagTypes::BAG);
+	CEGUI::ItemCell* GetItemCellAtBag(int baseID);
+	CEGUI::ItemCell* GetItemCellAtQuestBag(int baseID);
+	bool DestroyItem(); // 摧毁悬浮在鼠标上的道具,参数bDestroy为是否真正要摧毁，右键点击时改值为false
+	void ClearBag(int bagid); //删除对应包裹的所有物品
+	void CheckEquipEffect();
+
+	// 物品数量变化
+	void FireItemNumChange(const ItemIDParameter &data);
+	bool InsertItemNumChangeNotify( ItemNumChangeNotify& notiy);
+	bool RemoveItemNumChangeNotify( ItemNumChangeNotify& notiy);
+	void ClearItemNumChangeNotify();
+	int InsertLuaItemNumChangeNotify(LUA_FUNCTION handler);
+	void RemoveLuaItemNumChangeNotify(int handler);
+
+	CBroadcastEvent<NoParam> m_EventPackMoneyChange;
+	CBroadcastEvent<NoParam>	m_EventDeportMoneyChange;
+	CBroadcastEvent<NoParam>	m_EventPackGoldChange;	//new add 2015-08-28
+	CBroadcastEvent<NoParam> m_EventReserveMoneyChange;
+
+	CEvent<int>					m_EventTypeMoneyChange;
+	CEvent<int>					m_EventAddPackItem;
+	CEvent<int>					m_EventAddEquipItem;
+	CEvent<int>					m_EventDelBagItem;	
+	CEvent<int>					m_EventDelEquipItem;
+	CEvent<int>					m_EventAddQuestItem;
+	CEvent<int>					m_EventDelQuestItem;
+
+};
+
+RoleItemManager* gGetRoleItemManager();

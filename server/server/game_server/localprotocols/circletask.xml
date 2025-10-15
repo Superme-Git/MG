@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从 21000开始 -->
+<namespace name="circletask">
+	 
+	 <protocol name="GFindShoolQuestDemonsNpc" type="21004" maxsize="65535" prior="1">
+		<variable name="interfaceid" type="long" />
+		<variable name="objschool" type="int" /> 寻找玩家所属的门派
+		<variable name="levelmin" type="int" /> 最低等级
+		<variable name="levelmax" type="int" /> 最高等级
+		<variable name="npcinfo" type="fire.msp.npc.CreateNpcInfoUniverse" /> 找不到玩家时，按照npcinfo生成任务npc
+	 </protocol>	
+	 
+	 <protocol name="GCreateNpcForCatchIt" type="21009" maxsize="65535" prior="1"> 
+		<variable name="roleid" type="long"/>
+		<variable name="npcid" type="int"/>
+		<variable name="mapid" type="int"/>
+        <variable name="battleId" type="int"/> 战斗信息
+		<variable name="name" type="string"/>
+		<variable name="giveTaskNpcId" type="int"/> 给予任务的npcid
+        <variable name="questType" type="int"/> 子任务类型
+        <variable name="questId" type="int"/> 子任务ID
+        <variable name="teamNum" type="int"/> 队伍人数,0表示不需要组队
+        <variable name="width" type="int"/>
+		<variable name="height" type="int"/>
+        <variable name="firstTime" type="byte"/> 1 表示从NPC处接取任务, 0 表示自动接取的
+	 </protocol>
+	 <protocol name="MCreateNpcForCatchIt" type="21010" maxsize="65535" prior="1"> 
+		<variable name="roleid" type="long"/>
+		<variable name="npckey" type="long"/>
+		<variable name="npcid" type="int"/>
+		<variable name="mapid" type="int"/>
+        <variable name="battleId" type="int"/> 战斗信息
+        <variable name="posx" type="int"/>
+		<variable name="posy" type="int"/>
+		<variable name="posx1" type="int"/>
+		<variable name="posy1" type="int"/>
+		<variable name="name" type="string"/>
+		<variable name="giveTaskNpcId" type="int"/> 给予任务的npcid
+        <variable name="questType" type="int"/> 子任务类型
+        <variable name="questId" type="int"/> 子任务ID
+        <variable name="teamNum" type="int"/> 队伍人数,0表示不需要组队
+        <variable name="firstTime" type="byte"/> 1 表示从NPC处接取任务, 0 表示自动接取的
+     </protocol>
+	 <protocol name="GCreatePosForCTGoto" type="21011" maxsize="65535" prior="1">  给循环任务生成一个初始坐标
+		<variable name="roleid" type="long"/>
+		<variable name="npckey" type="long"/>
+		<variable name="mapid" type="int"/>
+		<variable name="ctconfid" type="int"/> 任务id
+		<variable name="gototype" type="int"/>
+		<variable name="dstnpcid" type="int"/>
+		<variable name="cttype" type="int"/> 循环类型
+		<variable name="isnpc" type="int"/>
+	 </protocol>
+	 <protocol name="MCreatePosForCTGoto" type="21012" maxsize="65535" prior="1">  循环任务初始坐标生成
+		<variable name="roleid" type="long"/>
+		<variable name="npckey" type="long"/>
+		<variable name="mapid" type="int"/>
+		<variable name="posx" type="int"/>
+		<variable name="posy" type="int"/>
+		<variable name="ctconfid" type="int"/> 任务id
+		<variable name="dstnpcid" type="int"/>
+		<variable name="cttype" type="int"/> 循环类型
+		<variable name="isnpc" type="int"/>
+	 </protocol>
+</namespace>

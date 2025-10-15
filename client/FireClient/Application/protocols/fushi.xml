@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 26000 开始　-->
+<namespace name="fushi">
+
+	<bean name="GoodInfo">
+		<variable name="goodid" type="int" /> 商品id
+		<variable name="price" type="int" /> rmb价格
+		<variable name="fushi" type="int" /> 可获得的符石
+		<variable name="present" type="int" /> 额外赠送的符石
+		<variable name="beishu" type="int" /> 该项倍数 
+	</bean> 
+
+	<protocol  name="SReqFushiNum" type="26010" maxsize="65535" prior="1" tolua="3"> 通知客户端刷新符石的数量
+		<variable name="num" type="int"/> 普通符石的数量
+		<variable name="bindNum" type="int"/> 绑定符石的数量
+		<variable name="totalnum" type="int"/> 总的充值符石数量 不包含赠送的 by changhao
+	</protocol>
+	
+	<protocol  name="CReqCharge" type="26022" maxsize="255" prior="1" tolua="3">  客户端要充值,服务器返回SReqCharge
+	</protocol>
+	<protocol  name="SReqCharge" type="26023" maxsize="65535" prior="1" tolua="3">  符石商品的列表
+		<variable name="goods" type="vector" value="GoodInfo"/>
+		<variable name="opendy" type="int"/> 是否打开订阅 1代开 0关闭
+	</protocol>
+	<protocol  name="CConfirmCharge" type="26024" maxsize="65535" prior="1" tolua="3"> 客户端点购买按钮确认充值,服务器返回SConfirmCharge
+		<variable name="goodid" type="int"/>
+		<variable name="goodnum" type="int"/>
+		<variable name="extra" type="string"/>
+	</protocol>
+	<protocol  name="SConfirmCharge" type="26025" maxsize="65535" prior="1" tolua="3">
+		<variable name="billid" type="long"/>
+		<variable name="goodid" type="int"/>
+		<variable name="goodnum" type="int"/>
+		<variable name="goodname" type="string"/>
+		<variable name="price" type="int"/>
+		<variable name="serverid" type="int"/>
+		<variable name="extra" type="string"/>
+	</protocol>
+
+	<protocol  name="SRefreshChargeState" type="26029" maxsize="255" prior="1" tolua="3">  服务器同步充值状态
+		<variable name="state" type="int"/> 0--未充过值 1-－充值了，未领取礼包 2，领取礼包了（只在刚领取完成时，发送一次）
+		<variable name="flag" type="int"/> 0=无分段翻倍  1= 有分段翻倍没冲
+	</protocol>
+	<protocol  name="CGetFirstPayReward" type="26030" maxsize="255" prior="1" tolua="3">  领取首充奖励
+	</protocol>
+	
+	<bean name="AwardItem">  
+		<variable name="itemId" type="int"/>奖励道具id
+		<variable name="itemNumber" type="int"/>奖励道具个数	
+	</bean>
+	
+	请求服务器id
+	<protocol  name="CReqServerId" type="26040" maxsize="256" prior="1" tolua="3">
+           <variable name="flag" type="int"/>	
+	</protocol>
+	
+	<protocol  name="SRspServerId" type="26041" maxsize="65535" prior="1" tolua="3"> 
+	    <variable name="serverid" type="int"/>
+		<variable name="flag" type="int"/>
+	</protocol>
+	
+	<bean name ="ChargeReturnProfit"> 充值返励 by changhao
+		<variable name="id" type="int" />
+		<variable name="value" type="int"/> 当前值 by changhao
+		<variable name="maxvalue" type="int"/> 最大值 by changhao
+		<variable name="status" type="int"/> 0是领取了1是未领取2是未到达 by changhao
+	</bean>
+	
+	<protocol name="CRequestChargeReturnProfit" type="26047" maxsize="65535" prior="1" tolua="3"> 请求充值返励数据 by changhao
+
+	</protocol>
+	
+	<protocol name="SRequestChargeReturnProfit" type="26048" maxsize="65535" prior="1" tolua="3"> 返回充值返利数据 by changhao
+		<variable name="listchargereturnprofit" type="vector" value="ChargeReturnProfit" />
+	</protocol>
+	
+	<protocol name="CGrabChargeReturnProfitReward" type="26049" maxsize="65535" prior="1" tolua="3"> 领取充值返利奖励 by changhao
+		<variable name="id" type="int"/> 充值返利项目ID by changhao
+	</protocol>
+	
+	<protocol name="SGrabChargeReturnProfitReward" type="26050" maxsize="65535" prior="1" tolua="3"> 领取结果 by changhao
+		<variable name="id" type="int"/> 充值返利项目ID by changhao
+		<variable name="status" type="int"/> 0是领取了1是未领取2是未到达 by changhao
+	</protocol>
+		
+	<protocol name="CReqChargeRefundsInfo" type="26051" maxsize="65535" prior="1" tolua="3"> 请求封测充值返还数据
+	</protocol>
+	
+	<protocol name="SReqChargeRefundsInfo" type="26052" maxsize="65535" prior="1" tolua="3"> 返回封测充值返还数据
+		<variable name="result" type="int"/> 0无资格 1有资格可以领取 2有资格已经领取
+		<variable name="chargevalue" type="int"/> 返还额度
+		<variable name="charge" type="int"/> 曾经的充值获得总符石
+	</protocol>
+	
+	<protocol name="CGetChargeRefunds" type="26053" maxsize="65535" prior="1" tolua="3"> 领取封测充值返还数据
+	</protocol>
+	
+	<protocol name="SGetChargeRefunds" type="26054" maxsize="65535" prior="1" tolua="3"> 领取封测充值返还数据结果
+		<variable name="result" type="int"/> 0无资格，失败。 1成功。 2已经领取，失败。 3未知错误，失败。
+	</protocol>
+	
+	<protocol name="CRequestVipInfo" type="26055" maxsize="65535" prior="1" tolua="3">	
+	</protocol>
+	
+	<protocol name="CRequestVipJiangli" type="26056" maxsize="65535" prior="1" tolua="3">
+		<variable name="bounusIndex" type="int"/> 那个等级的奖励
+	</protocol>
+	
+	<protocol name="SSendVipInfo" type="26057" maxsize="65535" prior="1" tolua="3">
+	
+		<enum name="RIGHT_HUOBAN"					value="0"/>助战数量
+		<enum name="RIGHT_STORAGE"					value="1"/>仓库格数
+		<enum name="RIGHT_PACKAGE"					value="2"/>背包格数
+		<enum name="RIGHT_WEEKLY_DISCOUNT_COUNT"	value="3"/>周打折限购数量---预留2个。。。		
+		<enum name="RIGHT_EXT_YINFURATE"			value="4"/>盈福经验转化率
+		<enum name="RIGHT_DAILY_GOODS_COUNT"		value="5"/>商会每日限购数量
+		<enum name="RIGHT_PET_SLOT"					value="6"/>宠物栏数量
+		<enum name="RIGHT_SUPPREG_COUNT"			value="7"/>补签次数
+
+		<variable name="vipexp" type="int"/> 已充符石数量
+		<variable name="viplevel" type="int"/> vip等级
+		<variable name="bounus" type="int"/> 可领奖励
+		<variable name="gotbounus" type="int"/> 已领奖励
+		<variable name="viprights" type="vector" value="int"/> 特权数量
+	</protocol>
+	
+	<protocol name="CReqFushiInfo" type="26058" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<protocol name="SReqFushiInfo" type="26059" maxsize="65535" prior="1" tolua="3">
+		<variable name="balance" type="int"/> 游戏币个数，包含赠送游戏币
+		<variable name="genbalance" type="int"/> 赠送游戏币个数
+		<variable name="firstsave" type="int"/> 是否满足首次充值，1满足，0不满足
+		<variable name="saveamt" type="int"/> 累计充值金额
+	</protocol>
+	
+	<protocol name="CUpYingYongBaoInfo" type="26060" maxsize="65535" prior="1" tolua="3">
+		<variable name="openid" type="string"/>
+		<variable name="openkey" type="string"/>
+		<variable name="paytoken" type="string"/>
+		<variable name="pf" type="string"/>
+		<variable name="pfkey" type="string"/>
+		<variable name="zoneid" type="string"/>
+		<variable name="platformname" type="string"/>
+	</protocol>
+	
+	<!-- 红包协议start 协议号从26100-26150 -->
+	<namespace name="redpack">
+		<bean name="RedPackType">
+			<enum name="TYPE_WORLD" value="1"/>		世界红包
+			<enum name="TYPE_CLAN" value="2"/>		公会红包
+			<enum name="TYPE_TEAM" value="3"/>	    队伍红包
+		</bean>
+		
+		<bean name="RedPackState">
+			<enum name="STATE_CANGET" value="0"/>		可以抢红包
+			<enum name="STATE_HAVE" value="1"/>		    已经领取红包
+			<enum name="STATE_NONE" value="2"/>	        红包已经抢光
+		</bean>
+		
+		<bean name="SRRedPackNum"> 玩家每天发送红包数量
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpacksendnum" type="int"/> 发红包数量
+			<variable name="redpackreceivenum" type="int"/> 收红包数量
+			<variable name="redpackreceivefushinum" type="int"/> 发符石数量
+		</bean>
+		
+		<bean name="RedPackInfo">
+			<variable name="redpackid" type="string"/> 红包Id
+			<variable name="roleid" type="long"/> 角色Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="redpackdes" type="string"/> 红包寄语
+			<variable name="redpackstate" type="int"/> 红包状态
+			<variable name="fushi" type="int"/> 符石数
+		</bean>
+		
+		<bean name="RedPackRoleHisInfo">
+			<variable name="roleid" type="long"/> 角色Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="redpackmoney" type="int"/> 红包金额
+		</bean>
+		
+		<bean name="RedPackRoleRecord">  玩家红包记录
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id
+			<variable name="roleid" type="long"/> 角色Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="school" type="int"/> 职业
+			<variable name="shape" type="int"/> 外形
+			<variable name="redpackmoney" type="int"/> 红包金额
+			<variable name="time" type="long"/> 时间
+		</bean>
+		
+		<bean name="RedPackRoleTip">  玩家红包tip
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id
+			<variable name="rolename" type="string"/> 角色名
+			<variable name="fushi" type="int"/> 符石数
+		</bean>
+	
+		<protocol name="CSendRedPackView" type="26100" maxsize="65535" prior="1" tolua="3">  红包界面
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id  用来处理分页
+		</protocol>
+		
+		<protocol name="SSendRedPackView" type="26101" maxsize="65535" prior="1" tolua="3">  返回红包界面
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="firstpageflag" type="int"/> 用来处理分页 0表示第一页   1表示其他页
+			<variable name="redpackinfolist" type="vector" value="RedPackInfo"/> 红包信息
+			<variable name="daysrnum" type="SRRedPackNum" /> 今天收送红包数量
+		</protocol>
+		
+		<protocol name="CSendRedPack" type="26102" maxsize="65535" prior="1" tolua="3">  发送红包
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="fushinum" type="int" /> 符石数量
+			<variable name="redpacknum" type="int" /> 红包数量
+			<variable name="redpackdes" type="string" /> 红包寄语
+		</protocol>
+		
+		<protocol name="SSendRedPack" type="26103" maxsize="65535" prior="1" tolua="3">  发送红包成功返回
+		</protocol>
+		
+		<protocol name="CGetRedPack" type="26104" maxsize="65535" prior="1" tolua="3">  领取红包
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id
+		</protocol>
+		
+		<protocol name="SGetRedPack" type="26105" maxsize="65535" prior="1" tolua="3">  返回领取红包
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id
+			<variable name="state" type="int"/> 红包状态
+			<variable name="successflag" type="int"/> 领取成功标志  0失败    1成功
+			<variable name="fushinum" type="int" /> 符石数量
+		</protocol>
+		
+		<protocol name="CSendRedPackHisView" type="26106" maxsize="65535" prior="1" tolua="3">  查看红包历史
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id
+		</protocol>
+		
+		<protocol name="SSendRedPackHisView" type="26107" maxsize="65535" prior="1" tolua="3">  返回红包历史
+			<variable name="modeltype" type="int" /> 红包类型
+			<variable name="redpackid" type="string"/> 红包Id
+			<variable name="redpackdes" type="string" /> 红包寄语
+			<variable name="redpackallnum" type="int" />红包总个数
+			<variable name="redpackallmoney" type="int" />红包总金额
+			<variable name="time" type="long"/> 时间
+			<variable name="redpackrolehisinfolist" type="vector" value="RedPackRoleHisInfo"/> 红包历史信息
+		</protocol>
+		
+		<protocol name="CSendRedPackRoleRecordView" type="26108" maxsize="65535" prior="1" tolua="3">  查看玩家红包记录
+			<variable name="modeltype" type="int" /> 0发出 1收到 
+			<variable name="redpackid" type="string"/> 红包Id  用来处理分页
+		</protocol>
+		
+		<protocol name="SSendRedPackRoleRecordView" type="26109" maxsize="65535" prior="1" tolua="3">  查看玩家红包记录
+			<variable name="modeltype" type="int" /> 0发出 1收到
+			<variable name="firstpageflag" type="int"/> 用来处理分页 0表示第一页   1表示其他页
+			<variable name="redpackallnum" type="int" />红包总个数
+			<variable name="redpackallmoney" type="long" />红包总金额
+			<variable name="redpackallfushi" type="long" />红包总符石
+			<variable name="redpackrolerecord" type="vector" value="RedPackRoleRecord"/> 记录信息
+		</protocol>
+		
+		<protocol name="SNoticeRedPack" type="26110" maxsize="65535" prior="1" tolua="3">  推送红包信息
+			<variable name="redpackroletip" type="RedPackRoleTip" /> 红包信息
+		</protocol>
+		
+		<protocol name="SNoticeRedPackList" type="26111" maxsize="65535" prior="1" tolua="3">  上线推送红包信息
+			<variable name="redpackroletiplist" type="vector" value="RedPackRoleTip"/> 红包信息
+		</protocol>
+		
+	</namespace>
+	<!-- 红包协议end 协议号从26100-26150 -->
+	
+	<!--日卡-->
+	<namespace name="payday">	
+	
+		<protocol name="SPayServerType" type="26160" maxsize="65535" prior="1" tolua="3">  
+			<variable name="paytype" type="int" />付费服务器类型(0是普通1是点卡) by changhao
+			<variable name="opendy" type="int"/> 是否打开订阅 1代开 0关闭
+		</protocol>
+		
+		<protocol name="SHaveDayPay" type="26161" maxsize="65535" prior="1" tolua="3">  是否已经消耗日卡 by changhao
+			<variable name="daypay" type="int" /> 0是没有1是已经消耗 by changhao
+		</protocol>
+		
+		<protocol name="SQueryConsumeDayPay" type="26162" maxsize="65535" prior="1" tolua="3">  询问是否发送消耗点卡 by changhao
+		
+		</protocol>
+		
+		<protocol name="CQueryConsumeDayPay" type="26163" maxsize="65535" prior="1" tolua="3">  是否消耗点卡 by changhao
+			<variable name="yesorno" type="int" /> 0是没有1是消耗 by changhao
+		</protocol>
+		
+		<protocol name="SConsumeDayPay" type="26164" maxsize="65535" prior="1" tolua="3">  消耗点卡 by changhao
+		</protocol>
+		
+		<protocol name="CQuerySubscribeInfo" type="26165" maxsize="65535" prior="1" tolua="3">  查询订阅信息
+		</protocol>
+		
+		<protocol name="SQuerySubscribeInfo" type="26166" maxsize="65535" prior="1" tolua="3">  返回订阅信息
+			<variable name="subscribetime" type="long" /> 最近一次订阅时间
+			<variable name="expiretime" type="long" /> 过期时间
+		</protocol>
+		
+	</namespace>
+	
+		<!-- 点卡交易协议start 协议号从26201-26250 -->
+	<namespace name="spotcheck">
+		<bean name="SpotCardInfo"> 点卡信息
+			<variable name="num" type="int"/> 数量
+			<variable name="price" type="int"/> 价格
+		</bean>
+			
+		<bean name="RoleTradingRecord"> 玩家点卡交易记录信息
+			<variable name="tradingid" type="string"/> 挂单号
+			<variable name="tradingtype" type="int"/> 交易类型  0买入  1出售
+			<variable name="num" type="int"/> 数量
+			<variable name="price" type="int"/> 价格
+			<variable name="tradingtime" type="long"/> 交易时间
+		</bean>
+	
+	
+		<protocol name="CBuySpotCard" type="26201" maxsize="65535" prior="1" tolua="3">  求购符石
+			<variable name="buynum" type="int" /> 求购数量
+			<variable name="buyprice" type="int" /> 求购单价
+		</protocol>
+		
+		<protocol name="SBuySpotCard" type="26202" maxsize="65535" prior="1" tolua="3">
+		</protocol>
+		
+		<protocol name="CSellSpotCard" type="26203" maxsize="65535" prior="1" tolua="3"> 寄售符石
+			<variable name="sellnum" type="int" /> 寄售数量
+			<variable name="sellprice" type="int" /> 寄售单价
+		</protocol>
+		
+		<protocol name="SSellSpotCard" type="26204" maxsize="65535" prior="1" tolua="3">
+		</protocol>
+		
+		<protocol name="CTradingSpotCardView" type="26205" maxsize="65535" prior="1" tolua="3"> 交易区界面
+		</protocol>
+		
+		<protocol name="STradingSpotCardView" type="26206" maxsize="65535" prior="1" tolua="3"> 交易区界面
+			<variable name="sellspotcardinfolist" type="vector" value="SpotCardInfo"/> 卖出
+			<variable name="buyspotcardinfolist" type="vector" value="SpotCardInfo"/> 买入
+		</protocol>
+		
+		<protocol name="CRoleTradingView" type="26207" maxsize="65535" prior="1" tolua="3"> 个人买卖界面
+		</protocol>
+		
+		<protocol name="SRoleTradingView" type="26208" maxsize="65535" prior="1" tolua="3"> 个人买卖界面
+			<variable name="sellspotcardinfolist" type="vector" value="RoleTradingRecord"/> 卖出
+			<variable name="buyspotcardinfolist" type="vector" value="RoleTradingRecord"/> 买入
+		</protocol>
+		
+		<protocol name="CRoleTradingRecordView" type="26209" maxsize="65535" prior="1" tolua="3"> 个人买卖记录界面
+		</protocol>
+		
+		<protocol name="SRoleTradingRecordView" type="26210" maxsize="65535" prior="1" tolua="3"> 个人买卖记录界面
+			<variable name="roletradingrecordlist" type="vector" value="RoleTradingRecord"/> 记录信息
+		</protocol>
+		
+		<protocol name="CCancelTrading" type="26211" maxsize="65535" prior="1" tolua="3"> 撤销订单
+			<variable name="tradingid" type="string"/> 挂单号
+		</protocol>
+		
+		<protocol name="SCancelTrading" type="26212" maxsize="65535" prior="1" tolua="3"> 撤销订单
+		</protocol>
+		
+		<protocol name="CTradingOpenState" type="26213" maxsize="65535" prior="1" tolua="3"> 交易所功能是否开启
+		</protocol>
+		
+		<protocol name="STradingOpenState" type="26214" maxsize="65535" prior="1" tolua="3"> 交易所功能是否开启
+			<variable name="openstate" type="byte"/> 0关闭   1开启
+		</protocol>
+	
+	</namespace>
+	<!-- 点卡交易协议end 协议号从26201-26250 -->
+	
+	<!--月卡 by changhao-->
+	<namespace name="monthcard">
+	
+		<protocol name="CBuyMonthCard" type="26255" maxsize="65535" prior="1" tolua="3">   购买月卡 by changhao
+		</protocol>
+			
+		<protocol name="SMonthCard" type="26256" maxsize="65535" prior="1" tolua="3">    返回月卡结束时间戳 by changhao
+			<variable name="endtime" type="long"/> 月卡结束时间戳 by changhao
+			<variable name="grab" type="int"/> 1是可以领取0是不能领取 by changhao
+		</protocol>
+		
+		<protocol name="CGrabMonthCardReward" type="26257" maxsize="65535" prior="1" tolua="3">   领取月卡单独道具奖励 by changhao
+			<variable name="itemid" type="int"/>  自由分配道具id by changhao
+			<variable name="rewarddistribution" type="map" key="int" value="int"/> 道具分配 道具id value数量 by changhao
+		</protocol>
+		
+		<protocol name="CGrabMonthCardRewardAll" type="26258" maxsize="65535" prior="1" tolua="3">   领取月卡奖励 by changhao
+
+		</protocol>
+		
+		<protocol name="CRequestMonthCard" type="26259" maxsize="65535" prior="1" tolua="3">   请求服务器月卡信息 by changhao
+
+		</protocol>
+		
+	</namespace>
+		
+		
+	
+	
+</namespace>

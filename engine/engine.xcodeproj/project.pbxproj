@@ -1,0 +1,1695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		76273D9B1C848D9800D99837 /* nuiapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D911C848D9800D99837 /* nuiapp.h */; };
+		76273D9C1C848D9800D99837 /* nuieffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D921C848D9800D99837 /* nuieffect.h */; };
+		76273D9D1C848D9800D99837 /* nuiengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D931C848D9800D99837 /* nuiengine.h */; };
+		76273D9E1C848D9800D99837 /* nuientitativetitlemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D941C848D9800D99837 /* nuientitativetitlemanager.h */; };
+		76273D9F1C848D9800D99837 /* nuienv.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D951C848D9800D99837 /* nuienv.h */; };
+		76273DA01C848D9800D99837 /* nuiimmovableobj.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D961C848D9800D99837 /* nuiimmovableobj.h */; };
+		76273DA11C848D9800D99837 /* nuiquery.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D971C848D9800D99837 /* nuiquery.h */; };
+		76273DA21C848D9800D99837 /* nuiselectableobj.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D981C848D9800D99837 /* nuiselectableobj.h */; };
+		76273DA31C848D9800D99837 /* nuisprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D991C848D9800D99837 /* nuisprite.h */; };
+		76273DA41C848D9800D99837 /* nuiworld.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D9A1C848D9800D99837 /* nuiworld.h */; };
+		76273DBF1C848E4D00D99837 /* nucommonfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DA81C848E4D00D99837 /* nucommonfuncs.cpp */; };
+		76273DC01C848E4D00D99837 /* nucommonfuncs.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DA91C848E4D00D99837 /* nucommonfuncs.h */; };
+		76273DC11C848E4D00D99837 /* nugeneralparticlesystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DAA1C848E4D00D99837 /* nugeneralparticlesystem.cpp */; };
+		76273DC21C848E4D00D99837 /* nugeneralparticlesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DAB1C848E4D00D99837 /* nugeneralparticlesystem.h */; };
+		76273DC31C848E4D00D99837 /* nuiparticlemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DAC1C848E4D00D99837 /* nuiparticlemanager.h */; };
+		76273DC41C848E4D00D99837 /* nuiparticlesyscommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DAD1C848E4D00D99837 /* nuiparticlesyscommon.h */; };
+		76273DC51C848E4D00D99837 /* nuparticle.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DAE1C848E4D00D99837 /* nuparticle.h */; };
+		76273DC61C848E4D00D99837 /* nuparticlearray.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DAF1C848E4D00D99837 /* nuparticlearray.h */; };
+		76273DC71C848E4D00D99837 /* nuparticlemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DB01C848E4D00D99837 /* nuparticlemanager.cpp */; };
+		76273DC81C848E4D00D99837 /* nuparticlemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DB11C848E4D00D99837 /* nuparticlemanager.h */; };
+		76273DC91C848E4D00D99837 /* nuparticlesyscommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DB21C848E4D00D99837 /* nuparticlesyscommon.h */; };
+		76273DCA1C848E4D00D99837 /* nuparticlesystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DB31C848E4D00D99837 /* nuparticlesystem.cpp */; };
+		76273DCB1C848E4D00D99837 /* nuparticlesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DB41C848E4D00D99837 /* nuparticlesystem.h */; };
+		76273DCC1C848E4D00D99837 /* nupslgroupobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DB51C848E4D00D99837 /* nupslgroupobject.cpp */; };
+		76273DCD1C848E4D00D99837 /* nupslgroupobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DB61C848E4D00D99837 /* nupslgroupobject.h */; };
+		76273DCE1C848E4D00D99837 /* nupslpathobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DB71C848E4D00D99837 /* nupslpathobject.cpp */; };
+		76273DCF1C848E4D00D99837 /* nupslpathobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DB81C848E4D00D99837 /* nupslpathobject.h */; };
+		76273DD01C848E4D00D99837 /* nupsparamobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DB91C848E4D00D99837 /* nupsparamobject.cpp */; };
+		76273DD11C848E4D00D99837 /* nupsparamobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DBA1C848E4D00D99837 /* nupsparamobject.h */; };
+		76273DD21C848E4D00D99837 /* nupsvertexsobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DBB1C848E4D00D99837 /* nupsvertexsobject.cpp */; };
+		76273DD31C848E4D00D99837 /* nupsvertexsobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DBC1C848E4D00D99837 /* nupsvertexsobject.h */; };
+		76273DD41C848E4D00D99837 /* nuspecialparticlesystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DBD1C848E4D00D99837 /* nuspecialparticlesystem.cpp */; };
+		76273DD51C848E4D00D99837 /* nuspecialparticlesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DBE1C848E4D00D99837 /* nuspecialparticlesystem.h */; };
+		76273DF01C848F1B00D99837 /* nueffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DD61C848F1B00D99837 /* nueffect.cpp */; };
+		76273DF11C848F1B00D99837 /* nueffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DD71C848F1B00D99837 /* nueffect.h */; };
+		76273DF21C848F1B00D99837 /* nueffectclip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DD81C848F1B00D99837 /* nueffectclip.cpp */; };
+		76273DF31C848F1B00D99837 /* nueffectclip.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DD91C848F1B00D99837 /* nueffectclip.h */; };
+		76273DF41C848F1B00D99837 /* nueffectkeytable.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DDA1C848F1B00D99837 /* nueffectkeytable.h */; };
+		76273DF51C848F1B00D99837 /* nueffectmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DDB1C848F1B00D99837 /* nueffectmanager.cpp */; };
+		76273DF61C848F1B00D99837 /* nueffectmanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DDC1C848F1B00D99837 /* nueffectmanager.h */; };
+		76273DF71C848F1B00D99837 /* nufonteffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DDD1C848F1B00D99837 /* nufonteffect.cpp */; };
+		76273DF81C848F1B00D99837 /* nufonteffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DDE1C848F1B00D99837 /* nufonteffect.h */; };
+		76273DF91C848F1B00D99837 /* nugeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DDF1C848F1B00D99837 /* nugeffect.cpp */; };
+		76273DFA1C848F1B00D99837 /* nugeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DE01C848F1B00D99837 /* nugeffect.h */; };
+		76273DFB1C848F1B00D99837 /* nukeyframe.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DE11C848F1B00D99837 /* nukeyframe.h */; };
+		76273DFC1C848F1B00D99837 /* nulightingeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DE21C848F1B00D99837 /* nulightingeffect.cpp */; };
+		76273DFD1C848F1B00D99837 /* nulightingeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DE31C848F1B00D99837 /* nulightingeffect.h */; };
+		76273DFE1C848F1B00D99837 /* nulisteffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DE41C848F1B00D99837 /* nulisteffect.cpp */; };
+		76273DFF1C848F1B00D99837 /* nulisteffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DE51C848F1B00D99837 /* nulisteffect.h */; };
+		76273E001C848F1B00D99837 /* nuparticleeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DE61C848F1B00D99837 /* nuparticleeffect.cpp */; };
+		76273E011C848F1B00D99837 /* nuparticleeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DE71C848F1B00D99837 /* nuparticleeffect.h */; };
+		76273E021C848F1B00D99837 /* nusebind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DE81C848F1B00D99837 /* nusebind.cpp */; };
+		76273E031C848F1B00D99837 /* nusebind.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DE91C848F1B00D99837 /* nusebind.h */; };
+		76273E041C848F1B00D99837 /* nuspineeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DEA1C848F1B00D99837 /* nuspineeffect.cpp */; };
+		76273E051C848F1B00D99837 /* nuspineeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DEB1C848F1B00D99837 /* nuspineeffect.h */; };
+		76273E061C848F1B00D99837 /* nuxapbatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DEC1C848F1B00D99837 /* nuxapbatch.cpp */; };
+		76273E071C848F1B00D99837 /* nuxapbatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DED1C848F1B00D99837 /* nuxapbatch.h */; };
+		76273E081C848F1B00D99837 /* nuxapeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273DEE1C848F1B00D99837 /* nuxapeffect.cpp */; };
+		76273E091C848F1B00D99837 /* nuxapeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273DEF1C848F1B00D99837 /* nuxapeffect.h */; };
+		76273E261C848FB200D99837 /* numapobjs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E0A1C848FB200D99837 /* numapobjs.cpp */; };
+		76273E271C848FB200D99837 /* numapobjs.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E0B1C848FB200D99837 /* numapobjs.h */; };
+		76273E281C848FB200D99837 /* nupbackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E0C1C848FB200D99837 /* nupbackground.cpp */; };
+		76273E291C848FB200D99837 /* nupbackground.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E0D1C848FB200D99837 /* nupbackground.h */; };
+		76273E2A1C848FB200D99837 /* nupdistortionobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E0E1C848FB200D99837 /* nupdistortionobject.cpp */; };
+		76273E2B1C848FB200D99837 /* nupdistortionobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E0F1C848FB200D99837 /* nupdistortionobject.h */; };
+		76273E2C1C848FB200D99837 /* nupground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E101C848FB200D99837 /* nupground.cpp */; };
+		76273E2D1C848FB200D99837 /* nupground.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E111C848FB200D99837 /* nupground.h */; };
+		76273E2E1C848FB200D99837 /* nupimg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E121C848FB200D99837 /* nupimg.cpp */; };
+		76273E2F1C848FB200D99837 /* nupimg.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E131C848FB200D99837 /* nupimg.h */; };
+		76273E301C848FB200D99837 /* nuplinkedobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E141C848FB200D99837 /* nuplinkedobject.cpp */; };
+		76273E311C848FB200D99837 /* nuplinkedobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E151C848FB200D99837 /* nuplinkedobject.h */; };
+		76273E321C848FB200D99837 /* nupmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E161C848FB200D99837 /* nupmap.cpp */; };
+		76273E331C848FB200D99837 /* nupmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E171C848FB200D99837 /* nupmap.h */; };
+		76273E341C848FB200D99837 /* nupmask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E181C848FB200D99837 /* nupmask.cpp */; };
+		76273E351C848FB200D99837 /* nupmask.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E191C848FB200D99837 /* nupmask.h */; };
+		76273E361C848FB200D99837 /* nuppathmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E1A1C848FB200D99837 /* nuppathmap.cpp */; };
+		76273E371C848FB200D99837 /* nuppathmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E1B1C848FB200D99837 /* nuppathmap.h */; };
+		76273E381C848FB200D99837 /* nupstepsoundmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E1C1C848FB200D99837 /* nupstepsoundmap.cpp */; };
+		76273E391C848FB200D99837 /* nupstepsoundmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E1D1C848FB200D99837 /* nupstepsoundmap.h */; };
+		76273E3A1C848FB200D99837 /* nuptimeeffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E1E1C848FB200D99837 /* nuptimeeffect.cpp */; };
+		76273E3B1C848FB200D99837 /* nuptimeeffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E1F1C848FB200D99837 /* nuptimeeffect.h */; };
+		76273E3C1C848FB200D99837 /* nuptransobjs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E201C848FB200D99837 /* nuptransobjs.cpp */; };
+		76273E3D1C848FB200D99837 /* nuptransobjs.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E211C848FB200D99837 /* nuptransobjs.h */; };
+		76273E3E1C848FB200D99837 /* nuptriggerobjs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E221C848FB200D99837 /* nuptriggerobjs.cpp */; };
+		76273E3F1C848FB200D99837 /* nuptriggerobjs.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E231C848FB200D99837 /* nuptriggerobjs.h */; };
+		76273E401C848FB200D99837 /* nupwaterarea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E241C848FB200D99837 /* nupwaterarea.cpp */; };
+		76273E411C848FB200D99837 /* nupwaterarea.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E251C848FB200D99837 /* nupwaterarea.h */; };
+		76273E541C84909C00D99837 /* nudistort.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E421C84909C00D99837 /* nudistort.h */; };
+		76273E551C84909C00D99837 /* nudistortbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E431C84909C00D99837 /* nudistortbase.cpp */; };
+		76273E561C84909C00D99837 /* nudistortbase.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E441C84909C00D99837 /* nudistortbase.h */; };
+		76273E571C84909C00D99837 /* nuentitativeobj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E451C84909C00D99837 /* nuentitativeobj.cpp */; };
+		76273E581C84909C00D99837 /* nuentitativeobj.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E461C84909C00D99837 /* nuentitativeobj.h */; };
+		76273E591C84909C00D99837 /* nuimmovableobj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E471C84909C00D99837 /* nuimmovableobj.cpp */; };
+		76273E5A1C84909C00D99837 /* nuimmovableobj.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E481C84909C00D99837 /* nuimmovableobj.h */; };
+		76273E5B1C84909C00D99837 /* nulkotree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E491C84909C00D99837 /* nulkotree.cpp */; };
+		76273E5C1C84909C00D99837 /* nulkotree.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E4A1C84909C00D99837 /* nulkotree.h */; };
+		76273E5D1C84909C00D99837 /* nulkotreenodelist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E4B1C84909C00D99837 /* nulkotreenodelist.cpp */; };
+		76273E5E1C84909C00D99837 /* nulkotreenodelist.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E4C1C84909C00D99837 /* nulkotreenodelist.h */; };
+		76273E5F1C84909C00D99837 /* numap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E4D1C84909C00D99837 /* numap.cpp */; };
+		76273E601C84909C00D99837 /* numap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E4E1C84909C00D99837 /* numap.h */; };
+		76273E611C84909C00D99837 /* nupicresrc.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E4F1C84909C00D99837 /* nupicresrc.h */; };
+		76273E621C84909C00D99837 /* nuregionmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E501C84909C00D99837 /* nuregionmap.cpp */; };
+		76273E631C84909C00D99837 /* nuregionmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E511C84909C00D99837 /* nuregionmap.h */; };
+		76273E641C84909C00D99837 /* nuworld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E521C84909C00D99837 /* nuworld.cpp */; };
+		76273E651C84909C00D99837 /* nuworld.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E531C84909C00D99837 /* nuworld.h */; };
+		76273E6E1C84911600D99837 /* nualocation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E661C84911600D99837 /* nualocation.hpp */; };
+		76273E6F1C84911600D99837 /* nuamaze.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E671C84911600D99837 /* nuamaze.hpp */; };
+		76273E701C84911600D99837 /* nuapath.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E681C84911600D99837 /* nuapath.hpp */; };
+		76273E711C84911600D99837 /* nuapathio.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E691C84911600D99837 /* nuapathio.hpp */; };
+		76273E721C84911600D99837 /* nuasingleton.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E6A1C84911600D99837 /* nuasingleton.hpp */; };
+		76273E731C84911600D99837 /* nuastar.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E6B1C84911600D99837 /* nuastar.hpp */; };
+		76273E741C84911600D99837 /* nuastarImplement.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E6C1C84911600D99837 /* nuastarImplement.hpp */; };
+		76273E751C84911600D99837 /* nuatimer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 76273E6D1C84911600D99837 /* nuatimer.hpp */; };
+		76273E831C84919400D99837 /* nucomponentsprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E761C84919400D99837 /* nucomponentsprite.cpp */; };
+		76273E841C84919400D99837 /* nucomponentsprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E771C84919400D99837 /* nucomponentsprite.h */; };
+		76273E851C84919400D99837 /* numovablespriteimp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E781C84919400D99837 /* numovablespriteimp.cpp */; };
+		76273E861C84919400D99837 /* numovablespriteimp.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E791C84919400D99837 /* numovablespriteimp.h */; };
+		76273E871C84919400D99837 /* nupspritemaze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E7A1C84919400D99837 /* nupspritemaze.cpp */; };
+		76273E881C84919400D99837 /* nupspritemaze.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E7B1C84919400D99837 /* nupspritemaze.h */; };
+		76273E891C84919400D99837 /* nurenderablesprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E7C1C84919400D99837 /* nurenderablesprite.h */; };
+		76273E8A1C84919400D99837 /* nuspinesprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E7D1C84919400D99837 /* nuspinesprite.cpp */; };
+		76273E8B1C84919400D99837 /* nuspinesprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E7E1C84919400D99837 /* nuspinesprite.h */; };
+		76273E8C1C84919400D99837 /* nusprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E7F1C84919400D99837 /* nusprite.cpp */; };
+		76273E8D1C84919400D99837 /* nusprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E801C84919400D99837 /* nusprite.h */; };
+		76273E8E1C84919400D99837 /* nuspritemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E811C84919400D99837 /* nuspritemanager.cpp */; };
+		76273E8F1C84919400D99837 /* nuspritemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E821C84919400D99837 /* nuspritemanager.h */; };
+		76273EAA1C84922900D99837 /* nuanimanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E901C84922900D99837 /* nuanimanager.cpp */; };
+		76273EAB1C84922900D99837 /* nuanimanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E911C84922900D99837 /* nuanimanager.h */; };
+		76273EAC1C84922900D99837 /* nucamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E921C84922900D99837 /* nucamera.h */; };
+		76273EAD1C84922900D99837 /* nucamerasmoother.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E931C84922900D99837 /* nucamerasmoother.cpp */; };
+		76273EAE1C84922900D99837 /* nucamerasmoother.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E941C84922900D99837 /* nucamerasmoother.h */; };
+		76273EAF1C84922900D99837 /* nucocos2d_wraper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E951C84922900D99837 /* nucocos2d_wraper.cpp */; };
+		76273EB01C84922900D99837 /* nucocos2d_wraper.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E961C84922900D99837 /* nucocos2d_wraper.h */; };
+		76273EB11C84922900D99837 /* nuconfigmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E971C84922900D99837 /* nuconfigmanager.cpp */; };
+		76273EB21C84922900D99837 /* nuconfigmanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E981C84922900D99837 /* nuconfigmanager.h */; };
+		76273EB31C84922900D99837 /* nuengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E991C84922900D99837 /* nuengine.cpp */; };
+		76273EB41C84922900D99837 /* nuengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E9A1C84922900D99837 /* nuengine.h */; };
+		76273EB51C84922900D99837 /* nuenginebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E9B1C84922900D99837 /* nuenginebase.h */; };
+		76273EB61C84922900D99837 /* nuenginetimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E9C1C84922900D99837 /* nuenginetimer.cpp */; };
+		76273EB71C84922900D99837 /* nuenginetimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E9D1C84922900D99837 /* nuenginetimer.h */; };
+		76273EB81C84922900D99837 /* nuenv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273E9E1C84922900D99837 /* nuenv.cpp */; };
+		76273EB91C84922900D99837 /* nuenv.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273E9F1C84922900D99837 /* nuenv.h */; };
+		76273EBA1C84922900D99837 /* nuguobj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EA01C84922900D99837 /* nuguobj.cpp */; };
+		76273EBB1C84922900D99837 /* nuguobj.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EA11C84922900D99837 /* nuguobj.h */; };
+		76273EBC1C84922900D99837 /* nuiadapter.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EA21C84922900D99837 /* nuiadapter.h */; };
+		76273EBD1C84922900D99837 /* nurenderable.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EA31C84922900D99837 /* nurenderable.h */; };
+		76273EBE1C84922900D99837 /* nurendertargetcache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EA41C84922900D99837 /* nurendertargetcache.cpp */; };
+		76273EBF1C84922900D99837 /* nurendertargetcache.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EA51C84922900D99837 /* nurendertargetcache.h */; };
+		76273EC01C84922900D99837 /* nusystemresourcemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EA61C84922900D99837 /* nusystemresourcemanager.cpp */; };
+		76273EC11C84922900D99837 /* nusystemresourcemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EA71C84922900D99837 /* nusystemresourcemanager.h */; };
+		76273EC21C84922900D99837 /* nuwindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EA81C84922900D99837 /* nuwindow.h */; };
+		76273EC31C84922900D99837 /* nuwindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76273EA91C84922900D99837 /* nuwindow.mm */; };
+		76273ED41C8492DE00D99837 /* nucocos2d_render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EC41C8492DE00D99837 /* nucocos2d_render.cpp */; };
+		76273ED51C8492DE00D99837 /* nucocos2d_render.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EC51C8492DE00D99837 /* nucocos2d_render.h */; };
+		76273ED61C8492DE00D99837 /* nufontmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EC61C8492DE00D99837 /* nufontmanager.cpp */; };
+		76273ED71C8492DE00D99837 /* nufontmanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EC71C8492DE00D99837 /* nufontmanager.h */; };
+		76273ED81C8492DE00D99837 /* nufonttexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EC81C8492DE00D99837 /* nufonttexture.cpp */; };
+		76273ED91C8492DE00D99837 /* nufonttexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EC91C8492DE00D99837 /* nufonttexture.h */; };
+		76273EDA1C8492DE00D99837 /* nufxcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273ECA1C8492DE00D99837 /* nufxcode.cpp */; };
+		76273EDB1C8492DE00D99837 /* nufxcode.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273ECB1C8492DE00D99837 /* nufxcode.h */; };
+		76273EDC1C8492DE00D99837 /* nuibaserenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273ECC1C8492DE00D99837 /* nuibaserenderer.h */; };
+		76273EDD1C8492DE00D99837 /* nuifontmanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273ECD1C8492DE00D99837 /* nuifontmanager.h */; };
+		76273EDE1C8492DE00D99837 /* nurenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273ECE1C8492DE00D99837 /* nurenderer.cpp */; };
+		76273EDF1C8492DE00D99837 /* nurenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273ECF1C8492DE00D99837 /* nurenderer.h */; };
+		76273EE01C8492DE00D99837 /* nustatemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273ED01C8492DE00D99837 /* nustatemanager.cpp */; };
+		76273EE11C8492DE00D99837 /* nustatemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273ED11C8492DE00D99837 /* nustatemanager.h */; };
+		76273EE21C8492DE00D99837 /* nutextblock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273ED21C8492DE00D99837 /* nutextblock.cpp */; };
+		76273EE31C8492DE00D99837 /* nutextblock.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273ED31C8492DE00D99837 /* nutextblock.h */; };
+		76273EE61C84933400D99837 /* nucocos2d_type.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EE41C84933400D99837 /* nucocos2d_type.cpp */; };
+		76273EE71C84933400D99837 /* nucocos2d_type.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EE51C84933400D99837 /* nucocos2d_type.h */; };
+		76273F041C84946700D99837 /* nuexecutor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EE81C84946700D99837 /* nuexecutor.cpp */; };
+		76273F051C84946700D99837 /* nuexecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EE91C84946700D99837 /* nuexecutor.h */; };
+		76273F061C84946700D99837 /* nufileiomanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EEA1C84946700D99837 /* nufileiomanager.cpp */; };
+		76273F071C84946700D99837 /* nufileiomanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EEB1C84946700D99837 /* nufileiomanager.h */; };
+		76273F081C84946700D99837 /* nufreqcountable.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EEC1C84946700D99837 /* nufreqcountable.h */; };
+		76273F091C84946700D99837 /* nugeom.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EED1C84946700D99837 /* nugeom.h */; };
+		76273F0A1C84946700D99837 /* nuljfmutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EEE1C84946700D99837 /* nuljfmutil.cpp */; };
+		76273F0B1C84946700D99837 /* nuljfmutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EEF1C84946700D99837 /* nuljfmutil.h */; };
+		76273F0C1C84946700D99837 /* nulog.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EF01C84946700D99837 /* nulog.h */; };
+		76273F0D1C84946700D99837 /* nupobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EF11C84946700D99837 /* nupobject.cpp */; };
+		76273F0E1C84946700D99837 /* nupobject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EF21C84946700D99837 /* nupobject.h */; };
+		76273F0F1C84946700D99837 /* nurecttopologylist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EF31C84946700D99837 /* nurecttopologylist.cpp */; };
+		76273F101C84946700D99837 /* nurecttopologylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EF41C84946700D99837 /* nurecttopologylist.h */; };
+		76273F111C84946700D99837 /* nutimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EF51C84946700D99837 /* nutimer.cpp */; };
+		76273F121C84946700D99837 /* nutimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EF61C84946700D99837 /* nutimer.h */; };
+		76273F131C84946700D99837 /* nuutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EF71C84946700D99837 /* nuutil.cpp */; };
+		76273F141C84946700D99837 /* nuutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EF81C84946700D99837 /* nuutil.h */; };
+		76273F151C84946700D99837 /* nuworldlogiccoord.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EF91C84946700D99837 /* nuworldlogiccoord.h */; };
+		76273F161C84946700D99837 /* nuxbuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EFA1C84946700D99837 /* nuxbuffer.cpp */; };
+		76273F171C84946700D99837 /* nuxbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EFB1C84946700D99837 /* nuxbuffer.h */; };
+		76273F181C84946700D99837 /* nuxlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EFC1C84946700D99837 /* nuxlock.cpp */; };
+		76273F191C84946700D99837 /* nuxlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EFD1C84946700D99837 /* nuxlock.h */; };
+		76273F1A1C84946700D99837 /* nuxmarshal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273EFE1C84946700D99837 /* nuxmarshal.cpp */; };
+		76273F1B1C84946700D99837 /* nuxmarshal.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273EFF1C84946700D99837 /* nuxmarshal.h */; };
+		76273F1C1C84946700D99837 /* nuxpmaths.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273F001C84946700D99837 /* nuxpmaths.cpp */; };
+		76273F1D1C84946700D99837 /* nuxpmaths.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273F011C84946700D99837 /* nuxpmaths.h */; };
+		76273F1E1C84946700D99837 /* nuxptypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273F021C84946700D99837 /* nuxptypes.h */; };
+		76273F1F1C84946700D99837 /* nuxref.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273F031C84946700D99837 /* nuxref.h */; };
+		76273F231C8494C800D99837 /* nuport.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273F221C8494C800D99837 /* nuport.h */; };
+		76273F271C8494F200D99837 /* numalloc.c.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273F241C8494F200D99837 /* numalloc.c.h */; };
+		76273F281C8494F200D99837 /* nunedmalloc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273F251C8494F200D99837 /* nunedmalloc.cpp */; };
+		76273F291C8494F200D99837 /* nunedmalloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273F261C8494F200D99837 /* nunedmalloc.h */; };
+		76273F2B1C84953A00D99837 /* nuengine-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 76273F2A1C84953A00D99837 /* nuengine-Prefix.pch */; };
+		76273F2D1C84988300D99837 /* nucamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273F2C1C84988300D99837 /* nucamera.cpp */; };
+		76EE37591BF377E300A243D9 /* Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37101BF377E300A243D9 /* Animation.h */; };
+		76EE375A1BF377E300A243D9 /* AnimationState.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37111BF377E300A243D9 /* AnimationState.h */; };
+		76EE375B1BF377E300A243D9 /* AnimationStateData.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37121BF377E300A243D9 /* AnimationStateData.h */; };
+		76EE375C1BF377E300A243D9 /* Atlas.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37131BF377E300A243D9 /* Atlas.h */; };
+		76EE375D1BF377E300A243D9 /* AtlasAttachmentLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37141BF377E300A243D9 /* AtlasAttachmentLoader.h */; };
+		76EE375E1BF377E300A243D9 /* Attachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37151BF377E300A243D9 /* Attachment.h */; };
+		76EE375F1BF377E300A243D9 /* AttachmentLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37161BF377E300A243D9 /* AttachmentLoader.h */; };
+		76EE37601BF377E300A243D9 /* Bone.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37171BF377E300A243D9 /* Bone.h */; };
+		76EE37611BF377E300A243D9 /* BoneData.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37181BF377E300A243D9 /* BoneData.h */; };
+		76EE37621BF377E300A243D9 /* BoundingBoxAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37191BF377E300A243D9 /* BoundingBoxAttachment.h */; };
+		76EE37631BF377E300A243D9 /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE371A1BF377E300A243D9 /* Event.h */; };
+		76EE37641BF377E300A243D9 /* EventData.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE371B1BF377E300A243D9 /* EventData.h */; };
+		76EE37651BF377E300A243D9 /* extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE371C1BF377E300A243D9 /* extension.h */; };
+		76EE37661BF377E300A243D9 /* IkConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE371D1BF377E300A243D9 /* IkConstraint.h */; };
+		76EE37671BF377E300A243D9 /* IkConstraintData.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE371E1BF377E300A243D9 /* IkConstraintData.h */; };
+		76EE37681BF377E300A243D9 /* MeshAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE371F1BF377E300A243D9 /* MeshAttachment.h */; };
+		76EE37691BF377E300A243D9 /* RegionAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37201BF377E300A243D9 /* RegionAttachment.h */; };
+		76EE376A1BF377E300A243D9 /* Skeleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37211BF377E300A243D9 /* Skeleton.h */; };
+		76EE376B1BF377E300A243D9 /* SkeletonBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37221BF377E300A243D9 /* SkeletonBounds.h */; };
+		76EE376C1BF377E300A243D9 /* SkeletonData.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37231BF377E300A243D9 /* SkeletonData.h */; };
+		76EE376D1BF377E300A243D9 /* SkeletonJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37241BF377E300A243D9 /* SkeletonJson.h */; };
+		76EE376E1BF377E300A243D9 /* Skin.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37251BF377E300A243D9 /* Skin.h */; };
+		76EE376F1BF377E300A243D9 /* SkinnedMeshAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37261BF377E300A243D9 /* SkinnedMeshAttachment.h */; };
+		76EE37701BF377E300A243D9 /* Slot.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37271BF377E300A243D9 /* Slot.h */; };
+		76EE37711BF377E300A243D9 /* SlotData.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37281BF377E300A243D9 /* SlotData.h */; };
+		76EE37721BF377E300A243D9 /* spine.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE37291BF377E300A243D9 /* spine.h */; };
+		76EE37731BF377E300A243D9 /* Animation.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE372C1BF377E300A243D9 /* Animation.c */; };
+		76EE37741BF377E300A243D9 /* AnimationState.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE372D1BF377E300A243D9 /* AnimationState.c */; };
+		76EE37751BF377E300A243D9 /* AnimationStateData.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE372E1BF377E300A243D9 /* AnimationStateData.c */; };
+		76EE37761BF377E300A243D9 /* Atlas.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE372F1BF377E300A243D9 /* Atlas.c */; };
+		76EE37771BF377E300A243D9 /* AtlasAttachmentLoader.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37301BF377E300A243D9 /* AtlasAttachmentLoader.c */; };
+		76EE37781BF377E300A243D9 /* Attachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37311BF377E300A243D9 /* Attachment.c */; };
+		76EE37791BF377E300A243D9 /* AttachmentLoader.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37321BF377E300A243D9 /* AttachmentLoader.c */; };
+		76EE377A1BF377E300A243D9 /* Bone.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37331BF377E300A243D9 /* Bone.c */; };
+		76EE377B1BF377E300A243D9 /* BoneData.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37341BF377E300A243D9 /* BoneData.c */; };
+		76EE377C1BF377E300A243D9 /* BoundingBoxAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37351BF377E300A243D9 /* BoundingBoxAttachment.c */; };
+		76EE377D1BF377E300A243D9 /* Event.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37361BF377E300A243D9 /* Event.c */; };
+		76EE377E1BF377E300A243D9 /* EventData.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37371BF377E300A243D9 /* EventData.c */; };
+		76EE377F1BF377E300A243D9 /* extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37381BF377E300A243D9 /* extension.c */; };
+		76EE37801BF377E300A243D9 /* IkConstraint.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37391BF377E300A243D9 /* IkConstraint.c */; };
+		76EE37811BF377E300A243D9 /* IkConstraintData.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE373A1BF377E300A243D9 /* IkConstraintData.c */; };
+		76EE37821BF377E300A243D9 /* Json.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE373B1BF377E300A243D9 /* Json.c */; };
+		76EE37831BF377E300A243D9 /* Json.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE373C1BF377E300A243D9 /* Json.h */; };
+		76EE37841BF377E300A243D9 /* MeshAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE373D1BF377E300A243D9 /* MeshAttachment.c */; };
+		76EE37851BF377E300A243D9 /* RegionAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE373E1BF377E300A243D9 /* RegionAttachment.c */; };
+		76EE37861BF377E300A243D9 /* Skeleton.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE373F1BF377E300A243D9 /* Skeleton.c */; };
+		76EE37871BF377E300A243D9 /* SkeletonBounds.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37401BF377E300A243D9 /* SkeletonBounds.c */; };
+		76EE37881BF377E300A243D9 /* SkeletonData.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37411BF377E300A243D9 /* SkeletonData.c */; };
+		76EE37891BF377E300A243D9 /* SkeletonJson.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37421BF377E300A243D9 /* SkeletonJson.c */; };
+		76EE378A1BF377E300A243D9 /* Skin.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37431BF377E300A243D9 /* Skin.c */; };
+		76EE378B1BF377E300A243D9 /* SkinnedMeshAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37441BF377E300A243D9 /* SkinnedMeshAttachment.c */; };
+		76EE378C1BF377E300A243D9 /* Slot.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37451BF377E300A243D9 /* Slot.c */; };
+		76EE378D1BF377E300A243D9 /* SlotData.c in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37461BF377E300A243D9 /* SlotData.c */; };
+		76EE378E1BF377E300A243D9 /* PolygonBatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE374A1BF377E300A243D9 /* PolygonBatch.h */; };
+		76EE378F1BF377E300A243D9 /* SkeletonAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE374B1BF377E300A243D9 /* SkeletonAnimation.h */; };
+		76EE37901BF377E300A243D9 /* SkeletonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE374C1BF377E300A243D9 /* SkeletonRenderer.h */; };
+		76EE37911BF377E300A243D9 /* spine-cocos2dx.h in Headers */ = {isa = PBXBuildFile; fileRef = 76EE374D1BF377E300A243D9 /* spine-cocos2dx.h */; };
+		76EE37921BF377E300A243D9 /* PolygonBatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37501BF377E300A243D9 /* PolygonBatch.cpp */; };
+		76EE37931BF377E300A243D9 /* SkeletonAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37511BF377E300A243D9 /* SkeletonAnimation.cpp */; };
+		76EE37941BF377E300A243D9 /* SkeletonRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37521BF377E300A243D9 /* SkeletonRenderer.cpp */; };
+		76EE37951BF377E300A243D9 /* spine-cocos2dx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76EE37531BF377E300A243D9 /* spine-cocos2dx.cpp */; };
+		7B9872ED170BEFF10038DE4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAFA27515F9CEDE0013AE3C /* Foundation.framework */; };
+		CE4805E51D1CE0AF0011C545 /* stepsoundtype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE4805DB1D1CE0AF0011C545 /* stepsoundtype.cpp */; };
+		CE4805E61D1CE0AF0011C545 /* stepsoundtype.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4805DC1D1CE0AF0011C545 /* stepsoundtype.h */; };
+		CE4805E71D1CE0AF0011C545 /* xpenvsoundarea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE4805DD1D1CE0AF0011C545 /* xpenvsoundarea.cpp */; };
+		CE4805E81D1CE0AF0011C545 /* xpenvsoundarea.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4805DE1D1CE0AF0011C545 /* xpenvsoundarea.h */; };
+		CE4805E91D1CE0AF0011C545 /* xpenvsoundcirclearea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE4805DF1D1CE0AF0011C545 /* xpenvsoundcirclearea.cpp */; };
+		CE4805EA1D1CE0AF0011C545 /* xpenvsoundcirclearea.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4805E01D1CE0AF0011C545 /* xpenvsoundcirclearea.h */; };
+		CE4805EB1D1CE0AF0011C545 /* xpenvsoundpolygonarea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE4805E11D1CE0AF0011C545 /* xpenvsoundpolygonarea.cpp */; };
+		CE4805EC1D1CE0AF0011C545 /* xpenvsoundpolygonarea.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4805E21D1CE0AF0011C545 /* xpenvsoundpolygonarea.h */; };
+		CE4805ED1D1CE0AF0011C545 /* xpsoundarea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE4805E31D1CE0AF0011C545 /* xpsoundarea.cpp */; };
+		CE4805EE1D1CE0AF0011C545 /* xpsoundarea.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4805E41D1CE0AF0011C545 /* xpsoundarea.h */; };
+		CE4CD76C1CC4B50A0036F974 /* nuAccelerateUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE4CD76A1CC4B50A0036F974 /* nuAccelerateUpdater.cpp */; };
+		CE4CD76D1CC4B50A0036F974 /* nuAccelerateUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4CD76B1CC4B50A0036F974 /* nuAccelerateUpdater.h */; };
+		CE7687051CEA10D800B1B765 /* nuspinemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7687031CEA10D800B1B765 /* nuspinemanager.cpp */; };
+		CE7687061CEA10D800B1B765 /* nuspinemanager.h in Headers */ = {isa = PBXBuildFile; fileRef = CE7687041CEA10D800B1B765 /* nuspinemanager.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DF3E95A1AF9E16B003B1D17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DF3E9561AF9E16A003B1D17 /* cocos2dx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1551A33F158F2AB200E66CFE;
+			remoteInfo = cocos2dx;
+		};
+		4AA4BA5E1609B36400203CFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A5DC134160452BF00D38B84 /* share.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A5DC124160452A600D38B84;
+			remoteInfo = share;
+		};
+		76C56E761C7F46C600612100 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76F5D8F71C7DDEC1003326FA /* ljfm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A386562162E895900273E45;
+			remoteInfo = ljfm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2DF3E9561AF9E16A003B1D17 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = "../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/proj.ios/cocos2dx.xcodeproj"; sourceTree = "<group>"; };
+		4A5DC134160452BF00D38B84 /* share.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = share.xcodeproj; path = ../common/platform/share.xcodeproj; sourceTree = "<group>"; };
+		4AAFA27515F9CEDE0013AE3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		76273D911C848D9800D99837 /* nuiapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiapp.h; sourceTree = SOURCE_ROOT; };
+		76273D921C848D9800D99837 /* nuieffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuieffect.h; sourceTree = SOURCE_ROOT; };
+		76273D931C848D9800D99837 /* nuiengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiengine.h; sourceTree = SOURCE_ROOT; };
+		76273D941C848D9800D99837 /* nuientitativetitlemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuientitativetitlemanager.h; sourceTree = SOURCE_ROOT; };
+		76273D951C848D9800D99837 /* nuienv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuienv.h; sourceTree = SOURCE_ROOT; };
+		76273D961C848D9800D99837 /* nuiimmovableobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiimmovableobj.h; sourceTree = SOURCE_ROOT; };
+		76273D971C848D9800D99837 /* nuiquery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiquery.h; sourceTree = SOURCE_ROOT; };
+		76273D981C848D9800D99837 /* nuiselectableobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiselectableobj.h; sourceTree = SOURCE_ROOT; };
+		76273D991C848D9800D99837 /* nuisprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuisprite.h; sourceTree = SOURCE_ROOT; };
+		76273D9A1C848D9800D99837 /* nuiworld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiworld.h; sourceTree = SOURCE_ROOT; };
+		76273DA81C848E4D00D99837 /* nucommonfuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nucommonfuncs.cpp; path = particlesystem/nucommonfuncs.cpp; sourceTree = SOURCE_ROOT; };
+		76273DA91C848E4D00D99837 /* nucommonfuncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nucommonfuncs.h; path = particlesystem/nucommonfuncs.h; sourceTree = SOURCE_ROOT; };
+		76273DAA1C848E4D00D99837 /* nugeneralparticlesystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nugeneralparticlesystem.cpp; path = particlesystem/nugeneralparticlesystem.cpp; sourceTree = SOURCE_ROOT; };
+		76273DAB1C848E4D00D99837 /* nugeneralparticlesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nugeneralparticlesystem.h; path = particlesystem/nugeneralparticlesystem.h; sourceTree = SOURCE_ROOT; };
+		76273DAC1C848E4D00D99837 /* nuiparticlemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuiparticlemanager.h; path = particlesystem/nuiparticlemanager.h; sourceTree = SOURCE_ROOT; };
+		76273DAD1C848E4D00D99837 /* nuiparticlesyscommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuiparticlesyscommon.h; path = particlesystem/nuiparticlesyscommon.h; sourceTree = SOURCE_ROOT; };
+		76273DAE1C848E4D00D99837 /* nuparticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuparticle.h; path = particlesystem/nuparticle.h; sourceTree = SOURCE_ROOT; };
+		76273DAF1C848E4D00D99837 /* nuparticlearray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuparticlearray.h; path = particlesystem/nuparticlearray.h; sourceTree = SOURCE_ROOT; };
+		76273DB01C848E4D00D99837 /* nuparticlemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuparticlemanager.cpp; path = particlesystem/nuparticlemanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273DB11C848E4D00D99837 /* nuparticlemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuparticlemanager.h; path = particlesystem/nuparticlemanager.h; sourceTree = SOURCE_ROOT; };
+		76273DB21C848E4D00D99837 /* nuparticlesyscommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuparticlesyscommon.h; path = particlesystem/nuparticlesyscommon.h; sourceTree = SOURCE_ROOT; };
+		76273DB31C848E4D00D99837 /* nuparticlesystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuparticlesystem.cpp; path = particlesystem/nuparticlesystem.cpp; sourceTree = SOURCE_ROOT; };
+		76273DB41C848E4D00D99837 /* nuparticlesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuparticlesystem.h; path = particlesystem/nuparticlesystem.h; sourceTree = SOURCE_ROOT; };
+		76273DB51C848E4D00D99837 /* nupslgroupobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupslgroupobject.cpp; path = particlesystem/nupslgroupobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273DB61C848E4D00D99837 /* nupslgroupobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupslgroupobject.h; path = particlesystem/nupslgroupobject.h; sourceTree = SOURCE_ROOT; };
+		76273DB71C848E4D00D99837 /* nupslpathobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupslpathobject.cpp; path = particlesystem/nupslpathobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273DB81C848E4D00D99837 /* nupslpathobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupslpathobject.h; path = particlesystem/nupslpathobject.h; sourceTree = SOURCE_ROOT; };
+		76273DB91C848E4D00D99837 /* nupsparamobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupsparamobject.cpp; path = particlesystem/nupsparamobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273DBA1C848E4D00D99837 /* nupsparamobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupsparamobject.h; path = particlesystem/nupsparamobject.h; sourceTree = SOURCE_ROOT; };
+		76273DBB1C848E4D00D99837 /* nupsvertexsobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupsvertexsobject.cpp; path = particlesystem/nupsvertexsobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273DBC1C848E4D00D99837 /* nupsvertexsobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupsvertexsobject.h; path = particlesystem/nupsvertexsobject.h; sourceTree = SOURCE_ROOT; };
+		76273DBD1C848E4D00D99837 /* nuspecialparticlesystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuspecialparticlesystem.cpp; path = particlesystem/nuspecialparticlesystem.cpp; sourceTree = SOURCE_ROOT; };
+		76273DBE1C848E4D00D99837 /* nuspecialparticlesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuspecialparticlesystem.h; path = particlesystem/nuspecialparticlesystem.h; sourceTree = SOURCE_ROOT; };
+		76273DD61C848F1B00D99837 /* nueffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nueffect.cpp; path = effect/nueffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DD71C848F1B00D99837 /* nueffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nueffect.h; path = effect/nueffect.h; sourceTree = SOURCE_ROOT; };
+		76273DD81C848F1B00D99837 /* nueffectclip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nueffectclip.cpp; path = effect/nueffectclip.cpp; sourceTree = SOURCE_ROOT; };
+		76273DD91C848F1B00D99837 /* nueffectclip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nueffectclip.h; path = effect/nueffectclip.h; sourceTree = SOURCE_ROOT; };
+		76273DDA1C848F1B00D99837 /* nueffectkeytable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nueffectkeytable.h; path = effect/nueffectkeytable.h; sourceTree = SOURCE_ROOT; };
+		76273DDB1C848F1B00D99837 /* nueffectmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nueffectmanager.cpp; path = effect/nueffectmanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273DDC1C848F1B00D99837 /* nueffectmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nueffectmanager.h; path = effect/nueffectmanager.h; sourceTree = SOURCE_ROOT; };
+		76273DDD1C848F1B00D99837 /* nufonteffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nufonteffect.cpp; path = effect/nufonteffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DDE1C848F1B00D99837 /* nufonteffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nufonteffect.h; path = effect/nufonteffect.h; sourceTree = SOURCE_ROOT; };
+		76273DDF1C848F1B00D99837 /* nugeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nugeffect.cpp; path = effect/nugeffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DE01C848F1B00D99837 /* nugeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nugeffect.h; path = effect/nugeffect.h; sourceTree = SOURCE_ROOT; };
+		76273DE11C848F1B00D99837 /* nukeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nukeyframe.h; path = effect/nukeyframe.h; sourceTree = SOURCE_ROOT; };
+		76273DE21C848F1B00D99837 /* nulightingeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nulightingeffect.cpp; path = effect/nulightingeffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DE31C848F1B00D99837 /* nulightingeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nulightingeffect.h; path = effect/nulightingeffect.h; sourceTree = SOURCE_ROOT; };
+		76273DE41C848F1B00D99837 /* nulisteffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nulisteffect.cpp; path = effect/nulisteffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DE51C848F1B00D99837 /* nulisteffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nulisteffect.h; path = effect/nulisteffect.h; sourceTree = SOURCE_ROOT; };
+		76273DE61C848F1B00D99837 /* nuparticleeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuparticleeffect.cpp; path = effect/nuparticleeffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DE71C848F1B00D99837 /* nuparticleeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuparticleeffect.h; path = effect/nuparticleeffect.h; sourceTree = SOURCE_ROOT; };
+		76273DE81C848F1B00D99837 /* nusebind.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nusebind.cpp; path = effect/nusebind.cpp; sourceTree = SOURCE_ROOT; };
+		76273DE91C848F1B00D99837 /* nusebind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nusebind.h; path = effect/nusebind.h; sourceTree = SOURCE_ROOT; };
+		76273DEA1C848F1B00D99837 /* nuspineeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuspineeffect.cpp; path = effect/nuspineeffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DEB1C848F1B00D99837 /* nuspineeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuspineeffect.h; path = effect/nuspineeffect.h; sourceTree = SOURCE_ROOT; };
+		76273DEC1C848F1B00D99837 /* nuxapbatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuxapbatch.cpp; path = effect/nuxapbatch.cpp; sourceTree = SOURCE_ROOT; };
+		76273DED1C848F1B00D99837 /* nuxapbatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxapbatch.h; path = effect/nuxapbatch.h; sourceTree = SOURCE_ROOT; };
+		76273DEE1C848F1B00D99837 /* nuxapeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuxapeffect.cpp; path = effect/nuxapeffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273DEF1C848F1B00D99837 /* nuxapeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxapeffect.h; path = effect/nuxapeffect.h; sourceTree = SOURCE_ROOT; };
+		76273E0A1C848FB200D99837 /* numapobjs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = numapobjs.cpp; path = map/numapobjs.cpp; sourceTree = SOURCE_ROOT; };
+		76273E0B1C848FB200D99837 /* numapobjs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = numapobjs.h; path = map/numapobjs.h; sourceTree = SOURCE_ROOT; };
+		76273E0C1C848FB200D99837 /* nupbackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupbackground.cpp; path = map/nupbackground.cpp; sourceTree = SOURCE_ROOT; };
+		76273E0D1C848FB200D99837 /* nupbackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupbackground.h; path = map/nupbackground.h; sourceTree = SOURCE_ROOT; };
+		76273E0E1C848FB200D99837 /* nupdistortionobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupdistortionobject.cpp; path = map/nupdistortionobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273E0F1C848FB200D99837 /* nupdistortionobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupdistortionobject.h; path = map/nupdistortionobject.h; sourceTree = SOURCE_ROOT; };
+		76273E101C848FB200D99837 /* nupground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupground.cpp; path = map/nupground.cpp; sourceTree = SOURCE_ROOT; };
+		76273E111C848FB200D99837 /* nupground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupground.h; path = map/nupground.h; sourceTree = SOURCE_ROOT; };
+		76273E121C848FB200D99837 /* nupimg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupimg.cpp; path = map/nupimg.cpp; sourceTree = SOURCE_ROOT; };
+		76273E131C848FB200D99837 /* nupimg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupimg.h; path = map/nupimg.h; sourceTree = SOURCE_ROOT; };
+		76273E141C848FB200D99837 /* nuplinkedobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuplinkedobject.cpp; path = map/nuplinkedobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273E151C848FB200D99837 /* nuplinkedobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuplinkedobject.h; path = map/nuplinkedobject.h; sourceTree = SOURCE_ROOT; };
+		76273E161C848FB200D99837 /* nupmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupmap.cpp; path = map/nupmap.cpp; sourceTree = SOURCE_ROOT; };
+		76273E171C848FB200D99837 /* nupmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupmap.h; path = map/nupmap.h; sourceTree = SOURCE_ROOT; };
+		76273E181C848FB200D99837 /* nupmask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupmask.cpp; path = map/nupmask.cpp; sourceTree = SOURCE_ROOT; };
+		76273E191C848FB200D99837 /* nupmask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupmask.h; path = map/nupmask.h; sourceTree = SOURCE_ROOT; };
+		76273E1A1C848FB200D99837 /* nuppathmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuppathmap.cpp; path = map/nuppathmap.cpp; sourceTree = SOURCE_ROOT; };
+		76273E1B1C848FB200D99837 /* nuppathmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuppathmap.h; path = map/nuppathmap.h; sourceTree = SOURCE_ROOT; };
+		76273E1C1C848FB200D99837 /* nupstepsoundmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupstepsoundmap.cpp; path = map/nupstepsoundmap.cpp; sourceTree = SOURCE_ROOT; };
+		76273E1D1C848FB200D99837 /* nupstepsoundmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupstepsoundmap.h; path = map/nupstepsoundmap.h; sourceTree = SOURCE_ROOT; };
+		76273E1E1C848FB200D99837 /* nuptimeeffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuptimeeffect.cpp; path = map/nuptimeeffect.cpp; sourceTree = SOURCE_ROOT; };
+		76273E1F1C848FB200D99837 /* nuptimeeffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuptimeeffect.h; path = map/nuptimeeffect.h; sourceTree = SOURCE_ROOT; };
+		76273E201C848FB200D99837 /* nuptransobjs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuptransobjs.cpp; path = map/nuptransobjs.cpp; sourceTree = SOURCE_ROOT; };
+		76273E211C848FB200D99837 /* nuptransobjs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuptransobjs.h; path = map/nuptransobjs.h; sourceTree = SOURCE_ROOT; };
+		76273E221C848FB200D99837 /* nuptriggerobjs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuptriggerobjs.cpp; path = map/nuptriggerobjs.cpp; sourceTree = SOURCE_ROOT; };
+		76273E231C848FB200D99837 /* nuptriggerobjs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuptriggerobjs.h; path = map/nuptriggerobjs.h; sourceTree = SOURCE_ROOT; };
+		76273E241C848FB200D99837 /* nupwaterarea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupwaterarea.cpp; path = map/nupwaterarea.cpp; sourceTree = SOURCE_ROOT; };
+		76273E251C848FB200D99837 /* nupwaterarea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupwaterarea.h; path = map/nupwaterarea.h; sourceTree = SOURCE_ROOT; };
+		76273E421C84909C00D99837 /* nudistort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nudistort.h; path = world/nudistort.h; sourceTree = SOURCE_ROOT; };
+		76273E431C84909C00D99837 /* nudistortbase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nudistortbase.cpp; path = world/nudistortbase.cpp; sourceTree = SOURCE_ROOT; };
+		76273E441C84909C00D99837 /* nudistortbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nudistortbase.h; path = world/nudistortbase.h; sourceTree = SOURCE_ROOT; };
+		76273E451C84909C00D99837 /* nuentitativeobj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuentitativeobj.cpp; path = world/nuentitativeobj.cpp; sourceTree = SOURCE_ROOT; };
+		76273E461C84909C00D99837 /* nuentitativeobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuentitativeobj.h; path = world/nuentitativeobj.h; sourceTree = SOURCE_ROOT; };
+		76273E471C84909C00D99837 /* nuimmovableobj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuimmovableobj.cpp; path = world/nuimmovableobj.cpp; sourceTree = SOURCE_ROOT; };
+		76273E481C84909C00D99837 /* nuimmovableobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuimmovableobj.h; path = world/nuimmovableobj.h; sourceTree = SOURCE_ROOT; };
+		76273E491C84909C00D99837 /* nulkotree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nulkotree.cpp; path = world/nulkotree.cpp; sourceTree = SOURCE_ROOT; };
+		76273E4A1C84909C00D99837 /* nulkotree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nulkotree.h; path = world/nulkotree.h; sourceTree = SOURCE_ROOT; };
+		76273E4B1C84909C00D99837 /* nulkotreenodelist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nulkotreenodelist.cpp; path = world/nulkotreenodelist.cpp; sourceTree = SOURCE_ROOT; };
+		76273E4C1C84909C00D99837 /* nulkotreenodelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nulkotreenodelist.h; path = world/nulkotreenodelist.h; sourceTree = SOURCE_ROOT; };
+		76273E4D1C84909C00D99837 /* numap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = numap.cpp; path = world/numap.cpp; sourceTree = SOURCE_ROOT; };
+		76273E4E1C84909C00D99837 /* numap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = numap.h; path = world/numap.h; sourceTree = SOURCE_ROOT; };
+		76273E4F1C84909C00D99837 /* nupicresrc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupicresrc.h; path = world/nupicresrc.h; sourceTree = SOURCE_ROOT; };
+		76273E501C84909C00D99837 /* nuregionmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuregionmap.cpp; path = world/nuregionmap.cpp; sourceTree = SOURCE_ROOT; };
+		76273E511C84909C00D99837 /* nuregionmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuregionmap.h; path = world/nuregionmap.h; sourceTree = SOURCE_ROOT; };
+		76273E521C84909C00D99837 /* nuworld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuworld.cpp; path = world/nuworld.cpp; sourceTree = SOURCE_ROOT; };
+		76273E531C84909C00D99837 /* nuworld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuworld.h; path = world/nuworld.h; sourceTree = SOURCE_ROOT; };
+		76273E661C84911600D99837 /* nualocation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nualocation.hpp; path = astar/nualocation.hpp; sourceTree = SOURCE_ROOT; };
+		76273E671C84911600D99837 /* nuamaze.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuamaze.hpp; path = astar/nuamaze.hpp; sourceTree = SOURCE_ROOT; };
+		76273E681C84911600D99837 /* nuapath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuapath.hpp; path = astar/nuapath.hpp; sourceTree = SOURCE_ROOT; };
+		76273E691C84911600D99837 /* nuapathio.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuapathio.hpp; path = astar/nuapathio.hpp; sourceTree = SOURCE_ROOT; };
+		76273E6A1C84911600D99837 /* nuasingleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuasingleton.hpp; path = astar/nuasingleton.hpp; sourceTree = SOURCE_ROOT; };
+		76273E6B1C84911600D99837 /* nuastar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuastar.hpp; path = astar/nuastar.hpp; sourceTree = SOURCE_ROOT; };
+		76273E6C1C84911600D99837 /* nuastarImplement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuastarImplement.hpp; path = astar/nuastarImplement.hpp; sourceTree = SOURCE_ROOT; };
+		76273E6D1C84911600D99837 /* nuatimer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = nuatimer.hpp; path = astar/nuatimer.hpp; sourceTree = SOURCE_ROOT; };
+		76273E761C84919400D99837 /* nucomponentsprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nucomponentsprite.cpp; path = sprite/nucomponentsprite.cpp; sourceTree = SOURCE_ROOT; };
+		76273E771C84919400D99837 /* nucomponentsprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nucomponentsprite.h; path = sprite/nucomponentsprite.h; sourceTree = SOURCE_ROOT; };
+		76273E781C84919400D99837 /* numovablespriteimp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = numovablespriteimp.cpp; path = sprite/numovablespriteimp.cpp; sourceTree = SOURCE_ROOT; };
+		76273E791C84919400D99837 /* numovablespriteimp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = numovablespriteimp.h; path = sprite/numovablespriteimp.h; sourceTree = SOURCE_ROOT; };
+		76273E7A1C84919400D99837 /* nupspritemaze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupspritemaze.cpp; path = sprite/nupspritemaze.cpp; sourceTree = SOURCE_ROOT; };
+		76273E7B1C84919400D99837 /* nupspritemaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupspritemaze.h; path = sprite/nupspritemaze.h; sourceTree = SOURCE_ROOT; };
+		76273E7C1C84919400D99837 /* nurenderablesprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nurenderablesprite.h; path = sprite/nurenderablesprite.h; sourceTree = SOURCE_ROOT; };
+		76273E7D1C84919400D99837 /* nuspinesprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuspinesprite.cpp; path = sprite/nuspinesprite.cpp; sourceTree = SOURCE_ROOT; };
+		76273E7E1C84919400D99837 /* nuspinesprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuspinesprite.h; path = sprite/nuspinesprite.h; sourceTree = SOURCE_ROOT; };
+		76273E7F1C84919400D99837 /* nusprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nusprite.cpp; path = sprite/nusprite.cpp; sourceTree = SOURCE_ROOT; };
+		76273E801C84919400D99837 /* nusprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nusprite.h; path = sprite/nusprite.h; sourceTree = SOURCE_ROOT; };
+		76273E811C84919400D99837 /* nuspritemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuspritemanager.cpp; path = sprite/nuspritemanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273E821C84919400D99837 /* nuspritemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuspritemanager.h; path = sprite/nuspritemanager.h; sourceTree = SOURCE_ROOT; };
+		76273E901C84922900D99837 /* nuanimanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuanimanager.cpp; sourceTree = "<group>"; };
+		76273E911C84922900D99837 /* nuanimanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuanimanager.h; sourceTree = "<group>"; };
+		76273E921C84922900D99837 /* nucamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nucamera.h; sourceTree = "<group>"; };
+		76273E931C84922900D99837 /* nucamerasmoother.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nucamerasmoother.cpp; sourceTree = "<group>"; };
+		76273E941C84922900D99837 /* nucamerasmoother.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nucamerasmoother.h; sourceTree = "<group>"; };
+		76273E951C84922900D99837 /* nucocos2d_wraper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nucocos2d_wraper.cpp; sourceTree = "<group>"; };
+		76273E961C84922900D99837 /* nucocos2d_wraper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nucocos2d_wraper.h; sourceTree = "<group>"; };
+		76273E971C84922900D99837 /* nuconfigmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuconfigmanager.cpp; sourceTree = "<group>"; };
+		76273E981C84922900D99837 /* nuconfigmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuconfigmanager.h; sourceTree = "<group>"; };
+		76273E991C84922900D99837 /* nuengine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuengine.cpp; sourceTree = "<group>"; };
+		76273E9A1C84922900D99837 /* nuengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuengine.h; sourceTree = "<group>"; };
+		76273E9B1C84922900D99837 /* nuenginebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuenginebase.h; sourceTree = "<group>"; };
+		76273E9C1C84922900D99837 /* nuenginetimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuenginetimer.cpp; sourceTree = "<group>"; };
+		76273E9D1C84922900D99837 /* nuenginetimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuenginetimer.h; sourceTree = "<group>"; };
+		76273E9E1C84922900D99837 /* nuenv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuenv.cpp; sourceTree = "<group>"; };
+		76273E9F1C84922900D99837 /* nuenv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuenv.h; sourceTree = "<group>"; };
+		76273EA01C84922900D99837 /* nuguobj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuguobj.cpp; sourceTree = "<group>"; };
+		76273EA11C84922900D99837 /* nuguobj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuguobj.h; sourceTree = "<group>"; };
+		76273EA21C84922900D99837 /* nuiadapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuiadapter.h; sourceTree = "<group>"; };
+		76273EA31C84922900D99837 /* nurenderable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nurenderable.h; sourceTree = "<group>"; };
+		76273EA41C84922900D99837 /* nurendertargetcache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nurendertargetcache.cpp; sourceTree = "<group>"; };
+		76273EA51C84922900D99837 /* nurendertargetcache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nurendertargetcache.h; sourceTree = "<group>"; };
+		76273EA61C84922900D99837 /* nusystemresourcemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nusystemresourcemanager.cpp; sourceTree = "<group>"; };
+		76273EA71C84922900D99837 /* nusystemresourcemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nusystemresourcemanager.h; sourceTree = "<group>"; };
+		76273EA81C84922900D99837 /* nuwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuwindow.h; sourceTree = "<group>"; };
+		76273EA91C84922900D99837 /* nuwindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = nuwindow.mm; sourceTree = "<group>"; };
+		76273EC41C8492DE00D99837 /* nucocos2d_render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nucocos2d_render.cpp; path = renderer/nucocos2d_render.cpp; sourceTree = SOURCE_ROOT; };
+		76273EC51C8492DE00D99837 /* nucocos2d_render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nucocos2d_render.h; path = renderer/nucocos2d_render.h; sourceTree = SOURCE_ROOT; };
+		76273EC61C8492DE00D99837 /* nufontmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nufontmanager.cpp; path = renderer/nufontmanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273EC71C8492DE00D99837 /* nufontmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nufontmanager.h; path = renderer/nufontmanager.h; sourceTree = SOURCE_ROOT; };
+		76273EC81C8492DE00D99837 /* nufonttexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nufonttexture.cpp; path = renderer/nufonttexture.cpp; sourceTree = SOURCE_ROOT; };
+		76273EC91C8492DE00D99837 /* nufonttexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nufonttexture.h; path = renderer/nufonttexture.h; sourceTree = SOURCE_ROOT; };
+		76273ECA1C8492DE00D99837 /* nufxcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nufxcode.cpp; path = renderer/nufxcode.cpp; sourceTree = SOURCE_ROOT; };
+		76273ECB1C8492DE00D99837 /* nufxcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nufxcode.h; path = renderer/nufxcode.h; sourceTree = SOURCE_ROOT; };
+		76273ECC1C8492DE00D99837 /* nuibaserenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuibaserenderer.h; path = renderer/nuibaserenderer.h; sourceTree = SOURCE_ROOT; };
+		76273ECD1C8492DE00D99837 /* nuifontmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuifontmanager.h; path = renderer/nuifontmanager.h; sourceTree = SOURCE_ROOT; };
+		76273ECE1C8492DE00D99837 /* nurenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nurenderer.cpp; path = renderer/nurenderer.cpp; sourceTree = SOURCE_ROOT; };
+		76273ECF1C8492DE00D99837 /* nurenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nurenderer.h; path = renderer/nurenderer.h; sourceTree = SOURCE_ROOT; };
+		76273ED01C8492DE00D99837 /* nustatemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nustatemanager.cpp; path = renderer/nustatemanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273ED11C8492DE00D99837 /* nustatemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nustatemanager.h; path = renderer/nustatemanager.h; sourceTree = SOURCE_ROOT; };
+		76273ED21C8492DE00D99837 /* nutextblock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nutextblock.cpp; path = renderer/nutextblock.cpp; sourceTree = SOURCE_ROOT; };
+		76273ED31C8492DE00D99837 /* nutextblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nutextblock.h; path = renderer/nutextblock.h; sourceTree = SOURCE_ROOT; };
+		76273EE41C84933400D99837 /* nucocos2d_type.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nucocos2d_type.cpp; sourceTree = "<group>"; };
+		76273EE51C84933400D99837 /* nucocos2d_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nucocos2d_type.h; sourceTree = "<group>"; };
+		76273EE81C84946700D99837 /* nuexecutor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuexecutor.cpp; path = common/nuexecutor.cpp; sourceTree = SOURCE_ROOT; };
+		76273EE91C84946700D99837 /* nuexecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuexecutor.h; path = common/nuexecutor.h; sourceTree = SOURCE_ROOT; };
+		76273EEA1C84946700D99837 /* nufileiomanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nufileiomanager.cpp; path = common/nufileiomanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273EEB1C84946700D99837 /* nufileiomanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nufileiomanager.h; path = common/nufileiomanager.h; sourceTree = SOURCE_ROOT; };
+		76273EEC1C84946700D99837 /* nufreqcountable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nufreqcountable.h; path = common/nufreqcountable.h; sourceTree = SOURCE_ROOT; };
+		76273EED1C84946700D99837 /* nugeom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nugeom.h; path = common/nugeom.h; sourceTree = SOURCE_ROOT; };
+		76273EEE1C84946700D99837 /* nuljfmutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuljfmutil.cpp; path = common/nuljfmutil.cpp; sourceTree = SOURCE_ROOT; };
+		76273EEF1C84946700D99837 /* nuljfmutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuljfmutil.h; path = common/nuljfmutil.h; sourceTree = SOURCE_ROOT; };
+		76273EF01C84946700D99837 /* nulog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nulog.h; path = common/nulog.h; sourceTree = SOURCE_ROOT; };
+		76273EF11C84946700D99837 /* nupobject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nupobject.cpp; path = common/nupobject.cpp; sourceTree = SOURCE_ROOT; };
+		76273EF21C84946700D99837 /* nupobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nupobject.h; path = common/nupobject.h; sourceTree = SOURCE_ROOT; };
+		76273EF31C84946700D99837 /* nurecttopologylist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nurecttopologylist.cpp; path = common/nurecttopologylist.cpp; sourceTree = SOURCE_ROOT; };
+		76273EF41C84946700D99837 /* nurecttopologylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nurecttopologylist.h; path = common/nurecttopologylist.h; sourceTree = SOURCE_ROOT; };
+		76273EF51C84946700D99837 /* nutimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nutimer.cpp; path = common/nutimer.cpp; sourceTree = SOURCE_ROOT; };
+		76273EF61C84946700D99837 /* nutimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nutimer.h; path = common/nutimer.h; sourceTree = SOURCE_ROOT; };
+		76273EF71C84946700D99837 /* nuutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuutil.cpp; path = common/nuutil.cpp; sourceTree = SOURCE_ROOT; };
+		76273EF81C84946700D99837 /* nuutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuutil.h; path = common/nuutil.h; sourceTree = SOURCE_ROOT; };
+		76273EF91C84946700D99837 /* nuworldlogiccoord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuworldlogiccoord.h; path = common/nuworldlogiccoord.h; sourceTree = SOURCE_ROOT; };
+		76273EFA1C84946700D99837 /* nuxbuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuxbuffer.cpp; path = common/nuxbuffer.cpp; sourceTree = SOURCE_ROOT; };
+		76273EFB1C84946700D99837 /* nuxbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxbuffer.h; path = common/nuxbuffer.h; sourceTree = SOURCE_ROOT; };
+		76273EFC1C84946700D99837 /* nuxlock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuxlock.cpp; path = common/nuxlock.cpp; sourceTree = SOURCE_ROOT; };
+		76273EFD1C84946700D99837 /* nuxlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxlock.h; path = common/nuxlock.h; sourceTree = SOURCE_ROOT; };
+		76273EFE1C84946700D99837 /* nuxmarshal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuxmarshal.cpp; path = common/nuxmarshal.cpp; sourceTree = SOURCE_ROOT; };
+		76273EFF1C84946700D99837 /* nuxmarshal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxmarshal.h; path = common/nuxmarshal.h; sourceTree = SOURCE_ROOT; };
+		76273F001C84946700D99837 /* nuxpmaths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nuxpmaths.cpp; path = common/nuxpmaths.cpp; sourceTree = SOURCE_ROOT; };
+		76273F011C84946700D99837 /* nuxpmaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxpmaths.h; path = common/nuxpmaths.h; sourceTree = SOURCE_ROOT; };
+		76273F021C84946700D99837 /* nuxptypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxptypes.h; path = common/nuxptypes.h; sourceTree = SOURCE_ROOT; };
+		76273F031C84946700D99837 /* nuxref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuxref.h; path = common/nuxref.h; sourceTree = SOURCE_ROOT; };
+		76273F221C8494C800D99837 /* nuport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuport.h; path = common/nuport.h; sourceTree = SOURCE_ROOT; };
+		76273F241C8494F200D99837 /* numalloc.c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = numalloc.c.h; path = common/nedmalloc/numalloc.c.h; sourceTree = SOURCE_ROOT; };
+		76273F251C8494F200D99837 /* nunedmalloc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nunedmalloc.cpp; path = common/nedmalloc/nunedmalloc.cpp; sourceTree = SOURCE_ROOT; };
+		76273F261C8494F200D99837 /* nunedmalloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nunedmalloc.h; path = common/nedmalloc/nunedmalloc.h; sourceTree = SOURCE_ROOT; };
+		76273F2A1C84953A00D99837 /* nuengine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "nuengine-Prefix.pch"; sourceTree = "<group>"; };
+		76273F2C1C84988300D99837 /* nucamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nucamera.cpp; sourceTree = "<group>"; };
+		76EE37101BF377E300A243D9 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		76EE37111BF377E300A243D9 /* AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationState.h; sourceTree = "<group>"; };
+		76EE37121BF377E300A243D9 /* AnimationStateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationStateData.h; sourceTree = "<group>"; };
+		76EE37131BF377E300A243D9 /* Atlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atlas.h; sourceTree = "<group>"; };
+		76EE37141BF377E300A243D9 /* AtlasAttachmentLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasAttachmentLoader.h; sourceTree = "<group>"; };
+		76EE37151BF377E300A243D9 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachment.h; sourceTree = "<group>"; };
+		76EE37161BF377E300A243D9 /* AttachmentLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentLoader.h; sourceTree = "<group>"; };
+		76EE37171BF377E300A243D9 /* Bone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bone.h; sourceTree = "<group>"; };
+		76EE37181BF377E300A243D9 /* BoneData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoneData.h; sourceTree = "<group>"; };
+		76EE37191BF377E300A243D9 /* BoundingBoxAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingBoxAttachment.h; sourceTree = "<group>"; };
+		76EE371A1BF377E300A243D9 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		76EE371B1BF377E300A243D9 /* EventData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventData.h; sourceTree = "<group>"; };
+		76EE371C1BF377E300A243D9 /* extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extension.h; sourceTree = "<group>"; };
+		76EE371D1BF377E300A243D9 /* IkConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IkConstraint.h; sourceTree = "<group>"; };
+		76EE371E1BF377E300A243D9 /* IkConstraintData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IkConstraintData.h; sourceTree = "<group>"; };
+		76EE371F1BF377E300A243D9 /* MeshAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshAttachment.h; sourceTree = "<group>"; };
+		76EE37201BF377E300A243D9 /* RegionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionAttachment.h; sourceTree = "<group>"; };
+		76EE37211BF377E300A243D9 /* Skeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skeleton.h; sourceTree = "<group>"; };
+		76EE37221BF377E300A243D9 /* SkeletonBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonBounds.h; sourceTree = "<group>"; };
+		76EE37231BF377E300A243D9 /* SkeletonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonData.h; sourceTree = "<group>"; };
+		76EE37241BF377E300A243D9 /* SkeletonJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonJson.h; sourceTree = "<group>"; };
+		76EE37251BF377E300A243D9 /* Skin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skin.h; sourceTree = "<group>"; };
+		76EE37261BF377E300A243D9 /* SkinnedMeshAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkinnedMeshAttachment.h; sourceTree = "<group>"; };
+		76EE37271BF377E300A243D9 /* Slot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slot.h; sourceTree = "<group>"; };
+		76EE37281BF377E300A243D9 /* SlotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotData.h; sourceTree = "<group>"; };
+		76EE37291BF377E300A243D9 /* spine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spine.h; sourceTree = "<group>"; };
+		76EE372C1BF377E300A243D9 /* Animation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Animation.c; sourceTree = "<group>"; };
+		76EE372D1BF377E300A243D9 /* AnimationState.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AnimationState.c; sourceTree = "<group>"; };
+		76EE372E1BF377E300A243D9 /* AnimationStateData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AnimationStateData.c; sourceTree = "<group>"; };
+		76EE372F1BF377E300A243D9 /* Atlas.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Atlas.c; sourceTree = "<group>"; };
+		76EE37301BF377E300A243D9 /* AtlasAttachmentLoader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AtlasAttachmentLoader.c; sourceTree = "<group>"; };
+		76EE37311BF377E300A243D9 /* Attachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Attachment.c; sourceTree = "<group>"; };
+		76EE37321BF377E300A243D9 /* AttachmentLoader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AttachmentLoader.c; sourceTree = "<group>"; };
+		76EE37331BF377E300A243D9 /* Bone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Bone.c; sourceTree = "<group>"; };
+		76EE37341BF377E300A243D9 /* BoneData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BoneData.c; sourceTree = "<group>"; };
+		76EE37351BF377E300A243D9 /* BoundingBoxAttachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BoundingBoxAttachment.c; sourceTree = "<group>"; };
+		76EE37361BF377E300A243D9 /* Event.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Event.c; sourceTree = "<group>"; };
+		76EE37371BF377E300A243D9 /* EventData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = EventData.c; sourceTree = "<group>"; };
+		76EE37381BF377E300A243D9 /* extension.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = extension.c; sourceTree = "<group>"; };
+		76EE37391BF377E300A243D9 /* IkConstraint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IkConstraint.c; sourceTree = "<group>"; };
+		76EE373A1BF377E300A243D9 /* IkConstraintData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IkConstraintData.c; sourceTree = "<group>"; };
+		76EE373B1BF377E300A243D9 /* Json.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Json.c; sourceTree = "<group>"; };
+		76EE373C1BF377E300A243D9 /* Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Json.h; sourceTree = "<group>"; };
+		76EE373D1BF377E300A243D9 /* MeshAttachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MeshAttachment.c; sourceTree = "<group>"; };
+		76EE373E1BF377E300A243D9 /* RegionAttachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RegionAttachment.c; sourceTree = "<group>"; };
+		76EE373F1BF377E300A243D9 /* Skeleton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Skeleton.c; sourceTree = "<group>"; };
+		76EE37401BF377E300A243D9 /* SkeletonBounds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SkeletonBounds.c; sourceTree = "<group>"; };
+		76EE37411BF377E300A243D9 /* SkeletonData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SkeletonData.c; sourceTree = "<group>"; };
+		76EE37421BF377E300A243D9 /* SkeletonJson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SkeletonJson.c; sourceTree = "<group>"; };
+		76EE37431BF377E300A243D9 /* Skin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Skin.c; sourceTree = "<group>"; };
+		76EE37441BF377E300A243D9 /* SkinnedMeshAttachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SkinnedMeshAttachment.c; sourceTree = "<group>"; };
+		76EE37451BF377E300A243D9 /* Slot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Slot.c; sourceTree = "<group>"; };
+		76EE37461BF377E300A243D9 /* SlotData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SlotData.c; sourceTree = "<group>"; };
+		76EE374A1BF377E300A243D9 /* PolygonBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolygonBatch.h; sourceTree = "<group>"; };
+		76EE374B1BF377E300A243D9 /* SkeletonAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonAnimation.h; sourceTree = "<group>"; };
+		76EE374C1BF377E300A243D9 /* SkeletonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonRenderer.h; sourceTree = "<group>"; };
+		76EE374D1BF377E300A243D9 /* spine-cocos2dx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "spine-cocos2dx.h"; sourceTree = "<group>"; };
+		76EE37501BF377E300A243D9 /* PolygonBatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PolygonBatch.cpp; sourceTree = "<group>"; };
+		76EE37511BF377E300A243D9 /* SkeletonAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonAnimation.cpp; sourceTree = "<group>"; };
+		76EE37521BF377E300A243D9 /* SkeletonRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkeletonRenderer.cpp; sourceTree = "<group>"; };
+		76EE37531BF377E300A243D9 /* spine-cocos2dx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "spine-cocos2dx.cpp"; sourceTree = "<group>"; };
+		76F5D8F71C7DDEC1003326FA /* ljfm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ljfm.xcodeproj; path = ../common/ljfm/ljfm.xcodeproj; sourceTree = "<group>"; };
+		7B98736D170BEFF10038DE4A /* libengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4805DB1D1CE0AF0011C545 /* stepsoundtype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stepsoundtype.cpp; sourceTree = "<group>"; };
+		CE4805DC1D1CE0AF0011C545 /* stepsoundtype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stepsoundtype.h; sourceTree = "<group>"; };
+		CE4805DD1D1CE0AF0011C545 /* xpenvsoundarea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xpenvsoundarea.cpp; sourceTree = "<group>"; };
+		CE4805DE1D1CE0AF0011C545 /* xpenvsoundarea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpenvsoundarea.h; sourceTree = "<group>"; };
+		CE4805DF1D1CE0AF0011C545 /* xpenvsoundcirclearea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xpenvsoundcirclearea.cpp; sourceTree = "<group>"; };
+		CE4805E01D1CE0AF0011C545 /* xpenvsoundcirclearea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpenvsoundcirclearea.h; sourceTree = "<group>"; };
+		CE4805E11D1CE0AF0011C545 /* xpenvsoundpolygonarea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xpenvsoundpolygonarea.cpp; sourceTree = "<group>"; };
+		CE4805E21D1CE0AF0011C545 /* xpenvsoundpolygonarea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpenvsoundpolygonarea.h; sourceTree = "<group>"; };
+		CE4805E31D1CE0AF0011C545 /* xpsoundarea.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xpsoundarea.cpp; sourceTree = "<group>"; };
+		CE4805E41D1CE0AF0011C545 /* xpsoundarea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpsoundarea.h; sourceTree = "<group>"; };
+		CE4CD76A1CC4B50A0036F974 /* nuAccelerateUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuAccelerateUpdater.cpp; sourceTree = "<group>"; };
+		CE4CD76B1CC4B50A0036F974 /* nuAccelerateUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuAccelerateUpdater.h; sourceTree = "<group>"; };
+		CE7687031CEA10D800B1B765 /* nuspinemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nuspinemanager.cpp; sourceTree = "<group>"; };
+		CE7687041CEA10D800B1B765 /* nuspinemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuspinemanager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B9872EC170BEFF10038DE4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B9872ED170BEFF10038DE4A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DF3E9571AF9E16A003B1D17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DF3E95B1AF9E16B003B1D17 /* libcocos2dx.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A1AA95F1602CF6A00DADEBF /* sprite */ = {
+			isa = PBXGroup;
+			children = (
+				76273E761C84919400D99837 /* nucomponentsprite.cpp */,
+				76273E771C84919400D99837 /* nucomponentsprite.h */,
+				76273E781C84919400D99837 /* numovablespriteimp.cpp */,
+				76273E791C84919400D99837 /* numovablespriteimp.h */,
+				76273E7A1C84919400D99837 /* nupspritemaze.cpp */,
+				76273E7B1C84919400D99837 /* nupspritemaze.h */,
+				76273E7C1C84919400D99837 /* nurenderablesprite.h */,
+				76273E7D1C84919400D99837 /* nuspinesprite.cpp */,
+				76273E7E1C84919400D99837 /* nuspinesprite.h */,
+				76273E7F1C84919400D99837 /* nusprite.cpp */,
+				76273E801C84919400D99837 /* nusprite.h */,
+				76273E811C84919400D99837 /* nuspritemanager.cpp */,
+				76273E821C84919400D99837 /* nuspritemanager.h */,
+			);
+			name = sprite;
+			sourceTree = "<group>";
+		};
+		4A1AA9761603599700DADEBF /* astar */ = {
+			isa = PBXGroup;
+			children = (
+				76273E661C84911600D99837 /* nualocation.hpp */,
+				76273E671C84911600D99837 /* nuamaze.hpp */,
+				76273E681C84911600D99837 /* nuapath.hpp */,
+				76273E691C84911600D99837 /* nuapathio.hpp */,
+				76273E6A1C84911600D99837 /* nuasingleton.hpp */,
+				76273E6B1C84911600D99837 /* nuastar.hpp */,
+				76273E6C1C84911600D99837 /* nuastarImplement.hpp */,
+				76273E6D1C84911600D99837 /* nuatimer.hpp */,
+			);
+			name = astar;
+			sourceTree = "<group>";
+		};
+		4A1AA98716035F9400DADEBF /* world */ = {
+			isa = PBXGroup;
+			children = (
+				76273E421C84909C00D99837 /* nudistort.h */,
+				76273E431C84909C00D99837 /* nudistortbase.cpp */,
+				76273E441C84909C00D99837 /* nudistortbase.h */,
+				76273E451C84909C00D99837 /* nuentitativeobj.cpp */,
+				76273E461C84909C00D99837 /* nuentitativeobj.h */,
+				76273E471C84909C00D99837 /* nuimmovableobj.cpp */,
+				76273E481C84909C00D99837 /* nuimmovableobj.h */,
+				76273E491C84909C00D99837 /* nulkotree.cpp */,
+				76273E4A1C84909C00D99837 /* nulkotree.h */,
+				76273E4B1C84909C00D99837 /* nulkotreenodelist.cpp */,
+				76273E4C1C84909C00D99837 /* nulkotreenodelist.h */,
+				76273E4D1C84909C00D99837 /* numap.cpp */,
+				76273E4E1C84909C00D99837 /* numap.h */,
+				76273E4F1C84909C00D99837 /* nupicresrc.h */,
+				76273E501C84909C00D99837 /* nuregionmap.cpp */,
+				76273E511C84909C00D99837 /* nuregionmap.h */,
+				76273E521C84909C00D99837 /* nuworld.cpp */,
+				76273E531C84909C00D99837 /* nuworld.h */,
+			);
+			name = world;
+			sourceTree = "<group>";
+		};
+		4A2EDD1E161AE8FB006588CB /* effect */ = {
+			isa = PBXGroup;
+			children = (
+				76273DD61C848F1B00D99837 /* nueffect.cpp */,
+				76273DD71C848F1B00D99837 /* nueffect.h */,
+				76273DD81C848F1B00D99837 /* nueffectclip.cpp */,
+				76273DD91C848F1B00D99837 /* nueffectclip.h */,
+				76273DDA1C848F1B00D99837 /* nueffectkeytable.h */,
+				76273DDB1C848F1B00D99837 /* nueffectmanager.cpp */,
+				76273DDC1C848F1B00D99837 /* nueffectmanager.h */,
+				76273DDD1C848F1B00D99837 /* nufonteffect.cpp */,
+				76273DDE1C848F1B00D99837 /* nufonteffect.h */,
+				76273DDF1C848F1B00D99837 /* nugeffect.cpp */,
+				76273DE01C848F1B00D99837 /* nugeffect.h */,
+				76273DE11C848F1B00D99837 /* nukeyframe.h */,
+				76273DE21C848F1B00D99837 /* nulightingeffect.cpp */,
+				76273DE31C848F1B00D99837 /* nulightingeffect.h */,
+				76273DE41C848F1B00D99837 /* nulisteffect.cpp */,
+				76273DE51C848F1B00D99837 /* nulisteffect.h */,
+				76273DE61C848F1B00D99837 /* nuparticleeffect.cpp */,
+				76273DE71C848F1B00D99837 /* nuparticleeffect.h */,
+				76273DE81C848F1B00D99837 /* nusebind.cpp */,
+				76273DE91C848F1B00D99837 /* nusebind.h */,
+				76273DEA1C848F1B00D99837 /* nuspineeffect.cpp */,
+				76273DEB1C848F1B00D99837 /* nuspineeffect.h */,
+				76273DEC1C848F1B00D99837 /* nuxapbatch.cpp */,
+				76273DED1C848F1B00D99837 /* nuxapbatch.h */,
+				76273DEE1C848F1B00D99837 /* nuxapeffect.cpp */,
+				76273DEF1C848F1B00D99837 /* nuxapeffect.h */,
+			);
+			name = effect;
+			sourceTree = "<group>";
+		};
+		4A8139A9161BF3670057324C /* particlesystem */ = {
+			isa = PBXGroup;
+			children = (
+				76273DA81C848E4D00D99837 /* nucommonfuncs.cpp */,
+				76273DA91C848E4D00D99837 /* nucommonfuncs.h */,
+				76273DAA1C848E4D00D99837 /* nugeneralparticlesystem.cpp */,
+				76273DAB1C848E4D00D99837 /* nugeneralparticlesystem.h */,
+				76273DAC1C848E4D00D99837 /* nuiparticlemanager.h */,
+				76273DAD1C848E4D00D99837 /* nuiparticlesyscommon.h */,
+				76273DAE1C848E4D00D99837 /* nuparticle.h */,
+				76273DAF1C848E4D00D99837 /* nuparticlearray.h */,
+				76273DB01C848E4D00D99837 /* nuparticlemanager.cpp */,
+				76273DB11C848E4D00D99837 /* nuparticlemanager.h */,
+				76273DB21C848E4D00D99837 /* nuparticlesyscommon.h */,
+				76273DB31C848E4D00D99837 /* nuparticlesystem.cpp */,
+				76273DB41C848E4D00D99837 /* nuparticlesystem.h */,
+				76273DB51C848E4D00D99837 /* nupslgroupobject.cpp */,
+				76273DB61C848E4D00D99837 /* nupslgroupobject.h */,
+				76273DB71C848E4D00D99837 /* nupslpathobject.cpp */,
+				76273DB81C848E4D00D99837 /* nupslpathobject.h */,
+				76273DB91C848E4D00D99837 /* nupsparamobject.cpp */,
+				76273DBA1C848E4D00D99837 /* nupsparamobject.h */,
+				76273DBB1C848E4D00D99837 /* nupsvertexsobject.cpp */,
+				76273DBC1C848E4D00D99837 /* nupsvertexsobject.h */,
+				76273DBD1C848E4D00D99837 /* nuspecialparticlesystem.cpp */,
+				76273DBE1C848E4D00D99837 /* nuspecialparticlesystem.h */,
+			);
+			name = particlesystem;
+			sourceTree = "<group>";
+		};
+		4AA029B71613F4A2005FC031 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				76273E0A1C848FB200D99837 /* numapobjs.cpp */,
+				76273E0B1C848FB200D99837 /* numapobjs.h */,
+				76273E0C1C848FB200D99837 /* nupbackground.cpp */,
+				76273E0D1C848FB200D99837 /* nupbackground.h */,
+				76273E0E1C848FB200D99837 /* nupdistortionobject.cpp */,
+				76273E0F1C848FB200D99837 /* nupdistortionobject.h */,
+				76273E101C848FB200D99837 /* nupground.cpp */,
+				76273E111C848FB200D99837 /* nupground.h */,
+				76273E121C848FB200D99837 /* nupimg.cpp */,
+				76273E131C848FB200D99837 /* nupimg.h */,
+				76273E141C848FB200D99837 /* nuplinkedobject.cpp */,
+				76273E151C848FB200D99837 /* nuplinkedobject.h */,
+				76273E161C848FB200D99837 /* nupmap.cpp */,
+				76273E171C848FB200D99837 /* nupmap.h */,
+				76273E181C848FB200D99837 /* nupmask.cpp */,
+				76273E191C848FB200D99837 /* nupmask.h */,
+				76273E1A1C848FB200D99837 /* nuppathmap.cpp */,
+				76273E1B1C848FB200D99837 /* nuppathmap.h */,
+				76273E1C1C848FB200D99837 /* nupstepsoundmap.cpp */,
+				76273E1D1C848FB200D99837 /* nupstepsoundmap.h */,
+				76273E1E1C848FB200D99837 /* nuptimeeffect.cpp */,
+				76273E1F1C848FB200D99837 /* nuptimeeffect.h */,
+				76273E201C848FB200D99837 /* nuptransobjs.cpp */,
+				76273E211C848FB200D99837 /* nuptransobjs.h */,
+				76273E221C848FB200D99837 /* nuptriggerobjs.cpp */,
+				76273E231C848FB200D99837 /* nuptriggerobjs.h */,
+				76273E241C848FB200D99837 /* nupwaterarea.cpp */,
+				76273E251C848FB200D99837 /* nupwaterarea.h */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		4AA4BA591609B36400203CFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AA4BA5F1609B36400203CFB /* libshare.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AAFA26715F9CEDD0013AE3C = {
+			isa = PBXGroup;
+			children = (
+				76F5D8F71C7DDEC1003326FA /* ljfm.xcodeproj */,
+				76EE37581BF377E300A243D9 /* extensions */,
+				4A5DC134160452BF00D38B84 /* share.xcodeproj */,
+				2DF3E9561AF9E16A003B1D17 /* cocos2dx.xcodeproj */,
+				4AAFA27715F9CEDE0013AE3C /* engine */,
+				4AAFA27415F9CEDE0013AE3C /* Frameworks */,
+				4AAFA27315F9CEDE0013AE3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AAFA27315F9CEDE0013AE3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B98736D170BEFF10038DE4A /* libengine.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AAFA27415F9CEDE0013AE3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AAFA27515F9CEDE0013AE3C /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AAFA27715F9CEDE0013AE3C /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				CE4805DA1D1CE0AF0011C545 /* soundarea */,
+				76273D911C848D9800D99837 /* nuiapp.h */,
+				76273D921C848D9800D99837 /* nuieffect.h */,
+				76273D931C848D9800D99837 /* nuiengine.h */,
+				76273D941C848D9800D99837 /* nuientitativetitlemanager.h */,
+				76273D951C848D9800D99837 /* nuienv.h */,
+				76273D961C848D9800D99837 /* nuiimmovableobj.h */,
+				76273D971C848D9800D99837 /* nuiquery.h */,
+				76273D981C848D9800D99837 /* nuiselectableobj.h */,
+				76273D991C848D9800D99837 /* nuisprite.h */,
+				76273D9A1C848D9800D99837 /* nuiworld.h */,
+				4A8139A9161BF3670057324C /* particlesystem */,
+				4A2EDD1E161AE8FB006588CB /* effect */,
+				4AA029B71613F4A2005FC031 /* map */,
+				4A1AA98716035F9400DADEBF /* world */,
+				4A1AA9761603599700DADEBF /* astar */,
+				4A1AA95F1602CF6A00DADEBF /* sprite */,
+				4AEE736915FA23C2009A810F /* engine */,
+				4AEE736815FA2386009A810F /* renderer */,
+				4AAFA29315F9D2D10013AE3C /* common */,
+				4AAFA27815F9CEDE0013AE3C /* Supporting Files */,
+			);
+			path = engine;
+			sourceTree = "<group>";
+		};
+		4AAFA27815F9CEDE0013AE3C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				76273F2A1C84953A00D99837 /* nuengine-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AAFA29315F9D2D10013AE3C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				76273F221C8494C800D99837 /* nuport.h */,
+				76273EE81C84946700D99837 /* nuexecutor.cpp */,
+				76273EE91C84946700D99837 /* nuexecutor.h */,
+				76273EEA1C84946700D99837 /* nufileiomanager.cpp */,
+				76273EEB1C84946700D99837 /* nufileiomanager.h */,
+				76273EEC1C84946700D99837 /* nufreqcountable.h */,
+				76273EED1C84946700D99837 /* nugeom.h */,
+				76273EEE1C84946700D99837 /* nuljfmutil.cpp */,
+				76273EEF1C84946700D99837 /* nuljfmutil.h */,
+				76273EF01C84946700D99837 /* nulog.h */,
+				76273EF11C84946700D99837 /* nupobject.cpp */,
+				76273EF21C84946700D99837 /* nupobject.h */,
+				76273EF31C84946700D99837 /* nurecttopologylist.cpp */,
+				76273EF41C84946700D99837 /* nurecttopologylist.h */,
+				76273EF51C84946700D99837 /* nutimer.cpp */,
+				76273EF61C84946700D99837 /* nutimer.h */,
+				76273EF71C84946700D99837 /* nuutil.cpp */,
+				76273EF81C84946700D99837 /* nuutil.h */,
+				76273EF91C84946700D99837 /* nuworldlogiccoord.h */,
+				76273EFA1C84946700D99837 /* nuxbuffer.cpp */,
+				76273EFB1C84946700D99837 /* nuxbuffer.h */,
+				76273EFC1C84946700D99837 /* nuxlock.cpp */,
+				76273EFD1C84946700D99837 /* nuxlock.h */,
+				76273EFE1C84946700D99837 /* nuxmarshal.cpp */,
+				76273EFF1C84946700D99837 /* nuxmarshal.h */,
+				76273F001C84946700D99837 /* nuxpmaths.cpp */,
+				76273F011C84946700D99837 /* nuxpmaths.h */,
+				76273F021C84946700D99837 /* nuxptypes.h */,
+				76273F031C84946700D99837 /* nuxref.h */,
+				4AAFA29A15F9D30F0013AE3C /* nedmalloc */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		4AAFA29A15F9D30F0013AE3C /* nedmalloc */ = {
+			isa = PBXGroup;
+			children = (
+				76273F241C8494F200D99837 /* numalloc.c.h */,
+				76273F251C8494F200D99837 /* nunedmalloc.cpp */,
+				76273F261C8494F200D99837 /* nunedmalloc.h */,
+			);
+			name = nedmalloc;
+			sourceTree = "<group>";
+		};
+		4AEE736815FA2386009A810F /* renderer */ = {
+			isa = PBXGroup;
+			children = (
+				76273EE41C84933400D99837 /* nucocos2d_type.cpp */,
+				76273EE51C84933400D99837 /* nucocos2d_type.h */,
+				76273EC41C8492DE00D99837 /* nucocos2d_render.cpp */,
+				76273EC51C8492DE00D99837 /* nucocos2d_render.h */,
+				76273EC61C8492DE00D99837 /* nufontmanager.cpp */,
+				76273EC71C8492DE00D99837 /* nufontmanager.h */,
+				76273EC81C8492DE00D99837 /* nufonttexture.cpp */,
+				76273EC91C8492DE00D99837 /* nufonttexture.h */,
+				76273ECA1C8492DE00D99837 /* nufxcode.cpp */,
+				76273ECB1C8492DE00D99837 /* nufxcode.h */,
+				76273ECC1C8492DE00D99837 /* nuibaserenderer.h */,
+				76273ECD1C8492DE00D99837 /* nuifontmanager.h */,
+				76273ECE1C8492DE00D99837 /* nurenderer.cpp */,
+				76273ECF1C8492DE00D99837 /* nurenderer.h */,
+				76273ED01C8492DE00D99837 /* nustatemanager.cpp */,
+				76273ED11C8492DE00D99837 /* nustatemanager.h */,
+				76273ED21C8492DE00D99837 /* nutextblock.cpp */,
+				76273ED31C8492DE00D99837 /* nutextblock.h */,
+			);
+			name = renderer;
+			sourceTree = "<group>";
+		};
+		4AEE736915FA23C2009A810F /* engine */ = {
+			isa = PBXGroup;
+			children = (
+				CE7687031CEA10D800B1B765 /* nuspinemanager.cpp */,
+				CE7687041CEA10D800B1B765 /* nuspinemanager.h */,
+				CE4CD76A1CC4B50A0036F974 /* nuAccelerateUpdater.cpp */,
+				CE4CD76B1CC4B50A0036F974 /* nuAccelerateUpdater.h */,
+				76273F2C1C84988300D99837 /* nucamera.cpp */,
+				76273E901C84922900D99837 /* nuanimanager.cpp */,
+				76273E911C84922900D99837 /* nuanimanager.h */,
+				76273E921C84922900D99837 /* nucamera.h */,
+				76273E931C84922900D99837 /* nucamerasmoother.cpp */,
+				76273E941C84922900D99837 /* nucamerasmoother.h */,
+				76273E951C84922900D99837 /* nucocos2d_wraper.cpp */,
+				76273E961C84922900D99837 /* nucocos2d_wraper.h */,
+				76273E971C84922900D99837 /* nuconfigmanager.cpp */,
+				76273E981C84922900D99837 /* nuconfigmanager.h */,
+				76273E991C84922900D99837 /* nuengine.cpp */,
+				76273E9A1C84922900D99837 /* nuengine.h */,
+				76273E9B1C84922900D99837 /* nuenginebase.h */,
+				76273E9C1C84922900D99837 /* nuenginetimer.cpp */,
+				76273E9D1C84922900D99837 /* nuenginetimer.h */,
+				76273E9E1C84922900D99837 /* nuenv.cpp */,
+				76273E9F1C84922900D99837 /* nuenv.h */,
+				76273EA01C84922900D99837 /* nuguobj.cpp */,
+				76273EA11C84922900D99837 /* nuguobj.h */,
+				76273EA21C84922900D99837 /* nuiadapter.h */,
+				76273EA31C84922900D99837 /* nurenderable.h */,
+				76273EA41C84922900D99837 /* nurendertargetcache.cpp */,
+				76273EA51C84922900D99837 /* nurendertargetcache.h */,
+				76273EA61C84922900D99837 /* nusystemresourcemanager.cpp */,
+				76273EA71C84922900D99837 /* nusystemresourcemanager.h */,
+				76273EA81C84922900D99837 /* nuwindow.h */,
+				76273EA91C84922900D99837 /* nuwindow.mm */,
+			);
+			name = engine;
+			sourceTree = "<group>";
+		};
+		76C56E721C7F46C600612100 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76C56E771C7F46C600612100 /* libljfm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		76EE372A1BF377E300A243D9 /* spine */ = {
+			isa = PBXGroup;
+			children = (
+				76EE37101BF377E300A243D9 /* Animation.h */,
+				76EE37111BF377E300A243D9 /* AnimationState.h */,
+				76EE37121BF377E300A243D9 /* AnimationStateData.h */,
+				76EE37131BF377E300A243D9 /* Atlas.h */,
+				76EE37141BF377E300A243D9 /* AtlasAttachmentLoader.h */,
+				76EE37151BF377E300A243D9 /* Attachment.h */,
+				76EE37161BF377E300A243D9 /* AttachmentLoader.h */,
+				76EE37171BF377E300A243D9 /* Bone.h */,
+				76EE37181BF377E300A243D9 /* BoneData.h */,
+				76EE37191BF377E300A243D9 /* BoundingBoxAttachment.h */,
+				76EE371A1BF377E300A243D9 /* Event.h */,
+				76EE371B1BF377E300A243D9 /* EventData.h */,
+				76EE371C1BF377E300A243D9 /* extension.h */,
+				76EE371D1BF377E300A243D9 /* IkConstraint.h */,
+				76EE371E1BF377E300A243D9 /* IkConstraintData.h */,
+				76EE371F1BF377E300A243D9 /* MeshAttachment.h */,
+				76EE37201BF377E300A243D9 /* RegionAttachment.h */,
+				76EE37211BF377E300A243D9 /* Skeleton.h */,
+				76EE37221BF377E300A243D9 /* SkeletonBounds.h */,
+				76EE37231BF377E300A243D9 /* SkeletonData.h */,
+				76EE37241BF377E300A243D9 /* SkeletonJson.h */,
+				76EE37251BF377E300A243D9 /* Skin.h */,
+				76EE37261BF377E300A243D9 /* SkinnedMeshAttachment.h */,
+				76EE37271BF377E300A243D9 /* Slot.h */,
+				76EE37281BF377E300A243D9 /* SlotData.h */,
+				76EE37291BF377E300A243D9 /* spine.h */,
+			);
+			path = spine;
+			sourceTree = "<group>";
+		};
+		76EE372B1BF377E300A243D9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				76EE372A1BF377E300A243D9 /* spine */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		76EE37471BF377E300A243D9 /* spine */ = {
+			isa = PBXGroup;
+			children = (
+				76EE372C1BF377E300A243D9 /* Animation.c */,
+				76EE372D1BF377E300A243D9 /* AnimationState.c */,
+				76EE372E1BF377E300A243D9 /* AnimationStateData.c */,
+				76EE372F1BF377E300A243D9 /* Atlas.c */,
+				76EE37301BF377E300A243D9 /* AtlasAttachmentLoader.c */,
+				76EE37311BF377E300A243D9 /* Attachment.c */,
+				76EE37321BF377E300A243D9 /* AttachmentLoader.c */,
+				76EE37331BF377E300A243D9 /* Bone.c */,
+				76EE37341BF377E300A243D9 /* BoneData.c */,
+				76EE37351BF377E300A243D9 /* BoundingBoxAttachment.c */,
+				76EE37361BF377E300A243D9 /* Event.c */,
+				76EE37371BF377E300A243D9 /* EventData.c */,
+				76EE37381BF377E300A243D9 /* extension.c */,
+				76EE37391BF377E300A243D9 /* IkConstraint.c */,
+				76EE373A1BF377E300A243D9 /* IkConstraintData.c */,
+				76EE373B1BF377E300A243D9 /* Json.c */,
+				76EE373C1BF377E300A243D9 /* Json.h */,
+				76EE373D1BF377E300A243D9 /* MeshAttachment.c */,
+				76EE373E1BF377E300A243D9 /* RegionAttachment.c */,
+				76EE373F1BF377E300A243D9 /* Skeleton.c */,
+				76EE37401BF377E300A243D9 /* SkeletonBounds.c */,
+				76EE37411BF377E300A243D9 /* SkeletonData.c */,
+				76EE37421BF377E300A243D9 /* SkeletonJson.c */,
+				76EE37431BF377E300A243D9 /* Skin.c */,
+				76EE37441BF377E300A243D9 /* SkinnedMeshAttachment.c */,
+				76EE37451BF377E300A243D9 /* Slot.c */,
+				76EE37461BF377E300A243D9 /* SlotData.c */,
+			);
+			path = spine;
+			sourceTree = "<group>";
+		};
+		76EE37481BF377E300A243D9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				76EE37471BF377E300A243D9 /* spine */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		76EE37491BF377E300A243D9 /* spine-c */ = {
+			isa = PBXGroup;
+			children = (
+				76EE372B1BF377E300A243D9 /* include */,
+				76EE37481BF377E300A243D9 /* src */,
+			);
+			path = "spine-c";
+			sourceTree = "<group>";
+		};
+		76EE374E1BF377E300A243D9 /* spine */ = {
+			isa = PBXGroup;
+			children = (
+				76EE374A1BF377E300A243D9 /* PolygonBatch.h */,
+				76EE374B1BF377E300A243D9 /* SkeletonAnimation.h */,
+				76EE374C1BF377E300A243D9 /* SkeletonRenderer.h */,
+				76EE374D1BF377E300A243D9 /* spine-cocos2dx.h */,
+			);
+			path = spine;
+			sourceTree = "<group>";
+		};
+		76EE374F1BF377E300A243D9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				76EE374E1BF377E300A243D9 /* spine */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		76EE37541BF377E300A243D9 /* spine */ = {
+			isa = PBXGroup;
+			children = (
+				76EE37501BF377E300A243D9 /* PolygonBatch.cpp */,
+				76EE37511BF377E300A243D9 /* SkeletonAnimation.cpp */,
+				76EE37521BF377E300A243D9 /* SkeletonRenderer.cpp */,
+				76EE37531BF377E300A243D9 /* spine-cocos2dx.cpp */,
+			);
+			path = spine;
+			sourceTree = "<group>";
+		};
+		76EE37551BF377E300A243D9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				76EE37541BF377E300A243D9 /* spine */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		76EE37561BF377E300A243D9 /* spine-cocos2dx */ = {
+			isa = PBXGroup;
+			children = (
+				76EE374F1BF377E300A243D9 /* include */,
+				76EE37551BF377E300A243D9 /* src */,
+			);
+			path = "spine-cocos2dx";
+			sourceTree = "<group>";
+		};
+		76EE37571BF377E300A243D9 /* libSpine */ = {
+			isa = PBXGroup;
+			children = (
+				76EE37491BF377E300A243D9 /* spine-c */,
+				76EE37561BF377E300A243D9 /* spine-cocos2dx */,
+			);
+			name = libSpine;
+			path = ../../extensions/libSpine;
+			sourceTree = "<group>";
+		};
+		76EE37581BF377E300A243D9 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				76EE37571BF377E300A243D9 /* libSpine */,
+			);
+			name = extensions;
+			path = "../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/proj.ios";
+			sourceTree = "<group>";
+		};
+		CE4805DA1D1CE0AF0011C545 /* soundarea */ = {
+			isa = PBXGroup;
+			children = (
+				CE4805DB1D1CE0AF0011C545 /* stepsoundtype.cpp */,
+				CE4805DC1D1CE0AF0011C545 /* stepsoundtype.h */,
+				CE4805DD1D1CE0AF0011C545 /* xpenvsoundarea.cpp */,
+				CE4805DE1D1CE0AF0011C545 /* xpenvsoundarea.h */,
+				CE4805DF1D1CE0AF0011C545 /* xpenvsoundcirclearea.cpp */,
+				CE4805E01D1CE0AF0011C545 /* xpenvsoundcirclearea.h */,
+				CE4805E11D1CE0AF0011C545 /* xpenvsoundpolygonarea.cpp */,
+				CE4805E21D1CE0AF0011C545 /* xpenvsoundpolygonarea.h */,
+				CE4805E31D1CE0AF0011C545 /* xpsoundarea.cpp */,
+				CE4805E41D1CE0AF0011C545 /* xpsoundarea.h */,
+			);
+			path = soundarea;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7B9872EE170BEFF10038DE4A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76EE375F1BF377E300A243D9 /* AttachmentLoader.h in Headers */,
+				76EE37661BF377E300A243D9 /* IkConstraint.h in Headers */,
+				76273EBD1C84922900D99837 /* nurenderable.h in Headers */,
+				76EE375C1BF377E300A243D9 /* Atlas.h in Headers */,
+				76273EB01C84922900D99837 /* nucocos2d_wraper.h in Headers */,
+				76273D9B1C848D9800D99837 /* nuiapp.h in Headers */,
+				76273D9C1C848D9800D99837 /* nuieffect.h in Headers */,
+				76EE37831BF377E300A243D9 /* Json.h in Headers */,
+				76EE376E1BF377E300A243D9 /* Skin.h in Headers */,
+				76273F091C84946700D99837 /* nugeom.h in Headers */,
+				76273EE31C8492DE00D99837 /* nutextblock.h in Headers */,
+				76273F291C8494F200D99837 /* nunedmalloc.h in Headers */,
+				76273DC21C848E4D00D99837 /* nugeneralparticlesystem.h in Headers */,
+				76EE376C1BF377E300A243D9 /* SkeletonData.h in Headers */,
+				76EE375D1BF377E300A243D9 /* AtlasAttachmentLoader.h in Headers */,
+				76EE376A1BF377E300A243D9 /* Skeleton.h in Headers */,
+				76273F1F1C84946700D99837 /* nuxref.h in Headers */,
+				76273E741C84911600D99837 /* nuastarImplement.hpp in Headers */,
+				76273F101C84946700D99837 /* nurecttopologylist.h in Headers */,
+				76273DFF1C848F1B00D99837 /* nulisteffect.h in Headers */,
+				76EE37711BF377E300A243D9 /* SlotData.h in Headers */,
+				76273DA11C848D9800D99837 /* nuiquery.h in Headers */,
+				76273E051C848F1B00D99837 /* nuspineeffect.h in Headers */,
+				76273F171C84946700D99837 /* nuxbuffer.h in Headers */,
+				CE4805E61D1CE0AF0011C545 /* stepsoundtype.h in Headers */,
+				76273F1D1C84946700D99837 /* nuxpmaths.h in Headers */,
+				76273D9E1C848D9800D99837 /* nuientitativetitlemanager.h in Headers */,
+				76273F151C84946700D99837 /* nuworldlogiccoord.h in Headers */,
+				76273EAE1C84922900D99837 /* nucamerasmoother.h in Headers */,
+				76EE37631BF377E300A243D9 /* Event.h in Headers */,
+				76273E861C84919400D99837 /* numovablespriteimp.h in Headers */,
+				76273E8D1C84919400D99837 /* nusprite.h in Headers */,
+				76EE37591BF377E300A243D9 /* Animation.h in Headers */,
+				76EE37911BF377E300A243D9 /* spine-cocos2dx.h in Headers */,
+				76273E541C84909C00D99837 /* nudistort.h in Headers */,
+				76273ED51C8492DE00D99837 /* nucocos2d_render.h in Headers */,
+				76273E711C84911600D99837 /* nuapathio.hpp in Headers */,
+				76273EB21C84922900D99837 /* nuconfigmanager.h in Headers */,
+				76273E071C848F1B00D99837 /* nuxapbatch.h in Headers */,
+				76273F121C84946700D99837 /* nutimer.h in Headers */,
+				76273EC11C84922900D99837 /* nusystemresourcemanager.h in Headers */,
+				76273DF31C848F1B00D99837 /* nueffectclip.h in Headers */,
+				76EE375E1BF377E300A243D9 /* Attachment.h in Headers */,
+				76273E611C84909C00D99837 /* nupicresrc.h in Headers */,
+				76273DF41C848F1B00D99837 /* nueffectkeytable.h in Headers */,
+				76273DA41C848D9800D99837 /* nuiworld.h in Headers */,
+				76273E721C84911600D99837 /* nuasingleton.hpp in Headers */,
+				76273EB41C84922900D99837 /* nuengine.h in Headers */,
+				76273E3D1C848FB200D99837 /* nuptransobjs.h in Headers */,
+				76273E601C84909C00D99837 /* numap.h in Headers */,
+				76273DC31C848E4D00D99837 /* nuiparticlemanager.h in Headers */,
+				76273DC01C848E4D00D99837 /* nucommonfuncs.h in Headers */,
+				76273ED71C8492DE00D99837 /* nufontmanager.h in Headers */,
+				76273DC61C848E4D00D99837 /* nuparticlearray.h in Headers */,
+				76273D9D1C848D9800D99837 /* nuiengine.h in Headers */,
+				76273DF81C848F1B00D99837 /* nufonteffect.h in Headers */,
+				76EE37601BF377E300A243D9 /* Bone.h in Headers */,
+				76273E651C84909C00D99837 /* nuworld.h in Headers */,
+				76273E391C848FB200D99837 /* nupstepsoundmap.h in Headers */,
+				76273E5C1C84909C00D99837 /* nulkotree.h in Headers */,
+				76273E3B1C848FB200D99837 /* nuptimeeffect.h in Headers */,
+				76273EAC1C84922900D99837 /* nucamera.h in Headers */,
+				76273DA01C848D9800D99837 /* nuiimmovableobj.h in Headers */,
+				76273E311C848FB200D99837 /* nuplinkedobject.h in Headers */,
+				76EE37681BF377E300A243D9 /* MeshAttachment.h in Headers */,
+				76273EDC1C8492DE00D99837 /* nuibaserenderer.h in Headers */,
+				76273F141C84946700D99837 /* nuutil.h in Headers */,
+				76EE375B1BF377E300A243D9 /* AnimationStateData.h in Headers */,
+				76273E351C848FB200D99837 /* nupmask.h in Headers */,
+				76273DFD1C848F1B00D99837 /* nulightingeffect.h in Headers */,
+				76273F1B1C84946700D99837 /* nuxmarshal.h in Headers */,
+				76273DCD1C848E4D00D99837 /* nupslgroupobject.h in Headers */,
+				CE4805EC1D1CE0AF0011C545 /* xpenvsoundpolygonarea.h in Headers */,
+				76273E881C84919400D99837 /* nupspritemaze.h in Headers */,
+				76273F081C84946700D99837 /* nufreqcountable.h in Headers */,
+				76EE37621BF377E300A243D9 /* BoundingBoxAttachment.h in Headers */,
+				76273E2F1C848FB200D99837 /* nupimg.h in Headers */,
+				76EE37701BF377E300A243D9 /* Slot.h in Headers */,
+				76273E6E1C84911600D99837 /* nualocation.hpp in Headers */,
+				76273E091C848F1B00D99837 /* nuxapeffect.h in Headers */,
+				76273E271C848FB200D99837 /* numapobjs.h in Headers */,
+				76EE375A1BF377E300A243D9 /* AnimationState.h in Headers */,
+				76273DCF1C848E4D00D99837 /* nupslpathobject.h in Headers */,
+				76273DFA1C848F1B00D99837 /* nugeffect.h in Headers */,
+				76273E561C84909C00D99837 /* nudistortbase.h in Headers */,
+				76273EAB1C84922900D99837 /* nuanimanager.h in Headers */,
+				76EE376D1BF377E300A243D9 /* SkeletonJson.h in Headers */,
+				76273ED91C8492DE00D99837 /* nufonttexture.h in Headers */,
+				76273E031C848F1B00D99837 /* nusebind.h in Headers */,
+				76273F271C8494F200D99837 /* numalloc.c.h in Headers */,
+				76273DA31C848D9800D99837 /* nuisprite.h in Headers */,
+				76273E5E1C84909C00D99837 /* nulkotreenodelist.h in Headers */,
+				76273E3F1C848FB200D99837 /* nuptriggerobjs.h in Headers */,
+				76EE376F1BF377E300A243D9 /* SkinnedMeshAttachment.h in Headers */,
+				76273F0B1C84946700D99837 /* nuljfmutil.h in Headers */,
+				76273EE71C84933400D99837 /* nucocos2d_type.h in Headers */,
+				CE4805E81D1CE0AF0011C545 /* xpenvsoundarea.h in Headers */,
+				76273E581C84909C00D99837 /* nuentitativeobj.h in Headers */,
+				CE7687061CEA10D800B1B765 /* nuspinemanager.h in Headers */,
+				76273DC41C848E4D00D99837 /* nuiparticlesyscommon.h in Headers */,
+				76273E5A1C84909C00D99837 /* nuimmovableobj.h in Headers */,
+				76273E8B1C84919400D99837 /* nuspinesprite.h in Headers */,
+				76273E731C84911600D99837 /* nuastar.hpp in Headers */,
+				76EE37691BF377E300A243D9 /* RegionAttachment.h in Headers */,
+				CE4CD76D1CC4B50A0036F974 /* nuAccelerateUpdater.h in Headers */,
+				76273E411C848FB200D99837 /* nupwaterarea.h in Headers */,
+				76EE378E1BF377E300A243D9 /* PolygonBatch.h in Headers */,
+				76273E841C84919400D99837 /* nucomponentsprite.h in Headers */,
+				76273EDD1C8492DE00D99837 /* nuifontmanager.h in Headers */,
+				76273E371C848FB200D99837 /* nuppathmap.h in Headers */,
+				76273EB51C84922900D99837 /* nuenginebase.h in Headers */,
+				76273E011C848F1B00D99837 /* nuparticleeffect.h in Headers */,
+				76EE37901BF377E300A243D9 /* SkeletonRenderer.h in Headers */,
+				76273DD11C848E4D00D99837 /* nupsparamobject.h in Headers */,
+				76273E8F1C84919400D99837 /* nuspritemanager.h in Headers */,
+				76273EBB1C84922900D99837 /* nuguobj.h in Headers */,
+				76273DC91C848E4D00D99837 /* nuparticlesyscommon.h in Headers */,
+				76273DF11C848F1B00D99837 /* nueffect.h in Headers */,
+				76EE37611BF377E300A243D9 /* BoneData.h in Headers */,
+				76273E751C84911600D99837 /* nuatimer.hpp in Headers */,
+				76273DD31C848E4D00D99837 /* nupsvertexsobject.h in Headers */,
+				76EE37671BF377E300A243D9 /* IkConstraintData.h in Headers */,
+				76273F231C8494C800D99837 /* nuport.h in Headers */,
+				76EE376B1BF377E300A243D9 /* SkeletonBounds.h in Headers */,
+				76273F051C84946700D99837 /* nuexecutor.h in Headers */,
+				76273F2B1C84953A00D99837 /* nuengine-Prefix.pch in Headers */,
+				76273EBF1C84922900D99837 /* nurendertargetcache.h in Headers */,
+				76273F0C1C84946700D99837 /* nulog.h in Headers */,
+				76273F191C84946700D99837 /* nuxlock.h in Headers */,
+				76273DD51C848E4D00D99837 /* nuspecialparticlesystem.h in Headers */,
+				76273E2B1C848FB200D99837 /* nupdistortionobject.h in Headers */,
+				76EE37641BF377E300A243D9 /* EventData.h in Headers */,
+				76273DCB1C848E4D00D99837 /* nuparticlesystem.h in Headers */,
+				76273E6F1C84911600D99837 /* nuamaze.hpp in Headers */,
+				76273E631C84909C00D99837 /* nuregionmap.h in Headers */,
+				76273F071C84946700D99837 /* nufileiomanager.h in Headers */,
+				CE4805EE1D1CE0AF0011C545 /* xpsoundarea.h in Headers */,
+				76273D9F1C848D9800D99837 /* nuienv.h in Headers */,
+				76EE37651BF377E300A243D9 /* extension.h in Headers */,
+				76273F0E1C84946700D99837 /* nupobject.h in Headers */,
+				76273E331C848FB200D99837 /* nupmap.h in Headers */,
+				76273DA21C848D9800D99837 /* nuiselectableobj.h in Headers */,
+				76273EE11C8492DE00D99837 /* nustatemanager.h in Headers */,
+				76273EC21C84922900D99837 /* nuwindow.h in Headers */,
+				76273E891C84919400D99837 /* nurenderablesprite.h in Headers */,
+				76273DC51C848E4D00D99837 /* nuparticle.h in Headers */,
+				76EE37721BF377E300A243D9 /* spine.h in Headers */,
+				76273EBC1C84922900D99837 /* nuiadapter.h in Headers */,
+				CE4805EA1D1CE0AF0011C545 /* xpenvsoundcirclearea.h in Headers */,
+				76273E2D1C848FB200D99837 /* nupground.h in Headers */,
+				76273EB91C84922900D99837 /* nuenv.h in Headers */,
+				76EE378F1BF377E300A243D9 /* SkeletonAnimation.h in Headers */,
+				76273DFB1C848F1B00D99837 /* nukeyframe.h in Headers */,
+				76273DC81C848E4D00D99837 /* nuparticlemanager.h in Headers */,
+				76273EB71C84922900D99837 /* nuenginetimer.h in Headers */,
+				76273E701C84911600D99837 /* nuapath.hpp in Headers */,
+				76273E291C848FB200D99837 /* nupbackground.h in Headers */,
+				76273EDF1C8492DE00D99837 /* nurenderer.h in Headers */,
+				76273EDB1C8492DE00D99837 /* nufxcode.h in Headers */,
+				76273F1E1C84946700D99837 /* nuxptypes.h in Headers */,
+				76273DF61C848F1B00D99837 /* nueffectmanager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7B987296170BEFF10038DE4A /* engine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B98736A170BEFF10038DE4A /* Build configuration list for PBXNativeTarget "engine" */;
+			buildPhases = (
+				7B987297170BEFF10038DE4A /* Sources */,
+				7B9872EC170BEFF10038DE4A /* Frameworks */,
+				7B9872EE170BEFF10038DE4A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = engine;
+			productName = engine;
+			productReference = 7B98736D170BEFF10038DE4A /* libengine.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AAFA26915F9CEDD0013AE3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 4AAFA26C15F9CEDD0013AE3C /* Build configuration list for PBXProject "engine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4AAFA26715F9CEDD0013AE3C;
+			productRefGroup = 4AAFA27315F9CEDE0013AE3C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2DF3E9571AF9E16A003B1D17 /* Products */;
+					ProjectRef = 2DF3E9561AF9E16A003B1D17 /* cocos2dx.xcodeproj */;
+				},
+				{
+					ProductGroup = 76C56E721C7F46C600612100 /* Products */;
+					ProjectRef = 76F5D8F71C7DDEC1003326FA /* ljfm.xcodeproj */;
+				},
+				{
+					ProductGroup = 4AA4BA591609B36400203CFB /* Products */;
+					ProjectRef = 4A5DC134160452BF00D38B84 /* share.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				7B987296170BEFF10038DE4A /* engine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2DF3E95B1AF9E16B003B1D17 /* libcocos2dx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2dx.a;
+			remoteRef = 2DF3E95A1AF9E16B003B1D17 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4AA4BA5F1609B36400203CFB /* libshare.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libshare.a;
+			remoteRef = 4AA4BA5E1609B36400203CFB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		76C56E771C7F46C600612100 /* libljfm.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libljfm.a;
+			remoteRef = 76C56E761C7F46C600612100 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B987297170BEFF10038DE4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76273E2C1C848FB200D99837 /* nupground.cpp in Sources */,
+				76273DC71C848E4D00D99837 /* nuparticlemanager.cpp in Sources */,
+				76273EBA1C84922900D99837 /* nuguobj.cpp in Sources */,
+				76273F0F1C84946700D99837 /* nurecttopologylist.cpp in Sources */,
+				76273EE61C84933400D99837 /* nucocos2d_type.cpp in Sources */,
+				76273DD01C848E4D00D99837 /* nupsparamobject.cpp in Sources */,
+				76273E301C848FB200D99837 /* nuplinkedobject.cpp in Sources */,
+				76273F041C84946700D99837 /* nuexecutor.cpp in Sources */,
+				76EE378C1BF377E300A243D9 /* Slot.c in Sources */,
+				76273E041C848F1B00D99837 /* nuspineeffect.cpp in Sources */,
+				76273DFC1C848F1B00D99837 /* nulightingeffect.cpp in Sources */,
+				76273E2E1C848FB200D99837 /* nupimg.cpp in Sources */,
+				76273DCC1C848E4D00D99837 /* nupslgroupobject.cpp in Sources */,
+				76273DF21C848F1B00D99837 /* nueffectclip.cpp in Sources */,
+				76273DFE1C848F1B00D99837 /* nulisteffect.cpp in Sources */,
+				76273DCA1C848E4D00D99837 /* nuparticlesystem.cpp in Sources */,
+				76EE37751BF377E300A243D9 /* AnimationStateData.c in Sources */,
+				76EE377C1BF377E300A243D9 /* BoundingBoxAttachment.c in Sources */,
+				76EE37811BF377E300A243D9 /* IkConstraintData.c in Sources */,
+				76273E3C1C848FB200D99837 /* nuptransobjs.cpp in Sources */,
+				76273F131C84946700D99837 /* nuutil.cpp in Sources */,
+				76EE37881BF377E300A243D9 /* SkeletonData.c in Sources */,
+				76EE37931BF377E300A243D9 /* SkeletonAnimation.cpp in Sources */,
+				76273E001C848F1B00D99837 /* nuparticleeffect.cpp in Sources */,
+				76273E401C848FB200D99837 /* nupwaterarea.cpp in Sources */,
+				76273E831C84919400D99837 /* nucomponentsprite.cpp in Sources */,
+				76273F0A1C84946700D99837 /* nuljfmutil.cpp in Sources */,
+				76EE37801BF377E300A243D9 /* IkConstraint.c in Sources */,
+				76EE377E1BF377E300A243D9 /* EventData.c in Sources */,
+				76273E8E1C84919400D99837 /* nuspritemanager.cpp in Sources */,
+				76EE37921BF377E300A243D9 /* PolygonBatch.cpp in Sources */,
+				76273E551C84909C00D99837 /* nudistortbase.cpp in Sources */,
+				76273E641C84909C00D99837 /* nuworld.cpp in Sources */,
+				76273EB61C84922900D99837 /* nuenginetimer.cpp in Sources */,
+				76273E571C84909C00D99837 /* nuentitativeobj.cpp in Sources */,
+				76EE377A1BF377E300A243D9 /* Bone.c in Sources */,
+				76273E851C84919400D99837 /* numovablespriteimp.cpp in Sources */,
+				76273F061C84946700D99837 /* nufileiomanager.cpp in Sources */,
+				76273E321C848FB200D99837 /* nupmap.cpp in Sources */,
+				76273E281C848FB200D99837 /* nupbackground.cpp in Sources */,
+				76273DF71C848F1B00D99837 /* nufonteffect.cpp in Sources */,
+				CE7687051CEA10D800B1B765 /* nuspinemanager.cpp in Sources */,
+				76273F111C84946700D99837 /* nutimer.cpp in Sources */,
+				76EE37821BF377E300A243D9 /* Json.c in Sources */,
+				76273F161C84946700D99837 /* nuxbuffer.cpp in Sources */,
+				76EE37871BF377E300A243D9 /* SkeletonBounds.c in Sources */,
+				76273EC31C84922900D99837 /* nuwindow.mm in Sources */,
+				76273E381C848FB200D99837 /* nupstepsoundmap.cpp in Sources */,
+				76EE378B1BF377E300A243D9 /* SkinnedMeshAttachment.c in Sources */,
+				CE4805EB1D1CE0AF0011C545 /* xpenvsoundpolygonarea.cpp in Sources */,
+				76273EDE1C8492DE00D99837 /* nurenderer.cpp in Sources */,
+				76273E3E1C848FB200D99837 /* nuptriggerobjs.cpp in Sources */,
+				76273ED61C8492DE00D99837 /* nufontmanager.cpp in Sources */,
+				76273DCE1C848E4D00D99837 /* nupslpathobject.cpp in Sources */,
+				76273EAF1C84922900D99837 /* nucocos2d_wraper.cpp in Sources */,
+				76273E8C1C84919400D99837 /* nusprite.cpp in Sources */,
+				76273DF51C848F1B00D99837 /* nueffectmanager.cpp in Sources */,
+				76273ED81C8492DE00D99837 /* nufonttexture.cpp in Sources */,
+				76273DD41C848E4D00D99837 /* nuspecialparticlesystem.cpp in Sources */,
+				CE4805E91D1CE0AF0011C545 /* xpenvsoundcirclearea.cpp in Sources */,
+				76EE378A1BF377E300A243D9 /* Skin.c in Sources */,
+				76273EE01C8492DE00D99837 /* nustatemanager.cpp in Sources */,
+				76EE37741BF377E300A243D9 /* AnimationState.c in Sources */,
+				76EE37851BF377E300A243D9 /* RegionAttachment.c in Sources */,
+				76273F181C84946700D99837 /* nuxlock.cpp in Sources */,
+				76273EBE1C84922900D99837 /* nurendertargetcache.cpp in Sources */,
+				76273DC11C848E4D00D99837 /* nugeneralparticlesystem.cpp in Sources */,
+				76273F1C1C84946700D99837 /* nuxpmaths.cpp in Sources */,
+				76273DF01C848F1B00D99837 /* nueffect.cpp in Sources */,
+				76273E061C848F1B00D99837 /* nuxapbatch.cpp in Sources */,
+				76273EB11C84922900D99837 /* nuconfigmanager.cpp in Sources */,
+				76273E341C848FB200D99837 /* nupmask.cpp in Sources */,
+				76273EAA1C84922900D99837 /* nuanimanager.cpp in Sources */,
+				76273EB31C84922900D99837 /* nuengine.cpp in Sources */,
+				76273F0D1C84946700D99837 /* nupobject.cpp in Sources */,
+				76EE37941BF377E300A243D9 /* SkeletonRenderer.cpp in Sources */,
+				CE4CD76C1CC4B50A0036F974 /* nuAccelerateUpdater.cpp in Sources */,
+				76EE37791BF377E300A243D9 /* AttachmentLoader.c in Sources */,
+				76273DBF1C848E4D00D99837 /* nucommonfuncs.cpp in Sources */,
+				76273DF91C848F1B00D99837 /* nugeffect.cpp in Sources */,
+				76273E261C848FB200D99837 /* numapobjs.cpp in Sources */,
+				76273E5D1C84909C00D99837 /* nulkotreenodelist.cpp in Sources */,
+				76273E8A1C84919400D99837 /* nuspinesprite.cpp in Sources */,
+				CE4805E51D1CE0AF0011C545 /* stepsoundtype.cpp in Sources */,
+				76273E3A1C848FB200D99837 /* nuptimeeffect.cpp in Sources */,
+				76273F1A1C84946700D99837 /* nuxmarshal.cpp in Sources */,
+				76273E5F1C84909C00D99837 /* numap.cpp in Sources */,
+				76273E621C84909C00D99837 /* nuregionmap.cpp in Sources */,
+				76EE377F1BF377E300A243D9 /* extension.c in Sources */,
+				76273DD21C848E4D00D99837 /* nupsvertexsobject.cpp in Sources */,
+				76273EDA1C8492DE00D99837 /* nufxcode.cpp in Sources */,
+				76273E361C848FB200D99837 /* nuppathmap.cpp in Sources */,
+				76273F2D1C84988300D99837 /* nucamera.cpp in Sources */,
+				76273E5B1C84909C00D99837 /* nulkotree.cpp in Sources */,
+				CE4805E71D1CE0AF0011C545 /* xpenvsoundarea.cpp in Sources */,
+				76EE37771BF377E300A243D9 /* AtlasAttachmentLoader.c in Sources */,
+				76273E591C84909C00D99837 /* nuimmovableobj.cpp in Sources */,
+				76EE37781BF377E300A243D9 /* Attachment.c in Sources */,
+				76273E081C848F1B00D99837 /* nuxapeffect.cpp in Sources */,
+				76EE37861BF377E300A243D9 /* Skeleton.c in Sources */,
+				76EE37951BF377E300A243D9 /* spine-cocos2dx.cpp in Sources */,
+				76EE378D1BF377E300A243D9 /* SlotData.c in Sources */,
+				76273F281C8494F200D99837 /* nunedmalloc.cpp in Sources */,
+				76273EAD1C84922900D99837 /* nucamerasmoother.cpp in Sources */,
+				76273E021C848F1B00D99837 /* nusebind.cpp in Sources */,
+				76273EE21C8492DE00D99837 /* nutextblock.cpp in Sources */,
+				76EE37761BF377E300A243D9 /* Atlas.c in Sources */,
+				76273E2A1C848FB200D99837 /* nupdistortionobject.cpp in Sources */,
+				76EE377D1BF377E300A243D9 /* Event.c in Sources */,
+				76EE37731BF377E300A243D9 /* Animation.c in Sources */,
+				76EE377B1BF377E300A243D9 /* BoneData.c in Sources */,
+				76273ED41C8492DE00D99837 /* nucocos2d_render.cpp in Sources */,
+				CE4805ED1D1CE0AF0011C545 /* xpsoundarea.cpp in Sources */,
+				76273EC01C84922900D99837 /* nusystemresourcemanager.cpp in Sources */,
+				76EE37891BF377E300A243D9 /* SkeletonJson.c in Sources */,
+				76EE37841BF377E300A243D9 /* MeshAttachment.c in Sources */,
+				76273EB81C84922900D99837 /* nuenv.cpp in Sources */,
+				76273E871C84919400D99837 /* nupspritemaze.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4AAFA27D15F9CEDE0013AE3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					USE_NED_MALLOC,
+					SELF_MALLOC,
+					"DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4AAFA27E15F9CEDE0013AE3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					USE_NED_MALLOC,
+					SELF_MALLOC,
+					NDEBUG,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B98736B170BEFF10038DE4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/engine.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "engine/nuengine-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_OS_IOS,
+					USE_NED_MALLOC,
+					SELF_MALLOC,
+					TARGET_OS_IPHONE,
+					"DEBUG=1",
+					XPP_IOS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/ios/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/",
+					"../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include",
+					"../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include",
+					../boost_1_50_0,
+					../common/ljfm/code/include,
+					../common/platform/,
+					"../dependencies/freetype-2.4.9/include/",
+					../common/platform/utils/,
+					../dependencies/LJXML/Include,
+					./engine,
+					./common,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = engine;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		7B98736C170BEFF10038DE4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/engine.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "engine/nuengine-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					_OS_IOS,
+					USE_NED_MALLOC,
+					SELF_MALLOC,
+					TARGET_OS_IPHONE,
+					XPP_IOS,
+					_LOCOJOY_SDK_,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/ios/",
+					"../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/",
+					"../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include",
+					"../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include",
+					../boost_1_50_0,
+					../common/ljfm/code/include,
+					../common/platform/,
+					"../dependencies/freetype-2.4.9/include/",
+					../common/platform/utils/,
+					../dependencies/LJXML/Include,
+					./engine,
+					./common,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = engine;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AAFA26C15F9CEDD0013AE3C /* Build configuration list for PBXProject "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AAFA27D15F9CEDE0013AE3C /* Debug */,
+				4AAFA27E15F9CEDE0013AE3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B98736A170BEFF10038DE4A /* Build configuration list for PBXNativeTarget "engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B98736B170BEFF10038DE4A /* Debug */,
+				7B98736C170BEFF10038DE4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AAFA26915F9CEDD0013AE3C /* Project object */;
+}

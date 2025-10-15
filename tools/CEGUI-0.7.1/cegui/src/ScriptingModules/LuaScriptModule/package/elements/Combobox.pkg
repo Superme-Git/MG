@@ -1,0 +1,62 @@
+/***********************************************************************
+	Combobox
+***********************************************************************/
+class Combobox : public Window
+{
+public:
+    bool 	isHit(const Vector2& position, const bool allow_disabled = false) const;
+    bool	getSingleClickEnabled(void) const;
+    bool	isDropDownListVisible(void) const;
+    Editbox* getEditbox() const;
+    PushButton* getPushButton() const;
+    ComboDropList* getDropList() const;
+
+    bool	hasInputFocus(void) const;
+    bool	isReadOnly(void) const;
+    bool	isTextValid(void) const;
+    const string&	getValidationString(void) const;
+
+    unsigned long	getCaratIndex(void) const;
+    unsigned long	getSelectionStartIndex(void) const;
+    unsigned long	getSelectionEndIndex(void) const;
+    unsigned long	getSelectionLength(void) const;
+    unsigned long	getMaxTextLength(void) const;
+    unsigned long	getItemCount(void) const;
+
+    ListboxItem*	getSelectedItem(void) const;
+    ListboxItem*	getListboxItemFromIndex(size_t index) const;
+
+    unsigned long	getItemIndex(const ListboxItem* item) const;
+    bool	isSortEnabled(void) const;
+    bool	isItemSelected(size_t index) const;
+    ListboxItem*	findItemWithText(const string& text, const ListboxItem* start_item);
+    bool	isListboxItemInList(const ListboxItem* item) const;
+    bool	isVertScrollbarAlwaysShown(void) const;
+    bool	isHorzScrollbarAlwaysShown(void) const;
+    virtual void	initialiseComponents(bool bClone);
+    void	showDropList(void);
+    void	hideDropList(void);
+    void	setSingleClickEnabled(bool setting);
+    void	setReadOnly(bool setting);
+	void 	setValidationString(string validation_string);
+    void	setCaratIndex(size_t carat_pos);
+    void	setSelection(size_t start_pos, size_t end_pos);
+    unsigned long getEditSelectionStart() const;
+	void	setEditSelectionStart(size_t selStart);
+	unsigned long getEditSelectionLength() const;
+	void	setEditSelectionLength(size_t selLen);
+	void	setMaxTextLength(size_t max_len);
+	void	activateEditbox(void);
+	void	resetList(void);
+	void	addItem(ListboxItem* item);
+	void	insertItem(ListboxItem* item, const ListboxItem* position);
+	void	removeItem(const ListboxItem* item);
+	void	clearAllSelections(void);
+	void	setSortingEnabled(bool setting);
+	void	setShowVertScrollbar(bool setting);
+	void	setShowHorzScrollbar(bool setting);
+	void	setItemSelectState(ListboxItem* item, bool state);
+	void setItemSelectState(unsigned long item_index, bool state);
+	void	handleUpdatedListItemData(void);
+
+};

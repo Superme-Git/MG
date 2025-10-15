@@ -1,0 +1,54 @@
+<project name="mylogic" default="install">
+
+<property name="src" value="src/mylogic/"/>
+<property name="build" value="classes/mylogic"/>
+<property name="bin" value="lib"/>
+<property name="output" value="xdbmerge"/>
+	
+<target name="init" depends="clean">
+	<mkdir dir="${build}" />
+</target>
+
+<target name="compile" depends="init">
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/monkeyking.jar"/>
+		<pathelement path="${output}/xmerge.jar"/>
+		<pathelement path="${bin}/gs.jar"/>
+	</path>
+
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+	
+<!--	<javac encoding="GBK" srcdir="test/xbean" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+	
+	<javac encoding="GBK" srcdir="test/xtable" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>-->
+</target>
+
+<!--<target name="xgen">
+	<java jar="${bin}/monkeyking.jar" fork="true">
+		<arg value="${test}/test.xml"/>
+	</java>
+</target>-->
+	
+<target name="clean">
+	<delete dir="${build}" />
+</target>
+
+<target name="dist" depends="compile">
+	<jar jarfile="mylogic.jar" basedir="${build}"/>
+</target>
+
+<target name="install" depends="dist">
+	<copy file="mylogic.jar" todir="${output}"/>
+</target>
+	
+</project>

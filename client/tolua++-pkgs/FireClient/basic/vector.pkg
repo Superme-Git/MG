@@ -1,0 +1,15 @@
+
+namespace std
+{
+class vector
+{
+    TOLUA_TEMPLATE_BIND(T, CEGUI::Window*, char, int, int64_t, std::wstring, fire::pb::RoleInfo, fire::pb::circletask::ActiveQuestData, fire::pb::circletask::RewardItemUnit,FireNet::Octets, Nuclear::NuclearPoint, Nuclear::NuclearRect, Nuclear::NuclearTriangle, long, short, bool, double, fire::pb::Item, stServerINFO, stJinglingINFO, stQuestTitleID, stChatRecordUnit, stRecruitList, stRecruitOneRoleData)
+
+    void clear();
+    int size();
+    const T& operator[](int index) const;
+    void push_back(T val);
+    vector();
+    ~vector();
+};
+}

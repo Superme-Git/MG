@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="clan">
+		<bean name="SClanyaofang" from="g公会系统/y药品购买配置" genxml="server">
+			<variable name="id" fromCol="id" type="int" /> 
+			<variable name="mingzi" fromCol="名称" type="string" /> 
+			<variable name="money" type="int" fromCol="银币" />
+			<variable name="banggong" type="int" fromCol="公会贡献"/>
+			<variable name="randomgroup" type="int" fromCol="随机类型"/>
+		</bean>
+		
+		<bean name="CFactionyaofang" from="g公会系统/y药品购买配置" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" /> 
+			<variable name="name" fromCol="名称" type="string" /> 
+			<variable name="money" type="int" fromCol="银币" />
+			<variable name="banggong" type="int" fromCol="公会贡献"/>
+			<variable name="Factionrandom" type="int" fromCol="随机类型"/>
+		</bean>
+		
+	
+		<bean name= "SClanLobby" from="g公会系统/g公会大厅数据表" genxml="server">
+			<variable name="id" fromCol="公会等级" type="int" />
+			<variable name="levelupcost" fromCol="升级消耗银币" type="int" />
+			<variable name="costeveryday" fromCol="每日维护费用" type="int" />
+			<variable name="downcompensate" fromCol="降级补偿" type="int" />
+			<variable name="othersum" fromCol="升级所需其他建筑等级总和" type="int" />
+		</bean>
+		
+		<bean name= "CFactionLobby" from="g公会系统/g公会大厅数据表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="公会等级" type="int" />
+			<variable name="levelupcost" fromCol="升级消耗银币" type="int" />
+			<variable name="costeveryday" fromCol="每日维护费用" type="int" />
+			<variable name="downcompensate" fromCol="降级补偿" type="int" />
+			<variable name="othersum" fromCol="升级所需其他建筑等级总和" type="int" />
+		</bean>
+		
+		<bean name= "SClanGoldBank" from="g公会系统/g公会金库数据表" genxml="server">
+			<variable name="id" fromCol="公会金库等级" type="int" />
+			<variable name="levelupcost" fromCol="升级费用" type="int" />
+			<variable name="bonus" fromCol="公会工资常数" type="int" />
+			<variable name="allbonus" fromCol="公会工资系数" type="int" />
+			<variable name="limitmoney" fromCol="公会资金上限" type="int" />
+			<variable name="costeveryday" fromCol="公会金库维护费用/天" type="int" />
+			
+		</bean>
+		
+		<bean name= "CFactionGoldBank" from="g公会系统/g公会金库数据表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="公会金库等级" type="int" />
+			<variable name="levelupcost" fromCol="升级费用" type="int" />
+			<variable name="bonus" fromCol="公会工资常数" type="int" />
+			<variable name="allbonus" fromCol="公会工资系数" type="int" />
+			<variable name="limitmoney" fromCol="公会资金上限" type="int" />
+			<variable name="costeveryday" fromCol="公会金库维护费用/天" type="int" />
+		</bean>
+		
+		<bean name= "SClanHotel" from="g公会系统/g公会旅馆数据表" genxml="server">
+			<variable name="id" fromCol="公会旅馆等级" type="int" />
+			<variable name="levelupcost" fromCol="公会旅馆升级费用" type="int" />
+			<variable name="peoplemax" fromCol="公会人数上限" type="int" />
+			<variable name="apprenticemax" fromCol="公会学徒数量上限" type="int" />
+			<variable name="costeveryday" fromCol="公会旅馆维护费用/天" type="int" />
+		</bean>
+		
+		<bean name= "CFactionHotel" from="g公会系统/g公会旅馆数据表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="公会旅馆等级" type="int" />
+			<variable name="levelupcost" fromCol="公会旅馆升级费用" type="int" />
+			<variable name="peoplemax" fromCol="公会人数上限" type="int" />
+			<variable name="apprenticemax" fromCol="公会学徒数量上限" type="int" />
+			<variable name="costeveryday" fromCol="公会旅馆维护费用/天" type="int" />
+		</bean>
+		
+		<bean name= "SClanDrugstore" from="g公会系统/g公会药房数据表" genxml="server">
+			<variable name="id" fromCol="公会药房等级" type="int" />
+			<variable name="levelupcost" fromCol="药房升级费用" type="int" />
+			<variable name="dragnummax" fromCol="各类药材生成数量上限" type="int" />
+			<variable name="doublemoney" fromCol="双倍产药公会资金消耗" type="int" />
+			<variable name="trimoney" fromCol="三倍产药公会资金消耗" type="int" />
+			<variable name="costeveryday" fromCol="公会药房维护费用/天" type="int" />
+		</bean>
+		
+		<bean name= "CFactionDrugstore" from="g公会系统/g公会药房数据表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="公会药房等级" type="int" />
+			<variable name="levelupcost" fromCol="药房升级费用" type="int" />
+			<variable name="dragnummax" fromCol="各类药材生成数量上限" type="int" />
+			<variable name="doublemoney" fromCol="双倍产药公会资金消耗" type="int" />
+			<variable name="trimoney" fromCol="三倍产药公会资金消耗" type="int" />
+			<variable name="costeveryday" fromCol="公会药房维护费用/天" type="int" />
+		</bean>		
+		
+		<bean name= "SClanPosition" from="g公会系统/g公会职务以及权限表" genxml="server">
+			<variable name="id" fromCol="ID" type="int" />职务编号
+			<variable name="posname" fromCol="公会职务名称" type="string" />职务名称
+			<variable name="posmaxnum" fromCol="职务名额上限" type="int" />职务名额上限
+		</bean>
+		
+		<bean name= "CFactionPosition" from="g公会系统/g公会职务以及权限表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="ID" type="int" />职务编号
+			<variable name="posname" fromCol="公会职务名称" type="string" />职务名称
+			<variable name="poslevel" fromCol="职务等级" type="int" />
+			<variable name="changefactionname" fromCol="修改公会名称（会长）" type="int"/>
+			<variable name="isrecvxuetu" fromCol="设置公会是否可自动接收学徒（会长）" type="int"/>
+			<variable name="changeidea" fromCol="修改公会宗旨（会长、副会长）" type="int"/>
+			<variable name="selectchanyao" fromCol="公会药房选择产药方式（会长、副会长）" type="int"/>
+			<variable name="clearapplylist" fromCol="清空申请列表（会长、副会长）" type="int"/>
+			<variable name="renming" fromCol="任命（会长、副会长、军团长）" type="int"/>
+			<variable name="jinyan" fromCol="禁言（会长、副会长、军团长）" type="int"/>
+			<variable name="tichu" fromCol="踢出（会长、副会长、军团长）" type="int"/>
+			<variable name="qunfa" fromCol="公会群发消息（会长、副会长、军团长）" type="int"/>
+			<variable name="fenhong" fromCol="领取公会分红（公会所有人员，学徒除外）" type="int"/>
+			<variable name="cansai" fromCol="参与公会竞赛（公会所有人员，学徒除外）" type="int"/>
+			<variable name="yaoqing" fromCol="邀请成员（公会所有人员）" type="int"/>
+			<variable name="gonghuipindao" fromCol="使用公会频道（公会所有人员）" type="int"/>
+			<variable name="wanchenggonghuirenwu" fromCol="完成公会任务（公会所有人员）" type="int"/>
+			<variable name="canyuhuodong" fromCol="参与公会活动（公会所有人员）" type="int"/>
+			<variable name="fuli" fromCol="享受公会福利（公会所有人员）" type="int"/>
+		</bean>
+		
+		<bean name= "CFactionFuli" from="g公会系统/g公会福利表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="ID" type="int" />编号
+			<variable name="name" fromCol="公会福利名称" type="string" />名字
+			<variable name="icon" fromCol="ICON" type="string" />icon
+			<variable name="desc" fromCol="活动说明" type="string" />描述
+			<variable name="isgive" fromCol="是否可领取" type="int" />按钮显示模式
+		</bean>
+		
+		<bean name= "SRuneSet" from="g公会系统/g公会符文配置" genxml="server">
+			<variable name="id" fromCol="id" type="int" />编号
+			<variable name="name" fromCol="名称" type="string" />名称
+			<variable name="desc" fromCol="描述" type="string" />描述
+		</bean>
+		<bean name= "CRuneSet" from="g公会系统/g公会符文配置" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />编号
+			<variable name="name" fromCol="名称" type="string" />名称
+			<variable name="desc" fromCol="描述" type="string" />描述
+		</bean>
+		<bean name= "CFactionHuoDong" from="g公会系统/g公会活动表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="ID" type="int" />编号
+			<variable name="name" fromCol="公会活动名称" type="string" />名称
+			<variable name="icon" fromCol="ICON" type="string" />icon
+			<variable name="leveldesc" fromCol="等级限制" type="string" />等级描述
+			<variable name="opentimedesc" fromCol="开放时间" type="string" />开放等级描述
+			<variable name="huodongdesc" fromCol="活动说明" type="string" />活动说明
+			<variable name="isclicked" fromCol="是否可点击" type="int" />是否可点击
+		</bean>
+		
+		<bean name= "SClanFight" from="g公会系统/g公会战" genxml="server">
+			<variable name="id" fromCol="id" type="int" />编号
+			<variable name="name" fromCol="名称" type="string" />名称
+			<variable name="mapid" fromCol="副本地图ID" type="int" />副本地图ID
+			<variable name="x1" fromCol="初始X1坐标" type="int" />初始地图ID
+			<variable name="y1" fromCol="初始Y1坐标" type="int" />初始地图ID
+			<variable name="x2" fromCol="初始X2坐标" type="int" />初始地图ID
+			<variable name="y2" fromCol="初始Y2坐标" type="int" />初始地图ID
+			
+			<variable name="outmapid" fromCol="跳出地图ID" type="int" />跳出地图ID
+			<variable name="outx1" fromCol="跳出X坐标" type="int" />初始地图ID
+			<variable name="outy1" fromCol="跳出Y坐标" type="int" />初始地图ID
+		</bean>
+		
+		<bean name= "CClanFight" from="g公会系统/g公会战" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" />编号
+			<variable name="name" fromCol="名称" type="string" />名称
+			<variable name="mapid" fromCol="副本地图ID" type="int" />副本地图ID
+			<variable name="x1" fromCol="初始X1坐标" type="int" />初始地图ID
+			<variable name="y1" fromCol="初始Y1坐标" type="int" />初始地图ID
+			<variable name="x2" fromCol="初始X2坐标" type="int" />初始地图ID
+			<variable name="y2" fromCol="初始Y2坐标" type="int" />初始地图ID
+			
+			<variable name="outmapid" fromCol="跳出地图ID" type="int" />跳出地图ID
+			<variable name="outx1" fromCol="跳出X坐标" type="int" />初始地图ID
+			<variable name="outy1" fromCol="跳出Y坐标" type="int" />初始地图ID
+		</bean>
+
+	</namespace>
+	
+	    

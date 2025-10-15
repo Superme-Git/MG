@@ -1,0 +1,82 @@
+namespace Nuclear
+{
+	class ConfigManager
+	{
+	public:
+		ConfigManager(EngineBase *pEB);
+		~ConfigManager();
+		void Init();
+		void Update();
+		void OnTimer(int iPeriod);
+		NuclearPoolType GetCreateTexturePoolType() const;
+		int GetSpriteMoveSmoothLimit() const;
+		void SetSpriteMoveSmoothLimit(int iLimit);
+		float GetLogicToWorldScaleX() const;
+		void SetLogicToWorldScaleX(float fScale);
+		bool IsRenderNightEffectByShader() const;
+		void SetRenderNightEffectByShader(bool b);
+		bool IsRenderNightEffectWithRenderTarget() const;
+		void SetRenderNightEffectWithRenderTarget(bool b);
+		bool IsEnableMaskPic() const;
+		void SetEnableMaskPic(bool b);
+		bool IsRenderSpriteShadow() const;
+		void SetRenderSpriteShadow(bool b);
+		bool IsBlurForTeleport() const;	
+		void SetBlurForTeleport(bool b);
+		NuclearComputerConfigType GetSystemLevel();
+		void SetSystemLevel(NuclearComputerConfigType l);
+		bool IsSmoothMove() const;
+		void SetSmoothMove(bool b);
+		short GetMinDelta() const;
+		void SetMinDelta(short d);
+		short GetMaxDiffDelta() const;
+		void SetMaxDiffDelta(short d);
+		short GetMaxDiffFromAvg() const;
+		void SetMaxDiffFromAvg(short d);
+		int GetUnloadMapBGSoundFadeOutTime();
+		void SetUnloadMapBGSoundFadeOutTime(int t);
+		unsigned char GetBGMType();
+		void SetBGMType(unsigned char t);
+		unsigned char GetEnvSoundType();
+		void SetEnvSoundType(unsigned char t);
+		unsigned char GetStepSoundType();
+		void SetStepSoundType(unsigned char t);
+		short GetStepSoundPriority();
+		void SetStepSoundPriority(short p);
+		void SetConsoleInfo(NuclearConsoleInfo eInfo, bool bOn);
+		bool TestConsoleInfo(NuclearConsoleInfo eInfo) const;
+		void SetFrameStateInfo(NuclearFrameStatType type, bool bOn);
+		bool TestFrameStateInfo(NuclearFrameStatType type) const;
+		void SetFrameStateColor(NuclearFrameStatType type, NuclearColor color);
+		NuclearColor GetFrameStateColor(NuclearFrameStatType type) const;
+		bool IsDynamicMapLoading() const;
+		void SetDynamicMapLoading(bool b);
+		bool IsControlFPS() const;
+		void SetControlFPS(bool b);
+		void SetControlFPS(NuclearWindowState type, int fps);
+		int GetControlFPS(NuclearWindowState type) const;
+		bool IsSortMapObjects() const;
+		void SetSortMapObjects(bool b);
+		bool IsUseSurfaceCache() const;
+		void SetUseSurfaceCache(bool b);
+		bool IsSyncBeforeWater() const;
+		void SetSyncBeforeWater(bool b);
+		void SetEnableLinkedObjs(bool b);
+		bool IsEnableLinkedObjs() const;
+		bool IsShowSpritePath() const;
+		void SetShowSpritePath(bool b);
+		bool IsShowSpriteTrail() const;
+		void SetShowSpriteTrail(bool b);
+		bool IsShowMazeGrid() const;
+		void SetShowMazeGrid(bool b);
+		unsigned int GetMazeMask() const;
+		void SetMazeMask(unsigned int mask);
+		NuclearSpriteTranslucentType GetSpriteTranslucentType() ;
+		void SetSpriteTranslucentType(NuclearSpriteTranslucentType t);
+		float GetMaskAlpha() ;
+		void SetMaskAlpha(float f);
+		bool IsRenderSolidMask() ;
+		void SetRenderSolidMask(bool b);
+	};
+
+}

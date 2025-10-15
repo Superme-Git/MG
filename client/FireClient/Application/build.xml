@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="genprotocols" default="gen">
+	<target name="gen" depends="gencppforproto,genpkgforproto,genluaforproto"></target>
+	<property name="ProtocolCodeDir" value="ProtoDef"/>
+	<target name="init">
+				<mkdir dir="${ProtocolCodeDir}"></mkdir>
+			<echo message="clean protocols done =========================================="></echo>
+			<delete includeEmptyDirs="true">
+  		<fileset dir="${ProtocolCodeDir}" includes="**/*" defaultexcludes="no"></fileset>
+  		</delete>
+		</target>
+	<target name="gencppforproto" depends="init">
+		<echo message="gen protocols:"></echo>
+		<java jar="rpcgen.jar" fork="true">
+     		<arg line="-modules modules.xml -debug -validateMarshal -validateUnmarshal -aio client.xml"/>
+    	</java>
+		<echo message="gen client protocol code success!"></echo>
+	</target>
+	<target name="convertCode">
+		<java fork="true" classname="main.MacFile">
+
+      <classpath>
+		<fileset dir=".">
+			<include name="convert.jar"/>
+		</fileset>   
+      </classpath>
+    </java>
+		</target>
+		
+		<target name="genpkgforproto">
+			<mkdir dir="ProtoPkg"></mkdir>
+			<delete includeEmptyDirs="true">
+  		<fileset dir="ProtoPkg" includes="**/*" defaultexcludes="no"></fileset>
+  		</delete>
+			<echo message="clean protocols pkgs done =========================================="></echo>
+			
+			<echo message="gen protocol pkg:"></echo>
+			<java jar="rpcgen.jar" fork="true">
+				<arg line="-debug -validateMarshal -validateUnmarshal -luapkg -aio pkg_client.xml"></arg>
+				</java>
+			<echo message="gen client protocol pkg code success!"></echo>
+			</target>
+			
+		<target name="genluaforproto">
+			<mkdir dir="protolua"></mkdir>
+			<delete includeEmptyDirs="true">
+  		<fileset dir="protolua" includes="**/*" defaultexcludes="no"></fileset>
+  		</delete>
+  		<echo message="clean protocols lua done =========================================="></echo>
+  		
+  		<echo message="gen protocol lua:"></echo>
+  		<java jar="rpcgen.jar" fork="true">
+  			<arg line="-debug -validateMarshal -validateUnmarshal -lua -aio lua_client.xml"></arg>
+  			</java>
+  			<echo message="gen client protocol lua code success!"></echo>
+			</target>
+</project>

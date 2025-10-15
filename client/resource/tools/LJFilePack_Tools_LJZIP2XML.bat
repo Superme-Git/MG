@@ -1,0 +1,1 @@
+%~dp0LJFilePack.exe ljzip2xml:%1

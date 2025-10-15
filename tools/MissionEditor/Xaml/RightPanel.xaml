@@ -1,0 +1,87 @@
+﻿<StackPanel x:Class="Knight.MissionEditor.Xaml.RightPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            
+            xmlns:src="clr-namespace:Knight.MissionEditor"
+    Height="800" Width="309" Margin="5">
+    <Grid Height="480" Width="308">
+        <Label Height="28" Name="label1" VerticalAlignment="Top" Margin="0,0,145,0" VerticalContentAlignment="Center" Background="AliceBlue" FontSize="12" FontFamily="宋体">3.任务触发方式设定</Label>
+        <Label Height="28" Margin="0,34,0,0" Name="label2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="115" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="13" FontFamily="宋体">触发类型</Label>
+        <Label FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,64,0,0" Name="label3" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="115" FontFamily="宋体">NpcID</Label>
+        <Label FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,96,0,0" Name="label4" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="115" FontFamily="宋体">场景</Label>
+        <Label FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,132,0,0" Name="label5" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="115" FontFamily="宋体">场景区域</Label>
+        <ComboBox Height="23" 
+                  HorizontalAlignment="Right" 
+                  Margin="0,34,8,0" 
+                  VerticalAlignment="Top" 
+                  Width="141" 
+                  IsReadOnly="True"
+                  SelectionChanged ="OnMissionTypeChanged"
+                  Name="MissionTypeComboBox"
+             >
+            <ComboBoxItem>10:点击NPC</ComboBoxItem>
+            <ComboBoxItem>11：给予金钱</ComboBoxItem>
+            <ComboBoxItem>12：给予物品</ComboBoxItem>
+            <ComboBoxItem>13：给与宠物</ComboBoxItem>
+            <ComboBoxItem>17：答题</ComboBoxItem>
+            <ComboBoxItem>22：使用物品</ComboBoxItem>
+            <ComboBoxItem>32：练功区掉落物品</ComboBoxItem>
+            <ComboBoxItem>34：练功区战斗计场次</ComboBoxItem>
+            <ComboBoxItem>35：练功区战斗计数量</ComboBoxItem>
+            <ComboBoxItem>50：无条件</ComboBoxItem>
+            <ComboBoxItem>54：步数触发</ComboBoxItem>
+            <ComboBoxItem>56：区域触发\护送</ComboBoxItem>
+            <ComboBoxItem>40：NPC战斗</ComboBoxItem>
+            <ComboBoxItem>58：等级限制任务</ComboBoxItem>
+            <ComboBoxItem>59：特殊类型</ComboBoxItem>
+        </ComboBox>
+        <src:IntNumEditBox Height="23" HorizontalAlignment="Right" Margin="0,69,77,0" VerticalAlignment="Top" Width="72" x:Name="NpcIDEditBox" TextAlignment="Right" TextChanged="NpcTextBoxChanged"/>
+        <Label Height="28" Margin="128,132,145,0" Name="label7" VerticalAlignment="Top" FontFamily="宋体" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">左上</Label>
+        <Label FontFamily="宋体" Height="28" HorizontalContentAlignment="Center" Margin="128,164,145,0" Name="label6" VerticalAlignment="Top" VerticalContentAlignment="Center">右下</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" Margin="0,132,77,0" x:Name="LeftPosEditBox" VerticalAlignment="Top" Width="50" TextAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" Margin="0,132,8,0" x:Name="TopPosEditBox" VerticalAlignment="Top" Width="50" TextAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Left" Margin="181,164,0,0" x:Name="RightPosEditBox" VerticalAlignment="Top" Width="50" TextAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" Margin="0,0,8,288" x:Name="BottomPosEditBox" VerticalAlignment="Bottom" Width="50" TextAlignment="Center" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,206,0,0" Name="label8" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="92">回收物品数量</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="89,206.305,0,0" x:Name="TargetNumEditBox" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="48" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,205.695,88,0" Name="label9" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="61">回收物品ID</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,205.695,8,0" x:Name="TargetIDEditBox" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="75" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,0,0,204" Name="label10" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="92">最少结束步骤</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="89,0,0,203.695" x:Name="MiniStepEditBox" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="48" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalContentAlignment="Center" Margin="0,0,77,204" Name="label11" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="92">单步结束概率</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,0,8,203.695" x:Name="StepProbabilityEditBox" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="75" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,0,0,166" Name="label12" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="92">最大结束步骤</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="89,0,0,166" x:Name="MaxStepEditBox" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="48" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalContentAlignment="Center" Margin="139,0,0,166" Name="label13" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="92">可否组队完成</Label>
+        <ComboBox Height="23" HorizontalAlignment="Right" Margin="0,0,13,166" Name="TeamStateComboBox" VerticalAlignment="Bottom" Width="70" HorizontalContentAlignment="Center" SelectionChanged="UpdataTeamState">
+            <ComboBoxItem>Yes</ComboBoxItem>
+            <ComboBoxItem>No</ComboBoxItem>
+            <ComboBoxItem>Both</ComboBoxItem>
+        </ComboBox>
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,326,0,0" Name="label14" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="102">限制时间(分钟）</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="115,0,126,126" x:Name="TimeLimitEditBox" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0,0,0,91" Name="label15" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="102">是否从新计时</Label>
+        <ComboBox Height="23" HorizontalContentAlignment="Center" Margin="115,0,112,91" Name="IsRestartTimerComboBox" VerticalAlignment="Bottom" SelectionChanged="UpdataRestartTimer">
+            <ComboBoxItem>Yes</ComboBoxItem>
+            <ComboBoxItem>No</ComboBoxItem>
+        </ComboBox>
+        <src:IntNumEditBox Height="23" HorizontalAlignment="Right" Margin="0,100.667,9.5,0" TextAlignment="Right" VerticalAlignment="Top" Width="141" x:Name="MapIDEditBox"/>
+        <Label FontFamily="宋体" FontSize="13" Height="23.333" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,69,9.5,0" Name="NpcNameLable" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="64.5">Label</Label>
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0.5,0,0,56" Name="label16" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="91.5">回收金钱数量</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="0,0,144,56"  TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="75" x:Name="GiveBackMoneyEditBox" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,0,73,56.305" Name="label17" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="76">回收宠物ID</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="0,0,-1,56.305"  TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" x:Name="GiveBackPetIDEditBox" HorizontalAlignment="Right" Width="75" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="0.5,0,0,22" Name="label18" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="93">使用物品ID</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="89,0,144,22" x:Name="UseItemIDEditBox" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" />
+        <Label FontFamily="宋体" FontSize="13" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="169,0,0,22" Name="label19" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="62">其他方式</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,0,8,22" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="61" x:Name="OtherTypeEditBox"/>
+    </Grid>
+    <Grid Height="319" Name="grid1" Width="307">
+        <Button Height="24" HorizontalAlignment="Left" Margin="16.5,10,0,0" Name="button1" VerticalAlignment="Top" Width="135" Click="MissionRewordClick">任务奖励</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,11,12.5,0" Name="button2" VerticalAlignment="Top" Width="137.5" Click="ScenarioClick">剧情编辑</Button>
+        <Button Height="23" HorizontalAlignment="Left" Margin="16.5,49,0,0" Name="button3" VerticalAlignment="Top" Width="135" Click="TaskClick">任务栏编辑</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,49,12.5,0" Name="button4" VerticalAlignment="Top" Width="137.5" Click="QuestionClick">答题编辑</Button>
+        <Button Height="23" HorizontalAlignment="Left" Margin="16.5,86,0,0" Name="button5" VerticalAlignment="Top" Width="135" Click="BattleClick">练功区战斗编辑</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,86,12.5,0" Name="button6" VerticalAlignment="Top" Width="137.5" Click="AIClick">Npc战斗AI编辑</Button>
+    </Grid>
+</StackPanel>

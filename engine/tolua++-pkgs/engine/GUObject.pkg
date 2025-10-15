@@ -1,0 +1,10 @@
+namespace Nuclear
+{
+class GUObject
+{
+public:
+	GUObject(); 
+	unsigned int GetGUID(); 
+	virtual ~GUObject() ;
+};
+}

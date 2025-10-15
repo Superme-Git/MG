@@ -1,0 +1,34 @@
+namespace GameTable
+{
+    namespace npc
+    {
+        class CMonsterConfig
+        {
+            public:
+            int id;
+            std::wstring name;
+            std::wstring title;
+            int modelID;
+            int becatch;
+            int showhpbar;
+            int showhpbarbig;
+            int showlevel;
+            int npctype;
+            double bodytype;
+            int area1colour;
+            int area2colour;
+            int petid;
+            int school;
+        };
+        class CMonsterConfigTable
+        {
+            public:
+        CMonsterConfig& getRecorder(int id);
+        const CMonsterConfig& getRecorderByName(const std::wstring& name);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CMonsterConfigTable&  GetCMonsterConfigTableInstance();
+    }
+}

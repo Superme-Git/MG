@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 31501-31999 开始　-->
+<namespace name="triggers">
+	<!--客户端请求npc触发-->
+	<protocol name="CNpcToTrigger" type="31500" maxsize="65535" prior="1" tolua="3">
+		<variable name="triggerid" type="int" validator="value=(0,)" />		
+		<variable name="npckey" type="long" validator="value=(0,)" />
+	</protocol>	
+</namespace>

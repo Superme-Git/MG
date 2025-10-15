@@ -1,0 +1,33 @@
+1 空间php程序部署由平台负责，gs只需根据平台提供ip 数据库配置gs
+2 gs 配置
+  2.1 启动脚本 增加 -usemysql 1 
+  2.2 properties/sys.properties 文件修改如下
+
+#Mysql相关配置(目前个人空间使用)
+sys.mysql.ip=192.168.32.2  #空间的数据库连接ip 端口 用户名 密码  由平台提供
+sys.mysql.port=3306
+sys.mysql.user=root
+sys.mysql.pass=123456
+sys.mysql.dbname=mt3_weibo_1101000001  #数据库名为空时，默认使用mt3_ + weibo +
+_serverid数据库 #mt3_weibo_1101961002 如果平台独立配置
+则需要改成平台配置的名字
+
+#个人空间服务器（php）地址
+#http://192.168.32.2:8803/
+sys.weibo.address=192.168.32.2:8803  #由平台提供
+
+
+3 内网增加空间配置流程 
+  确认服务器的serverid 和客户端的serverid 一致
+  登录 192.168.32.2 
+  mysqldump -uroot -p123456 mt3_weibo_test1 > weibo.sql
+  进入数据库
+  create database mt3_weibo_"serverid"
+  use mt3_weibo_"serverid"
+  source ./weibo.sql
+  添加完数据库 登录空间后台  http://192.168.32.2:8804/login/index  服务器列表
+添加服务器 区服标识为 serverid  数据库连接 端口 用户名 密码 分别为
+192.168.32.2 3306 root 123456 数据库 为 mt3_weibo_"serverid"
+  做完以上操作 服务器启动的sh 增加 -usemysql 1 
+
+

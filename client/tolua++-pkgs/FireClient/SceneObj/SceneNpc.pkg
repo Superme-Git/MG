@@ -1,0 +1,72 @@
+
+inline bool gNpcInScreen(const Nuclear::NuclearLocation& pt1,const Nuclear::NuclearLocation& pt2);
+
+class SceneNpc : public SceneObject
+{
+public:
+	SceneNpc();
+	virtual ~SceneNpc();
+
+	int	m_SceneNpcID;
+	GameTable::npc::CSceneNPCConfig	m_SceneNpcConfig;
+	GameTable::npc::CSceneNPCBase	m_SceneNpcBase;
+
+	Nuclear::NuclearLocation	m_ptInitLocation;
+
+public:
+	void IntervalTalkRun(int delta);	//这个函数在run里触发
+
+	void NearbyTalkRun();				//这个函数每隔3s触发一次
+
+	void CharacterGatherTalkRun();		//这个函数也每隔3s触发一次
+
+	bool SetAttribute(int npcid);
+	void SetArea1Color(int colorID);
+
+	virtual int64_t GetID();
+	virtual std::wstring GetName();
+
+	virtual int GetShapeID();
+
+	virtual void Run(int now,int delta);
+	virtual void Draw(int now);
+
+	void	RunRandom();
+	void	UpdateAction(Nuclear::XPUSA_TYPE type);
+
+	virtual bool OnSetCursor();
+	virtual bool CanBeVisited();
+
+	void RandomWalk();//场景npc的一些行为
+
+	int GetNpcTypeID();
+	int GetNpcBaseID();
+};
+
+//景物npc管理器
+class SceneNpcManager : public CSingleton<SceneNpcManager>
+{
+public:
+	SceneNpcManager();
+	~SceneNpcManager();
+
+	void UpdateSceneNpc(const Nuclear::NuclearLocation& maincharLoc);//当角色坐标改变时，刷新所谓屏幕内的SceneNpc
+
+	void AddSceneNpc(int npcid);
+	void RemoveSceneNpc(int npcid);
+
+	void ClearSceneNpc();		//跳转地图时删除景物npc
+
+	void InitSceneNpc(int mapid);
+
+	void HideOrShowSceneNpc(bool bVis); //进入或退出剧情动画时要隐藏或显示景物npc
+
+	void Run(int now,int delta);
+	void Draw(int now);
+
+	SceneObject* FindSceneObjectBySprite(Nuclear::ISprite * sprite);
+	SceneNpc* FindSceneNpcByID(int64_t npcid);
+
+};
+
+inline SceneNpcManager* GetSceneNpcManager();

@@ -1,0 +1,21 @@
+namespace GameTable
+{
+    namespace move
+    {
+        class CAutoMovePath
+        {
+            public:
+            int id;
+            std::wstring paths;
+        };
+        class CAutoMovePathTable
+        {
+            public:
+        CAutoMovePath& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CAutoMovePathTable&  GetCAutoMovePathTableInstance();
+    }
+}

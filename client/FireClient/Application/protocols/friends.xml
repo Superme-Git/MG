@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议从200001开始 -->
+<namespace name="friends">
+	<bean name="InfoBean"> 基础信息封装
+		<variable name="roleId" type="long" validator="value=[0,)" />
+		<variable name="name" type="string" />
+		<variable name="roleLevel" type="short" />
+		<variable name="school" type="byte" />
+		<variable name="online" type="byte" /> 0=不在线 1=在线
+		<variable name="shape" type="int" /> 头像
+		<variable name="camp" type="byte" /> 0中立 1部落 2联盟
+		<variable name="relation" type="short" /> 好友关系 位与0=普通好友 1=结婚2=结交4=师徒
+		<variable name="factionid" type="long" /> 公会id
+		<variable name="factionname" type="string" /> 公会名称
+	</bean>
+
+	<bean name="FriendInfo">
+		<variable name="FriendInfoBean" type="InfoBean" />
+		<variable name="friendLevel" type="int" validator="value=[0,)" /> 好友度
+	</bean>
+
+	<protocol name="SFriendsInfoInit" type="20001" maxsize="65535" prior="101" tolua="3"> 好友信息初始化加载
+		<variable name="friends" type="vector" value="FriendInfo" />
+		<variable name="friendNumLimit" type="short" /> 好友人数限制
+		<variable name="refuseStrangerMsg" type="byte" /> 0=接收陌生人消息 1=拒绝陌生人信息
+	</protocol>
+
+	<protocol name="SFriendsOnline" type="20002" maxsize="65535" prior="101" tolua="3"> 好友上下线
+		<variable name="roleid" type="long" />
+		<variable name="online" type="byte" /> 1在线 0离线
+	</protocol>
+
+	<protocol name="CSendMessageToRole" type="20003" maxsize="65535" prior="101" tolua="3"> 聊天C-->S
+		<variable name="roleid" type="long" validator="value=[0,)" />
+		<variable name="content" type="string" />
+		<variable name="checkShiedMsg" type="string" /> 检测屏蔽字的纯文本
+		<variable name="displayinfo" type="vector" value="fire.pb.talk.DisplayInfo" /> 展示的物品，宠物，技能或者修炼的信息
+	</protocol>
+
+	<protocol name="SFriendMessageToRole" type="20004" maxsize="65535" prior="101" tolua="3"> 好友聊天聊天S-->C
+		<variable name="roleid" type="long" validator="value=[0,)" />
+		<variable name="content" type="string" />
+		<variable name="roleLevel" type="short" />
+		<variable name="details" type="vector" value="octets" /> 展示品信息
+		<variable name="displayinfo" type="vector" value="fire.pb.talk.DisplayInfo" /> 展示的物品key与type
+	</protocol>
+
+	<bean name="StrangerMessageBean">
+		<variable name="FriendInfoBean" type="InfoBean" />
+		<variable name="content" type="string" />
+		<variable name="details" type="vector" value="octets" /> 展示品信息
+		<variable name="displayinfo" type="vector" value="fire.pb.talk.DisplayInfo" /> 展示的物品key与type
+	</bean>
+
+	<protocol name="SStrangerMessageToRole" type="20011" maxsize="65535" prior="101" tolua="3"> 陌生人聊天S-->C
+		<variable name="strangerMessage" type="StrangerMessageBean" />
+	</protocol>
+
+	<bean name="offLineMsgBean">
+		<variable name="strangerMessage" type="StrangerMessageBean" />
+		<variable name="time" type="string" /> 离线消息的服务器时间
+	</bean>
+
+	<protocol name="SOffLineMsgMessageToRole" type="20105" maxsize="65535" prior="101" tolua="3"> 角色上线客户端收到 离线消息
+		<variable name="offLineMsgList" type="list" value="offLineMsgBean" />
+	</protocol>
+
+	<protocol name="CBreakOffRelation" type="20005" maxsize="65535" prior="101" tolua="3"> 删除好友
+		<variable name="roleid" type="long" validator="value=[0,)" />
+	</protocol>
+
+	<protocol name="SBreakOffRelation" type="20006" maxsize="65535" prior="101" tolua="3"> 删除好友成功
+		<variable name="roleid" type="long" validator="value=[0,)" />
+	</protocol>
+
+	<protocol name="CRequestAddFriend" type="20007" maxsize="65535" prior="101" tolua="3"> 加好友C-->S
+		<variable name="roleId" type="long" validator="value=[0,)" />
+	</protocol>
+
+	<protocol name="SAddFriend" type="20008" maxsize="65535" prior="101" tolua="3"> 添加好友成功S-->C
+		<variable name="FriendInfoBean" type="InfoBean" />
+	</protocol>
+
+	<protocol name="CChangeBaseConfig" type="20009" maxsize="65535" prior="101" tolua="3"> 改变基本设置C-->S
+		<variable name="refuseStrangerMsg" type="byte" /> 0=个拒绝陌生人消息 1=接收
+	</protocol>
+
+	<protocol name="SChangeBaseConfig" type="20010" maxsize="65535" prior="101" tolua="3"> 改变基本设置S-->C
+		<variable name="refuseStrangerMsg" type="int" /> 1个拒绝陌生人消息
+	</protocol>
+
+	<protocol name="CRequestUpdateRoleInfo" type="20101" maxsize="65535" prior="101" tolua="3"> 请求陌生人的信息弹出聊天框
+		<variable name="roleid" type="long" />
+	</protocol>
+
+	<protocol name="SRequestUpdateRoleInfo" type="20102" maxsize="65535" prior="101" tolua="3"> 弹出陌生人信息聊天框
+		<variable name="FriendInfoBean" type="InfoBean" />
+	</protocol>
+	
+	<protocol name="CRequestSpaceRoleInfo" type="20106" maxsize="65535" prior="101" tolua="3"> 请求空间角色信息
+		<variable name="roleid" type="long" />
+		<variable name="reqtype" type="int" />
+	</protocol>
+	
+	<protocol name="SRequestSpaceRoleInfo" type="20107" maxsize="65535" prior="101" tolua="3"> 返回空间角色信息
+		<variable name="FriendInfoBean" type="InfoBean" />
+		<variable name="Title" type="int" />
+		<variable name="reqtype" type="int" />
+		<variable name="components" type="map" key="byte" value="int"/>
+	</protocol>
+
+	<protocol name="SUpdateFriendLevel" type="20104" maxsize="65535" prior="101" tolua="3"> 服务器通知客户端刷新好友度
+		<variable name="currentFriendLevel" type="int" /> 当前的友好度
+		<variable name="friendid" type="long" />
+	</protocol>
+
+	<!-- 系统好友消息 -->
+	<protocol name="SSendSystemMessageToRole" type="20123" maxsize="65535" prior="101" tolua="3"> 聊天S-->C
+		<variable name="systemRoleId" type="long" /> 如果是0 表示是系统消息 大于0的一定是好友发的消息
+		<variable name="contentId" type="int" />
+		<variable name="contentParam" type="vector" value="octets" />
+		<variable name="time" type="string" />
+	</protocol>
+
+	<protocol name="CReqJionCamp" type="20126" maxsize="65535" prior="1" tolua="3"> 请求加入阵营
+		<variable name="campType" type="byte" validator="value=[1,2]" /> 1=部落 2=联盟
+	</protocol>
+
+	<protocol name="SJionCamp" type="20127" maxsize="65535" prior="1" tolua="3"> 加入阵营
+		<variable name="roleId" type="long" /> 注意roleID等于自己的 还是别人的
+		<variable name="campType" type="byte" validator="value=[0,2]" /> 0=无阵营 1=部落 2=联盟
+		<variable name="selectType" type="byte" validator="value=[0,1]" /> 0=选择阵营 1=更换阵营
+	</protocol>
+
+	<protocol name="CCampPK" type="20130" maxsize="65535" prior="1" tolua="3"> 阵营pk
+		<variable name="roleId" type="long" /> 要pk的角色Id
+	</protocol>
+
+	<!-- 好友搜索相关 -->
+	<protocol name="CRequestSearchFriend" type="20138" maxsize="65535" prior="101" tolua="3"> 搜索好友C-->S
+		<variable name="roleId" type="string" />
+	</protocol>
+
+	<protocol name="SSearchFriend" type="20139" maxsize="65535" prior="101" tolua="3"> 搜索好友成功S-->C
+		<variable name="FriendInfoBean" type="InfoBean" />
+	</protocol>
+
+	<protocol name="SUpdateFriendState" type="20143" maxsize="65535" prior="101" tolua="3">
+		<variable name="roleid" type="long" />
+		<variable name="relation" type="short" /> 好友关系 位与0=普通好友 1=结婚2=结交4=师徒
+  </protocol>
+
+	<!-- 客户端请求推荐好友 -->
+	<protocol name="CRecommendFriend" type="20144" maxsize="65535" prior="101" tolua="3">
+	</protocol>
+
+	<!-- 服务器返回推荐好友 -->
+	<protocol name="SRecommendFriend" type="20145" maxsize="65535" prior="101" tolua="3">
+		<variable name="friendInfoBeanList" type="vector" value="InfoBean" />
+	</protocol>
+
+	<!-- 好友赠送 协议号从20201-20250 -->
+	<!-- 客户端请求好友赠送信息列表 -->
+	<protocol name="CGiveInfoList" type="20201" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<!-- 服务器返回好友赠送信息列表 -->
+	<protocol name="SGiveInfoList" type="20202" maxsize="65535" prior="1" tolua="3">
+		<variable name="giveNumMap" type="map" key="long" value="byte"/> key为角色id value为数量
+	</protocol>
+
+	<!-- 赠送道具 -->
+	<protocol name="CGiveItem" type="20203" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleId" type="long" /> 赠送目标的角色id
+		<variable name="itemMap" type="map" key="int" value="int" /> 赠送的道具列表 key=itemKey value=itemNum
+	</protocol>
+
+	<!-- 赠送道具结果 -->
+	<protocol name="SGiveItem" type="20204" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleId" type="long" /> 赠送目标的角色id
+		<variable name="itemNum" type="byte" /> 赠送道具数量
+	</protocol>
+
+	<!-- 赠送礼物 -->
+	<protocol name="CGiveGift" type="20205" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleId" type="long" /> 赠送目标的角色id
+		<variable name="itemId" type="int" /> 赠送道具的id
+		<variable name="itemNum" type="byte" /> 赠送道具的数量
+		<variable name="content" type="string" /> 附加留言
+		<variable name="force" type="byte" /> 0:赠送(如果不是双向好友,服务器返回错误,需要二次确认是否强行赠送) 1:强行赠送(非双向好友时赠送)
+	</protocol>
+
+	<!-- 赠送礼物结果 -->
+	<protocol name="SGiveGift" type="20206" maxsize="65535" prior="1" tolua="3">
+		<variable name="result" type="byte" /> 0:成功 1:双方不是双向好友
+	</protocol>
+
+	<!-- 好友赠送 协议号从20201-20206 -->
+
+	<!-- 获取某角色空间数据 -->
+	<protocol name="CGetSpaceInfo" type="20207" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long" /> 目标空间的角色id
+	</protocol>
+	
+	<!-- 获取某角色空间数据结果 -->
+	<protocol name="SGetSpaceInfo" type="20208" maxsize="65535" prior="1" tolua="3">
+		<variable name="giftnum" type="int" /> 礼物数量
+		<variable name="popularity" type="int" /> 人气
+		<variable name="revnum" type="int" /> 收到礼物数量
+	</protocol>
+	
+	<!-- 放置角色空间礼物 -->
+	<protocol name="CSetSpaceGift" type="20209" maxsize="65535" prior="1" tolua="3">
+		<variable name="giftnum" type="int" /> 放置的礼物数量
+	</protocol>
+	
+	<!-- 放置角色空间礼物结果 -->
+	<protocol name="SSetSpaceGift" type="20210" maxsize="65535" prior="1" tolua="3">
+		<variable name="result" type="byte" /> 0:成功
+	</protocol>
+	
+	<!-- 踩某个角色空间 -->
+	<protocol name="CStepSpace" type="20211" maxsize="65535" prior="1" tolua="3">
+		<variable name="spaceroleid" type="long" /> 目标空间的角色id
+	</protocol>
+	
+	<!-- 踩某个角色空间结果 -->
+	<protocol name="SStepSpace" type="20212" maxsize="65535" prior="1" tolua="3">
+		<variable name="result" type="byte" /> 0:成功
+	</protocol>
+	
+	<!-- 获取一批角色等级 -->
+	<protocol name="CGetRolesLevel" type="20213" maxsize="65535" prior="1" tolua="3">
+		<variable name="roles" type="vector" value="long" /> 一批角色id
+		<variable name="gettype" type="int" />
+	</protocol>
+	
+	<!-- 返回一批角色等级 -->
+	<protocol name="SGetRolesLevel" type="20214" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleslevel" type="map" key="long" value="int"/> 一批角色id -> 角色等级 (每次最多返回30个)
+		<variable name="gettype" type="int" />
+	</protocol>
+	<!-- 踩说不得大师空间 -->
+	<protocol name="CXshSpace" type="20215" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<!-- 踩说不得大师空间结果 -->
+	<protocol name="SXshSpace" type="20216" maxsize="65535" prior="1" tolua="3">
+		<variable name="result" type="byte" /> 0:成功
+	</protocol>
+	<!-- 赠送说不得大师礼物 -->
+	<protocol name="CXshGiveGift" type="20217" maxsize="65535" prior="1" tolua="3">
+		<variable name="itemId" type="int" /> 赠送道具的id
+		<variable name="itemNum" type="byte" /> 赠送道具的数量
+		<variable name="content" type="string" /> 附加留言
+		<variable name="force" type="byte" /> 0:赠送(如果不是双向好友,服务器返回错误,需要二次确认是否强行赠送) 1:强行赠送(非双向好友时赠送)
+	</protocol>
+
+	<!-- 赠送说不得大师礼物结果 -->
+	<protocol name="SXshGiveGift" type="20218" maxsize="65535" prior="1" tolua="3">
+		<variable name="result" type="byte" /> 0:成功 1:双方不是双向好友
+	</protocol>
+	
+	<!-- 获取说不得大师空间数据 -->
+	<protocol name="CGetXshSpaceInfo" type="20219" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+	
+	<!-- 获取说不得大师空间数据结果 -->
+	<protocol name="SGetXshSpaceInfo" type="20220" maxsize="65535" prior="1" tolua="3">
+		<variable name="giftnum" type="int" /> 礼物数量
+		<variable name="popularity" type="int" /> 人气
+		<variable name="revnum" type="int" /> 收到礼物数量
+	</protocol>
+	
+	<!-- 招募 -->
+	<protocol name="CGetRecruitAward" type="20230" maxsize="65535" prior="1" tolua="3">
+		<variable name="awardtype" type="int" /> 奖励类型 1招募人数奖励 2招募玩家充值奖励 3招募玩家等级奖励
+		<variable name="awardid" type="int" /> 配置招募奖励表里的id
+		<variable name="recruitrole" type="long" /> 被招募的角色id
+		<variable name="recruitserver" type="string" /> 被招募的角色所在服务器id
+	</protocol>
+	<protocol name="SGetRecruitAward" type="20231" maxsize="65535" prior="1" tolua="3">
+		<variable name="result" type="int" /> 领取招募奖励结果 0失败 1成功
+		<variable name="awardtype" type="int" /> 奖励类型 1招募人数奖励 2招募玩家充值奖励 3招募玩家等级奖励
+		<variable name="awardid" type="int" /> 配置招募奖励表里的id
+		<variable name="recruitrole" type="long" /> 被招募的角色id
+		<variable name="recruitserver" type="string" /> 被招募的角色所在服务器id
+	</protocol>
+	<!-- 招募签名 协议号从20230-20239 -->
+
+	<!-- 好友签名 协议号从20251-20260 -->
+	<!-- 签名列表 -->
+	<protocol name="SSignList" type="20251" maxsize="65535" prior="1" tolua="3">
+		<variable name="signContentMap" type="map" key="long" value="string" /> 签名列表 key=角色id value=签名内容
+	</protocol>
+
+	<!-- 设置签名 -->
+	<protocol name="CSetSign" type="20252" maxsize="65535" prior="1" tolua="3">
+		<variable name="signContent" type="string" /> 签名内容
+	</protocol>
+	<!-- 好友签名 协议号从20251-20260 -->
+
+</namespace>

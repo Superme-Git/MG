@@ -1,0 +1,71 @@
+
+20160412
+
+//更改礼物类型
+ALTER TABLE bbs change  `gift_type` `gift_type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '礼物类型,值为礼物id,包括玫瑰花,金兰花,同心结';
+ALTER TABLE bbs_gift change  `gift_type`  `gift_type` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '礼物类型,值为礼物id,包括玫瑰花,金兰花,同心结';
+
+ALTER TABLE bbs change  `gift_id` `gift_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '礼物id,包括玫瑰花,金兰花,同心结';
+ALTER TABLE bbs_gift change  `gift_id`  `gift_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '礼物id,包括玫瑰花,金兰花,同心结';
+
+
+
+
+ALTER TABLE serverlist change `weibo_hostname` `hostname` varchar(60) NOT NULL DEFAULT '';
+ALTER TABLE serverlist change `weibo_port` `port` varchar(60) NOT NULL DEFAULT '';
+ALTER TABLE serverlist change `weibo_username` `username` varchar(60) NOT NULL DEFAULT '';
+ALTER TABLE serverlist change `weibo_password` `password` varchar(60) NOT NULL DEFAULT '';
+ALTER TABLE serverlist change `weibo_database` `database` varchar(60) NOT NULL DEFAULT '';
+
+
+
+
+ALTER TABLE serverlist DROP role_hostname;
+ALTER TABLE serverlist DROP role_username;
+ALTER TABLE serverlist DROP role_password;
+ALTER TABLE serverlist DROP role_port;
+ALTER TABLE serverlist DROP role_database;
+
+
+ALTER TABLE bbs add `gift_count` int(11) unsigned NOT NULL DEFAULT '0';
+
+
+
+
+2016041203
+
+接口调整 
+
+所有bbs相关
+字段 gift_type 改为 gift_id
+
+bbs/create
+添加字段 gift_count 
+
+
+alter table status_favorite change `status_favorite_id` `status_favorite_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT
+
+
+//创建分数据库
+CREATE DATABASE `mt3_weibo_1101981002` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+grant all PRIVILEGES on *.* to weibo@'%' identified by 'YHJNFo8I*';
+FLUSH PRIVILEGES;
+
+
+alter table bbs_gift add `content` varchar(255) NOT NULL DEFAULT '';
+
+
+
+1.到目录/opt/weibo/
+2.把api文件夹备份
+3.解压压缩包, 把解压后的api文件夹复制到/opt/weibo/
+4.找到备份的api目录,把api\application\config\database.php 复制到/opt/weibo/api\application\config\
+
+
+把原版本api\application\config\database.php 复制到/opt/jingling/api\application\config\
+把原版本api\application\config\common.php 复制到/opt/jingling/api\application\config\
+
+把原版本admin\application\config\database.php 复制到/opt/jingling/admin\application\config\
+把原版本admin\application\config\common.php 复制到/opt/jingling/admin\application\config\

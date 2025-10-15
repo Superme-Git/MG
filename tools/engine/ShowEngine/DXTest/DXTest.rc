@@ -1,0 +1,525 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\DXTest.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\DXTest.ico"
+IDR_DXTestTYPE          ICON                    "res\\DXTestDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_TOOLBAR_SHOW        BITMAP                  "res\\toolbar1.bmp"
+IDB_BITMAP1             BITMAP                  "res\\bitmap1.bmp"
+IDB_BITMAP2             BITMAP                  "res\\bitmap2.bmp"
+IDB_BITMAP1D            BITMAP                  "res\\bitmap1d.bmp"
+IDB_BITMAP2D            BITMAP                  "res\\bitmap2d.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  28, 28
+BEGIN
+    BUTTON      ID_SVG_ZOOMIN
+    BUTTON      ID_SVG_ZOOMOUT
+    BUTTON      ID_SVG_ORIGINALVIEW
+    BUTTON      ID_SVG_ROTATE_CW
+    BUTTON      ID_SVG_ROTATE_CCW
+END
+
+IDR_TOOLBAR_SHOW TOOLBAR  28, 28
+BEGIN
+    BUTTON      ID_BUTTON_MAN
+    BUTTON      ID_BUTTON_WOMAN
+    BUTTON      ID_BUTTON_NAKED
+    SEPARATOR
+    BUTTON      ID_BUTTON_LAYER
+    BUTTON      ID_BUTTON_SUIT
+    BUTTON      ID_BUTTON_TYPE
+    SEPARATOR
+    BUTTON      ID_BUTTON_ADDPART
+    BUTTON      ID_BUTTON_DELETEPART
+    BUTTON      ID_BUTTON_ADDPATH
+    SEPARATOR
+    BUTTON      ID_BUTTON_SAVEPOS
+    BUTTON      ID_FILE_SAVE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "验证",                          ID_FILE_VALIDATE
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&x)",                       ID_APP_EXIT
+    END
+    POPUP "操作(&O)"
+    BEGIN
+        MENUITEM "缩小1/2(&+)",                   ID_SVG_ZOOMIN
+        MENUITEM "放大2倍(&-)",                    ID_SVG_ZOOMOUT
+        MENUITEM SEPARATOR
+        MENUITEM "顺时针旋转5度",                     ID_SVG_ROTATE_CW
+        MENUITEM "逆时针旋转5度",                     ID_SVG_ROTATE_CCW
+        MENUITEM SEPARATOR
+        MENUITEM "还原为初始位置",                     ID_SVG_ORIGINALVIEW
+    END
+    POPUP "显示(&P)"
+    BEGIN
+        MENUITEM "背景",                          ID_OPTION_BACKGROUND
+        MENUITEM SEPARATOR
+        MENUITEM "图片背景",                        ID_OPTION_IMAGEBACKGROUND
+        MENUITEM "图片透明",                        ID_OPTION_FULLTRANSPARENT
+        MENUITEM SEPARATOR
+        MENUITEM "显示在整个窗口",                     ID_OPTION_CLIPBYCLIENT
+    END
+    POPUP "视图(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                    ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于ShowEditor (&A)...",        ID_APP_ABOUT
+    END
+END
+
+IDR_SVG_CONTEXT MENU 
+BEGIN
+    POPUP "SVG"
+    BEGIN
+        MENUITEM "Zoom In(&+)",                 ID_SVG_ZOOMIN
+        MENUITEM "Zoom Out(&-)",                ID_SVG_ZOOMOUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Rotate Clockwise",           ID_SVG_ROTATE_CW
+        MENUITEM "Rotate C-Clockwise",          ID_SVG_ROTATE_CCW
+        MENUITEM SEPARATOR
+        MENUITEM "&Original View",              ID_SVG_ORIGINALVIEW
+    END
+END
+
+IDR_SUIT_EDIT MENU 
+BEGIN
+    POPUP "编辑套"
+    BEGIN
+        MENUITEM "显示全部",                        ID_SUIT_SELECTALL
+        MENUITEM "隐藏全部",                        ID_SUIT_UNSELECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "删除套",                         ID_SUIT_DELETE
+    END
+END
+
+IDR_PART_EDIT MENU 
+BEGIN
+    POPUP "编辑部件"
+    BEGIN
+        MENUITEM "显示全部",                        ID_SUIT_SELECTALL
+        MENUITEM "隐藏全部",                        ID_SUIT_UNSELECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "显示选中",                        ID_SHOWSELECTED
+        MENUITEM "显示未选中",                       ID_SHOWANTISELECTED
+        MENUITEM SEPARATOR
+        MENUITEM "添加",                          ID_BUTTON_ADDPART
+        MENUITEM SEPARATOR
+        MENUITEM "删除",                          ID_BUTTON_DELETEPART
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 272, 49
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于ShowEditor"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "ShowEditor Version 1.0",IDC_STATIC,40,10,135,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 乐动卓越科技有限公司 2008-2011",IDC_STATIC,40,29,225,8
+    DEFPUSHBUTTON   "OK",IDOK,215,7,50,16,WS_GROUP
+END
+
+IDD_DIALOG_EDITPART1 DIALOGEX 0, 0, 371, 16
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "背景",IDC_CHECK_SHOW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,6,2,41,10
+    COMBOBOX        IDC_COMBO_FILE,50,0,243,123,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "加载",IDC_BUTTON_LOAD,299,0,30,14
+    PUSHBUTTON      "删除",IDC_BUTTON_DELETE,334,0,30,14
+END
+
+IDD_DIALOG_EDITPART DIALOGEX 0, 0, 237, 206
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_MULTILINE,29,23,128,23
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,36,71,155,104
+END
+
+IDD_DIALOG_VALIDATE DIALOGEX 0, 0, 457, 265
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "验证文件"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "刷新",IDOK,104,244,50,14
+    PUSHBUTTON      "关闭",IDCANCEL,291,244,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,443,215
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,2
+ PRODUCTVERSION 1,0,0,2
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "乐动卓越科技有限公司"
+            VALUE "FileDescription", "ShowEditor"
+            VALUE "FileVersion", "1.0.0.2"
+            VALUE "InternalName", "ShowEditor.exe"
+            VALUE "LegalCopyright", "(c) 乐动卓越科技有限公司. 保留所有权利."
+            VALUE "OriginalFilename", "ShowEditor.exe"
+            VALUE "ProductName", "ShowEditor"
+            VALUE "ProductVersion", "1.0.0.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 265
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_DIALOG_EDITPART1, DIALOG
+    BEGIN
+        RIGHTMARGIN, 364
+    END
+
+    IDD_DIALOG_EDITPART, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+
+    IDD_DIALOG_VALIDATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 450
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 258
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "ShowEditor\n\nShowEditor\n\n\nShowEditor.Document\nShowEditor.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "ShowEditor"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "保存配置文件\n保存配置文件"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_SVG_ZOOMIN           "放大\n放大图像"
+    ID_SVG_ZOOMOUT          "缩小\n缩小图像"
+    ID_SVG_ORIGINALVIEW     "初始视图\n查看初始视图"
+    ID_SVG_ROTATE_CW        "顺时针旋转\n顺时针旋转5度"
+    ID_SVG_ROTATE_CCW       "逆时针旋转\n逆时针旋转5度"
+    ID_OPTION_BACKGROUND    "设置背景色\n设置背景色"
+    ID_OPTION_IMAGEBACKGROUND "设置图像的背景\n设置图像的背景"
+    ID_BUTTON_MAN           "编辑男装\n编辑男装"
+    ID_BUTTON_WOMAN         "编辑女装\n编辑女装"
+    ID_BUTTON_SAVEPOS       "保存部件位置\n保存部件位置"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_BUTTON_LAYER         "按层分类\n按层分类"
+    ID_BUTTON_SUIT          "按套分类\n按套分类"
+    ID_BUTTON_ADDPATH       "添加一套部件\n添加一套部件"
+    ID_BUTTON_TYPE          "按类型分类\n按类型分类"
+    ID_BUTTON_DELETEPART    "删除部件\n删除部件"
+    ID_BUTTON_ADDPART       "添加一个部件\n添加一个部件"
+    ID_BUTTON_NAKED         "显示裸模\n显示裸模"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_VALIDATE        "验证配置文件\n验证配置文件"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\DXTest.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,17 @@
+package mylogic;
+
+import java.util.HashMap;
+
+import xmerge.IMerge;
+
+import com.locojoy.base.Marshal.OctetsStream;
+
+public class UserDeviceinfoTable implements IMerge{
+
+	@Override
+	public boolean merge(OctetsStream src_key, OctetsStream src_value,
+			OctetsStream dest_value) throws Exception {
+		return true;
+	}
+	
+}

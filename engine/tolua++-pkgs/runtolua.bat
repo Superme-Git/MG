@@ -1,0 +1,1 @@
+tolua++WP8.exe -o ../../client/FireClient/Application/Framework/LuaEngineWin32.cpp -L custom_functions.lua engineWin32.pkg

@@ -1,0 +1,20 @@
+﻿<xdb mkgenOutput="src" trace="error" traceTo=":file:out" corePoolSize="5" procPoolSize="20" schedPoolSize="5" dbhome="mkdb" logpages="4096" backupDir="mbackup" checkpointPeriod="60000" backupIncPeriod="600000" backupFullPeriod="3600000" angelPeriod="5000" xdbVerify="true" allowBackup="false">
+	<ProcedureConf executionTime="3000" maxExecutionTime="0" retryTimes="3" retryDelay="100"/>
+ <TableSysConf name="_sys_" cacheCapacity="1" cachehigh="512" cachelow="256"/>
+	<UniqNameConf localId="1">
+		<MkioConf name="robot.protocol.UniqNameUtils">
+			<Manager name="Client" keepSize="1" maxSize="1">
+				<Coder>
+					<Rpc class="robot.protocol.UniqNameUtils$Allocate"/>
+					<Rpc class="robot.protocol.UniqNameUtils$Confirm"/>
+					<Rpc class="robot.protocol.UniqNameUtils$Release"/>
+					<Rpc class="robot.protocol.UniqNameUtils$Exist"/>
+					<Rpc class="robot.protocol.UniqNameUtils$AllocateId"/>
+					<Rpc class="robot.protocol.UniqNameUtils$ReleaseId"/>
+				</Coder>
+				<Connector remoteIp="192.168.32.2" remotePort="22200" sendBufferSize="16384" receiveBufferSize="16384" tcpNoDelay="true" inputBufferSize="131072" outputBufferSize="131072"/>
+			</Manager>
+		</MkioConf>
+	</UniqNameConf>  
+
+</xdb>

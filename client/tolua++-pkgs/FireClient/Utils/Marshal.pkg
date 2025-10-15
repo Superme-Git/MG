@@ -1,0 +1,77 @@
+
+namespace FireNet
+{
+    class Octets
+    {
+        Octets& reserve(size_t size);
+        Octets& replace(const void *data, size_t size);
+
+        virtual ~Octets();
+
+        Octets();
+        Octets(size_t size);
+        Octets(const void *x, size_t size);
+        Octets(const void *x, const void *y);
+        Octets(const Octets &x);
+        Octets& swap(Octets &x);
+        void *begin();
+        void *end();
+        const void *begin() const;
+        const void *end()   const;
+
+        size_t size()     const;
+        size_t capacity() const;
+        Octets& clear();
+        Octets& erase(size_t pos, size_t len);
+        Octets& erase(void *x, void *y);
+
+        Octets& insert(void *pos, const void *x, size_t len);
+        Octets& insert(void *pos, const void *x, const void *y);
+        Octets& resize(size_t size);
+
+        void dump() const;
+    };
+
+	class Marshal
+	{
+		class OctetsStream
+		{
+			OctetsStream();
+			~OctetsStream(){}
+			OctetsStream(const Octets &o);
+			OctetsStream(const OctetsStream &os);
+
+			OctetsStream& compact_uint32( unsigned int x);
+			const OctetsStream& uncompact_uint32( const unsigned int &x) const;
+
+			size_t position() const;
+			bool isvalid();
+
+			char unmarshal_char();
+			unsigned char unmarshal_uchar();
+			short unmarshal_short();
+			bool unmarshal_bool();
+			int unmarshal_int32();
+			unsigned int unmarshal_uint32();
+			long long unmarshal_int64();
+			unsigned long long unmarshal_uint64();
+			float unmarshal_float();
+			void unmarshal_wstring(std::wstring& x);
+			void unmarshal_octets(Octets& x);
+
+			void marshal_char(char x);
+			void marshal_uchar(unsigned char x);
+			void marshal_short(short x);
+			void marshal_bool(bool x);
+			void marshal_int32(int x);
+			void marshal_uint32(unsigned int x);
+			void marshal_int64(long long x);
+			void marshal_uint64(unsigned long long x);
+			void marshal_float(float x);
+			void marshal_wstring(std::wstring& x);
+			void marshal_octets(Octets& x);
+			Octets getdata();
+			bool eos() const;
+		};
+	};
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="login"> 
+		
+		<bean name="CLoginTips" from="q切游戏语录表" genxml="client" priority="1" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="tip" fromCol="语录内容"  type="string"  /> 			
+			  <variable name="maxnum" type="int" fromCol="最大行数" /> 
+		</bean>
+		
+		<bean name="CLoginTipsDianKa" from="D点卡服表格/q切游戏语录表for点卡服" genxml="client" priority="1" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="tip" fromCol="语录内容"  type="string"  /> 			
+			  <variable name="maxnum" type="int" fromCol="最大行数" /> 
+		</bean>
+		
+		<bean name="CLoginImages" from="q切游戏图片表" genxml="client" priority="1" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="imagefilename" fromCol="图片"  type="string"  /> 			
+			  <variable name="width" type="int" fromCol="图宽" /> 
+			  <variable name="height" type="int" fromCol="图高" /> 
+			  <variable name="minlevel" type="int" fromCol="最小等级" /> 
+			  <variable name="maxlevel" type="int" fromCol="最大等级" /> 
+			  <variable name="mapid" type="int" fromCol="适配地图ID" /> 
+			  <variable name="taskid" type="int" fromCol="适配任务" /> 
+			  <variable name="weight" type="int" fromCol="权重" /> 
+			  
+		</bean>
+		
+
+		<bean name="CExitgame" from="s升级经验限制表" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="等级" /> 
+			  <variable name="exp" type="int" fromCol="升级经验" /> 
+			  <variable name="levela"  type="int" fromCol="等级下限" /> 			
+			  <variable name="levelb" type="int" fromCol="等级上限" /> 
+			  <variable name="area" type="string" fromCol="挂机区" /> 
+		</bean>	
+		
+		
+		
+		
+		<bean name="SCompensationConfig" from="x系统补偿配置表" genxml="server">
+			  <variable name="id" type="int" fromCol="ID" /> id
+			  <variable name="compensationid" type="int" fromCol="服务ID" />
+			  <variable name="startTime" fromCol="补偿开始时间" type="string" />
+			  <variable name="endTime" fromCol="补偿结束时间" type="string" />
+			  <variable name="serviceName" fromCol="补偿服务名称" type="string" />
+			  <variable name="msgid" fromCol="补偿邮件消息" type="int" />
+			  <variable name="itemid" fromCol="奖励ID" type="int" />
+			  <variable name="roleid" fromCol="角色ID" type="string" />
+			  <variable name="userid" fromCol="账号ID" type="string" />
+			  <variable name="serverid" fromCol="服务器ID" type="string" />
+			  <variable name="onChannel" fromCol="补偿渠道" type="string" />
+			  <variable name="offChannel" fromCol="不补偿渠道" type="string" />
+			  <variable name="conditionid" fromCol="条件ID" type="string" />
+		</bean>		
+	</namespace>	

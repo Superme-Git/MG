@@ -1,0 +1,190 @@
+=================================================================================================				
+					合服工具相关介绍
+=================================================================================================
+
+该文档一共描述三个工具(xmerge, validator, xtransform)的功能和基本使用方法。
+第一要领：希望使用该工具的同学先了解下xdb，该工具只支持xdb数据库.
+
+=================================================================================================
+1. 合服工具 xmerge.jar
+
+	xmerge.jar把两个服务器中相同定义的数据库合并成同一个数据库，合服工具不会对需要合并的数据库
+	进行任何更改(src_db和dest_db)，合服工具运行成功后将生成一个全新的数据库(result_db)。
+	
+	1.1 工具需要提供的参数：
+	    a. mylogic.jar
+		提供xdb数据库相应的xbean,xtable的类包，及相应的known_key_conflict处理类
+	    b. xmerge.xml
+		提供相应的处理工具配置参数，及相关的known_key_conflict处理
+	
+	1.2 明确的问题：
+	    a. 两个服务器中拥有同一张表拥有相同的key值时，程序如何处理？
+			xmerge工具本身是一个用于合服的框架，希望使用者在使用时自己实现冲突key时的逻辑，
+			xmerge工具使用时必须有一个xmerge.xml[default name]的文件，该xml文件中有如下
+			两类配置信息：
+			1）xmerge工具的工作路径：
+			<xmerge libpath="../bin" srcDir="srcDB" destDir="destDB" resultDir="resultDB">
+				libpath标示加载db层动态链接库的目录，srcDir和destDir为需要进行合并的两个数据库路径，
+				resultDir为合并成功后输出的数据库路径。
+			2）在该xml种配置known_key_conflict(可预见冲突处理）和unknown_key_conflict（不可预见冲突处理）的表名，
+			对于配置为known_key_conflict的表，需要提供相应的处理类名，该类实现以下接口：
+		
+			<1> 在.xml中添加相应表的处理接口名称
+			    如：
+				<table name="table_int_int" type="known_key_conflict" 
+					class="mylogic.UserMergeImplementReturnTrue"/>
+			    表示：当发现src_db和dst_db中的table_int_int表中的key表项发生冲突的时候，将调用
+				  class中的mylogic.UserMergeImplementReturnTrue进行处理。
+			
+			<2> 在制作mylogic包的时候，需要把相应的处理类加入
+			    如：
+			 	mylogic.UserMergeImplementReturnTrue.java
+				
+				package mylogic;								
+				
+				import xmerge.IMerge;//实现xmerge.IMerge()的接口
+				public class UserMergeImplementReturnTrue implements IMerge {
+					/**
+					* @param src_key ：src_db与dest_db相同的有冲突的key
+					* @param src_value ： 源数据库中src_key关联的src_value值
+					* @param dest_value ： 目的数据库中src_key关联的dest_value值
+					* @return ：
+						true : src_key 和 dest_value 将会是合并数据库的值
+						false : 记录错误key的日志，并且不处理有冲突的key, 
+							程序将会继续对下一个key进行合并
+					* @throws Exception ： 发现严重错误，此时暂停整个中断
+					* @note : 请注意src_value, dest_value都是解压后数据
+					*/
+					public boolean merge(OctetsStream src_key, OctetsStream src_value, 
+								OctetsStream dest_value) throws Exception {
+						return true;
+					}
+				}	
+			
+			<3> 编译出mylogic.jar包，需要依赖xmerge.jar包。
+			    脚本编译：ant -f build-ml.xml 
+				注：请在build mylogic包之前，根据实际情况配置好build-ml.xml，目前提供的只是一个演示版！
+				
+			<4> 如有疑问，请参考snail/xmerge/test/mylogic
+	
+	    b. 上述规则中并没有指定处理的情况
+	    	
+	    	当调用工具的程序员未指定相应的known_key_conflict处理接口，所有的表默认都是为
+	    	unknown_key_conflict(不可预见冲突处理）。这时工具会尝试对相同的key进行修复，为目的
+	    	数据库中相同的冲突的key重新申请一个新的newkey，从而保证合并的完成。
+	    	
+	    	通过定义interface IAllcator {
+	    	    public Object allocateKey(String tableName, Object oldKey);
+	    	}
+	    	并提供Xmerge.addAllocator(String tableName, IAllocator allocator)方法来供使用者给每个表设置
+	    	自己的新key生成办法，特别地，对于AutoLong类型的表中的key冲突，xmerge在内部已实现重新分配功能。
+            	    		    	
+			
+	1.3 工具的调用：
+	
+	    手动调用：
+		java -Xmx512m -Xms512m -Xss4m -Xbootclasspath -jar xmerge.jar -conf xmerge.xml [src_db_dir] [dest_db_dir] [foreign_db_dir] 
+						
+	    脚本调用（暂时提供只shell脚本）：
+		snail/bin/xmerge.sh mylogic.jar -conf xmerge.xml [src_db_dir] [dest_db_dir] [foreign_db_dir] [libpath]
+				
+	    备注：
+	    a.用户可以在xmerge.xml中配置srcDir和destDir、resultDir，如果没有在xml中明确配置，则通过命令行参数获取这些信息
+		b. 根据build.xml中的install 来发布xmerge.jar之前请先根据build-ml.xml的install来发布测试时使用
+		   的mylogic.jar(暂定，仅供参考)
+		c. 在使用xmerge工具时，foreign_db_dir为可选参数
+		d. 根据xmerge工具的输出获取最终成功合并的数据库
+
+    1.4 编程接口：
+        
+        a. Xmerge类
+        
+            通过Xmerge来进行合服工具的调用开发工作
+            Xmerge worker = new Xmerge("xmerge.xml");
+            worker.run();
+                  
+        b. IMerge接口
+        
+            对于数据库表中已知的冲突情况，可以实现IMerge接口给相关表添加冲突处理规则，IMerge具体实现类的开发
+            可以使用以下接口进行：
+            worker.addMerger(String tableName, IMerge merger);
+            编写调试完成的IMerge具体实现类可以打包到mylogic.jar里，并添加相应的规则到xmerge.xml中，xmerge运行时将
+            读取该配置并装载已定义的冲突处理规则。
+            
+        c. IAllocator接口
+        
+            对于数据库总key冲突的解决需要进行重新分配，Auto类型的表由xmerge内部加以解决，但不是Auto类型的表就需要调用者
+            添加key分配规则，其通过实现IAllocator接口来完成：
+            void addAllocator(String tableName, IAllocator allocator);
+            
+        示例Example.java
+        
+	xdb.util.DatabaseMetaData curMeta;
+	curMeta = xdb.util.DatabaseMetaData.getInstance();        
+	Xmerge tester = new Xmerge("xmerge.xml");		
+	for (DatabaseMetaData.Table tableMetaData : curMeta.getTables()) {
+		if (!tableMetaData.isPersistence())
+			continue;
+		if (!tableMetaData.isAutoKey()) {
+			switch(tableMetaData.getKeyType().getTypeId()) {
+			case LONG:
+				tester.addAllocator(tableMetaData.getName(), new IAllocator() {
+					@Override
+					public Object allocateKey(String arg0, Object arg1) {
+						return new Random().nextLong();
+					}						
+				});
+				break;
+			case INT:
+				tester.addAllocator(tableMetaData.getName(), new IAllocator() {
+					@Override
+					public Object allocateKey(String arg0, Object arg1) {
+						return new Random().nextInt();
+					}						
+				});
+				break;
+			case STRING:
+				tester.addAllocator(tableMetaData.getName(), new IAllocator() {
+					@Override
+					public Object allocateKey(String arg0, Object arg1) {
+						return String.valueOf(new Random().nextLong());
+					}						
+				});
+				break;
+			default:
+				throw new RuntimeException("unsupport type.");
+			}
+		}
+	}		
+	tester.run();
+    
+=================================================================================================
+	
+2. 外键关系验证工具 validator.jar
+	2.1 validator工具的功能
+			现在的xdb发布版中支持建立外键关系的表，该工具就是为了验证数据库中的外键关系是否完备。
+			如：
+			TableA(key) <-- TableB(key/value)
+ 			* foreign关系是指：TableB中的key或者value(也可以是value中的某一项)foreign到TableA中的key
+ 			* 完备的充要条件：TableB中foreign到TableA的项(key/value)的集合是TableA中key集合的子集
+	2.2 如何使用 
+	    基本用法：
+		java -Xmx512m -Xms512m -Xss4m -jar validator.jar -v validaeDB [-output foreignDB]
+		-v 选项后面的参数为需要进行验证的数据库路径
+		-output 选项后面的参数为输出foreign关系数据库的路径[可选项]
+		
+		该工具的输出可以分为两部分：
+ 				1）foreign关系数据库(仅当有-output选项时)
+ 				2）foreign关系错误的key的记录，在文件validate.log文件中(仅当存在这种错误的key时)
+		备注：
+		    a. validator工具依赖于xmerge.jar，在build-validator.xml install之前，最好先确保已经build生成了xmerge.jar;
+		    b. -ouput foreignDB为可选项，如果不填写该参数，则只做foreign关系验证，而不会输出foreign关系数据库；
+		   
+=================================================================================================
+		   
+3. xdb数据表结构转换工具xtransform.sh
+ 
+	请参考snail/bin/readme-transform.sh
+	
+
+如遇问题，请及时联系：leiyu01471@wanmei.com，caijiacheng01470@wanmei.com，zhangxi01469@wanmei.com

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Knight.MissionEditor.Xaml.BattleEdit"
+        xmlns:src="clr-namespace:Knight.MissionEditor"
+        Title="练功区战斗编辑"
+        ShowInTaskbar="False" 
+        WindowStartupLocation="CenterOwner" 
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" Height="390" Width="354">
+    <Grid Height="346" Width="334">
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="8,9,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">练功区分类</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="8,48,0,0" VerticalContentAlignment="Center" Width="79" Height="28" VerticalAlignment="Top">场景区域</Label>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="8,88,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">掉落几率</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="114,90,160,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="DropEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,88,22,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="131">（单位：万分之一）</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="114,48,116,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="ZoneIDEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="8,131,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="79">战斗次数</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="114,131,116,0" TextAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" x:Name="BattleTimesEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="8,0,0,70" VerticalContentAlignment="Center" Width="79" Height="30" VerticalAlignment="Bottom">怪物种类</Label>
+        <src:IntNumEditBox HorizontalContentAlignment="Right" Margin="93,0,160,70" TextAlignment="Right" VerticalContentAlignment="Center" x:Name="MonsterTypeEditBox" Height="28" VerticalAlignment="Bottom" />
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="16,171,0,145" VerticalContentAlignment="Center" Width="79">怪物数量</Label>
+        <src:IntNumEditBox HorizontalContentAlignment="Right" Margin="101,171,0,147" TextAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="60" x:Name="MonsterNumEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="8,0,0,107" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">掉落物品ID</Label>
+        <src:IntNumEditBox Height="28" HorizontalContentAlignment="Right" Margin="93,0,160,109" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" x:Name="DropItemIDEditBox"/>
+        <Label Background="Snow" BorderBrush="Cyan" FontFamily="宋体" Foreground="LightSkyBlue" Height="30" HorizontalAlignment="Right" HorizontalContentAlignment="Center" Margin="0,0,74,108" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="79">掉落物品数量</Label>
+        <src:IntNumEditBox Height="28" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,0,8,110" TextAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Width="60" x:Name="DropItemNumEditBox"/>
+        <ComboBox Height="22" Margin="114,9,116,0" VerticalAlignment="Top" Name="BattleTypeComboBox" SelectionChanged="UpdataMapType">
+            <ComboBoxItem>明雷区</ComboBoxItem>
+            <ComboBoxItem>暗雷区</ComboBoxItem>
+        </ComboBox>
+        <Button Height="23" HorizontalAlignment="Left" Margin="8,0,0,15" VerticalAlignment="Bottom" Width="75" Click="OnAdd">add</Button>
+        <Button Height="23" Margin="93,0,166,15" VerticalAlignment="Bottom" Click="OnDel">del</Button>
+        <ListBox Height="85" HorizontalAlignment="Right" Margin="0,0,8,15" VerticalAlignment="Bottom" Width="145" Name="MonsterList"/>
+    </Grid>
+</Window>

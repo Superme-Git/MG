@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="openau" shareHome="../../core" pvids="">
+
+	<bean name="AuAnyPlatTypes">     
+		<enum name="unknow" value="-1"/>
+	</bean>
+
+	<!-- 手机平台使用 protocol type[8900,8999]-->
+
+	<!-- deliver 向 auany 注册-->
+	<protocol name="RegistGameServerRequest" type="8900" maxsize="512" prior="1">
+		<variable name="plattype" type="int" default="AuAnyPlatTypes.unknow"/> 如果是 unknow 就由 aunay 决定登录哪个平台
+		<variable name="serverid" type="octets"/> 当前服务器组的标识 delivery 的配置中指定
+		<variable name="ip1" type="int" />
+		<variable name="ip2" type="int" />
+		<variable name="ip3" type="int" />
+	</protocol>
+	
+	<!-- plattype返回AuAnyPlatTypes.unknow：
+		1. 如果请求时,plattype为AuAnyPlatTypes.unknow，auany没有平台的实现
+		2. 如果请求时,plattype不为AuAnyPlatTypes.unknow，auany上没有请求plattype对应的实现
+	-->
+	<protocol name="RegistGameServerResponse" type="8901" maxsize="512" prior="1">
+		<variable name="plattype" type="int"/> 当前服务器组，登录的是那个平台
+	</protocol>
+	
+	<!-- gs连上deliver上，发给gs；用户登录完成后，发给客户端 -->
+	<protocol name="ServerIDResponse" type="8902" maxsize="512" prior="1">
+		<variable name="plattype" type="int"/> 当前服务器组，登录的是那个平台
+		<variable name="serverid" type="octets"/> 当前服务器组的标识
+	</protocol>
+
+	<bean name="ErrorCodes">     
+		<enum name="error_succeed" value="0"/>成功
+		<enum name="error_invalid" value="1"/>失败，token/sessionid无效，定单无效
+		<enum name="error_plat_args" value="2"/>与平台的访问的参数异常
+		<enum name="error_plat_trans" value="3"/>与平台的访问异常
+		<enum name="error_xdb_store" value="4"/>xdb存储异常
+	</bean>
+
+	<!-- 登录-->
+	<bean name="AuAnyLoginArg">     
+		<variable name="account" type="octets"/>
+		<variable name="response" type="octets"/>
+		<variable name="challenge" type="octets"/>
+		<variable name="loginipoctets" type="octets" default="octets()"/>
+		<variable name="loginip" type="int" default="0"/>	
+		<variable name="plattype" type="int"/>
+		<variable name="gameid" type="int" />
+		<variable name="gamekey" type="octets" default="octets()"/>
+		<variable name="serverid" type="octets" default="octets()"/>
+		<variable name="selfchannel" type="octets" default="octets()"/> 渠道号
+		<variable name="childchannel" type="octets" default="octets()"/> 子渠道号
+		<variable name="deviceid" type="octets" default="octets()"/> 设备唯一标识
+	</bean>
+
+	<bean name="AuAnyLoginRes">
+		<variable name="retcode" type="int" default="ErrorCodes.error_succeed"/>
+		<variable name="userid" type="int" default="-1"/>
+		<variable name="platinfo" type="octets"/>
+		<variable name="realaccount" type="octets"/>
+		<variable name="reserved1" type="int"/>
+		<variable name="reserved2" type="octets"/>
+	</bean>
+	<rpc name="AuAnyLogin" type="8903" argument="AuAnyLoginArg" result="AuAnyLoginRes" maxsize="1048576" prior="1" timeout="20"/>
+
+
+	<!-- 支付相关 -->
+	
+	<!-- 根据订单号查询支付状态 gs 经 deliver 给 auany -->
+	<protocol name="QueryOrderRequest" type="8904" maxsize="1048576" prior="1">
+		<variable name="platid" type="string"/> 平台唯一标识
+		<variable name="orderserialplat" type="string"/> 平台用的订单号
+		<variable name="orderserialgame" type="string"/> 游戏内自己用的订单号
+	</protocol>
+	<!-- 返回订单状态，auany 经 deliver 给 gs，当 errorcode == no_error，vars有意义
+	
+	91.com:
+		ConsumeStreamId  	消费流水号，平台流水号
+		CooOrderSerial  	商户订单号，购买时应用传入，原样返回给应用
+		MerchantId  			商户 ID
+		GoodsId  					商品 ID，购买时应用传入，原样返回给应用
+		GoodsInfo  				商品名称，购买时应用传入，原样返回给应用
+		GoodsCount  			商品数量，购买时应用传入，原样返回给应用
+		OriginalMoney  		原价(格式：0.00)，购买时应用传入的单价*总数，总原价
+		OrderMoney  			实际价格(格式：0.00)，购买时应用传入的单价*总数，总实际价格
+		PayStatus  				支付状态：0=失败，1=成功，2=正在处理中(仅当 ErrorCode=1，表示接口调用成功时，才需要检查此字段状态，开发商需要根据此参数状态发放物品)
+		CreateTime  			创建时间(yyyy-MM-dd HH:mm:ss)
+		ErrorCode  				错误码(0=失败，1=成功，2=  AppId 无效，3=  Act 无效，4=参数无效，5= Sign 无效, 11=没有该订单)
+		ErrorDesc  				错误描述
+		
+	25pp.com:
+		account	varchar(150)	通行证账号
+		amount	double(8,2)	兑换PP币数量
+		status	tinyint(1)	状态:
+				0正常状态
+				1已兑换过并成功返回
+		roleid	varchar(50)	厂商应用角色id
+		
+	-->
+	<protocol name="QueryOrderResponse" type="8905" maxsize="1048576" prior="1">
+		<enum name="restype_query" value="0"/>查询返回结果
+		<enum name="restype_notify" value="0"/>主动通告返回结果
+
+		<variable name="errorcode" type="int" default="ErrorCodes.error_succeed"/>
+		<variable name="restype" type="int" default="restype_query"/>
+		<variable name="platid" type="string"/> 平台唯一标识
+		<variable name="orderserialplat" type="string"/> 平台用的订单号
+		<variable name="orderserialgame" type="string"/> 游戏内自己用的订单号
+		<variable name="userid" type="int" default="-1"/> 如果返回的结果中，并没有userid的信息，该值为-1
+		<variable name="vars" type="octets"/>
+	</protocol>
+	
+	<!--
+		qtype:	(8001)GS_TO_AuAny更新玩家的服务器角色信息,此时info是玩家角色信息
+				(10001)GS_TO_AuAny代理http请求,此时info是http请求地址及参数
+				(10002)AuAny_TO_GS代理http请求的返回结果
+	-->
+	<protocol name="DataBetweenAuAnyAndGS" type="8920" maxsize="1048576" prior="1">
+		<enum name="AuAny_TO_GS" value="1"/>
+		<enum name="GS_TO_AuAny" value="2"/>
+	
+		<variable name="userid" type="int"/> 
+		<variable name="qtype" type="int"/><!--数据用途，详细见上方注释-->
+		<variable name="flag" type="byte"/><!--标识数据方向--> 
+		<variable name="info" type="octets"/>
+		<variable name="reserved" type="int"/>
+	</protocol>
+	
+	<protocol name="DataBetweenAuAnyAndClient" type="8921" maxsize="1048576" prior="1">
+		<enum name="AuAny_TO_CLIENT" value="1"/>
+		<enum name="CLIENT_TO_AuAny" value="2"/>
+
+		<variable name="userid" type="int"/> 
+		<variable name="qtype" type="int"/> 
+		<variable name="flag" type="byte"/><!--标识数据方向--> 
+		<variable name="info" type="octets"/>
+		<variable name="reserved" type="int"/>
+	</protocol>
+	
+</application>
+

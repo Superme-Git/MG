@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议号从24200到24300　-->
+<namespace name="shop">
+
+	<!-- shop购买类型 -->
+	<bean name="ShopBuyType">
+		<enum name="NORMAL_SHOP" value="1"/>普通商店
+		<enum name="PET_SHOP" value="2"/>宠物商店
+		<enum name="MALL_SHOP" value="3"/>商城
+		<enum name="CHAMBER_OF_COMMERCE_SHOP_BUY" value="4"/>商会买
+		<enum name="CHAMBER_OF_COMMERCE_SHOP_SALE" value="5"/>商会卖
+		<enum name="EXCHANGE_BUY" value="6"/>兑换商店
+		<enum name="SHENSHOU_SHOP" value="7"/>神兽商店
+	</bean>
+
+
+	<!--商城购买协议-->
+	<protocol  name="CBuyMallShop" type="24200" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="shopid" type="int"/> 商店序号
+		<variable name="taskid" type="int"/> 同一个道具可以接不同的任务,用taskid来区分
+		<variable name="goodsid" type="int"/> 商品id
+		<variable name="num" type="int" validator="value=[0,)"/> 购买数量
+	</protocol>
+
+	<!--NPC购买协议-->
+	<protocol name="CBuyNpcShop" type="24201" maxsize="65535" prior="1" tolua="3">
+			<variable name="shopid" type="int" validator="value=[1,)" /> 商店序号
+			<variable name="goodsid" type="int" validator="value=[0,)" /> 商品id
+			<variable name="num" type="int" validator="value=[1,)" /> 购买数量
+			<variable name="buytype" type="int" validator="value=[0,11]"/>	购买类型
+	</protocol>
+
+	<!--商会买卖协议-->
+	<protocol name="CChamberOfCommerceShop" type="24202" maxsize="65535" prior="1" tolua="3">
+			<variable name="shopid" type="int"/> 商店序号
+			<variable name="itemkey" type="int" />是物品在背包中的位置,在卖背包中物品时用到。叫itemkey是为了和系统统一称呼。
+			<variable name="goodsid" type="int" validator="value=[0,)" /> 商品id
+			<variable name="num" type="int" validator="value=[1,)" /> 买卖数量
+			<variable name="buytype" type="int" validator="value=[0,11]"/>	购买类型
+	</protocol>
+
+	<!--请求服务器商店商品价格,只有NPCMT3买卖物品表.xlsx中,价格是否波动这列为1的时候,服务器才会返回价格-->
+	<bean name="Goods">
+		<variable name="goodsid" type="int"/> 商品id
+		<variable name="price" type="int" /> 商品价格 
+		<variable name="priorperiodprice" type="int" />商品上一次价格
+	</bean>
+
+	<protocol name="CRequstShopPrice" type="24203" maxsize="65535" prior="1" tolua="3">
+			<variable name="shopid" type="int"/> 商店序号
+	</protocol>
+
+	<protocol name="SResponseShopPrice" type="24204" maxsize="65535" prior="1" tolua="3">
+			<variable name="shopid" type="long"/> 商店序号
+			<variable name="goodsList" type="vector" value="Goods"/>	返回的商品集合
+	</protocol>
+
+	<!--从服务器获得限购或限售商品的可购买或可售卖次数-->
+	<bean name="GoodsLimit">
+		<variable name="goodsid" type="int"/> 商品id
+		<variable name="number" type="int" /> 可购买或可售卖数量 
+	</bean>
+	
+	<protocol name="CQueryLimit" type="24205" maxsize="65535" prior="1" tolua="3">
+		<variable name="querytype" type="int" validator="value=[1,2]"/>	查询类型  1商品限购次数查询  2商品限售次数查询
+		<variable name="goodsids" type="vector" value="int"/>	查询商品id
+	</protocol>
+
+	<protocol name="SQueryLimit" type="24206" maxsize="65535" prior="1" tolua="3">
+		<variable name="querytype" type="int" validator="value=[1,2]"/>	查询类型   1商品限购次数查询  2商品限售次数查询
+		<variable name="goodslimits" type="vector" value="GoodsLimit"/>	查询商品id
+	</protocol>
+
+	<!--摆摊类型-->
+	<bean name="MarketType">
+		<enum name="CARE_FOR" value="1"/>关注
+		<enum name="RARITY_PET" value="2"/>珍品宠物(珍品)
+		<enum name="RARITY_EQUIP" value="3"/>珍品装备(珍品)
+		<enum name="RARITY_PET_BOOK" value="4"/>高级兽决(珍品)
+		<enum name="NORMAL_PET_BOOK" value="5"/>低级兽决
+		<enum name="NORMAL_PHARMACEUTICAL" value="6"/>药品
+		<enum name="COOKING" value="7"/>烹饪
+		<enum name="ZHI_ZAO_FU" value="8"/>制造符
+		<enum name="LIN_SHI_FU" value="9"/>临时符
+		<enum name="TASK_ITEM" value="10"/>任务道具
+		<enum name="PET_SHOP" value="11"/>奇珍异宝
+		<enum name="RARITY_EQUIP_FORGING" value="12"/>装备打造(珍品)
+	</bean>
+
+	<!--物品类型-->
+	<bean name="GoodsType">
+		<enum name="NORMAL_ITEM" value="1"/>道具
+		<enum name="PET" value="2"/>宠物
+		<enum name="EQUIP_ITEM" value="3"/>装备
+		<enum name="OTHER_ITEM" value="4"/>特殊类型(用于标示价格浮动特殊处理)
+	</bean>
+
+	<!--摆摊浏览-->
+	<bean name="MarketGoods">
+		<variable name="id" type="long" />唯一id(是我服务器数据库的id,传给前端的目的是在购买物品时给我返回)
+		<variable name="saleRoleid" type="long"/>卖家角色id
+		<variable name="itemid" type="int"/>道具id
+		<variable name="num" type="int"/>数量
+		<variable name="noticenum" type="int"/> 关注数
+		<variable name="key" type="int"/> itemkey
+		<variable name="price" type="int"/>价格
+		<variable name="showtime" type="long"/>公示时间
+		<variable name="expiretime" type="long"/>过期时间
+		<variable name="itemtype" type="int"/>物品类型 1道具, 2宠物
+		<variable name="level" type="int"/>等级或品质
+		<variable name="attentionnumber" type="int"/>关注数量
+	</bean>
+
+	<!--摆摊浏览-->
+	<bean name="TempMarketContainerGoods">
+		<variable name="itemid" type="int"/>道具id
+		<variable name="num" type="int"/>数量
+		<variable name="key" type="int"/> itemkey
+		<variable name="itemtype" type="int"/>物品类型 1道具, 2宠物
+		<variable name="level" type="int"/>等级或品质
+	</bean>
+
+
+	<protocol name="CMarketBrowse" type="24207" maxsize="65535" prior="1" tolua="3">
+		<variable name="browsetype" type="int" validator="value=[1,2]"/>浏览类型  1 我要购买 2公示物品
+		<variable name="firstno" type="int" validator="value=[1,20]"/> 一级页签类型
+		<variable name="twono" type="int"/> 二级页签类型
+		<variable name="threeno" type="vector" value="int"/> 三级页签类型
+		<variable name="itemtype" type="int" />物品类型
+		<variable name="limitmin" type="int" />条件下限
+		<variable name="limitmax" type="int" />条件上限
+		<variable name="currpage" type="int" validator="value=[1,)"/>当前页
+		<variable name="priceSort" type="int" validator="value=[1,2]"/>价格排序  1升序  2降序
+		<variable name="issearch" type="int" validator="value=[0,1]"/> 0筛选 1搜索
+	</protocol>
+
+	<protocol name="SMarketBrowse" type="24208" maxsize="65535" prior="1" tolua="3">
+		<variable name="browsetype" type="int" validator="value=[1,2]"/>浏览类型  1 我要购买 2公示物品
+		<variable name="firstno" type="int" validator="value=[1,20]"/> 一级页签类型
+		<variable name="twono" type="int"/> 二级页签类型
+		<variable name="threeno" type="vector" value="int"/> 三级页签类型
+		<variable name="itemtype" type="int" />物品类型
+		<variable name="limitmin" type="int" />条件下限
+		<variable name="limitmax" type="int" />条件上限
+		<variable name="currpage" type="int" validator="value=[1,)"/>当前页
+		<variable name="totalpage" type="int" validator="value=[1,)"/>总页数
+		<variable name="goodslist" type="vector" value="MarketGoods"/>查看物品列表
+		<variable name="priceSort" type="int" validator="value=[1,2]"/>价格排序  1升序  2降序
+	</protocol>
+
+	<!--摆摊购买-->
+	<protocol name="CMarketBuy" type="24209" maxsize="65535" prior="1" tolua="3">
+		<variable name="id" type="long" />唯一id(浏览时候发给的id)
+		<variable name="saleRoleid" type="long"/>卖家角色id
+		<variable name="itemid" type="int"/>道具id
+		<variable name="num" type="int"/>数量
+	</protocol>
+
+	<protocol name="SMarketBuy" type="24210" maxsize="65535" prior="1" tolua="3">
+		<variable name="id" type="long" />唯一id(浏览时候发给的id)
+		<variable name="surplusnum" type="int" />购买完后剩余数量
+	</protocol>
+
+
+	<!--摆摊上架-->
+	<protocol name="CMarketUp" type="24211" maxsize="65535" prior="1" tolua="3">
+		<variable name="containertype" type="int" validator="value=[1,2]"/> 1背包 2宠物栏
+		<variable name="key" type="int"/> 背包或宠物栏中的key
+		<variable name="num" type="int"/>数量
+		<variable name="price" type="int"/>价格
+	</protocol>
+
+	<!--摆摊下架-->
+	<protocol name="CMarketDown" type="24212" maxsize="65535" prior="1" tolua="3">
+		<variable name="downtype" type="int" validator="value=[1,2]"/>下架类型1道具,2宠物
+		<variable name="key" type="int"/> 摆摊容器中的key
+	</protocol>
+
+	<!-- 摆摊交易记录 -->
+	<protocol name="CMarketTradeLog" type="24213" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<protocol name="SMarketTradeLog" type="24214" maxsize="65535" prior="1" tolua="3">
+		<variable name="buylog" type="vector" value="LogBean"/> 买记录
+		<variable name="salelog" type="vector" value="LogBean"/>卖记录
+	</protocol>
+
+	<bean name="LogBean">
+		<variable name="itemid" type="int"/>道具id
+		<variable name="num" type="int"/>数量
+		<variable name="price" type="int"/>价格
+		<variable name="level" type="int"/>等级或品质
+	</bean>
+
+	<!--摆摊容器浏览-->
+	<protocol name="CMarketContainerBrowse" type="24215" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<protocol name="SMarketContainerBrowse" type="24216" maxsize="65535" prior="1" tolua="3">
+		<variable name="actiontype" type="int" validator="value=[1,3]"/> 状态 1容器，2购买关注，3公示关注
+		<variable name="goodslist" type="vector" value="MarketGoods" />道具信息
+	</protocol>
+
+	<!--宠物tips-->
+	<protocol name="CMarketPetTips" type="24217" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long"/>角色id
+		<variable name="key" type="int"/> 摆摊容器中的key
+		<variable name="tipstype" type="int"/>显示tips类型
+	</protocol>
+
+	<protocol name="SMarketPetTips" type="24218" maxsize="65535" prior="1" tolua="3">
+		<variable name="pettips" type="fire.pb.Pet"/>宠物信息
+		<variable name="tipstype" type="int"/>显示tips类型
+	</protocol>
+
+	<!--获取摆摊上架价格-->
+	<protocol name="CGetMarketUpPrice" type="24219" maxsize="65535" prior="1" tolua="3">
+		<variable name="containertype" type="int" validator="value=[1,4]"/> 1背包 2宠物栏 3拍卖宠物栏 4拍卖背包
+		<variable name="key" type="int"/> 摆摊容器中的key
+	</protocol>
+
+	<protocol name="SGetMarketUpPrice" type="24220" maxsize="65535" prior="1" tolua="3">
+		<variable name="containertype" type="int" validator="value=[1,4]"/> 1背包 2宠物栏 3拍卖宠物栏 4拍卖背包
+		<variable name="price" type="int"/> 推荐价格
+		<variable name="stallprice" type="int"/> 摊位费
+		<variable name="recommendations" type="vector" value="int"/> 推荐价格
+	</protocol>
+
+	<!-- 货币兑换 -->
+	<protocol name="CExchangeCurrency" type="24221" maxsize="65535" prior="1" tolua="3">
+		<variable name="srcmoneytype" type="int" validator="value=[1,10]"/>源类型 参考game.xml中MoneyType
+		<variable name="dstmoneytype" type="int" validator="value=[1,10]"/>目标类型 参考game.xml中MoneyType
+		<variable name="money" type="int" validator="value=[1,)"/> 数量
+	</protocol>
+	
+	<!-- 上架珍品成功 -->
+	<protocol name="SMarketUpSucc" type="24222" maxsize="65535" prior="1" tolua="3">
+		<variable name="israrity" type="int" validator="value=[0,1]"/> 0非珍品 1珍品
+	</protocol>
+
+	<!--兑换商店协议-->
+	<protocol name="CExchangeShop" type="24223" maxsize="65535" prior="1" tolua="3">
+			<variable name="shopid" type="int"/> 商店序号
+			<variable name="goodsid" type="int" validator="value=[0,)" /> 商品id
+			<variable name="num" type="int" validator="value=[1,)" /> 买卖数量
+			<variable name="buytype" type="int" validator="value=[0,11]"/>	购买类型
+	</protocol>
+
+	<!--摆摊重新上架-->
+	<protocol name="CReMarketUp" type="24224" maxsize="65535" prior="1" tolua="3">
+		<variable name="itemtype" type="int" validator="value=[1,3]"/> 1普通道具 2宠物 3装备
+		<variable name="id" type="long"/>唯一id(是我服务器数据库的id,传给前端的目的是在重新上架物品时给我返回)
+		<variable name="money" type="int" validator="value=[1,)"/> 价钱
+	</protocol>
+
+	<!--用于客户端处理购买成功时通知-->
+	<protocol name="SNotifyBuySuccess" type="24225" maxsize="65535" prior="1" tolua="3">
+		<variable name="notifytype" type="int" validator="value=[1,6]"/>参考ShopBuyType
+		<variable name="name" type="string"/>名称
+		<variable name="number" type="int"/>数量
+		<variable name="money" type="int"/>金额
+		<variable name="currency" type="int"/>参考MoneyType
+		<variable name="itemorpet" type="int"/>1道具 2宠物
+		<variable name="units" type="string"/>单位
+	</protocol>
+	
+	<!--关注或取消关注商品-->
+	<protocol name="CAttentionGoods" type="24226" maxsize="65535" prior="1" tolua="3">
+		<variable name="attentype" type="int"/>关注状态 1购买，2公示
+		<variable name="id" type="long"/>唯一id(是服务器数据库的id)
+		<variable name="attentiontype" type="int" validator="value=[1,2]"/>关注类型 1关注  2取消关注
+		<variable name="itemtype" type="int" validator="value=[1,3]"/> 1普通道具 2宠物 3装备
+	</protocol>
+
+	<protocol name="SAttentionGoods" type="24227" maxsize="65535" prior="1" tolua="3">
+		<variable name="attentype" type="int"/>关注状态 1购买，2公示
+		<variable name="id" type="long"/>唯一id(是服务器数据库的id)
+		<variable name="attentiontype" type="int" validator="value=[1,2]"/>关注类型 1关注  2取消关注
+		<variable name="itemtype" type="int" validator="value=[1,3]"/> 1普通道具 2宠物 3装备
+	</protocol>
+
+	<!--摆摊关注浏览-->
+	<protocol name="CMarketAttentionBrowse" type="24228" maxsize="65535" prior="1" tolua="3">
+		<variable name="attentype" type="int" validator="value=[1,3]"/>关注状态 1购买，2公示
+	</protocol>
+
+	<!--摆摊珍品装备搜索-基础属性结构-->
+	<bean name="MarketSearchAttr">
+		<variable name="attrid" type="int"/> 基础属性id
+		<variable name="attrval" type="int" /> 属性最小值
+	</bean>
+	
+	<!--摆摊珍品装备搜索-->
+	<protocol name="CMarketSearchEquip" type="24229" maxsize="65535" prior="1" tolua="3">
+		<variable name="euqiptype" type="int"/>类型
+		<variable name="level" type="int"/>等级
+		<variable name="pricemin" type="int"/>最小价格
+		<variable name="pricemax" type="int"/>最大价格
+		<variable name="effect" type="int"/>特效
+		<variable name="skill" type="int"/>特技
+		<variable name="color" type="vector" value="int"/> 品质，4紫，5橙
+		<variable name="basicattr" type="vector" value="MarketSearchAttr"/> 基础属性
+		<variable name="additionalattr" type="vector" value="int"/>附加属性
+		<variable name="totalattr" type="int"/>属性总和
+		<variable name="score" type="int"/>评分
+		<variable name="sellstate" type="int"/>出售状态 1上架，2公示
+	</protocol>
+	
+	<!--摆摊宠物搜索-->
+	<protocol name="CMarketSearchPet" type="24230" maxsize="65535" prior="1" tolua="3">
+		<variable name="pettype" type="int"/>类型
+		<variable name="levelmin" type="int"/>最低等级
+		<variable name="levelmax" type="int"/>最高等级
+		<variable name="pricemin" type="int"/>最低价格
+		<variable name="pricemax" type="int"/>最高价格
+		<variable name="zizhi" type="vector" value="MarketSearchAttr"/> 资质成长
+		<variable name="skills" type="vector" value="int"/>包含技能
+		<variable name="totalskillnum" type="int"/>技能总数
+		<variable name="attr" type="vector" value="MarketSearchAttr"/> 基础属性
+		<variable name="score" type="int"/>评分
+		<variable name="sellstate" type="int"/>出售状态 1上架，2公示
+	</protocol>
+
+	<protocol name="SMarketSearchResult" type="24231" maxsize="65535" prior="1" tolua="3">
+		<variable name="browsetype" type="int" validator="value=[1,2]"/>浏览类型  1 我要购买 2公示物品
+		<variable name="firstno" type="int" validator="value=[1,20]"/> 一级页签类型
+		<variable name="twono" type="int"/> 二级页签类型
+		<variable name="threeno" type="vector" value="int"/> 三级页签类型
+		<variable name="currpage" type="int" validator="value=[1,)"/>当前页
+		<variable name="totalpage" type="int" validator="value=[1,)"/>总页数
+		<variable name="goodslist" type="vector" value="MarketGoods"/>查看物品列表
+	</protocol>
+
+	<!-- 摆摊交易记录清除 -->
+	<protocol name="CMarketCleanTradeLog" type="24232" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<!-- 聊天发送摆摊道具协议 -->
+	<protocol name="CMarketItemChatShow" type="24233" maxsize="65535" prior="1" tolua="3">
+		<variable name="id" type="long"/> 数据库唯一id
+		<variable name="itemtype" type="int" />物品类型:  1普通、2宠物、3装备 4范围
+	</protocol>
+
+	<protocol name="SMarketItemChatShow" type="24234" maxsize="65535" prior="1" tolua="3">
+		<variable name="browsetype" type="int" validator="value=[1,2]"/>浏览类型  1 我要购买 2公示物品
+		<variable name="firstno" type="int" validator="value=[1,20]"/> 一级页签类型
+		<variable name="twono" type="int"/> 二级页签类型
+		<variable name="threeno" type="vector" value="int"/> 三级页签类型
+		<variable name="id" type="long"/> 数据库唯一id
+		<variable name="currpage" type="int" validator="value=[1,)"/>当前页
+		<variable name="totalpage" type="int" validator="value=[1,)"/>总页数
+		<variable name="goodslist" type="vector" value="MarketGoods"/>查看物品列表
+	</protocol>
+
+	<!-- 拍卖临时背包,合服后浏览道具 -->
+	<protocol name="STempMarketContainer" type="24235" maxsize="65535" prior="1" tolua="3">
+		<variable name="goodslist" type="vector" value="TempMarketContainerGoods"/>
+	</protocol>
+
+	<!-- 拍卖临时背包,合服后取出道具请求 -->
+	<protocol name="CTakeBackTempMarketContainerItem" type="24236" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<!-- 拍卖临时背包,合服后取出道具回复 -->
+	<protocol name="STakeBackTempMarketContainerItem" type="24237" maxsize="65535" prior="1" tolua="3">
+		<variable name="succ" type="int" validator="value=[0,1]"/> 0失败，1成功
+	</protocol>
+
+	<!-- 金币订单 -->
+	<bean name="GoldOrder">
+		<variable name="pid" type="long" default="0"/>订单编号
+		<variable name="number" type="long" default="0"/>金币数量, 整数
+		<variable name="price" type="long" default="0"/>出售价格, 整数, 单位人民币分
+		<variable name="publicity" type="int" default="0"/>公示时间, 整数, 单位小时.如果不需要公示传0
+		<variable name="locktime" type="int" default="0"/>锁定订单时间,单位秒.锁定时不能下架
+		<variable name="state" type="int" default="0"/>订单状态, 1在售, 2锁定, 3已售, 4待领取, 5领取完成
+		<variable name="time" type="long" default="0"/>订单创建时间,单位毫秒
+	</bean>
+	
+	<!-- 金币订单上架 -->
+	<protocol name="CGoldOrderUpBlackMarket" type="24238" maxsize="65535" prior="1" tolua="3">
+		<variable name="goldnumber" type="long" validator="value=[0,]"/> 金币数量, 整数
+		<variable name="rmb" type="long" validator="value=[0,]"/> 出售价格, 整数, 单位人民币分
+	</protocol>
+
+	<!-- 金币订单下架 -->
+	<protocol name="CGoldOrderDownBlackMarket" type="24239" maxsize="65535" prior="1" tolua="3">
+		<variable name="pid" type="long" validator="value=[0,]"/> 订单编号
+	</protocol>
+
+	<!-- 金币订单取出金币 -->
+	<protocol name="CGoldOrderTakeOutBlackMarket" type="24240" maxsize="65535" prior="1" tolua="3">
+		<variable name="pid" type="long" validator="value=[0,]"/> 订单编号
+	</protocol>
+
+	<!-- 金币订单浏览 -->
+	<protocol name="CGoldOrderBrowseBlackMarket" type="24241" maxsize="65535" prior="1" tolua="3">
+	</protocol>
+
+	<protocol name="SGoldOrderBrowseBlackMarket" type="24242" maxsize="65535" prior="1" tolua="3">
+		<variable name="salelist" type="vector" value="GoldOrder"/> 售卖列表
+		<variable name="buylist" type="vector" value="GoldOrder"/> 购买列表
+	</protocol>
+
+	<!-- 添加新订单 -->
+	<protocol name="SGoldOrderUpBlackMarket" type="24243" maxsize="65535" prior="1" tolua="3">
+		<variable name="order" type="GoldOrder"/> 新订单
+	</protocol>
+	
+	<!-- 更新订单状态 -->
+	<protocol name="SRefreshGoldOrderState" type="24244" maxsize="65535" prior="1" tolua="3">
+		<variable name="pid" type="long" validator="value=[0,]"/> 订单编号
+		<variable name="state" type="int" validator="value=[0,]"/>订单状态, 1在售, 2锁定, 3已售, 4待领取, 5领取完成
+	</protocol>
+	
+	<!-- 删除订单 -->
+	<protocol name="SGoldOrderDownBlackMarket" type="24245" maxsize="65535" prior="1" tolua="3">
+		<variable name="pid" type="long" validator="value=[0,]"/> 订单编号
+	</protocol>
+	
+</namespace>

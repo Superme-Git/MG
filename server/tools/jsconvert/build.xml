@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="jsconvert" default="dist">
+	<property name="src" value="src/" />
+	<property name="build" value="bin/" />
+	<property name="dist" value="dist/" />
+	<property name="lib" value="lib/" />
+	<property name="servdir" value="../../server/game_server/gs" />
+
+	<target name="init" depends="clean">
+		<mkdir dir="${build}" />
+		<!--mkdir dir="${dist}" /-->
+	</target>
+	
+	<target name="compile" depends="init">
+		<path id="classpath">
+			<fileset dir="${lib}">
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<javac encoding="UTF-8"  destdir="${build}" debug="true" debuglevel="lines,source" includeAntRuntime="false">
+			<src path="beans" />
+			<src path="${src}" />
+			<src path="confsrc" />
+			<classpath refid="classpath"/>
+		</javac>
+		<jar jarfile="${servdir}/jsconvert.jar" basedir="${build}" manifest="src/MANIFEST.MF" />
+	</target>
+
+	<target name="dist" depends="compile">
+		<!--不再生成编译版本gsdebug.jar-->
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+</project>

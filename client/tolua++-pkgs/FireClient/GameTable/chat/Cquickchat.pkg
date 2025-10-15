@@ -1,0 +1,21 @@
+namespace GameTable
+{
+    namespace chat
+    {
+        class Cquickchat
+        {
+            public:
+            int id;
+            std::wstring tips;
+        };
+        class CquickchatTable
+        {
+            public:
+        Cquickchat& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CquickchatTable&  GetCquickchatTableInstance();
+    }
+}

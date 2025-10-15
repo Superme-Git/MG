@@ -1,0 +1,422 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{472DAB5C-58E3-4025-B284-F8458130C72F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUIEditor2</RootNamespace>
+    <AssemblyName>GUIEditor</AssemblyName>
+    <StartupObject>GUIEditor2.Program</StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>GUIEditor.ico</ApplicationIcon>
+    <PublishUrl>D:\release2\launcher_ep02\launcher\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>GUIEditor2</ProductName>
+    <PublisherName>LocoJoy</PublisherName>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SlimDX, Version=2.0.5.39, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SlimDX\SlimDX.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Component.cs" />
+    <Compile Include="Component\ComponentAppleMenu.cs" />
+    <Compile Include="Component\ComponentButtonCheck.cs" />
+    <Compile Include="Component\ComponentButtonRadio.cs" />
+    <Compile Include="ComponentContainer.cs" />
+    <Compile Include="ComponentDesktop.cs" />
+    <Compile Include="ComponentDesktopImage.cs" />
+    <Compile Include="Component\ComponentBase.cs" />
+    <Compile Include="Component\ComponentButtonImage.cs" />
+    <Compile Include="Component\ComponentButtonText.cs" />
+    <Compile Include="Component\ComponentComboBox.cs" />
+    <Compile Include="Component\ComponentEdit.cs" />
+    <Compile Include="Component\ComponentFrame.cs" />
+    <Compile Include="Component\ComponentImage.cs" />
+    <Compile Include="Component\ComponentListBox.cs" />
+    <Compile Include="Component\ComponentPanel.cs" />
+    <Compile Include="Component\ComponentProgressBar.cs" />
+    <Compile Include="Component\ComponentScrollBar.cs" />
+    <Compile Include="Component\ComponentSliderBar.cs" />
+    <Compile Include="Component\ComponentStatic.cs" />
+    <Compile Include="Component\ComponentTab.cs" />
+    <Compile Include="Component\ComponentTable.cs" />
+    <Compile Include="Component\ComponentText.cs" />
+    <Compile Include="Component\FormAppleMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormAppleMenu.Designer.cs">
+      <DependentUpon>FormAppleMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormButtonCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormButtonCheck.Designer.cs">
+      <DependentUpon>FormButtonCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormButtonImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormButtonImage.Designer.cs">
+      <DependentUpon>FormButtonImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormButtonRadio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormButtonRadio.Designer.cs">
+      <DependentUpon>FormButtonRadio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormButtonText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormButtonText.Designer.cs">
+      <DependentUpon>FormButtonText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormComboBox.Designer.cs">
+      <DependentUpon>FormComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormDesktop.Designer.cs">
+      <DependentUpon>FormDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormEdit.Designer.cs">
+      <DependentUpon>FormEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormFrame.Designer.cs">
+      <DependentUpon>FormFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormImage.Designer.cs">
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormListBox.Designer.cs">
+      <DependentUpon>FormListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormPanel.Designer.cs">
+      <DependentUpon>FormPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormProgressBar.Designer.cs">
+      <DependentUpon>FormProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormScrollBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormScrollBar.Designer.cs">
+      <DependentUpon>FormScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormSliderBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormSliderBar.Designer.cs">
+      <DependentUpon>FormSliderBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormStatic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormStatic.Designer.cs">
+      <DependentUpon>FormStatic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormTab.Designer.cs">
+      <DependentUpon>FormTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormTable.Designer.cs">
+      <DependentUpon>FormTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Component\FormText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Component\FormText.Designer.cs">
+      <DependentUpon>FormText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontProfile.cs" />
+    <Compile Include="FormColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormColor.Designer.cs">
+      <DependentUpon>FormColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainFont.Designer.cs">
+      <DependentUpon>FormMainFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainImage.Designer.cs">
+      <DependentUpon>FormMainImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRenderFont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormRenderFont.Designer.cs">
+      <DependentUpon>FormRenderFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRenderImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormRenderImage.Designer.cs">
+      <DependentUpon>FormRenderImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormScrollBarApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScrollBarApply.Designer.cs">
+      <DependentUpon>FormScrollBarApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting.Designer.cs">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Render.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Component\FormAppleMenu.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAppleMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormButtonCheck.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormButtonCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormButtonImage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormButtonImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormButtonRadio.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormButtonRadio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormButtonText.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormButtonText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormComboBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormDesktop.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormFrame.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormImage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormListBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormProgressBar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormScrollBar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormScrollBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormSliderBar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormSliderBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormStatic.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormStatic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormTab.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Component\FormText.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormColor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainFont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMainFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainImage.resx">
+      <DependentUpon>FormMainImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRenderFont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormRenderFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRenderImage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormRenderImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScrollBarApply.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormScrollBarApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRender.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormRender.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="doc\Example.xls" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="FormRender.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormRender.Designer.cs">
+      <DependentUpon>FormRender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScrollBarProfile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="doc\Example.xml" />
+    <Content Include="doc\GUIEditor2.txt" />
+    <Content Include="GUIEditor.ico" />
+    <Content Include="GUIEditor16x16.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

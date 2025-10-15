@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="pfs\src\base\mountmanager.cpp" />
+    <ClCompile Include="pfs\src\utility\pfsutility.cpp" />
+    <ClCompile Include="pfs\src\utility\fileex.cpp" />
+    <ClCompile Include="pfs\src\base\pfsenv.cpp" />
+    <ClCompile Include="pfs\src\base\packetfilesystem.cpp" />
+    <ClCompile Include="pfs\src\native\native.cpp" />
+    <ClCompile Include="pfs\src\native\nativefile.cpp" />
+    <ClCompile Include="pfs\src\pfsx\asyncread.cpp" />
+    <ClCompile Include="pfs\src\base\pfs.cpp" />
+    <ClCompile Include="pfs\src\base\pfsbase.cpp" />
+    <ClCompile Include="pfs\src\meta\metafileio.cpp" />
+    <ClCompile Include="pfs\src\meta\setupmetafile.cpp" />
+    <ClCompile Include="pfs\src\native\rawfileio.cpp" />
+    <ClCompile Include="pfs\src\native\tempfile.cpp" />
+    <ClCompile Include="pfs\src\pfsx\Translate.cpp" />
+    <ClCompile Include="pfs\src\utility\filemarshal.cpp" />
+    <ClCompile Include="pfs\src\utility\stringhelper.cpp" />
+    <ClCompile Include="pfs\src\utility\md5hash.cpp" />
+    <ClCompile Include="pfs\src\zip\nativezipfile.cpp" />
+    <ClCompile Include="pfs\src\zip\ziphelper.cpp" />
+    <ClCompile Include="pfs\src\zip\ziptempfile.cpp" />
+    <ClCompile Include="pfs\src\zip\zipfile.cpp" />
+    <ClCompile Include="pfs\src\zip\zip.cpp" />
+    <ClCompile Include="pfs\src\zip\arrangezip.cpp" />
+    <ClCompile Include="pfs\src\runzip\runzip.cpp" />
+    <ClCompile Include="pfs\src\runzip\runzipfile.cpp" />
+    <ClCompile Include="pfs\contrib\encode\md5.c" />
+    <ClCompile Include="pfs\contrib\encode\crc32.c" />
+    <ClCompile Include="pfs\contrib\encode\base64.c" />
+    <ClCompile Include="pfs\src\utility\streamfactory.cpp" />
+    <ClCompile Include="pfs\pfsx\x2o\X2OTranslator.cpp" />
+    <ClCompile Include="pfs\pfsx\zip\ZipTranslator.cpp" />
+    <ClCompile Include="pfs\src\meta\versionmetafile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="pfs\mountmanager.h" />
+    <ClInclude Include="pfs\pfs.h" />
+    <ClInclude Include="pfs\pfs2.h" />
+    <ClInclude Include="pfs\pfsenv.h" />
+    <ClInclude Include="pfs\pfsutility.h" />
+    <ClInclude Include="pfs\src\common.h" />
+    <ClInclude Include="pfs\fileex.h" />
+    <ClInclude Include="pfs\nativefile.h" />
+    <ClInclude Include="pfs\src\base\packetfilesystem.h" />
+    <ClInclude Include="pfs\src\native\native.h" />
+    <ClInclude Include="pfs\nativezipfile.h" />
+    <ClInclude Include="pfs\asyncread.h" />
+    <ClInclude Include="pfs\contrib\encode\md5.h" />
+    <ClInclude Include="pfs\appversionmetafile.h" />
+    <ClInclude Include="pfs\Device.h" />
+    <ClInclude Include="pfs\filemarshal.h" />
+    <ClInclude Include="pfs\filesmetafile.h" />
+    <ClInclude Include="pfs\Marshal.h" />
+    <ClInclude Include="pfs\setupmetafile.h" />
+    <ClInclude Include="pfs\stringhelper.h" />
+    <ClInclude Include="pfs\versionmetafile.h" />
+    <ClInclude Include="pfs\util_android.h" />
+    <ClInclude Include="pfs\translate.h" />
+    <ClInclude Include="pfs\src\base\pfsbase.h" />
+    <ClInclude Include="pfs\src\meta\metafileio.h" />
+    <ClInclude Include="pfs\src\native\rawfileio.h" />
+    <ClInclude Include="pfs\src\native\tempfile.h" />
+    <ClInclude Include="pfs\src\pfsx\PriorityQueue.h" />
+    <ClInclude Include="pfs\src\utility\md5hash.h" />
+    <ClInclude Include="pfs\contrib\encode\base64.h" />
+    <ClInclude Include="pfs\contrib\encode\crc32.h" />
+    <ClInclude Include="pfs\contrib\encode\encryption_com.h" />
+    <ClInclude Include="pfs\src\zip\ziphelper.h" />
+    <ClInclude Include="pfs\src\zip\ziptempfile.h" />
+    <ClInclude Include="pfs\src\zip\zipfile.h" />
+    <ClInclude Include="pfs\src\zip\zip.h" />
+    <ClInclude Include="pfs\src\zip\arrangezip.h" />
+    <ClInclude Include="pfs\src\runzip\runzip.h" />
+    <ClInclude Include="pfs\src\runzip\runzipfile.h" />
+    <ClInclude Include="pfs\streamfactory.h" />
+    <ClInclude Include="pfs\pfsx\x2o\X2OTranslator.h" />
+    <ClInclude Include="pfs\pfsx\zip\ZipTranslator.h" />
+    <ClInclude Include="pfs\src\zipcommon.h" />
+  </ItemGroup>
+</Project>

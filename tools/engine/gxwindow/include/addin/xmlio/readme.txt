@@ -1,0 +1,3 @@
+基于xmlio的xmltextdecoder和文本格式载入, 如客户端工程引入Nuclear, 
+可以直接使用这几个文件否则请把文件复制到具体工程目录下, 并根据需要
+修改include头文件路径

@@ -1,0 +1,12 @@
+"id","事件名称","类型","事件条件","所属副本","事件结果","积分"
+"210001","战斗-1","3","battleid=8502;battleresult=1","110","saveid=1;subsaveid=10001;subsavecount=1","0"
+"210002","战斗-2","3","battleid=8503;battleresult=1","110","saveid=1;subsaveid=10002;subsavecount=1","0"
+"210003","战斗-3","3","battleid=8504;battleresult=1","110","saveid=1;subsaveid=10003;subsavecount=1","0"
+"210004","战斗-4","3","battleid=8505;battleresult=1","110","saveid=1;subsaveid=10004;subsavecount=1","0"
+"210005","战斗-5","3","battleid=8506;battleresult=1","110","saveid=1;subsaveid=10005;subsavecount=1","0"
+"210006","战斗-6","3","battleid=8507;battleresult=1","110","saveid=2;subsaveid=10006;subsavecount=1","0"
+"210007","战斗-7","3","battleid=8508;battleresult=1","110","saveid=2;subsaveid=10006;subsavecount=1","0"
+,"",,,,,
+,"",,,,,
+,"",,,,,
+,"",,,,,

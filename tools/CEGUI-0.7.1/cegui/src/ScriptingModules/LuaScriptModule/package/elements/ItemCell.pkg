@@ -1,0 +1,115 @@
+/***********************************************************************
+	ItemCell
+***********************************************************************/
+enum ItemCellTextType         //cell“ªπ≤”–
+{
+	ItemCellTextType_LeftTop,  //Œƒ◊÷‘⁄◊Û…œΩ«
+	ItemCellTextType_RightBottom,//Œƒ◊÷‘⁄”“œ¬Ω«
+	ItemCellTextType_Center,
+	ItemCellTextType_NUM
+};
+
+enum ItemCellStyle	//by liugeng
+{
+	ItemCellStyle_IconInside,
+	ItemCellStyle_IconExtend	//used for pet, assist hero, etc. the ear or hair will beyond the bound of itemcell
+};
+
+struct ItemCellTextUnit 
+{
+	string Text;
+	ItemCellTextType type;
+	colour color;
+
+	ItemCellTextUnit();
+};
+
+class ItemCell : public Window
+{
+public:
+	// ycl: events
+	static const string EventNamespace;     //!< Namespace for global events
+	static const string EventCellClick;    //!< click events
+	static const string EventCellLongPressBegan;   //!< long press events;
+	static const string EventCellLongPressMove;   //!< long press events;
+	static const string EventCellLongPressEnded;   //!< long press events;
+	static const string EventLockCellClick;    //!< click events
+	static const string EventCellDoubleClick;
+	static const string EventCellMaskClick;
+
+    void SetImage( const Image* image);
+	bool testClassName_impl(const string& class_name) const;
+
+	void SetImage(string ImagesetName,string ImageName);
+	void SetMaskImage(int index, const String& imagesetName, const String& imageName);
+	void SetMaskImage(int index, const string& imagesetName, const string& imageName);
+	void ClearMaskImage(int id);
+	void ClearAllMaskImage();
+    void SetTextUnit(string text,ItemCellTextType type=ItemCellTextType_RightBottom,CEGUI::colour color=colour(1.0f,1.0f,1.0f,1.0) );
+	void SetTextUnitColor(CEGUI::colour color);
+	void SetSelected(bool bSelect);
+	void setProperty(string name, string value);
+	unsigned int getID(void) const;
+    bool isSelected();
+	void SetSelected(bool bSelect);
+	void SetMutiSelected(bool bSelect);
+	bool isBackGroundEnable();
+	void SetBackGroundEnable(bool bEnable);
+	int GetCellTypeMask();
+	void SetCellTypeMask(int mask);
+	bool IsLock();
+	void SetLockState(bool block);
+	void SetHaveSelectedState(bool bHaveSelected);
+	void SetBackGroundImage(const Image* image);
+	void SetBackGroundImage(string imageset, string ImageName);
+	bool IsHaveBackGroundImage();
+	void SetEquipColorImage(const Image* image);
+	void SetEquipColorImage(string imageset, string ImageName);
+	void SetCornerImage(const Image* image);
+	void SetCornerImage(string imageset, string ImageName);
+	void Clear();
+	bool HasFloodLight();
+	void SetFloodLight(bool bHasFloodLight);
+	bool isImageAutoScale();
+	void SetImageAutoScale(bool bAutoScale);
+	bool isBtnVisible();
+	void SetBtnVisible(bool visible);
+	void SetTextUnitText(CEGUI::String text);
+	void SetTextUnitText(CEGUI::String text,ItemCellTextType type=ItemCellTextType_RightBottom, int offect = 0);
+	void SetTextUnitText(string text);
+	void SetTextUnitText(string text,ItemCellTextType type=ItemCellTextType_RightBottom);
+	size_t GetIndex();
+	void SetIndex(size_t index);
+	void SetCornerImageAtPos(const Image* image, int pos, float scale);
+	void SetCornerImageAtPos(string imageset, string ImageName, int pos, float scale); //四个角的图标，0左上，1右上，2右下，3左下
+	void SetCornerImageAtPos(string imageset, string ImageName, int pos, float scale, float xoffset=0.0f); //四个角的图标，0左上，1右上，2右下，3左下
+	void SetCornerImageAtPos(string imageset, string ImageName, int pos, float scale, float xoffset=0.0f, float yoffset=0.0f); //四个角的图标，0左上，1右上，2右下，3左下
+	void SetImagePosOffset(int offset);
+	void setMouseOnThisCell(bool bMouseOn);
+	bool isEnableMaskClick();
+	void SetEnableMaskClick(bool enable);
+	void ClearCornerImage(int pos);
+	void SetStyle(int style);
+	int GetStyle()const;
+	void ClearBackUpImage();
+	void SetBackUpImage(string imageset, string ImageName);
+	const Image* GetImage();
+	void SetImagePosOffsetScale(float scale);
+	float GetImagePosOffsetScale();
+	int GetImagePosOffset();
+	const Image* GetMaskImage(int id);
+	bool isMouseOnThisCell();
+	CEGUI::ItemCellTextUnit* GetTextUnit();
+	CEGUI::ItemCellTextUnit* GetTextUnit(ItemCellTextType type=ItemCellTextType_RightBottom);
+	CEGUI::Point GetTextUnitDrawPos(const Rect& rect); //获得
+	CEGUI::Point GetTextUnitDrawPos(const Rect& rect,ItemCellTextType type=ItemCellTextType_RightBottom); //获得
+	bool IsAshy();
+	void SetAshy(bool bAshy);
+	const Image* GetBackIamge() const;
+	const Image* GetColorImage() const;
+	const Image* GetCornerImage() const;
+	const Image* GetCornerImageAtPos(int pos);
+	float GetCornerImageScaleAtPos(int pos);
+	CEGUI::Point GetConerImageOffsetAtPos(int pos);
+	const Image* GetBackUpImage();
+};

@@ -1,0 +1,426 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\ShopEditor.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ShopEditor.ico"
+IDR_ShopEditorTYPE      ICON                    "res\\ShopEditorDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_ITEM_MOVEUP
+    BUTTON      ID_ITEM_MOVEDOWN
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",              ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",           ID_FILE_OPEN
+        MENUITEM "保存(&S)\tCtrl+S",              ID_FILE_SAVE
+        MENUITEM "另存为(&A)...",                  ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "最近文件列表",                      ID_FILE_MRU_FILE1
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&x)",                      ID_APP_EXIT
+    END
+    POPUP "编辑(&E)"
+    BEGIN
+        MENUITEM "添加大类",                        ID_CATEGORY_ADD
+        MENUITEM "添加小类",                        ID_SMALLCATEGORY_ADD
+        MENUITEM "删除类别",                        ID_CATEGORY_DELETE
+        MENUITEM "重命名类别",                       ID_CATEGORY_RENAME
+        MENUITEM SEPARATOR
+        MENUITEM "添加物品",                        ID_SHOPITEM_ADD
+        MENUITEM "删除物品",                        ID_SHOPITEM_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "上移",                          ID_ITEM_MOVEUP
+        MENUITEM "下移",                          ID_ITEM_MOVEDOWN
+        MENUITEM SEPARATOR
+        MENUITEM "移动到...",                      ID_ITEM_MOVETO
+        MENUITEM "复制到...",                      ID_SHOPITEM_COPYTO
+    END
+    POPUP "视图(&V)"
+    BEGIN
+        MENUITEM "工具条(&T)",                     ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                     ID_VIEW_STATUS_BAR
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于商城数据编辑器(&A)...",            ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_BIGCATEGORY MENU 
+BEGIN
+    POPUP "编辑类别"
+    BEGIN
+        MENUITEM "添加大类",                        ID_CATEGORY_ADD
+        MENUITEM "添加小类",                        ID_SMALLCATEGORY_ADD
+        MENUITEM "删除类别",                        ID_CATEGORY_DELETE
+        MENUITEM "重命名类别",                       ID_CATEGORY_RENAME
+        MENUITEM SEPARATOR
+        MENUITEM "上移",                          ID_CATEGORY_MOVEUP
+        MENUITEM "下移",                          ID_CATEGORY_MOVEDOWN
+    END
+END
+
+IDR_MENU_SHOPITEM MENU 
+BEGIN
+    POPUP "编辑物品"
+    BEGIN
+        MENUITEM "添加物品",                        ID_SHOPITEM_ADD
+        MENUITEM "删除物品",                        ID_SHOPITEM_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "上移",                          ID_SHOPITEM_MOVEUP
+        MENUITEM "下移",                          ID_SHOPITEM_MOVEDOWN
+        MENUITEM SEPARATOR
+        MENUITEM "转移到...",                      ID_SHOPITEM_MOVETO
+        MENUITEM "复制到...",                      ID_SHOPITEM_COPYTO
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_ITEM_ADD,            VIRTKEY, NOINVERT
+    VK_DELETE,      ID_ITEM_DELETE,         VIRTKEY, NOINVERT
+    VK_F2,          ID_ITEM_RENAME,         VIRTKEY, NOINVERT
+    VK_UP,          ID_ITEM_MOVEUP,         VIRTKEY, CONTROL, NOINVERT
+    VK_DOWN,        ID_ITEM_MOVEDOWN,       VIRTKEY, CONTROL, NOINVERT
+    VK_HOME,        ID_RECORD_FIRST,        VIRTKEY, CONTROL, NOINVERT
+    VK_END,         ID_RECORD_LAST,         VIRTKEY, CONTROL, NOINVERT
+    VK_HOME,        ID_COLUMN_FIRST,        VIRTKEY, NOINVERT
+    VK_END,         ID_COLUMN_LAST,         VIRTKEY, NOINVERT
+    VK_TAB,         ID_COLUMN_NEXT,         VIRTKEY, NOINVERT
+    VK_TAB,         ID_COLUMN_PREV,         VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 285, 124
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于商城数据编辑器"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,20
+    LTEXT           "商城数据编辑器 Version 1.0",IDC_STATIC,40,10,219,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009 王早",IDC_STATIC,40,25,238,8
+    DEFPUSHBUTTON   "OK",IDOK,228,7,50,16,WS_GROUP
+    LTEXT           "商城数据编辑器 Version 1.1 - 实现对象复制到另一个大类。",IDC_STATIC,40,42,238,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010 刘东学",IDC_STATIC,40,85,238,8
+    LTEXT           "商城数据编辑器 Version 1.2 - 实现选中多个对象的移动。",IDC_STATIC,40,56,238,8,SS_NOPREFIX
+    LTEXT           "商城数据编辑器 Version 1.3 - 实现双层目录结构",IDC_STATIC,40,71,238,8,SS_NOPREFIX
+END
+
+IDD_DIALOG_RIGHT DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SHOWSELALWAYS | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,22,18,97,54
+END
+
+IDD_DIALOG_SELECTCATEGORY DIALOGEX 0, 0, 290, 238
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "选择移动到的类别"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,74,217,50,14
+    PUSHBUTTON      "取消",IDCANCEL,187,217,50,14
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,7,7,276,193
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,3
+ PRODUCTVERSION 1,0,0,3
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "乐动卓越科技有限公司"
+            VALUE "FileDescription", "魔幻修仙商城数据编辑器"
+            VALUE "FileVersion", "1.0.0.3"
+            VALUE "InternalName", "ShopEditor.exe"
+            VALUE "LegalCopyright", "版权所有(c) 乐动卓越科技有限公司。保留所有权利。"
+            VALUE "OriginalFilename", "ShopEditor.exe"
+            VALUE "ProductName", "魔幻修仙"
+            VALUE "ProductVersion", "1.0.0.3"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 278
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
+
+    IDD_DIALOG_RIGHT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_DIALOG_SELECTCATEGORY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 231
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "商城数据编辑器\n\n\nxml files(*.xml)\n.xml\nShopEditor.xml\nShopEditor.xml"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "商城数据编辑器"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "创建新文件\n新建"
+    ID_FILE_OPEN            "打开已存在的文件\n打开"
+    ID_FILE_CLOSE           "关闭当前的文件\n关闭"
+    ID_FILE_SAVE            "保存当前的文件\n保存"
+    ID_FILE_SAVE_AS         "将当前编辑的文件另存到指定位置\n另存为"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息、版本数据和版权信息\n关于"
+    ID_APP_EXIT             "退出程序并提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开这个文件"
+    ID_FILE_MRU_FILE2       "打开这个文件"
+    ID_FILE_MRU_FILE3       "打开这个文件"
+    ID_FILE_MRU_FILE4       "打开这个文件"
+    ID_FILE_MRU_FILE5       "打开这个文件"
+    ID_FILE_MRU_FILE6       "打开这个文件"
+    ID_FILE_MRU_FILE7       "打开这个文件"
+    ID_FILE_MRU_FILE8       "打开这个文件"
+    ID_FILE_MRU_FILE9       "打开这个文件"
+    ID_FILE_MRU_FILE10      "打开这个文件"
+    ID_FILE_MRU_FILE11      "打开这个文件"
+    ID_FILE_MRU_FILE12      "打开这个文件"
+    ID_FILE_MRU_FILE13      "打开这个文件"
+    ID_FILE_MRU_FILE14      "打开这个文件"
+    ID_FILE_MRU_FILE15      "打开这个文件"
+    ID_FILE_MRU_FILE16      "打开这个文件"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具条\n切换工具条"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_ITEM_ADD             "新建项目。"
+    ID_ITEM_MOVEUP          "上移选中项目。"
+    ID_ITEM_MOVEDOWN        "下移选中项目。"
+    ID_ITEM_MOVETO          "将选中的项目转移到指定的目录中。"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_SHOPITEM_MOVETO      "将选中的物品转移到指定的目录中。"
+    ID_SHOPITEM_COPYTO      "将选中的物品复制到指定的目录中。"
+    ID_SMALLCATEGORY_ADD    "添加子类"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\ShopEditor.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,44 @@
+准备工作：
+***********************************************
+（1）
+adb push D:\dump\tools /data/local/tmp
+
+（2）
+adb shell
+chmod 0777 /data/local/tmp/init.sh
+/data/local/tmp/init.sh
+/data/local/tmp/clear.sh
+***********************************************
+
+
+
+制作sym文件的步骤：
+***********************************************
+（1）
+adb push D:\dump\so\libgame.so /sdcard/data/dumptest
+（2）
+/data/local/tmp/dump_syms /sdcard/data/dumptest/libgame.so > /sdcard/data/dumptest/libgame.so.sym
+（3）
+adb pull /sdcard/data/dumptest/libgame.so.sym D:\dump\sym
+（4）
+rm /sdcard/data/dumptest/libgame.so
+mkdir -p /sdcard/data/dumptest/symbols/libgame.so/5A861833865451EFB6FDB3B759E649BD0
+mv /sdcard/data/dumptest/libgame.so.sym /sdcard/data/dumptest/symbols/libgame.so/5A861833865451EFB6FDB3B759E649BD0
+（5）
+adb pull /sdcard/data/dumptest D:\dump\sym
+***********************************************
+
+
+
+通用步骤：
+***********************************************
+（1）
+/data/local/tmp/clear.sh
+（2）
+adb push D:\dump\sym /sdcard/data/dumptest
+adb push D:\dump\files /sdcard/data/dumptest
+（3）
+/data/local/tmp/analyze.sh
+（4）
+adb pull /sdcard/data/dumptest D:\dump\files
+***********************************************

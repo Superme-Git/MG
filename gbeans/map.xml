@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="map"> 
+		<bean name="MapConfig" from="d地图" genxml="server">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="enterlv" type="int" fromCol="进入等级" />
+			  <variable name="minlevel" type="int" fromCol="等级限制下限" />			  
+			  <variable name="mapName" fromCol="名字"  type="String"     /> 
+			  <variable name="desc" fromCol="描述"  type="String"     /> 
+			  <variable name="safemap" fromCol="是否安全区"  type="int"/>	1为是否安全区地图，0为非是否安全区地图
+			  <variable name="dynamic" fromCol="是否副本"  type="int"/>
+			  <variable name="relocatemapid" fromCol="副本外跳转地图"  type="int"/>
+			  <variable name="relocatex" fromCol="副本外跳转X坐标"  type="int"/>
+			  <variable name="relocatey" fromCol="副本外跳转Y坐标"  type="int"/>
+			  <variable name="qinggong" fromCol="是否可无视阻挡"  type="int"/>
+			  <variable name="visibletype" fromCol="可见关系"  type="int"/>
+			  <variable name="xjPos" fromCol="默认x"  type="int"/>
+			  <variable name="yjPos" fromCol="默认y"  type="int"/>	
+			  <variable name="remap" fromCol="重定位地图"  type="int"/>
+			  <variable name="rexjPos" fromCol="重定位x坐标"  type="int"/>	
+			  <variable name="reyjPos" fromCol="重定位y坐标"  type="int"/>	  
+		</bean>
+		
+		<bean name="CMapConfig" from="d地图" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" /> id
+			<variable name="mapName" fromCol="名字"  type="String"/>
+			<variable name="mapIcon" fromCol="地图图标" type="String"/>
+			
+			<variable name="desc" fromCol="描述"  type="String"/> 
+			<variable name="resdir" fromCol="资源目录"  type="String"/> 	
+				
+			<variable name="battleground" fromCol="战斗底图"  type="int"/>
+			<variable name="width" fromCol="宽度"  type="int"/>
+			<variable name="height" fromCol="高度"  type="int"/>
+			<variable name="safemap" fromCol="是否安全区"  type="int"/>	1为是否安全区地图，0为非是否安全区地图		
+			<variable name="xjPos" fromCol="默认x"  type="int"/>
+			<variable name="yjPos" fromCol="默认y"  type="int"/>
+            <variable name="qinggong" fromCol="是否可无视阻挡"  type="int"/>			
+			<variable name="bShowInWorld" fromCol="是否显示在世界地图上"  type="bool"/>	
+			<variable name="LevelLimitMin" fromCol="等级限制下限"  type="int"/>	
+			<variable name="LevelLimitMax" fromCol="等级限制上限"  type="int"/>	
+					
+			<variable name="fightinfor" fromCol="战斗区域描述"  type="int"/>			
+			<variable name="playerPosX" fromCol="玩家所在世界地图位置左上角X坐标"  type="int"/>	
+			<variable name="playerPosY" fromCol="玩家所在世界地图位置左上角Y坐标"  type="int"/>	
+				
+			<variable name="dynamic" fromCol="是否副本"  type="int"/>
+			<variable name="fubenType" fromCol="副本类型"  type="int"/>
+			
+			
+			<variable name="music" fromCol="音效"  type="string"/>
+			<variable name="flyPosX" fromCol="飞行符传送x坐标"  type="int"/>	
+			<variable name="flyPosY" fromCol="飞行符传送y坐标"  type="int"/>
+			<variable name="sceneColor" fromCol="场景颜色"  type="string"/>
+			<variable name="jumpmappoint" fromCol="是否读取传送点文件"  type="int"/>
+			
+			<variable name="isMemVisible" fromCol="是否隐藏队员"  type="int"/>
+		</bean>
+		
+		
+		
+		
+		<bean name="SMineArea" from="a暗雷区域描述" genxml="server">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="level" type="int" fromCol="区域等级" /> 暗雷区域等级
+			  <variable name="maxLevel" type="int" fromCol="区域最高等级" /> 暗雷区域最高等级
+			  <variable name="environment" fromCol="战场环境"  type="int" />
+			  <variable name="babyrate" fromCol="宝宝战斗概率"  type="string"/> 
+			  <variable name="bossrate" fromCol="BOSS战斗概率"  type="string"/> 
+			  <variable name="specialrate" fromCol="特殊事件战斗概率"  type="string"/> 
+			  <variable name="commonrate" fromCol="普通战斗概率"  type="string"/>
+			  <variable name="specialevents" fromCol="趣味事件"  type="String"/>
+			  <variable name="pet" fromCol="宝宝1,宝宝2,宝宝3,宝宝4,宝宝5,宝宝6,宝宝7,宝宝8,宝宝9,宝宝10"  type="vector" value="int"  />
+			  <variable name="petrate" fromCol="宝宝1概率,宝宝2概率,宝宝3概率,宝宝4概率,宝宝5概率,宝宝6概率,宝宝7概率,宝宝8概率,宝宝9概率,宝宝10概率"  type="vector" value="int"  />
+			  <variable name="leader" fromCol="精英1,精英2,精英3,精英4,精英5"  type="vector" value="int"  />
+			  <variable name="leaderrate" fromCol="精英1概率,精英2概率,精英3概率,精英4概率,精英5概率"  type="vector" value="int"  />
+			  <variable name="monster" fromCol="怪物1,怪物2,怪物3,怪物4,怪物5"  type="vector" value="int"  />
+			  <variable name="monsterrate" fromCol="怪物1概率,怪物2概率,怪物3概率,怪物4概率,怪物5概率"  type="vector" value="int"  />
+			  <variable name="lootid" fromCol="掉落id"  type="int"/> 
+			  <variable name="shared" fromCol="共享掉落id" type="int"/>
+			  <variable name="bossbattleid" fromCol="BOSS战ID"  type="int"/> 
+		</bean>
+		
+		<bean name="CMineAreainfo" from="a暗雷区域描述" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="colour" fromCol="颜色信息"  type="string"/> 
+			  <variable name="discribe" fromCol="描述"  type="string"/> 	
+		</bean>
+		
+		<bean name="CShowAreainfo" from="m明雷区域描述" genxml="client" gencode="mtlua">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="colour" fromCol="颜色信息"  type="string"/> 
+			  <variable name="discribe" fromCol="描述"  type="string"/> 
+              <variable name="lootid" fromCol="掉落id"  type="int"/> 			  
+		</bean>
+		<bean name="SShowAreainfo" from="m明雷区域描述" genxml="server">
+			<variable name="id" type="int" fromCol="id"/> id
+			<variable name="environment" fromCol="战场背景"  type="int" />
+			<variable name="typelevel" type="int" fromCol="区域等级"/>
+			<variable name="maxnum" type="int" fromCol="区域出怪最大数"/>
+			<variable name="monsters" type="vector" value="int" fromCol="NPC1,NPC2,NPC3,NPC4,NPC5"/>
+			<variable name="lootid" fromCol="掉落id"  type="int"/> 	
+		</bean>
+		
+		
+		
+		
+		
+		
+		<bean name="SActivityAwardItems" from="w物品类型库" genxml="server">
+			  <variable name="id" type="int" fromCol="id" /> id
+			  <variable name="items" fromCol="物品id1,物品id2,物品id3,物品id4,物品id5,物品id6,物品id7,物品id8,物品id9,物品id10,物品id11,物品id12,物品id13,物品id14,物品id15,物品id16,物品id17,物品id18,物品id19,物品id20,物品id21,物品id22,物品id23,物品id24,物品id25,物品id26,物品id27,物品id28,物品id29,物品id30,物品id31,物品id32,物品id33,物品id34,物品id35,物品id36,物品id37,物品id38,物品id39,物品id40,物品id41,物品id42,物品id43,物品id44,物品id45,物品id46,物品id47,物品id48,物品id49,物品id50,物品id51,物品id52,物品id53,物品id54,物品id55,物品id56"  type="vector" value="int"/> 
+              <variable name="itemsrate" fromCol="物品id1权重,物品id2权重,物品id3权重,物品id4权重,物品id5权重,物品id6权重,物品id7权重,物品id8权重,物品id9权重,物品id10权重,物品id11权重,物品id12权重,物品id13权重,物品id14权重,物品id15权重,物品id16权重,物品id17权重,物品id18权重,物品id19权重,物品id20权重,物品id21权重,物品id22权重,物品id23权重,物品id24权重,物品id25权重,物品id26权重,物品id27权重,物品id28权重,物品id29权重,物品id30权重,物品id31权重,物品id32权重,物品id33权重,物品id34权重,物品id35权重,物品id36权重,物品id37权重,物品id38权重,物品id39权重,物品id40权重,物品id41权重,物品id42权重,物品id43权重,物品id44权重,物品id45权重,物品id46权重,物品id47权重,物品id48权重,物品id49权重,物品id50权重,物品id51权重,物品id52权重,物品id53权重,物品id54权重,物品id55权重,物品id56权重" type="vector" value="int"/> 
+        
+		</bean>
+			
+
+		<bean name="CWorldMapConfig" from="s世界地图配置" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="id" /> id
+			<variable name="mapName" fromCol="名字"  type="String"/> 
+			<variable name="topx" fromCol="传送左上角x"  type="int"/>	
+			<variable name="topy" fromCol="传送左上角y"  type="int"/>	
+			<variable name="bottomx" fromCol="传送右下角x"  type="int"/>	
+			<variable name="bottomy" fromCol="传送右下角y"  type="int"/>	
+			<variable name="maptype" fromCol="地图类型"  type="int"/>	
+				
+					
+			<variable name="bShowInWorld" fromCol="是否显示在世界地图上"  type="bool"/>			
+			<variable name="LevelLimitMin" fromCol="等级下限"  type="int"/>	
+			<variable name="LevelLimitMax" fromCol="等级上限"  type="int"/>	
+			<variable name="sonmapid" fromCol="从属暗雷"  type="string"/>	
+			<variable name="sonmapname" fromCol="从属暗雷名"  type="string"/>				
+			<variable name="sonmapnormal" fromCol="暗雷按钮图片普通"  type="string"/>	
+			<variable name="sonmappushed" fromCol="暗雷按钮图片按下"  type="string"/>	
+			<variable name="sonmapdisable" fromCol="暗雷按钮图片灰色"  type="string"/>	
+			<variable name="sculptid" fromCol="怪物造型"  type="int"/>
+			<variable name="sculptimgid" fromCol="地图怪物"  type="string"/>
+			<variable name="smallmapRes" fromCol="小地图资源路径" type="string"/>
+			<variable name="smallmapSize" fromCol="小地图大小" type="string"/>
+			<variable name="mapbg" fromCol="挂机地图背景图" type="string"/>
+			
+		</bean>	
+		<bean name="CWorldMapSmallHeadConfig" from="s世界地图小头像" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="ID" /> id
+			<variable name="smallhead" fromCol="小头像id"  type="int"/> 
+			<variable name="wordmaphead" fromCol="大地图小头像id"  type="int"/> 
+		</bean>	
+		
+		<bean name="SWorldMapConfig" from="s世界地图配置" genxml="server">
+			<variable name="id" type="int" fromCol="id" /> id
+			<variable name="maptype" fromCol="地图类型"  type="int"/>		
+			<variable name="LevelLimitMin" fromCol="等级下限"  type="int"/>	
+			<variable name="LevelLimitMax" fromCol="等级上限"  type="int"/>
+			<variable name="SubUnderGroundMap" fromCol="从属暗雷"  type="string"/>
+			<variable name="topx" fromCol="传送左上角x"  type="int"/>	
+			<variable name="topy" fromCol="传送左上角y"  type="int"/>	
+			<variable name="bottomx" fromCol="传送右下角x"  type="int"/>	
+			<variable name="bottomy" fromCol="传送右下角y"  type="int"/>
+		</bean>
+
+        <bean name="FindTreasureResult">
+            <variable name="id" type="int" fromCol="ID" /> id
+            <variable name="itemId" type="int" fromCol="道具id" />
+            <variable name="awardId" type="string" fromCol="开奖结果" />
+            <variable name="group" type="int" fromCol="等级组" />
+            <variable name="minlevel" type="int" fromCol="等级下限" />
+            <variable name="maxlevel" type="int" fromCol="等级上限" />
+        </bean>
+
+        <bean name="SFindTreasureResult" from="k开奖配置文件/k开奖结果配置" genxml="server" baseclass="FindTreasureResult">
+           
+        </bean>
+        
+        <bean name="SFindTreasureResultDianKa" from="D点卡服表格/k开奖配置文件/k开奖结果配置" genxml="server" baseclass="FindTreasureResult">
+
+        </bean>
+
+        <bean name="FindTreasureEvent">
+            <variable name="id" type="int" fromCol="事件ID" /> id
+            <variable name="name" type="string" fromCol="名称" />
+            <variable name="type" type="int" fromCol="类型" />
+            <variable name="group" type="int" fromCol="事件刷怪组ID" />
+            <variable name="battleId" type="int" fromCol="战斗ID" />
+            <variable name="battleAward" type="string" fromCol="战斗奖励" />
+            <variable name="skillId" type="int" fromCol="技能ID" />
+            <variable name="messageId" type="int" fromCol="自己系统提示" />
+            <variable name="noticeId" type="int" fromCol="全服通告提示" />
+        </bean>
+        
+        <bean name="SFindTreasureEvent" from="k开奖配置文件/k开奖事件表" genxml="server" baseclass="FindTreasureEvent">
+            
+        </bean>
+
+        <bean name="SFindTreasureEventDianKa" from="D点卡服表格/k开奖配置文件/k开奖事件表" genxml="server" baseclass="FindTreasureEvent">
+
+        </bean>
+
+        <bean name="FindTreasureGift">
+            <variable name="id" type="int" fromCol="编号" /> id
+            <variable name="awardId" type="int" fromCol="奖励ID" /> id
+            <variable name="mapId" type="int" fromCol="出现地图ID" />
+            <variable name="itemList" type="string" fromCol="道具" />
+            <variable name="awardids" fromCol="分级奖励" type="string"/> 添加根据角色等级匹配不同的奖励id
+            <variable name="moneyAwardId" type="int" fromCol="银币奖励" />
+            <variable name="noticeItemList" type="string" fromCol="公告物品id" />
+            <variable name="noticeId" type="int" fromCol="公告提示编号" />
+            <variable name="getItemMessageId" type="int" fromCol="获得道具自己系统提示" />
+            <variable name="getMoneyMessageId" type="int" fromCol="获得银币自己系统提示" />
+        </bean>
+
+        <bean name="SFindTreasureGift" from="k开奖配置文件/k开奖奖励表" genxml="server" baseclass="FindTreasureGift">
+            
+        </bean>
+
+        <bean name="SFindTreasureGiftDianKa" from="D点卡服表格/k开奖配置文件/k开奖奖励表" genxml="server" baseclass="FindTreasureGift">
+
+        </bean>
+
+        <bean name="EventTimerNpc">
+            <variable name="id" type="int" fromCol="编号" />
+            <variable name="refreshGroup" type="int" fromCol="刷新组" />
+            <variable name="levelMin" type="int" fromCol="等级下限" />
+            <variable name="levelMax" type="int" fromCol="等级上限" />
+            <variable name="messageId" type="int" fromCol="刷新时系统提示信息编号" />
+            <variable name="npcList" type="string" fromCol="刷新列表" />
+            <variable name="npcGroupCount" type="int" fromCol="刷新列表数量" />
+            <variable name="npcCount" type="int" fromCol="每种NPC数量" />
+            <variable name="freshControl" type="int" fromCol="刷新控制" />          
+            <variable name="npcAllCount" type="int" fromCol="刷新控制总数量" />
+            <variable name="sceneList" type="string" fromCol="刷新场景" />
+            <variable name="sceneCnt" type="int" fromCol="刷新场景个数" />
+            <variable name="npcLastTime" type="int" fromCol="怪物存在时间" /> 单位:秒
+            <variable name="awardOverStepNotice" type="int" fromCol="奖励个数超过提示编号" />
+            <variable name="awardCnt" type="int" fromCol="击杀奖励个数" />
+            <variable name="awardId" type="int" fromCol="奖励ID" />
+            <variable name="awardId2" type="int" fromCol="奖励ID2" />
+            <variable name="teamRequire" type="int" fromCol="是否组队" /> 1 需要组队; 0 不需要组队
+            <variable name="teamCount" type="int" fromCol="组队人数要求" />
+            <variable name="teamLevelMin" type="int" fromCol="需求等级下限" />
+            <variable name="teamLevelMax" type="int" fromCol="需求等级上限" />
+            <variable name="matchtype" fromCol="匹配奖励方式" type="int"/> 1 表示匹配个人等级 2 表示队伍平均等级
+            <variable name="awardids" fromCol="分级奖励" type="string"/> 添加根据角色等级匹配不同的奖励id
+            <variable name="battletime" type="int" fromCol="次数" />
+            <variable name="canwatchbattle" type="int" fromCol="观战" />
+            <variable name="xiaoshi" type="int" fromCol="消失" />
+            <variable name="actid" type="int" fromCol="对应活动表ID" />
+            <variable name="matchtime" type="int" fromCol="匹配秒数" /> 多少时间内点击npc需要匹配
+            <variable name="match" type="int" fromCol="是否匹配" /> 打怪时是否需要跟其他玩家随机
+            <variable name="havetimes" type="int" fromCol="次数击杀" /> 进战斗前是否需要判断还有奖励次数
+			      <variable name="leveltimes" type="string" fromCol="分级次数" />
+            <variable name="delaysec" type="int" fromCol="延迟秒数" />
+            <variable name="delaynoticeid" type="int" fromCol="延迟刷怪提示" />
+        </bean>
+
+        <bean name="SEventTimerNpc" from="g怪物刷新/事件刷新表" genxml="server" baseclass="EventTimerNpc">
+            
+        </bean>
+
+        <bean name="SEventTimerNpcDianKa" from="D点卡服表格/事件刷新表for点卡服" genxml="server" baseclass="EventTimerNpc">            
+            <variable name="shoulie" type="int" fromCol="是否属于狩猎活动" />
+        </bean>
+
+        <bean name="SItemToPos" from="x循环任务/d道具随机使用坐标生成表" genxml="server">
+            <variable name="id" type="int" fromCol="道具ID" />
+            <variable name="mapList" type="string" fromCol="地图id" />
+            <variable name="mapRemotePos" type="int" fromCol="使用偏移范围" />
+        </bean>
+		<bean name="CItemToPos" from="x循环任务/d道具随机使用坐标生成表" genxml="client" gencode="mtlua">
+            <variable name="id" type="int" fromCol="道具ID" />
+            <variable name="mapRemotePos" type="int" fromCol="使用偏移范围" />
+        </bean>
+		
+	</namespace>

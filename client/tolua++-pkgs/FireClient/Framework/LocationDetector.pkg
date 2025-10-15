@@ -1,0 +1,24 @@
+class LocationDetector
+{
+public:
+	struct Location
+	{
+		double mLongitude;
+		double mLatitude;
+		std::string mName;
+	};
+
+public:
+
+	static LocationDetector* GetInstance();
+    
+	bool isAvailable() const;
+	bool isAllowed() const;
+
+	void setFinishCallbackFunction(const std::string& finishCallbackFunc);
+
+	void startDetect();
+
+	int getLocationCount() const;
+	const LocationDetector::Location getLocation(int index) const;
+};

@@ -1,0 +1,8 @@
+class LockEffect:public XPRenderEffect
+{
+public:
+	LockEffect();
+	~LockEffect();
+    
+	void performPostRenderFunctions();
+};

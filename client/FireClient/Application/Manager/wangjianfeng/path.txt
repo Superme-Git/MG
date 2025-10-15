@@ -1,0 +1,4 @@
+MTG-16449  
+【BUG】【客户端】开着游戏客户端时其他工具如rtx和excel的复制粘贴和截图功能可能无法使用【0.0.212PC版本】 
+ 审核人：刘庚
+E:\mt3\client\FireClient\Application\Manager

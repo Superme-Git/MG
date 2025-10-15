@@ -1,0 +1,47 @@
+$#include "3rdplatform/ChannelManager.h"
+
+namespace MT3
+{
+	class ChannelManager
+	{
+    public:
+		static bool isDefineSDK();
+		static void ChangeUserLogin();
+		static void LogoutAndRelogin();
+	    static int SupportFeature(int feature);
+		static int StartBuyYuanbao(long long sn, std::wstring& name, int goodid, int goodnum, int price, int zoneid);
+		static void EnterPlatformCenter();
+		static void UserFeedBack();
+		static void EnterBBS();
+        static int HasPlatformCenter(); // 1-true, 0-false
+        static int HasPlatformForum(); // 1-true, 0-false
+        static int HasFeedback();//1-true, 0-false
+        static std::wstring GetPlatformCenterName();
+        static std::wstring GetPlatformForumName();
+        static std::wstring GetPlatformFeedbackName();
+		static std::wstring GetPlatformLoginSuffix();
+		static int IsTrdPlatform();
+		static std::wstring GetCur3rdPlatform();
+		static int IsAndroid();
+		static int IsSupportUserCenter();
+		static void openUserCenter();
+		static void RemoveRCPFiles(int day);
+		static void EnterCustomerService();
+		static void EnterGameHelp(std::wstring);
+		static void FacebookInvite(std::wstring roleid,int serverid);
+		static void CommonShare(std::wstring title, std::wstring content = L"", std::wstring picUrl = L"", std::wstring link = L"", std::wstring comment = L"", std::wstring image = L"");
+        static bool IsKorea();
+		static void CommonInterface(int p1=0,int p2=0,int p3=0,int p4=0,int p5=0,int p6=0, std::wstring s1 = L"", std::wstring s2 = L"", std::wstring s3 = L"", std::wstring s4 = L"", std::wstring s5 = L"", std::wstring s6 = L"");
+        static std::wstring GetFlurryId();
+
+        static void onRegister_sta(const char* roleid, const char* rolename);
+		static void onLogin_sta();
+        static void onpay_sta(const char *platformId, const char *roleId, const char *roleName, const char *serverId, int PAY_TYPE, const char *appOrder, const char *channelOrder, const char *productId, const char *productPrice);
+		static void qqLogin();
+		static void wxLogin();
+		static void setIsYingYongBao(bool isyingyongbao);
+		static bool getIsYingYongBao();
+		
+		static void onRecordRoleInf();
+	};
+}//namespace MT3

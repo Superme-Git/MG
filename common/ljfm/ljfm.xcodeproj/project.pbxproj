@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A386566162E895900273E45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A386565162E895900273E45 /* Foundation.framework */; };
+		76273D681C8058A100D99837 /* ljfmfs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273D661C8058A100D99837 /* ljfmfs.cpp */; };
+		76273D691C8058A100D99837 /* ljfmfsmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273D671C8058A100D99837 /* ljfmfsmanager.cpp */; };
+		76273D6E1C818CAD00D99837 /* ljfmpq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273D6D1C818CAD00D99837 /* ljfmpq.cpp */; };
+		76273D701C818CBE00D99837 /* ljfmpq.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D6F1C818CBE00D99837 /* ljfmpq.h */; };
+		76273D721C818CE100D99837 /* ljfmfsmanager.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D711C818CE100D99837 /* ljfmfsmanager.h */; };
+		76273D741C818CE900D99837 /* ljfmfs.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D731C818CE900D99837 /* ljfmfs.h */; };
+		76273D761C818CFB00D99837 /* ljfmtableloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D751C818CFB00D99837 /* ljfmtableloader.h */; };
+		76273D781C81AE9700D99837 /* ljfmfex.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D771C81AE9700D99837 /* ljfmfex.h */; };
+		76273D7A1C81AEA600D99837 /* ljfmfex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273D791C81AEA600D99837 /* ljfmfex.cpp */; };
+		76273D7C1C81AF2800D99837 /* ljfmasync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76273D7B1C81AF2800D99837 /* ljfmasync.cpp */; };
+		76273D7E1C81AF3600D99837 /* ljfmasync.h in Headers */ = {isa = PBXBuildFile; fileRef = 76273D7D1C81AF3600D99837 /* ljfmasync.h */; };
+		76F5D90E1C7DE28A003326FA /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D8FF1C7DE28A003326FA /* common.cpp */; };
+		76F5D9111C7DE28A003326FA /* ljfileinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9021C7DE28A003326FA /* ljfileinfo.cpp */; };
+		76F5D9121C7DE28A003326FA /* ljfm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9031C7DE28A003326FA /* ljfm.cpp */; };
+		76F5D9131C7DE28A003326FA /* ljfmbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9041C7DE28A003326FA /* ljfmbase.cpp */; };
+		76F5D9141C7DE28A003326FA /* ljfmimage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9051C7DE28A003326FA /* ljfmimage.cpp */; };
+		76F5D9151C7DE28A003326FA /* ljfmopen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9061C7DE28A003326FA /* ljfmopen.cpp */; };
+		76F5D9161C7DE28A003326FA /* ljfsfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9071C7DE28A003326FA /* ljfsfile.cpp */; };
+		76F5D9171C7DE28A003326FA /* ljfszipfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D9081C7DE28A003326FA /* ljfszipfile.cpp */; };
+		76F5D91B1C7DE28A003326FA /* timelog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76F5D90C1C7DE28A003326FA /* timelog.cpp */; };
+		76F5D92E1C7DE29E003326FA /* common.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D91D1C7DE29E003326FA /* common.h */; };
+		76F5D9311C7DE29E003326FA /* ljfileinfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9201C7DE29E003326FA /* ljfileinfo.h */; };
+		76F5D9321C7DE29E003326FA /* ljfm.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9211C7DE29E003326FA /* ljfm.h */; };
+		76F5D9331C7DE29E003326FA /* ljfmbase.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9221C7DE29E003326FA /* ljfmbase.h */; };
+		76F5D9341C7DE29E003326FA /* ljfmext.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9231C7DE29E003326FA /* ljfmext.h */; };
+		76F5D9351C7DE29E003326FA /* ljfmimage.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9241C7DE29E003326FA /* ljfmimage.h */; };
+		76F5D9361C7DE29E003326FA /* ljfmopen.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9251C7DE29E003326FA /* ljfmopen.h */; };
+		76F5D9371C7DE29E003326FA /* ljfsfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9261C7DE29E003326FA /* ljfsfile.h */; };
+		76F5D9381C7DE29E003326FA /* ljfszipfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D9271C7DE29E003326FA /* ljfszipfile.h */; };
+		76F5D93D1C7DE29E003326FA /* timelog.h in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D92C1C7DE29E003326FA /* timelog.h */; };
+		76F5D93F1C7DE33C003326FA /* ljfm-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 76F5D93E1C7DE33C003326FA /* ljfm-Prefix.pch */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A386562162E895900273E45 /* libljfm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libljfm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A386565162E895900273E45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		76273D661C8058A100D99837 /* ljfmfs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmfs.cpp; path = code/source/ljfmfs.cpp; sourceTree = SOURCE_ROOT; };
+		76273D671C8058A100D99837 /* ljfmfsmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmfsmanager.cpp; path = code/source/ljfmfsmanager.cpp; sourceTree = SOURCE_ROOT; };
+		76273D6D1C818CAD00D99837 /* ljfmpq.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmpq.cpp; path = code/source/ljfmpq.cpp; sourceTree = SOURCE_ROOT; };
+		76273D6F1C818CBE00D99837 /* ljfmpq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmpq.h; path = code/include/ljfmpq.h; sourceTree = SOURCE_ROOT; };
+		76273D711C818CE100D99837 /* ljfmfsmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmfsmanager.h; path = code/include/ljfmfsmanager.h; sourceTree = SOURCE_ROOT; };
+		76273D731C818CE900D99837 /* ljfmfs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmfs.h; path = code/include/ljfmfs.h; sourceTree = SOURCE_ROOT; };
+		76273D751C818CFB00D99837 /* ljfmtableloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmtableloader.h; path = code/include/ljfmtableloader.h; sourceTree = SOURCE_ROOT; };
+		76273D771C81AE9700D99837 /* ljfmfex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmfex.h; path = code/include/ljfmfex.h; sourceTree = SOURCE_ROOT; };
+		76273D791C81AEA600D99837 /* ljfmfex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmfex.cpp; path = code/source/ljfmfex.cpp; sourceTree = SOURCE_ROOT; };
+		76273D7B1C81AF2800D99837 /* ljfmasync.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmasync.cpp; path = code/source/ljfmasync.cpp; sourceTree = SOURCE_ROOT; };
+		76273D7D1C81AF3600D99837 /* ljfmasync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmasync.h; path = code/include/ljfmasync.h; sourceTree = SOURCE_ROOT; };
+		76F5D8FF1C7DE28A003326FA /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = common.cpp; path = code/source/common.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9021C7DE28A003326FA /* ljfileinfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfileinfo.cpp; path = code/source/ljfileinfo.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9031C7DE28A003326FA /* ljfm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfm.cpp; path = code/source/ljfm.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9041C7DE28A003326FA /* ljfmbase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmbase.cpp; path = code/source/ljfmbase.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9051C7DE28A003326FA /* ljfmimage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmimage.cpp; path = code/source/ljfmimage.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9061C7DE28A003326FA /* ljfmopen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfmopen.cpp; path = code/source/ljfmopen.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9071C7DE28A003326FA /* ljfsfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfsfile.cpp; path = code/source/ljfsfile.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D9081C7DE28A003326FA /* ljfszipfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ljfszipfile.cpp; path = code/source/ljfszipfile.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D90C1C7DE28A003326FA /* timelog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = timelog.cpp; path = code/source/timelog.cpp; sourceTree = SOURCE_ROOT; };
+		76F5D91D1C7DE29E003326FA /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = code/include/common.h; sourceTree = SOURCE_ROOT; };
+		76F5D9201C7DE29E003326FA /* ljfileinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfileinfo.h; path = code/include/ljfileinfo.h; sourceTree = SOURCE_ROOT; };
+		76F5D9211C7DE29E003326FA /* ljfm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfm.h; path = code/include/ljfm.h; sourceTree = SOURCE_ROOT; };
+		76F5D9221C7DE29E003326FA /* ljfmbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmbase.h; path = code/include/ljfmbase.h; sourceTree = SOURCE_ROOT; };
+		76F5D9231C7DE29E003326FA /* ljfmext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmext.h; path = code/include/ljfmext.h; sourceTree = SOURCE_ROOT; };
+		76F5D9241C7DE29E003326FA /* ljfmimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmimage.h; path = code/include/ljfmimage.h; sourceTree = SOURCE_ROOT; };
+		76F5D9251C7DE29E003326FA /* ljfmopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfmopen.h; path = code/include/ljfmopen.h; sourceTree = SOURCE_ROOT; };
+		76F5D9261C7DE29E003326FA /* ljfsfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfsfile.h; path = code/include/ljfsfile.h; sourceTree = SOURCE_ROOT; };
+		76F5D9271C7DE29E003326FA /* ljfszipfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ljfszipfile.h; path = code/include/ljfszipfile.h; sourceTree = SOURCE_ROOT; };
+		76F5D92C1C7DE29E003326FA /* timelog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timelog.h; path = code/include/timelog.h; sourceTree = SOURCE_ROOT; };
+		76F5D93E1C7DE33C003326FA /* ljfm-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ljfm-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A38655F162E895900273E45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A386566162E895900273E45 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A386557162E895800273E45 = {
+			isa = PBXGroup;
+			children = (
+				4A386567162E895900273E45 /* code */,
+				4A386568162E895900273E45 /* Supporting Files */,
+				4A386564162E895900273E45 /* Frameworks */,
+				4A386563162E895900273E45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A386563162E895900273E45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A386562162E895900273E45 /* libljfm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A386564162E895900273E45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A386565162E895900273E45 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A386567162E895900273E45 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				76F5D8FD1C7DE246003326FA /* include */,
+				76F5D8C01C7D5F12003326FA /* source */,
+			);
+			name = code;
+			path = pfs;
+			sourceTree = "<group>";
+		};
+		4A386568162E895900273E45 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				76F5D93E1C7DE33C003326FA /* ljfm-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = pfs;
+			sourceTree = "<group>";
+		};
+		76F5D8C01C7D5F12003326FA /* source */ = {
+			isa = PBXGroup;
+			children = (
+				76F5D8FF1C7DE28A003326FA /* common.cpp */,
+				76F5D9021C7DE28A003326FA /* ljfileinfo.cpp */,
+				76273D7B1C81AF2800D99837 /* ljfmasync.cpp */,
+				76F5D9031C7DE28A003326FA /* ljfm.cpp */,
+				76F5D9041C7DE28A003326FA /* ljfmbase.cpp */,
+				76273D791C81AEA600D99837 /* ljfmfex.cpp */,
+				76273D661C8058A100D99837 /* ljfmfs.cpp */,
+				76273D671C8058A100D99837 /* ljfmfsmanager.cpp */,
+				76F5D9051C7DE28A003326FA /* ljfmimage.cpp */,
+				76F5D9061C7DE28A003326FA /* ljfmopen.cpp */,
+				76273D6D1C818CAD00D99837 /* ljfmpq.cpp */,
+				76F5D9071C7DE28A003326FA /* ljfsfile.cpp */,
+				76F5D9081C7DE28A003326FA /* ljfszipfile.cpp */,
+				76F5D90C1C7DE28A003326FA /* timelog.cpp */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
+		76F5D8FD1C7DE246003326FA /* include */ = {
+			isa = PBXGroup;
+			children = (
+				76F5D91D1C7DE29E003326FA /* common.h */,
+				76F5D9201C7DE29E003326FA /* ljfileinfo.h */,
+				76273D7D1C81AF3600D99837 /* ljfmasync.h */,
+				76F5D9211C7DE29E003326FA /* ljfm.h */,
+				76F5D9221C7DE29E003326FA /* ljfmbase.h */,
+				76F5D9231C7DE29E003326FA /* ljfmext.h */,
+				76273D771C81AE9700D99837 /* ljfmfex.h */,
+				76273D731C818CE900D99837 /* ljfmfs.h */,
+				76273D711C818CE100D99837 /* ljfmfsmanager.h */,
+				76F5D9241C7DE29E003326FA /* ljfmimage.h */,
+				76F5D9251C7DE29E003326FA /* ljfmopen.h */,
+				76273D6F1C818CBE00D99837 /* ljfmpq.h */,
+				76273D751C818CFB00D99837 /* ljfmtableloader.h */,
+				76F5D9261C7DE29E003326FA /* ljfsfile.h */,
+				76F5D9271C7DE29E003326FA /* ljfszipfile.h */,
+				76F5D92C1C7DE29E003326FA /* timelog.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4A386560162E895900273E45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76F5D93F1C7DE33C003326FA /* ljfm-Prefix.pch in Headers */,
+				76F5D9371C7DE29E003326FA /* ljfsfile.h in Headers */,
+				76F5D9381C7DE29E003326FA /* ljfszipfile.h in Headers */,
+				76F5D9341C7DE29E003326FA /* ljfmext.h in Headers */,
+				76F5D92E1C7DE29E003326FA /* common.h in Headers */,
+				76F5D9321C7DE29E003326FA /* ljfm.h in Headers */,
+				76F5D9311C7DE29E003326FA /* ljfileinfo.h in Headers */,
+				76F5D93D1C7DE29E003326FA /* timelog.h in Headers */,
+				76273D761C818CFB00D99837 /* ljfmtableloader.h in Headers */,
+				76273D741C818CE900D99837 /* ljfmfs.h in Headers */,
+				76273D781C81AE9700D99837 /* ljfmfex.h in Headers */,
+				76F5D9331C7DE29E003326FA /* ljfmbase.h in Headers */,
+				76273D721C818CE100D99837 /* ljfmfsmanager.h in Headers */,
+				76273D7E1C81AF3600D99837 /* ljfmasync.h in Headers */,
+				76273D701C818CBE00D99837 /* ljfmpq.h in Headers */,
+				76F5D9351C7DE29E003326FA /* ljfmimage.h in Headers */,
+				76F5D9361C7DE29E003326FA /* ljfmopen.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4A386561162E895900273E45 /* ljfm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A38656F162E895900273E45 /* Build configuration list for PBXNativeTarget "ljfm" */;
+			buildPhases = (
+				4A38655E162E895900273E45 /* Sources */,
+				4A38655F162E895900273E45 /* Frameworks */,
+				4A386560162E895900273E45 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ljfm;
+			productName = pfs;
+			productReference = 4A386562162E895900273E45 /* libljfm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A386559162E895800273E45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 4A38655C162E895800273E45 /* Build configuration list for PBXProject "ljfm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4A386557162E895800273E45;
+			productRefGroup = 4A386563162E895900273E45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A386561162E895900273E45 /* ljfm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A38655E162E895900273E45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76F5D91B1C7DE28A003326FA /* timelog.cpp in Sources */,
+				76F5D90E1C7DE28A003326FA /* common.cpp in Sources */,
+				76F5D9141C7DE28A003326FA /* ljfmimage.cpp in Sources */,
+				76F5D9121C7DE28A003326FA /* ljfm.cpp in Sources */,
+				76273D6E1C818CAD00D99837 /* ljfmpq.cpp in Sources */,
+				76F5D9151C7DE28A003326FA /* ljfmopen.cpp in Sources */,
+				76273D691C8058A100D99837 /* ljfmfsmanager.cpp in Sources */,
+				76F5D9111C7DE28A003326FA /* ljfileinfo.cpp in Sources */,
+				76273D681C8058A100D99837 /* ljfmfs.cpp in Sources */,
+				76F5D9161C7DE28A003326FA /* ljfsfile.cpp in Sources */,
+				76273D7C1C81AF2800D99837 /* ljfmasync.cpp in Sources */,
+				76F5D9131C7DE28A003326FA /* ljfmbase.cpp in Sources */,
+				76F5D9171C7DE28A003326FA /* ljfszipfile.cpp in Sources */,
+				76273D7A1C81AEA600D99837 /* ljfmfex.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4A38656D162E895900273E45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = _OS_IOS;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../platform;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4A38656E162E895900273E45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_OS_IOS,
+					NDEBUG,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../platform;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A386570162E895900273E45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/ljfm.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ljfm-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_OS_IOS,
+					XPP_IOS,
+					_DEBUG,
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					../platform,
+					./code/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ljfm;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4A386571162E895900273E45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/ljfm.dst;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ljfm-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_OS_IOS,
+					XPP_IOS,
+					NDEBUG,
+				);
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					../platform,
+					./code/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ljfm;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A38655C162E895800273E45 /* Build configuration list for PBXProject "ljfm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A38656D162E895900273E45 /* Debug */,
+				4A38656E162E895900273E45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A38656F162E895900273E45 /* Build configuration list for PBXNativeTarget "ljfm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A386570162E895900273E45 /* Debug */,
+				4A386571162E895900273E45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A386559162E895800273E45 /* Project object */;
+}

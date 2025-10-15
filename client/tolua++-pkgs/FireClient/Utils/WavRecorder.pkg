@@ -1,0 +1,15 @@
+
+class WavRecorder
+{
+public:
+	bool initialize(const char* tempFilePath);
+	void release();
+	bool canRecord();
+	bool start();
+	void stop();
+    const char* getTempFilePath();
+	const char* getTempFileName();
+	bool isRecording();
+};
+
+WavRecorder* gGetWavRecorder();

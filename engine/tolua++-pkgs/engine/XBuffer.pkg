@@ -1,0 +1,83 @@
+namespace Nuclear
+{
+class NuclearOctets
+{
+public:
+	virtual NuclearOctets& reserve(size_t size) = 0;
+	virtual NuclearOctets& replace(const void *data, size_t size) = 0;
+	virtual ~NuclearOctets() {}
+	virtual void *begin() = 0;
+	virtual void *end() = 0;
+	virtual const void *constbegin() const = 0;
+	virtual const void *constend() const = 0;
+	virtual size_t size() const = 0;
+	virtual size_t capacity() const = 0;
+	virtual NuclearOctets& clear() = 0;
+	virtual NuclearOctets& erase(void *x, void *y) = 0;
+	virtual NuclearOctets& insert(void *pos, const void *x, size_t len) = 0;
+	virtual NuclearOctets& insert(void *pos, const void *x, const void *y) = 0;
+	virtual NuclearOctets& resize(size_t size) = 0;
+	virtual NuclearOctets *clone() const = 0;
+	virtual int GetRef() const = 0;
+	virtual void SetTick(int tick) = 0;
+	virtual int GetTick() const = 0;
+	void dump(); 
+
+};
+
+class NuclearBufferOctets : public NuclearOctets
+{
+public:
+	virtual NuclearOctets& reserve(size_t size);
+	virtual NuclearOctets& replace(const void *data, size_t size);
+	virtual ~NuclearBufferOctets();
+	NuclearBufferOctets (size_t size);
+	NuclearBufferOctets (const void *x, size_t size);
+	NuclearBufferOctets (const void *x, const void *y);
+	NuclearBufferOctets (const NuclearBufferOctets &x);
+	virtual void *begin();
+	virtual void *end() ; 
+	virtual const void *constbegin() ;
+	virtual const void *constend()  ; 
+	virtual size_t size();
+	virtual size_t capacity();
+	virtual NuclearOctets& clear();
+	virtual NuclearOctets& erase(void *x, void *y);
+	virtual NuclearOctets& insert(void *pos, const void *x, size_t len);
+	virtual NuclearOctets& insert(void *pos, const void *x, const void *y);
+	virtual NuclearOctets& resize(size_t size);
+	virtual NuclearOctets *clone();
+	virtual int GetRef();
+	virtual void SetTick(int tick);
+	virtual int GetTick();
+};
+class NuclearBuffer
+{
+public:
+	NuclearBuffer& reserve(size_t size);
+	NuclearBuffer& replace(const void *data, size_t size);
+	virtual ~NuclearBuffer();
+	NuclearBuffer ();
+	NuclearBuffer (size_t size);
+	NuclearBuffer (const void *x, size_t size);
+	NuclearBuffer (const void *x, const void *y);
+	NuclearBuffer (const NuclearBuffer &x);
+	NuclearBuffer& swap(NuclearBuffer &x);
+	void *normalbegin();
+	void *normalend();
+	const void *constbegin() const;
+	const void *constend()   const;
+	size_t size()     const;
+	size_t capacity() const;
+	NuclearBuffer& clear();
+	NuclearBuffer& erase(void *x, void *y);
+	NuclearBuffer& insert(void *pos, const void *x, size_t len);
+	NuclearBuffer& insert(void *pos, const void *x, const void *y);
+	NuclearBuffer& resize(size_t size);
+	void dump() const;
+	int GetRefCount() const;
+	void SetTick(int tick);
+	int GetTick() const;
+};
+}
+

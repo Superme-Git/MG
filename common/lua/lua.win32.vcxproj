@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5067fdd7-7016-4131-afe9-7d470b0c87b4}</ProjectGuid>
+    <RootNamespace>lua</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ProjectName>lua</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.lib</TargetExt>
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\lib\$(Configuration)\x64\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\lib\$(Configuration)\x64\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_DEBUG;_WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../platform</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_USRDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../platform</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua;..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua;..\platform</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua;..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua;..\platform</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lapi.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lauxlib.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lcode.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldebug.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldo.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lfunc.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lgc.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\llex.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\llimits.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lmem.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lobject.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lopcodes.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lparser.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstate.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstring.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltable.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltm.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lua.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\luaconf.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lualib.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lundump.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lvm.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lzio.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua++.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_event.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lapi.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lauxlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lbaselib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lcode.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldblib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldebug.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldo.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ldump.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lfunc.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lgc.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\linit.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\liolib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\llex.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lmathlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lmem.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\loadlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lobject.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lopcodes.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\loslib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lparser.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstate.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstring.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lstrlib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltable.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltablib.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\ltm.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lua.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lundump.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lvm.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\lzio.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\lua\print.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_event.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_is.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_map.c" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_push.cpp" />
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\lua\tolua\tolua_to.c" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Windows">
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
+    <Reference Include="platform.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

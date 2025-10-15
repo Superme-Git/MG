@@ -1,0 +1,31 @@
+
+
+
+namespace fire { 
+namespace pb { 
+
+class CEnterWorld : public aio::Protocol
+{
+public:
+	// Protocol
+
+
+	int64_t roleid;
+	int rolesnum; // 同屏能看见的人数
+
+	CEnterWorld() ;
+
+	CEnterWorld(int64_t _roleid_, int _rolesnum_);
+
+	bool _validator_() const ;
+
+	FireNet::Marshal::OctetsStream & marshal(FireNet::Marshal::OctetsStream & _os_) const ;
+	const FireNet::Marshal::OctetsStream & unmarshal(const FireNet::Marshal::OctetsStream & _os_) ;
+	bool operator<(const CEnterWorld &_o_) const ;
+
+	aio::Protocol * Clone();
+
+};
+
+} 
+} 

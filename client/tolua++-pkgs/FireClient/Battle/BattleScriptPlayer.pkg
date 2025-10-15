@@ -1,0 +1,40 @@
+class BattleScriptPlayer
+{
+public:
+    BattleScriptPlayer();
+    ~BattleScriptPlayer();
+
+	int PlayReplayRound(int RoundIndex);
+    void AddPersistStage(SkillStage* aPStage);
+    void DoBattleClear();
+    void DoRoundClear();
+    void PushDemoScript(sBattleDemoScript& aScript);
+
+	Skill* GetCurrentSkill();
+    void Play();
+    void Run(int now, int delta); 
+	   
+    void OnDemoBegin();
+    void OnDemoEnd(sBattleDemoScript& aScript);
+    void OnScriptFinished();
+
+	bool IsSkillsOver();
+	bool IsSkillsZero();
+	void ClearSkills();
+
+    void AddGroundEffect(Nuclear::IEffect* aPEffect);
+    void RemoveGroundEffect(Nuclear::IEffect* aPEffect);
+    void ClearGroundEffect();
+	void AddPlayEffect(Nuclear::IEffect* aPEffect);
+	void ClearPlayEffect();
+
+    void    AddAI(sBattleAIAction* aPAI);
+    void    DealAIAction(sBattleAIAction* pAction);
+    void    DealAIActionWhileBattlerDie(int battleID);
+    int     DealAIBeforeDemoExecute();
+    int     DealAIAfterDemoExecute();
+    void    DealAIActionBeforeOpearte(BeforeOperateAI aiaction);
+    void    DealAIActionBeforeOpearte();
+};
+
+inline BattleScriptPlayer GetBattleScriptPlayer();

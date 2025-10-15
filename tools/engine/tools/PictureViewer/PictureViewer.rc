@@ -1,0 +1,408 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\PictureViewer.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""afxres.rc""         // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PictureViewer.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_TOOLBAR_COLD        BITMAP                  "res\\Toolbar107.bmp"
+IDB_TOOLBAR_HOT         BITMAP                  "res\\Toolbar105.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_PIC_PREV
+    BUTTON      ID_PIC_NEXT
+    SEPARATOR
+    BUTTON      ID_PIC_FEAT_SIZE
+    BUTTON      ID_PIC_ACTUAL_SIZE
+    SEPARATOR
+    BUTTON      ID_PIC_ZOOM_IN
+    BUTTON      ID_PIC_ZOOM_OUT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDB_TOOLBAR_COLD TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_PIC_PREV
+    BUTTON      ID_PIC_NEXT
+    SEPARATOR
+    BUTTON      ID_PIC_FEAT_SIZE
+    BUTTON      ID_PIC_ACTUAL_SIZE
+    SEPARATOR
+    BUTTON      ID_PIC_ZOOM_IN
+    BUTTON      ID_PIC_ZOOM_OUT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    MENUITEM SEPARATOR
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "打开(&O)",                      ID_FILE_OPEN
+		MENUITEM "另存为BMP(&S)",                   ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                      ID_APP_EXIT
+    END
+    POPUP "图像(&P)"
+    BEGIN
+        MENUITEM "Alpha渲染",                     ID_PIC_ALPHA_BLEND
+		POPUP "拉伸模式(&S)"
+		BEGIN
+			MENUITEM "消除并与保留色与(AND) - (BLACKONWHITE)",      ID_PIC_STRETCH_BLACKONWHITE
+			MENUITEM "保留并与保留色或(OR) - (WHITEONBLACK)",      ID_PIC_STRETCH_WHITEONBLACK
+			MENUITEM "删除像素-(COLORONCOLOR)",      ID_PIC_STRETCH_COLORONCOLOR,  CHECKED
+			MENUITEM "映射像素-(HALFTONE)",          ID_PIC_STRETCH_HALFTONE
+		END
+        MENUITEM SEPARATOR
+        MENUITEM "上一个图像",                       ID_PIC_PREV
+        MENUITEM "下一个图像",                       ID_PIC_NEXT
+        MENUITEM SEPARATOR
+        MENUITEM "放大",                          ID_PIC_ZOOM_IN
+        MENUITEM "缩小",                          ID_PIC_ZOOM_OUT
+        MENUITEM SEPARATOR
+        MENUITEM "最合适",                         ID_PIC_FEAT_SIZE
+        MENUITEM "实际大小",                        ID_PIC_ACTUAL_SIZE
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 PictureViewer(&A)...",     ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_DOWN,        ID_PIC_NEXT,            VIRTKEY, NOINVERT
+    VK_NEXT,        ID_PIC_NEXT,            VIRTKEY, NOINVERT
+    VK_RIGHT,       ID_PIC_NEXT,            VIRTKEY, NOINVERT
+    VK_LEFT,        ID_PIC_PREV,            VIRTKEY, NOINVERT
+    VK_PRIOR,       ID_PIC_PREV,            VIRTKEY, NOINVERT
+    VK_UP,          ID_PIC_PREV,            VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "+",            ID_PIC_ZOOM_IN,         ASCII,  NOINVERT
+    "-",            ID_PIC_ZOOM_OUT,        ASCII,  NOINVERT
+    "A",            ID_PIC_ACTUAL_SIZE,     VIRTKEY, CONTROL
+    "B",            ID_PIC_FEAT_SIZE,       VIRTKEY, CONTROL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 PictureViewer"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "PictureViewer 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 乐动卓越 2008-2010",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,16,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "乐动卓越"
+            VALUE "FileDescription", "乐动卓越图片查看器"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "PictureViewer.exe"
+            VALUE "LegalCopyright", "(C) 乐动卓越。保留所有权利。"
+            VALUE "OriginalFilename", "PictureViewer.exe"
+            VALUE "ProductName", "PictureViewer"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_MAINFRAME           REGISTRY                "FileTypes.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "PictureViewer"
+    IDR_DOCTYPE1            "PictureViewer\n\n\npic files(*.pic)\n.pic\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPE2            "PictureViewer\n\n\ntga files(*.tga)\n.tga\nPVDocument.TGA\nPVDocument.TGA"
+    IDR_DOCTYPE3            "PictureViewer\n\n\nppm files(*.ppm)\n.ppm\nPVDocument.PPM\nPVDocument.PPM"
+    IDR_DOCTYPEP00          "PictureViewer\n\n\npic files(*.p00)\n.p00\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEP01          "PictureViewer\n\n\npic files(*.p01)\n.p01\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEP02          "PictureViewer\n\n\npic files(*.p02)\n.p02\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEP03          "PictureViewer\n\n\npic files(*.p03)\n.p03\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEP04          "PictureViewer\n\n\npic files(*.p04)\n.p04\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEB00          "PictureViewer\n\n\npic files(*.b00)\n.b00\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEB01          "PictureViewer\n\n\npic files(*.b01)\n.b01\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEB02          "PictureViewer\n\n\npic files(*.b02)\n.b02\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEB03          "PictureViewer\n\n\npic files(*.b03)\n.b03\nPVDocument.PIC\nPVDocument.PIC"
+    IDR_DOCTYPEB04          "PictureViewer\n\n\npic files(*.b04)\n.b04\nPVDocument.PIC\nPVDocument.PIC"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "PictureViewer"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息、版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回上一个窗格\n上一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "将活动窗口拆分为多个窗格\n拆分"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_OPEN            "打开文件\n打开"
+	ID_FILE_SAVE_AS			"另存为BMP文件\n另存为BMP"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "清除选定内容\n清除"
+    ID_EDIT_CLEAR_ALL       "清除全部内容\n全部清除"
+    ID_EDIT_COPY            "复制选定内容并将其放到剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切选定内容并将其放到剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的文本\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一操作\n重复"
+    ID_EDIT_REPLACE         "用其他文本替换特定的文本\n替换"
+    ID_EDIT_SELECT_ALL      "选定整个文档\n全选"
+    ID_EDIT_UNDO            "撤消上一操作\n撤消"
+    ID_EDIT_REDO            "恢复上次撤消的操作\n重做"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n切换工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n切换状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "更改窗口大小"
+    AFX_IDS_SCMOVE          "更改窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小为图标"
+    AFX_IDS_SCMAXIMIZE      "使窗口最大化显示"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到前一个文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动窗口并提示保存文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "将窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务列表"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_PIC_ALPHA_BLEND      "启用Alpha渲染\n启用Alpha渲染"
+	ID_PIC_STRETCH_BLT_MODE		"启用Halftone半色调渲染\n启用Halftone半色调渲染"
+	ID_PIC_STRETCH_BLACKONWHITE "消除并与保留色与(AND) - (BLACKONWHITE)"
+	ID_PIC_STRETCH_WHITEONBLACK "保留并与保留色或(OR) - (WHITEONBLACK)"
+    ID_PIC_STRETCH_COLORONCOLOR "删除像素-(COLORONCOLOR)"
+	ID_PIC_STRETCH_HALFTONE		"映射像素-(HALFTONE)"
+	ID_PIC_PREV             "下一个图像\n下一个图像(右箭头)"
+    ID_PIC_NEXT             "上一个图像\n上一个图像(左箭头)"
+    ID_PIC_ZOOM_IN          "放大\n放大(+)"
+    ID_PIC_ZOOM_OUT         "缩小\n缩小(-)"
+    ID_PIC_FEAT_SIZE        "最合适\n最合适(Ctrl+B)"
+    ID_PIC_ACTUAL_SIZE      "实际大小\n实际大小(Ctrl+A)"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\PictureViewer.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "afxres.rc"         // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

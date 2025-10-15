@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>notifycount</key>
+	<string>9</string>
+	<key>alarmcount</key>
+	<string>6</string>
+	<key>alarm1</key>
+	<string>11:00:00</string>
+	<key>alarm2</key>
+	<string>17:00:00</string>
+	<key>alarm3</key>
+	<string>20:55:00</string>
+	<key>alarm4</key>
+	<string>18:55:00</string>
+	<key>alarm5</key>
+	<string>21:55:00</string>
+	<key>alarm6</key>
+	<string>20:25:00</string>
+	<key>set1</key>
+	<string>1,1,2,3,4,5,6,7</string>
+	<key>set2</key>
+	<string>2,1,2,3,4,5</string>
+	<key>set3</key>
+	<string>2,6</string>
+	<key>set4</key>
+	<string>4,7</string>
+	<key>set5</key>
+	<string>3,1,5</string>
+	<key>set6</key>
+	<string>5,1,5</string>
+	<key>set7</key>
+	<string>3,3,6</string>
+	<key>set8</key>
+	<string>3,7</string>
+	<key>set9</key>
+	<string>6,2,4</string>
+	<key>notify1</key>
+	<string>很少有人能在MT人文探索连续答对20题！快来试试吧。</string>
+	<key>notify2</key>
+	<string>号称美貌与智慧于一身的傻馒邀请您快来参加智慧试炼！</string>
+	<key>notify3</key>
+	<string>智慧试炼复赛马上开始，请入围的选手们速度就位。</string>
+	<key>notify4</key>
+	<string>公会副本即将开启，会长叫您速度上线集合！</string>
+	<key>notify5</key>
+	<string>号角吹战鼓擂，北伐军已经整装待发，冠军试炼即将开始！</string>
+	<key>notify6</key>
+	<string>1v1竞技场即将开启，MT邀请您来一决高下！</string>
+	<key>notify7</key>
+	<string>3v3竞技场即将开启，快集结您的小伙伴吧！</string>
+	<key>notify8</key>
+	<string>奥山战场即将开始，海量的荣誉等您来拿。</string>
+	<key>notify9</key>
+	<string>公会战即将开始，鲜血与荣耀勇士不变的追求。</string>
+</dict>
+</plist>

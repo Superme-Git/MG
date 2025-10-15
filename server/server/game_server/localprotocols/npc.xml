@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这些协议仅在服务器内部使用，与protocols里的协议不会冲突，建议从9501~9999-->
+<namespace name="npc">
+
+	 <bean name="FixedPosNpcInfo"> 固定位置的npcinfo  
+		<variable name="scene" type="long"/>		
+		<variable name="posx" type="int"/>		
+		<variable name="posy" type="int"/>	
+		<variable name="npcid" type="int"/>
+		<variable name="npckey" type="long"/>
+	 </bean>
+   <bean name="Pos">  
+		<variable name="x" type="int"/>		x
+		<variable name="y" type="int"/>		y		
+	 </bean>
+		<bean name="CreateNpcInfo">  GS逻辑模块发给地图模块创建NPC时需要携带的参数
+	 	<variable name="npckey" type="long"/> npckey由GS模块负责生成
+	 	<variable name="npcbaseid" type="int"/> npcbaseId
+	 	<variable name="name" type="string"/> npc名称
+	 	<variable name="dir" type="int"/> 方向
+	 	<variable name="sceneid" type="long"/> 场景id
+	 	<variable name="ownerid" type="long"/> 如果大于0，则sceneid为mapid
+	 	<variable name="time" type="long"/>限时NPC的持续时间，单位毫秒，为0时是非限时NPC
+	 </bean>
+	 
+	 <bean name="NpcInfo">  地图模块创建完的NPC，发给GS逻辑模块记录的npc数据
+	 	<variable name="npckey" type="long"/> npckey由GS模块负责生成
+	 	<variable name="npcbaseid" type="int"/> npcbaseId
+	 	<variable name="name" type="string"/> npc名称
+	 	<variable name="shape" type="int"/> npc造型
+	 	<variable name="sceneid" type="long"/> 场景id
+	 	<variable name="mapid" type="int" />地图id
+		<variable name="mapname" type="string" />场景名
+	 	<variable name="posx" type="int"/> 坐标
+	 	<variable name="posy" type="int"/>
+	 	<variable name="posz" type="int"/>
+	 	<variable name="time" type="long"/>限时NPC的持续时间，默认为0时不是限时NPC
+	 </bean>
+	 
+	 <!-- GS发送请求，要求地图模块召出NPC的详细信息-->
+	 <bean name="CreateNpcInfoUniverse">
+		<variable name="npcbaseid" type="int" validator="value=(0,)" /> npcbaseId
+	 	<variable name="name" type="string"/> npc名称
+	 	<variable name="shape" type="int"/> npc造型
+	 	<variable name="ownerid" type="long"/> ownerid
+	 	<variable name="mapid" type="int" validator="value=(0,)"/>地图id
+	 	<variable name="posx" type="int"/> 坐标
+	 	<variable name="posy" type="int"/> 
+		<variable name="num" type="int" validator="value=(0,)"/> 创建NPC的个数
+		<variable name="npckey" type="long"/>为了仗义疏财活动加的
+		<variable name="time" type="long"/>
+	 </bean>	
+
+	<protocol name="MUpdateNpcInfo" type="9501" maxsize="65535" prior="1"> 由GS逻辑模块生成npc，地图模块生成坐标后，通知GS模块更新坐标等信息
+		<variable name="npcs" type="list" value="NpcInfo" />
+	</protocol>	 
+	 
+	<protocol name="GCreateNPCByMap" type="9502" maxsize="65535" prior="1"> 在某张地图上，随机生成NPC，只走通用流程，发送通用协议
+		<variable name="npc" type="CreateNpcInfo" />
+		<variable name="toufangAreaType" type="int"/> 0-普通的投放区域,1-新的投放区域,包含1级轻功
+	</protocol>
+	
+	<protocol name="GCreateNPCByPos" type="9503" maxsize="65535" prior="1"> 根据确定的坐标生成一个NPC，只有能确定该位置无阻挡点和NPC时使用
+		<variable name="npc" type="CreateNpcInfo"/>
+		<variable name="posx" type="int" />
+		<variable name="posy" type="int" />
+	</protocol>
+	
+	<protocol name="GCreateNPCByGridScale" type="9504" maxsize="65535" prior="1"> 在某个指定坐标的数个格子范围内，随机生成NPC
+		<variable name="npc" type="CreateNpcInfo" />
+		<variable name="posx" type="int" /> 指定的坐标x
+		<variable name="posy" type="int" /> 指定的坐标y
+		<variable name="scale" type="int" /> 范围，单位为格子（GridPos）的个数
+		<variable name="toufangarea" type="int"/> 值为0的时候 必须放入投放区， 否则在地图上随机放
+	</protocol>
+	
+	<protocol name="GRemoveNpcFromScene" type="9505" maxsize="65535" prior="1"> 通知场景删除npc
+		<variable name="npckey" type="long"/>
+		<variable name="trace" type="string"/> 
+	</protocol>
+	
+	<protocol name="MRemoveNpcFromGS" type="9506" maxsize="65535" prior="1"> 通知逻辑模块删除npc
+		<variable name="npckey" type="long"/>
+		<variable name="trace" type="string"/> 
+	</protocol>
+	
+	<protocol name="GSetNpcBattleState" type="9507" maxsize="65535" prior="1"> 通知逻辑模块删除npc
+		<variable name="npckey" type="long"/>
+		<variable name="battlestate" type="int"/>
+	</protocol>
+	
+	 <protocol name="GAddRobberNpc" type="9511" maxsize="65535" prior="1">  <!---->
+		<variable name="npc" type="NpcInfo" />
+		<variable name="roleid" type="long" />
+	 </protocol>
+	 <protocol name="MAddRobberNpc" type="9512" maxsize="65535" prior="1">  <!---->
+		<variable name="npc" type="FixedPosNpcInfo" />
+		<variable name="roleid" type="long" />
+	 </protocol>
+	 <protocol name="GAddNpcToMiniMap" type="9513" maxsize="65535" prior="1">  <!---->
+		<variable name="poses" type="vector" value="Pos"/>
+		<variable name="baseids" type="vector" value="int"/>
+		<variable name="roleid" type="long"/> 如果发给一个人,roleid不能为0，如果是发给地图上所有人,设为0即可
+		<variable name="sceneid" type="long" />
+	 </protocol>
+	 <protocol name="GRemoveNpcFromMiniMap" type="9514" maxsize="65535" prior="1">  <!---->
+		<variable name="baseids" type="vector" value="int"/>
+		<variable name="sceneid" type="long" />
+	 </protocol>
+	 <protocol name="GSetNpcShape" type="9515" maxsize="65535" prior="1">  有的需求需要定制npc的shape
+		<variable name="npckey" type="long" />
+		<variable name="shape" type="int" />
+	 </protocol>
+	
+	 <protocol name="GCheckCanPlayPK" type="9517" maxsize="65535" prior="1"> 
+		<variable name="hostid" type="long" />
+		<variable name="guestid" type="long" />
+		<variable name="checkLevel" type="int" />
+	 </protocol>
+	 <protocol name="MCheckCanPlayPK" type="9518" maxsize="65535" prior="1">
+		<variable name="hostid" type="long" />
+		<variable name="guestid" type="long" />
+	 </protocol>
+   <protocol name="GChangeShouxiShape" type="9519" maxsize="65535" prior="1">  改变首席弟子的外形
+		<variable name="npckey" type="long" />
+		<variable name="roleid" type="long" /> 需要改变成玩家的ID by changhao
+		<variable name="shape" type="int" />
+		<variable name="components" type="map" key="byte" value="int"/>	角色换装信息key值参考SpriteComponents的枚举，value为0代表脱下某件换装
+		<variable name="name" type="string" /> 
+	 </protocol>
+	 
+	  
+	 <!-- GS 发送地图模块 请求创建NPC -->
+	 <protocol name="GCreateNpcUniversalReq" type="9520" maxsize="65535" prior="1" >
+		<variable name="interfaceid" type="long" validator="value=[0,)" /> 逻辑接口ID，不需要返回的，interfaceid = 0
+		<variable name="npclist" type="list" value="CreateNpcInfoUniverse" />GS召NPC的要求条件
+		<variable name="toufangAreaType" type="int"/> 0-普通的投放区域,1-新的投放区域,包含1级轻功
+	 </protocol>
+	 
+	 <!-- 地图模块，返回给GS的创建NPC的详细信息-->
+	 <protocol name="MCreateNpcUniversalRet" type="9521" maxsize="65535" prior="1">
+		<variable name="interfaceid" type="long" validator="value=(0,)" /> 逻辑接口ID，ID > 0
+		<variable name="result" type="int" validator="value=[0,1]" /> 召唤NPC结果，0，为失败，1为成功
+		<variable name="npclist" type="list" value="NpcInfo" /> 地图模块召出的NPC详细信息
+	 </protocol>
+	 
+	 <protocol name="GCheckGathering" type="9522" maxsize="65535" prior="1" >
+	 		<variable name="roleid" type="long"/>
+			<variable name="gatherkey" type="long" validator="value=[0,)" />
+	 </protocol>
+	 
+	 <protocol name="MStartGather" type="9523" maxsize="65535" prior="1" >
+	 		<variable name="roleid" type="long"/>
+			<variable name="gatherkey" type="long" validator="value=[0,)" />
+			<variable name="gatherid" type="int"/>
+	 </protocol>
+	 
+	 <protocol name="GGatherEnd" type="9524" maxsize="65535" prior="1" >
+	 		<variable name="roleid" type="long"/>
+			<variable name="gatherkey" type="long" validator="value=[0,)" />
+			<variable name="result" type="int"/>
+	 </protocol>
+	 
+	 <protocol name="GHideOrShowNpc" type="9525" maxsize="65535" prior="1">
+		<variable name="npcid" type="int" />要隐藏或显示的npc
+		<variable name="state" type="int" /> 1表示隐藏，0表示隐藏
+	 </protocol>
+	 
+	 <protocol name="GCreateNpcInRegion" type="9528" maxsize="65535" prior="1" > 在某个区域内创建npc
+	 		<variable name="npc" type="CreateNpcInfo" />
+		  <variable name="leftTopX" type="int" /> 指定的左上角坐标x
+      <variable name="leftTopY" type="int" /> 指定的左上角坐标y
+		  <variable name="width" type="int" /> 
+		  <variable name="height" type="int" /> 
+	 </protocol>	
+	 
+	 <protocol name="GEnterOrOutSafeAear" type="9532" maxsize="65535" prior="1" > 
+		  <variable name="roleid" type="long" /> 
+		  <variable name="x" type="int" /> 
+		  <variable name="y" type="int" /> 
+		  <variable name="serviceid" type="int" /> 
+	 </protocol>
+	 
+	 <protocol name="MRemoveNpcsFromGS" type="9533" maxsize="65535" prior="1"> 通知逻辑模块批量删除npc，一般在场景析构时发送
+			<variable name="npckeys" type="list" value="long"/>
+	 </protocol>
+	 
+	 <protocol name="GChangeNpcShape" type="9534" maxsize="65535" prior="1"> 通知场景，改变npc的造型造型（花轿巡游是改变拐点）
+			<variable name="npckey" type="long"/> npckey
+			<variable name="shapeId" type="int"/> 
+	 </protocol>
+	 
+	<protocol name="GCheckNpcMove" type="9535" maxsize="65535" prior="1"> 
+		<variable name="tick" type="long" />
+	</protocol>	 
+	
+	<protocol name="MNpcAIOver" type="9536" maxsize="65535" prior="1"> 
+		<variable name="npckey" type="long" />
+	</protocol>	
+	
+	<protocol name="GStartNpcAI" type="9537" maxsize="65535" prior="1"> 
+		<variable name="npckey" type="long"/>
+		<variable name="aiid" type="int" />
+		<variable name="roleids" type="set" value="long"/>
+	</protocol>	
+	
+	<protocol name="MNpcMoveTimerControl" type="9538" maxsize="65535" prior="1"> 
+		<variable name="action" type="int" />
+		<enum name="END" value="0"/>
+		<enum name="START" value="1"/>
+	</protocol>	 
+	
+ 	<protocol name="GCreateNPCWithRoleids" type="9539" maxsize="65535" prior="1"> 根据确定的坐标生成一个NPC，并且可以关联一些roleid
+		<variable name="npc" type="CreateNpcInfo"/>
+		<variable name="posx" type="int" />
+		<variable name="posy" type="int" />
+		<variable name="roleids" type="set" value="long"/>
+	</protocol>
+	
+	<protocol name="GFindNpcWithNpcId" type="9540" maxsize="128" prior="1"> 根据npcid查找一个npc的位置,并发送给客户端		
+		<variable name="roleid" type="long" />
+		<variable name="npcid" type="int" />
+	</protocol>
+	
+	<protocol name="GCreateYaoQianShuNpc" type="9541" maxsize="65535" prior="1"> 生成一棵摇钱树
+		<variable name="roleid" type="long" />
+		<variable name="npcname" type="string"/>
+		<variable name="npcid" type="int" />
+		<variable name="sceneid" type="long" />
+		<variable name="posx" type="int" />
+		<variable name="posy" type="int" />
+	</protocol>
+	
+	<protocol name="MCreateYaoQianShuNpc" type="9542" maxsize="65535" prior="1"> 存储摇钱树的信息
+		<variable name="roleid" type="long" />
+		<variable name="npcname" type="string"/>
+		<variable name="npckey" type="long" />
+		<variable name="sceneid" type="long" />
+		<variable name="posx" type="int" />
+		<variable name="posy" type="int" />
+	</protocol>
+	
+	 <protocol name="GCheckCanPlayPKView" type="9543" maxsize="65535" prior="1"> 
+		<variable name="hostid" type="long" />
+		<variable name="modeltype" type="int" /> 模块类型
+		<variable name="school" type="int" /> 删选的职业 -1表示全职业
+		<variable name="levelindex" type="int" /> 删选的角色等级区间 0表示全选
+	 </protocol>
+	 <protocol name="MCheckCanPlayPKView" type="9544" maxsize="65535" prior="1">
+		<variable name="hostid" type="long" />
+		<variable name="modeltype" type="int" /> 模块类型
+		<variable name="school" type="int" /> 删选的职业 -1表示全职业
+		<variable name="levelindex" type="int" /> 删选的角色等级区间 0表示全选
+		<variable name="rolelistid" type="list" value="long" /> 角色列表
+		<variable name="watchid" type="map" key="long" value="long"/> 观看角色列表
+	 </protocol>
+	
+     <!-- 统计动态场景里npc的数量-->   
+	 <protocol name="GCountNpcSize" type="9545" maxsize="128" prior="1">
+		<variable name="ownerid" type="long" />
+		<variable name="mapid" type="int" />
+        <variable name="saveid" type="int" />
+	 </protocol>
+    <!-- 统计动态场景里npc的数量后执行的存储过程操作-->
+	 <protocol name="MCountNpcSize" type="9546" maxsize="128" prior="1">
+		<variable name="npcnum" type="int" />
+		<variable name="ownerid" type="long" />
+        <variable name="saveid" type="int" />
+	 </protocol>
+		 
+</namespace>	
+

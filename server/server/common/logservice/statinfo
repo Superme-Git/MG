@@ -1,0 +1,44 @@
+	public:
+		int priority;
+		Octets msg;
+		Octets hostname;
+		Octets servicename;
+		enum { PROTOCOL_TYPE = PROTOCOL_STATINFO };
+	public:
+		StatInfo() { type = PROTOCOL_STATINFO; }
+		StatInfo(void*) : Protocol(PROTOCOL_STATINFO) { }
+		StatInfo (int l_priority,const Octets& l_msg = Octets(0),const Octets& l_hostname = Octets(0),
+			const Octets& l_servicename = Octets(0))
+			 : priority(l_priority),msg(l_msg),hostname(l_hostname)
+			,servicename(l_servicename)
+		{
+			type = PROTOCOL_STATINFO;
+		}
+
+		StatInfo(const StatInfo &rhs)
+			: Protocol(rhs),priority(rhs.priority),msg(rhs.msg),hostname(rhs.hostname)
+			,servicename(rhs.servicename) { }
+
+		GNET::Protocol *Clone() const { return new StatInfo(*this); }
+
+		OctetsStream& marshal(OctetsStream & os) const
+		{
+			os << priority;
+			os << msg;
+			os << hostname;
+			os << servicename;
+			return os;
+		}
+
+		const OctetsStream& unmarshal(const OctetsStream &os)
+		{
+			os >> priority;
+			os >> msg;
+			os >> hostname;
+			os >> servicename;
+			return os;
+		}
+
+		int PriorPolicy( ) const { return 2; }
+
+		bool SizePolicy(size_t size) const { return size <= 10240; }

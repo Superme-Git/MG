@@ -1,0 +1,18 @@
+class IconManager
+{
+	const CEGUI::String GetImagePathByID(int id);
+	const CEGUI::String GetItemIconPathByID(int id);
+	const CEGUI::Image* GetImageByID(int id);
+	const CEGUI::Image* GetItemIconByID(int id);	
+	const CEGUI::Image* GetSkillIconByID(int id);
+
+	const CEGUI::Image* GetBuffIconByID(int id);
+	const CEGUI::Image& GetTraceIcon();
+	const CEGUI::String GetSkillIconPathByID(int id);
+	const CEGUI::String GetEmotionIconPathByFrame(int aniID,int frame);
+	const CEGUI::Image* GetEmotionImageByFrame(int aniID,int frame);
+	const CEGUI::Image& getDefaultIcon();
+	
+};
+
+inline IconManager* gGetIconManager();

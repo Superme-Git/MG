@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tablelastfetch>
+    <lastfetch table="gs_counter_SellBuyStat" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_FushiChongzhiStat" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_ItemIOState" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_FushiJiaoyiIOStat" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_FushiXiaohaoStat" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_NCPServiceStat" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_LevelRoles" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_QuestState" time="2015-10-18_14:40"/>
+    <lastfetch table="gs_counter_MoneyExpIOState" time="2015-10-18_14:40"/>
+</tablelastfetch>

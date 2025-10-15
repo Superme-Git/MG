@@ -1,0 +1,33 @@
+
+安装和更新-唯一名服务器
+
+一、获取发布版本
+
+	发布目录
+		http://svnroot/repos/snail/bin
+
+	文件列表
+		ns.jar         可运行发布版本（二进制）
+		ns.Mkdb.xml     唯一名服务器初始配置，初次安装可以拷贝这个配置当作初始配置，更新时忽略她。
+		ns.install.xml 唯一名服务器更新脚本。
+		ns.class       安装程序。
+
+二、安装
+	cd snail/bin
+	java -cp . ns installdir -c
+		installdir 安装目录，必须不存在。
+
+三、配置
+	编辑 ns.Mkdb.xml
+	1.增加名字组
+		<table name="role" key="string" value="NameState"
+	   		cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+
+	2.增加Id组(不推荐使用)
+		<table name="familyid" idmin="10000" idmax="1000000" key="long" value="IdState"
+				cacheCapacity="10240" cachehigh="128" cachelow="64"/>
+
+	3.ant 生成新的 ns.jar
+
+四、更新
+	cd installdir && ant

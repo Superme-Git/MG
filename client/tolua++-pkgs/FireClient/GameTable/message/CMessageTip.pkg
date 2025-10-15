@@ -1,0 +1,22 @@
+namespace GameTable
+{
+    namespace message
+    {
+        class CMessageTip
+        {
+            public:
+            int id;
+            std::wstring type;
+            std::wstring msg;
+        };
+        class CMessageTipTable
+        {
+            public:
+        CMessageTip& getRecorder(int id);
+        virtual unsigned int getSize();
+        void getAllID(std::vector<int>& recordList);
+        virtual void ReleaseData();
+        };
+        static CMessageTipTable&  GetCMessageTipTableInstance();
+    }
+}

@@ -1,0 +1,16 @@
+导表目录：scheme_doc\表格正导\data
+1、表格在“scheme_doc\表格正导\data\xlsdir\”中，表格的路径和名称不能随意修改，修改的话需要同步修改gbeans下所有调用此文件的名字；新增表格同样需要在gbeans增加
+2、复合表（多张excel表导成1张XML表）在文件夹加了“复合”后缀。
+3、修改表格完后，点击“转数据.bat”进行导表；
+4、改表、导表前更新，尽量保证“clientxml”和“serverxml”中XML和表格数据同步，避免与他人修改数据冲突。
+5、表格数据将生成在“clientxml”和“serverxml”中。
+6、开发库客户端表格数据路径：resource\res\table\xmltable\
+7、开发库客户端表格数据路径：MT_G\serverbin\gs\gamedata\xml\auto\
+8、导表完成后“clientxml”和“serverxml”中XML以及“xlsdir”中表格要同步上传
+9、表格由严重错误在运行窗口中会有报错，如果发现生成的XML有问题可以查错
+10、gbeans中有每一个XML和excel的对应关系，表头内容。XML命名规则：fire.gsp.yuanbao（在gbeans哪个XML下）.ctiandaochouqinconf（表名关键字）.xml
+11、查找XML和excel对应关系时，使用UltraEdit或其他工具搜索gbeans目录，以UltraEdit为例：搜索-在文件中查找；需要勾选搜索子目录、使用编码处选择：65001 (UTF-8)。使用excel查找XML时直接搜索“表名”，使用XML反查excel时搜索“表名关键字”。
+
+
+
+

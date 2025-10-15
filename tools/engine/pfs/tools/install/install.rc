@@ -1,0 +1,237 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "versiondefine.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""versiondefine.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\install.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INSTALL_DIALOG DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE
+EXSTYLE WS_EX_APPWINDOW
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+END
+
+IDD_COPYRIGHT DIALOGEX 0, 0, 287, 243
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "最终用户软件许可协议"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "同意",IDC_AGREE,158,222,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "不同意",IDCANCEL,222,222,50,14,NOT WS_TABSTOP
+    LTEXT           "安装前请仔细阅读最终用户软件许可协议:",IDC_STATIC_COPYRIGHT,7,6,262,8
+    EDITTEXT        IDC_EDIT_COPYRIGHT,7,18,273,200,ES_MULTILINE | ES_READONLY | NOT WS_BORDER | WS_VSCROLL,WS_EX_STATICEDGE
+END
+
+IDD_FOLDER DIALOGEX 0, 0, 332, 222
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "浏览"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "下一步",IDOK,211,201,50,14
+    PUSHBUTTON      "退出",IDCANCEL,266,201,50,14
+    PUSHBUTTON      "上一步",IDC_PREVSTEP,153,201,50,14
+    CONTROL         "",IDC_TREE_FOLDER,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | WS_BORDER | WS_TABSTOP,7,42,318,151
+    LTEXT           "请选择安装路径(需要空间:%dMB)",IDC_STATIC_NEEDSPACE,7,7,318,8
+    EDITTEXT        IDC_EDIT_FOLDER,7,20,318,14,ES_AUTOHSCROLL
+    LTEXT           "磁盘剩余空间:%dMB",IDC_STATIC_FREESPACE,7,199,123,8
+END
+
+IDD_CHECK DIALOGEX 0, 0, 266, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "询问"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "验证",IDOK,109,74,50,14,NOT WS_TABSTOP
+    DEFPUSHBUTTON   "跳过",IDCANCEL,189,74,50,14
+    PUSHBUTTON      "上一步",IDC_PREVSTEP,28,74,50,14
+    LTEXT           "安装程序从网络下载的过程中可能会导致部分数据丢失，你需要对安装程序数据包做完整性校验吗？",IDC_STATIC_CHECK,11,21,245,22
+    LTEXT           "----------------------------------------------------------------------------------------------",IDC_STATIC,7,47,252,8
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 224, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "安装进度"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,88,74,50,14
+    LTEXT           "正在处理文件：　　　",IDC_STATIC_FILE,7,7,210,8
+    LTEXT           "总进度：",IDC_STATIC_TOTAL,7,40,210,8
+    CONTROL         "",IDC_PROGRESS_TOTAL,"msctls_progress32",WS_BORDER | 0x1,7,52,210,14
+    CONTROL         "",IDC_PROGRESS_FILE,"msctls_progress32",WS_BORDER | 0x1,7,20,210,14
+END
+
+IDD_CHECKPROGRESS DIALOGEX 0, 0, 281, 51
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "正验证安装程序数据包的完整性(data%d.pck),请稍候..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,115,30,50,14
+    CONTROL         "",IDC_PROGRESS_TOTAL,"msctls_progress32",WS_BORDER | 0x1,7,9,267,14
+END
+
+IDD_FINISH DIALOGEX 0, 0, 275, 131
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "安装结果"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,218,110,50,14
+    GROUPBOX        "",IDC_STATIC,7,13,261,77
+    CONTROL         "在桌面创建游戏图标",IDC_CHECK_CREATELINK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,26,107,10
+    CONTROL         "安装结束后启动游戏",IDC_CHECK_STARTGAME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,58,110,10
+    LTEXT           "安装完成",IDC_STATIC_FINISH,15,98,253,8
+    CONTROL         "安装乐动卓越版360安全浏览器",IDC_AUTOINSTALL_360,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,42,122,10
+    CONTROL         "install unity3d",IDC_INSTALL_UNITY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,74,232,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_INSTALL_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_COPYRIGHT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 236
+    END
+
+    IDD_FOLDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 325
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+    END
+
+    IDD_CHECK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 217
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_CHECKPROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 274
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 44
+    END
+
+    IDD_FINISH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\install.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

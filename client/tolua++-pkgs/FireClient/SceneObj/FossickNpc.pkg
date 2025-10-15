@@ -1,0 +1,22 @@
+class FossickNpc : public Npc
+{
+public:
+	FossickNpc();
+	virtual ~FossickNpc();
+
+public:
+	virtual	bool SetAttribute(stNpcData* pData);
+
+	virtual void Run(int now,int delta);
+	
+	bool CanFossick();//是否可以采集
+	void BeginFossick(const int& needbattle);
+	void FinishOneFossick(const int& result);//完成一次采集
+	void BeginCooling();//开始冷却
+	bool IsInCoolState();
+	bool InCoolTips();
+	void AddEffect();
+	void RemoveEffect(int itemid);
+	void EndCoolingState(int itemid);
+
+};

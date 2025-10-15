@@ -1,0 +1,92 @@
+enum eLoginState
+{
+	eLoginState_Null,
+	eLoginState_Enter,
+	eLoginState_RequestLogin,
+	eLoginState_RoleSelect,
+	eLoginState_RoleCreate,
+	eLoginState_ServersChoose,
+};
+
+enum eShortcutItem
+{
+	eShortcutItem_None,  // 不是快捷菜单启动
+	eShortcutItem_ViewStall,  // 查看摆摊
+	eShortcutItem_FriendChat,  // 好友聊天（好友列表）
+	eShortcutItem_ActivityCalendar,  // 活动日历
+};
+
+class LoginManager
+{
+	
+      const std::wstring& GetSelectArea(); 
+      const std::wstring& GetSelectServer();
+      const std::wstring& GetHost();
+      const std::wstring& GetPort();
+	  const std::wstring& GetChannelId();
+	  const std::wstring& GetCurChannelId();
+      int GetHostType();
+			void ToServerChoose(const std::wstring& area, const std::wstring& server);
+			void SetAccountInfo(const std::wstring& account);
+			void SetPassword(const std::wstring& password);
+			const std::wstring& GetAccount();
+			const std::wstring& GetPassword();
+			std::string GetHistoryAccount(int num);
+			std::string GetHistoryPassword(int num);
+			void SetSelectServerInfo(const std::wstring& area,
+								const std::wstring& server,
+								const std::wstring& ip, 
+								const std::wstring& port,
+								int hosttype);
+			void Init();
+			void CheckLoad(const std::string host, const std::string port, int serverKey, int ct_type = CONNECT_TYPE_NORMAL, const std::string& gip = "", const std::string& gport = "", int checkTime = CHECK_SERVER_TIME);
+    	void ClearConnections();
+			void ClearConnectionByKey(int key);
+			std::vector<fire::pb::RoleInfo>&	GetRoleList();
+			void ToServerChoose(const std::wstring& area, const std::wstring& server);
+			int64_t	GetPreLoginRoleID();
+			void LoginAgain();
+			void setServerKey(int id);
+			
+			int getServerID();
+			int getServerID();
+			
+			int isSDKFuncSupported(const char *funcName);
+			
+			void SetPreLoginRoleID(int64_t dwID);
+			
+			void SaveAccount();
+			void SetLoginState(eLoginState state);
+			
+			void UpdateRoleList();
+	const std::wstring& GetOpenId();
+	const std::wstring& GetOpenKey();
+	const std::wstring& GetPayToken();
+	const std::wstring& GetPf();
+	const std::wstring& GetPfKey();
+	const std::wstring& GetZoneId();
+	const std::wstring& GetPlatformName();
+	void SetChannelId(const std::wstring& channelId);
+	void SetCurChannelId(const std::wstring& channelId);
+	bool isFirstEnter();
+
+	// 是否从 ios9 的快捷菜单启动
+	bool isShortcutLaunched() const;
+	eShortcutItem getShortcutItemLaunchedBy() const;
+	void setShortcutItemLaunchedBy(eShortcutItem item);
+	bool isShortcutItemHandled() const;
+	void setShortcutItemHandled(bool val);
+	
+	void SetIp(const std::wstring& ip);
+	std::wstring& GetIp();
+
+	const std::wstring& GetYJChannelId();
+
+	void CloseWinWebView();
+	void WinWebViewUpdate();
+};
+
+LoginManager* gGetLoginManager()
+{
+    return LoginManager:getInstance();
+}

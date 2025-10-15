@@ -1,0 +1,58 @@
+"ID","名称","layout","功能id"
+"1","商会","          npcshopshanghui_mtg",
+"2","摆摊","                 baitan",
+"3","公会技能","                lifeskill","10"
+"4","商城","         npcshopshangcheng_mtg",
+"5","充值","               addcashdlg",
+"6","装备打造","workshopdznew","11"
+"7","宝石合成","workshophcnew","18"
+"8","装备修理","           workshopxlnew",
+"9","装备镶嵌","           workshopxqnew","12"
+"10","背包","mainpackdlg1",
+"11","仓库","depot_mtg",
+"12","人物属性","characterproperty",
+"13","人物信息","characterinfo",
+"14","人物加点","characterjiadian",
+"15","宠物属性","petpropertynew","1"
+"16","宠物炼妖","petpropertyxilian_mtg","1"
+"17","宠物培养","petpropertypeiyang_mtg","1"
+"18","宠物图鉴","petfieldguide_mtg","1"
+"19","职业技能","skillstudydlg","4"
+"20","人物专精","xiulianskill_mtg","16"
+"21","队伍","team",
+"22","副本","fuben_mtg",
+"23","挂机界面","mapchoosedialog_mtg","7"
+"24","伙伴助战","huobanzhuzhan","6"
+"25","分页签","label",
+"26","炼药","lifeskillzuoyao",
+"27","临时背包","lishibag",
+"28","活力兑现","lifeskillhuoliduixian",
+"29","npc商店","npcshop_mtg",
+"30","宠物商店","npcshopchongwu_mtg",
+"31","宠物仓库","petdepot_mtg",
+"32","任务上交宠物","renwuwupinshangjiaocw_mtg",
+"33","任务上交物品","renwuwupinshangjiao",
+"34","普通挖宝","wabao_mtg",
+"35","高级挖宝","gaojiwabao",
+"36","宠物技能学习","petskilladd",
+"37","宠物放生","petfangsheng",
+"38","重置属性","resettingshuxing",
+"39","死亡提醒","warndilalog_mtg",
+"40","任务","TaskDialog_mtg",
+"41","活动","huodong","14"
+"42","好友","frienddialog",
+"43","排行榜","rankinglist","8"
+"44","聊天","chatdialog",
+"45","活动周历","huodongzhouli",
+"46","升级大礼包","shengjidalibao",
+"47","宠物技能修炼","xiulianskill_mtg","17"
+"48","洗点界面","resettingshuxing",
+"49","添加好友","friendadddialog",
+"50","礼包兑换码","libaoduihuanma_mtg",
+"51","染色","ranse1",
+"52","角斗场单人切磋","leitai_mtg",
+"53","角斗场多人切磋","leitai_mtg",
+"54","角斗场观战","leitai_mtg",
+"55","染色保存方案","ranse1baocun",
+"56","公会","family","5"
+"57","队伍申请","teamshenqing",

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>MT3</ProjectName>
+    <ProjectGuid>{B8BF9E81-35FD-4582-BA1C-B85FA365BABB}</ProjectGuid>
+    <RootNamespace>HelloWorldwin32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx;../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/OGLES;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/zlib;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libwebp;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libraries;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/freetype/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../cocos2d-2.0-rc2-x-2.0.1/external/curl/include/win32;../../cocos2d-2.0-rc2-x-2.0.1/external/tiff/win32/include;../../dependencies/jpeg/win32/include;../../dependencies/png/win32/include;../../cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/Include;../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../cocos2d-2.0-rc2-x-2.0.1/extensions/;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include/spine;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include/spine;../../dependencies/SILLY-0.1.0/include;../../dependencies/cegui/CEGUI/include;../../dependencies/cegui/CEGUI/include/RendererModules/Cocos2D;../../dependencies/cegui/CEGUI/include/WindowRendererSets/Falagard;../../dependencies/cegui/CEGUI/include/ImageCodecModules/SILLYImageCodec;../../dependencies/cegui/CEGUI/include/XMLParserModules/XMLIOParser;../../dependencies/cegui/CEGUI/include/ScriptingModules/LuaScriptModule;../../dependencies/vld/include/win32;../../common/cauthc;../../common/cauthc/authc/os/windows;../../common/cauthc/authc;../../common/platform;../../common/ljfm/code;../../engine;../../client/FireClient;../../client/FireClient/Application;../../client/FireClient/Application/Framework;../../client/FireClient/Application/GameTable;../../client/FireClient/Application/GameUI;../../client/FireClient/Application/Manager;../../client/FireClient/Application/Common;../../client/FireClient/Application/SceneObj;../../client/FireClient/Application/Utils;../../client/FireClient/Application/ProtoDef;../../client/FireClient/Application/ProtoDef/rpcgen</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_DEBUG;_WINDOWS;COCOS2D_DEBUG=1;CEGUI_STATIC;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;XPP_WIN;CC_SUPPORT_PVRTC;PUBLISHED_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244</DisableSpecificWarnings>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Ws2_32.lib;opengl32.lib;glew32.lib;libEGL.lib;libGLESv2.lib;libBox2D.lib;libcocos2d.lib;libCocosDenshion.lib;libspeex.lib;libogg.lib;libvorbis.lib;libSpine.lib;esUtil.lib;libpng.lib;libjpeg.lib;libtiff.lib;freetype.lib;zlib.lib;cegui.lib;pcre.lib;silly.lib;lua.lib;liblua.lib;platform.lib;cauthc.lib;ljfm.lib;engine.lib;FireClient.lib;Shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;pthreadVCE2.lib;libcurl_imp.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)$(Configuration).win32/;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libraries;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/libraries/vs2013/Win32/$(Configuration);../../cocos2d-2.0-rc2-x-2.0.1/external/curl/prebuilt/win32;../../cocos2d-2.0-rc2-x-2.0.1/external/tiff/prebuilt/win32;../../dependencies/jpeg/prebuilt/win32;../../dependencies/png/prebuilt/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/lib/$(Configuration);../../dependencies/opengles_v2/Lib;../../client/FireClient/$(Configuration).win32;../../cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/proj.win32/$(Configuration).win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <EnableUAC>true</EnableUAC>
+      <UACUIAccess>false</UACUIAccess>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /Q $(SolutionDir)$(Configuration).win32\$(ProjectName).exe  $(SolutionDir)$(Configuration).win32\..\..\resource\bin\$(Configuration)
+xcopy /Y /Q $(SolutionDir)$(Configuration).win32\*.dll  $(SolutionDir)$(Configuration).win32\..\..\resource\bin\$(Configuration)</Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>if not exist "$(SolutionDir)$(Configuration).win32" mkdir "$(SolutionDir)$(Configuration).win32"
+xcopy /Y /Q "$(SolutionDir)\..\..\dependencies\vld\prebuilt\win32\*.*" "$(SolutionDir)$(Configuration).win32"</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>.;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx;../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/OGLES;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/zlib;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libwebp;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libraries;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/freetype/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../cocos2d-2.0-rc2-x-2.0.1/external/curl/include/win32;../../cocos2d-2.0-rc2-x-2.0.1/external/tiff/win32/include;../../dependencies/jpeg/win32/include;../../dependencies/png/win32/include;../../cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/Include;../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../cocos2d-2.0-rc2-x-2.0.1/extensions;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include/spine;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include/spine;../../dependencies/SILLY-0.1.0/include;../../dependencies/cegui/CEGUI/include;../../dependencies/cegui/CEGUI/include/RendererModules/Cocos2D;../../dependencies/cegui/CEGUI/include/WindowRendererSets/Falagard;../../dependencies/cegui/CEGUI/include/ImageCodecModules/SILLYImageCodec;../../dependencies/cegui/CEGUI/include/XMLParserModules/XMLIOParser;../../dependencies/cegui/CEGUI/include/ScriptingModules/LuaScriptModule;../../common/cauthc;../../common/cauthc/authc/os/windows;../../common/cauthc/authc;../../common/platform;../../common/ljfm/code;../../engine;../../client/FireClient;../../client/FireClient/Application;../../client/FireClient/Application/Framework;../../client/FireClient/Application/GameTable;../../client/FireClient/Application/GameUI;../../client/FireClient/Application/Manager;../../client/FireClient/Application/Common;../../client/FireClient/Application/SceneObj;../../client/FireClient/Application/Utils;../../client/FireClient/Application/ProtoDef;../../client/FireClient/Application/ProtoDef/rpcgen</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_WINDOWS;NDEBUG;COCOS2D_DEBUG=0;CEGUI_STATIC;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;XPP_WIN;CC_SUPPORT_PVRTC;PUBLISHED_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244</DisableSpecificWarnings>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Ws2_32.lib;opengl32.lib;glew32.lib;libEGL.lib;libGLESv2.lib;libBox2D.lib;libcocos2d.lib;libCocosDenshion.lib;libSpine.lib;libspeex.lib;libogg.lib;libvorbis.lib;esUtil.lib;libpng.lib;libjpeg.lib;libtiff.lib;freetype.lib;zlib.lib;cegui.lib;pcre.lib;silly.lib;lua.lib;liblua.lib;platform.lib;cauthc.lib;ljfm.lib;engine.lib;FireClient.lib;Shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;pthreadVCE2.lib;libcurl_imp.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);$(SolutionDir)$(Configuration).win32/;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libraries;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/libraries/vs2013/Win32/$(Configuration);../../cocos2d-2.0-rc2-x-2.0.1/external/curl/prebuilt/win32;../../cocos2d-2.0-rc2-x-2.0.1/external/tiff/prebuilt/win32;../../dependencies/jpeg/prebuilt/win32;../../dependencies/png/prebuilt/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/lib/$(Configuration);../../dependencies/opengles_v2/Lib;../../client/FireClient/$(Configuration).win32;../../cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/proj.win32/$(Configuration).win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <EnableUAC>true</EnableUAC>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <UACUIAccess>false</UACUIAccess>
+      <AdditionalOptions>/IGNORE:4098,4099 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /Q $(SolutionDir)$(Configuration).win32\$(ProjectName).exe  $(SolutionDir)$(Configuration).win32\..\..\resource\bin\$(Configuration)
+xcopy /Y /Q $(SolutionDir)$(Configuration).win32\*.dll  $(SolutionDir)$(Configuration).win32\..\..\resource\bin\$(Configuration)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CrashDump.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CrashDump.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MT3.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="mt3.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

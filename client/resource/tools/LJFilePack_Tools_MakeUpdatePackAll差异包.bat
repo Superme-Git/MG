@@ -1,0 +1,1 @@
+%~dp0LJFilePack.exe makeupdatepackall:%1

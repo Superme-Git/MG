@@ -1,0 +1,88 @@
+<project name="xmergedemo" default="test">
+
+<property name="src" value="src/"/>
+<property name="test" value="test/"/>	
+<property name="report" value="report"/>
+<property name="build" value="classes/"/>
+<property name="bin" value="../../bin/"/>
+<property name="lib" value="../../bin/"/>
+<property name="junit" value="../../test/lib2"/>
+	
+<target name="init" depends="clean">
+	<mkdir dir="${build}"/>
+	<mkdir dir="${test}/src_db"/>
+	<mkdir dir="${test}/src_backup"/>
+	<mkdir dir="${test}/dest_db"/>
+	<mkdir dir="${test}/dest_backup"/>
+	<mkdir dir="${test}/result_db"/>
+</target>
+
+<target name="compile" depends="xgen">
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/xdb.jar"/>
+		<pathelement path="${bin}/xmerge.jar"/>
+		<pathelement path="${junit}/junit.jar"/>
+	</path>
+
+	<javac encoding="GBK" srcdir="${src}" destdir="${build}"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>
+	
+<target name="clean">
+	<delete dir="${build}"/>
+	<delete dir="${test}/src_db"/>
+	<delete dir="${test}/src_backup"/>
+	<delete dir="${test}/dest_db"/>
+	<delete dir="${test}/dest_backup"/>	
+	<delete dir="${test}/result_db"/>
+</target>
+
+<target name="xgen" depends="init">	
+	<java jar="${bin}/xdb.jar" fork="true">
+		<arg value="src.xml"/>
+	</java>
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/xdb.jar"/>
+	</path>
+
+	<javac encoding="GBK" srcdir="${src}/xbean" destdir="${build}/"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+	<javac encoding="GBK" srcdir="${src}/xtable" destdir="${build}/"
+		classpathref="classpath" debug="true" debuglevel="lines,source">
+		<compilerarg line="-Xlint:unchecked" />
+	</javac>
+</target>	
+	
+<target name="test" depends="compile">
+	<mkdir dir="${report}"/>
+	<path id="classpath">
+		<pathelement path="${bin}/jio.jar"/>
+		<pathelement path="${bin}/xdb.jar"/>
+		<pathelement path="${bin}/xmerge.jar"/>
+		<pathelement path="${junit}/junit.jar"/>
+	</path>
+	
+	<junit printsummary="true">
+		<jvmarg line="-server -Xss4m"/>
+		<classpath>
+			<pathelement path="${build}"/>
+			<pathelement path="${bin}/jio.jar"/>
+			<pathelement path="${bin}/xdb.jar"/>
+			<pathelement path="${bin}/xmerge.jar"/>
+			<pathelement path="${junit}/junit.jar"/>
+		</classpath>
+		<formatter type="plain"/>
+		<batchtest fork="yes" todir="${report}">
+			<fileset dir="${src}">
+				<include name="demo/*.java"/>
+			</fileset>
+		</batchtest>
+	</junit>
+</target>
+</project>

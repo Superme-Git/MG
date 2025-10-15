@@ -1,0 +1,12 @@
+Index: DeviceData_iOS.mm
+===================================================================
+--- DeviceData_iOS.mm	(revision 49135)
++++ DeviceData_iOS.mm	(working copy)
+@@ -10,7 +10,6 @@
+ {
+     if (![UIDevice currentDevice].batteryMonitoringEnabled) {
+         [UIDevice currentDevice].batteryMonitoringEnabled = YES;
+-        return 1.0f;
+     }
+     return [UIDevice currentDevice].batteryLevel;
+ }

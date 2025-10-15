@@ -1,0 +1,8 @@
+
+namespace BitOP
+{
+	unsigned int LoWord(unsigned int);
+	unsigned int HiWord(unsigned int);
+	bool TestBit(unsigned int data, int bit);
+	unsigned int GetMaxBit(unsigned int data);
+}

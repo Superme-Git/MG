@@ -1,0 +1,219 @@
+$#include "Manager/MessageManager.h"
+
+enum eMsgType
+{
+	eMsgType_Normal,
+	eMsgType_Team,		//组队相关
+	eMsgType_Friend,		//好友相关
+	eMsgType_Family,		//相关
+	eMsgType_Faction,	//公会相关
+	eMsgType_FactionBattle,//帮战拉人
+	eMsgType_Trade,		//交易相关
+	eMsgType_Marriage,	//婚姻相关
+	eMsgType_PK,			//PK相关
+	eMsgType_GoIntoMap,	//进地图确认
+	eMsgType_Contract,	//团队契约
+	eMsgType_TeamSummon,	//队长发起的江湖召集令
+	eMsgType_Game,		//游戏
+	eMsgType_Activity,	//活动
+	eMsgType_FriendChat, //好友聊天最小化
+	eMsgType_YeXiDiYing,	//夜袭敌营最小化
+	eMsgType_GroupChat, //群聊天最小化
+	eMsgType_FeedFamilyBoss,	//驯养boss
+	eMsgType_FeedFactionBoss,	//驯养公会boss
+	eMsgType_Master,		//师徒
+    eMsgType_Keju,       //科举
+    eMsgType_VipBuy,     //VIP次数购买
+	eMsgType_Max
+};
+
+//二次确认框类型
+enum eConfirmType
+{
+	eConfirmNormal,
+	eConfirmOK,				//只有单个确定按钮
+	eConfirmResetPoint,		//洗点
+	eConfirmDropItem,		//丢弃物品
+	eConfirmNormalRepair,	//普通修理
+	eConfirmPearlRepair,	//珍珠修理
+	eConfirmSetFlyFlag,		//设置飞行旗坐标
+	eConfirmInitDuel,		//发起决斗
+	eConfirmInitPK,			//发起PK
+	eConfirmGiven,			//给予确认
+	eConfirmDivorce,		//离婚确认
+	eConfirmFamilyExpel,	//驱逐
+	eConfirmFactionSummon,	//公会召集
+	eConfirmChangeBidding,	//帮战竞标
+	eConfirmFBAppoint,		//帮战队伍任命
+	eConfirmBattleEscape,	//战斗逃跑
+	eConfirmKeJuSignUp,		//科举报名
+	eConfirmKeJuGiveUp,		//科举弃权
+	eConfirmFightChief,		//挑战首席-弟子
+	eConfirmBuyItem,		//购买确认
+	eConfirmStoreName,		//更改招牌
+	eConfirmCleanTempBag,	//清空临时包裹
+	eConfirmWeddingCard,	//确认送出请帖
+	eConfirmSellShop,		//出售商店
+	eConfirmPetShopRelated,	//宠物商店相关
+	eConfirmItemShopRelated,//物品商店相关
+	eConfirmPetSkillBook,	//宠物技能书
+	eConfirmLevel3Drug,		//使用3级药
+	eConfirmTakeTianZun,	//领取天-尊任务
+	eConfirmPayTianZun,		//天-尊扣钱
+	eConfirmFreePet,		//放生宝宝
+	eConfirmLevelUp,		//升级确认
+	eConfirmAddGroup,       //同意加入群确定
+	eConfirmExchangeRepu,	//声望值兑换
+	eConfirmMasterOutGoing,	//帮主卸任
+	eConfirmExitDream,      //暂离虚幻境
+	eConfirmReturnDream,    //返回虚幻境
+	eConfirmBuyStuff,		//购买确认
+	eConfirmInLay,			//镶嵌宝石确认
+	eConfirmBuyGem,			//购买宝石确认
+	eConfirmQuench,			//淬炼装备确认
+	eConfirmRefineEquip,	//精炼装备确认
+	eConfirmOpenShop,		//商会确认开店
+	eConfirmAcupointUp,		//充穴
+	eConfirmExpelFamily,	//驱逐确认
+	eConfirmAcution,		//竞拍号码确认
+	eConfirmFamilyApply,	//拒收/接收
+	eConfirmLeaveFamily,	//脱离确认
+	ePurifyAllDrug,			//全部提炼确认
+	eConfirmRevokeInfo,		//撤销征友消息确认
+	eConfirmStopKite,		//停止放风筝确认
+	eConfirmGivePet,		//给予宠物确认
+	eConfirmDemonSlayerTask,//使用平怨令确认
+	eConfirmLeaderJHSummon,	//江湖召集令提示
+	eConfirmSaveAntique,	//存入古董确认
+	eConfirmDelAntique,		//删除古董确认
+	eConfirmDZXY,			//开始斗转星移确认
+	eConfirmRecast,			//重铸确认
+	eConfirmRecast1,		//重铸确认1
+	eDrawPetStar,			//抽取宠物之星
+	eConfirmBanTalk,		//禁言确认
+	eConfirmRepairAll,		//全部修理确认
+	eConfirmSendTrumpet,    //使用喇叭发言确认
+	eConfirmLeaveBoat,		//离开赛船
+	eConfirmBuyBaoChan,		//确认购买宝铲
+	eConfirmUseFElement,	//确认使用阵法元素
+    eConfirmMixBindItem,   //确认叠加绑定道具
+	eConfirmAcceptZaxueLiansheng,	//确认接收杂学连学任务
+	eConfirmVoteLeave,		//发起投票离开公会
+	eConfirmLeaveFaction,	//投票脱离公会
+	eConfirmSaveAccout,	//确定保存账号
+	eConfirmExitGame,	//确定退出游戏
+	eConfirmApplyWulindahui,	//确定申请武林大会
+	eConfirmCharge,		//确定支付
+	eConfirmEnterInstance,	//确认进入副本
+	eConfirmSupplyFlag,	//补充飞行旗
+	eConfirmExpel5Days,		//5天内驱逐成员二次确认框
+	eConfirmDropSkill,		//丢弃技能
+	eConfirmApplyAntialise, //确定退到角色选择启用新的抗锯齿设置
+	eConfirmPetEvolve,		//确定进化
+	eConfirmGemLevelUp,		//宝石合成
+	eConfirmGemSmelt,		//宝石熔炼
+	eConfirmQGEffectItem,	//使用更换轻-功(飞越)拖尾特效的道具
+	eConfirmCloseReplaceEquip,		//确定关闭替换装备
+	eConfirmCloseReplaceEquipTip,		//确定关闭替换装备提醒
+	eConfirmCloseRemindUseItem,	//确定关闭大红大蓝提示界面
+	eConfirmCloseRemindUseItemTip,	//确定关闭大红大蓝提示
+	eConfirmAbandonTask,		//放弃任务
+	eConfirmDeleteColorScheme,		//确定删除配色
+	eConfirmReportRole,         //举报玩家确认
+	eConfirmLottery,			//公测抽奖
+	eConfirmEnterPetIsland,			//确定进入宠物迷城
+	eConfirmSelectNetType,			//确定选择进入游戏的网络类型
+	eConfirmXunBaoSell,			//找宝网售卖使用
+	eConfirmBuyStallBoard,			//购买摊位招牌
+        eConfirmOpenPetIsland,
+        eConfirmCombineItem,     // 确定合成道具
+        eConfirmAllCombineItem,  //确定合成所有道具
+        eConfirmGotoHighLevelMap,  //确定传送至比自己等级高的地级
+        eConfirmBreakFriend,       //确认解除好友关系
+        eConfirmTeamLeaderEnterFuben //与队长副本进度不一致时，进入队长副本的确认
+};
+	
+	
+
+struct stMessageBoxInfo
+{
+	CEGUI::Window*	pWindow;
+	std::wstring	title;
+	std::wstring	okstring;
+	std::wstring	strRightBtnTitle;
+	int				life;
+	void*			userdata;
+	int64_t			userID;
+	int64_t         userID2;  //add by qzh 有时候需要两个ID参数
+	eMsgType	type;
+	CEGUI::SubscriberSlot	cancelEvent;
+	int nRightTick;
+	stMessageBoxInfo();
+	~stMessageBoxInfo();
+};
+//人与系统之间的确认框
+struct stConfirmBoxInfo
+{
+	CEGUI::Window*	pWindow;
+	CEGUI::Window*	pCancelButton;
+	//std::wstring	title;
+	//std::wstring	messgae;
+	eConfirmType	type;
+	void*			userdata;
+	int64_t			userID;
+	int64_t			userID2;
+	CEGUI::SubscriberSlot	cancelEvent;
+	stConfirmBoxInfo();
+	~stConfirmBoxInfo();
+};
+
+class MessageManager 
+{
+
+	void CloseMessageBoxByType(eMsgType type);//关闭某种类型的二次确认框
+	void CloseMessageBoxByType(eMsgType type,bool bsenddefault=false);//关闭某种类型的二次确认框
+	void CloseCurrentShowMessageBox(); //关闭当前显示的二次确认框
+
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life);
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0);
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0, int64_t id2=0);
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0, int64_t id2=0,void* pData=NULL);
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0, int64_t id2=0,void* pData=NULL, std::wstring oktext=L"");
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0, int64_t id2=0,void* pData=NULL, std::wstring oktext=L"",std::wstring canceltext=L"");
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0, int64_t id2=0,void* pData=NULL, std::wstring oktext=L"",std::wstring canceltext=L"",int nRight = 0);
+	stMessageBoxInfo* AddMessageBox(const std::wstring& title,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex, LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex,eMsgType type, int life, int64_t id=0, int64_t id2=0,void* pData=NULL, std::wstring oktext=L"",std::wstring canceltext=L"",int nRight = 0,int pType = 0);
+
+	
+	stConfirmBoxInfo* AddConfirmBox(eConfirmType type,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex,LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex);
+	stConfirmBoxInfo* AddConfirmBox(eConfirmType type,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex,LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex, int64_t id = 0);
+	stConfirmBoxInfo* AddConfirmBox(eConfirmType type,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex,LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex, int64_t id = 0,int64_t id2= 0);
+	stConfirmBoxInfo* AddConfirmBox(eConfirmType type,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex,LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex, int64_t id = 0,int64_t id2= 0,void* pData=NULL);
+	stConfirmBoxInfo* AddConfirmBox(eConfirmType type,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex,LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex, int64_t id = 0,int64_t id2= 0,void* pData=NULL, std::wstring oktext = L"");
+	stConfirmBoxInfo* AddConfirmBox(eConfirmType type,const std::wstring& message,lua_State* state, LUA_FUNCTION okfunc, LUAOBJ_REF okselfIndex,LUA_FUNCTION cancelfunc, LUAOBJ_REF cancelselfIndex, int64_t id = 0,int64_t id2= 0,void* pData=NULL, std::wstring oktext = L"",std::wstring canceltext = L"");
+	
+	void RemoveConfirmBox(stConfirmBoxInfo* pInfo);	//删除某个确认框，主动点ok或cancel触发
+	void CloseConfirmBox(eConfirmType type);		//关闭某一类型的确认框
+	void CloseConfirmBox(eConfirmType type,bool senddefault = true);		//关闭某一类型的确认框
+	
+   static bool HandleDefaultCancelEvent(const CEGUI::EventArgs &e);
+   
+   bool IsHaveSameMessageBox(eMsgType type,int64_t userid,int64_t userid2);//是否存在相同的messagebox
+   int64_t GetUserID();
+   int64_t GetUserID2();
+   int64_t GetAutoCloseMessageUserID();
+   int64_t GetAutoCloseMessageUserID2();
+   
+   void OnAbsentTeamAndBeTeamLeader();
+   stMessageBoxInfo* AlreadyHaveSameTitleMessageBox(std::wstring title);
+   
+   bool isHaveConfirmBox();
+   bool isHaveMessageBox();
+};
+
+inline MessageManager* gGetMessageManager();
+
+$[
+function tostConfirmBoxInfo(obj)
+	return tolua.cast(obj, "stConfirmBoxInfo");
+end
+$]

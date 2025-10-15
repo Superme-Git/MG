@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Code">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Code\HttpClient">
+      <UniqueIdentifier>{fb846e5f-6540-42ec-bd34-ed4328d207f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\UIControl">
+      <UniqueIdentifier>{dc3e7cf4-bdfd-41a4-bb70-b1de0f35f8cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Utils">
+      <UniqueIdentifier>{cda55dfb-f26a-478d-9089-73c8ae20bf85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Update">
+      <UniqueIdentifier>{4f5da698-6570-413f-8715-252d9759cb35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\LJFP">
+      <UniqueIdentifier>{8e2999cf-7b15-437c-b21d-bc7bdf116263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Global">
+      <UniqueIdentifier>{870b0d5c-d4d9-47b7-a13a-ee2b87e66e6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\LJFM">
+      <UniqueIdentifier>{541a46cf-ba58-4d24-8808-944ececa34a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Download">
+      <UniqueIdentifier>{8edb3bfe-7ca2-44b8-9678-3d7071e15a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\WebBrowser">
+      <UniqueIdentifier>{6767d954-de5c-4ffd-9d90-c66376d93912}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Launcher.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\Launcher.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\HttpClient\HttpClient_Common.cpp">
+      <Filter>Code\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\HttpClient\HttpClient_Get.cpp">
+      <Filter>Code\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\HttpClient\HttpClient_Post.cpp">
+      <Filter>Code\HttpClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Update\UpdateManagerEx.cpp">
+      <Filter>Code\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Update\UpdateEngine.cpp">
+      <Filter>Code\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Global\GlobalFunction.cpp">
+      <Filter>Code\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\Update\JsonUtil.cpp">
+      <Filter>Code\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\LJFM\LJFileInfo.cpp">
+      <Filter>Code\LJFM</Filter>
+    </ClCompile>
+    <ClCompile Include="Code\CrashDump.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Code\Launcher.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\stdafx.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Code\HttpClient\HttpClient.h">
+      <Filter>Code\HttpClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Utils\StringUtil.h">
+      <Filter>Code\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Update\UpdateManagerEx.h">
+      <Filter>Code\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Update\UpdateManagerEx_Helper.h">
+      <Filter>Code\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Update\JsonUtil.h">
+      <Filter>Code\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Update\UpdateEngine.h">
+      <Filter>Code\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Global\GlobalFunction.h">
+      <Filter>Code\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Utils\FileUtil.h">
+      <Filter>Code\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFM\LJFileInfo.h">
+      <Filter>Code\LJFM</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Update\UpdateJson.h">
+      <Filter>Code\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Download\DownloadOne.h">
+      <Filter>Code\Download</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Download\DownloadManager.h">
+      <Filter>Code\Download</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_Compress.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_CRC32.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_FileInfo.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_FileUtil.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_MiniZ.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_Node.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_SMS4.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_StringUtil.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_Var.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_Version.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_XML.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LJFP\LJFP_ZipFile.h">
+      <Filter>Code\LJFP</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Utils\SystemUtil.h">
+      <Filter>Code\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIBase.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIButton.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUILabel.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIImage.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIWindow.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIWindowManager.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\Update\UpdateBin.h">
+      <Filter>Code\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LauncherUI.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LauncherTools.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\LauncherData.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUILabelLink.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIProgressBar.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\WebBrowser\OleContainer.h">
+      <Filter>Code\WebBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\WebBrowser\WebBrowser.h">
+      <Filter>Code\WebBrowser</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\UIControl\DUIWebBrowser.h">
+      <Filter>Code\UIControl</Filter>
+    </ClInclude>
+    <ClInclude Include="Code\CrashDump.h">
+      <Filter>Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ExeIcon.ico">
+      <Filter>Resource</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

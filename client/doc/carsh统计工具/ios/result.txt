@@ -1,0 +1,868 @@
+total crash file: 150
+total reson: 49
+
+
+1: count 5 3.33%
+1   mt3                             0x0000000100120374 ConnectGetServerInfo::getHttpAdressByEnum(enumServerHttpAdress) (ConnectGetServerInfo.cpp:491)
+2   mt3                             0x0000000100120374 ConnectGetServerInfo::getHttpAdressByEnum(enumServerHttpAdress) (ConnectGetServerInfo.cpp:491)
+3   mt3                             0x000000010011ffc4 ConnectGetServerInfo::connetGetUserInfo() (ConnectGetServerInfo.cpp:59)
+4   mt3                             0x0000000100120a2c ConnectGetServerInfo::onGetUserInfo(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) (basic_string.h:493)
+5   mt3                             0x0000000100d22374 cocos2d::extension::CCHttpClient::dispatchResponseCallbacks(float) + 552
+6   mt3                             0x0000000100ce2078 cocos2d::CCTimer::update(float) + 292
+7   mt3                             0x0000000100ceb488 cocos2d::CCScheduler::update(float) + 708
+8   mt3                             0x0000000100cdef58 cocos2d::CCDirector::drawScene() + 68
+9   mt3                             0x0000000100ce03fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+10  mt3                             0x0000000100d3adb4 -[CCDirectorCaller doCaller:] + 140
+21  mt3                             0x000000010002d640 main (main.m:9)
+2016060915\output0x100024000+1033076\2016-06-0906-15-16.crash
+
+
+
+2: count 5 3.33%
+0   mt3                             0x0000000100778150 std::map<int, FireNet::PollIO*, std::less<int>, std::allocator<std::pair<int const, FireNet::PollIO*> > >::operator[](int const&) + 28
+1   mt3                             0x0000000100774c54 FireNet::PollIO::TriggerEvent(int) + 44
+2   mt3                             0x00000001007745fc FireNet::PollIO::Poll(int) + 444
+3   mt3                             0x00000001007742c0 aio::Engine::Run() + 44
+4   mt3                             0x0000000100774760 aio::Thread::ThreadStart(void*) + 20
+2016060915\output0x100028000+7651664\2016-06-0905-16-43.crash
+
+
+
+3: count 5 3.33%
+1   mt3                             0x0000000100844218 std::_Rb_tree<int, std::pair<int const, FireNet::PollIO*>, std::_Select1st<std::pair<int const, FireNet::PollIO*> >, std::less<int>, std::allocator<std::pair<int const, FireNet::PollIO*> > >::_M_insert_unique(std::_Rb_tree_iterator<std::pair<int const, FireNet::PollIO*> >, std::pair<int const, FireNet::PollIO*> const&) + 76
+2   mt3                             0x00000001008441b8 std::map<int, FireNet::PollIO*, std::less<int>, std::allocator<std::pair<int const, FireNet::PollIO*> > >::operator[](int const&) + 132
+3   mt3                             0x0000000100840c54 FireNet::PollIO::TriggerEvent(int) + 44
+4   mt3                             0x00000001008405fc FireNet::PollIO::Poll(int) + 444
+5   mt3                             0x00000001008402c0 aio::Engine::Run() + 44
+6   mt3                             0x0000000100840760 aio::Thread::ThreadStart(void*) + 20
+2016060915\output0x100034000+7651864\2016-06-0904-44-13.crash
+
+
+
+4: count 5 3.33%
+1   mt3                             0x0000000100134610 std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_insert_unique(std::pair<int const, int> const&) (stl_tree.h:991)
+2   mt3                             0x00000001001344cc std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_insert_unique(std::_Rb_tree_iterator<std::pair<int const, int> >, std::pair<int const, int> const&) (stl_tree.h:1047)
+3   mt3                             0x0000000100133a58 std::map<int, int, std::less<int>, std::allocator<std::pair<int const, int> > >::operator[](int const&) (stl_map.h:350)
+4   mt3                             0x00000001001b89b8 ConnectGetServerInfo::onGetUserInfo(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) (ConnectGetServerInfo.cpp:480)
+5   mt3                             0x0000000100dba374 cocos2d::extension::CCHttpClient::dispatchResponseCallbacks(float) + 552
+6   mt3                             0x0000000100d7a078 cocos2d::CCTimer::update(float) + 292
+7   mt3                             0x0000000100d83488 cocos2d::CCScheduler::update(float) + 708
+8   mt3                             0x0000000100d76f58 cocos2d::CCDirector::drawScene() + 68
+9   mt3                             0x0000000100d783fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+10  mt3                             0x0000000100dd2db4 -[CCDirectorCaller doCaller:] + 140
+21  mt3                             0x00000001000c5640 main (main.m:9)
+2016060915\output0x100040000+493072\2016-06-0905-50-51.crash
+
+
+
+5: count 5 3.33%
+0   mt3                             0x0000000100a91a88 CEGUI::Window::isVisible(bool) const + 24
+1   mt3                             0x000000010086f384 tolua_CEGUI_CEGUI_Window_isVisible01(lua_State*) + 176
+2   mt3                             0x00000001001a9fc4 luaD_precall (ldo.c:319)
+3   mt3                             0x00000001003ed824 luaV_execute (lvm.c:591)
+4   mt3                             0x00000001001aa45c luaD_call (ldo.c:378)
+5   mt3                             0x00000001001a9b04 luaD_rawrunprotected (ldo.c:119)
+6   mt3                             0x00000001001aa72c luaD_pcall (ldo.c:463)
+7   mt3                             0x00000001002ed730 lua_pcall (lapi.c:822)
+8   mt3                             0x0000000100136d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+9   mt3                             0x0000000100136384 cocos2d::CCLuaEngine::executeGlobalFunction(char const*, int) (CCLuaEngine.cpp:338)
+10  mt3                             0x000000010008fd84 GameUImanager::OnGameStart() (GameUIManager.cpp:3190)
+11  mt3                             0x0000000100069da0 GameScene::ChangeMap(long long, Nuclear::NuclearPoint, std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >, int, bool) (GameScene.cpp:1304)
+12  mt3                             0x0000000100248770 tolua_FireClient_GameScene_ChangeMap00(lua_State*) (LuaFireClient.cpp:47260)
+13  mt3                             0x00000001001a9fc4 luaD_precall (ldo.c:319)
+14  mt3                             0x00000001003ed824 luaV_execute (lvm.c:591)
+2016060915\output0x100048000+10902152\2016-06-0905-03-10.crash
+
+
+
+6: count 5 3.33%
+0   mt3                             0x0000000100094460 std::_Rb_tree<int, std::pair<int const, int>, std::_Select1st<std::pair<int const, int> >, std::less<int>, std::allocator<std::pair<int const, int> > >::_M_insert_unique(std::_Rb_tree_iterator<std::pair<int const, int> >, std::pair<int const, int> const&) (stl_tree.h:1006)
+1   mt3                             0x0000000100093a58 std::map<int, int, std::less<int>, std::allocator<std::pair<int const, int> > >::operator[](int const&) (stl_map.h:350)
+2   mt3                             0x0000000100093a58 std::map<int, int, std::less<int>, std::allocator<std::pair<int const, int> > >::operator[](int const&) (stl_map.h:350)
+3   mt3                             0x00000001001189b8 ConnectGetServerInfo::onGetUserInfo(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) (ConnectGetServerInfo.cpp:480)
+4   mt3                             0x0000000100d1a374 cocos2d::extension::CCHttpClient::dispatchResponseCallbacks(float) + 552
+5   mt3                             0x0000000100cda078 cocos2d::CCTimer::update(float) + 292
+6   mt3                             0x0000000100ce3488 cocos2d::CCScheduler::update(float) + 708
+7   mt3                             0x0000000100cd6f58 cocos2d::CCDirector::drawScene() + 68
+8   mt3                             0x0000000100cd83fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+9   mt3                             0x0000000100d32db4 -[CCDirectorCaller doCaller:] + 140
+20  mt3                             0x0000000100025640 main (main.m:9)
+2016060915\output0x100050000+492640\2016-06-0906-06-04.crash
+
+
+
+7: count 5 3.33%
+0   mt3                             0x00000001007d8e9c FireNet::Octets::Octets(FireNet::Octets const&) + 60
+1   mt3                             0x00000001007d8e9c FireNet::Octets::Octets(FireNet::Octets const&) + 60
+2   mt3                             0x00000001007d7c28 FireNet::Marshal::OctetsStream::OctetsStream(FireNet::Marshal::OctetsStream const&) + 20
+3   mt3                             0x00000001002af7ec tolua_FireClient_GameScene_GetTitleName00(lua_State*) (LuaFireClient.cpp:52731)
+4   mt3                             0x0000000100205fc4 luaD_precall (ldo.c:319)
+5   mt3                             0x0000000100449824 luaV_execute (lvm.c:591)
+6   mt3                             0x000000010020645c luaD_call (ldo.c:378)
+7   mt3                             0x0000000100205b04 luaD_rawrunprotected (ldo.c:119)
+8   mt3                             0x000000010020672c luaD_pcall (ldo.c:463)
+9   mt3                             0x0000000100349730 lua_pcall (lapi.c:822)
+10  mt3                             0x0000000100192d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+11  mt3                             0x0000000100362f7c Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+12  mt3                             0x000000010038c8c8 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:39)
+13  mt3                             0x000000010085ef58 Nuclear::Engine::RunUserTask() + 200
+14  mt3                             0x000000010085ec7c Nuclear::Engine::MainLoop() + 152
+2016060915\output0x100074000+7671452\2016-06-0904-33-56.crash
+
+
+
+8: count 5 3.33%
+18  mt3                             0x00000001003f91c0 +[LocalNotify addNotificationForServerOpen] (LocalNotify.mm:103)
+19  mt3                             0x00000001000672d4 -[FireClientAppDelegate applicationDidEnterBackground:] (FireClientAppDelegate.mm:534)
+34  mt3                             0x0000000100065640 main (main.m:9)
+2016060915\output0x100078000+3789248\2016-06-0904-38-10.crash
+
+
+
+9: count 5 3.33%
+0   mt3                             0x00000001007cc6e0 FireNet::Timer::UpdateSelf() + 84
+1   mt3                             0x00000001007cc6f0 FireNet::Timer::UpdateSelf() + 100
+2   mt3                             0x00000001007cc2c4 aio::Engine::Run() + 48
+3   mt3                             0x00000001007cc760 aio::Thread::ThreadStart(void*) + 20
+2016060915\output0x100084000+7636704\2016-06-0904-52-37.crash
+
+
+
+10: count 5 3.33%
+9   mt3                             0x00000001000dc748 luaM_realloc_ (lmem.c:79)
+10  mt3                             0x0000000100403ab4 setarrayvector (ltable.c:265)
+11  mt3                             0x000000010040388c resize (ltable.c:305)
+12  mt3                             0x0000000100404208 newkey (ltable.c:405)
+13  mt3                             0x00000001003f87b8 luaV_settable (lvm.c:141)
+14  mt3                             0x00000001003f92f0 luaV_execute (lvm.c:448)
+15  mt3                             0x00000001001b645c luaD_call (ldo.c:378)
+16  mt3                             0x00000001001b5b04 luaD_rawrunprotected (ldo.c:119)
+17  mt3                             0x00000001001b672c luaD_pcall (ldo.c:463)
+18  mt3                             0x00000001002f9730 lua_pcall (lapi.c:822)
+19  mt3                             0x0000000100142d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+20  mt3                             0x0000000100142384 cocos2d::CCLuaEngine::executeGlobalFunction(char const*, int) (CCLuaEngine.cpp:338)
+21  mt3                             0x000000010009bf58 GameUImanager::OnGameStart() (GameUIManager.cpp:3224)
+22  mt3                             0x0000000100075da0 GameScene::ChangeMap(long long, Nuclear::NuclearPoint, std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >, int, bool) (GameScene.cpp:1304)
+23  mt3                             0x0000000100254770 tolua_FireClient_GameScene_ChangeMap00(lua_State*) (LuaFireClient.cpp:47260)
+2016060915\output0x100088000+673608\2016-06-0904-51-38.crash
+
+
+
+11: count 5 3.33%
+0   mt3                             0x0000000100b4ad2c CEGUI::Window::setVisible(bool) + 76
+1   mt3                             0x0000000100927ccc tolua_CEGUI_CEGUI_Window_setVisible00(lua_State*) + 176
+2   mt3                             0x0000000100927ccc tolua_CEGUI_CEGUI_Window_setVisible00(lua_State*) + 176
+3   mt3                             0x0000000100261fc4 luaD_precall (ldo.c:319)
+4   mt3                             0x00000001004a5824 luaV_execute (lvm.c:591)
+5   mt3                             0x000000010026245c luaD_call (ldo.c:378)
+6   mt3                             0x0000000100261b04 luaD_rawrunprotected (ldo.c:119)
+7   mt3                             0x000000010026272c luaD_pcall (ldo.c:463)
+8   mt3                             0x00000001003a5730 lua_pcall (lapi.c:822)
+9   mt3                             0x00000001001eed24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+10  mt3                             0x000000010010151c GameApplication::OnTick(unsigned int, unsigned int, unsigned int) (GameApplication.cpp:1656)
+11  mt3                             0x00000001008bacd8 Nuclear::Engine::MainLoop() + 244
+12  mt3                             0x0000000100d92150 cocos2d::CCActionManager::update(float) + 232
+13  mt3                             0x0000000100dab290 cocos2d::CCScheduler::update(float) + 204
+14  mt3                             0x0000000100d9ef58 cocos2d::CCDirector::drawScene() + 68
+2016060915\output0x100098000+10906924\2016-06-0905-03-01.crash
+
+
+
+12: count 5 3.33%
+7   mt3                             0x00000001000dacd8 CEGUI::RefCounted<CEGUI::BoundSlot>::release() (CEGUIRefCounted.h:187)
+8   mt3                             0x0000000100ad975c std::_Rb_tree<unsigned int, std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> >, std::_Select1st<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > > >::_M_destroy_node(std::_Rb_tree_node<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >*) + 32
+9   mt3                             0x0000000100ad9724 std::_Rb_tree<unsigned int, std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> >, std::_Select1st<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >*) + 56
+10  mt3                             0x0000000100ad93cc CEGUI::Event::~Event() + 120
+11  mt3                             0x0000000100ad9424 CEGUI::Event::~Event() + 20
+12  mt3                             0x0000000100ad9ab4 CEGUI::EventSet::removeAllEvents() + 68
+13  mt3                             0x0000000100ad9a38 CEGUI::EventSet::~EventSet() + 36
+14  mt3                             0x0000000100b15870 CEGUI::Window::~Window() + 228
+15  mt3                             0x0000000100b4c788 CEGUI::GUISheet::~GUISheet() + 20
+16  mt3                             0x0000000100b2ad84 CEGUI::WindowManager::cleanDeadPool() + 80
+17  mt3                             0x0000000100111554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+18  mt3                             0x00000001000cdf4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+19  mt3                             0x0000000100887688 Nuclear::Engine::Render(bool) + 216
+20  mt3                             0x0000000100864880 Nuclear::EngineLayer::draw() + 592
+21  mt3                             0x0000000100d678dc cocos2d::CCNode::visit() + 456
+2016060915\output0x1000b0000+175320\2016-06-0906-16-22.crash
+
+
+
+13: count 5 3.33%
+39  mt3                             0x0000000100089640 main (main.m:9)
+2016060915\output0x1000b4000+38464\2016-06-0905-57-30.crash
+
+
+
+14: count 5 3.33%
+0   mt3                             0x00000001008206e8 FireNet::Timer::UpdateSelf() + 92
+1   mt3                             0x00000001008206c4 FireNet::Timer::UpdateSelf() + 56
+2   mt3                             0x00000001008202c4 aio::Engine::Run() + 48
+3   mt3                             0x0000000100820760 aio::Thread::ThreadStart(void*) + 20
+2016060915\output0x1000d8000+7636712\2016-06-0906-11-04.crash
+
+
+
+15: count 5 3.33%
+4   mt3                             0x000000010094ff50 -[LJIAPHelper requestOrderID:productId:extraData:] (LJIAPHelper.m:80)
+5   mt3                             0x00000001009545fc -[LocojoyPlatform locojoyPayWithView:productId:extraData:] (LocojoyPlatform.m:320)
+6   mt3                             0x00000001000f0138 __93-[BasePlatformSDK pay:withNum:withPID:withPName:withCp:withAppUID:withAppUName:withAppSvrID:]_block_invoke (BasePlatformSDK.m:199)
+7   mt3                             0x0000000100332b5c -[HttpRequest connectionDidFinishLoading:] (HttpRequest.m:54)
+26  mt3                             0x000000010003d640 main (main.m:9)
+2016060915\output0x1000e0000+9551696\2016-06-0904-41-30.crash
+
+
+
+16: count 5 3.33%
+0   mt3                             0x000f3864 std::map<int, int, std::less<int>, std::allocator<std::pair<int const, int> > >::operator[](int const&) (stl_map.h:347)
+2   mt3                             0x001745fb ConnectGetServerInfo::onGetUserInfo(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) (ConnectGetServerInfo.cpp:480)
+3   mt3                             0x00c84ab3 cocos2d::extension::CCHttpClient::dispatchResponseCallbacks(float) + 507
+4   mt3                             0x00c4ce9f cocos2d::CCTimer::update(float) + 243
+5   mt3                             0x00c52ad9 cocos2d::CCScheduler::update(float) + 449
+6   mt3                             0x00c4a1ff cocos2d::CCDirector::drawScene() + 43
+7   mt3                             0x00c4b4f9 cocos2d::CCDisplayLinkDirector::mainLoop() + 171
+8   mt3                             0x00c9ba47 -[CCDirectorCaller doCaller:] + 159
+21  mt3                             0x0008d659 main (main.m:9)
+2016060915\output0x19000+452708\2016-06-0905-33-48.crash
+
+
+
+17: count 5 3.33%
+0   mt3                             0x001e1282 std::_Rb_tree<enumServerHttpAdress, std::pair<enumServerHttpAdress const, std::string>, std::_Select1st<std::pair<enumServerHttpAdress const, std::string> >, std::less<enumServerHttpAdress>, std::allocator<std::pair<enumServerHttpAdress const, std::string> > >::find(enumServerHttpAdress const&) const (stl_tree.h:1400)
+2   mt3                             0x001d9f47 ConnectGetServerInfo::getHttpAdressByEnum(enumServerHttpAdress) (stl_map.h:569)
+3   mt3                             0x001d9bd7 ConnectGetServerInfo::connetGetUserInfo() (ConnectGetServerInfo.cpp:59)
+4   mt3                             0x001da66d ConnectGetServerInfo::onGetUserInfo(cocos2d::extension::CCHttpClient*, cocos2d::extension::CCHttpResponse*) (basic_string.h:288)
+5   mt3                             0x00ceaab3 cocos2d::extension::CCHttpClient::dispatchResponseCallbacks(float) + 507
+6   mt3                             0x00cb2e9f cocos2d::CCTimer::update(float) + 243
+7   mt3                             0x00cb8ad9 cocos2d::CCScheduler::update(float) + 449
+8   mt3                             0x00cb01ff cocos2d::CCDirector::drawScene() + 43
+9   mt3                             0x00cb14f9 cocos2d::CCDisplayLinkDirector::mainLoop() + 171
+10  mt3                             0x00d01a47 -[CCDirectorCaller doCaller:] + 159
+23  mt3                             0x000f3659 main (main.m:9)
+2016060915\output0x2b000+1008258\2016-06-0904-35-35.crash
+
+
+
+18: count 5 3.33%
+6   mt3                             0x00c52cb1 -[EAGLView swapBuffers] + 489
+7   mt3                             0x00c4b0ef cocos2d::CCEGLView::swapBuffers() + 85
+8   mt3                             0x00bf92c9 cocos2d::CCDirector::drawScene() + 245
+9   mt3                             0x00bfa4f9 cocos2d::CCDisplayLinkDirector::mainLoop() + 171
+10  mt3                             0x00c4aa47 -[CCDirectorCaller doCaller:] + 159
+23  mt3                             0x0003c659 main (main.m:9)
+2016060915\output0x4d000+12709041\2016-06-0905-48-05.crash
+
+
+
+19: count 4 2.67%
+7   mt3                             0x00000001000d1680 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1327)
+8   mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+9   mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+10  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+11  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+12  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+13  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+14  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+15  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+16  mt3                             0x00000001000d1674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+17  mt3                             0x00000001000d1580 RegionBuffer<unsigned char>::unmarshal(Nuclear::INuclearStream const&) (regionbuffer.h:111)
+18  mt3                             0x0000000100861c88 Nuclear::NuclearObject::LoadFromMem(Nuclear::NuclearBuffer const&) + 84
+19  mt3                             0x0000000100861e58 Nuclear::NuclearObject::Load(LJFM::LJFMBF*) + 336
+20  mt3                             0x0000000100861f7c Nuclear::NuclearObject::Load(wchar_t const*) + 92
+21  mt3                             0x00000001000c6a98 GameScene::LoadMap(Nuclear::NuclearPoint) (GameScene.cpp:1527)
+2016060915\output0x1000e4000+300672\2016-06-0905-30-19.crash
+
+
+
+20: count 4 2.67%
+0   mt3                             0x00000001003f801c newkey (ltable.c:412)
+1   mt3                             0x00000001003f8010 newkey (ltable.c:410)
+2   mt3                             0x00000001003ec7b8 luaV_settable (lvm.c:141)
+3   mt3                             0x00000001003ed2f0 luaV_execute (lvm.c:448)
+4   mt3                             0x00000001001aa45c luaD_call (ldo.c:378)
+5   mt3                             0x00000001001a9b04 luaD_rawrunprotected (ldo.c:119)
+6   mt3                             0x00000001001aa72c luaD_pcall (ldo.c:463)
+7   mt3                             0x00000001002ed730 lua_pcall (lapi.c:822)
+8   mt3                             0x0000000100136d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+9   mt3                             0x0000000100306f7c Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+10  mt3                             0x00000001003308c8 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:39)
+11  mt3                             0x0000000100802f58 Nuclear::Engine::RunUserTask() + 200
+12  mt3                             0x0000000100802c7c Nuclear::Engine::MainLoop() + 152
+13  mt3                             0x0000000100cda150 cocos2d::CCActionManager::update(float) + 232
+14  mt3                             0x0000000100cf3290 cocos2d::CCScheduler::update(float) + 204
+2016060915\output0x100020000+3981340\2016-06-0906-18-19.crash
+
+
+
+21: count 4 2.67%
+7   mt3                             0x0000000100075d30 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1327)
+8   mt3                             0x0000000100075d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+9   mt3                             0x0000000100075d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+10  mt3                             0x0000000100075d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+11  mt3                             0x0000000100075d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+12  mt3                             0x0000000100075d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+13  mt3                             0x0000000100067cb4 GameScene::~GameScene() (GameScene.cpp:668)
+14  mt3                             0x0000000100068224 GameScene::~GameScene() (GameScene.cpp:634)
+15  mt3                             0x0000000100045b4c GameApplication::ExitGame(eExitType, int) (GameApplication.cpp:891)
+16  mt3                             0x000000010023e2a8 tolua_FireClient_GameApplication_ExitGame00(lua_State*) (LuaFireClient.cpp:42537)
+17  mt3                             0x00000001001a9fc4 luaD_precall (ldo.c:319)
+18  mt3                             0x00000001003ed824 luaV_execute (lvm.c:591)
+19  mt3                             0x00000001001aa45c luaD_call (ldo.c:378)
+20  mt3                             0x00000001001a9b04 luaD_rawrunprotected (ldo.c:119)
+21  mt3                             0x00000001001aa72c luaD_pcall (ldo.c:463)
+2016060915\output0x1000dc000+302384\2016-06-0905-14-14.crash
+
+
+
+22: count 4 2.67%
+7   mt3                             0x0000000100a85724 std::_Rb_tree<unsigned int, std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> >, std::_Select1st<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >*) + 56
+8   mt3                             0x0000000100a853cc CEGUI::Event::~Event() + 120
+9   mt3                             0x0000000100a85424 CEGUI::Event::~Event() + 20
+10  mt3                             0x0000000100a85ab4 CEGUI::EventSet::removeAllEvents() + 68
+11  mt3                             0x0000000100a85a38 CEGUI::EventSet::~EventSet() + 36
+12  mt3                             0x0000000100ac1870 CEGUI::Window::~Window() + 228
+13  mt3                             0x0000000100ae20bc CEGUI::ButtonBase::~ButtonBase() + 20
+14  mt3                             0x0000000100b24598 CEGUI::PushButton::~PushButton() + 20
+15  mt3                             0x0000000100b4e414 CEGUI::Thumb::~Thumb() + 20
+16  mt3                             0x0000000100ad6d84 CEGUI::WindowManager::cleanDeadPool() + 80
+17  mt3                             0x00000001000bd554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+18  mt3                             0x0000000100079f4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+19  mt3                             0x0000000100833688 Nuclear::Engine::Render(bool) + 216
+20  mt3                             0x0000000100810880 Nuclear::EngineLayer::draw() + 592
+21  mt3                             0x0000000100d138dc cocos2d::CCNode::visit() + 456
+2016060915\output0x100010000+10655524\2016-06-0904-49-18.crash
+
+
+
+23: count 4 2.67%
+0   mt3                             0x006ae7b2 FireNet::Octets::size() const + 2
+1   mt3                             0x006ae157 void FireNet::Marshal::OctetsStream::pop_byte<unsigned char>(unsigned char&) const + 39
+2   mt3                             0x006adbbb FireNet::Marshal::OctetsStream::unmarshal_char() + 13
+3   mt3                             0x001dca53 tolua_FireClient_FireNet_Marshal_OctetsStream_unmarshal_char00(lua_State*) (LuaFireClient.cpp:24790)
+4   mt3                             0x001789b5 luaD_precall (ldo.c:321)
+5   mt3                             0x00381a9f luaV_execute (lvm.c:591)
+6   mt3                             0x00178ccd luaD_call (ldo.c:378)
+7   mt3                             0x00178667 luaD_rawrunprotected (ldo.c:119)
+8   mt3                             0x00178e73 luaD_pcall (ldo.c:463)
+9   mt3                             0x00293791 lua_pcall (lapi.c:822)
+10  mt3                             0x0010c5d7 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+11  mt3                             0x002ac893 Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+12  mt3                             0x002d5763 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:23)
+13  mt3                             0x0072e335 Nuclear::Engine::RunUserTask() + 127
+14  mt3                             0x0072e0ed Nuclear::Engine::MainLoop() + 145
+2016060915\output0x90000+6944690\2016-06-0905-47-14.crash
+
+
+
+24: count 3 2.0%
+0   mt3                             0x000000010077ca24 void FireNet::Marshal::OctetsStream::pop_byte<unsigned int>(unsigned int&) const + 152
+1   mt3                             0x000000010077c228 FireNet::Marshal::OctetsStream::unmarshal_int32() + 20
+2   mt3                             0x0000000100215140 tolua_FireClient_FireNet_Marshal_OctetsStream_unmarshal_int3200(lua_State*) (LuaFireClient.cpp:24918)
+3   mt3                             0x00000001001a9fc4 luaD_precall (ldo.c:319)
+4   mt3                             0x00000001003ed824 luaV_execute (lvm.c:591)
+5   mt3                             0x00000001001aa45c luaD_call (ldo.c:378)
+6   mt3                             0x00000001001a9b04 luaD_rawrunprotected (ldo.c:119)
+7   mt3                             0x00000001001aa72c luaD_pcall (ldo.c:463)
+8   mt3                             0x00000001002ed730 lua_pcall (lapi.c:822)
+9   mt3                             0x0000000100136d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+10  mt3                             0x0000000100306f7c Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+11  mt3                             0x00000001003308c8 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:39)
+12  mt3                             0x0000000100802f58 Nuclear::Engine::RunUserTask() + 200
+13  mt3                             0x0000000100802c7c Nuclear::Engine::MainLoop() + 152
+14  mt3                             0x0000000100cda150 cocos2d::CCActionManager::update(float) + 232
+2016060915\output0x100064000+7670308\2016-06-0905-16-18.crash
+
+
+
+25: count 3 2.0%
+0   mt3                             0x00a708b6 std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 10
+1   mt3                             0x00a708bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+2   mt3                             0x00a708bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+3   mt3                             0x00a708bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+4   mt3                             0x00a708bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+5   mt3                             0x00a708bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+6   mt3                             0x0099971d CEGUI::Window::~Window() + 229
+7   mt3                             0x009bcc4d CEGUI::ButtonBase::~ButtonBase() + 11
+8   mt3                             0x00a04b21 CEGUI::PushButton::~PushButton() + 85
+9   mt3                             0x009af3c5 CEGUI::WindowManager::cleanDeadPool() + 61
+10  mt3                             0x0007d4ed GameUImanager::Draw() (GameUIManager.cpp:1960)
+11  mt3                             0x00040a3f GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+12  mt3                             0x007439a1 Nuclear::Engine::Render(bool) + 185
+13  mt3                             0x007214a7 Nuclear::EngineLayer::draw() + 647
+14  mt3                             0x00be60e3 cocos2d::CCNode::visit() + 255
+2016060915\output0x58000+10799286\2016-06-0905-33-13.crash
+
+
+
+26: count 3 2.0%
+7   mt3                             0x00000001003a6280 l_alloc (lauxlib.c:636)
+8   mt3                             0x0000000100144748 luaM_realloc_ (lmem.c:79)
+9   mt3                             0x000000010036d068 sweeplist (lgc.c:424)
+10  mt3                             0x000000010036d308 singlestep (lgc.c:583)
+11  mt3                             0x000000010036d6cc luaC_fullgc (lgc.c:654)
+12  mt3                             0x000000010036187c lua_gc (lapi.c:914)
+13  mt3                             0x00000001000b9de8 GameApplication::CollectingGCMemory() (GameApplication.cpp:2527)
+14  mt3                             0x00000001000dda34 GameScene::ChangeMap(long long, Nuclear::NuclearPoint, std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >, int, bool) (GameScene.cpp:1229)
+15  mt3                             0x00000001002bc770 tolua_FireClient_GameScene_ChangeMap00(lua_State*) (LuaFireClient.cpp:47260)
+16  mt3                             0x000000010021dfc4 luaD_precall (ldo.c:319)
+17  mt3                             0x0000000100461824 luaV_execute (lvm.c:591)
+18  mt3                             0x000000010021e45c luaD_call (ldo.c:378)
+19  mt3                             0x000000010021db04 luaD_rawrunprotected (ldo.c:119)
+20  mt3                             0x000000010021e72c luaD_pcall (ldo.c:463)
+21  mt3                             0x0000000100361730 lua_pcall (lapi.c:822)
+2016060915\output0x10002c000+3170944\2016-06-0905-43-06.crash
+
+
+
+27: count 3 2.0%
+0   mt3                             0x007787fa FireNet::Marshal::OctetsStream::uncompact_uint32(unsigned int const&) const + 16
+1   mt3                             0x007787f9 FireNet::Marshal::OctetsStream::uncompact_uint32(unsigned int const&) const + 15
+2   mt3                             0x002a79bd tolua_FireClient_FireNet_Marshal_OctetsStream_uncompact_uint3200(lua_State*) (LuaFireClient.cpp:24757)
+3   mt3                             0x002439b5 luaD_precall (ldo.c:321)
+4   mt3                             0x0044ca9f luaV_execute (lvm.c:591)
+5   mt3                             0x00243ccd luaD_call (ldo.c:378)
+6   mt3                             0x00243667 luaD_rawrunprotected (ldo.c:119)
+7   mt3                             0x00243e73 luaD_pcall (ldo.c:463)
+8   mt3                             0x0035e791 lua_pcall (lapi.c:822)
+9   mt3                             0x001d75d7 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+10  mt3                             0x00377893 Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+11  mt3                             0x003a0763 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:23)
+12  mt3                             0x007f9335 Nuclear::Engine::RunUserTask() + 127
+13  mt3                             0x007f90ed Nuclear::Engine::MainLoop() + 145
+14  mt3                             0x007f965f Nuclear::Engine::OnIdle() + 611
+2016060915\output0x95000+6940666\2016-06-0905-45-53.crash
+
+
+
+28: count 2 1.33%
+7   mt3                             0x0000000100a7ed3c std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 52
+8   mt3                             0x0000000100a7ed30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+9   mt3                             0x0000000100a7ed30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+10  mt3                             0x0000000100a7ed30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+11  mt3                             0x0000000100aa588c CEGUI::Window::~Window() + 256
+12  mt3                             0x0000000100adc788 CEGUI::GUISheet::~GUISheet() + 20
+13  mt3                             0x0000000100abad84 CEGUI::WindowManager::cleanDeadPool() + 80
+14  mt3                             0x00000001000a1554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+15  mt3                             0x000000010005df4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+16  mt3                             0x0000000100817688 Nuclear::Engine::Render(bool) + 216
+17  mt3                             0x00000001007f4880 Nuclear::EngineLayer::draw() + 592
+18  mt3                             0x0000000100cf78dc cocos2d::CCNode::visit() + 456
+19  mt3                             0x0000000100cf78b0 cocos2d::CCNode::visit() + 412
+20  mt3                             0x0000000100cfafb4 cocos2d::CCDirector::drawScene() + 160
+21  mt3                             0x0000000100cfc3fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+2016060915\output0x1000a8000+10743100\2016-06-0906-09-23.crash
+
+
+
+29: count 2 1.33%
+0   mt3                             0x00a5f8b6 std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 10
+1   mt3                             0x00a5f8bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+2   mt3                             0x00a5f8bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+3   mt3                             0x00a5f8bf std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::String>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::String> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::String> > >::_M_erase(std::_Rb_tree_node<std::pair<CEGUI::String const, CEGUI::String> >*) + 19
+4   mt3                             0x0098871d CEGUI::Window::~Window() + 229
+5   mt3                             0x009c407d CEGUI::GUISheet::~GUISheet() + 85
+6   mt3                             0x0099e3c5 CEGUI::WindowManager::cleanDeadPool() + 61
+7   mt3                             0x0006c4ed GameUImanager::Draw() (GameUIManager.cpp:1960)
+8   mt3                             0x0002fa3f GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+9   mt3                             0x007329a1 Nuclear::Engine::Render(bool) + 185
+10  mt3                             0x007104a7 Nuclear::EngineLayer::draw() + 647
+11  mt3                             0x00bd50e3 cocos2d::CCNode::visit() + 255
+12  mt3                             0x00bd50cd cocos2d::CCNode::visit() + 233
+13  mt3                             0x00bd8249 cocos2d::CCDirector::drawScene() + 117
+14  mt3                             0x00bd94f9 cocos2d::CCDisplayLinkDirector::mainLoop() + 171
+2016060915\output0x58000+10799286\2016-06-0904-32-00.crash
+
+
+
+30: count 2 1.33%
+0   mt3                             0x000000010008c66c CEGUI::String::FastLessCompare::operator()(CEGUI::String const&, CEGUI::String const&) const (CEGUIString.h:386)
+1   mt3                             0x0000000100a628c4 std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::Property*>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::Property*> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::Property*> > >::find(CEGUI::String const&) + 68
+2   mt3                             0x0000000100a61fa0 CEGUI::PropertySet::setProperty(CEGUI::String const&, CEGUI::String const&) + 64
+3   mt3                             0x00000001000ff5e8 VoiceManager::tick(unsigned int) (VoiceManager.cpp:170)
+4   mt3                             0x0000000100041494 GameApplication::OnTick(unsigned int, unsigned int, unsigned int) (DownloadManager.h:169)
+5   mt3                             0x00000001007facd8 Nuclear::Engine::MainLoop() + 244
+6   mt3                             0x0000000100cd2150 cocos2d::CCActionManager::update(float) + 232
+7   mt3                             0x0000000100ceb290 cocos2d::CCScheduler::update(float) + 204
+8   mt3                             0x0000000100cdef58 cocos2d::CCDirector::drawScene() + 68
+9   mt3                             0x0000000100ce03fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+10  mt3                             0x0000000100d3adb4 -[CCDirectorCaller doCaller:] + 140
+21  mt3                             0x000000010002d640 main (main.m:9)
+2016060915\output0x1000e4000+427628\2016-06-0905-40-38.crash
+
+
+
+31: count 2 1.33%
+0   mt3                             0x00000001007b0a24 void FireNet::Marshal::OctetsStream::pop_byte<unsigned int>(unsigned int&) const + 152
+1   mt3                             0x00000001007afb78 FireNet::Marshal::OctetsStream::uncompact_uint32(unsigned int const&) const + 180
+2   mt3                             0x00000001000d8278 FireNet::CompactUINT::unmarshal(FireNet::Marshal::OctetsStream const&) (marshal.h:218)
+3   mt3                             0x00000001007b002c FireNet::Marshal::OctetsStream::operator>>(FireNet::Marshal const&) const + 32
+4   mt3                             0x00000001007ab46c aio::Manager::Process(unsigned int, FireNet::Octets&) + 128
+5   mt3                             0x00000001007acfe4 FireNet::StreamIO::PollIn() + 308
+6   mt3                             0x00000001007a8c94 FireNet::PollIO::TriggerEvent(int) + 108
+7   mt3                             0x00000001007a85fc FireNet::PollIO::Poll(int) + 444
+8   mt3                             0x00000001007a82c0 aio::Engine::Run() + 44
+9   mt3                             0x00000001007a8760 aio::Thread::ThreadStart(void*) + 20
+2016060915\output0x100064000+7670308\2016-06-0905-23-20.crash
+
+
+
+32: count 2 1.33%
+9   mt3                             0x0000000100aad474 CEGUI::Event::subscribe(unsigned int, CEGUI::SubscriberSlot const&) + 48
+10  mt3                             0x0000000100bb0874 CEGUI::Gesture::CEGUIGestureRecognizerManager::AddRecoginzer(CEGUI::Window&, CEGUI::Gesture::GestureRecognizerType, CEGUI::SubscriberSlot) + 240
+11  mt3                             0x0000000100af3af8 CEGUI::Window::subscriberEventDrag(CEGUI::SubscriberSlot) + 52
+12  mt3                             0x0000000100b6321c CEGUI::ScrollablePane::EnableAllChildDrag(CEGUI::Window*) + 160
+13  mt3                             0x0000000100b64ad8 CEGUI::ScrollablePane::addChild_impl(CEGUI::Window*) + 272
+14  mt3                             0x0000000100ae96d0 CEGUI::Window::addChildWindow(CEGUI::Window*) + 160
+15  mt3                             0x00000001008c9050 tolua_CEGUI_CEGUI_Window_addChildWindow01(lua_State*) + 180
+16  mt3                             0x0000000100201fc4 luaD_precall (ldo.c:319)
+17  mt3                             0x0000000100445824 luaV_execute (lvm.c:591)
+18  mt3                             0x000000010020245c luaD_call (ldo.c:378)
+19  mt3                             0x0000000100201b04 luaD_rawrunprotected (ldo.c:119)
+20  mt3                             0x000000010020272c luaD_pcall (ldo.c:463)
+21  mt3                             0x0000000100345730 lua_pcall (lapi.c:822)
+22  mt3                             0x000000010018ed24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+23  mt3                             0x000000010035ef7c Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+2016060915\output0x100020000+10654836\2016-06-0906-51-20.crash
+
+
+
+33: count 2 1.33%
+0   mt3                             0x007337fa FireNet::Marshal::OctetsStream::uncompact_uint32(unsigned int const&) const + 16
+1   mt3                             0x007337f9 FireNet::Marshal::OctetsStream::uncompact_uint32(unsigned int const&) const + 15
+2   mt3                             0x00733c65 FireNet::Marshal::OctetsStream::unmarshal_octets(FireNet::Octets&) + 17
+3   mt3                             0x00263175 tolua_FireClient_FireNet_Marshal_OctetsStream_unmarshal_octets00(lua_State*) (LuaFireClient.cpp:25113)
+4   mt3                             0x001fe9b5 luaD_precall (ldo.c:321)
+5   mt3                             0x00407a9f luaV_execute (lvm.c:591)
+6   mt3                             0x001feccd luaD_call (ldo.c:378)
+7   mt3                             0x001fe667 luaD_rawrunprotected (ldo.c:119)
+8   mt3                             0x001fee73 luaD_pcall (ldo.c:463)
+9   mt3                             0x00319791 lua_pcall (lapi.c:822)
+10  mt3                             0x001925d7 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+11  mt3                             0x00332893 Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+12  mt3                             0x0035b763 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:23)
+13  mt3                             0x007b4335 Nuclear::Engine::RunUserTask() + 127
+14  mt3                             0x007b40ed Nuclear::Engine::MainLoop() + 145
+2016060915\output0x95000+6940666\2016-06-0906-14-14.crash
+
+
+
+34: count 1 0.67%
+9   mt3                             0x0000000100a61474 CEGUI::Event::subscribe(unsigned int, CEGUI::SubscriberSlot const&) + 48
+10  mt3                             0x0000000100b897a8 CEGUI::FalagardStaticText::onLookNFeelAssigned() + 596
+11  mt3                             0x0000000100aa2740 CEGUI::Window::setLookNFeel(CEGUI::String const&, bool) + 344
+12  mt3                             0x0000000100ab2f24 CEGUI::WindowManager::createWindow(CEGUI::String const&, CEGUI::String const&) + 292
+13  mt3                             0x0000000100b0c8b4 CEGUI::BinLayout::NodeSerializer_v1::readWindow(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 200
+14  mt3                             0x0000000100b0c778 CEGUI::BinLayout::NodeSerializer_v1::read(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 132
+15  mt3                             0x0000000100b0d7e4 CEGUI::BinLayout::NodeSerializer_v1::readChilds(CEGUI::BinLayout::Stream&, int&, CEGUI::Window**, CEGUI::BinLayout::Serializer::Context*) + 120
+16  mt3                             0x0000000100b0c920 CEGUI::BinLayout::NodeSerializer_v1::readWindow(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 308
+17  mt3                             0x0000000100b0c778 CEGUI::BinLayout::NodeSerializer_v1::read(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 132
+18  mt3                             0x0000000100b0d7e4 CEGUI::BinLayout::NodeSerializer_v1::readChilds(CEGUI::BinLayout::Stream&, int&, CEGUI::Window**, CEGUI::BinLayout::Serializer::Context*) + 120
+19  mt3                             0x0000000100b0c920 CEGUI::BinLayout::NodeSerializer_v1::readWindow(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 308
+20  mt3                             0x0000000100b0c778 CEGUI::BinLayout::NodeSerializer_v1::read(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 132
+21  mt3                             0x0000000100afef2c CEGUI::BinLayout::LayoutSerializer_v1::read(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 76
+22  mt3                             0x0000000100b0bdd8 CEGUI::BinLayout::BinLayoutFileSerializer::read(CEGUI::BinLayout::Stream&, int&, CEGUI::PropertyReceiver**, CEGUI::BinLayout::Serializer::Context*) + 148
+23  mt3                             0x0000000100ab420c CEGUI::WindowManager::loadWindowLayout(CEGUI::String const&, CEGUI::String const&, CEGUI::String const&, bool (*)(CEGUI::Window*, CEGUI::String&, CEGUI::String&, void*), void*) + 2940
+2016060915\output0x100020000+10654836\2016-06-0906-50-01.crash
+
+
+
+35: count 1 0.67%
+7   mt3                             0x0000000100ab1724 std::_Rb_tree<unsigned int, std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> >, std::_Select1st<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >*) + 56
+8   mt3                             0x0000000100ab1714 std::_Rb_tree<unsigned int, std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> >, std::_Select1st<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, CEGUI::RefCounted<CEGUI::BoundSlot> > >*) + 40
+9   mt3                             0x0000000100ab13cc CEGUI::Event::~Event() + 120
+10  mt3                             0x0000000100ab1424 CEGUI::Event::~Event() + 20
+11  mt3                             0x0000000100ab1ab4 CEGUI::EventSet::removeAllEvents() + 68
+12  mt3                             0x0000000100ab1a38 CEGUI::EventSet::~EventSet() + 36
+13  mt3                             0x0000000100aed870 CEGUI::Window::~Window() + 228
+14  mt3                             0x0000000100b6ae70 CEGUI::Scrollbar::~Scrollbar() + 20
+15  mt3                             0x0000000100b02d84 CEGUI::WindowManager::cleanDeadPool() + 80
+16  mt3                             0x00000001000e9554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+17  mt3                             0x00000001000a5f4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+18  mt3                             0x000000010085f688 Nuclear::Engine::Render(bool) + 216
+19  mt3                             0x000000010083c880 Nuclear::EngineLayer::draw() + 592
+20  mt3                             0x0000000100d3f8dc cocos2d::CCNode::visit() + 456
+21  mt3                             0x0000000100d3f8b0 cocos2d::CCNode::visit() + 412
+2016060915\output0x100010000+10655524\2016-06-0904-39-22.crash
+
+
+
+36: count 1 0.67%
+7   mt3                             0x0000000100081680 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1327)
+8   mt3                             0x0000000100081674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+9   mt3                             0x0000000100081674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+10  mt3                             0x0000000100081674 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned char>, std::_Select1st<std::pair<unsigned int const, unsigned char> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned char> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned char> >*) (stl_tree.h:1326)
+11  mt3                             0x0000000100073c88 GameScene::~GameScene() (GameScene.cpp:668)
+12  mt3                             0x0000000100074224 GameScene::~GameScene() (GameScene.cpp:634)
+13  mt3                             0x0000000100051b4c GameApplication::ExitGame(eExitType, int) (GameApplication.cpp:891)
+14  mt3                             0x000000010024a2a8 tolua_FireClient_GameApplication_ExitGame00(lua_State*) (LuaFireClient.cpp:42537)
+15  mt3                             0x00000001001b5fc4 luaD_precall (ldo.c:319)
+16  mt3                             0x00000001003f9824 luaV_execute (lvm.c:591)
+17  mt3                             0x00000001001b645c luaD_call (ldo.c:378)
+18  mt3                             0x00000001001b5b04 luaD_rawrunprotected (ldo.c:119)
+19  mt3                             0x00000001001b672c luaD_pcall (ldo.c:463)
+20  mt3                             0x00000001002f9730 lua_pcall (lapi.c:822)
+21  mt3                             0x0000000100142d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+2016060915\output0x1000e4000+300672\2016-06-0906-39-38.crash
+
+
+
+37: count 1 0.67%
+0   mt3                             0x000000010013866c CEGUI::String::FastLessCompare::operator()(CEGUI::String const&, CEGUI::String const&) const (CEGUIString.h:386)
+1   mt3                             0x0000000100b0ee68 std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::Property*>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::Property*> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::Property*> > >::find(CEGUI::String const&) const + 68
+2   mt3                             0x0000000100b0def8 CEGUI::PropertySet::getProperty(CEGUI::String const&) const + 48
+3   mt3                             0x0000000100be334c CEGUI::ImageryComponent::render_impl(CEGUI::Window&, CEGUI::Rect&, CEGUI::ColourRect const*, CEGUI::Rect const*, bool) const + 156
+4   mt3                             0x0000000100bddcfc CEGUI::FalagardComponentBase::render(CEGUI::Window&, CEGUI::ColourRect const*, CEGUI::Rect const*, bool) const + 168
+5   mt3                             0x0000000100be40cc CEGUI::ImagerySection::render(CEGUI::Window&, CEGUI::ColourRect const*, CEGUI::Rect const*, bool) const + 232
+6   mt3                             0x0000000100be8e3c CEGUI::SectionSpecification::render(CEGUI::Window&, CEGUI::ColourRect const*, CEGUI::Rect const*, bool) const + 200
+7   mt3                             0x0000000100be6538 CEGUI::LayerSpecification::render(CEGUI::Window&, CEGUI::ColourRect const*, CEGUI::Rect const*, bool) const + 72
+8   mt3                             0x0000000100be9a90 CEGUI::StateImagery::render(CEGUI::Window&, CEGUI::ColourRect const*, CEGUI::Rect const*) const + 72
+9   mt3                             0x0000000100c040f4 CEGUI::FalagardButton::render() + 216
+10  mt3                             0x0000000100b38398 CEGUI::Window::bufferGeometry(CEGUI::RenderingContext const&) + 164
+11  mt3                             0x0000000100b382c8 CEGUI::Window::drawSelf(CEGUI::RenderingContext const&) + 24
+12  mt3                             0x0000000100b381b0 CEGUI::Window::render() + 176
+13  mt3                             0x0000000100b38210 CEGUI::Window::render() + 272
+14  mt3                             0x0000000100b38210 CEGUI::Window::render() + 272
+2016060915\output0x1000e4000+427628\2016-06-0905-02-36.crash
+
+
+
+38: count 1 0.67%
+7   mt3                             0x0000000100a56d3c std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 52
+8   mt3                             0x0000000100a56d30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+9   mt3                             0x0000000100a56d30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+10  mt3                             0x0000000100a56d30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+11  mt3                             0x0000000100a56d30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+12  mt3                             0x0000000100a7d88c CEGUI::Window::~Window() + 256
+13  mt3                             0x0000000100a9e0bc CEGUI::ButtonBase::~ButtonBase() + 20
+14  mt3                             0x0000000100ae05e8 CEGUI::PushButton::~PushButton() + 20
+15  mt3                             0x0000000100a92d84 CEGUI::WindowManager::cleanDeadPool() + 80
+16  mt3                             0x0000000100079554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+17  mt3                             0x0000000100035f4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+18  mt3                             0x00000001007ef688 Nuclear::Engine::Render(bool) + 216
+19  mt3                             0x00000001007cc880 Nuclear::EngineLayer::draw() + 592
+20  mt3                             0x0000000100ccf8dc cocos2d::CCNode::visit() + 456
+21  mt3                             0x0000000100ccf8b0 cocos2d::CCNode::visit() + 412
+2016060915\output0x1000a8000+10743100\2016-06-0906-07-19.crash
+
+
+
+39: count 1 0.67%
+0   mt3                             0x000000010013466c CEGUI::String::FastLessCompare::operator()(CEGUI::String const&, CEGUI::String const&) const (CEGUIString.h:386)
+1   mt3                             0x0000000100b0ae68 std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::Property*>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::Property*> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::Property*> > >::find(CEGUI::String const&) const + 68
+2   mt3                             0x0000000100b09ef8 CEGUI::PropertySet::getProperty(CEGUI::String const&) const + 48
+3   mt3                             0x000000010091b260 tolua_CEGUI_CEGUI_Window_getProperty00(lua_State*) + 196
+4   mt3                             0x0000000100249fc4 luaD_precall (ldo.c:319)
+5   mt3                             0x000000010048d824 luaV_execute (lvm.c:591)
+6   mt3                             0x000000010024a45c luaD_call (ldo.c:378)
+7   mt3                             0x0000000100249b04 luaD_rawrunprotected (ldo.c:119)
+8   mt3                             0x000000010024a72c luaD_pcall (ldo.c:463)
+9   mt3                             0x000000010038d730 lua_pcall (lapi.c:822)
+10  mt3                             0x00000001001d6d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+11  mt3                             0x00000001000e951c GameApplication::OnTick(unsigned int, unsigned int, unsigned int) (GameApplication.cpp:1656)
+12  mt3                             0x00000001008a2cd8 Nuclear::Engine::MainLoop() + 244
+13  mt3                             0x0000000100d7a150 cocos2d::CCActionManager::update(float) + 232
+14  mt3                             0x0000000100d93290 cocos2d::CCScheduler::update(float) + 204
+2016060915\output0x1000e4000+427628\2016-06-0906-37-28.crash
+
+
+
+40: count 1 0.67%
+0   mt3                             0x000000010012466c CEGUI::String::FastLessCompare::operator()(CEGUI::String const&, CEGUI::String const&) const (CEGUIString.h:386)
+1   mt3                             0x0000000100afa8c4 std::_Rb_tree<CEGUI::String, std::pair<CEGUI::String const, CEGUI::Property*>, std::_Select1st<std::pair<CEGUI::String const, CEGUI::Property*> >, CEGUI::String::FastLessCompare, std::allocator<std::pair<CEGUI::String const, CEGUI::Property*> > >::find(CEGUI::String const&) + 68
+2   mt3                             0x0000000100af9d40 CEGUI::PropertySet::removeProperty(CEGUI::String const&) + 28
+3   mt3                             0x0000000100b3d68c CEGUI::WindowRenderer::onDetach() + 40
+4   mt3                             0x0000000100b258a0 CEGUI::Window::destroy() + 164
+5   mt3                             0x0000000100b3754c CEGUI::WindowManager::destroyWindow(CEGUI::String const&) + 88
+6   mt3                             0x0000000100b374c4 CEGUI::WindowManager::destroyWindow(CEGUI::Window*) + 88
+7   mt3                             0x0000000100b2492c CEGUI::Window::cleanupChildren() + 172
+8   mt3                             0x0000000100b2594c CEGUI::Window::destroy() + 336
+9   mt3                             0x0000000100b3754c CEGUI::WindowManager::destroyWindow(CEGUI::String const&) + 88
+10  mt3                             0x0000000100b374c4 CEGUI::WindowManager::destroyWindow(CEGUI::Window*) + 88
+11  mt3                             0x0000000100b2492c CEGUI::Window::cleanupChildren() + 172
+12  mt3                             0x0000000100b2594c CEGUI::Window::destroy() + 336
+13  mt3                             0x0000000100b3754c CEGUI::WindowManager::destroyWindow(CEGUI::String const&) + 88
+14  mt3                             0x0000000100b374c4 CEGUI::WindowManager::destroyWindow(CEGUI::Window*) + 88
+2016060915\output0x1000e4000+427628\2016-06-0906-51-35.crash
+
+
+
+41: count 1 0.67%
+4   mt3                             0x0000000100386280 l_alloc (lauxlib.c:636)
+5   mt3                             0x0000000100124748 luaM_realloc_ (lmem.c:79)
+6   mt3                             0x000000010044bc30 luaH_free (ltable.c:377)
+7   mt3                             0x000000010034d068 sweeplist (lgc.c:424)
+8   mt3                             0x000000010034d308 singlestep (lgc.c:583)
+9   mt3                             0x000000010034d1a8 luaC_step (lgc.c:617)
+10  mt3                             0x0000000100441b3c luaV_execute (lvm.c:465)
+11  mt3                             0x00000001001fe45c luaD_call (ldo.c:378)
+12  mt3                             0x00000001001fdb04 luaD_rawrunprotected (ldo.c:119)
+13  mt3                             0x00000001001fe72c luaD_pcall (ldo.c:463)
+14  mt3                             0x0000000100341730 lua_pcall (lapi.c:822)
+15  mt3                             0x000000010018ad24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+16  mt3                             0x000000010035af7c Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+17  mt3                             0x00000001003848c8 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:39)
+18  mt3                             0x0000000100856f58 Nuclear::Engine::RunUserTask() + 200
+2016060915\output0x10002c000+3170944\2016-06-0905-40-53.crash
+
+
+
+42: count 1 0.67%
+7   mt3                             0x0000000100b16d3c std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 52
+8   mt3                             0x0000000100b16d30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+9   mt3                             0x0000000100b3d88c CEGUI::Window::~Window() + 256
+10  mt3                             0x0000000100b5e0bc CEGUI::ButtonBase::~ButtonBase() + 20
+11  mt3                             0x0000000100ba05e8 CEGUI::PushButton::~PushButton() + 20
+12  mt3                             0x0000000100b52d84 CEGUI::WindowManager::cleanDeadPool() + 80
+13  mt3                             0x0000000100139554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+14  mt3                             0x00000001000f5f4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+15  mt3                             0x00000001008af688 Nuclear::Engine::Render(bool) + 216
+16  mt3                             0x000000010088c880 Nuclear::EngineLayer::draw() + 592
+17  mt3                             0x0000000100d8f8dc cocos2d::CCNode::visit() + 456
+18  mt3                             0x0000000100d8f8b0 cocos2d::CCNode::visit() + 412
+19  mt3                             0x0000000100d92fb4 cocos2d::CCDirector::drawScene() + 160
+20  mt3                             0x0000000100d943fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+21  mt3                             0x0000000100deedb4 -[CCDirectorCaller doCaller:] + 140
+2016060915\output0x1000a8000+10743100\2016-06-0906-29-03.crash
+
+
+
+43: count 1 0.67%
+7   mt3                             0x0000000100a7ed3c std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 52
+8   mt3                             0x0000000100a7ed30 std::_Rb_tree<unsigned char, unsigned char, std::_Identity<unsigned char>, std::less<unsigned char>, std::allocator<unsigned char> >::_M_erase(std::_Rb_tree_node<unsigned char>*) + 40
+9   mt3                             0x0000000100aa588c CEGUI::Window::~Window() + 256
+10  mt3                             0x0000000100adc788 CEGUI::GUISheet::~GUISheet() + 20
+11  mt3                             0x0000000100abad84 CEGUI::WindowManager::cleanDeadPool() + 80
+12  mt3                             0x00000001000a1554 GameUImanager::Draw() (GameUIManager.cpp:1960)
+13  mt3                             0x000000010005df4c GameApplication::OnRenderUI(int, bool) (GameApplication.cpp:1957)
+14  mt3                             0x0000000100817688 Nuclear::Engine::Render(bool) + 216
+15  mt3                             0x00000001007f4880 Nuclear::EngineLayer::draw() + 592
+16  mt3                             0x0000000100cf78dc cocos2d::CCNode::visit() + 456
+17  mt3                             0x0000000100cf78b0 cocos2d::CCNode::visit() + 412
+18  mt3                             0x0000000100cfafb4 cocos2d::CCDirector::drawScene() + 160
+19  mt3                             0x0000000100cfc3fc cocos2d::CCDisplayLinkDirector::mainLoop() + 208
+20  mt3                             0x0000000100d56db4 -[CCDirectorCaller doCaller:] + 140
+31  mt3                             0x0000000100049640 main (main.m:9)
+2016060915\output0x1000a8000+10743100\2016-06-0906-29-36.crash
+
+
+
+44: count 1 0.67%
+9   mt3                             0x0000000100af9474 CEGUI::Event::subscribe(unsigned int, CEGUI::SubscriberSlot const&) + 48
+10  mt3                             0x0000000100bb57a8 CEGUI::ScrolledContainer::onChildAdded(CEGUI::WindowEventArgs&) + 128
+11  mt3                             0x0000000100b356fc CEGUI::Window::addChildWindow(CEGUI::Window*) + 204
+12  mt3                             0x0000000100bb0a20 CEGUI::ScrollablePane::addChild_impl(CEGUI::Window*) + 88
+13  mt3                             0x0000000100b356d0 CEGUI::Window::addChildWindow(CEGUI::Window*) + 160
+14  mt3                             0x0000000100915050 tolua_CEGUI_CEGUI_Window_addChildWindow01(lua_State*) + 180
+15  mt3                             0x000000010024dfc4 luaD_precall (ldo.c:319)
+16  mt3                             0x0000000100491824 luaV_execute (lvm.c:591)
+17  mt3                             0x000000010024e45c luaD_call (ldo.c:378)
+18  mt3                             0x000000010024db04 luaD_rawrunprotected (ldo.c:119)
+19  mt3                             0x000000010024e72c luaD_pcall (ldo.c:463)
+20  mt3                             0x0000000100391730 lua_pcall (lapi.c:822)
+21  mt3                             0x00000001001dad24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+22  mt3                             0x00000001000ed51c GameApplication::OnTick(unsigned int, unsigned int, unsigned int) (GameApplication.cpp:1656)
+23  mt3                             0x00000001008a6cd8 Nuclear::Engine::MainLoop() + 244
+2016060915\output0x100020000+10654836\2016-06-0906-54-31.crash
+
+
+
+45: count 1 0.67%
+7   mt3                             0x0000000100312280 l_alloc (lauxlib.c:636)
+8   mt3                             0x00000001000b0748 luaM_realloc_ (lmem.c:79)
+9   mt3                             0x00000001003d7c48 luaH_free (ltable.c:378)
+10  mt3                             0x00000001002d9068 sweeplist (lgc.c:424)
+11  mt3                             0x00000001002d9308 singlestep (lgc.c:583)
+12  mt3                             0x00000001002d91a8 luaC_step (lgc.c:617)
+13  mt3                             0x00000001002ccdcc lua_pushlstring (lapi.c:448)
+14  mt3                             0x000000010015b3a8 class_call_event (tolua_event.c:303)
+15  mt3                             0x0000000100189fc4 luaD_precall (ldo.c:319)
+16  mt3                             0x00000001003cd824 luaV_execute (lvm.c:591)
+17  mt3                             0x000000010018a45c luaD_call (ldo.c:378)
+18  mt3                             0x0000000100189b04 luaD_rawrunprotected (ldo.c:119)
+19  mt3                             0x000000010018a72c luaD_pcall (ldo.c:463)
+20  mt3                             0x00000001002cd730 lua_pcall (lapi.c:822)
+21  mt3                             0x0000000100116d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+2016060915\output0x10002c000+3170944\2016-06-0906-34-52.crash
+
+
+
+46: count 1 0.67%
+9   mt3                             0x0000000100a65474 CEGUI::Event::subscribe(unsigned int, CEGUI::SubscriberSlot const&) + 48
+10  mt3                             0x0000000100b1cab4 CEGUI::ScrollablePane::addChild_impl(CEGUI::Window*) + 236
+11  mt3                             0x0000000100aa16d0 CEGUI::Window::addChildWindow(CEGUI::Window*) + 160
+12  mt3                             0x0000000100881050 tolua_CEGUI_CEGUI_Window_addChildWindow01(lua_State*) + 180
+13  mt3                             0x00000001001b9fc4 luaD_precall (ldo.c:319)
+14  mt3                             0x00000001003fd824 luaV_execute (lvm.c:591)
+15  mt3                             0x00000001001ba45c luaD_call (ldo.c:378)
+16  mt3                             0x00000001001b9b04 luaD_rawrunprotected (ldo.c:119)
+17  mt3                             0x00000001001ba72c luaD_pcall (ldo.c:463)
+18  mt3                             0x00000001002fd730 lua_pcall (lapi.c:822)
+19  mt3                             0x0000000100146d24 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+20  mt3                             0x0000000100316f7c Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+21  mt3                             0x00000001003408c8 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:39)
+22  mt3                             0x0000000100812f58 Nuclear::Engine::RunUserTask() + 200
+23  mt3                             0x0000000100812c7c Nuclear::Engine::MainLoop() + 152
+2016060915\output0x100020000+10654836\2016-06-0904-54-31.crash
+
+
+
+47: count 1 0.67%
+0   mt3                             0x006b37b2 FireNet::Octets::size() const + 2
+1   mt3                             0x006b3347 void FireNet::Marshal::OctetsStream::pop_byte<unsigned int>(unsigned int&) const + 39
+2   mt3                             0x006b2731 FireNet::Marshal::OctetsStream::pop_byte_64() const + 15
+3   mt3                             0x001e1d55 tolua_FireClient_FireNet_Marshal_OctetsStream_unmarshal_int6400(lua_State*) (LuaFireClient.cpp:24982)
+4   mt3                             0x0017d9b5 luaD_precall (ldo.c:321)
+5   mt3                             0x00386a9f luaV_execute (lvm.c:591)
+6   mt3                             0x0017dccd luaD_call (ldo.c:378)
+7   mt3                             0x0017d667 luaD_rawrunprotected (ldo.c:119)
+8   mt3                             0x0017de73 luaD_pcall (ldo.c:463)
+9   mt3                             0x00298791 lua_pcall (lapi.c:822)
+10  mt3                             0x001115d7 cocos2d::CCLuaEngine::executeFunctionByHandler(int, int) (CCLuaEngine.cpp:569)
+11  mt3                             0x002b1893 Game::ProtocolLuaFunManager::LuaProtocolProcess(aio::LuaProtocol&) (ProtocolLuaFunManager.cpp:19)
+12  mt3                             0x002da763 Game::LuaMessageTask::Run() (LuaMessageTask.cpp:23)
+13  mt3                             0x00733335 Nuclear::Engine::RunUserTask() + 127
+14  mt3                             0x007330ed Nuclear::Engine::MainLoop() + 145
+2016060915\output0x90000+6944690\2016-06-0906-02-41.crash
+
+
+
+48: count 1 0.67%
+0   mt3                             0x00000001003ec01c newkey (ltable.c:412)
+1   mt3                             0x00000001003ec010 newkey (ltable.c:410)
+2   mt3                             0x00000001003ec31c luaH_setnum (ltable.c:517)
+3   mt3                             0x00000001002e1490 lua_rawseti (lapi.c:690)
+4   mt3                             0x0000000100325ddc luaL_ref (lauxlib.c:501)
+5   mt3                             0x0000000100831a4c CEGUI::LuaFunctor::SubscribeEvent(CEGUI::EventSet*, CEGUI::String const&, int, int, int, lua_State*) + 288
+6   mt3                             0x000000010086fc34 tolua_CEGUI_CEGUI_Window_subscribeEvent00(lua_State*) + 304
+7   mt3                             0x000000010087024c tolua_CEGUI_CEGUI_Window_subscribeEvent01(lua_State*) + 424
+8   mt3                             0x000000010019dfc4 luaD_precall (ldo.c:319)
+9   mt3                             0x00000001003e1824 luaV_execute (lvm.c:591)
+10  mt3                             0x000000010019e45c luaD_call (ldo.c:378)
+11  mt3                             0x000000010019db04 luaD_rawrunprotected (ldo.c:119)
+12  mt3                             0x000000010019e72c luaD_pcall (ldo.c:463)
+13  mt3                             0x00000001002e1730 lua_pcall (lapi.c:822)
+14  mt3                             0x000000010012a4a0 cocos2d::CCLuaEngine::executeGlobalFunction(char const*, int) (CCLuaEngine.cpp:412)
+2016060915\output0x100020000+3981340\2016-06-0906-54-58.crash
+
+
+
+49: count 1 0.67%
+7   mt3                             0x00000001000e1d30 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1327)
+8   mt3                             0x00000001000e1d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+9   mt3                             0x00000001000e1d24 std::_Rb_tree<unsigned int, std::pair<unsigned int const, unsigned short>, std::_Select1st<std::pair<unsigned int const, unsigned short> >, std::less<unsigned int>, std::allocator<std::pair<unsigned int const, unsigned short> > >::_M_erase(std::_Rb_tree_node<std::pair<unsigned int const, unsigned short> >*) (stl_tree.h:1326)
+10  mt3                             0x00000001000e1c30 RegionBuffer<unsigned short>::unmarshal(Nuclear::INuclearStream const&) (regionbuffer.h:111)
+11  mt3                             0x0000000100871c88 Nuclear::NuclearObject::LoadFromMem(Nuclear::NuclearBuffer const&) + 84
+12  mt3                             0x0000000100871e58 Nuclear::NuclearObject::Load(LJFM::LJFMBF*) + 336
+13  mt3                             0x0000000100871f7c Nuclear::NuclearObject::Load(wchar_t const*) + 92
+14  mt3                             0x00000001000d68b8 GameScene::LoadMap(Nuclear::NuclearPoint) (GameScene.cpp:1515)
+15  mt3                             0x00000001000d5c28 GameScene::ChangeMap(long long, Nuclear::NuclearPoint, std::basic_string<wchar_t, std::char_traits<wchar_t>, std::allocator<wchar_t> >, int, bool) (GameScene.cpp:1282)
+16  mt3                             0x00000001002b4770 tolua_FireClient_GameScene_ChangeMap00(lua_State*) (LuaFireClient.cpp:47260)
+17  mt3                             0x0000000100215fc4 luaD_precall (ldo.c:319)
+18  mt3                             0x0000000100459824 luaV_execute (lvm.c:591)
+19  mt3                             0x000000010021645c luaD_call (ldo.c:378)
+20  mt3                             0x0000000100215b04 luaD_rawrunprotected (ldo.c:119)
+21  mt3                             0x000000010021672c luaD_pcall (ldo.c:463)
+2016060915\output0x1000dc000+302384\2016-06-0905-57-57.crash
+
+
+

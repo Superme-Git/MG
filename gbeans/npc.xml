@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<namespace name="npc">
+		<bean name="SNpcServiceConfig" from="npc服务配置表" genxml="server">
+			<variable name="id" fromCol="id" type="int" /> npc id
+			<variable name="services" type="vector" value="int" fromCol="服务1,服务2,服务3,服务4,服务5,服务6,服务7,服务8,服务9,服务10" />
+		</bean>
+
+		<bean name="SNpcServiceMapping" from="npc服务映射表" genxml="server">
+			<variable name="id" fromCol="NPC服务ID" type="int" />
+			<variable name="type" fromCol="服务类型" type="int" />
+			<variable name="param1" fromCol="服务参数1" type="int" />
+			<variable name="param2" fromCol="服务参数2" type="int" />
+			<variable name="param3" fromCol="服务参数3" type="int" />
+			<variable name="param4" fromCol="服务参数4" type="int" />
+			<variable name="param5" fromCol="服务参数5" type="int" />
+			<variable name="param6" fromCol="服务参数6" type="int" />
+			<variable name="param7" fromCol="服务参数7" type="int" />
+			<variable name="param8" fromCol="服务参数8" type="int" />
+		</bean>
+		
+		<bean name="CNpcServiceMapping" from="npc服务映射表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="NPC服务ID" type="int" />
+			<variable name="type" fromCol="服务类型" type="int" />
+			<variable name="param1" fromCol="服务参数1" type="int" />
+			<variable name="param2" fromCol="服务参数2" type="int" />
+			<variable name="param3" fromCol="服务参数3" type="int" />
+			<variable name="param4" fromCol="服务参数4" type="int" />
+			<variable name="param5" fromCol="服务参数5" type="int" />
+			<variable name="param6" fromCol="服务参数6" type="int" />
+			<variable name="param7" fromCol="服务参数7" type="int" />
+			<variable name="param8" fromCol="服务参数8" type="int" />
+		</bean>
+		
+		
+		<bean name="SNpcCond">
+			<variable name="condid" type="int" fromCol="条件1,条件2,条件3,条件4,条件5,条件6,条件7,条件8,条件9" />
+			<variable name="args1" type="int" fromCol="参数11,参数21,参数31,参数41,参数51,参数61,参数71,参数81,参数91" />
+			<variable name="args2" type="int" fromCol="参数12,参数22,参数32,参数42,参数52,参数62,参数72,参数82,参数92" />
+		</bean>
+		
+		<bean name="SServiceConds" from="npc服务总表" genxml="server">
+			<variable name="id" type="int" fromCol="服务编号"  /> 服务ID
+			<variable name="conditionids" type="vector" value="fire.pb.npc.SNpcCond" />
+			<variable name="childservice" type="vector" value="int" fromCol="子服务1,子服务2,子服务3,子服务4,子服务5,子服务6"/> 子服务
+		</bean>
+		
+		<bean name="SAllConds" from="npc服务条件总表" genxml="server">
+			<variable name="id" type="int" fromCol="条件id"  /> 服务ID
+			<variable name="condname" type="String" fromCol="条件类名" />
+		</bean>
+		
+		<!--所有地图上的可显示在地图场景中的npc的配置 -->
+		<bean name="SNpcShare" from="NPC-复合/npc,NPC-复合/k可采集物品" genxml="server">
+			<variable name="id" fromCol="编号" type="int" />
+			<variable name="bodytype" type="double" fromCol="大小比例"/>
+			<variable name="npctype" fromCol="npctype"  type="int"/>
+			<variable name="minimapshow" fromCol="小地图显示"  type="String"/> 
+			<variable name="share" fromCol="share" type="int" />
+			<variable name="shape" fromCol="modelID" type="int" />
+			<variable name="name" fromCol="名称" type="String" />            
+            <variable name="mulbattle" fromCol="可否被多人战斗" type="int" />
+			<variable name="杂学id" fromCol="杂学id" type="int"/>
+			<variable name="mapid" fromCol="map"  type="int"/>所在地图的id
+			<variable name="xPos" fromCol="xPos"  type="int"/>所在地图的x坐标
+			<variable name="yPos" fromCol="yPox"  type="int"/>所在地图的y坐标
+			<variable name="zPos" fromCol="所在地图层"  type="int"/>
+            <variable name="battleinfo" fromCol="战斗ID"  type="int"/>
+			<variable name="nametable" fromCol="随机名称库" type="int" />
+            <variable name="namepre1" fromCol="前缀1" type="int" />
+            <variable name="namepre2" fromCol="前缀2" type="int" />
+            <variable name="diankafu" fromCol="是否点卡服显示" type="int" />  1,在点卡服上显示;0,任何服都显示
+        </bean>
+		
+		<bean name="SBaoxiang" from="b宝箱奖励" genxml="server">
+			<variable name="id" fromCol="id" type="int" />
+			<variable name="baoxianglist" type="int" fromCol="宝箱库ID"/>
+			<variable name="baoxiangtype" fromCol="宝箱类型" type="int"/>
+			<variable name="opentimes" fromCol="开启次数" type="int"/> 玩家每天可开启的次数
+			<variable name="openovermsg" fromCol="提示ID" type="int"/>
+			<variable name="openteam" fromCol="队伍开启模式" type="int"/>
+			<variable name="rewardid" fromCol="奖励id" type="int" />
+            <variable name="openlevel" fromCol="开启等级" type="int" />
+		</bean>
+		
+
+		<bean name="CNPCConfig" from="NPC-复合/npc" genxml="client" gencode="mtlua">
+			  <variable name="id" fromCol="编号" type="int" />
+			  <variable name="bodytype" type="double" fromCol="大小比例"/>
+			  <variable name="npctype" fromCol="npctype"  type="int"     /> 
+			  <variable name="modelID" fromCol="modelID"  type="int"     />
+			  <variable name="name" fromCol="名称"  type="String"     /> 
+			  
+			  <variable name="minimapquery" fromCol="小地图查询"  type="String"     /> 
+			  <variable name="minimapshow" fromCol="小地图显示"  type="String"     /> 	
+			  <variable name="foottitle" fromCol="脚下称谓"  type="String"     />
+			  <variable name="headtitle" fromCol="头顶特效"  type="String"     />  			  
+			  <variable name="title" fromCol="脚下称谓策划看"  type="String"     /> 
+			  <variable name="chitchatidlist" type="vector" value="int" fromCol="chitchat1,chitchat2,chitchat3,chitchat4,chitchat5"/>
+			  
+			  <variable name="area1colour" fromCol="area1colour"  type="int"     />
+			  <variable name="area2colour" fromCol="area2colour"  type="int"     />
+			  <variable name="mapid" fromCol="map"  type="int"     />所在地图的id
+			  <variable name="xPos" fromCol="xPos"  type="int"     />所在地图的x坐标
+			  <variable name="yPos" fromCol="yPox"  type="int"     />所在地图的y坐标
+			  <variable name="hide" fromCol="hideable" type="int"/>是否任务隐藏
+			  
+			  <variable name="voices" type="vector" value="string" fromCol="声音1,声音2,声音3,声音4"/>
+			  
+			 <variable name="ndir" type="int" fromCol="朝向"/>
+			 <variable name="nstate" type="int" fromCol="状态"/>
+			
+			 <variable name="time" type="int" fromCol="时间"/>
+		</bean>
+		
+		<bean name="CNPCInfo" from="NPC-复合/npc" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="编号" type="int" />
+			<variable name="npctype" fromCol="npctype"  type="int" /> 
+			<variable name="name" fromCol="名称"  type="String" />
+			<variable name="mapid" fromCol="map"  type="int"     />所在地图的id
+			<variable name="hide" fromCol="hideable" type="int"/>是否任务隐藏
+			<variable name="namecolour" type="string" fromCol="npccolour"/>
+			<variable name="bordercolour" type="string" fromCol="小地图npc颜色"/>
+			<variable name="showInMiniMap" type="int" fromCol="小地图显示"/>
+			<variable name="showinserver" type="int" fromCol="是否点卡服显示"/>
+			
+		</bean>
+		
+		<bean name="CNpcChat" from="npc对白配置" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="id" type="int" /> chatID
+			<variable name="chat" fromCol="对白" type="String" />
+		</bean>
+		<bean name="CNpcServerConfig" from="npc服务总表" genxml="client" gencode="mtlua">
+			<variable name="id" fromCol="服务编号" type="int" /> 服务ID
+     		<variable name="icon" fromCol="标示图标" type="int" />图标
+			<variable name="servicedescribe" fromCol="菜单介绍" type="String" />
+			<variable name="childservice" type="vector" value="int" fromCol="子服务1,子服务2,子服务3,子服务4,子服务5,子服务6"/> 子服务
+			<variable name="severStr" fromCol="描述" type="String" />
+			<variable name="webaddress" fromCol="打开网页" type="String" />
+			<variable name="nautocommit" fromCol="是否自动" type="int" /> 
+		</bean>
+		
+		<bean name="CMonsterConfig" from="NPC-复合/z战斗NPC表,NPC-复合/l练功区怪物表,NPC-复合/z战斗NPC_剧情_29xxx,NPC-复合/z战斗NPC表_珍兽_24xxx,NPC-复合/z战斗NPC_协战_28xxx" genxml="client">
+			<variable name="id" fromCol="编号" type="int" /> 
+			<variable name="name" fromCol="名称" type="String" />
+			<variable name="title" fromCol="称谓" type="String" />
+			<variable name="modelID" fromCol="造型id" type="int" />
+			<variable name="becatch" fromCol="能否捕捉" type="int" />
+			<variable name="showhpbar" fromCol="显示血量" type="int" />
+			<variable name="showhpbarbig" fromCol="显示大血条" type="int" />
+			<variable name="showlevel" fromCol="显示等级" type="int" />
+			<variable name="npctype" fromCol="类型" type="int" />
+			<variable name="bodytype" type="double" fromCol="大小比例"/>
+			<variable name="area1colour" fromCol="area1colour"  type="int"     />
+			<variable name="area2colour" fromCol="area2colour"  type="int"     />
+      		<variable name="petid" fromCol="对应宠物" type="int" />
+      		<variable name="school" fromCol="职业" type="int" />
+		</bean>
+		
+		<bean name="SMonstershowConfig" from="m明雷战斗怪描述" genxml="server">
+			<variable name="id" type="int" fromCol="id"/>
+			<variable name="宝宝战斗概率" type="string" fromCol="宝宝战斗概率"/>
+			<variable name="BOSS战斗概率" type="string" fromCol="BOSS战斗概率"/>
+			<variable name="普通战斗概率" type="string" fromCol="普通战斗概率"/>	
+			<variable name="指定怪id" type="int" fromCol="指定怪id"/>
+			<variable name="宝宝" type="vector" value="int" fromCol="宝宝1,宝宝2,宝宝3,宝宝4,宝宝5"/>
+			<variable name="宝宝概率" type="vector" value="int" fromCol="宝宝1概率,宝宝2概率,宝宝3概率,宝宝4概率,宝宝5概率"/>
+			<variable name="精英" type="vector" value="int" fromCol="精英1,精英2,精英3,精英4,精英5"/>
+			<variable name="精英概率" type="vector" value="int" fromCol="精英1概率,精英2概率,精英3概率,精英4概率,精英5概率"/>
+			<variable name="怪物" type="vector" value="int" fromCol="怪物1,怪物2,怪物3,怪物4,怪物5"/>
+			<variable name="怪物概率" type="vector" value="int" fromCol="怪物1概率,怪物2概率,怪物3概率,怪物4概率,怪物5概率"/>
+			<variable name="掉落id" type="int" fromCol="掉落id"/>
+			<variable name="bossbattleid" type="int" fromCol="BOSS战ID"/>
+		</bean>
+		<bean name="SMonsterSkill">
+			<variable name="skillid" type="int" fromCol="技能1编号,技能2编号,技能3编号,技能4编号,技能5编号,技能6编号"  /> 
+			<variable name="showrate" type="int" fromCol="技能1出现几率,技能2出现几率,技能3出现几率,技能4出现几率,技能5出现几率,技能6出现几率"  /> 
+			<variable name="castrate" type="int" fromCol="技能1施放几率,技能2施放几率,技能3施放几率,技能4施放几率,技能5施放几率,技能6施放几率"  /> 
+			<variable name="levelfactor" type="double" fromCol="技能1系数,技能2系数,技能3系数,技能4系数,技能5系数,技能6系数"  /> 
+			<variable name="levelconstant" type="double" fromCol="技能1常数,技能2常数,技能3常数,技能4常数,技能5常数,技能6常数"  /> 			
+		</bean>
+		
+		<bean name="MonsterConfig">
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="name" type="String" fromCol="名称"/>
+			<variable name="fightnpctype" type="int" fromCol="战斗单位类型" />
+			<variable name="monstertype" type="int" fromCol="怪物类型" />
+			<variable name="specialtype" type="int" fromCol="特殊类型" />
+      		<variable name="school" fromCol="职业" type="int" />
+			<variable name="pet" type="int" fromCol="对应宠物"/>
+			<variable name="colorid" type="int" fromCol="颜色几率id" />
+			<variable name="bodytype" type="double" fromCol="大小比例"/>			
+			<variable name="orbinding" type="int" fromCol="是否绑定"/>
+			<variable name="title" type="String" fromCol="称谓"/>
+			<variable name="shape" type="int" fromCol="造型id"/>
+			<variable name="randomShapes" fromCol="随机造型id" type="string" />
+			<variable name="levelType" type="int" fromCol="等级模式"/>
+			<variable name="level" type="int" fromCol="NPC等级" />
+			<variable name="minlevellimit" type="int" fromCol="怪物匹配最小等级" />
+			<variable name="maxlevellimit" type="int" fromCol="怪物匹配最大等级" />
+			<variable name="canCatch" type="int" fromCol="能否捕捉"/>
+			<variable name="catchRate" type="int" fromCol="捕捉几率"/>
+			<variable name="runRate" type="int" fromCol="逃跑几率"/>
+			<variable name="aiIds" type="String" fromCol="AI编号"/>
+			<variable name="immunebuffid" type="string" fromCol="免疫状态id"/>
+		</bean>
+		
+		<bean name="MonsterExtraAttrConfig"  baseclass="MonsterConfig">
+			<variable name="addseal" type="int" fromCol="控制几率修正"/>
+			<variable name="defseal" type="int" fromCol="被控制几率修正"/>
+			<variable name="wulicriticalFactor" type="double" fromCol="物理暴击系数"/>
+			<variable name="wulicriticaldefFactor" type="double" fromCol="物理抗暴系数"/>
+			<variable name="wulicriticaldegreeFactor" type="double" fromCol="物理暴伤系数"/>
+			<variable name="fashucriticalFactor" type="double" fromCol="法术暴击系数"/>
+			<variable name="fashucriticaldefFactor" type="double" fromCol="法术抗暴系数"/>
+			<variable name="fashucriticaldegreeFactor" type="double" fromCol="法术暴伤系数"/>
+			<variable name="heallvFactor" type="double" fromCol="治疗暴击系数"/>
+			<variable name="healdegreeFactor" type="double" fromCol="治疗暴击量系数"/>
+			<variable name="physicchuantouFactor" type="double" fromCol="物理穿透系数"/>
+			<variable name="physicdikangFactor" type="double" fromCol="物理抵抗系数"/>
+			<variable name="magicchuantouFactor" type="double" fromCol="法术穿透系数"/>
+			<variable name="magicdikangFactor" type="double" fromCol="法术抵抗系数"/>
+			<variable name="medicaljiashenFactor" type="double" fromCol="治疗加深系数"/>
+			<variable name="onmedicaljiashenFactor" type="double" fromCol="被治疗加深系数"/>
+			<variable name="kongzhijiachengFactor" type="double" fromCol="控制加成系数"/>
+			<variable name="kongzhimianyiFactor" type="double" fromCol="控制免疫系数"/>
+			<variable name="wulicritical" type="int" fromCol="物理暴击常数"/>
+			<variable name="wulicriticaldef" type="int" fromCol="物理抗暴常数"/>
+			<variable name="wulicriticaldegree" type="double" fromCol="物理暴伤常数"/>
+			<variable name="fashucritical" type="int" fromCol="法术暴击常数"/>
+			<variable name="fashucriticaldef" type="int" fromCol="法术抗暴常数"/>
+			<variable name="fashucriticaldegree" type="double" fromCol="法术暴伤常数"/>
+			<variable name="heallv" type="int" fromCol="治疗暴击常数"/>
+			<variable name="healdegree" type="int" fromCol="治疗暴击量常数"/>
+			<variable name="physicchuantou" type="int" fromCol="物理穿透常数"/>
+			<variable name="physicdikang" type="int" fromCol="物理抵抗常数"/>
+			<variable name="magicchuantou" type="int" fromCol="法术穿透常数"/>
+			<variable name="magicdikang" type="int" fromCol="法术抵抗常数"/>
+			<variable name="medicaljiashen" type="int" fromCol="治疗加深常数"/>
+			<variable name="onmedicaljiashen" type="int" fromCol="被治疗加深常数"/>
+			<variable name="kongzhijiacheng" type="int" fromCol="控制加成常数"/>
+			<variable name="kongzhimianyi" type="int" fromCol="控制免疫常数"/>
+			<variable name="extraattrid1" type="int" fromCol="额外属性1ID"/>
+			<variable name="extraattrvalue1" type="double" fromCol="额外属性1数值"/>
+			<variable name="extraattrid2" type="int" fromCol="额外属性2ID"/>
+			<variable name="extraattrvalue2" type="double" fromCol="额外属性2数值"/>
+			<variable name="extraattrid3" type="int" fromCol="额外属性3ID"/>
+			<variable name="extraattrvalue3" type="double" fromCol="额外属性3数值"/>
+			<variable name="extraattrid4" type="int" fromCol="额外属性4ID"/>
+			<variable name="extraattrvalue4" type="double" fromCol="额外属性4数值"/>
+			<variable name="extraattrid5" type="int" fromCol="额外属性5ID"/>
+			<variable name="extraattrvalue5" type="double" fromCol="额外属性5数值"/>
+			<variable name="extraattrid6" type="int" fromCol="额外属性6ID"/>
+			<variable name="extraattrvalue6" type="double" fromCol="额外属性6数值"/>
+			<variable name="extraattrid7" type="int" fromCol="额外属性7ID"/>
+			<variable name="extraattrvalue7" type="double" fromCol="额外属性7数值"/>
+			<variable name="extraattrid8" type="int" fromCol="额外属性8ID"/>
+			<variable name="extraattrvalue8" type="double" fromCol="额外属性8数值"/>
+			<variable name="extraattrid9" type="int" fromCol="额外属性9ID"/>
+			<variable name="extraattrvalue9" type="double" fromCol="额外属性9数值"/>
+			<variable name="extraattrid10" type="int" fromCol="额外属性10ID"/>
+			<variable name="extraattrvalue10" type="double" fromCol="额外属性10数值"/>
+			<variable name="fightbackprob" type="double" fromCol="反击几率"/>
+			<variable name="fightbackhurtratio" type="double" fromCol="反击伤害系数"/>
+		</bean>
+		
+			<bean name="CHeroBaseInfo" from="h伙伴系统/h伙伴信息配置表" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="伙伴id"/>
+			<variable name="name" type="string" fromCol="伙伴名称"/>
+			<variable name="type" type="int" fromCol="类型"/>
+			<variable name="acttype" type="int" fromCol="攻击类型"/>
+			<variable name="school" type="int" fromCol="职业"/>
+			<variable name="shapeid" type="int" fromCol="造型id"/>
+			<variable name="headid" type="int" fromCol="头像id"/>
+			<variable name="skillid" type="vector" value="int" fromCol="技能1,技能2,技能3,技能4,技能5,技能6,技能7,技能8"/>
+			<variable name="first_skill" type="int" fromCol="精通技能"/>
+			<variable name="day7_money" type="vector" value="int" fromCol="7天花费1,7天花费2"/>
+			<variable name="day30_money" type="vector" value="int" fromCol="30天花费1,30天花费2"/>
+			<variable name="forever_money" type="vector" value="int" fromCol="永久花费1,永久花费2"/>
+			<variable name="scalefactor" type="double" fromCol="大小比例"/>
+		</bean>
+    		<bean name="CLuaTest" from="h伙伴系统/h伙伴信息配置表" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="伙伴id"/>
+      <variable name="name" type="string" fromCol="伙伴名称"/>
+      <variable name="skillid" type="vector" value="int" fromCol="技能1,技能2,技能3,技能4,技能5,技能6,技能7,技能8"/>
+    </bean>
+    
+	
+		<bean name="SHeroBaseInfo" from="h伙伴系统/h伙伴信息配置表" genxml="server" >			
+			<variable name="id" type="int" fromCol="伙伴id"/>
+			<variable name="name" type="string" fromCol="伙伴名称"/>
+			<variable name="type" type="int" fromCol="类型"/>
+            <variable name="school" type="int" fromCol="职业"/>
+            <variable name="bodytype" type="double" fromCol="大小比例"/>            
+            <variable name="shapeid" type="int" fromCol="造型id"/>
+			<variable name="headid" type="int" fromCol="头像id"/>
+			<variable name="creater_give" type="int" fromCol="是否初始获得"/>
+
+            <variable name="life" type="int" fromCol="生命"/>
+			<variable name="magic" type="int" fromCol="魔法"/>
+			<variable name="phyatk" type="int" fromCol="物攻"/>
+			<variable name="phydef" type="int" fromCol="物防"/>
+			<variable name="magatk" type="int" fromCol="法攻"/>
+			<variable name="magdef" type="int" fromCol="法防"/>
+			<variable name="speed" type="double" fromCol="速度"/>
+			<variable name="treat" type="int" fromCol="治疗强度"/>
+			<variable name="hit" type="int" fromCol="控制命中"/>
+			<variable name="resistance" type="double" fromCol="控制抗性"/>		
+			<variable name="life_growup" type="double" fromCol="生命成长"/>
+			<variable name="magic_growup" type="double" fromCol="魔法成长"/>
+			<variable name="phyatk_growup" type="double" fromCol="物攻成长"/>
+			<variable name="phydef_growup" type="double" fromCol="物防成长"/>
+			<variable name="magatk_growup" type="double" fromCol="法攻成长"/>
+			<variable name="magdef_growup" type="double" fromCol="法防成长"/>
+			<variable name="speed_growup" type="double" fromCol="速度成长"/>
+			<variable name="treat_growup" type="double" fromCol="治疗强度成长"/>
+			<variable name="hit_growup" type="double" fromCol="控制命中成长"/>
+			<variable name="resistance_growup" type="double" fromCol="控制抗性成长"/>			
+			<variable name="battle_ai" type="vector" value="int" fromCol="战斗AI类型1,战斗AI类型2,战斗AI类型3,战斗AI类型4"/>
+			<variable name="skillid" type="vector" value="int" fromCol="技能1,技能2,技能3,技能4,技能5,技能6,技能7,技能8,技能9"/>
+			<variable name="first_skill" type="int" fromCol="精通技能"/>
+            <variable name="day7_money" type="vector" value="int" fromCol="7天花费1,7天花费2,7天花费3"/>
+            <variable name="day30_money" type="vector" value="int" fromCol="30天花费1,30天花费2,30天花费3"/>
+            <variable name="forever_money" type="vector" value="int" fromCol="永久花费1,永久花费2,永久花费3"/>
+ 			<variable name="levelfactor" type="double" fromCol="技能等级系数"/>
+ 			<variable name="levelconstant" type="int" fromCol="技能等级常数"/>
+            
+		</bean>
+
+    <bean name="SHeroWeekFreeInfo" from="h伙伴系统/h伙伴周免费配置表" genxml="server" >
+      <variable name="id" type="int" fromCol="id"/>
+      <variable name="week" type="int" fromCol="开服后周数"/>
+      <variable name="heros" type="vector" value="int" fromCol="伙伴1,伙伴2,伙伴3,伙伴4,伙伴5,伙伴6,伙伴7,伙伴8,伙伴9,伙伴10"/>
+      <variable name="vipheros" type="vector" value="int" fromCol="vip1,vip2,vip3,vip4,vip5,vip6,vip7,vip8,vip9,vip10"/>
+    </bean>
+		
+		<bean name="SMonsterConfig" from="NPC-复合/z战斗NPC表,NPC-复合/z战斗NPC_剧情_29xxx,NPC-复合/z战斗NPC表_珍兽_24xxx,NPC-复合/z战斗NPC_协战_28xxx" genxml="server" baseclass="MonsterExtraAttrConfig">
+			<!--
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="name" type="String" fromCol="名称"/>
+			<variable name="type" type="int" fromCol="类型"/>
+			<variable name="pet" type="int" fromCol="对应宠物"/>
+			<variable name="colorid" type="int" fromCol="颜色几率id" />
+			<variable name="bodytype" type="double" fromCol="大小比例"/>
+			<variable name="orbinding" type="int" fromCol="是否绑定"/>
+			<variable name="title" type="String" fromCol="称谓"/>
+			<variable name="shape" type="int" fromCol="造型id"/>
+			<variable name="shape" fromCol="造型id" type="int" />
+			<variable name="randomShapes" fromCol="随机造型id" type="string" />
+			<variable name="daodi" fromCol="是否倒地" type="int" />
+			<variable name="race" type="int" fromCol="种族"/>
+			<variable name="school" type="int" fromCol="职业"/>
+			<variable name="levelType" type="int" fromCol="等级模式"/>
+			<variable name="level" type="int" fromCol="NPC等级" />
+			<variable name="canCatch" type="bool" fromCol="能否捕捉"/>
+			<variable name="catchRate" type="int" fromCol="捕捉几率"/>
+			<variable name="runRate" type="int" fromCol="逃跑几率"/>
+			<variable name="skills" type="vector" value="fire.pb.npc.SMonsterSkill" />
+			<variable name="aiIds" type="String" fromCol="AI编号"/>
+			<variable name="immunebuffid" type="string" fromCol="免疫状态id"/>
+			-->
+			
+			<variable name="daodi" fromCol="是否倒地" type="int" />
+			<!--
+			<variable name="hpAttackFactor" type="double" fromCol="当前生命队伍中最大攻击力系数" />
+			<variable name="hpFactor" type="double" fromCol="当前生命系数"/>
+			<variable name="hpConstant" type="double" fromCol="当前生命常数"/>
+			-->
+			<variable name="DefaultBattleEp" type="int" fromCol="进战斗默认连击点"/>
+			<variable name="MaxSp" type="int" fromCol="怒气上限"/>
+			<variable name="DefaultBattleSp" type="int" fromCol="进战斗默认怒气"/>
+			
+			<variable name="hpMaxAttackFactor" type="double" fromCol="最大生命队伍中最大攻击力系数" />
+			<variable name="hpMaxFactor" type="double" fromCol="最大生命系数"/>
+			<variable name="hpMaxConstant" type="double" fromCol="最大生命常数"/>
+			<!--
+			<variable name="mpminFactor" type="double" fromCol="当前魔法系数"/>
+			<variable name="mpminConstant" type="double" fromCol="当前魔法常数"/>
+			-->
+			<variable name="mpMaxFactor" type="double" fromCol="最大魔法系数"/>
+			<variable name="mpMaxConstant" type="double" fromCol="最大魔法常数"/>
+			<variable name="attackFactor" type="double" fromCol="物攻系数"/>
+			<variable name="attackConstant" type="double" fromCol="物攻常数"/>
+			<variable name="defFactor" type="double" fromCol="物防系数"/>
+			<variable name="defConstant" type="double" fromCol="物防常数"/>
+			<variable name="magicattFactor" type="double" fromCol="法攻系数"/>
+			<variable name="magicattConstant" type="double" fromCol="法攻常数"/>
+			<variable name="magicDefFactor" type="double" fromCol="法防系数"/>
+			<variable name="magicDefConstant" type="double" fromCol="法防常数"/>
+			<variable name="attallFactor" type="double" fromCol="命中系数"/>
+			<variable name="attallConstant" type="double" fromCol="命中常数"/>
+			<variable name="speedFactor" type="double" fromCol="速度系数"/>
+			<variable name="speedConstant" type="double" fromCol="速度常数"/>
+			<variable name="medicalFactor" type="double" fromCol="治疗强度系数"/>
+			<variable name="medicalConstant" type="double" fromCol="治疗强度常数"/>
+			<variable name="sealhitFactor" type="double" fromCol="控制命中系数"/>
+			<variable name="sealhitConstant" type="double" fromCol="控制命中常数"/>
+			<variable name="unsealFactor" type="double" fromCol="控制抗性系数"/>
+			<variable name="unsealConstant" type="double" fromCol="控制抗性常数"/>
+			<variable name="skills" type="vector" value="fire.pb.npc.SMonsterSkill" />
+		</bean>
+		<bean name="SWildMonsterConfig" from="NPC-复合/l练功区怪物表" genxml="server" baseclass="MonsterConfig">
+			<!--
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="name" type="String" fromCol="名称"/>
+			<variable name="type" type="int" fromCol="类型"/>
+			<variable name="bodytype" type="double" fromCol="大小比例"/>
+			<variable name="pet" type="int" fromCol="对应宠物"/>
+			<variable name="colorid" type="int" fromCol="颜色几率id" />
+			<variable name="orbinding" type="int" fromCol="是否绑定"/>
+			<variable name="title" type="String" fromCol="称谓"/>
+			<variable name="shape" type="int" fromCol="造型id"/>
+			<variable name="randomShapes" fromCol="随机造型id" type="string" />
+			<variable name="npctypeid" fromCol="造型id" type="int" />
+			<variable name="race" type="int" fromCol="种族"/>
+			<variable name="school" type="int" fromCol="职业"/>
+			<variable name="levelType" type="int" fromCol="等级模式"/>
+			<variable name="level" type="int" fromCol="NPC等级" />
+			<variable name="canCatch" type="bool" fromCol="能否捕捉"/>
+			<variable name="catchRate" type="int" fromCol="捕捉几率"/>
+			<variable name="runRate" type="int" fromCol="逃跑几率"/>
+			<variable name="skills" type="vector" value="fire.pb.npc.SMonsterSkill" />
+			<variable name="aiIds" type="String" fromCol="AI编号"/>
+			<variable name="immunebuffid" type="string" fromCol="免疫状态id"/>
+			-->
+
+			<variable name="initPoint" type="int" fromCol="初始属性点" />
+			<variable name="initPointAssignType" type="int" fromCol="初始属性分配类型" />
+			<variable name="addpoint" type="vector" value="int" fromCol="每级体质加点,每级智力加点,每级力量加点,每级耐力加点,每级敏捷加点" />
+			<variable name="attackapt" type="int" fromCol="怪物攻资" />
+			<variable name="defendapt" type="int" fromCol="怪物防资" />	
+			<variable name="phyforceapt" type="int" fromCol="怪物体资" />	
+			<variable name="magicapt" type="int" fromCol="怪物法资" />	
+			<variable name="speedapt" type="int" fromCol="怪物速资" />	
+			<variable name="dodgeapt" type="int" fromCol="怪物躲资" />	
+			<variable name="growrate" type="int" fromCol="怪物成长率" />
+			<variable name="healgrow" type="int" fromCol="治疗强度成长" />
+			<variable name="ctrlhitgrow" type="int" fromCol="控制命中成长" />
+			<variable name="ctrlresistgrow" type="int" fromCol="控制抗性成长" />
+			<variable name="skills" type="vector" value="fire.pb.npc.SMonsterSkill" />
+		</bean>
+			
+
+		
+		<bean name="CNpcShape" from="z造型对应表" genxml="client" priority="1" gencode="mtlua">
+			<variable name="id" type="int" fromCol="造型id"/>
+			<variable name="shape" type="string" fromCol="造型"/>
+			<variable name="roleimage" type="string" fromCol="全身像"/>
+			<variable name="headID" type="int" fromCol="半身像id"/>
+			<variable name="littleheadID" type="int" fromCol="小头像id"/>
+			<variable name="mapheadID" type="int" fromCol="小地图头像"/>
+			<variable name="name" type="string" fromCol="描述"/>
+			<variable name="dir" type="int" fromCol="几个方向"/>
+			<variable name="hitmove" type="int" fromCol="是否进行位移"/>
+			<variable name="shadow" type="int" fromCol="影子尺寸"/>
+			<variable name="attack" type="string" fromCol="攻击音效"/>
+			<variable name="magic" type="string" fromCol="施法音效"/>
+			<variable name="nearorfar" type="int" fromCol="是否远程"/>
+			<variable name="shadertype" type="int" fromCol="是否染色"/>
+			<variable name="part0" type="vector" value="int" fromCol="部件1"/>
+			<variable name="part1" type="vector" value="int" fromCol="部件2"/>
+			<variable name="part2" type="vector" value="int" fromCol="部件3"/>
+			<variable name="showWeaponId" type="int" fromCol="显示武器ID"/>
+			<variable name="showHorseShape" type="int" fromCol="显示坐骑ID"/>
+    </bean>
+	
+	<bean name="SNpcShape" from="z造型对应表" genxml="server">
+			<variable name="id" type="int" fromCol="造型id"/>
+			<variable name="shape" type="string" fromCol="造型"/>
+			<variable name="roleimage" type="string" fromCol="全身像"/>
+			<variable name="headID" type="int" fromCol="半身像id"/>
+			<variable name="littleheadID" type="int" fromCol="小头像id"/>	
+			<variable name="name" type="string" fromCol="描述"/>
+			<variable name="dir" type="int" fromCol="几个方向"/>
+			<variable name="shadow" type="int" fromCol="影子尺寸"/>
+			<variable name="attack" type="string" fromCol="攻击音效"/>
+			<variable name="magic" type="string" fromCol="施法音效"/>
+			<variable name="nearorfar" type="int" fromCol="是否远程"/>
+			<variable name="shadertype" type="int" fromCol="是否染色"/>
+			<variable name="part0" type="vector" value="int" fromCol="部件1"/>
+			<variable name="part1" type="vector" value="int" fromCol="部件2"/>
+			<variable name="part2" type="vector" value="int" fromCol="部件3"/>
+			<variable name="showWeaponId" type="int" fromCol="显示武器ID"/>
+			<variable name="showHorseShape" type="int" fromCol="显示坐骑ID"/>
+    </bean>
+
+				
+
+		<bean name="CNpcInAll" from="NPC-复合/l练功区怪物表,NPC-复合/z战斗NPC表,NPC-复合/npc" genxml="client" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号"/>
+			<variable name="name" type="string" fromCol="名称"/>
+			<variable name="area1colour" fromCol="area1colour"  type="int"/>
+			<variable name="area2colour" fromCol="area2colour"  type="int"/>
+		</bean>
+		
+		<bean name="SchoolMaster" from="m职业师父对照表" genxml="server">
+			<variable name="id" type="int" fromCol="ID"/>
+			<variable name="masterid" type="int" fromCol="任务师父ID"/>
+		</bean>
+		<bean name="SActivityNpcPos" from="d定时活动NPC显示表" genxml="server">
+			<variable name="id" type="int" fromCol="id" />
+			<variable name="npcPoses" type="vector" value="fire.pb.npc.SNpcPos" />
+		</bean>
+		<bean name="SNpcPos">
+			<variable name="npcid" type="int" fromCol="NPC1 id,NPC2 id,NPC3 id,NPC4 id,NPC5 id,NPC6 id,NPC7 id,NPC8 id,NPC9 id,NPC10 id,NPC11 id,NPC12 id,NPC13 id,NPC14 id,NPC15 id,NPC16 id,NPC17 id,NPC18 id,NPC19 id,NPC20 id,NPC21 id,NPC22 id,NPC23 id,NPC24 id"  /> 
+			<variable name="npcName" type="string" fromCol="NPC1 名称,NPC2 名称,NPC3 名称,NPC4 名称,NPC5 名称,NPC6 名称,NPC7 名称,NPC8 名称,NPC9 名称,NPC10 名称,NPC11 名称,NPC12 名称,NPC13 名称,NPC14 名称,NPC15 名称,NPC16 名称,NPC17 名称,NPC18 名称,NPC19 名称,NPC20 名称,NPC21 名称,NPC22 名称,NPC23 名称,NPC24 名称"  /> 
+			<variable name="npcMap" type="int" fromCol="NPC1 地图,NPC2 地图,NPC3 地图,NPC4 地图,NPC5 地图,NPC6 地图,NPC7 地图,NPC8 地图,NPC9 地图,NPC10 地图,NPC11 地图,NPC12 地图,NPC13 地图,NPC14 地图,NPC15 地图,NPC16 地图,NPC17 地图,NPC18 地图,NPC19 地图,NPC20 地图,NPC21 地图,NPC22 地图,NPC23 地图,NPC24 地图"  /> 
+			<variable name="npcPosx" type="int" fromCol="NPC1 坐标x,NPC2 坐标x,NPC3 坐标x,NPC4 坐标x,NPC5 坐标x,NPC6 坐标x,NPC7 坐标x,NPC8 坐标x,NPC9 坐标x,NPC10 坐标x,NPC11 坐标x,NPC12 坐标x,NPC13 坐标x,NPC14 坐标x,NPC15 坐标x,NPC16 坐标x,NPC17 坐标x,NPC18 坐标x,NPC19 坐标x,NPC20 坐标x,NPC21 坐标x,NPC22 坐标x,NPC23 坐标x,NPC24 坐标x"  /> 
+			<variable name="npcPosy" type="int" fromCol="NPC1 坐标y,NPC2 坐标y,NPC3 坐标y,NPC4 坐标y,NPC5 坐标y,NPC6 坐标y,NPC7 坐标y,NPC8 坐标y,NPC9 坐标y,NPC10 坐标y,NPC11 坐标y,NPC12 坐标y,NPC13 坐标y,NPC14 坐标y,NPC15 坐标y,NPC16 坐标y,NPC17 坐标y,NPC18 坐标y,NPC19 坐标y,NPC20 坐标y,NPC21 坐标y,NPC22 坐标y,NPC23 坐标y,NPC24 坐标y"  /> 			
+		</bean>
+
+				
+
+		<bean name="SGatherConfig" from="NPC-复合/k可采集物品" genxml="server">
+			<variable name="id" type="int" fromCol="编号"/> 采集npcid
+			<variable name="progresstime" type="int" fromCol="读条时间"/> 读条时间
+		  <variable name="coolingtime" type="int" fromCol="冷却时间"/> 冷却时间
+		  <variable name="tasks" type="vector" value="int" 
+		  	fromCol="任务需求1,任务需求2,任务需求3,任务需求4,任务需求5,任务需求6,任务需求7,任务需求8,任务需求9,任务需求10"/> 任务需求
+		  <variable name="战斗概率" type="int" fromCol="战斗概率"/>
+		  <variable name="战斗ID" type="int" fromCol="战斗ID"/>
+		  <variable name="获得概率" type="int" fromCol="获得概率"/>
+		  <variable name="奖励" type="int" fromCol="奖励"/>
+		  <variable name="可采集次数" type="int" fromCol="可采集次数"/>
+		  <variable name="是否消失" type="int" fromCol="是否消失"/>
+		</bean>
+		
+				
+		<bean name="CSceneNPCConfig" from="z装饰NPC/z装饰npc动作配置" genxml="client">
+			<variable name="id" type="int" fromCol="id"/> 
+			<variable name="baseid" type="int" fromCol="NPCID"/> 
+			<variable name="mapid" type="int" fromCol="map"/>
+			<variable name="posx" type="int" fromCol="posx"/> 
+			<variable name="posy" type="int" fromCol="posy"/> 
+			<variable name="dir" type="int" fromCol="方向"/>
+			<variable name="talkinterval" type="int" fromCol="定时循环时间间隔"/>
+			<variable name="talkintervalsays" type="string" fromCol="定时循环泡泡内容"/> 
+			<variable name="talkdistance" type="int" fromCol="与玩家距离值"/>
+			<variable name="talkdistancesays" type="string" fromCol="与玩家距离泡泡内容"/>		
+			<variable name="talkcharnum" type="int" fromCol="周围玩家的数量值"/>
+			<variable name="talkcharnumsays" type="string" fromCol="周围玩家数量泡泡内容"/>
+			<variable name="pacing" type="int" fromCol="是否内短距离巡逻"/>	0为不动，2是巡逻 
+			<variable name="movespeed" type="int" fromCol="巡逻移动速度"/>
+			<variable name="mask" type="int" fromCol="遮罩上层"/>
+			<variable name="transparent" type="int" fromCol="半透明"/>
+		</bean>
+		
+		<bean name="CSceneNPCBase" from="z装饰NPC/z装饰npc基础信息" genxml="client">
+			<variable name="id" type="int" fromCol="编号"/> 	//景物npc的baseid
+			<variable name="shapeid" type="int" fromCol="modelID"/>
+			<variable name="name" type="string" fromCol="名称"/>
+			<variable name="type" type="int" fromCol="npctype"/>
+			<variable name="npcappear" type="string" fromCol="开始时间"/>
+			<variable name="npcdisappear" type="string" fromCol="结束时间"/>
+			<variable name="scale" type="int" fromCol="大小比例"/>
+			<variable name="area1colour" type="int" fromCol="area1colour"/>
+			<variable name="chatidlist" type="vector" value="int" fromCol="chitchat1,chitchat2,chitchat3"/>
+			<variable name="mask" type="int" fromCol="遮罩上层"/>
+			<variable name="transparent" type="int" fromCol="半透明"/>
+		</bean>
+		
+		
+		
+		<bean name="SHireNpc" from="NPC-复合/z战斗NPC_协战_28xxx" genxml="server">
+			<variable name="id" type="int" fromCol="编号"/> 
+			<variable name="BuffID" type="int" fromCol="BuffID"/> 
+		</bean>
+		
+		
+		
+		<bean name="SFestivalGift" from="j节庆相关/j节日礼物配置表" genxml="server"> 
+			<variable name="id" type="int" fromCol="id"/> 
+			<variable name="time" type="string" fromCol="时间"/> 
+			<variable name="name" type="string" fromCol="名称"/> 
+			<variable name="awardid" type="int" fromCol="奖励ID"/>
+			<variable name="sourceid" type="int" fromCol="描述"/>
+		</bean>
+		
+		
+		<bean name="CActionInfo" from="z主角模型对照表" genxml="client" priority="1" gencode="mtlua">
+			<variable name="id" type="int" fromCol="编号"/>		
+			<variable name="model" type="string" fromCol="人物模型资源"/>			
+			<variable name="weapon" type="int" fromCol="武器造型编号"/>			
+			<variable name="attack" type="string" fromCol="物理攻击动作名"/>			
+			<variable name="magic" type="string" fromCol="施法攻击动作名"/>			
+			<variable name="attacked" type="string" fromCol="受击动作名"/>
+			<variable name="dying" type="string" fromCol="死亡过程名"/>
+			<variable name="death" type="string" fromCol="死亡状态名"/>			
+			<variable name="defence" type="string" fromCol="防御名"/>
+			<variable name="run" type="string" fromCol="跑动名"/>
+			<variable name="battlestand" type="string" fromCol="战斗内待机名"/>
+			<variable name="stand" type="string" fromCol="战斗外待机名"/>
+			<variable name="ridrun" type="string" fromCol="坐骑飞行动作名"/>
+			<variable name="ridstand" type="string" fromCol="坐骑待机动作名"/>			
+		</bean>
+
+        <bean name="RefreshTimerNpc">
+            <variable name="id" type="int" fromCol="定时活动配置表id" />
+            <variable name="startTime" fromCol="活动开始时间" type="string" />
+            <variable name="firstRefresh" type="int" fromCol="距离活动开始间隔时间" />
+            <variable name="intervalRefresh" type="int" fromCol="间隔刷新时间" />
+            <variable name="messageId" type="int" fromCol="刷新时系统提示信息编号" />
+            <variable name="freshType" type="int" fromCol="刷新方式" />
+            <variable name="maxNpcCount" type="int" fromCol="补怪数量上限" /> 活动中能最多出现的怪物数量
+            <variable name="addNpcTime" type="int" fromCol="补怪持续时间" /> 活动开始一段时间之后就不再补怪了
+            <variable name="npcList" type="string" fromCol="刷新列表" />
+            <variable name="npcGroup" type="int" fromCol="刷新列表数量" />
+            <variable name="npcCount" type="string" fromCol="每种NPC数量" />
+            <variable name="npcAllCount" type="string" fromCol="刷新控制总数量" />
+			      <variable name="freshControl" type="int" fromCol="刷新控制" />1 为个数刷新; 2 为总数刷新
+            <!--<variable name="npcRandomType" type="int" fromCol="数量分配方式" /> 1 平均;  2 随机-->
+            <variable name="sceneList" type="string" fromCol="刷新场景" />
+            <variable name="sceneCnt" type="int" fromCol="刷新场景个数" />
+            <!--<variable name="sceneRandomType" type="int" fromCol="场景中数量分配方式" /> 1 平均;  2 随机-->
+            <variable name="npcLastTime" type="int" fromCol="怪物存在时间" /> 单位:秒
+            <variable name="awardCnt" type="int" fromCol="击杀奖励个数" />
+            <variable name="awardId" type="int" fromCol="奖励ID" />
+            <variable name="awardOverStepNotice" type="int" fromCol="奖励个数超过提示编号" />
+            <variable name="teamRequire" type="int" fromCol="是否组队" /> 1 需要组队; 0 不需要组队
+            <variable name="teamCount" type="int" fromCol="组队人数要求" />
+            <variable name="levelMin" type="int" fromCol="需求等级下限" />
+            <variable name="levelMax" type="int" fromCol="需求等级上限" />
+            <variable name="battletime" type="int" fromCol="次数" />
+            <variable name="addnpctype" type="int" fromCol="补怪方式" />
+            <variable name="eventbiaoid" type="int" fromCol="对应事件刷新ID" />
+            <variable name="canwatchbattle" type="int" fromCol="观战" />
+            <variable name="xiaoshi" type="int" fromCol="消失" />
+            <variable name="randomtrigger" type="int" fromCol="触发时间随机" />
+            <variable name="actid" type="int" fromCol="对应活动表ID" />
+            <variable name="levelaward" type="string" fromCol="分级奖励" />
+            <variable name="matchlevel" type="int" fromCol="匹配等级方式" />1 按照人物等级匹配; 2 按照队伍等级匹配
+            <variable name="matchtime" type="int" fromCol="匹配秒数" /> 多少时间内点击npc需要匹配
+            <variable name="match" type="int" fromCol="是否匹配" /> 打怪时是否需要跟其他玩家随机
+            <variable name="havetimes" type="int" fromCol="次数击杀" /> 进战斗前是否需要判断还有奖励次数
+			      <variable name="leveltimes" type="string" fromCol="分级次数" />
+            <variable name="delaysec" type="int" fromCol="延迟秒数" />
+            <variable name="delaynoticeid" type="int" fromCol="延迟刷怪提示" />
+        </bean>
+        		
+        <bean name="SRefreshTimerNpc" from="g怪物刷新/定时刷新表" genxml="server" baseclass="RefreshTimerNpc">
+            
+        </bean>
+
+        <bean name="SRefreshTimerNpcDianKa" from="D点卡服表格/定时刷新表for点卡服" genxml="server" baseclass="RefreshTimerNpc">
+            <variable name="shoulie" type="int" fromCol="是否属于狩猎活动" />
+        </bean>
+
+        <bean name="SNpcNameRandom" from="g怪物名称随机/g怪物随机名称库" genxml="server">
+            <variable name="id" type="int" fromCol="id"/>
+            <variable name="firstName" type="string" fromCol="姓"/>
+            <variable name="secondName" type="string" fromCol="名"/>
+            <variable name="group" type="int" fromCol="名称库"/>
+        </bean>
+
+        <bean name="SNpcPreNameRandom" from="g怪物名称随机/g怪物随机名称前缀库" genxml="server">
+            <variable name="id" type="int" fromCol="id" />id
+            <variable name="preName" type="string" fromCol="名称前缀"/>
+            <variable name="group" type="int" fromCol="前缀组"/>
+        </bean>
+
+    
+	
+    <bean name="SRide" from="z坐骑/z坐骑表" genxml="server">
+      <variable name="id" type="int" fromCol="坐骑ID" />id
+      <variable name="ridemodel" type="int" fromCol="坐骑模型"/>
+    </bean>
+	
+	<bean name="CRide" from="z坐骑/z坐骑表" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="坐骑ID" />id
+      <variable name="ridemodel" type="int" fromCol="坐骑模型"/>
+      <variable name="speed" type="int" fromCol="坐骑移动速度"/>
+      <variable name="effectId" type="int" fromCol="坐骑特效"/>
+	  <variable name="effectPosX" type="int" fromCol="坐骑特效坐标X"/>
+	  <variable name="effectPosY" type="int" fromCol="坐骑特效坐标Y"/>
+    </bean>
+	
+    <bean name="SRideItem" from="z坐骑/z坐骑道具配置表" genxml="server">
+      <variable name="id" type="int" fromCol="道具ID" />id
+      <variable name="rideid" type="int" fromCol="坐骑ID"/>
+    </bean>
+
+    <bean name="CRideItem" from="z坐骑/z坐骑道具配置表" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="道具ID" />id
+      <variable name="rideid" type="int" fromCol="坐骑ID"/>
+    </bean>
+	
+	<bean name="CLeitaiLevel" from="l擂台等级分段" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="ID" />id
+      <variable name="levelmin" type="int" fromCol="等级下限"/>
+	  <variable name="levelmax" type="int" fromCol="等级上限"/>	
+    </bean>
+	<bean name="SLeitaiLevel" from="l擂台等级分段" genxml="server">
+      <variable name="id" type="int" fromCol="ID" />id
+      <variable name="levelmin" type="int" fromCol="等级下限"/>
+	  <variable name="levelmax" type="int" fromCol="等级上限"/>	
+    </bean>
+
+	<bean name="CJingjiRandomRole" from="PVP/j竞技场匹配表" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="id" />id
+      <variable name="nheadid" type="int" fromCol="头像ID"/>
+	  <variable name="njobid" type="int" fromCol="职业"/>
+    </bean>
+
+	<bean name="CJingjiRandomChat" from="PVP/竞技场loading" genxml="client" gencode="mtlua">
+      <variable name="id" type="int" fromCol="编号" />id
+      <variable name="strchat" type="string" fromCol="内容"/>
+    </bean>
+
+	</namespace>

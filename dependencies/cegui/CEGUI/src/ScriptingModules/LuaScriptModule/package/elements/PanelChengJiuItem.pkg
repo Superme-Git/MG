@@ -1,0 +1,48 @@
+// PanelChengJiuItem
+class PanelChengJiuItem : public PanelItem
+{
+public:
+
+	//! Default text colour.
+	static const CEGUI::ColourRect NameColour;
+	static const CEGUI::ColourRect IntroColor;
+	static const CEGUI::ColourRect TipsColor;//
+	static const CEGUI::ColourRect NoFinishColor;
+
+	static const CEGUI::colour     IntroBoardColor;
+	static const CEGUI::colour     TipsBoardColor;
+	static const CEGUI::colour     NoFinishBoardColor;
+	/*************************************************************************
+		Construction and Destruction
+	*************************************************************************/
+	/*!
+	\brief
+		base class constructor
+	*/
+	PanelChengJiuItem(const string& name,const string& intro,const string& tips, const string& finishstr, bool bShowProgress,
+					  int curGrade, int totalGrade,int64_t finishtime = 0,int item_id = 0,void* item_data = 0,bool bAutodelete = false,bool bHide = false);
+
+	/*!
+	\brief
+		base class destructor
+	*/
+	virtual ~PanelChengJiuItem(void);
+
+/*************************************************************************/
+   
+	int GetCurGrade();
+	int GetTotalGrade() ;
+
+	void SetCurGrade(int grade) ;
+
+	//是否达成成就
+	bool IsFinish();
+	bool IsShowProgress() ;
+
+	void SetRightIconImage(const Image* icon) ;
+	void SetFinishStr(const string& str) ;
+	void SetFinishTime(int64_t time);// ;
+	
+
+    void draw(GeometryBuffer* buffer, const Rect& targetRect, float alpha, const Rect* clipper);
+};

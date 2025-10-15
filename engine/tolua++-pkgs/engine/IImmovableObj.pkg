@@ -1,0 +1,46 @@
+namespace Nuclear
+{
+	class ISelectableObj
+	{
+	public:
+		ISelectableObj() ;
+		virtual ~ISelectableObj() ;
+	};
+
+	class IImmovableObj : virtual public ISelectableObj
+	{
+	public:
+		virtual ~IImmovableObj() ;
+		virtual void SetLocation(const NuclearLocation& location) = 0;
+		virtual NuclearLocation GetLocation() const = 0;
+		virtual void SetDirection( NuclearDirection direction ) = 0;
+		virtual NuclearDirection GetDirection() const = 0;
+		virtual void SetVisible(bool v) = 0;
+		virtual bool IsVisiable() const = 0;
+		virtual void SetEntityVisible(bool v) = 0;
+		virtual bool IsEntityVisible() const = 0;
+		virtual void SetTitleVisible(bool v) = 0;
+		virtual bool IsTitleVisible() const = 0;
+
+		virtual void SetTitle(EntitativeTitleHandle handle, NuclearTitleAlign align = XPTA_DEFAULT) = 0;
+		virtual EntitativeTitleHandle GetTitle() = 0;
+		virtual EntitativeTitleHandle UnsetTitle() = 0;
+		virtual void SetTitleSize(int width, int height) = 0;
+		virtual int GetTitleWidth() const = 0;
+		virtual int GetTitleHeight() const = 0;
+
+		// 是否高亮
+		virtual void SetHighlight(bool b) = 0;
+		virtual bool IsHighlight() const = 0;
+
+		// 是否TestAlpha
+		void SetTestAlpha(bool b);
+		bool IsTestAlpha() const;
+
+		// 检查能否选择ani的时候的模式
+		virtual void SetMouseTestMode(Nuclear_Mouse_TestMode m) = 0;
+		virtual Nuclear_Mouse_TestMode GetMouseTestMode() const = 0;
+
+	};
+
+}

@@ -1,0 +1,22 @@
+CREATE TABLE `exceptions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `exceptionCode` varchar(32) NOT NULL,
+  `exceptionAddress` varchar(32) NOT NULL,
+  `stackInfo` varchar(10240) DEFAULT NULL,
+  `osVersion` varchar(1024) DEFAULT NULL,
+  `graphic` varchar(1024) DEFAULT NULL,
+  `driver` varchar(64) DEFAULT NULL,
+  `upload` varchar(1024) DEFAULT NULL,
+  `relativePath` varchar(1024) DEFAULT NULL,
+  `descript` varchar(1024) DEFAULT NULL,
+  `register` varchar(512) DEFAULT NULL,
+  `appversion` varchar(128) DEFAULT NULL,
+  `computerName` varchar(128) DEFAULT NULL,
+  `userName` varchar(128) DEFAULT NULL,
+  `uploadTime` datetime DEFAULT NULL,
+  `phoneNumber` varchar(64) DEFAULT NULL,
+  `qqOrMsn` varchar(64) DEFAULT NULL,
+  `email` varchar(64) DEFAULT NULL,
+  `processLog` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8

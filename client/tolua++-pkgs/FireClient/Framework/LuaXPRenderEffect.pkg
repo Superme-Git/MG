@@ -1,0 +1,8 @@
+$#include "LuaXPRenderEffect.h"
+
+class LuaXPRenderEffect:public XPRenderEffect
+{
+	LuaXPRenderEffect(int userid, LUA_FUNCTION handler);
+	~LuaXPRenderEffect();
+    virtual void performPostRenderFunctions();
+};

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 消息协议号从 6001 开始 -->
+<namespace name="talk">
+	<bean name="ChannelType">  
+		<enum name="CHANNEL_CURRENT" value="1"/>		当前频道
+		<enum name="CHANNEL_TEAM" value="2"/>			队伍频道
+		<enum name="CHANNEL_PROFESSION" value="3"/>		职业频道
+		<enum name="CHANNEL_CLAN" value="4"/>			公会频道
+		<enum name="CHANNEL_WORLD" value="5"/>			世界频道
+		<enum name="CHANNEL_SYSTEM" value="6"/>			系统频道
+		<enum name="CHANNEL_MESSAGE" value="7"/>		消息频道		
+		<enum name="CHANNEL_BUBBLE" value="8"/>			气泡消息
+		<enum name="CHANNEL_SLIDE" value="9"/>			滑动消息
+		<enum name="CHANNEL_TEAM_APPLY" value="14"/> 	组队申请频道
+	</bean>
+	
+	<bean name="TipsMsgType">  
+		<enum name="TIPS_POPMSG" value="1"/>				透明框提示
+		<enum name="TIPS_NPCTALK" value="2"/>		    	npc对话框提示
+		<enum name="TIPS_MSG_CHANNEL" value="3"/>			消息频道提示
+		<enum name="TIPS_SYSBOARD" value="4"/>				系统公告提示
+		<enum name="TIPS_CONFIRM" value="5"/>				确认框提示
+		<enum name="TIPS_CLAN" value="7"/>					公会频道提示
+		<enum name="TIPS_CUR_CHANNEL" value="8"/>		    当前频道提示
+		<enum name="TIPS_WORLD" value="9"/>				    世界频道提示
+		<enum name="TIPS_TEAM_CHANNEL" value="13"/>   		队伍频道提示
+		<enum name="TIPS_PRO_CHANNEL" value="14"/>   		职业频道提示
+		<enum name="TIPS_SYS_CHANNEL" value="15"/>   		系统频道提示
+		<enum name="TIPS_ROLE_CHANNEL" value="18"/>   		跑马灯提示
+	</bean>
+	
+	<bean name="FunModelType">  
+		<enum name="FUN_TASKITEM" value="1"/>				任务求助道具功能
+		<enum name="FUN_DIELIVE_CLAN" value="2"/>		    	生死战公会频道分享
+		<enum name="FUN_DIELIVE_WORLD" value="3"/>			生死战世界频道分享
+        <enum name="QIU_ZHU" value="4"/>			求助
+    </bean>
+
+	
+	<bean name="ChatMsgId">
+		<enum name="CHAT_SPEED_LIMIT" value="140497" />  请不要说话太快
+		<enum name="CANNOT_USE_TEAM_CHANNEL" value="140498" /> 你还没有队伍
+		<enum name="CHAT_WORLD_CHANNEL_TIME_LIMIT" value="140500" /> 每隔N秒才能在世界频道发言
+		<enum name="CHAT_WORLD_CHANNEL_LEVEL_LIMIT" value="140501" /> 等级不足N级不能在世界频道发言
+		<enum name="CANNOT_USE_FACTION_CHANNEL" value="141053" /> 未加入公会,不能使用公会频道
+		<enum name="CHAT_TEAM_APPLY_CHANNEL_TIME_LIMIT" value="150028" /> 每隔N秒才能在组队申请频道发言
+		<enum name="CHAT_SCHOOL_CHANNEL_LEVEL_LIMIT" value="160471" /> 等级不足N级不能在职业频道发言
+		<enum name="CHAT_CURRENT_CHANNEL_LEVEL_LIMIT" value="142924" /> 等级不足N级不能在当前频道发言
+	</bean>
+	
+	<bean name="DisplayInfo">
+		<variable name="displaytype" type="int"/> 类型
+		<variable name="roleid" type="long" /> 角色id 
+		<variable name="shopid" type="long" /> 商店id,成就类型的时候是完成时间(1主线任务 2循环任务)
+		<variable name="counterid" type="int" /> 柜台id,成就类型的时候是成就进度
+		<variable name="uniqid" type="int"/> 唯一id,成就类型的时候是是成就id
+		<variable name="teamid" type="long"/> 队长ID by changhao
+		
+		<enum name="DISPLAY_ITEM" value="1"/>
+		<enum name="DISPLAY_PET" value="2"/>
+		<enum name="DISPLAY_TASK" value="8"/> 任务介绍
+		<enum name="DISPLAY_TEAM_APPLY" value="9"/> 组队申请 by changhao
+		<enum name="DISPLAY_ROLL_ITEM" value="11"/> ROLL点 by changhao
+		<enum name="DISPLAY_ACTIVITY_ANSWER" value="12"/> 活动答题 by changhao
+		<enum name="DISPLAY_LIVEDIE" value="13"/> 生死战连接
+		<enum name="DISPLAY_BATTLE" value="14"/> 战斗录像连接
+		<enum name="DISPLAY_SACE_ROLE" value="15"/> 
+	</bean>
+	
+	<protocol name="CTransChatMessage2Serv" type="6001" maxsize="65535" prior="1" tolua="3">
+		<variable name="messagetype" type="int"/>		消息频道 MsgTye中所定义的部分
+		<variable name="message" type="string"/>		内容
+		<variable name="checkshiedmessage" type="string"/>		检测屏蔽字的纯文本
+		<variable name="displayinfos" type="vector" value="DisplayInfo" /> 显示道具、宠物、技能
+		<variable name="funtype" type="int"/>  功能类型  类型编号对应FunModelType
+        <variable name="taskid" type="int"/> 任务id
+	</protocol>	
+	
+	<protocol name="STransChatMessage2Client" type="6002" maxsize="65535" prior="1" tolua="3">
+		<variable name="roleid" type="long"/>		发言角色ID	
+		<variable name="rolename" type="string"/>	名字
+		<variable name="shapeid" type="int"/>		头像
+		<variable name="titleid" type="int" />		称谓
+		<variable name="messagetype" type="int"/>		频道
+		<variable name="message" type="string"/>	 	内容
+		<variable name="displayinfos" type="vector" value="DisplayInfo" /> 显示道具、宠物、技能
+	</protocol>	
+
+	<protocol  name="STransChatMessageNotify2Client" type="6005" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="messageid" type="int"/>	 	提示id
+		<variable name="npcbaseid" type="int" /> npc id
+		<variable name="parameters" type="vector" value="octets"/>	参数
+	</protocol>
+
+	<protocol  name="CChatItemTips" type="6013" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="displayinfo" type="DisplayInfo"/>
+	</protocol>
+
+	<protocol  name="SChatItemTips" type="6014" maxsize="65535" prior="1" tolua="3"> 
+		<variable name="displayinfo" type="DisplayInfo"/>
+		<variable name="tips" type="octets" />
+	</protocol>
+
+    <!-- 这个是用来提示有多种加经验的情况 -->
+    <protocol  name="SExpMessageTips" type="6015" maxsize="65535" prior="1" tolua="3">
+        <variable name="messageid" type="int"/> 提示id
+        <variable name="expvalue" type="long"/> 总的经验值
+        <variable name="messageinfo" type="map" key="int" value="long"/> key 为子提示id, value为子提示的参数值
+    </protocol>
+	
+	<protocol  name="SChatHelpResult" type="6016" maxsize="65535" prior="1" tolua="3">  聊天求助发送结果
+		<variable name="result" type="int" /> 0 成功
+    </protocol>
+</namespace>

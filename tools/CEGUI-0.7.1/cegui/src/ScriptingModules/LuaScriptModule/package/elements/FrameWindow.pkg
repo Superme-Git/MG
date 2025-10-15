@@ -1,0 +1,55 @@
+/***********************************************************************
+	FrameWindow
+***********************************************************************/
+class FrameWindow : public Window
+{
+public:
+	bool isSizingEnabled() const;
+	bool isFrameEnabled() const;
+	bool isTitleBarEnabled() const;
+	bool isCloseButtonEnabled() const;
+	bool isRollupEnabled() const;
+	bool isRolledup() const;
+	bool isDragMovingEnabled() const;
+
+	void setSizingEnabled(bool enabled);
+	void setFrameEnabled(bool enabled);
+	void setTitleBarEnabled(bool enabled);
+	void setCloseButtonEnabled(bool enabled);
+	void setRollupEnabled(bool enabled);
+	void setDragMovingEnabled(bool enabled);
+
+	const Image* getNSSizingCursorImage() const;
+    const Image* getEWSizingCursorImage() const;
+    const Image* getNWSESizingCursorImage() const;
+    const Image* getNESWSizingCursorImage() const;
+    void setNSSizingCursorImage(const Image* image);
+    void setEWSizingCursorImage(const Image* image);
+    void setNWSESizingCursorImage(const Image* image);
+    void setNESWSizingCursorImage(const Image* image);
+    void setNSSizingCursorImage(const String& imageset, const String& image);
+    void setEWSizingCursorImage(const String& imageset, const String& image);
+    void setNWSESizingCursorImage(const String& imageset, const String& image);
+    void setNSSizingCursorImage(const String& imageset, const String& image);
+    void setEWSizingCursorImage(const String& imageset, const String& image);
+    void setNESWSizingCursorImage(const String& imageset, const String& image);
+
+	float getSizingBorderThickness() const;
+	void setSizingBorderThickness(float pixels);
+
+	void setText(string text);
+	void setText(string text, unsigned int  defcolour = 0);
+	void setText(string text, unsigned int  defcolour = 0,bool triggerEvent = true);
+
+	void toggleRollup();
+
+	void offsetPixelPosition(const Vector2& offset);
+
+    bool isHit(const Point& position, const bool) const;
+
+    Titlebar* getTitlebar() const;
+
+	//////////////////////////////////////////////
+	PushButton* getCloseButton() const;
+	void CenterInParent();
+};

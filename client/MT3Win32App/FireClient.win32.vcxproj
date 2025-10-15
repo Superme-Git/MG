@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>FireClient</ProjectName>
+    <ProjectGuid>{A5C3F07D-E140-49B3-A06E-2F617EC049CA}</ProjectGuid>
+    <RootNamespace>HelloWorldwin32</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../common/cauthc;../../common/cauthc/include;../../common/cauthc/authc/os/windows;../../common/cauthc/authc;../../common/platform;../../common/platform/log;../../common/ljfm/code/include;../../dependencies/SILLY-0.1.0/include;../../dependencies/cegui/CEGUI/include;../../dependencies/cegui/CEGUI/include/RendererModules/Cocos2D;../../dependencies/cegui/CEGUI/include/WindowRendererSets/Falagard;../../dependencies/cegui/CEGUI/include/ImageCodecModules/SILLYImageCodec;../../dependencies/cegui/CEGUI/include/XMLParserModules/XMLIOParser;../../dependencies/cegui/CEGUI/include/ScriptingModules/LuaScriptModule;../../dependencies/speex-1.2rc2/include;../../dependencies/speexdsp-1.2rc3/include;../../dependencies/libvorbis-1.3.5/include;../../dependencies/libogg-1.3.2/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/OGLES;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/zlib;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libwebp;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/pthread;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/freetype/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../cocos2d-2.0-rc2-x-2.0.1/external/curl/include/win32;../../cocos2d-2.0-rc2-x-2.0.1/external/tiff/win32/include;../../dependencies/jpeg/win32/include;../../dependencies/png/win32/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include/spine;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include/spine;../../cocos2d-2.0-rc2-x-2.0.1/external/libwebsockets/win32/include;../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support;../../cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/include;../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../engine;../../engine/common;../../client/FireClient/Application;../../client/FireClient/Application/Common;../../client/FireClient/Application/Framework;../../client/FireClient/Application/GameTable;../../client/FireClient/Application/GameUI;../../client/FireClient/Application/Manager;../../client/FireClient/Application/Battle;../../client/FireClient/Application/ProtoDef;../../client/FireClient/Application/ProtoDef/rpcgen;../../client/FireClient/Application/SceneObj;../../client/FireClient/Application/Utils;../../client/FireClient/Application/oggenc;../../client/FireClient/Application/oggenc/include;$(ProjectDir);$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_DEBUG;_WINDOWS;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CEGUI_STATIC;XPP_WIN;CC_SUPPORT_PVRTC;PUBLISHED_VERSION;XP_PERFORMANCE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244;4819</DisableSpecificWarnings>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../common/cauthc;../../common/cauthc/include;../../common/cauthc/authc/os/windows;../../common/cauthc/authc;../../common/platform;../../common/platform/log;../../common/ljfm/code/include;../../dependencies/SILLY-0.1.0/include;../../dependencies/cegui/CEGUI/include;../../dependencies/cegui/CEGUI/include/RendererModules/Cocos2D;../../dependencies/cegui/CEGUI/include/WindowRendererSets/Falagard;../../dependencies/cegui/CEGUI/include/ImageCodecModules/SILLYImageCodec;../../dependencies/cegui/CEGUI/include/XMLParserModules/XMLIOParser;../../dependencies/cegui/CEGUI/include/ScriptingModules/LuaScriptModule;../../dependencies/speex-1.2rc2/include;../../dependencies/speexdsp-1.2rc3/include;../../dependencies/libvorbis-1.3.5/include;../../dependencies/libogg-1.3.2/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/kazmath/include/GL;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/OGLES;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/zlib;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/libwebp;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/win32/pthread;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/freetype/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/include;../../cocos2d-2.0-rc2-x-2.0.1/cocos2dx/platform/third_party/winrt/angleproject/samples/gles2_book/Common;../../cocos2d-2.0-rc2-x-2.0.1/external/curl/include/win32;../../cocos2d-2.0-rc2-x-2.0.1/external/tiff/win32/include;../../dependencies/jpeg/win32/include;../../dependencies/png/win32/include;../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support;../../cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/include;../../cocos2d-2.0-rc2-x-2.0.1/lua/lua;../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua;../../cocos2d-2.0-rc2-x-2.0.1/extensions;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-c/include/spine;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include;../../cocos2d-2.0-rc2-x-2.0.1/extensions/libSpine/spine-cocos2dx/include/spine;../../cocos2d-2.0-rc2-x-2.0.1/external/libwebsockets/win32/include;../../engine;../../engine/common;../../client/FireClient/Application;../../client/FireClient/Application/Common;../../client/FireClient/Application/Framework;../../client/FireClient/Application/GameTable;../../client/FireClient/Application/GameUI;../../client/FireClient/Application/SceneObj;../../client/FireClient/Application/Utils;../../client/FireClient/Application/Manager;../../client/FireClient/Application/Battle;../../client/FireClient/Application/ProtoDef;../../client/FireClient/Application/ProtoDef/rpcgen;../../client/FireClient/Application/oggenc/include;$(ProjectDir);$(IntermediateOutputPath);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;WIN7_32;_WINDOWS;NDEBUG;COCOS2D_DEBUG=0;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;CEGUI_STATIC;XPP_WIN;CC_SUPPORT_PVRTC;PUBLISHED_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4251;4244</DisableSpecificWarnings>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcocos2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpClient.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\WebSocket.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Amr\amr_dec.cpp" />
+    <ClCompile Include="..\FireClient\Application\Amr\amr_enc.cpp" />
+    <ClCompile Include="..\FireClient\Application\Amr\sp_dec.cpp" />
+    <ClCompile Include="..\FireClient\Application\Amr\sp_enc.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Replay.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\3rdplatform\ChannelManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleIllusion.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleMagicControl.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManagerDemo.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManagerOperate.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_AI.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Protocol.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Render.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleManager_Watch.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\Battler.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\BattleScriptPlayer.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\ConnectGetServerInfo.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\DeviceData.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\DeviceInfo.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\FriendVisitor.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\GameApplication.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\GameCenter_crossPlatform.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\GameCenter_nonIos.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\GameOperateState.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\GameScene.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\ITickTimer.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\LocationDetector_crossPlatform.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\LocationDetector_win32.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\LuaEngineWin32.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaFireClientWin32.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaMessageTask.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaTickerRegister.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\LuaXPRenderEffect.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\MapWalker.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\MessageTask.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\MovieSection.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\NetConnection.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\ResolutionAdapter.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Framework\RoleItem.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\SceneEffect.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\Skill.cpp" />
+    <ClCompile Include="..\FireClient\Application\Battle\SkillBuilder.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\gWebBrowser.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\MyWebBrowser.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\OleContainer.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\WinWebBrowser\WinSDK.cpp" />
+    <ClCompile Include="..\FireClient\Application\Framework\XPRenderEffect.cpp" />
+    <ClCompile Include="..\FireClient\Application\GameTable\TableDataManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\GameUI\CEGUIIMEDelegate.cpp" />
+    <ClCompile Include="..\FireClient\Application\GameUI\Dialog.cpp" />
+    <ClCompile Include="..\FireClient\Application\GameUI\UISpineSprite.cpp" />
+    <ClCompile Include="..\FireClient\Application\GameUI\UISprite.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\ArtTextManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\BattleReplayManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\ConfigManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\DownloadManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\EmotionManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\GameStateManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\GameUIManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\IconManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\LoginManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\MainRoleDataManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\MessageManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\MusicSoundVolumeMixer.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\NewRoleGuideManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\ProtocolLuaFunManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\RoleItemManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\SceneMovieManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\SpaceManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\TaskOnOffEffectManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Manager\VoiceManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\audio.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\encode.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\lyrics.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\oggenc.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\platform.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\resample.cpp" />
+    <ClCompile Include="..\FireClient\Application\oggenc\skeleton.cpp" />
+    <ClCompile Include="..\FireClient\Application\platform\win\SoundCapturer\SoundCapturer.cpp" />
+    <ClCompile Include="..\FireClient\Application\platform\win\SoundCapturer\WaveFile.cpp" />
+    <ClCompile Include="..\FireClient\Application\platform\win\WavRecorder.cpp" />
+    <ClCompile Include="..\FireClient\Application\ProtoDef\rpcgen.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\Character.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\ComponentsObject.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\DroptItem.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\FollowNpc.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\FossickNpc.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\MainCharacter.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\MovieSceneNpc.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\Npc.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\Pet.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\SceneNpc.cpp" />
+    <ClCompile Include="..\FireClient\Application\SceneObj\SceneObject.cpp" />
+    <ClCompile Include="..\FireClient\Application\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\base64.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\FireClient\Application\Utils\CallLuaUtil.cpp" />
+    <ClCompile Include="..\FireClient\Application\Utils\ChineseCode.cpp" />
+    <ClCompile Include="..\FireClient\Application\Utils\IniManager.cpp" />
+    <ClCompile Include="..\FireClient\Application\Utils\Utils2.cpp" />
+    <ClCompile Include="..\FireClient\Application\Utils\Voice.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpClient.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpRequest.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\HttpResponse.h" />
+    <ClInclude Include="..\..\cocos2d-2.0-rc2-x-2.0.1\extensions\network\WebSocket.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\amr_dec.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\amr_enc.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\amr_rom.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\rom_dec.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\rom_enc.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\sp_dec.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\sp_enc.h" />
+    <ClInclude Include="..\FireClient\Application\Amr\typedef.h" />
+    <ClInclude Include="..\FireClient\Application\Common\BuffCommon.h" />
+    <ClInclude Include="..\FireClient\Application\Common\GameCommon.h" />
+    <ClInclude Include="..\FireClient\Application\Common\MessageCommon.h" />
+    <ClInclude Include="..\FireClient\Application\Common\RoleSkillCommon.h" />
+    <ClInclude Include="..\FireClient\Application\Common\SceneCommon.h" />
+    <ClInclude Include="..\FireClient\Application\Common\UICommonHeader.h" />
+    <ClInclude Include="..\FireClient\Application\Event.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\3rdplatform\ChannelManager.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\BattleCommon.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\BattleIllusion.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\BattleMagicControl.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\BattleManager.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\Battler.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\BattleScriptPlayer.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\ConnectGetServerInfo.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\DeviceInfo.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\FriendVisitor.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\GameApplication.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\GameCenter.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\GameOperateState.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\GameScene.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\ITickObject.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\ITickTimer.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\LocationDetector.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\LuaFireClient.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\LuaMessageTask.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\LuaTickerRegister.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\LuaXPRenderEffect.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\MapWalker.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\MessageTask.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\MovieSection.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\NetConnection.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\notify.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\ResolutionAdapter.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\RoleItem.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\SceneEffect.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\Skill.h" />
+    <ClInclude Include="..\FireClient\Application\Battle\SkillBuilder.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\gWebBrowser.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\MyWebBrowser.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\OleContainer.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\WinWebBrowser\WinSDK.h" />
+    <ClInclude Include="..\FireClient\Application\Framework\XPRenderEffect.h" />
+    <ClInclude Include="..\FireClient\Application\GameTable\TableDataManager.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\CEGUIIMEDelegate.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\CheckDistanceTimer.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\Dialog.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\LuaEffectNotify.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\SingletonDialog.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\UISpineSprite.h" />
+    <ClInclude Include="..\FireClient\Application\GameUI\UISprite.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\ArtTextManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\BattleReplayManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\ConfigManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\DownloadManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\EmotionManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\GameStateManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\GameUIManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\IconManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\LoginManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\MainRoleDataManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\MessageManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\MusicSoundVolumeMixer.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\NewRoleGuideManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\ProtocolLuaFunManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\RoleItemManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\SceneMovieManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\SpaceManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\TaskOnOffEffectManager.h" />
+    <ClInclude Include="..\FireClient\Application\Manager\VoiceManager.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\audio.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\encode.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\lyrics.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\oggenc.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\platform.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\resample.h" />
+    <ClInclude Include="..\FireClient\Application\oggenc\skeleton.h" />
+    <ClInclude Include="..\FireClient\Application\platform\win\SoundCapturer\SoundCapturer.h" />
+    <ClInclude Include="..\FireClient\Application\platform\win\SoundCapturer\WaveFile.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\Character.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\ComponentsObject.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\DroptItem.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\FollowNpc.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\FossickNpc.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\MainCharacter.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\MovieSceneNpc.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\Npc.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\Pet.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\SceneNpc.h" />
+    <ClInclude Include="..\FireClient\Application\SceneObj\SceneObject.h" />
+    <ClInclude Include="..\FireClient\Application\stdafx.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\base64.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\CallLuaUtil.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\ChineseCode.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\IniManager.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\Utils2.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\Voice.h" />
+    <ClInclude Include="..\FireClient\Application\Utils\WavRecorder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\FireClient\Application\protocols\ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

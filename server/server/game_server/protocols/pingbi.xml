@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 协议从32711开始到32720 -->
+<namespace name="pingbi">
+
+		<bean name="BlackRoleInfo"> 黑名单角色基础信息封装
+		  <variable name="roleId" type="long" validator="value=[0,)" /> 角色id
+		  <variable name="name" type="string" /> 角色名称
+		  <variable name="level" type="short" /> 角色等级
+		  <variable name="shape" type="int" /> 头像
+		  <variable name="school" type="byte" />职业
+		</bean>
+
+
+		<bean name="SearchBlackRoleInfo"> 搜索的角色基础信息封装
+		  <variable name="roleId" type="long" validator="value=[0,)" />
+		  <variable name="name" type="string" />
+		  <variable name="roleLevel" type="short" />
+		  <variable name="school" type="byte" />
+		  <variable name="online" type="byte"/> 0=不在线 1=在线
+		  <variable name="shape" type="int" /> 头像
+		  <variable name="camp" type="byte" /> 0中立  1部落 2联盟
+		</bean>
+	
+		<protocol name="CReqBlackRoles" type="32711" maxsize="65535"  prior="1" tolua="3" >  客户端请求黑名单列表
+		</protocol>
+
+		<protocol name="SBlackRoles" type="32712" maxsize="65535"  prior="1" tolua="3" >  服务器返回黑名单列表信息
+		  <variable name="blackRoles" type="vector" value="BlackRoleInfo"  /> 
+		</protocol>
+
+		<protocol name="CSearchBlackRole" type="32713" maxsize="65535"  prior="1" tolua="3" >  客户端搜索玩家
+			<variable name="roleId" type="long" /> 搜索的目标角色id
+		</protocol>
+
+		<protocol name="SSearchBlackRoleInfo" type="32714" maxsize="65535"  prior="1" tolua="3">  服务器返回搜索的角色信息
+			<variable name="searchBlackRole" type="SearchBlackRoleInfo" />
+		</protocol>
+
+		<protocol name="CRemoveBlackRole" type="32715" maxsize="65535"  prior="1" tolua="3">  客户端请求移除黑名单
+			<variable name="roleId" type="long" /> 移除的目标角色id
+		</protocol>
+
+		<protocol name="CAddBlackRole" type="32716" maxsize="65535"  prior="1" tolua="3">  客户端请求屏蔽玩家(添加黑名单)
+			<variable name="roleId" type="long" /> 移除的目标角色id
+		</protocol>
+
+</namespace>

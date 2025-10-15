@@ -1,0 +1,21 @@
+
+class BattleMagicControl 
+{
+public:
+	BattleMagicControl();
+	~BattleMagicControl();
+
+	Battler*	FindBattlerByID(int battleID);
+
+	int GetRoundNum();
+
+	void AddNewBattler();
+	void ShowNewBattler();
+	void DeleteRemoveBattler();	
+	void DeleteAllBattleMagic();
+
+};
+
+inline BattleMagicControl* GetBattleMagicControl();
+
+

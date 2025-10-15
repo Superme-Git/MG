@@ -1,0 +1,36 @@
+class GroupBtnTreeEventArgs : public WindowEventArgs
+{
+public:
+    GroupBtnTreeEventArgs(Window* wnd);
+
+    GroupBtnItem *treeItem;
+};
+
+class GroupBtnTree : public Window
+{
+public:
+	GroupBtnItem* getSelectedItem(void) const;
+	bool isTreeItemInList(const GroupBtnItem* item) const;
+	GroupBtnItem* addItem(const String& text, unsigned int item_id = 0,CEGUI::colour boardcol = CEGUI::colour(0xFF5F4100), void* item_data = 0);
+	void addItem(GroupBtnItem* item);
+	GroupBtnItem* findFirstItemWithID(unsigned int searchID);
+    void clearAllSelections(void);
+    void setShowVertScrollbar(bool setting);
+	void SetLastOpenItem(GroupBtnItem* pOpenItem, unsigned int selectindex = 0);
+	void SetLastSelectItem(GroupBtnItem* pSelectItem);
+	void resetList(void);
+	void removeItem(const GroupBtnItem* item);
+	void SetMaskImage(int index, String ImagesetName, String ImageName);
+	void ClearMaskImage(int index);
+	void ClearAllMaskImage();
+
+	void SetRightButtonEnbale(bool bEnbale);
+    unsigned int getItemCount(void) const;
+
+	Scrollbar* getVertScrollbar();
+	virtual void initialise(void);
+	float getHeightToItem(const GroupBtnItem* item);
+
+	bool onSetTemplateLookNFeel();
+
+};

@@ -1,0 +1,136 @@
+namespace Nuclear
+{
+	enum XPANI_DIRECTIONMODE
+	{
+		XPANIDM_NULL,
+		XPANIDM_8USE1,	// 0, 0, 0, 0, 0, 0, 0, 0
+		XPANIDM_8,		// 0, 1, 2, 3, 4, 5, 6, 7
+		XPANIDM_4,		// x, 1, x, 3, x, 5, x, 7
+		XPANIDM_3,		// x, x, x, 3, 4, 5, x, x
+		XPANIDM_8FROM5,	// 0, 1, 2, 3, 4, t, t, t
+		XPANIDM_8FROM1,	// t, t, 2, t, t, t, t, t
+        XPANIDM_2,		// x, x, x, 3, x, x, x, 7
+		XPANIDM_B2FROM1,// x, x, x, 3, x, t, x, x
+		XPANIDM_4FROM2,	// x, t, x, 3, x, t, x, 7
+	};
+	inline NuclearMatrix3* GetRotationScalingMartrixByDirection(NuclearMatrix3 *pOut, const NuclearFPoint *pP, NuclearDirection dir);
+
+	class XAni
+	{
+	public:
+		enum XPANI_STATE
+		{
+			XPANISTATE_NULL,
+			XPANISTATE_NO_XAP,
+			XPANISTATE_NOPICTURE,
+			XPANISTATE_BASE_PIC,
+			XPANISTATE_PICTURE,
+		};
+
+		struct XBigPic
+		{
+			PictureHandle	handle;			 //返回的图片句柄
+			std::wstring	filename;
+			int				dir;			//所处的方向
+			bool			asyncLoad;		//是否为异步加载
+			bool			loaded;			//是否已经加载完成
+			XBigPic() : handle(INVALID_PICTURE_HANDLE), asyncLoad(false), loaded(false){}
+		};
+
+		struct XPic
+		{
+			XBigPic* pBigPic;
+			XBigPic* pBigPicPart;//为了染色系统而加的分块图
+			NuclearRect offset;					//重心调整
+			NuclearFRectt srcrect;
+			NuclearPolygon outLine; //坐标系:已经切割后的小图片的左上角为原点，右正下正
+			XPic() : pBigPic(NULL), pBigPicPart(NULL), srcrect(0.0f, 0.0f, 1.0f, 1.0f) { }
+		};
+
+		bool TestPoint(int dir, int frame, const NuclearPoint &pt, Nuclear_Mouse_TestMode mode, Renderer *pRenderer, int r, float testval);
+		bool TestDir(int dir) const;
+		int GetFrameCount();
+		int GetRegionCount();
+		int GetPlayTime(); 
+		void SetPlayTime(int time);
+		NuclearTextureBlendMode GetBlend();
+		void SetBlend(NuclearTextureBlendMode blend);
+		XPANI_STATE GetState(); 
+		bool GetPic(int dir, int seq, int reg, Nuclear::XAni::XPic &pic);
+		bool GetBase(NuclearBase &base);
+		void SetBase(const NuclearBase &base);
+		bool GetBorder(NuclearRect &border); 
+		void SetBorder(const NuclearRect &border);
+		NuclearImageFileFormat GetFileFmt(); 
+		void SetFileFmt(NuclearImageFileFormat fmt);
+		NuclearTextureFormat GetTexFmt();
+		void SetTexFmt(NuclearTextureFormat fmt);
+		XPANI_DIRECTIONMODE GetDirMode();
+		int GetDirMask() const;
+		Nuclear_EffectBindType GetEffectBindType();
+		void SetEffectBindType(Nuclear_EffectBindType t);
+		int GetSysLevel() const;
+		void SetSysLevel(int sys);
+    
+		bool GetReleaseFlag();
+		void SetReleaseFlag(NuclearPaniReleaseFlag flag);
+
+		UsingDirMap& GetUsingDirs();
+		bool ExistInUsingDirs(int dir);
+	};
+
+	class PAniPack
+	{
+	public:
+		struct FileSec
+		{
+			NuclearRect offset;
+			std::wstring strPicPath;
+			NuclearFRectt rctData; 
+			FileSec();
+		};
+		NuclearPoint GetCenter();
+		void SetCenter(const NuclearPoint &center);
+		bool GetBase(NuclearBase &base);
+		void SetBase(const NuclearBase &base);
+		bool GetBorder(NuclearRect &border);
+		void SetBorder(const NuclearRect &border);
+		NuclearImageFileFormat GetFileFmt();
+		NuclearTextureFormat GetTexFmt();
+		void SetBlend(NuclearTextureBlendMode blend);
+		void SetTime(int time);
+		void SetEffectBindType(Nuclear_EffectBindType t);
+		void SetSystemLevel(int syslevel);
+	};
+
+	class AniLoadingNotify
+	{
+	public:
+		virtual void OnLoadAniReady(const std::wstring &filename) = 0;
+		virtual void OnLoadAniBaseReady(const std::wstring &filename) = 0;
+	};
+
+	class AniManager
+	{
+	public:
+		AniManager(EngineBase *pEB);
+		~AniManager();
+		bool Init();
+		void Destroy();
+		void SetAniPicGCTime(int t);
+		void SetAniPicGCTime(int t);
+		int GetAniPicGCTime() ;
+		void SetAniXapGCTime(int t);
+		int GetAniXapGCTime();
+		void GarbageCollection(int nowtick);
+		Nuclear_EffectAssureResResult AsyncLoadAni(const std::wstring &uri, AniLoadingNotify* pNotify, bool bLookupSegmPak, unsigned char bDye = 0);
+		void RemoveLoadingNotify(const std::wstring &uri, AniLoadingNotify* pNotify);
+		bool LoadAniFromPack(XAni &ani, const PAniPack &pack, const std::wstring &packbaseuri, bool async);
+		void FreeAni(XAni &ani, bool straight = false);
+		void FreeAniPic(XAni &ani, bool bCullUsingDir = false);
+		void setGcCooldown(int cooldown);
+		void SetStepLoadTexture(bool b);
+		bool GetStepLoadTexture() const;
+	};
+
+}

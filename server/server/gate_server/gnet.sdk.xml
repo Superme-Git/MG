@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<application name="sdk_server" shareHome="../../core" pvids="">
+
+	<import file="gnet.proxy.xml"/>
+	<import file="gnet.openau.xml"/>
+
+	<state name="SdkServer">
+		<rpc ref="openau.AuAnyLogin"/>
+		<protocol ref="gnet.AuGameKeepAlive"/>
+		<protocol ref="openau.RegistGameServerRequest"/>
+		<protocol ref="openau.RegistGameServerResponse"/>
+		<protocol ref="openau.QueryOrderRequest"/>
+		<protocol ref="openau.QueryOrderResponse"/>
+		<protocol ref="openau.DataBetweenAuAnyAndGS"/>
+		<protocol ref="openau.DataBetweenAuAnyAndClient"/>	
+	</state>
+
+	<service name="sdk">
+		<manager name="SdkServer" type="server" initstate="SdkServer" port="29200">
+			<state ref="SdkServer"/>
+		</manager>
+	</service>
+	
+</application>
+
