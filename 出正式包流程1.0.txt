@@ -1,16 +1,16 @@
-������������
-1��ѡ����Ҫ���汾�Ŀ�
+出渠道包流程
+1、选择需要出版本的库
 
-2�����������µ����°汾
+2、清理、更新到最新版本
 
-3���޸�   ���������뻷��
+3、修改   服务器编译环境
 
    JAVA_HOME      
    C:\Program Files\Java\jdk1.8.0_45
 
-4���ȱ���PC�汾�ͻ��˺ͷ��������Բ⡢�ύ
+4、先编译PC版本客户端和服务器、自测、提交
 
-   �ͻ����ύ
+   客户端提交
 
   D:\MT_G\dependencies
   D:\MT_G\client\tolua++-pkgs
@@ -19,91 +19,313 @@
   D:\MT_G\client\FireClient\Application
   D:\MT_G\client\FireClient\Release.win32
 
-   �������ύ
+   服务器提交
 
   D:\MT_G\server\serverbin
 
 
-5��ɾ���ɵ�ios��android��Դ��
+5、删除旧的ios和android资源包
 
-6���޸İ汾�š����Զ����£�0�Ǵ򿪡�1�ǹرգ�����������Դ������ver�ļ������ύ��Դ
+6、修改版本号、开自动更新（0是打开、1是关闭）、打整包资源（备份ver文件）、提交资源
 
-7��ios����  ִ��./gen4d.sh   ���ύ���ɵ�lua�ļ�
+7、ios更新  执行./gen4d.sh   后提交生成的lua文件
 
-8������ios�汾�����޸�Bundle id��֤�顢info CHANNEL_ID��info URL Types��
+8、编译ios版本（需修改Bundle id、证书、info CHANNEL_ID、info URL Types）
 
-9������Android�汾  �ͻ��˱��뻷��
+9、编译Android版本  客户端编译环境
 
    JAVA_HOME
    C:\Program Files\Java\jdk1.7.0_75
 
-10������  ios���ɵ�lua�ļ�
+10、更新  ios生成的lua文件
 
-11����׿�ĳ�������
+11、安卓的出包流程
 
-   ���ڴ��������android���̣�
-   �ֶ���׿�� LocojoyProject
-   joysdk������ JoysdkProject
-   �׽������� YijieProject
+   用于打包的三个android工程：
+   乐动安卓： LocojoyProject
+   joysdk渠道： JoysdkProject
+   易接渠道： YijieProject
 
-   ����ĳ��汾˳���Լ��������裺
-   һ�����ֶ���׿ĸ��
+   建议的出版本顺序，以及操作步骤：
+   一、出乐动安卓母包
 
-     ��1�����У���client\android\LocojoyProject\mt3_build.bat������C++
+     （1）运行：“client\android\LocojoyProject\mt3_build.bat”编译C++
 
-       �㿨���ͻ����޸İ���Ϊ�ҽ�MT3�㿨��
+       点卡服客户端修改包名为我叫MT3点卡版
 
-       ��ѷ��ͻ����޸İ���Ϊ�ҽ�MT3
+       免费服客户端修改包名为我叫MT3
 
-       �޸� AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"����ͬ�汾������ͬ��
+       修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
  
-     ��2�����У���client\android\LocojoyProject\mt3_apk.bat�����ֶ���׿��ĸ��
+     （2）运行：“client\android\LocojoyProject\mt3_apk.bat”出乐动安卓的母包
 
-   ������joysdk������ĸ��
+   二、出joysdk渠道的母包
 
-     ��1�����У���client\android\JoysdkProject\mt3_build.bat������C++
+     （1）运行：“client\android\JoysdkProject\mt3_build.bat”编译C++
 
-       UC   ��Ҫ�޸�AndroidManifest.xml�ļ���  android:launchMode="standard"     ��SDK�����HOME�����е���̨��������������Ϸ��SDK������ʧ��
+       UC   需要修改AndroidManifest.xml文件的  android:launchMode="standard"     （SDK界面点HOME建后切到后台，在重新启动游戏，SDK界面消失）
 
-       ����   ��Ҫ�޸�AndroidManifest.xml�ļ���   <uses-sdk android:minSdkVersion="4"/>   ��SDK��½���棬�����SDK��½����SDK������ʧ��
+       联想   需要修改AndroidManifest.xml文件的   <uses-sdk android:minSdkVersion="4"/>   （SDK登陆界面，点击非SDK登陆区域，SDK界面消失）
 
-       ��Ϊ   ��ɾ��ֻ����   versionCode="2"
+       华为   不删档只能用   versionCode="2"
 
-       �޸� AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"����ͬ�汾������ͬ��
+       修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
 
-     ��2�����У���client\android\JoysdkProject\mt3_apk.bat����joysdk������ĸ��
+     （2）运行：“client\android\JoysdkProject\mt3_apk.bat”出joysdk渠道的母包
 
-   �������׽�������ĸ��
+   三、出易接渠道的母包
 
-     ��1���޸����������ļ�
+     （1）修改以下三个文件
           client\FireClient\Android.mk
           common\cauthc\projects\android\Android.mk
           engine\Android.mk
-          ��
+          将
 	         -D_LOCOJOY_SDK_ \
             #	 -D_YJ_SDK_ \
-          �ĳ�
+          改成
 	          -D_YJ_SDK_ \
             #	  -D_LOCOJOY_SDK_ \
-    ��2�����У���client\android\YijieProject\mt3_build.bat������C++
+    （2）运行：“client\android\YijieProject\mt3_build.bat”编译C++
 
-         �޸� AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"����ͬ�汾������ͬ��
+         修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
 
-    ��3�����У���client\android\YijieProject\mt3_apk.bat�����׽�������ĸ��
+    （3）运行：“client\android\YijieProject\mt3_apk.bat”出易接渠道的母包
 
-   �ġ���������
-       ע�������Ϊÿ��ĸ���������APK�ļ�����ͬ���ò���ĸ�������Ե�������ʱ����Ҫ�޸��ļ���config.cfg��
+   四、出渠道包
+       注意事项：因为每个母包打出来的APK文件名不同，用不用母包出各自的渠道包时，需要修改文件“config.cfg”
 
 
-12���޸�android��Դ���ļ����޸�AndroidManifest.xml�ļ����汾�ţ�
+12、修改android资源包文件、修改AndroidManifest.xml文件（版本号）
 
-13����ʼ����android�汾���ȱ���ĸ�������ù��߱��������汾��
+13、开始编译android版本（先编译母包、再用工具编译渠道版本）
 
-    �㿨������ѷ��ͻ��˰汾��Ҫ�޸İ���������ID
+    点卡服和免费服客户端版本需要修改包名和渠道ID
 
-    �㿨������ѷ��ͻ��˰汾��Ҫ�޸�ICON
+    点卡服和免费服客户端版本需要修改ICON
 
-14���޸ķ�����������dsym�ļ���so�ļ�
+14、修改服务器、备份dsym文件、so文件
+
+
+
+
+=======
+出渠道包流程
+1、选择需要出版本的库
+
+2、清理、更新到最新版本
+
+3、修改   服务器编译环境
+
+   JAVA_HOME      
+   C:\Program Files\Java\jdk1.8.0_45
+
+4、先编译PC版本客户端和服务器、自测、提交
+
+   客户端提交
+
+  D:\MT_G\dependencies
+  D:\MT_G\client\tolua++-pkgs
+  D:\MT_G\client\resource\bin
+  D:\MT_G\client\resource\res
+  D:\MT_G\client\FireClient\Application
+  D:\MT_G\client\FireClient\Release.win32
+
+   服务器提交
+
+  D:\MT_G\server\serverbin
+
+
+5、删除旧的ios和android资源包
+
+6、修改版本号、开自动更新（0是打开、1是关闭）、打整包资源（备份ver文件）、提交资源
+
+7、ios更新  执行./gen4d.sh   后提交生成的lua文件
+
+8、编译ios版本（需修改Bundle id、证书、info CHANNEL_ID、info URL Types）
+
+9、编译Android版本  客户端编译环境
+
+   JAVA_HOME
+   C:\Program Files\Java\jdk1.7.0_75
+
+10、更新  ios生成的lua文件
+
+11、安卓的出包流程
+
+   用于打包的三个android工程：
+   乐动安卓： LocojoyProject
+   joysdk渠道： JoysdkProject
+   易接渠道： YijieProject
+
+   建议的出版本顺序，以及操作步骤：
+   一、出乐动安卓母包
+
+     （1）运行：“client\android\LocojoyProject\mt3_build.bat”编译C++
+
+       点卡服客户端修改包名为我叫MT3点卡版
+
+       免费服客户端修改包名为我叫MT3
+
+       修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
+ 
+     （2）运行：“client\android\LocojoyProject\mt3_apk.bat”出乐动安卓的母包
+
+   二、出joysdk渠道的母包
+
+     （1）运行：“client\android\JoysdkProject\mt3_build.bat”编译C++
+
+       UC   需要修改AndroidManifest.xml文件的  android:launchMode="standard"     （SDK界面点HOME建后切到后台，在重新启动游戏，SDK界面消失）
+
+       联想   需要修改AndroidManifest.xml文件的   <uses-sdk android:minSdkVersion="4"/>   （SDK登陆界面，点击非SDK登陆区域，SDK界面消失）
+
+       华为   不删档只能用   versionCode="2"
+
+       修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
+
+     （2）运行：“client\android\JoysdkProject\mt3_apk.bat”出joysdk渠道的母包
+
+   三、出易接渠道的母包
+
+     （1）修改以下三个文件
+          client\FireClient\Android.mk
+          common\cauthc\projects\android\Android.mk
+          engine\Android.mk
+          将
+	         -D_LOCOJOY_SDK_ \
+            #	 -D_YJ_SDK_ \
+          改成
+	          -D_YJ_SDK_ \
+            #	  -D_LOCOJOY_SDK_ \
+    （2）运行：“client\android\YijieProject\mt3_build.bat”编译C++
+
+         修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
+
+    （3）运行：“client\android\YijieProject\mt3_apk.bat”出易接渠道的母包
+
+   四、出渠道包
+       注意事项：因为每个母包打出来的APK文件名不同，用不用母包出各自的渠道包时，需要修改文件“config.cfg”
+
+
+12、修改android资源包文件、修改AndroidManifest.xml文件（版本号）
+
+13、开始编译android版本（先编译母包、再用工具编译渠道版本）
+
+    点卡服和免费服客户端版本需要修改包名和渠道ID
+
+    点卡服和免费服客户端版本需要修改ICON
+
+14、修改服务器、备份dsym文件、so文件
+
+
+
+
+
+出渠道包流程
+1、选择需要出版本的库
+
+2、清理、更新到最新版本
+
+3、修改   服务器编译环境
+
+   JAVA_HOME      
+   C:\Program Files\Java\jdk1.8.0_45
+
+4、先编译PC版本客户端和服务器、自测、提交
+
+   客户端提交
+
+  D:\MT_G\dependencies
+  D:\MT_G\client\tolua++-pkgs
+  D:\MT_G\client\resource\bin
+  D:\MT_G\client\resource\res
+  D:\MT_G\client\FireClient\Application
+  D:\MT_G\client\FireClient\Release.win32
+
+   服务器提交
+
+  D:\MT_G\server\serverbin
+
+
+5、删除旧的ios和android资源包
+
+6、修改版本号、开自动更新（0是打开、1是关闭）、打整包资源（备份ver文件）、提交资源
+
+7、ios更新  执行./gen4d.sh   后提交生成的lua文件
+
+8、编译ios版本（需修改Bundle id、证书、info CHANNEL_ID、info URL Types）
+
+9、编译Android版本  客户端编译环境
+
+   JAVA_HOME
+   C:\Program Files\Java\jdk1.7.0_75
+
+10、更新  ios生成的lua文件
+
+11、安卓的出包流程
+
+   用于打包的三个android工程：
+   乐动安卓： LocojoyProject
+   joysdk渠道： JoysdkProject
+   易接渠道： YijieProject
+
+   建议的出版本顺序，以及操作步骤：
+   一、出乐动安卓母包
+
+     （1）运行：“client\android\LocojoyProject\mt3_build.bat”编译C++
+
+       点卡服客户端修改包名为我叫MT3点卡版
+
+       免费服客户端修改包名为我叫MT3
+
+       修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
+ 
+     （2）运行：“client\android\LocojoyProject\mt3_apk.bat”出乐动安卓的母包
+
+   二、出joysdk渠道的母包
+
+     （1）运行：“client\android\JoysdkProject\mt3_build.bat”编译C++
+
+       UC   需要修改AndroidManifest.xml文件的  android:launchMode="standard"     （SDK界面点HOME建后切到后台，在重新启动游戏，SDK界面消失）
+
+       联想   需要修改AndroidManifest.xml文件的   <uses-sdk android:minSdkVersion="4"/>   （SDK登陆界面，点击非SDK登陆区域，SDK界面消失）
+
+       华为   不删档只能用   versionCode="2"
+
+       修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
+
+     （2）运行：“client\android\JoysdkProject\mt3_apk.bat”出joysdk渠道的母包
+
+   三、出易接渠道的母包
+
+     （1）修改以下三个文件
+          client\FireClient\Android.mk
+          common\cauthc\projects\android\Android.mk
+          engine\Android.mk
+          将
+	         -D_LOCOJOY_SDK_ \
+            #	 -D_YJ_SDK_ \
+          改成
+	          -D_YJ_SDK_ \
+            #	  -D_LOCOJOY_SDK_ \
+    （2）运行：“client\android\YijieProject\mt3_build.bat”编译C++
+
+         修改 AndroidManifest.xml         android:versionCode="3"      android:versionName="1.3.2"（不同版本参数不同）
+
+    （3）运行：“client\android\YijieProject\mt3_apk.bat”出易接渠道的母包
+
+   四、出渠道包
+       注意事项：因为每个母包打出来的APK文件名不同，用不用母包出各自的渠道包时，需要修改文件“config.cfg”
+
+
+12、修改android资源包文件、修改AndroidManifest.xml文件（版本号）
+
+13、开始编译android版本（先编译母包、再用工具编译渠道版本）
+
+    点卡服和免费服客户端版本需要修改包名和渠道ID
+
+    点卡服和免费服客户端版本需要修改ICON
+
+14、修改服务器、备份dsym文件、so文件
 
 
 
