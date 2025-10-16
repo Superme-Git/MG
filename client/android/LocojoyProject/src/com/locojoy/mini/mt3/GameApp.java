@@ -133,6 +133,8 @@ public class GameApp extends Cocos2dxActivity {
 	   Java 端通过 setIsYYBByCfgFile 读取 channel 等信息，SDK 根据该配置完成登录/支付交互。
 	*/
 	private final String cfgFileName = "ljsdk.cfg";
+	// 模拟器兼容开关：当 ljsdk.cfg 中 allow_emulator=1 时，跳过模拟器检测，避免因“反外挂”导致闪退
+	private static boolean sAllowEmulator = false;
 	
 	private TextView m_UpdateInfo;
 	private TextView m_CurVerLabel;
@@ -218,6 +220,18 @@ public class GameApp extends Cocos2dxActivity {
 			String name = jObject.getString("channel");
 			nativeSetChannelName(name);
 			strMyChannelId = name;
+
+			// 兼容开关：allow_emulator=1 则允许在模拟器运行（跳过 isUseEmulator 检测）
+			try {
+				int allow = jObject.optInt("allow_emulator", 0);
+				if (allow == 1) {
+					sAllowEmulator = true;
+					Log.i(TAG, "ALLOW_EMULATOR enabled via ljsdk.cfg");
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+
 			int index = jsonStr.indexOf("yingyongbao");
 			if(index != -1){
 				nativeSetIsYingYongbao();
@@ -739,6 +753,12 @@ public class GameApp extends Cocos2dxActivity {
 	
 	public boolean isUseEmulator()
 	{
+		// 若允许模拟器运行，则直接跳过检测，避免触发反外挂导致的闪退/退出
+		if (sAllowEmulator) {
+			Log.i(TAG, "Emulator check bypassed (ALLOW_EMULATOR=1)");
+			return false;
+		}
+
 		String device = Build.DEVICE;
 		String model = Build.MODEL;
 		String product = Build.PRODUCT;

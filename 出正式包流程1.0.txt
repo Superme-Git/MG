@@ -6,7 +6,7 @@
 3、修改   服务器编译环境
 
    JAVA_HOME      
-   C:\Program Files\Java\jdk1.8.0_45
+   C:\Program Files\Java\jdk1.8.0_144
 
 4、先编译PC版本客户端和服务器、自测、提交
 
@@ -35,7 +35,9 @@
 9、编译Android版本  客户端编译环境
 
    JAVA_HOME
-   C:\Program Files\Java\jdk1.7.0_75
+   C:\Program Files\Java\jdk1.8.0_144
+
+   
 
 10、更新  ios生成的lua文件
 

@@ -25,7 +25,18 @@
 #define snprintf _snprintf
 #endif
 
-extern int oe_write_page(ogg_page *page, FILE *fp);
+/* Provide oe_write_page implementation for Android link stage */
+int oe_write_page(ogg_page *page, FILE *fp) {
+    if (!page || !fp) return -1;
+    size_t wrote = 0;
+    if (page->header && page->header_len > 0) {
+        wrote += fwrite(page->header, 1, page->header_len, fp);
+    }
+    if (page->body && page->body_len > 0) {
+        wrote += fwrite(page->body, 1, page->body_len, fp);
+    }
+    return (int)wrote;
+}
 
 static  unsigned short
 _le_16 (unsigned short s)
