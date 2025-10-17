@@ -12,11 +12,11 @@
 - 对文档目录进行系统性统筹：识别并剔除陈旧或错误文档，整合有效内容形成唯一权威入口。
 
 参考主线权威文档：
-- 编译完整指南：[filename](docs/06-编译完整指南.md:1)
-- 编译步骤工作计划：[filename](docs/00-编译步骤工作计划.md:1)
-- Release 构建诊断基线：[filename](docs/MT3_Release_Build_Diagnostics.md:1)
-- FireClient 构建诊断基线：[filename](docs/MT3_FireClient_Build_Diagnostics.md:1)
-- libEGL/ANGLE 专题说明：[filename](docs/libEGL链接错误修复说明.md:1)
+- 编译完整指南：[filename](./06-编译完整指南.md:1)
+- 编译步骤工作计划：[filename](./00-编译步骤工作计划.md:1)
+- Release 构建诊断基线：[filename](./MT3_Release_Build_Diagnostics.md:1)
+- FireClient 构建诊断基线：[filename](./MT3_FireClient_Build_Diagnostics.md:1)
+- libEGL/ANGLE 专题说明：[filename](./libEGL链接错误修复说明.md:1)
 
 ---
 
@@ -57,7 +57,7 @@
 - 并发构建策略：
   - 如出现 PDB 并发写冲突（C1041），在解决方案级构建时禁用并行：
     - /p:MultiProcessorCompilation=false /m:1
-  - 参考：[filename](docs/MT3_Release_Build_Diagnostics.md:70)
+  - 参考：[filename](./MT3_Release_Build_Diagnostics.md:70)
 
 ---
 
@@ -71,15 +71,15 @@
   - 见 [XML.Link.AdditionalLibraryDirectories](client/MT3Win32App/mt3.win32.vcxproj:73)、[XML.Link.AdditionalLibraryDirectories](client/MT3Win32App/mt3.win32.vcxproj:108)
 - 关键库示例（Release.win32 输出）：
   - libcocos2d.dll/lib、libCocosDenshion.dll/lib、engine.lib、platform.lib、ljfm.lib、cauthc.lib、FireClient.lib
-  - 参考：[filename](docs/MT3_Release_Build_Diagnostics.md:107)
+  - 参考：[filename](./MT3_Release_Build_Diagnostics.md:107)
 
 ---
 
 ## 5. 编译与链接统一流程（权威）
 
 权威流程入口：
-- 完整指南：[filename](docs/06-编译完整指南.md:67)
-- 工作计划（阶段门）：[filename](docs/00-编译步骤工作计划.md:10)
+- 完整指南：[filename](./06-编译完整指南.md:67)
+- 工作计划（阶段门）：[filename](./00-编译步骤工作计划.md:10)
 
 标准顺序（组件 → 引擎 → 应用）：
 1) 基础库（platform.lib、ljfm.lib、lua.lib、cauthc.lib）
@@ -91,7 +91,7 @@ MSBuild 模板（v120）：
 - %MSBUILD% <项目> /t:Rebuild /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v120 /v:minimal /nologo /m
 
 参考命令与路径详见：
-- [filename](docs/06-编译完整指南.md:100)
+- [filename](./06-编译完整指南.md:100)
 
 ---
 
@@ -100,24 +100,24 @@ MSBuild 模板（v120）：
 - C1083 无法打开源文件（encode.cpp 缺失）
   - 根因：工程包含项引用 [filename](client/MT3Win32App/FireClient.win32.vcxproj:213)，本地文件缺失或路径大小写不一致
   - 解法：恢复 [filename](client/FireClient/Application/oggenc/encode.cpp:1)（占位可解阻，但需用原始实现替换）
-  - 证据：[filename](docs/MT3_FireClient_Build_Diagnostics.md:24)、[filename](docs/MT3_Release_Build_Diagnostics.md:65)
+  - 证据：[filename](./MT3_FireClient_Build_Diagnostics.md:24)、[filename](./MT3_Release_Build_Diagnostics.md:65)
 - LNK1104 无法打开 FireClient.lib
   - 根因：上游 FireClient 未成功产出 → 下游 MT3 链接找不到库
   - 解法：先构建 FireClient；确认库目录包含 $(SolutionDir)$(Configuration).win32
   - 证据：[filename](client/MT3Win32App/Release.win32/MT3.tlog/link.command.1.tlog:2)
 - C1041 PDB 并发写入冲突（ANGLE/translator_common 等）
   - 解法：禁用并行编译：/p:MultiProcessorCompilation=false /m:1
-  - 证据：[filename](docs/MT3_Release_Build_Diagnostics.md:70)
+  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:70)
 - LNK1120/LNK2019 未解析符号（SimpleAudioEngine 扩展接口）
   - 根因：libCocosDenshion 未更新或库目录缺失
   - 解法：单独重建 [filename](cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/proj.win32/CocosDenshion.win32.vcxproj:1)；确认 MT3 链接器库目录
-  - 证据：[filename](docs/MT3_Release_Build_Diagnostics.md:74)
+  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:74)
 - LNK4099 第三方库无匹配 PDB
   - 解法：非致命；可接受或统一用 v120 重建引入 PDB
-  - 证据：[filename](docs/MT3_Release_Build_Diagnostics.md:97)
+  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:97)
 - LNK4098 CRT 默认库冲突
   - 解法：统一 /MD（Release）/MDd（Debug），清理重复默认库
-  - 证据：[filename](docs/MT3_Release_Build_Diagnostics.md:101)
+  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:101)
 
 ---
 
@@ -125,18 +125,18 @@ MSBuild 模板（v120）：
 
 - Win32 桌面主线不依赖 ANGLE（EGL/GLESv2），使用原生 OpenGL + GLEW
 - 如 Win32 项目中混入 libEGL/libGLESv2 依赖，建议移除
-- 详解与操作示例见：[filename](docs/libEGL链接错误修复说明.md:1)
+- 详解与操作示例见：[filename](./libEGL链接错误修复说明.md:1)
 
 ---
 
 ## 8. 文档体系与权威入口（统一）
 
 - 主线生产文档（建议阅读路径）：
-  - 00-编译步骤工作计划：[filename](docs/00-编译步骤工作计划.md:1)
-  - 06-编译完整指南（权威）：[filename](docs/06-编译完整指南.md:1)
-  - Release 构建诊断基线：[filename](docs/MT3_Release_Build_Diagnostics.md:1)
-  - FireClient 构建诊断基线：[filename](docs/MT3_FireClient_Build_Diagnostics.md:1)
-  - 文档索引（重建为 13-文档索引）：参考旧版 [filename](docs/文档索引.md:1)，按“序号+中文名称”体系更新
+  - 00-编译步骤工作计划：[filename](./00-编译步骤工作计划.md:1)
+  - 06-编译完整指南（权威）：[filename](./06-编译完整指南.md:1)
+  - Release 构建诊断基线：[filename](./MT3_Release_Build_Diagnostics.md:1)
+  - FireClient 构建诊断基线：[filename](./MT3_FireClient_Build_Diagnostics.md:1)
+  - 文档索引（重建为 13-文档索引）：参考旧版 [filename](./文档索引.md:1)，按“序号+中文名称”体系更新
 
 - 专题技术（作为附录或专题）：
   - CRT 库冲突、CEGUI 集成、libEGL/ANGLE 差异等，聚合为“12-特殊技术专题.md”（待建）
@@ -151,23 +151,23 @@ MSBuild 模板（v120）：
 
 - 必须归档（不进入主线）：
   - v140 编译系列文档（示例）：
-    - [filename](docs/archive/v140相关文档/README_v140编译指南.md:1)
-    - [filename](docs/archive/v140相关文档/MT3_v140编译最终总结报告.md:1)
-    - [filename](docs/archive/v140相关文档/v140编译配置说明.md:1)
-    - [filename](docs/archive/v140相关文档/v140迁移完整解决方案.md:1)
-    - [filename](docs/archive/v140相关文档/v140编译失败组件详细清单.md:1)
+    - [filename](./archive/v140相关文档/README_v140编译指南.md:1)
+    - [filename](./archive/v140相关文档/MT3_v140编译最终总结报告.md:1)
+    - [filename](./archive/v140相关文档/v140编译配置说明.md:1)
+    - [filename](./archive/v140相关文档/v140迁移完整解决方案.md:1)
+    - [filename](./archive/v140相关文档/v140编译失败组件详细清单.md:1)
 
 - 建议归档（阶段性/临时报告）：
-  - [filename](docs/archive/临时报告/编译成功报告.md:1)
-  - [filename](docs/archive/临时报告/编译进度与说明.md:1)
-  - [filename](docs/archive/临时报告/文档整理报告.md:1)
-  - [filename](docs/archive/临时报告/项目整理完成报告.md:1)
-  - [filename](docs/archive/临时报告/Phase_A_v120_编译尝试报告.md:1)
-  - [filename](docs/archive/临时报告/MT3编译大小分析报告.md:1)
+  - [filename](./archive/临时报告/编译成功报告.md:1)
+  - [filename](./archive/临时报告/编译进度与说明.md:1)
+  - [filename](./archive/临时报告/文档整理报告.md:1)
+  - [filename](./archive/临时报告/项目整理完成报告.md:1)
+  - [filename](./archive/临时报告/Phase_A_v120_编译尝试报告.md:1)
+  - [filename](./archive/临时报告/MT3编译大小分析报告.md:1)
 
 - 已识别重复/冲突：
   - 文档索引存在新旧并存（“文档索引.md” vs 计划中的 “13-文档索引.md”），需按目标结构重建后仅保留新入口
-  - 编译指南存在 v120 与 v140 混入内容，已在 [filename](docs/06-编译完整指南.md:13) 明确主线与归档边界
+  - 编译指南存在 v120 与 v140 混入内容，已在 [filename](./06-编译完整指南.md:13) 明确主线与归档边界
 
 ---
 
@@ -189,7 +189,7 @@ MSBuild 模板（v120）：
   - PowerShell：powershell.exe -ExecutionPolicy Bypass -File Build-MT3-v120.ps1
   - 批处理：build_mt3_v120_complete.bat
 - 手动（组件→引擎→应用）：
-  - 详见 [filename](docs/06-编译完整指南.md:117)
+  - 详见 [filename](./06-编译完整指南.md:117)
 
 ---
 
@@ -207,7 +207,7 @@ MSBuild 模板（v120）：
 - 重建文档索引为“13-文档索引.md”，按“序号+中文名称”体系发布统一入口（以本指引与 00/06 为核心）。
 - 按本章第 9 节清单执行归档移动；保留归档入口说明，不在主线显式呈现 v140 指令。
 - 将 CRT/CEGUI/libEGL 等专题整合为“12-特殊技术专题.md”，并从主线文档仅以专题章节引用。
-- 为 FireClient/MT3 工程设置独立 IntDir/OutDir，减少 MSB8028 交叉影响（参考 [filename](docs/MT3_FireClient_Build_Diagnostics.md:75) 建议）。
+- 为 FireClient/MT3 工程设置独立 IntDir/OutDir，减少 MSB8028 交叉影响（参考 [filename](./MT3_FireClient_Build_Diagnostics.md:75) 建议）。
 
 ---
 

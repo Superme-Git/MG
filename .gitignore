@@ -68,3 +68,9 @@ desktop.ini
 # Exclude local config files
 .env
 local.properties
+.claude/settings.local.json
+
+# Temporary files
+temp_*.txt
+*_test*/
+*_bak/

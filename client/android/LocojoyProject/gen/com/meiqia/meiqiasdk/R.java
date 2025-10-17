@@ -529,8 +529,6 @@ containing a value of this type.
         public static final int mt3_channel_id_tiger=0x7f0800d1;
         public static final int mt3_copyfinishtip=0x7f0800c6;
         public static final int mt3_copytip=0x7f0800c5;
-        /**  崩溃日志上传服务器地址；切换服务器时修改为新 IP/域名 
-         */
         public static final int mt3_crash_log_url=0x7f0800f3;
         public static final int mt3_currentres=0x7f0800ca;
         public static final int mt3_exitno=0x7f0800c9;
@@ -572,18 +570,10 @@ containing a value of this type.
         public static final int mt3_strinfo_update_retry_tip=0x7f0800e4;
         public static final int mt3_strinfo_updating_tip=0x7f0800f0;
         public static final int mt3_strinfo_year=0x7f0800d6;
-        /**  默认资源选择更新地址（服务器通用目录）；切换服务器时修改此值为新地址 
-         */
         public static final int mt3_update_default_select_url=0x7f0800d4;
-        /**  更新日志上传服务器地址；切换服务器时修改为新 IP/域名 
-         */
         public static final int mt3_update_log_url=0x7f0800f1;
         public static final int mt3_update_need_select=0x7f0800d5;
-        /**  资源选择更新地址（服务器“小包/分流”目录）；切换服务器时修改此值为新地址 
-         */
         public static final int mt3_update_select_url=0x7f0800d2;
-        /**  资源热更新主地址（用于版本与应用包更新）；切换服务器 IP/域名时，修改此值为新地址 
-         */
         public static final int mt3_update_url=0x7f0800cd;
         public static final int mt3_updatetips=0x7f0800cc;
         public static final int mt3_upmgrstr11=0x7f0800f7;
@@ -592,11 +582,7 @@ containing a value of this type.
         public static final int mt3_upmgrstr32=0x7f0800fa;
         public static final int mt3_upmgrstr61=0x7f0800fb;
         public static final int mt3_upmgrstr71=0x7f0800fc;
-        /**  版本文件名（服务器端版本索引文件）；例如 ver.json 
-         */
         public static final int mt3_verfile_name=0x7f0800ce;
-        /**  资源选择版本文件名（服务器端 resver.json）；保持与服务端文件名一致 
-         */
         public static final int mt3_verfile_select_name=0x7f0800d3;
         public static final int mt3_versionisold=0x7f0800c1;
         public static final int share_content=0x7f0800be;

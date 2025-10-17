@@ -1,0 +1,19 @@
+{
+  "renameMap": [
+    { "old": "快速启动指南.md", "new": "01-快速启动指南.md" },
+    { "old": "项目概述.md", "new": "02-项目概述.md" },
+    { "old": "MT3项目完整技术体系总结.md", "new": "03-技术体系总结.md" },
+    { "old": "C++架构深度分析.md", "new": "04-架构深度分析.md" },
+    { "old": "编译环境准备指南.md", "new": "05-编译环境准备.md" },
+    { "old": "编译指南.md", "new": "06-编译完整指南.md" },
+    { "old": "第三方依赖库重新编译完全指南.md", "new": "09-第三方库编译指南.md" },
+    { "old": "关键技术文档_正确方法与解决方案.md", "new": "11-关键技术文档.md" },
+    { "old": "文档索引.md", "new": "13-文档索引.md" }
+  ],
+  "pathMap": [
+    { "filename": "CEGUI技术集成指南.md", "newPath": "toolchains/CEGUI技术集成指南.md" },
+    { "filename": "MT3_Release_Build_Diagnostics.md", "newPath": "windows/MT3_Release_Build_Diagnostics.md" },
+    { "filename": "Android_工具链环境快速验证与一键编译指南.md", "newPath": "android/Android_工具链环境快速验证与一键编译指南.md" },
+    { "filename": "Android_Ant_NDK_APK_打包与安装技术要点与排错手册.md", "newPath": "android/Android_Ant_NDK_APK_打包与安装技术要点与排错手册.md" }
+  ]
+}

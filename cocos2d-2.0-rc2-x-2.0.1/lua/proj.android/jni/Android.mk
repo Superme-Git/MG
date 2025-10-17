@@ -39,7 +39,7 @@ LOCAL_SRC_FILES :=../../lua/lapi.c \
           ../../tolua/tolua_event.c \
           ../../tolua/tolua_is.c \
           ../../tolua/tolua_map.c \
-          ../../tolua/tolua_push.c \
+          ../../tolua/tolua_push.cpp \
           ../../tolua/tolua_to.c
           
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../lua \
@@ -48,7 +48,8 @@ LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../lua \
           
           
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/ \
-                    $(LOCAL_PATH)/../../lua 
+                    $(LOCAL_PATH)/../../lua \
+                    $(LOCAL_PATH)/../../../../common/platform
                     
 LOCAL_LDLIBS := -llog \
 

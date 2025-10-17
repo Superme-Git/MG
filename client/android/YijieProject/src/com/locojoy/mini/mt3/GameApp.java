@@ -621,8 +621,6 @@ public class GameApp extends Cocos2dxActivity {
 	public class WGListThread extends Thread {
 		@Override
 		public void run() {
-			// 反外挂黑名单拉取地址：基础 URL 来自 Native 层 nativeGetVoiceAddress()；
-			// 切换服务器 IP/域名时：在 Native 层修改返回的基础地址，或在 Java 层增加覆盖配置逻辑。
 			String address = nativeGetVoiceAddress();
 			FileDownloader.DownloadOneFile(address + "/transServer/wg/blacklist.txt", GameApp.getCacheOutDir() + "/res/" + "1288823573", false);
 			try {
@@ -1531,8 +1529,6 @@ public class GameApp extends Cocos2dxActivity {
 			public void run() {
 				try {
 					m_webView = new HTML5WebView(getApp(), width, height);
-					// 公告页面 URL 来源于 Native 层的 getHttpNoticeUrl()；
-					// 如需切换到自定义服务器地址：可在 Native 层返回新 URL，或改 Java 逻辑改为从 strings.xml/配置文件读取。
 					m_webView.loadUrl(GameApp.this.getHttpNoticeUrl()); // for example : "http://42.62.47.211:130/mt3/ios_notice.html"
 				}
 				catch (Exception e) {

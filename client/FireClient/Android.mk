@@ -160,12 +160,13 @@ CLIENT_LUA_VM := \
 	../../cocos2d-2.0-rc2-x-2.0.1/lua/lua/lzio.c \
 	../../cocos2d-2.0-rc2-x-2.0.1/lua/lua/print.c \
 
-CLIENT_TOLUA++ := \
-	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_event.c  \
-	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_is.c \
-	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_map.c \
-	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_push.cpp \
-	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_to.c  \
+# CLIENT_TOLUA++ removed to avoid duplicate symbols with liblua.a (cocos_lua_static)
+#CLIENT_TOLUA++ := \
+#	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_event.c  \
+#	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_is.c \
+#	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_map.c \
+#	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_push.cpp \
+#	../../cocos2d-2.0-rc2-x-2.0.1/lua/tolua/tolua_to.c  \
 
 CLIENT_LUA_COCOS2D_GLUE := \
 	../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support/Cocos2dxLuaLoader.cpp \
@@ -175,7 +176,6 @@ CLIENT_LUA_COCOS2D_GLUE := \
 	../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support/jni/Java_org_cocos2dx_lib_Cocos2dxLuaJavaBridge.cpp \
 
 CLIENT_LUA_ENGINE := \
-	$(CLIENT_TOLUA++) \
 	$(CLIENT_LUA_KC_GLUE) \
 	$(CLIENT_LUA_COCOS2D_GLUE) \
 	../../cocos2d-2.0-rc2-x-2.0.1/lua/cocos2dx_support/CCLuaEngine.cpp \
@@ -317,7 +317,8 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
 	
 LOCAL_LDLIBS := -llog \
 
-LOCAL_WHOLE_STATIC_LIBRARIES := luajit_static
+# Avoid double-linking luajit_static at multiple levels; keep single inclusion from jni/Android.mk
+#LOCAL_WHOLE_STATIC_LIBRARIES := luajit_static
 
 # define the macro to compile through support/zip_support/ioapi.c
 LOCAL_CFLAGS := \
@@ -337,5 +338,5 @@ LOCAL_CPPFLAGS := -fexceptions -fpermissive
 
 include $(BUILD_STATIC_LIBRARY)
 
-$(call import-module, lua/luajit)
+#$(call import-module, lua/luajit)
 

@@ -124,17 +124,7 @@ public class GameApp extends Cocos2dxActivity {
 	private static String m_PackageName;
 	
 	private final String TAG = "GameApp";
-	/*
-	 中文注释：登录/支付服务器配置说明
-	 - 配置文件 assets/ljsdk.cfg 为 JSON 格式（不支持注释），包含以下关键字段：
-	   - pay_request_url：支付请求服务器地址（修改服务器 IP/域名在此处）
-	   - login_verify_url：登录验证服务器地址（修改服务器 IP/域名在此处）
-	 - 修改方法：直接编辑 assets/ljsdk.cfg 中对应 URL；
-	   Java 端通过 setIsYYBByCfgFile 读取 channel 等信息，SDK 根据该配置完成登录/支付交互。
-	*/
 	private final String cfgFileName = "ljsdk.cfg";
-	// 模拟器兼容开关：当 ljsdk.cfg 中 allow_emulator=1 时，跳过模拟器检测，避免因“反外挂”导致闪退
-	private static boolean sAllowEmulator = false;
 	
 	private TextView m_UpdateInfo;
 	private TextView m_CurVerLabel;
@@ -220,18 +210,6 @@ public class GameApp extends Cocos2dxActivity {
 			String name = jObject.getString("channel");
 			nativeSetChannelName(name);
 			strMyChannelId = name;
-
-			// 兼容开关：allow_emulator=1 则允许在模拟器运行（跳过 isUseEmulator 检测）
-			try {
-				int allow = jObject.optInt("allow_emulator", 0);
-				if (allow == 1) {
-					sAllowEmulator = true;
-					Log.i(TAG, "ALLOW_EMULATOR enabled via ljsdk.cfg");
-				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-
 			int index = jsonStr.indexOf("yingyongbao");
 			if(index != -1){
 				nativeSetIsYingYongbao();
@@ -690,8 +668,6 @@ public class GameApp extends Cocos2dxActivity {
 	public class WGListThread extends Thread {
 		@Override
 		public void run() {
-			// 反外挂黑名单拉取地址：基础 URL 来自 Native 层 nativeGetVoiceAddress()；
-			// 切换服务器 IP/域名时：在 Native 层修改返回的基础地址，或在 Java 层增加覆盖配置逻辑。
 			String address = nativeGetVoiceAddress();
 			FileDownloader.DownloadOneFile(address + "/transServer/wg/blacklist.txt", GameApp.getCacheOutDir() + "/res/" + "1288823573", false);
 			try {
@@ -753,12 +729,6 @@ public class GameApp extends Cocos2dxActivity {
 	
 	public boolean isUseEmulator()
 	{
-		// 若允许模拟器运行，则直接跳过检测，避免触发反外挂导致的闪退/退出
-		if (sAllowEmulator) {
-			Log.i(TAG, "Emulator check bypassed (ALLOW_EMULATOR=1)");
-			return false;
-		}
-
 		String device = Build.DEVICE;
 		String model = Build.MODEL;
 		String product = Build.PRODUCT;
@@ -955,11 +925,6 @@ public class GameApp extends Cocos2dxActivity {
 	public class UpdateThread extends Thread {
 		@Override
 		public void run() {
-			// 资源热更新入口：
-			// - 更新服务器地址通常由 Native 层读取 res/values/strings.xml 中的以下键值：
-			//   mt3_update_url / mt3_update_select_url / mt3_update_default_select_url
-			// - 或由 LJFilePackOption.xml 的 <Update> 段生成的版本/清单文件决定（需与服务端目录结构一致）
-			// 切换资源热更新服务器 IP/域名时：优先修改 strings.xml 对应 URL，确保与服务端路径匹配。
 			nativeStartResourceUpdate();
 		}
 	}
@@ -1614,8 +1579,6 @@ public class GameApp extends Cocos2dxActivity {
 			public void run() {
 				try {
 					m_webView = new HTML5WebView(getApp(), width, height);
-					// 公告页面 URL 来源于 Native 层的 getHttpNoticeUrl()；
-					// 如需切换到自定义服务器地址：可在 Native 层返回新 URL，或改 Java 逻辑改为从 strings.xml/配置文件读取。
 					m_webView.loadUrl(GameApp.this.getHttpNoticeUrl()); // for example : "http://42.62.47.211:130/mt3/ios_notice.html"
 				}
 				catch (Exception e) {
@@ -1696,11 +1659,6 @@ public class GameApp extends Cocos2dxActivity {
 				String dumpFileName = "";
 				
 				FTPUtils ftp = FTPUtils.getInstance();
-				// 日志/崩溃收集 FTP 服务器：
-				// - Host 来源于 Native 层 getHttpShareUrl()
-				// - 账号/端口根据运维配置
-				// 切换收集服务器 IP/域名：修改 native 层 getHttpShareUrl() 的返回值，
-				// 或重构为从 strings.xml/独立配置文件中读取以便热切换。
 				ftp.setLoginInfo(getHttpShareUrl(), 21, "collect_infoUSER", "TRx87dx@S0DXx8dC");	// "120.26.89.140"
 				boolean bConneted = ftp.openConnect();
 				if (bConneted) {

@@ -1,10 +1,2 @@
 eclipse.preferences.version=1
-encoding//src/com/meiqia/meiqiasdk/activity/MQConversationActivity.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/activity/MQPhotoPickerActivity.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/activity/MQPhotoPreviewActivity.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/model/ImageFolderModel.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/pw/MQPhotoFolderPw.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/util/MQSoundPoolManager.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/util/MQUtils.java=UTF-8
-encoding//src/com/meiqia/meiqiasdk/widget/MQEmotionKeyboardLayout.java=UTF-8
 encoding/<project>=UTF-8

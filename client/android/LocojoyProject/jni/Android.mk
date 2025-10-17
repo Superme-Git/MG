@@ -39,11 +39,7 @@ LOCAL_C_INCLUDES := \
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
-ifeq ($(TARGET_ARCH_ABI),x86_64)
-# Skip Google Breakpad on x86_64 (breakpad only supports ARM/x86)
-else
 LOCAL_WHOLE_STATIC_LIBRARIES += breakpad_client
-endif
 LOCAL_WHOLE_STATIC_LIBRARIES += cegui_static
 LOCAL_WHOLE_STATIC_LIBRARIES += xmlio_static
 LOCAL_WHOLE_STATIC_LIBRARIES += platform_static
@@ -52,7 +48,15 @@ LOCAL_WHOLE_STATIC_LIBRARIES += engine_static
 LOCAL_WHOLE_STATIC_LIBRARIES += FireClient_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cauthc_static
 LOCAL_WHOLE_STATIC_LIBRARIES += updateengine_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_network_static
+#LOCAL_WHOLE_STATIC_LIBRARIES += cocos_network_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libpng_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libjpeg_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libtiff_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libwebp_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_zlib_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_lua_static
+#LOCAL_WHOLE_STATIC_LIBRARIES += luajit_static
 
 #add baidu location SDK -s
 LOCAL_SHARED_LIBRARIES += locSDK6a
@@ -62,15 +66,10 @@ LOCAL_SHARED_LIBRARIES += locSDK6a
 LOCAL_SHARED_LIBRARIES += du
 #add libdu location SDK -e
 
-# 链接运行时所需库，修复 LuaJIT 静态库在 NDK r10e 上 __srget/__swbuf 未定义引用
-LOCAL_LDLIBS += -llog -lz -landroid -landroid_support
-
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,CocosDenshion/android)
-ifneq ($(TARGET_ARCH_ABI),x86_64)
 $(call import-module,google-breakpad/android/google_breakpad)
-endif
 $(call import-module,cocos2dx)
 $(call import-module,cegui)
 $(call import-module,cauthc/projects/android)
@@ -79,5 +78,13 @@ $(call import-module,ljfm)
 $(call import-module,updateengine)
 $(call import-module,engine)
 $(call import-module,FireClient)
-$(call import-module,network)
+#$(call import-module,network)
+$(call import-module,png/prebuilt/android)
+$(call import-module,jpeg/prebuilt/android)
+$(call import-module,external/tiff/prebuilt/android)
+$(call import-module,zlib/prebuilt/android)
+$(call import-module,libwebp)
+$(call import-module,lua/proj.android/jni)
+#$(call import-module,lua/luajit)
+$(call import-module,external/curl/prebuilt/android)
 
