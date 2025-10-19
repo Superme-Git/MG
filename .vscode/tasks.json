@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "android:build-apk",
+            "type": "shell",
+            "command": "build_with_log.bat",
+            "options": {
+                "cwd": "${workspaceFolder}\\client\\android\\LocojoyProject",
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": [
+                        "/c"
+                    ]
+                },
+                "env": {
+                    "MT3_NO_PAUSE": "1",
+                    "NDK_HOME": "${config:mt3.android.ndkHome}",
+                    "ANDROID_HOME": "${config:mt3.android.sdkHome}",
+                    "MT3_LOG_DIR": "${workspaceFolder}\\build_logs"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "detail": "Run enhanced Android build_with_log script with log capture",
+            "problemMatcher": []
+        }
+    ]
+}

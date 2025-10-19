@@ -62,7 +62,12 @@
       "Bash(Select-Object -First 40)",
       "Bash(mv:*)",
       "Bash(mv \"CEGUI技术集成指南.md\" \"doc/\")",
-      "Bash(mv \"文档整理报告.md\" \"doc/\")"
+      "Bash(mv \"文档整理报告.md\" \"doc/\")",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git config:*)",
+      "Bash(git checkout:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

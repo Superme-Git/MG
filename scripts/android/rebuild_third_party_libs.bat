@@ -1,5 +1,6 @@
 @echo off
 setlocal enableextensions enabledelayedexpansion
+chcp 65001 >nul
 
 rem ================================================================================
 rem MT3 Android third-party static libs rebuild script (NDK r10e, armeabi-v7a)

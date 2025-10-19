@@ -1,3 +1,5 @@
 {
-    "chatgpt.openOnStartup": true
+    "chatgpt.openOnStartup": true,
+    "mt3.android.ndkHome": "D:\\android-ndk-r10e",
+    "mt3.android.sdkHome": "C:\\Program Files (x86)\\Android\\android-sdk"
 }
