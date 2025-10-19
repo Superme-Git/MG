@@ -63,11 +63,20 @@
       "Bash(mv:*)",
       "Bash(mv \"CEGUI技术集成指南.md\" \"doc/\")",
       "Bash(mv \"文档整理报告.md\" \"doc/\")",
+<<<<<<< Updated upstream
       "Bash(git fetch:*)",
       "Bash(git pull:*)",
       "Bash(git config:*)",
       "Bash(git checkout:*)",
       "Bash(git reset:*)"
+=======
+      "Bash(mkdir:*)",
+      "Bash(git add:*)",
+      "Bash(git restore:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git stash:*)"
+>>>>>>> Stashed changes
     ],
     "deny": [],
     "ask": []
