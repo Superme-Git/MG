@@ -13,47 +13,23 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="fmod">
-      <UniqueIdentifier>{9b52eb5c-547a-4666-aabd-ed2fc29330e1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Export.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\SimpleAudioEngine.h">
+    <ClInclude Include="..\win32\MciPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod.h">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod.hpp">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod_codec.h">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod_dsp.h">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod_errors.h">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod_memoryinfo.h">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\external\fmod\win32\inc\fmod_output.h">
-      <Filter>fmod</Filter>
-    </ClInclude>
-    <ClInclude Include="..\win32\FmodAudioPlayer.h">
+    <ClInclude Include="..\include\SimpleAudioEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\win32\FmodAudioPlayer.cpp">
+    <ClCompile Include="..\win32\MciPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\win32\SimpleAudioEngineFMOD.cpp">
+    <ClCompile Include="..\win32\SimpleAudioEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
