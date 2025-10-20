@@ -7,6 +7,8 @@
 ## 快速入口
 
 - 总索引（权威）：[./13-文档索引.md](./13-文档索引.md:1)
+- 文档适配指引/架构图/排障：[./2025-10-21-文档适配与体系指引-Documentation-Adaptation-Guide.md](./2025-10-21-文档适配与体系指引-Documentation-Adaptation-Guide.md:1)
+- 依赖组件全量清单：[./2025-10-19-依赖组件全量清单-Dependency-Inventory.md](./2025-10-19-依赖组件全量清单-Dependency-Inventory.md:1)
 - Android 快速验证与一键编译：[./android/Android_工具链环境快速验证与一键编译指南.md](./android/Android_工具链环境快速验证与一键编译指南.md:1)
 - Android 打包与安装技术要点：[./android/Android_Ant_NDK_APK_打包与安装技术要点与排错手册.md](./android/Android_Ant_NDK_APK_打包与安装技术要点与排错手册.md:1)
 - Windows/Release 构建诊断：[./windows/MT3_Release_Build_Diagnostics.md](./windows/MT3_Release_Build_Diagnostics.md:1)

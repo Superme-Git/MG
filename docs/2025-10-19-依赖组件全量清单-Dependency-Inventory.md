@@ -1,4 +1,4 @@
- # MT3 依赖组件全量清单 / Full Dependency Inventory
+# MT3 依赖组件全量清单 / Full Dependency Inventory
 
 - **最后更新时间**：2025-10-19
 - **适用范围**：MT3 客户端（Windows/iOS/Android）、服务器端、工具链及公共第三方库
