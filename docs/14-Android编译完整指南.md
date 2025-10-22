@@ -1560,6 +1560,75 @@ adb shell dumpsys meminfo <包名>  # 查看内存
 
 ---
 
+## 📋 D. 系统工具路径配置（已验证）
+
+**最后验证时间**: 2025-10-23
+
+### 当前环境工具路径表
+
+| 工具 | 版本 | 状态 | 实际路径 | 环境变量 |
+|-----|------|------|---------|---------|
+| **Java JDK** | 1.8.0_144 | ✅ 已安装 | `C:\Program Files\Java\jdk1.8.0_144` | `JAVA_HOME` ✓ |
+| **Apache Ant** | 1.9.7 | ✅ 已安装 | `C:\apache-ant-1.9.7` | `ANT_HOME` ✓ |
+| **Android SDK** | API 17+ | ✅ 已安装 | `C:\Program Files (x86)\Android\android-sdk` | `ANDROID_HOME` ✓ |
+| **Android NDK** | r10e | ✅ 已安装 | `D:\android-ndk-r10e` | `NDK_HOME` ⚠️ |
+
+### 环境变量配置状态
+
+**已配置的环境变量**：
+
+```batch
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_144
+ANT_HOME=C:\apache-ant-1.9.7
+ANDROID_HOME=C:\Program Files (x86)\Android\android-sdk
+```
+
+**建议配置的环境变量**：
+
+```batch
+# 推荐添加（提升构建效率）
+NDK_HOME=D:\android-ndk-r10e
+
+# PATH 应包含以下路径
+PATH=%JAVA_HOME%\bin;%ANT_HOME%\bin;%ANDROID_HOME%\platform-tools;%NDK_HOME%;%PATH%
+```
+
+### 路径配置详细说明
+
+**1. NDK_HOME 配置说明**：
+
+- ⚠️ 当前状态：未设置系统环境变量
+- ✅ 实际位置：D:\android-ndk-r10e（已确认存在）
+- ✅ 脚本回退：构建脚本包含自动回退机制，可正常工作
+- 📌 建议：永久设置环境变量以提升构建效率
+
+**设置方法**（管理员权限）：
+
+```batch
+setx NDK_HOME "D:\android-ndk-r10e" /M
+```
+
+**2. 快速构建工具**：
+
+- [quick_build.bat](../client/android/quick_build.bat) - 自动检测 NDK 路径
+- [check_and_fix_paths.bat](../client/android/check_and_fix_paths.bat) - 路径验证工具
+
+**3. 路径验证命令**：
+
+```batch
+# 验证所有工具路径
+cd E:\MT3\client\android
+check_and_fix_paths.bat
+```
+
+### 相关技术文档
+
+- [BUILD_TOOLS_README.md](../client/android/BUILD_TOOLS_README.md) - 构建工具完整使用指南
+- [tool_paths_verification.txt](../client/android/tool_paths_verification.txt) - 详细路径验证报告
+- [PATH_FIX_SUMMARY.md](../client/android/PATH_FIX_SUMMARY.md) - 路径整理总结
+
+---
+
 **致谢：**
 
 本文档基于对MT3项目的深度分析生成，感谢原开发团队的技术积累和文档沉淀。
