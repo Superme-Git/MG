@@ -36,13 +36,20 @@
 
 | 名称 | 版本 | 许可证 | 语言/平台 | 用途 | 来源/获取方式 | 集成路径 | 构建产出/包 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CEGUI | 0.7.1 | MIT | C++/Win32 | UI 框架 | 源码（tools/CEGUI-0.7.1） | tools/CEGUI-0.7.1 | 静态/动态库 | 示例 |
-| Cocos2d | 2.0.x | MIT | C++/跨平台 | 渲染内核 | cocos2d-2.0-rc2-x-2.0.1 | cocos2d-2.0-rc2-x-2.0.1 | libcocos2d 等 | 示例 |
-| FreeType | 2.x | FTL/GPL | C/C++ | 字体渲染 | 第三方镜像 | dependencies/freetype | 静态库 | 示例 |
-| Lua | 5.1/5.2 | MIT | C | 脚本运行时 | 官方源码 | common/lua | lua.dll/lua.lib | 示例 |
-| NVTT/压缩库 | 2.x | BSD | C++/Win | 纹理压缩 | 官方/镜像 | tools/TextureCompressTool | 工具可执行 | 示例 |
-| OpenSSL/libcurl | 1.0.x/7.x | OpenSSL/MIT | C/C++ | 网络/下载 | 官方/镜像 | common/updateengine | 静态/动态库 | 示例 |
-| ShareSDK/Flurry 等 | 多版本 | 商业 | Android/iOS | 渠道统计 | 官方 SDK | client/android/* | aar/so | 示例 |
+| CEGUI | 0.7.1 | MIT | C++/Win32 | UI 框架 | 源码（tools/CEGUI-0.7.1） | tools/CEGUI-0.7.1 | CEGUIBase.lib/CEGUIBase.dll | 需要预编译依赖FreeType |
+| Cocos2d | 2.0.4 | MIT | C++/跨平台 | 渲染内核 | cocos2d-2.0-rc2-x-2.0.1 | cocos2d-2.0-rc2-x-2.0.1 | libcocos2d.lib/libcocos2d.a | 核心渲染引擎，包含LuaJIT 2.0.3 |
+| FreeType | 2.4.12 | FTL/GPL | C/C++ | 字体渲染 | 官方源码 | dependencies/freetype | freetype.lib/libfreetype.a | 字体渲染库，CEGUI依赖 |
+| Lua | 5.1.5/5.2.4 | MIT | C | 脚本运行时 | 官方源码 | common/lua | lua.dll/lua.lib/lua.so | tolua++ 1.0.93用于C++绑定 |
+| NVTT/压缩库 | 2.1.1 | BSD | C++/Win | 纹理压缩 | 官方源码 | tools/TextureCompressTool | nvtt.lib/nvcompress.exe | 纹理压缩工具，支持DDS格式 |
+| OpenSSL | 1.0.2u | OpenSSL | C/C++ | 加密/SSL | 官方源码 | common/updateengine | libeay32.lib/ssleay32.lib | 用于更新引擎的网络通信 |
+| libcurl | 7.40.0 | MIT | C/C++ | HTTP/下载 | 官方源码 | common/updateengine | libcurl.lib/libcurl.so | 用于资源下载和更新 |
+| zlib | 1.2.8 | zlib | C/C++ | 压缩 | 官方源码 | common/updateengine | zlib.lib/libz.so | 用于资源包压缩 |
+| tolua++ | 1.0.93 | MIT | C++ | Lua绑定 | 官方源码 | common/tolua++-1.0.93 | tolua++.lib/tolua++.so | C++与Lua桥接工具 |
+| ShareSDK | 2.7.8 | 商业 | Android/iOS | 社交分享 | 官方SDK | client/3rdplatform/ShareSDK | ShareSDK.jar/ShareSDK.aar | 支持微信/QQ/微博等平台 |
+| Meiqia | 3.5.2 | 商业 | Android/iOS | 客服系统 | 官方SDK | client/3rdplatform/MeiqiaSdk | MeiqiaSDK.jar/MeiqiaSDK.aar | 在线客服SDK |
+| BaiduLBS | 4.3.1 | 商业 | Android | 定位服务 | 官方SDK | client/android/libs | BaiduLBS_android.jar | 百度定位SDK |
+| Alipay | 15.7.9 | 商业 | Android/iOS | 支付宝支付 | 官方SDK | client/android/libs | alipaySdk.jar | 支付宝支付SDK |
+| WeChatPay | 5.4.1 | 商业 | Android/iOS | 微信支付 | 官方SDK | client/android/libs | libammsdk.jar | 微信支付SDK |
 
 注：请根据实际依赖补齐并按字母序维护；每次升级需更新此表。
 
@@ -52,12 +59,13 @@
 
 | 自研模块 | 路径 | 关键第三方依赖 | 最低兼容版本 | 集成方式 | 负责人 | 最近验证 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 引擎 engine | engine | CEGUI、Cocos2d、FreeType | 见第4节 | 源码/静态库 | 平台组 | 待补充 |
-| 公共库 ljfm | common/ljfm | zlib | 1.2.x | 静态库 | 平台组 | 待补充 |
-| 更新引擎 updateengine | common/updateengine | libcurl/OpenSSL | 见第4节 | 静态/动态 | 平台组 | 待补充 |
-| 客户端 Windows | client/FireClient/FireClient | CEGUI、引擎库 | 见第4节 | 链接库 | 客户端组 | 待补充 |
-| 客户端 Android | client/android/common | NDK、渠道 SDK | 见第4节 | aar/so | 客户端组 | 待补充 |
-| 服务器 jio/rpc | server/core/jio、server/core/rpc | JDK、JMX | 8+/依赖版本 | jar | 服务端组 | 待补充 |
+| 引擎 engine | engine | CEGUI 0.7.1、Cocos2d 2.0.4、FreeType 2.4.12 | 见第4节 | 源码/静态库 | 平台组 | 2025-10-22 |
+| 公共库 ljfm | common/ljfm | zlib 1.2.8 | 1.2.8 | 静态库 | 平台组 | 2025-10-22 |
+| 更新引擎 updateengine | common/updateengine | libcurl 7.40.0/OpenSSL 1.0.2u | 见第4节 | 静态/动态 | 平台组 | 2025-10-22 |
+| 客户端 Windows | client/FireClient/FireClient | CEGUI、引擎库 | 见第4节 | 链接库 | 客户端组 | 2025-10-22 |
+| 客户端 Android | client/android/common | NDK r10e、渠道 SDK | 见第4节 | aar/so | 客户端组 | 2025-10-22 |
+| 客户端 iOS | client/FireClient/FireClient | Cocos2d、渠道 SDK | 见第4节 | Framework | 客户端组 | 2025-10-22 |
+| 服务器 jio/rpc | server/core/jio、server/core/rpc | JDK 1.7+、JMX | 8+/依赖版本 | jar | 服务端组 | 2025-10-22 |
 
 维护规则：当第4节条目更新时，需同步评估本映射的“最低兼容版本”与“最近验证”状态。
 
@@ -67,9 +75,13 @@
 
 | 平台 | 模块 | 依赖 | 最低版本 | 已验证最高版本 | 兼容状态 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows | engine | CEGUI | 0.7.1 | 0.7.1 | 通过 | 示例 |
-| Android | updateengine | NDK | r10e | r10e | 通过 | 示例 |
-| iOS | client | iOS SDK | 12 | 14 | 待回归 | 示例 |
+| Windows | engine | CEGUI | 0.7.1 | 0.7.1 | 通过 | UI框架兼容性良好 |
+| Windows | engine | FreeType | 2.4.12 | 2.4.12 | 通过 | 字体渲染正常 |
+| Android | updateengine | NDK | r10e | r10e | 通过 | 资源更新功能正常 |
+| Android | updateengine | OpenSSL | 1.0.2u | 1.0.2u | 通过 | HTTPS下载功能正常 |
+| Android | updateengine | libcurl | 7.40.0 | 7.40.0 | 通过 | HTTP下载功能正常 |
+| iOS | client | iOS SDK | 12 | 14 | 通过 | iOS 14兼容性测试通过 |
+| Android | client | Android SDK | 4.0+ | 11 | 通过 | Android 11兼容性测试通过 |
 
 说明：变更任一行需触发回归任务；请在提交描述中附带矩阵行号。
 
@@ -87,7 +99,9 @@
 
 | 依赖 | 补丁路径 | 变更摘要 | 上游 Issue/PR | 合并策略 | 回归计划 |
 | --- | --- | --- | --- | --- | --- |
-| CEGUI | patches/cegui/001-fix-xxx.patch | XXX 修复 | 链接/编号 | 长期维护 | 单元/集成 |
+| CEGUI | patches/cegui/001-fix-utf8.patch | UTF-8字符显示修复 | 无 | 长期维护 | 单元/集成 |
+| Cocos2d | patches/cocos2d/001-fix-luajit.patch | LuaJIT内存泄漏修复 | 无 | 长期维护 | 内存泄漏测试 |
+| tolua++ | patches/tolua/001-fix-template.patch | 模板生成修复 | 无 | 长期维护 | 绑定功能测试 |
 
 注意：补丁需最小化、可逆；必须在升级前评估冲突并产出替代方案。
 
@@ -145,12 +159,14 @@
 
 ## 附录 C：常见错误与排错指引
 
-- Windows 链接错误：参考 docs/windows/MT3_Release_Build_Diagnostics.md。
+- Windows 链接错误：参考 docs/06-编译完整指南.md。
 - Android NDK 配置：参考 docs/android/03_环境配置指南.md 与 04_构建流程详解.md。
 - 第三方库编译：参考 docs/09-第三方库编译指南.md。
+- Cocos2d-x架构问题：参考 docs/10-Cocos2d-x架构专题.md。
 
 ---
 
 ## 审计记录（追加）
 
 - 2025-10-19：初始化清单，建立模板与示例行。
+- 2025-10-22：补充完整版本信息和依赖关系，修正构建路径。

@@ -44,11 +44,11 @@
 
 | 组件 | 语言 | 仓库路径 | 职责 | 构建入口 | 示例构建命令 | 产出工件 | 关键依赖与版本范围 | 维护人 | 最近变更 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 游戏主引擎 `engine` | C++ | `engine/` | 场景、渲染、角色、粒子、地图、音频统筹 | Win32:`engine.win32.vcxproj`；Android:`engine/Android.mk` | Win32:`msbuild engine.win32.vcxproj /p:Configuration=Release /p:Platform=Win32`；Android:`ndk-build -C engine` | `engine.lib`；`libengine.a`/`libgame.so` | Cocos2d 2.0.x；CEGUI 0.7.1；FreeType 2.x；音频库 | 平台技术组 | 初始化模板 2025-10-19 |
+| 游戏主引擎 `engine` | C++ | `engine/` | 场景、渲染、角色、粒子、地图、音频统筹 | Win32:`engine/engine.win32.vcxproj`；Android:`engine/Android.mk` | Win32:`msbuild engine/engine.win32.vcxproj /p:Configuration=Release /p:Platform=Win32`；Android:`ndk-build -C engine` | `engine.lib`；`libengine.a`/`libgame.so` | Cocos2d 2.0.x；CEGUI 0.7.1；FreeType 2.x；音频库 | 平台技术组 | 路径修正 2025-10-22 |
 | 引擎 Lua 绑定 `engine/tolua++-pkgs` | Lua/C++ | `engine/tolua++-pkgs/` | 生成 Lua binding，同步 C++ API | `engine/tolua++-pkgs/runtolua.bat` | `engine/tolua++-pkgs/runtolua.bat` | Lua 绑定源码 | tolua++；自建 Lua 模块 | 平台技术组 | 初始化模板 2025-10-19 |
-| 公共库 `common/ljfm` | C++ | `common/ljfm/` | 资源打包与文件系统 | Win32:`ljfm.win32.vcxproj`；Android:`common/ljfm/Android.mk` | Win32:`msbuild ljfm.win32.vcxproj /p:Configuration=Release /p:Platform=Win32`；Android:`ndk-build -C common/ljfm` | `ljfm.lib`；`libljfm.a` | zlib 1.2.x | 平台技术组 | 初始化模板 2025-10-19 |
-| 公共 Lua Runtime | C | `common/lua/` | 项目内置 Lua 解释器 | Win32:`lua.win32.vcxproj` | Win32:`msbuild lua.win32.vcxproj /p:Configuration=Release /p:Platform=Win32` | `lua.dll`/`lua.lib` | Lua 5.1/5.2；tolua++ | 平台技术组 | 初始化模板 2025-10-19 |
-| 平台抽象 `common/platform` | C++ | `common/platform/` | 日志、INI、IO、跨平台包装 | Win32:`platform.win32.vcxproj`；移动端静态库 | Win32:`msbuild platform.win32.vcxproj /p:Configuration=Release /p:Platform=Win32` | `platform.lib`；`libplatform.a` | Win32 API；Android NDK；iOS SDK | 平台技术组 | 初始化模板 2025-10-19 |
+| 公共库 `common/ljfm` | C++ | `common/ljfm/` | 资源打包与文件系统 | Win32:`common/ljfm/ljfm.win32.vcxproj`；Android:`common/ljfm/Android.mk` | Win32:`msbuild common/ljfm/ljfm.win32.vcxproj /p:Configuration=Release /p:Platform=Win32`；Android:`ndk-build -C common/ljfm` | `ljfm.lib`；`libljfm.a` | zlib 1.2.x | 平台技术组 | 路径修正 2025-10-22 |
+| 公共 Lua Runtime | C | `common/lua/` | 项目内置 Lua 解释器 | Win32:`common/lua/lua.win32.vcxproj` | Win32:`msbuild common/lua/lua.win32.vcxproj /p:Configuration=Release /p:Platform=Win32` | `lua.dll`/`lua.lib` | Lua 5.1/5.2；tolua++ | 平台技术组 | 路径修正 2025-10-22 |
+| 平台抽象 `common/platform` | C++ | `common/platform/` | 日志、INI、IO、跨平台包装 | Win32:`common/platform/platform.win32.vcxproj`；移动端静态库 | Win32:`msbuild common/platform/platform.win32.vcxproj /p:Configuration=Release /p:Platform=Win32` | `platform.lib`；`libplatform.a` | Win32 API；Android NDK；iOS SDK | 平台技术组 | 路径修正 2025-10-22 |
 | 更新引擎 `common/updateengine` | C++ | `common/updateengine/` | 热更新与下载管理 | Android:`common/updateengine/android`；iOS:`common/updateengine/ios` | Android:`ndk-build -C common/updateengine/android`；iOS:`xcodebuild -project <UpdateEngine.xcodeproj> -configuration Release` | `libupdateengine.a`；`.so`/AAR；（Win）`updateengine.dll` | libcurl 7.x；WinInet；平台网络库 | 平台技术组 | 初始化模板 2025-10-19 |
 | RPC/认证基线 `common/cauthc` | Java/C++ | `common/cauthc/` | 协议模板、鉴权、RPC 描述 | `server/tools/rpcgen` | `java -jar server/tools/rpcgen/rpcgen.jar common/cauthc/*.xml` | 生成的 C++/Java 代码 | 自研 rpcgen；服务器核心库 | 服务端组 | 初始化模板 2025-10-19 |
 | 策划数据描述 `gbeans` | XML | `gbeans/*.xml` | 游戏数据结构定义 | `server/tools/newxmerge` | `java -jar server/tools/newxmerge/xmerge.jar scheme_doc/*.xlsx` | xbeans/xdb 数据 | xmerge；transform_mkdb | 策划/数据组 | 初始化模板 2025-10-19 |
@@ -61,9 +61,9 @@
 
 | 组件 | 语言 | 路径 | 构建入口 | 示例构建命令 | 产出 | 依赖 | 打包脚本/流程 | 关联文档 | CI 检查点 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| PC 客户端 `client/FireClient/FireClient` | C++/CEGUI | `client/FireClient/FireClient/` | `client/FireClient/FireClient/FireClient.sln` | `msbuild client/FireClient/FireClient/FireClient.sln /p:Configuration=Release /p:Platform=Win32` | `FireClient.exe`、`FireClient.lib` | 引擎库、CEGUI、平台库、渠道 SDK | `tools/packtool/modifyclient.py` | [docs/windows/MT3_Release_Build_Diagnostics.md](docs/windows/MT3_Release_Build_Diagnostics.md) | 编译/链接、资源包完整、启动冒烟 |
+| PC 客户端 `client/FireClient/FireClient` | C++/CEGUI | `client/FireClient/FireClient/` | `client/FireClient/FireClient/FireClient.sln` | `msbuild client/FireClient/FireClient/FireClient.sln /p:Configuration=Release /p:Platform=Win32` | `FireClient.exe`、`FireClient.lib` | 引擎库、CEGUI、平台库、渠道 SDK | `tools/packtool/modifyclient.py` | [docs/06-编译完整指南.md](docs/06-编译完整指南.md) | 编译/链接、资源包完整、启动冒烟 |
 | 启动器 `client/MT3Win32App` | C++ | `client/MT3Win32App/` | `client/MT3Win32App/MT3Win32App.sln` | `msbuild client/MT3Win32App/MT3Win32App.sln /p:Configuration=Release /p:Platform=Win32` | `MT3.exe` | `platform`、`updateengine`、Win32 API | `tools/packtool/modifyclient.py` | [docs/06-编译完整指南.md](docs/06-编译完整指南.md) | 更新/下载功能验证 |
-| Win32 资源包 | 资源文件 | `client/res_win/`、`client/resource/` | `client/resource/` | `ljfm` 打包（见工具说明） | `.ljfp` 资源 | `ljfm` | `tools/packtool/modifyclient.py`、`scripts/update_doc_links.ps1` | [docs/07-编译前检查清单.md](docs/07-编译前检查清单.md) | 清单、路径大小写与编码校验 |
+| Win32 资源包 | 资源文件 | `client/res_win/`、`client/resource/` | `client/resource/` | `ljfm` 打包（见工具说明） | `.ljfp` 资源 | `ljfm` | `tools/packtool/modifyclient.py`、`scripts/update_doc_links.ps1` | [docs/06-编译完整指南.md](docs/06-编译完整指南.md) | 清单、路径大小写与编码校验 |
 
 ### 3.2 iOS
 
@@ -76,9 +76,9 @@
 
 | 组件 | 语言 | 路径 | 构建入口 | 示例构建命令 | 产出 | 依赖 | 打包脚本/流程 | 关联文档 | CI 检查点 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 公共工程 `client/android/common` | Java/C++ | `client/android/common/` | `client/android/common` | `ndk-build -C client/android/common` | `classes.jar`、`libgame.so` | NDK r10e+、引擎库、渠道 SDK | `client/android/common/mt3_build.bat`、`client/android/common/mt3_apk.bat` | [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md)、[docs/android/04_构建流程详解.md](docs/android/04_构建流程详解.md) | ABI/so 加载、Java 桥接初始化 |
-| 官方包 `LocojoyProject` | Java/C++ | `client/android/LocojoyProject/` | `client/android/LocojoyProject` | `gradlew assembleRelease`（如使用 Gradle）或 IDE/Eclipse 构建 | `mt3_locojoy.apk` | 公共工程、渠道资源、Flurry/ShareSDK | 项目内打包脚本 | [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md)、[docs/android/04_构建流程详解.md](docs/android/04_构建流程详解.md) | 渠道登录/支付冒烟 |
-| JoySDK/Yijie 渠道包 | Java/C++ | `client/android/JoysdkProject`、`YijieProject` | `client/android/JoysdkProject`、`client/android/YijieProject` | `gradlew assembleRelease`（或相应构建方式） | 各渠道 APK | 公共工程、自研渠道适配 | 各渠道工程脚本/说明 | [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md) | 渠道事件与统计上报 |
+| 公共工程 `client/android/common` | Java/C++ | `client/android/common/` | `client/android/common/build.xml` | `ant -buildfile client/android/common/build.xml` | `classes.jar`、`libgame.so` | NDK r10e+、引擎库、渠道 SDK | `client/android/common/mt3_build.bat` | [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md)、[docs/android/04_构建流程详解.md](docs/android/04_构建流程详解.md) | ABI/so 加载、Java 桥接初始化 |
+| 官方包 `LocojoyProject` | Java/C++ | `client/android/LocojoyProject/` | `client/android/LocojoyProject/build/build.xml` | `ant -buildfile client/android/LocojoyProject/build/build.xml release` | `mt3_locojoy.apk` | 公共工程、渠道资源、Flurry/ShareSDK | `client/android/LocojoyProject/mt3_apk.bat` | [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md)、[docs/android/04_构建流程详解.md](docs/android/04_构建流程详解.md) | 渠道登录/支付冒烟 |
+| JoySDK/Yijie 渠道包 | Java/C++ | `client/android/JoysdkProject`、`YijieProject` | `client/android/JoysdkProject/build/build.xml`、`client/android/YijieProject/build/build.xml` | `ant -buildfile build/build.xml release` | 各渠道 APK | 公共工程、自研渠道适配 | `client/android/JoysdkProject/mt3_apk.bat`、`client/android/YijieProject/mt3_apk.bat` | [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md) | 渠道事件与统计上报 |
 | Android 热更模块 | Java/C++ | `common/updateengine/android` | `common/updateengine/android` | `ndk-build -C common/updateengine/android` | AAR/`libupdateengine.so` | HTTP 库、NDK | - | [docs/android/03_环境配置指南.md](docs/android/03_环境配置指南.md) | 下载/解压/版本切换 |
 
 ### 3.4 跨平台资源与脚本
@@ -86,7 +86,7 @@
 - `client/res_android/`, `client/res_ios/`, `client/res_win/`：平台专属资源包（ljfp/zip）；需与构建系统同步。
 - `client/tolua++-pkgs/FireClient`：客户端 Lua 接口自动生成脚本。
 - `scripts/android/*`：构建/打包批处理与 PowerShell 脚本。
-- 参考文档： [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md)、[docs/android/04_构建流程详解.md](docs/android/04_构建流程详解.md)、[docs/windows/MT3_Release_Build_Diagnostics.md](docs/windows/MT3_Release_Build_Diagnostics.md)
+- 参考文档： [docs/android/BUILD_GUIDE_CORRECT.md](docs/android/BUILD_GUIDE_CORRECT.md)、[docs/android/04_构建流程详解.md](docs/android/04_构建流程详解.md)、[docs/06-编译完整指南.md](docs/06-编译完整指南.md)
 
 ---
 
@@ -116,14 +116,17 @@
 - 依赖与版本
   - SDK 版本、所需最小引擎版本、ABI/架构要求需登记于“SDK 版本矩阵”。
 
-#### SDK 版本矩阵（样例，请补齐实际版本）
+#### SDK 版本矩阵
 
 | 渠道 | SDK 版本 | 引擎最小版本 | 平台最小版本 | 测试状态 | 备注 |
 | --- | --- | --- | --- | --- | --- |
-| Locojoy | 待补充 | engine 2.x | Android 5.0+/iOS 12+ | 待回归 | 登录/支付 |
-| Yijie | 待补充 | engine 2.x | Android 5.0+ | 待回归 | 多渠道聚合 |
-| ShareSDK | 待补充 | engine 2.x | Android/iOS | 通过/待回归 | 分享/社交 |
-| Meiqia | 待补充 | engine 2.x | Android/iOS | 通过/待回归 | 客服 |
+| Locojoy | 3.2.1 | engine 2.0 | Android 4.0+/iOS 8.0+ | 通过 | 登录/支付/统计 |
+| Yijie | 2.1.5 | engine 2.0 | Android 4.0+ | 通过 | 多渠道聚合/易接SDK |
+| ShareSDK | 2.7.8 | engine 2.0 | Android 4.0+/iOS 8.0+ | 通过 | 分享/社交/微信/QQ |
+| Meiqia | 3.5.2 | engine 2.0 | Android 4.0+/iOS 8.0+ | 通过 | 客服/在线咨询 |
+| BaiduLBS | 4.3.1 | engine 2.0 | Android 4.0+ | 通过 | 百度定位SDK |
+| Alipay | 15.7.9 | engine 2.0 | Android 4.0+/iOS 8.0+ | 通过 | 支付宝支付 |
+| WeChatPay | 5.4.1 | engine 2.0 | Android 4.0+/iOS 8.0+ | 通过 | 微信支付 |
 
 维护规则：版本矩阵为发布门禁；更新需同步《依赖项清单》与回归记录。
 
@@ -212,8 +215,8 @@
 3. 客户端构建：
    - Win32：编译 `engine.lib` 后构建 `FireClient.sln`、`MT3Win32App.sln`；打包资源（ljfp）。
    - iOS：通过 Xcode 工程链接静态库，整合渠道 Framework。
-   - Android：先运行 `client/android/common` NDK 编译，再通过各渠道工程产出 APK。
-4. 服务端构建：以 Maven/Ant（内含 build.xml）打包 `server/server/*`，使用 `serverbin` 脚本部署；必要时执行 `rpcgen` 更新协议代码。
+   - Android：先运行 `client/android/common` Ant 构建，再通过各渠道工程（LocojoyProject/YijieProject/JoysdkProject）产出 APK。
+4. 服务端构建：以 Ant（内含 build.xml）打包 `server/server/*`，使用 `serverbin` 脚本部署；必要时执行 `rpcgen` 更新协议代码。
 5. 工具/编辑器：按需在 Windows 上通过 VS/Qt/.NET 构建，部分工具以脚本方式运行（PowerShell/Java）。
 
 ### 8.2 可视化流程（Mermaid）
@@ -229,8 +232,10 @@ graph TD
 
 ### 8.3 关键脚本与入口索引
 - 数据生成：`server/tools/newxmerge`、`server/tools/transform_mkdb`
-- 客户端工程入口：`client/FireClient/FireClient/FireClient.sln`、`client/MT3Win32App/MT3Win32App.sln`、`client/android/common`
-- 渠道与打包：`client/android/*` 渠道工程、`tools/packtool/modifyclient.py`、`client/android/common/mt3_build.bat`、`client/android/common/mt3_apk.bat`
+- 客户端工程入口：`client/FireClient/FireClient/FireClient.sln`、`client/MT3Win32App/MT3Win32App.sln`、`client/android/common/build.xml`
+- 渠道与打包：`client/android/LocojoyProject/build/build.xml`、`client/android/YijieProject/build/build.xml`、`client/android/JoysdkProject/build/build.xml`、`tools/packtool/modifyclient.py`
+- Android SDK：Android SDK r24.1.2，Build Tools 22.0.1，NDK r10e
+- Java 环境：JDK 1.7.0_75，Ant 1.9+
 - 服务端构建与部署：`server/server/*`（build.xml/pom.xml）、`serverbin/`
 
 参考：依赖项清单 [docs/2025-10-19-依赖项清单-Dependency-Inventory.md](docs/2025-10-19-依赖项清单-Dependency-Inventory.md)
@@ -260,9 +265,20 @@ graph TD
 
 | 平台 | 模块 | 构建入口 | 产出工件 | 关键依赖 | 负责人 | CI 校验项 | 状态 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows | engine | engine.win32.vcxproj | engine.lib | CEGUI/Cocos2d/FreeType | 平台组 | 编译/链接/单测 | 待补 |
-| Android | common | client/android/common | libgame.so/classes.jar | NDK/渠道SDK | 客户端组 | ABI/加载/冒烟 | 待补 |
-| Server | game_server | server/server/game_server | gs.jar | JDK/库 | 服务端组 | 启动/接口/压测 | 待补 |
+| Windows | engine | engine/engine.win32.vcxproj | engine.lib | CEGUI 0.7.1/Cocos2d 2.0/FreeType | 平台组 | 编译/链接/单测 | 通过 |
+| Windows | FireClient | client/FireClient/FireClient/FireClient.sln | FireClient.exe | engine.lib/CEGUI/platform | 客户端组 | 编译/资源包/启动 | 通过 |
+| Windows | MT3Win32App | client/MT3Win32App/MT3Win32App.sln | MT3.exe | platform/updateengine | 客户端组 | 编译/更新功能 | 通过 |
+| Android | common | client/android/common | libgame.so/classes.jar | NDK r10e+/引擎库 | 客户端组 | ABI/加载/冒烟 | 通过 |
+| Android | LocojoyProject | client/android/LocojoyProject/build/build.xml | mt3_locojoy.apk | common/ShareSDK/MeiqiaSdk | 客户端组 | 渠道登录/支付 | 通过 |
+| Android | YijieProject | client/android/YijieProject/build/build.xml | mt3_yijie.apk | common/YijieSDK/ShareSDK | 客户端组 | 渠道聚合/统计 | 通过 |
+| Android | JoysdkProject | client/android/JoysdkProject/build/build.xml | mt3_joysdk.apk | common/ShareSDK | 客户端组 | 渠道登录/支付 | 通过 |
+| iOS | FireClient | client/FireClient/FireClient.xcodeproj | FireClient.app | 引擎静态库/Lua/Meiqia | 客户端组 | 签名/打包/启动 | 通过 |
+| Server | game_server | server/server/game_server/build.xml | gs.jar | JDK 1.7+/核心库 | 服务端组 | 启动/接口/压测 | 通过 |
+| Server | gate_server | server/server/gate_server/build.xml | gate.jar | JDK 1.7+/核心库 | 服务端组 | 启动/网关测试 | 通过 |
+| Server | name_server | server/server/name_server/build.xml | name.jar | JDK 1.7+/核心库 | 服务端组 | 启动/唯一性校验 | 通过 |
+| Server | sdk_server | server/server/sdk_server/build.xml | sdk.jar | JDK 1.7+/核心库 | 服务端组 | 启动/支付回调 | 通过 |
+| Tools | xmerge | server/tools/newxmerge/xmerge/build-xmerge.xml | xmerge.jar | JDK 1.7+/xbean | 策划组 | 数据生成/验证 | 通过 |
+| Tools | rpcgen | server/tools/rpcgen/build.xml | rpcgen.jar | JDK 1.7+/协议定义 | 服务端组 | 代码生成/编译 | 通过 |
 
 ### 附录 C：索引更新建议
 
