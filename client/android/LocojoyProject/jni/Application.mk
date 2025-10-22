@@ -1,6 +1,7 @@
 APP_STL := gnustl_static
 APP_CPPFLAGS := -frtti -std=c++11
 APP_ABI := armeabi-v7a
+APP_PLATFORM := android-17
 CFLAGS := -g
 
 ifeq ($(NDK_DEBUG),1)

@@ -1,9 +1,17 @@
 # MT3 Android平台编译完整指南
 
-文档版本: 1.0
-最后更新: 2025-10-22
-适用平台: Android (armeabi-v7a)
-编译工具: Android NDK r10e + Ant + JDK 1.7/1.8
+**文档版本**: 2.0
+**最后更新**: 2025-10-22
+**适用平台**: Android (armeabi-v7a)
+**编译工具**: Android NDK r10e + Ant + JDK 1.7/1.8
+
+**v2.0 更新内容**：
+- ✨ 新增统一自动化编译系统（build_unified.bat）
+- ✨ 新增环境自动配置脚本（setup_android_env.bat）
+- ✨ 新增APK验证工具（verify_apk.bat）
+- ✨ 新增Jenkins Pipeline配置（开箱即用）
+- ✨ 新增GitHub Actions工作流（云端构建）
+- 📝 优化文档结构，突出自动化方案
 
 ---
 
@@ -261,9 +269,140 @@ libgame.so (最终Native库)
 
 ## 🚀 编译流程
 
-### 方法A：一键编译（推荐）
+### 🎯 快速开始：自动化编译方案（强烈推荐）
 
-**使用增强版编译脚本：**
+项目提供了完整的自动化编译系统，包括环境配置、统一编译、APK验证等功能。
+
+#### 方案A：统一编译系统 v2.0（推荐）
+
+**功能特性：**
+
+- ✅ 多渠道参数化编译（单渠道/全渠道）
+- ✅ 自动环境检测与验证
+- ✅ 支持清理构建、跳过测试等选项
+- ✅ 并行编译支持（实验性）
+- ✅ 自动APK验证与完整性检查
+- ✅ 生成详细编译报告
+
+#### 1. 首次使用：环境配置
+
+```batch
+cd E:\MT3\client\android
+
+# 自动配置编译环境（检测工具、配置环境变量、生成local.properties）
+setup_android_env.bat
+```
+
+**脚本功能：**
+
+- 检测并配置 JDK、Android SDK、NDK、Apache Ant
+- 自动探测工具安装路径
+- 为所有渠道生成 `local.properties`
+- 提供详细的安装指引（如有缺失）
+
+#### 2. 编译单个渠道
+
+```batch
+cd E:\MT3\client\android
+
+# 编译乐游渠道（默认）
+build_unified.bat
+
+# 编译指定渠道
+build_unified.bat --channel YijieProject
+build_unified.bat -c JoysdkProject
+
+# 清理后重新编译
+build_unified.bat --channel LocojoyProject --clean
+
+# 跳过APK验证（加快编译）
+build_unified.bat --skip-tests
+```
+
+#### 3. 编译所有渠道
+
+```batch
+cd E:\MT3\client\android
+
+# 编译所有渠道（LocojoyProject、YijieProject、JoysdkProject、Test）
+build_unified.bat --all
+
+# 清理后全渠道编译
+build_unified.bat --all --clean
+```
+
+#### 4. 命令行参数说明
+
+| 参数 | 简写 | 说明 | 示例 |
+|-----|------|------|------|
+| `--channel <name>` | `-c` | 指定编译渠道 | `--channel YijieProject` |
+| `--all` | - | 编译所有渠道 | `--all` |
+| `--clean` | - | 清理旧产物后编译 | `--clean` |
+| `--skip-tests` | - | 跳过APK验证 | `--skip-tests` |
+| `--parallel` | - | 并行编译（实验性） | `--parallel` |
+| `--help` | `-h` | 显示帮助信息 | `--help` |
+
+#### 5. 编译输出
+
+```text
+════════════════════════════════════════════════════════════════
+编译流程完成!
+════════════════════════════════════════════════════════════════
+
+产物位置:
+  APK: LocojoyProject\bin\mt3_locojoy-debug.apk
+  日志: LocojoyProject\build_logs\
+  报告: build_report_LocojoyProject.txt
+
+下一步操作:
+  1. 安装测试: adb install -r "LocojoyProject\bin\*.apk"
+  2. 查看日志: type "LocojoyProject\build_logs\android_build_*.log"
+  3. 查看报告: type "build_report_LocojoyProject.txt"
+```
+
+#### 6. APK验证
+
+```batch
+cd E:\MT3\client\android
+
+# 验证单个APK（自动检查大小、so库、签名）
+verify_apk.bat LocojoyProject\bin\mt3_locojoy-debug.apk
+
+# 验证输出示例（完整性检查）
+```
+
+```text
+════════════════════════════════════════════════════════════════
+APK 验证报告
+════════════════════════════════════════════════════════════════
+APK路径: LocojoyProject\bin\mt3_locojoy-debug.apk
+
+[INFO] APK大小: 68 MB (71234567 bytes)
+
+────────────────────────────────────────────────────────────────
+Native库检查:
+────────────────────────────────────────────────────────────────
+[OK] 存在: libgame.so
+[OK] 存在: locSDK6a.so
+[OK] 存在: libdu.so
+
+────────────────────────────────────────────────────────────────
+签名验证:
+────────────────────────────────────────────────────────────────
+[OK] APK签名有效
+
+════════════════════════════════════════════════════════════════
+[SUCCESS] APK验证通过
+════════════════════════════════════════════════════════════════
+```
+
+---
+
+### 方法B：传统单渠道编译（手动控制）
+
+适用于需要精确控制编译过程的场景。
+
+**使用渠道专用脚本：**
 
 ```batch
 cd E:\MT3\client\android\LocojoyProject
@@ -309,7 +448,7 @@ build_with_log.bat
 
 ---
 
-### 方法B：分步手动编译（精确控制）
+### 方法C：分步手动编译（精确控制）
 
 #### 步骤1：环境验证
 
@@ -499,6 +638,26 @@ adb logcat | findstr "MT3"
 | **测试渠道** | `client/android/LocojoyProject_test2016/` | com.locojoy.mt3.test | （同乐游） |
 
 ### 切换渠道编译
+
+**推荐方式：使用统一编译系统**
+
+```batch
+cd E:\MT3\client\android
+
+# 编译乐游渠道
+build_unified.bat --channel LocojoyProject
+
+# 编译易接渠道
+build_unified.bat --channel YijieProject
+
+# 编译JoySDK渠道
+build_unified.bat --channel JoysdkProject
+
+# 编译所有渠道
+build_unified.bat --all
+```
+
+**传统方式：使用渠道专用脚本**
 
 ```batch
 # 编译乐游渠道
@@ -863,51 +1022,244 @@ ant -version
 ndk-build --version
 ```
 
-### 2. 持续集成配置
+### 2. CI/CD 持续集成配置
 
-**Jenkins Pipeline示例：**
+项目已内置 Jenkins 和 GitHub Actions 配置，开箱即用。
+
+#### 方案A：Jenkins Pipeline（企业推荐）
+
+**配置文件：** `client/android/Jenkinsfile`
+
+**特性：**
+
+- 📦 参数化构建（渠道选择、清理选项、测试开关）
+- 🔧 自动环境检测与配置
+- ✅ APK完整性验证
+- 📊 产物自动归档（APK + 日志 + 报告）
+- 📧 邮件通知（成功/失败）
+- 🧹 自动清理编译缓存
+
+**使用方法：**
+
+1. **在Jenkins中创建Pipeline项目：**
+   - 项目类型：Pipeline
+   - Pipeline定义：Pipeline script from SCM
+   - SCM：Git
+   - Script Path：`client/android/Jenkinsfile`
+
+2. **配置环境变量（Jenkins全局配置）：**
+
+   ```groovy
+   JAVA_HOME = 'C:\Program Files\Java\jdk1.8.0_xxx'
+   ANDROID_HOME = 'C:\Android\Sdk'
+   NDK_HOME = 'D:\android-ndk-r10e'
+   ANT_HOME = 'C:\apache-ant-1.10.x'
+   ```
+
+3. **触发构建：**
+   - 手动触发：点击"Build with Parameters"
+   - 选择参数：
+     - `BUILD_CHANNEL`: all / LocojoyProject / YijieProject / JoysdkProject
+     - `CLEAN_BUILD`: true / false
+     - `RUN_TESTS`: true / false
+
+**Pipeline流程：**
+
+```text
+环境检查 → 代码检出 → 编译 → APK验证 → 归档产物 → 通知
+```
+
+**示例输出：**
+
+```text
+[Pipeline] stage (环境检查)
+  [OK] Java 版本: 1.8.0_xxx
+  [OK] Ant 版本: 1.10.x
+  [OK] NDK: D:\android-ndk-r10e
+  [OK] SDK: C:\Android\Sdk
+
+[Pipeline] stage (编译)
+  正在编译渠道: LocojoyProject
+  [SUCCESS] 编译成功
+
+[Pipeline] stage (APK验证)
+  [OK] APK大小: 68 MB
+  [OK] libgame.so 已正确打包
+
+[Pipeline] stage (归档产物)
+  已归档: client/android/LocojoyProject/bin/mt3_locojoy.apk
+  已归档: client/android/build_report_LocojoyProject.txt
+
+[Pipeline] 发送邮件通知: 构建成功
+```
+
+---
+
+#### 方案B：GitHub Actions（开源推荐）
+
+**配置文件：** `.github/workflows/android-build.yml`
+
+**特性：**
+
+- 🔄 自动触发（Push/PR/手动）
+- 🎯 矩阵构建（多渠道并行）
+- 📦 自动缓存（NDK/依赖）
+- ☁️ APK云端存储（30天）
+- 📋 构建日志自动上传（7天）
+- 🔔 可扩展通知（Slack/钉钉）
+
+**触发方式：**
+
+1. **自动触发（Push/PR）：**
+
+   ```yaml
+   # 推送到 main/develop 分支且修改了以下路径时自动触发
+   paths:
+     - 'client/android/**'
+     - 'engine/**'
+     - 'common/**'
+   ```
+
+2. **手动触发（workflow_dispatch）：**
+   - 访问 GitHub Actions 页面
+   - 选择 "MT3 Android CI/CD" workflow
+   - 点击 "Run workflow"
+   - 选择编译渠道（LocojoyProject / YijieProject / JoysdkProject / all）
+
+**矩阵构建示例：**
+
+```yaml
+# 选择 "all" 时自动并行编译3个渠道
+strategy:
+  matrix:
+    channel: [LocojoyProject, YijieProject, JoysdkProject]
+```
+
+**工作流程：**
+
+```text
+检出代码 → 设置JDK 1.8 → 缓存/下载NDK → 安装Ant →
+配置环境 → NDK构建 → Ant打包 → 验证APK →
+上传APK → 上传日志 → 发送通知
+```
+
+**产物下载：**
+
+- 构建完成后，在 Actions 页面的 "Artifacts" 区域下载：
+  - `mt3-LocojoyProject-apk`：乐游渠道APK
+  - `mt3-YijieProject-apk`：易接渠道APK
+  - `mt3-JoysdkProject-apk`：JoySDK渠道APK
+  - `mt3-*-logs`：构建日志
+
+**状态徽章：**
+
+在 `README.md` 中添加构建状态徽章：
+
+```markdown
+![Android CI](https://github.com/<your-org>/<your-repo>/actions/workflows/android-build.yml/badge.svg)
+```
+
+---
+
+#### 方案C：本地定时任务（开发环境）
+
+**Windows任务计划程序：**
+
+```batch
+# 创建每日定时构建任务
+schtasks /create /tn "MT3 Android Daily Build" /tr "E:\MT3\client\android\build_unified.bat --all" /sc daily /st 02:00
+```
+
+**Linux Cron：**
+
+```bash
+# 编辑crontab
+crontab -e
+
+# 添加每日凌晨2点构建
+0 2 * * * cd /path/to/MT3/client/android && ./build_unified.bat --all
+```
+
+---
+
+#### CI/CD最佳实践
+
+**1. 环境隔离：**
+
+```yaml
+# 为不同环境配置不同的构建参数
+development:
+  BUILD_TYPE: debug
+  RUN_TESTS: true
+
+staging:
+  BUILD_TYPE: release
+  RUN_TESTS: true
+  UPLOAD_TO_TESTFLIGHT: true
+
+production:
+  BUILD_TYPE: release
+  RUN_TESTS: true
+  SIGN_APK: true
+  UPLOAD_TO_STORE: false  # 需人工审核
+```
+
+**2. 构建缓存：**
+
+```yaml
+# GitHub Actions缓存示例
+- name: 缓存Gradle依赖
+  uses: actions/cache@v3
+  with:
+    path: |
+      ~/.gradle/caches
+      ~/.gradle/wrapper
+    key: gradle-${{ hashFiles('**/*.gradle*') }}
+
+- name: 缓存NDK
+  uses: actions/cache@v3
+  with:
+    path: D:\android-ndk-r10e
+    key: ndk-r10e-windows
+```
+
+**3. 失败通知：**
+
 ```groovy
-pipeline {
-    agent any
-
-    environment {
-        ANDROID_HOME = 'C:\\Android\\Sdk'
-        NDK_HOME = 'D:\\android-ndk-r10e'
-        ANT_HOME = 'C:\\apache-ant-1.10.x'
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://your-repo.git'
-            }
-        }
-
-        stage('Build NDK') {
-            steps {
-                bat '''
-                cd client\\android\\LocojoyProject
-                call mt3_build.bat
-                '''
-            }
-        }
-
-        stage('Build APK') {
-            steps {
-                bat '''
-                cd client\\android\\LocojoyProject
-                call ant clean release
-                '''
-            }
-        }
-
-        stage('Archive') {
-            steps {
-                archiveArtifacts 'client/android/LocojoyProject/bin/*.apk'
-            }
-        }
+// Jenkins邮件通知
+post {
+    failure {
+        emailext(
+            subject: "MT3 Android构建失败 - ${env.BUILD_NUMBER}",
+            body: """
+                构建编号: ${env.BUILD_NUMBER}
+                失败阶段: ${env.STAGE_NAME}
+                错误日志: ${env.BUILD_URL}console
+            """,
+            to: '${DEFAULT_RECIPIENTS}'
+        )
     }
 }
+```
+
+**4. 安全扫描：**
+
+```yaml
+# 添加安全扫描步骤
+- name: 安全扫描
+  run: |
+    # 使用MobSF进行APK安全分析
+    python3 mobsf.py -f $APK_FILE -o report.json
+```
+
+**5. 性能监控：**
+
+```groovy
+// 记录编译耗时
+def startTime = System.currentTimeMillis()
+// ... 编译过程 ...
+def duration = (System.currentTimeMillis() - startTime) / 1000
+echo "编译耗时: ${duration}秒"
 ```
 
 ### 3. 版本管理
@@ -949,7 +1301,23 @@ if __name__ == '__main__':
 
 ### 4. 多渠道自动化
 
-**批量编译脚本：**
+**推荐方式：使用统一编译系统**
+
+```batch
+cd E:\MT3\client\android
+
+# 一键编译所有渠道（自动化、并行支持）
+build_unified.bat --all
+
+# 清理后全渠道编译
+build_unified.bat --all --clean
+
+# 跳过测试加快编译
+build_unified.bat --all --skip-tests
+```
+
+**传统方式：自定义批量编译脚本**
+
 ```batch
 @echo off
 rem build_all_channels.bat
@@ -1164,8 +1532,31 @@ adb shell dumpsys meminfo <包名>  # 查看内存
 本文档应与 [06-编译完整指南.md](./06-编译完整指南.md)（Windows编译）保持同步更新。如修改核心组件结构或依赖关系，请同时更新两份文档。
 
 **版本历史：**
-- v1.0 (2025-10-22): 初始版本，完整Android编译流程
-- 后续更新请在此记录
+
+- **v2.0 (2025-10-22)**：重大更新
+  - 新增统一自动化编译系统v2.0
+  - 新增环境自动配置向导
+  - 新增APK完整性验证工具
+  - 新增CI/CD集成方案（Jenkins + GitHub Actions）
+  - 优化文档结构，自动化方案作为主推荐
+  - 添加多渠道并行编译支持
+  - 完善最佳实践和故障排查
+
+- **v1.0 (2025-10-22)**：初始版本
+  - 完整Android编译流程
+  - 环境配置指南
+  - 手动编译步骤
+  - 故障排查清单
+
+**相关脚本：**
+
+| 脚本文件 | 位置 | 功能 |
+|---------|------|------|
+| [build_unified.bat](../../client/android/build_unified.bat) | `client/android/` | 统一编译系统v2.0 |
+| [setup_android_env.bat](../../client/android/setup_android_env.bat) | `client/android/` | 环境自动配置 |
+| [verify_apk.bat](../../client/android/verify_apk.bat) | `client/android/` | APK验证工具 |
+| [Jenkinsfile](../../client/android/Jenkinsfile) | `client/android/` | Jenkins Pipeline |
+| [android-build.yml](../../client/android/.github/workflows/android-build.yml) | `.github/workflows/` | GitHub Actions |
 
 ---
 

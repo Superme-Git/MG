@@ -18,13 +18,14 @@ echo.
 
 REM 检查工具集版本
 echo [2/5] 检查工具集版本...
-findstr /s /i "v140\|v141\|v142" *.vcxproj >nul
+findstr /s /i "v140\|v141\|v142\|v143" *.vcxproj >nul
 if %ERRORLEVEL% EQU 0 (
-    echo [警告] 发现错误的工具集版本!
-    findstr /s /i /n "v140\|v141\|v142" *.vcxproj
+    echo [错误] 发现不支持的工具集版本!
+    echo [说明] MT3仅支持v120，不支持v140及更高版本
+    findstr /s /i /n "v140\|v141\|v142\|v143" *.vcxproj
     exit /b 1
 ) else (
-    echo [通过] 所有项目使用 v120
+    echo [通过] 所有项目使用 v120 (唯一支持的版本)
 )
 echo.
 

@@ -1,0 +1,150 @@
+// MT3 Android CI/CD Pipeline for Jenkins
+// 支持多渠道并行编译、自动测试、产物归档
+
+pipeline {
+    agent any
+
+    parameters {
+        choice(
+            name: 'BUILD_CHANNEL',
+            choices: ['all', 'LocojoyProject', 'YijieProject', 'JoysdkProject'],
+            description: '选择编译渠道'
+        )
+        booleanParam(
+            name: 'CLEAN_BUILD',
+            defaultValue: false,
+            description: '清理旧产物后重新编译'
+        )
+        booleanParam(
+            name: 'RUN_TESTS',
+            defaultValue: true,
+            description: '运行APK验证测试'
+        )
+    }
+
+    environment {
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk1.8.0_xxx'
+        ANDROID_HOME = 'C:\\Android\\Sdk'
+        NDK_HOME = 'D:\\android-ndk-r10e'
+        ANT_HOME = 'C:\\apache-ant-1.10.x'
+        PATH = "${env.JAVA_HOME}\\bin;${env.ANDROID_HOME}\\platform-tools;${env.NDK_HOME};${env.ANT_HOME}\\bin;${env.PATH}"
+        MT3_NO_PAUSE = '1'
+    }
+
+    stages {
+        stage('环境检查') {
+            steps {
+                echo '检查编译环境...'
+                bat '''
+                    echo Java版本:
+                    java -version
+
+                    echo Ant版本:
+                    ant -version
+
+                    echo NDK路径:
+                    echo %NDK_HOME%
+
+                    echo SDK路径:
+                    echo %ANDROID_HOME%
+                '''
+            }
+        }
+
+        stage('代码检出') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('编译') {
+            steps {
+                script {
+                    def cleanFlag = params.CLEAN_BUILD ? '--clean' : ''
+                    def testFlag = params.RUN_TESTS ? '' : '--skip-tests'
+
+                    if (params.BUILD_CHANNEL == 'all') {
+                        echo '编译所有渠道...'
+                        bat """
+                            cd client\\android
+                            build_unified.bat --all ${cleanFlag} ${testFlag}
+                        """
+                    } else {
+                        echo "编译渠道: ${params.BUILD_CHANNEL}"
+                        bat """
+                            cd client\\android
+                            build_unified.bat --channel ${params.BUILD_CHANNEL} ${cleanFlag} ${testFlag}
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('APK验证') {
+            when {
+                expression { params.RUN_TESTS == true }
+            }
+            steps {
+                script {
+                    if (params.BUILD_CHANNEL == 'all') {
+                        def channels = ['LocojoyProject', 'YijieProject', 'JoysdkProject']
+                        channels.each { channel ->
+                            bat """
+                                cd client\\android
+                                verify_apk.bat ${channel}\\bin\\*.apk
+                            """
+                        }
+                    } else {
+                        bat """
+                            cd client\\android
+                            verify_apk.bat ${params.BUILD_CHANNEL}\\bin\\*.apk
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('归档产物') {
+            steps {
+                archiveArtifacts artifacts: 'client/android/*/bin/*.apk', allowEmptyArchive: false
+                archiveArtifacts artifacts: 'client/android/build_report_*.txt', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'client/android/*/build_logs/*.log', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'MT3 Android编译成功!'
+            emailext(
+                subject: "MT3 Android构建成功 - ${env.BUILD_NUMBER}",
+                body: """
+                    构建编号: ${env.BUILD_NUMBER}
+                    构建时间: ${new Date()}
+                    编译渠道: ${params.BUILD_CHANNEL}
+                    构建日志: ${env.BUILD_URL}console
+                """,
+                to: '${DEFAULT_RECIPIENTS}'
+            )
+        }
+        failure {
+            echo 'MT3 Android编译失败!'
+            emailext(
+                subject: "MT3 Android构建失败 - ${env.BUILD_NUMBER}",
+                body: """
+                    构建编号: ${env.BUILD_NUMBER}
+                    构建时间: ${new Date()}
+                    编译渠道: ${params.BUILD_CHANNEL}
+                    错误日志: ${env.BUILD_URL}console
+                """,
+                to: '${DEFAULT_RECIPIENTS}'
+            )
+        }
+        always {
+            cleanWs(deleteDirs: true, patterns: [
+                [pattern: 'client/android/*/obj', type: 'INCLUDE'],
+                [pattern: 'client/android/*/libs', type: 'INCLUDE']
+            ])
+        }
+    }
+}
