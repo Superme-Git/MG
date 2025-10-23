@@ -29,22 +29,22 @@ MT3（梦幻西游MG）是一款基于Cocos2d-x 2.0.1引擎开发的跨平台游
 
 ### 2.1 开发环境要求
 - **操作系统**：Windows 7/8/10/11
-- **开发工具**：Visual Studio 2015（Community/Professional/Enterprise）
+- **开发工具**：Visual Studio 2013（Professional/Ultimate）
   - 必须安装完整的Visual C++工具集
-  - 推荐安装Windows SDK 10.0.19041.0或更高版本
-- **编译器**：Visual C++ 14.0（v140平台工具集）
-- **SDK**：Windows SDK 8.1或10（项目配置为10.0.19041.0）
-- **构建工具**：MSBuild 14.0
-- **运行时**：Visual C++ Redistributable for Visual Studio 2015（x86版本）
+  - 推荐安装Windows SDK 8.1或更高版本
+- **编译器**：Visual C++ 12.0（v120平台工具集）
+- **SDK**：Windows SDK 8.1
+- **构建工具**：MSBuild 12.0
+- **运行时**：Visual C++ Redistributable for Visual Studio 2013（x86版本）
 
 ### 2.2 环境变量配置
 确保以下环境变量已正确配置：
-- `VS140COMNTOOLS`：指向Visual Studio 2015的Common7\Tools目录
-  - 典型路径：`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\`
+- `VS120COMNTOOLS`：指向Visual Studio 2013的Common7\Tools目录
+  - 典型路径：`C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\`
 - `PATH`：包含以下路径
-  - `C:\Program Files (x86)\MSBuild\14.0\Bin\`
-  - `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\`
-  - `C:\Program Files (x86)\Windows Kits\10\bin\x86\`
+  - `C:\Program Files (x86)\MSBuild\12.0\Bin\`
+  - `C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\`
+  - `C:\Program Files (x86)\Windows Kits\8.1\bin\x86\`
 
 ### 2.3 第三方库依赖层次结构
 

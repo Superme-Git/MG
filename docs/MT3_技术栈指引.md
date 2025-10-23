@@ -1,22 +1,23 @@
 # MT3 技术栈指引（v120 主线权威版）
 文档版本: 1.0
-最后更新: 2025-10-14
-适用范围: Windows 10, VS2013 v120（权威）；VS2019/2022 需安装 v120 工具集
+最后更新: 2025-10-21
+适用范围: Windows 10, VS2013 v120（权威）；**不支持Visual Studio 2015及更高版本**，包括VS2019/VS2022
 
 ---
 
 ## 1. 指引目标与适用边界
 
-- 输出一份统一、准确、可执行的“技术栈指引”，用于指导 MT3 项目构建、链接、运行与发布。
-- 明确主线采用 VS2013 v120 工具集；所有 v140（VS2015）内容仅作为历史归档，不进入主线。
+- 输出一份统一、准确、可执行的"技术栈指引"，用于指导 MT3 项目构建、链接、运行与发布。
+- **明确主线仅支持 VS2013 v120 工具集；项目不支持Visual Studio 2015及更高版本，包括VS2019/VS2022**
+- 所有 v140（VS2015）及更高版本内容仅作为历史归档，不进入主线。
 - 对文档目录进行系统性统筹：识别并剔除陈旧或错误文档，整合有效内容形成唯一权威入口。
 
 参考主线权威文档：
 - 编译完整指南：[filename](./06-编译完整指南.md:1)
 - 编译步骤工作计划：[filename](./00-编译步骤工作计划.md:1)
-- Release 构建诊断基线：[filename](./MT3_Release_Build_Diagnostics.md:1)
-- FireClient 构建诊断基线：[filename](./MT3_FireClient_Build_Diagnostics.md:1)
-- libEGL/ANGLE 专题说明：[filename](./libEGL链接错误修复说明.md:1)
+- Release 构建诊断基线：[filename](./archive/MT3_Release_Build_Diagnostics.md:1)
+- FireClient 构建诊断基线：[filename](./archive/MT3_FireClient_Build_Diagnostics.md:1)
+- libEGL/ANGLE 专题说明：[filename](./archive/libEGL链接错误修复说明.md:1)
 
 ---
 
@@ -24,7 +25,8 @@
 
 - 语言与标准：C++（VC++，C++03/早期 C++11 特性），Unicode
 - 平台与工具链：
-  - Visual Studio 2013 (PlatformToolset v120)
+  - **Visual Studio 2013 (PlatformToolset v120) - 唯一支持版本**
+  - **不支持Visual Studio 2015/2017/2019/2022及更高版本**
   - MSBuild 12.0
   - Windows SDK 8.1
 - 游戏与图形：
@@ -52,12 +54,13 @@
   - Release：/MD（MultiThreadedDLL）
 - 字符集：Unicode
 - 预处理/编译选项一致性：
-  - 统一使用 v120 工具集
+  - 统一使用 v120 工具集（Visual Studio 2013）
+  - **不支持v140（VS2015）及更高版本工具集**
   - 避免忽略 msvcrt/msvcrtd 默认库（LNK4098 冲突源）
 - 并发构建策略：
   - 如出现 PDB 并发写冲突（C1041），在解决方案级构建时禁用并行：
     - /p:MultiProcessorCompilation=false /m:1
-  - 参考：[filename](./MT3_Release_Build_Diagnostics.md:70)
+  - 参考：[filename](./archive/MT3_Release_Build_Diagnostics.md:70)
 
 ---
 
@@ -71,7 +74,7 @@
   - 见 [XML.Link.AdditionalLibraryDirectories](client/MT3Win32App/mt3.win32.vcxproj:73)、[XML.Link.AdditionalLibraryDirectories](client/MT3Win32App/mt3.win32.vcxproj:108)
 - 关键库示例（Release.win32 输出）：
   - libcocos2d.dll/lib、libCocosDenshion.dll/lib、engine.lib、platform.lib、ljfm.lib、cauthc.lib、FireClient.lib
-  - 参考：[filename](./MT3_Release_Build_Diagnostics.md:107)
+  - 参考：[filename](./archive/MT3_Release_Build_Diagnostics.md:107)
 
 ---
 
@@ -100,24 +103,24 @@ MSBuild 模板（v120）：
 - C1083 无法打开源文件（encode.cpp 缺失）
   - 根因：工程包含项引用 [filename](client/MT3Win32App/FireClient.win32.vcxproj:213)，本地文件缺失或路径大小写不一致
   - 解法：恢复 [filename](client/FireClient/Application/oggenc/encode.cpp:1)（占位可解阻，但需用原始实现替换）
-  - 证据：[filename](./MT3_FireClient_Build_Diagnostics.md:24)、[filename](./MT3_Release_Build_Diagnostics.md:65)
+  - 证据：[filename](./archive/MT3_FireClient_Build_Diagnostics.md:24)、[filename](./archive/MT3_Release_Build_Diagnostics.md:65)
 - LNK1104 无法打开 FireClient.lib
   - 根因：上游 FireClient 未成功产出 → 下游 MT3 链接找不到库
   - 解法：先构建 FireClient；确认库目录包含 $(SolutionDir)$(Configuration).win32
   - 证据：[filename](client/MT3Win32App/Release.win32/MT3.tlog/link.command.1.tlog:2)
 - C1041 PDB 并发写入冲突（ANGLE/translator_common 等）
   - 解法：禁用并行编译：/p:MultiProcessorCompilation=false /m:1
-  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:70)
+  - 证据：[filename](./archive/MT3_Release_Build_Diagnostics.md:70)
 - LNK1120/LNK2019 未解析符号（SimpleAudioEngine 扩展接口）
   - 根因：libCocosDenshion 未更新或库目录缺失
   - 解法：单独重建 [filename](cocos2d-2.0-rc2-x-2.0.1/CocosDenshion/proj.win32/CocosDenshion.win32.vcxproj:1)；确认 MT3 链接器库目录
-  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:74)
+  - 证据：[filename](./archive/MT3_Release_Build_Diagnostics.md:74)
 - LNK4099 第三方库无匹配 PDB
   - 解法：非致命；可接受或统一用 v120 重建引入 PDB
-  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:97)
+  - 证据：[filename](./archive/MT3_Release_Build_Diagnostics.md:97)
 - LNK4098 CRT 默认库冲突
   - 解法：统一 /MD（Release）/MDd（Debug），清理重复默认库
-  - 证据：[filename](./MT3_Release_Build_Diagnostics.md:101)
+  - 证据：[filename](./archive/MT3_Release_Build_Diagnostics.md:101)
 
 ---
 
@@ -125,7 +128,7 @@ MSBuild 模板（v120）：
 
 - Win32 桌面主线不依赖 ANGLE（EGL/GLESv2），使用原生 OpenGL + GLEW
 - 如 Win32 项目中混入 libEGL/libGLESv2 依赖，建议移除
-- 详解与操作示例见：[filename](./libEGL链接错误修复说明.md:1)
+- 详解与操作示例见：[filename](./archive/libEGL链接错误修复说明.md:1)
 
 ---
 
@@ -134,12 +137,12 @@ MSBuild 模板（v120）：
 - 主线生产文档（建议阅读路径）：
   - 00-编译步骤工作计划：[filename](./00-编译步骤工作计划.md:1)
   - 06-编译完整指南（权威）：[filename](./06-编译完整指南.md:1)
-  - Release 构建诊断基线：[filename](./MT3_Release_Build_Diagnostics.md:1)
-  - FireClient 构建诊断基线：[filename](./MT3_FireClient_Build_Diagnostics.md:1)
-  - 文档索引（重建为 13-文档索引）：参考旧版 [filename](./文档索引.md:1)，按“序号+中文名称”体系更新
+  - Release 构建诊断基线：[filename](./archive/MT3_Release_Build_Diagnostics.md:1)
+  - FireClient 构建诊断基线：[filename](./archive/MT3_FireClient_Build_Diagnostics.md:1)
+  - 文档索引（重建为 13-文档索引）：参考旧版 [filename](./archive/文档索引_旧版.md:1)，按"序号+中文名称"体系更新
 
 - 专题技术（作为附录或专题）：
-  - CRT 库冲突、CEGUI 集成、libEGL/ANGLE 差异等，聚合为“12-特殊技术专题.md”（待建）
+  - CRT 库冲突、CEGUI 集成、libEGL/ANGLE 差异等，聚合为"12-特殊技术专题.md"（待建）
 
 ---
 
@@ -166,7 +169,7 @@ MSBuild 模板（v120）：
   - [filename](./archive/临时报告/MT3编译大小分析报告.md:1)
 
 - 已识别重复/冲突：
-  - 文档索引存在新旧并存（“文档索引.md” vs 计划中的 “13-文档索引.md”），需按目标结构重建后仅保留新入口
+  - 文档索引存在新旧并存（"文档索引.md" vs 计划中的 "13-文档索引.md"），需按目标结构重建后仅保留新入口
   - 编译指南存在 v120 与 v140 混入内容，已在 [filename](./06-编译完整指南.md:13) 明确主线与归档边界
 
 ---
@@ -198,16 +201,16 @@ MSBuild 模板（v120）：
 - 准确性第一：所有命令、路径与版本需与 v120 主线一致
 - 简洁性：消除冗余段落与重复内容，统一术语（工具集、运行时库、产物路径）
 - 链接完整性：跨文档引用采用相对路径，并指向主线新结构文档
-- 版本标识：每篇文档保留“文档版本/最后更新/维护状态”
+- 版本标识：每篇文档保留"文档版本/最后更新/维护状态"
 
 ---
 
 ## 13. 变更建议（下一步执行）
 
-- 重建文档索引为“13-文档索引.md”，按“序号+中文名称”体系发布统一入口（以本指引与 00/06 为核心）。
+- 重建文档索引为"13-文档索引.md"，按"序号+中文名称"体系发布统一入口（以本指引与 00/06 为核心）。
 - 按本章第 9 节清单执行归档移动；保留归档入口说明，不在主线显式呈现 v140 指令。
-- 将 CRT/CEGUI/libEGL 等专题整合为“12-特殊技术专题.md”，并从主线文档仅以专题章节引用。
-- 为 FireClient/MT3 工程设置独立 IntDir/OutDir，减少 MSB8028 交叉影响（参考 [filename](./MT3_FireClient_Build_Diagnostics.md:75) 建议）。
+- 将 CRT/CEGUI/libEGL 等专题整合为"12-特殊技术专题.md"，并从主线文档仅以专题章节引用。
+- 为 FireClient/MT3 工程设置独立 IntDir/OutDir，减少 MSB8028 交叉影响（参考 [filename](./archive/MT3_FireClient_Build_Diagnostics.md:75) 建议）。
 
 ---
 
