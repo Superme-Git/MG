@@ -116,7 +116,7 @@ MT3（梦幻西游MG）是一款基于Cocos2d-x 2.0.1引擎开发的跨平台游
 ```
 
 ### 3.2 重要文件说明
-- [`client/FireClient/FireClient.sln`](client/FireClient/FireClient.sln:1)：主解决方案文件（VS2015格式），包含所有项目
+- [`client/FireClient/FireClient.sln`](client/FireClient/FireClient.sln:1)：主解决方案文件（VS2013格式），包含所有项目
 - [`client/MT3Win32App/mt3.win32.vcxproj`](client/MT3Win32App/mt3.win32.vcxproj:1)：主应用程序项目文件
 - [`cocos2d-2.0-rc2-x-2.0.1/cocos2d-win32.vc2010.sln`](cocos2d-2.0-rc2-x-2.0.1/cocos2d-win32.vc2010.sln:1)：Cocos2d-x引擎解决方案
 - `build_mt3.ps1`：自动化编译脚本（PowerShell）
@@ -187,9 +187,9 @@ MT3（梦幻西游MG）是一款基于Cocos2d-x 2.0.1引擎开发的跨平台游
 ## 6. 编译流程
 
 ### 6.1 编译环境准备
-- 确保Visual Studio 2015已正确安装
+- 确保Visual Studio 2013已正确安装
 - 确认所有依赖库已正确配置
-- 检查项目配置是否统一（使用v140工具集）
+- 检查项目配置是否统一（使用v120工具集）
 
 ### 6.2 编译方法
 
@@ -220,8 +220,8 @@ cd "e:\梦幻西游MG原版源码"
 所有项目必须统一使用以下设置以避免链接错误：
 
 **通用配置**
-- **PlatformToolset**：v140（Visual Studio 2015）
-- **WindowsTargetPlatformVersion**：10.0.19041.0（或已安装的最新版本）
+- **PlatformToolset**：v120（Visual Studio 2013）
+- **WindowsTargetPlatformVersion**：8.1
 - **CharacterSet**：Unicode
 
 **Release配置**
@@ -326,7 +326,7 @@ cd "e:\梦幻西游MG原版源码"
 
 **根本原因**：
 - 不同库使用了不同版本的C运行时库（CRT）
-- VS2015引入了新的Universal C Runtime (UCRT)，与旧版MSVCRT.lib不兼容
+- VS2013引入了新的C运行时库，与旧版MSVCRT.lib不兼容
 - 部分依赖库使用旧版VS编译，导致符号冲突
 
 **解决方法**：
@@ -337,7 +337,7 @@ cd "e:\梦幻西游MG原版源码"
    ```xml
    <IgnoreSpecificDefaultLibraries>libcmt.lib;libcmtd.lib;msvcrt.lib;msvcrtd.lib</IgnoreSpecificDefaultLibraries>
    ```
-3. 使用VS2015重新编译所有第三方依赖库
+3. 使用VS2013重新编译所有第三方依赖库
 
 详细说明参考：[`doc/MT3项目编译问题分析与解决方案.md`](doc/MT3项目编译问题分析与解决方案.md:42)
 
@@ -351,7 +351,7 @@ legacy_stdio_definitions.lib : 多个LNK2001无法解析的外部符号
 
 **根本原因**：
 - Visual Studio缓冲区安全检查功能（Buffer Security Check）在不同版本间实现不同
-- 旧版本编译的库包含`@__security_check_cookie@4`符号引用，但新版VS2015无法提供
+- 旧版本编译的库包含`@__security_check_cookie@4`符号引用，但新版VS2013无法提供
 
 **解决方法**：
 在项目的链接器选项中添加：
@@ -364,20 +364,20 @@ legacy_stdio_definitions.lib : 多个LNK2001无法解析的外部符号
 **已实施**：该修复已应用于 [`mt3.win32.vcxproj`](client/MT3Win32App/mt3.win32.vcxproj:81)
 
 #### 10.1.3 缺少DLL文件
-**症状**：运行程序时提示缺少`MSVCP140.dll`或`VCRUNTIME140.dll`
+**症状**：运行程序时提示缺少`MSVCP120.dll`或`MSVCR120.dll`
 
 **解决方法**：
-1. 下载并安装 Visual C++ Redistributable for Visual Studio 2015
-2. 下载地址：https://www.microsoft.com/zh-cn/download/details.aspx?id=48145
-3. 选择 `vc_redist.x86.exe`（32位版本）
+1. 下载并安装 Visual C++ Redistributable for Visual Studio 2013
+2. 下载地址：https://www.microsoft.com/zh-cn/download/details.aspx?id=40784
+3. 选择 `vcredist_x86.exe`（32位版本）
 
 #### 10.1.4 MSBuild未找到
 **症状**：运行批处理脚本时提示找不到MSBuild.exe
 
 **解决方法**：
-1. 确认已安装Visual Studio 2015完整版
-2. 或单独安装Build Tools for Visual Studio 2015
-3. 验证MSBuild路径：`C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe`
+1. 确认已安装Visual Studio 2013完整版
+2. 或单独安装Build Tools for Visual Studio 2013
+3. 验证MSBuild路径：`C:\Program Files (x86)\MSBuild\12.0\Bin\MSBuild.exe`
 4. 将MSBuild路径添加到系统PATH环境变量
 
 ### 10.2 运行时问题
@@ -450,9 +450,8 @@ legacy_stdio_definitions.lib : 多个LNK2001无法解析的外部符号
 
 **编译相关**
 - **CRT** - C Runtime Library，C运行时库
-- **UCRT** - Universal C Runtime，通用C运行时库（VS2015引入）
 - **MSVCRT** - Microsoft Visual C++ Runtime，旧版C运行时库
-- **v140** - Visual Studio 2015的平台工具集版本号
+- **v120** - Visual Studio 2013的平台工具集版本号
 - **PlatformToolset** - 平台工具集，定义使用的编译器版本
 - **ASLR** - Address Space Layout Randomization，地址空间布局随机化
 - **Buffer Security Check** - 缓冲区安全检查，防止缓冲区溢出的编译器功能
@@ -474,5 +473,5 @@ legacy_stdio_definitions.lib : 多个LNK2001无法解析的外部符号
 ---
 
 **文档版本**：1.1
-**最后更新**：2025-10-12
+**最后更新**：2025-10-21
 **适用项目**：MT3游戏项目（基于Cocos2d-x 2.0.1）

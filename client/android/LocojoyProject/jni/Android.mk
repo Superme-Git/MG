@@ -48,15 +48,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES += engine_static
 LOCAL_WHOLE_STATIC_LIBRARIES += FireClient_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cauthc_static
 LOCAL_WHOLE_STATIC_LIBRARIES += updateengine_static
-#LOCAL_WHOLE_STATIC_LIBRARIES += cocos_network_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libpng_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libjpeg_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libtiff_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_libwebp_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_zlib_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_curl_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_lua_static
-#LOCAL_WHOLE_STATIC_LIBRARIES += luajit_static
+LOCAL_WHOLE_STATIC_LIBRARIES += cocos_network_static
 
 #add baidu location SDK -s
 LOCAL_SHARED_LIBRARIES += locSDK6a
@@ -78,13 +70,5 @@ $(call import-module,ljfm)
 $(call import-module,updateengine)
 $(call import-module,engine)
 $(call import-module,FireClient)
-#$(call import-module,network)
-$(call import-module,png/prebuilt/android)
-$(call import-module,jpeg/prebuilt/android)
-$(call import-module,external/tiff/prebuilt/android)
-$(call import-module,zlib/prebuilt/android)
-$(call import-module,libwebp)
-$(call import-module,lua/proj.android/jni)
-#$(call import-module,lua/luajit)
-$(call import-module,external/curl/prebuilt/android)
+$(call import-module,network)
 

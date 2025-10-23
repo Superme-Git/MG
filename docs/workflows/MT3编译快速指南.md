@@ -11,10 +11,10 @@
 ```
 
 ### 根本原因
-依赖库使用旧版编译器(VS2010)编译,与 VS2015 的新运行时库(UCRT)不兼容。
+依赖库使用旧版编译器(VS2010)编译,与 VS2013 的运行时库不兼容。
 
 ### 解决方案
-✅ **使用 VS2015 重新编译所有依赖库**
+✅ **使用 VS2013 重新编译所有依赖库**
 
 ---
 
@@ -65,11 +65,11 @@ param(
 $ErrorActionPreference = "Stop"
 $root = "E:\梦幻西游MG原版源码"
 $sln = "$root\client\FireClient\FireClient.sln"
-$devenv = "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
+$devenv = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.exe"
 
 # 验证环境
 if (-not (Test-Path $devenv)) {
-    Write-Host "错误: 未找到 Visual Studio 2015" -ForegroundColor Red
+    Write-Host "错误: 未找到 Visual Studio 2013" -ForegroundColor Red
     exit 1
 }
 
@@ -178,18 +178,18 @@ foreach ($lib in $libs) {
 Get-ChildItem "C:\Program Files (x86)" -Recurse -Filter "devenv.exe" -ErrorAction SilentlyContinue
 
 # 或使用 MSBuild(如果找不到 devenv.exe)
-$msbuild = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
+$msbuild = "C:\Program Files (x86)\MSBuild\12.0\Bin\MSBuild.exe"
 & $msbuild $sln /t:Rebuild /p:Configuration=Release /p:Platform=Win32
 ```
 
 ### 问题 2: 运行时缺少 DLL
 
-**症状**: `MSVCP140.dll` 或 `VCRUNTIME140.dll` 缺失
+**症状**: `MSVCP120.dll` 或 `MSVCR120.dll` 缺失
 
-**解决**: 安装 VC++ 2015 Redistributable
+**解决**: 安装 VC++ 2013 Redistributable
 ```
-下载: https://www.microsoft.com/zh-cn/download/details.aspx?id=48145
-安装: vc_redist.x86.exe (32位版本)
+下载: https://www.microsoft.com/zh-cn/download/details.aspx?id=40784
+安装: vcredist_x86.exe (32位版本)
 ```
 
 ### 问题 3: 编译错误 MSB8036

@@ -178,18 +178,18 @@ docs/windows/
 **基本用法**:
 ```cmd
 # Debug版本
-"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" ^
+"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\MSBuild.exe" ^
   client\MT3Win32App\mt3.win32.vcxproj ^
   /t:Rebuild ^
   /p:Configuration=Debug ^
   /p:Platform=Win32 ^
-  /p:PlatformToolset=v140 ^
+  /p:PlatformToolset=v120 ^
   /v:minimal ^
   /nologo ^
   /m
 
 # Release版本
-"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" ^
+"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\MSBuild.exe" ^
   client\MT3Win32App\mt3.win32.vcxproj ^
   /t:Rebuild ^
   /p:Configuration=Release ^
@@ -247,15 +247,13 @@ wmic os get osarchitecture
 
 | 工具 | 版本 | 原因 |
 |------|------|------|
-| Visual Studio | 2012/2015/2019 | 提供v120/v140/v142工具集 |
-| MSBuild | 匹配VS版本 | 编译引擎 |
-| Windows SDK | 8.1/10.0 | 平台API |
-| Platform Toolset | v120/v140 | 项目指定 |
+| Visual Studio | 2013 | 提供v120工具集 |
+| MSBuild | 12.0 | 编译引擎 |
+| Windows SDK | 8.1 | 平台API |
+| Platform Toolset | v120 | 项目指定 |
 
 **版本对应关系**:
 - v120 = Visual Studio 2013
-- v140 = Visual Studio 2015
-- v142 = Visual Studio 2019
 
 ---
 

@@ -52,7 +52,7 @@
 			Pocket         http://getpocket.com/developer/apps/new
     -->
     
-    <ShareSDK AppKey="12c74f8fe67fe"/>
+    <ShareSDK AppKey="14b10ba1d3ab0"/>
     
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <SinaWeibo
